@@ -1,0 +1,45 @@
+# Links in footer
+
+[[links]]
+	category = "Resources"
+	link_arr = [
+		["Github", 'https://github.com/sofastack'],
+		["Gitee", 'https://gitee.com/sofastack/'],
+		["Samples", 'https://github.com/sofastack-guides'],
+	]
+
+[[links]]
+	category = "Social Media"
+	link_arr = [
+		["Zhihu", 'https://zhuanlan.zhihu.com/sofastack'],
+		["Weibo", 'https://weibo.com/sofastack'],
+		["Twitter", "https://twitter.com/sofastack_io"]
+	]
+
+[[links]]
+	category = "Get Involved"
+	link_arr = [
+		["Feedback", 'https://github.com/sofastack/sofastack.tech/issues'],
+		["Community","https://github.com/sofastack/community"],
+		["Wiki","https://github.com/sofastack/sofastack.tech/wiki"],
+		["Email","mailto:sofa@alipay.cloud.com"]
+	]
+
+[[links]]
+	category = "Ant Financial Open Source"
+	link_arr = [
+		["Ant Design", 'https://ant.design/'],
+		["Egg", 'https://eggjs.org/'],
+		["SQLFlow", 'https://sqlflow.org'],
+		["More", 'https://tech.antfin.com/open-source'],
+	]
+
+# qrcode
+[[qrcode]]
+	img = "img/qrcode/qrcode_1.png"
+	description = "Wechat Official Account"
+
+[[qrcode]]
+	img = "img/qrcode/qrcode_2.png"
+	description = "DingTalk Group"
+

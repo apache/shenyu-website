@@ -1,0 +1,61 @@
+[slogan]
+	title = "金融级云原生架构"
+	description = "SOFAStack™（Scalable Open Financial Architecture Stack）是一套用于快速构建金融级云原生架构的中间件，也是在金融场景里锤炼出来的最佳实践。"
+	quick_start_text = "快速开始"
+	quick_start_link = "/guides/sofastack-quick-start"
+	github_link = "https://github.com/sofastack"
+
+[[feature]]
+	title = "开放"
+	description = "技术栈全面开源共建、 保持社区中立、兼容社区 兼容开源生态，组件可插拔， SOFAStack 组件与其它开源组件可相互集成或替换"
+	img = "img/home/feat-open.png"
+[[feature]]
+	title = "金融级"
+	description = "包含构建金融级云原生架构所需的各个组件，让用户更加专注于业务开发，满足用户场景的现状和未来需求，经历过大规模场景的锤炼，特别是严苛的金融场景"
+	img = "img/home/feat-financial-level.png"
+[[feature]]
+	title = "云原生"
+	description = "基于 SOFAStack 可快速搭建云原生微服务体系，快速开发更具可靠性和扩展性、更加易于维护的云原生应用"
+	img = "img/home/feat-cloud-native.png"
+
+[[charpter_description]]
+	title = "微服务体系"
+	description = "SOFAStack 包含了构建微服务体系的众多组件，包括研发框架、RPC 框架，服务注册中心，分布式链路追踪，Metrics监控度量、分布式事务框架、服务治理平台等，结合社区优秀的开源产品，可以快速搭建一套完善的微服务体系。"
+	img = "img/home/cd-microservice-system.png"
+	img_width = "530px"
+
+[cloud_native]
+	title = "云原生架构"
+	img = "img/home/cd-cloud-native-architecture.png"
+	img_width = "530px"
+
+[[cloud_native_sub]]
+	title = "云原生架构"
+	description = "随着业务规模和系统复杂性的增长，传统的微服务管理运维也变得越来越快，开发人员和运维人员面临诸多挑战。Service Mesh 和 Serverless 等新兴概念的出现可以解决此类问题。"
+	img = "img/home/cd-cloud-native-architecture.png"
+	position = "INIT"
+
+[[cloud_native_sub]]
+	title = "微服务"
+	description = "应用程序可作为单个实体进行管理和部署。"
+	position = "TR"
+
+[[cloud_native_sub]]
+	title = "不可变基础设施"
+	description = "通过替换而不是修改来创建变更。"
+	position = "BL"
+
+[[cloud_native_sub]]
+	title = "服务网格"
+	description = "服务网格是致力于解决服务间通讯的基础设施层。"
+	position = "TL"
+
+[[cloud_native_sub]]
+	title = "声明式 API"
+	description = "我们声明系统的最终状态，系统将不断向该状态驱动。"
+	position = "BR"
+
+
+[subscription]
+	title = "希望订阅最新的 SOFA 消息？"
+	button = "订阅"

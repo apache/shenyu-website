@@ -6,7 +6,7 @@
 <!-- Site Generator -->
 {{- hugo.Generator -}}
 
-<link rel="shortcut icon" href={{ .Site.Params.favicon }} type="image/png">
+<link rel="shortcut icon" href={{ (resources.Get "/img/favicon.png").RelPermalink }} type="image/png">
 
 <link href="https://unpkg.com/purecss@1.0.0/build/base-min.css" rel="stylesheet">
 <!-- <link href="https://unpkg.com/purecss@1.0.0/build/grids-min.css" rel="stylesheet"> -->

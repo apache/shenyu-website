@@ -3,9 +3,9 @@
 [[links]]
 	category = "资源"
 	link_arr = [
-		["Github", 'https://github.com/sofastack'],
+		["Github", 'https://github.com/dromara'],
 		["Gitee", 'https://gitee.com/sofastack/'],
-		["示例", 'https://github.com/sofastack-guides'],
+		["示例", 'https://github.com/dromara-guides'],
 	]
 
 [[links]]
@@ -19,9 +19,9 @@
 [[links]]
 	category = "参与进来"
 	link_arr = [
-		["反馈", 'https://github.com/sofastack/sofastack.tech/issues/new'],
-		["社区","https://github.com/sofastack/community"],
-		["Wiki","https://github.com/sofastack/sofastack.tech/wiki"],
+		["反馈", 'https://github.com/dromara/issues/new'],
+		["社区","https://github.com/dromara/community"],
+		["Wiki","https://github.com/dromara/wiki"],
 		["Email","mailto:sofa@alipay.cloud.com"],
 		["加入我们","/hr/"]
 	]

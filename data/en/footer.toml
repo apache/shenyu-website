@@ -3,9 +3,9 @@
 [[links]]
 	category = "Resources"
 	link_arr = [
-		["Github", 'https://github.com/sofastack'],
+		["Github", 'https://github.com/dromara'],
 		["Gitee", 'https://gitee.com/sofastack/'],
-		["Samples", 'https://github.com/sofastack-guides'],
+		["Samples", 'https://github.com/dromara-guides'],
 	]
 
 [[links]]
@@ -19,9 +19,9 @@
 [[links]]
 	category = "Get Involved"
 	link_arr = [
-		["Feedback", 'https://github.com/sofastack/sofastack.tech/issues'],
-		["Community","https://github.com/sofastack/community"],
-		["Wiki","https://github.com/sofastack/sofastack.tech/wiki"],
+		["Feedback", 'https://github.com/dromara/issues'],
+		["Community","https://github.com/dromara/community"],
+		["Wiki","https://github.com/dromara/wiki"],
 		["Email","mailto:sofa@alipay.cloud.com"]
 	]
 

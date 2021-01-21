@@ -26,4 +26,5 @@ sidebar:
     sub:
       - title: 'Introduction to SOFAMosn'
         link: 'sofa-mosn-readme'
+draft: true
 ---

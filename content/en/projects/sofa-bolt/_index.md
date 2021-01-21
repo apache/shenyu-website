@@ -18,5 +18,6 @@ sidebar:
   link: 'sofa-bolt-contribution'
 - title: 'Related articles'
   link: 'related-links'
+draft: true
 ---
 

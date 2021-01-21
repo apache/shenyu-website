@@ -14,7 +14,7 @@ googleAnalytics = "UA-142131411-1"
 [params]
 	github = "https://github.com/dromara"
 	# legacyWebsite = "http://legacy.sofastack.tech"
-	description = "SOFAStack is a Scalable Open Financial Architecture for building cloud native applications"
+  description = "The girl on the prairie"
 
 # 首页订阅
 [params.homeSubscription]
@@ -66,7 +66,7 @@ googleAnalytics = "UA-142131411-1"
 		weight = 4
 	[[languages.zh.menu.main]]
 		identifier = "awesome"
-		name = "Awesome SOFA"
+		name = "Awesome Dromara"
 		url = "/awesome/"
 		weight = 6
 	[[languages.zh.menu.main]]
@@ -101,6 +101,11 @@ googleAnalytics = "UA-142131411-1"
 		name = "Community"
 		url = "/community/"
 		weight = 5
+	[[menu.main]]
+		identifier = "awesome"
+		name = "Awesome Dromara"
+		url = "/awesome/"
+		weight = 6
 
 [sitemap]
   changefreq = "monthly"

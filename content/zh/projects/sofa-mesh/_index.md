@@ -20,4 +20,5 @@ sidebar:
         link: 'pilot-x-protocol'
       - title: 'Register Agent'
         link: 'pilot-register-agent'
+draft: true
 ---

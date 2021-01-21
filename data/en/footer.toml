@@ -4,35 +4,44 @@
 	category = "Resources"
 	link_arr = [
 		["Github", 'https://github.com/dromara'],
-		["Gitee", 'https://gitee.com/sofastack/'],
-		["Samples", 'https://github.com/dromara-guides'],
+		["Gitee", 'https://gitee.com/shuaiqiyu'],
+		# ["Samples", 'https://github.com/dromara-guides'],
 	]
 
-[[links]]
-	category = "Social Media"
-	link_arr = [
-		["Zhihu", 'https://zhuanlan.zhihu.com/sofastack'],
-		["Weibo", 'https://weibo.com/sofastack'],
-		["Twitter", "https://twitter.com/sofastack_io"]
-	]
+#[[links]]
+#	category = "Social Media"
+#	link_arr = [
+#		["Zhihu", 'https://zhuanlan.zhihu.com/sofastack'],
+#		["Weibo", 'https://weibo.com/sofastack'],
+#		["Twitter", "https://twitter.com/sofastack_io"]
+#	]
 
 [[links]]
 	category = "Get Involved"
 	link_arr = [
-		["Feedback", 'https://github.com/dromara/issues'],
-		["Community","https://github.com/dromara/community"],
-		["Wiki","https://github.com/dromara/wiki"],
-		["Email","mailto:sofa@alipay.cloud.com"]
+		["Feedback", 'https://github.com/dromara/soul/issues/new'],
+		["Community","/community"],
+		["Blog","/blog"],
+		# ["Email","mailto:sofa@alipay.cloud.com"]
 	]
 
 [[links]]
-	category = "Ant Financial Open Source"
+	category = "Document"
 	link_arr = [
-		["Ant Design", 'https://ant.design/'],
-		["Egg", 'https://eggjs.org/'],
-		["SQLFlow", 'https://sqlflow.org'],
-		["More", 'https://tech.antfin.com/open-source'],
+		["Soul", '/projects/soul/overview/'],
+		["Hmily","/projects/hmily/overview/"],
+		["Raincat","/projects/raincat/overview/"],
+		["Myth","/projects/myth/overview/"]
 	]
+
+#[[links]]
+#	category = "Ant Financial Open Source"
+#	link_arr = [
+#		["Ant Design", 'https://ant.design/'],
+#		["Egg", 'https://eggjs.org/'],
+#		["SQLFlow", 'https://sqlflow.org'],
+#		["More", 'https://tech.antfin.com/open-source'],
+#	]
 
 # qrcode
 [[qrcode]]
@@ -41,5 +50,5 @@
 
 [[qrcode]]
 	img = "img/qrcode/qrcode_2.png"
-	description = "DingTalk Group"
+	description = "QQ Group"
 

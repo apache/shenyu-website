@@ -32,6 +32,6 @@ sidebar:
   link: "contributing"
 - title: "FAQ"
   link: "faq"
-
+draft: true
 ---
 

@@ -113,4 +113,5 @@ sidebar:
         link: 'upgrade_2_5_x'
       - title: 'SOFABoot 3.0 upgrade'
         link: 'upgrade_3_x'
+draft: true
 ---

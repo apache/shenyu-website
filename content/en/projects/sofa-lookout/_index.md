@@ -34,4 +34,5 @@ sidebar:
     sub:
       - title: 'Development guide'
         link: 'development-use-guide'
+draft: true
 ---

@@ -40,6 +40,6 @@ sidebar:
   sub:
     - title: 'How to contribute to SOFAJRaft'
       link: 'how-to-contribute-code-to-sofajraft'
-
+draft: true
 ---
 

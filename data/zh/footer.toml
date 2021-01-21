@@ -4,36 +4,45 @@
 	category = "资源"
 	link_arr = [
 		["Github", 'https://github.com/dromara'],
-		["Gitee", 'https://gitee.com/sofastack/'],
-		["示例", 'https://github.com/dromara-guides'],
+		["Gitee", 'https://gitee.com/shuaiqiyu'],
+#		["示例", 'https://github.com/dromara-guides'],
 	]
 
-[[links]]
-	category = "社交媒体"
-	link_arr = [
-		["知乎专栏", 'https://zhuanlan.zhihu.com/sofastack'],
-		["新浪微博", 'https://weibo.com/sofastack'],
-		["Twitter", "https://twitter.com/sofastack_io"]
-	]
+#[[links]]
+#	category = "社交媒体"
+#	link_arr = [
+#		["知乎专栏", 'https://zhuanlan.zhihu.com/sofastack'],
+#		["新浪微博", 'https://weibo.com/sofastack'],
+#		["Twitter", "https://twitter.com/sofastack_io"]
+#	]
 
 [[links]]
 	category = "参与进来"
 	link_arr = [
-		["反馈", 'https://github.com/dromara/issues/new'],
-		["社区","https://github.com/dromara/community"],
-		["Wiki","https://github.com/dromara/wiki"],
-		["Email","mailto:sofa@alipay.cloud.com"],
-		["加入我们","/hr/"]
+		["反馈", 'https://github.com/dromara/soul/issues/new'],
+		["社区","/community"],
+		["博客","/blog"],
+#		["Email","mailto:sofa@alipay.cloud.com"],
+#		["加入我们","/hr/"]
 	]
 
 [[links]]
-	category = "蚂蚁金服开源项目"
+	category = "文档"
 	link_arr = [
-		["Ant Design", 'https://ant.design/'],
-		["Egg ", 'https://eggjs.org/'],
-		["SQLFlow", 'https://sqlflow.org'],
-		["更多", 'https://tech.antfin.com/open-source'],
+		["Soul", '/projects/soul/overview/'],
+		["Hmily","/projects/hmily/overview/"],
+		["Raincat","/projects/raincat/overview/"],
+		["Myth","/projects/myth/overview/"]
 	]
+
+#[[links]]
+#	category = "蚂蚁金服开源项目"
+#	link_arr = [
+#		["Ant Design", 'https://ant.design/'],
+#		["Egg ", 'https://eggjs.org/'],
+#		["SQLFlow", 'https://sqlflow.org'],
+#		["更多", 'https://tech.antfin.com/open-source'],
+#	]
 
 [[qrcode]]
 	img = "img/qrcode/qrcode_1.png"
@@ -41,4 +50,4 @@
 
 [[qrcode]]
 	img = "img/qrcode/qrcode_2.png"
-	description = "钉钉群"
+	description = "QQ群"

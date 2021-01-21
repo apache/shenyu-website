@@ -6,4 +6,5 @@ level: "tool"
 weight: 6
 icon: "/img/icons/sofaark.png"
 link: "https://www.sofastack.tech/en/projects/sofa-boot/sofa-ark-readme/"
+draft: true
 ---

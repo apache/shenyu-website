@@ -30,4 +30,5 @@ sidebar:
     link: "contributing"
   - title: "常见问题"
     link: "faq"
+draft: true
 ---

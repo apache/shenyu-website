@@ -40,4 +40,5 @@ sidebar:
     sub:
     - title: '如何参与 SOFAJRaft 代码贡献'
       link: 'how-to-contribute-code-to-sofajraft'
+draft: true
 ---

@@ -1,6 +1,7 @@
 name: Website Deploy
 
 on:
+  pull_request:
   push:
     branches:
       - master
@@ -23,15 +24,14 @@ jobs:
           hugo-version: '0.55.5'
           extended: true
       - name: Setup Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
+        run: npm install && npm run build
       - name: Build Site
         env:
           HUGO_ENV: production
         run: hugo --minify
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages

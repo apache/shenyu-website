@@ -10,10 +10,9 @@ enableGitInfo = true
 disableKinds = ["taxonomyTerm"]
 
 Paginate = 10
-googleAnalytics = "UA-142131411-1"
+googleAnalytics = "UA-187960192-2"
 [params]
 	github = "https://github.com/dromara"
-	# legacyWebsite = "http://legacy.sofastack.tech"
   description = "The girl on the prairie"
 
 # 首页订阅

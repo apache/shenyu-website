@@ -20,7 +20,7 @@ export default function searchFunc() {
           jump2Search(id)
         }
       })
-  
+
       $(`#${id} .icon`).addEventListener('click', function() {
         jump2Search(id)
       })
@@ -39,8 +39,8 @@ export default function searchFunc() {
   const typeRadio = $$('#js-result-type input')
   const list = $('#js-result-container')
 
-  const client = algoliasearch('G2HVBB5ERN', '4b161290c268b4eeb154171c562aa1e4')
-  const index = client.initIndex('sofastack')
+  const client = algoliasearch('AP3F0O94ZL', 'bcf3fcac2369e029de0c75cd792f517f')
+  const index = client.initIndex('dromara')
   // index.setSettings({
   //   hitsPerPage: 10
   // })
@@ -88,7 +88,7 @@ export default function searchFunc() {
     // update URL but no need to refresh
     history.pushState(null, `${query} · SOFAStack`, `/search/?${qs.stringify(searchParam)}`)
 
-    index.search({ 
+    index.search({
       query,
       facets:"type",
       facetFilters: type === 'all' ? undefined : `type:${type}`,
@@ -99,7 +99,7 @@ export default function searchFunc() {
         // console.log(err.debugData)
         return
       }
-      
+
       const { hits } = res
 
       if (hits.length === 0) {

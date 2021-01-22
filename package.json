@@ -9,10 +9,12 @@
   "scripts": {
     "dev": "webpack --mode=development --watch",
     "hugo": "hugo serve --watch",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "algolia": "atomic-algolia"
   },
   "dependencies": {
     "algoliasearch": "^3.33.0",
+    "atomic-algolia": "^0.3.19",
     "lodash-es": "^4.17.15",
     "query-string": "^6.8.2",
     "svg.js": "^2.7.1",

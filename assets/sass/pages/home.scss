@@ -70,10 +70,11 @@
 
   >img {
     display: block;
-    width: 100%;
+    width: 25%;
     max-width: $content-max-width + 300;
     min-width: 470px;
-    margin: 0 auto;
+    margin-left: 48%;
+    margin-top: 1%;
     z-index: -2;
   }
 
@@ -110,16 +111,16 @@
   height: 40px;
   line-height: 40px;
   color: $text-color-dark;
-  background-color: #2274de;
+  background-color: #2E64FE;
   border: none;
   outline: none;
   cursor: pointer;
   text-align: center;
 
   &.-outline {
-    color: #2274de;
+    color: #2E64FE;
     background-color: rgba($color: #000000, $alpha: 0);
-    border: 1px solid #2274de;
+    border: 1px solid #2E64FE;
     box-shadow: none;
   }
 

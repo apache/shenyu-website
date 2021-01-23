@@ -1,60 +1,64 @@
 [slogan]
-	title = "Financial-level Distributed Architecture"
-	description = "SOFAStack™（Scalable Open Financial Architecture Stack）is a collection of middleware components designed to build financial-level distributed architecture and is also the best practice fully validated in financial scenarios."
+	title = "Dromara"
+	description = "An organization dedicated to native solutions for the microservice cloud"
 	quick_start_text = "Quick Start"
-	quick_start_link = "/en/guides/sofastack-quick-start"
+	quick_start_link = "/guides/sofastack-quick-start"
 	github_link = "https://github.com/dromara"
 
 [[feature]]
 	title = "Open"
-	description = "Buildpack is fully open-source, keeps community neutral and is compatible with community. SOFAStack components are pluggable and compatible with the open-source ecosystem, so they can be integrated or replaced with other open-source components."
-	img = "img/home/feat-open.png"
-
-
+	description = "The technology stack is fully open source construction, maintain the community neutrality, compatible with the community open source ecology, welcome to participate in various contributions at any time"
+	img = "img/home/dromara_open.png"
 [[feature]]
-	title = "Financial-level"
-	description = "Contains the components needed to build a financial-level cloud native architecture, which have been fully tempered in large-scale scenarios, especially harsh financial scenarios, thus enabling developers to focus more on service development and meeting the current and future needs of user scenarios."
-	img = "img/home/feat-financial-level.png"
-
+	title = "Gateway"
+	description = "High-performance micro-service API gateway, compatible with a variety of mainstream framework systems, support hot plug, users can customize the development, meet the current situation and future needs of users in a variety of scenarios, experienced the temper of large-scale scenes"
+	img = "img/home/dromara_gateway.png"
 [[feature]]
-	title = "Cloud Native"
-	description = "Based on SOFAStack, you can quickly build a cloud-native microservice system and develop cloud-native applications that are more reliable, scalable, and easier to maintain."
-	img = "img/home/feat-cloud-native.png"
+	title = "Distributed Transaction"
+	description = "Provide financial level distributed transaction solutions, including strongly consistent distributed transaction framework, reliable message distributed transaction framework, to provide high reliability, high performance, observable solutions to meet a variety of complex scenarios"
+	img = "img/home/dromara_distributed_transaction.png"
 
-
-[[charpter_description]]
-	title = "Microservice System"
-	description = "SOFAStack contains multiple components for building microservice system, including development framework, RPC framework, service registry, distributed link tracking, metrics monitoring, distributed transaction framework, service governance platform and other components. In combination with outstanding open-source products in community, you can quickly build a complete microservice system."
-	img = "img/home/cd-microservice-system.png"
+[[soul_description]]
+	title = "Soul"
+	description = "High-performance, multi-protocol, extensible, responsive API Gateway"
+	img = "img/home/soul_framework.png"
 	img_width = "530px"
 
-
-[cloud_native]
-	title = "Cloud Native Architecture"
-	img = "img/home/cd-cloud-native-architecture.png"
+[soul_features]
+	title = "Features"
+	img = "img/home/soul_features.png"
 	img_width = "530px"
 
-[[cloud_native_sub]]
-	title = "Cloud Native Architecture"
-	description = "With the growth of business scale and system complexity, the traditional microservice management and operations becomes increasingly faster, and developers and operation personnel face multiple challenges. Some emerging concepts like Service Mesh and Serverless can resolve such problems."
+[[soul_features_sub]]
+	title = "Rich protocols"
+	description = "Supports dubbo ，tars， springcloud grpc。"
 	img = "img/home/cd-cloud-native-architecture.png"
 	position = "INIT"
 
-[[cloud_native_sub]]
-	title = "Immutable Infrastructure"
-	description = "Immutable infrastructure is the practice of creating change through replacing rather than modifying."
+[[soul_features_sub]]
+	title = "Pluggable"
+	description = "Plug-in design idea, plug-in hot plug, easy to expand."
+	position = "TR"
+
+[[soul_features_sub]]
+	title = "Flow Control"
+	description = "Flexible flow filtering to meet various flow control."
 	position = "BL"
 
-[[cloud_native_sub]]
-	title = "Service Mesh"
-	description = "Service Mesh is a dedicated infrastructure layer for handling service-to-service communication."
+[[soul_features_sub]]
+	title = "Built-in Plug-ins"
+	description = "Built-in rich plugin support, authentication, limiting, fuse, firewall, etc."
 	position = "TL"
 
-[[cloud_native_sub]]
-	title = "Declarative API"
-	description = "We declare the final state of the system and the system will continue to drive to that state."
+[[soul_features_sub]]
+	title = "High Performance"
+	description = "Dynamic flow configuration, high performance, gateway consumption is 1~2ms."
 	position = "BR"
 
+[[soul_features_sub]]
+	title = "Cluster Deployment"
+	description = "Support cluster deployment, A/B Test, blue-green release."
+	position = "BR"
 
 [subscription]
 	title = "Interested in receiving the latest SOFA news?"

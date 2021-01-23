@@ -5,5 +5,8 @@ github: "https://github.com/dromara/myth"
 level: "main"
 weight: 4
 icon: "/img/icons/myth.png"
+sidebar:
+  - title: '介绍文档'  	
+    link: 'overview'
 ---
 

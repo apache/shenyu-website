@@ -1,0 +1,10 @@
+{{ $language := .Site.Language.Lang }}
+<section class="introduction-section">
+	<div class="introduction-body">
+	  <div class="introduction">
+		<h3>{{ .Params.title}}{{ if eq $language "zh"}}介绍  {{ else }} Introduction {{ end }}</h3>
+		<p>{{ .Description}}</p>
+	  </div>
+	  <img src={{ .Params.architectureImg}}/>
+	</div>
+</section>

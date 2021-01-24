@@ -1,4 +1,5 @@
 import menuFunc from './modules/menu'
+import projectFunc from './modules/project'
 import tocFunc from './modules/toc'
 import asideFunc from './modules/aside'
 import searchFunc from './modules/search'
@@ -29,6 +30,9 @@ const main = () => {
 
   // pagination page
   paginationFunc()
+  
+  // projects
+  projectFunc()
 
   // image zoom
   $$('.typo img').forEach(imgElem => {

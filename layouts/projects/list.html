@@ -22,7 +22,8 @@
 {{ $list := slice $main_projects $incubating_projects $tool_projects $ecosystem_projects }}
 
 <div class="home-background -no-max-width">
-	<img src="{{ (resources.Get "/img/cover-light.jpg").RelPermalink }}" />
+	<img src="{{ (resources.Get "/img/cover.jpg").RelPermalink }}" />
+	<canvas height="720" class="particles_bg" />
 </div>
 
 <div class="ss-layout-container">
@@ -30,12 +31,24 @@
 		{{ range $idx, $val := $list }}
 			{{ if ne (len $val) 0 }}
 				<div class="ss-list">
-					<h2 class="list-title">
+					<!-- <h2 class="list-title">
 						<a>{{ i18n (index $title_list $idx) }}</a>
-					</h2>
+					</h2> -->
 					<div class="list">
 						{{ range $val }}
 							{{ partial "card/project_card" . }}
+						{{ end }}
+					</div>
+
+					<div class="list">
+						{{ range $val }}
+							{{ partial "card/project_introduce" . }}
+						{{ end }}
+					</div>
+
+					<div class="list">
+						{{ range $val }}
+							{{ partial "card/project_feature" . }}
 						{{ end }}
 					</div>
 				</div>

@@ -1,9 +1,9 @@
 <div class="ss-card -bg-opacity ss-project-card">
 	<div class="header">
 		<div class="header-first">
-			{{ if isset .Params "icon" }}
+			<!-- {{ if isset .Params "icon" }}
 				<img class="project-icon" src="{{ .Params.icon | relURL }}" />
-			{{ end }}
+			{{ end }} -->
 			<h3 class="card-title">
 				{{ $link := "" }}
 				{{ if isset .Params "link" }}
@@ -15,9 +15,9 @@
 				{{ else }}
 					{{ $link = path.Join .RelPermalink "/overview" }}
 				{{ end }}
-				<a href={{ $link }}>
+				  <a href={{ $link }}>
 					{{ .Title }}
-				</a>
+				</a>  
 			</h3>
 		</div>
 		<div class="gitstar">
@@ -27,6 +27,11 @@
 		</div>
 	</div>
 	<p class="card-content">
-		{{ .Description }}
+		{{ .Params.subDesc  }}
 	</p>
+	<div class="project-button-groups">
+		<a class="project-button -shadow" href={{ $link }}>{{ .Params.startUp }}</a>
+		<a class="project-button -outline" href={{ .Params.gitee }}>Gitee</a>
+		<a class="project-button -outline" href={{ .Params.github }}>GitHub</a>
+	</div>
 </div>

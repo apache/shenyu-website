@@ -86,7 +86,7 @@ export default function searchFunc() {
     }
 
     // update URL but no need to refresh
-    history.pushState(null, `${query} · SOFAStack`, `/search/?${qs.stringify(searchParam)}`)
+    history.pushState(null, `${query} · Dromara`, `/search/?${qs.stringify(searchParam)}`)
 
     index.search({
       query,

@@ -8,14 +8,6 @@
 #		["示例", 'https://github.com/dromara-guides'],
 	]
 
-#[[links]]
-#	category = "社交媒体"
-#	link_arr = [
-#		["知乎专栏", 'https://zhuanlan.zhihu.com/sofastack'],
-#		["新浪微博", 'https://weibo.com/sofastack'],
-#		["Twitter", "https://twitter.com/sofastack_io"]
-#	]
-
 [[links]]
 	category = "参与进来"
 	link_arr = [
@@ -34,15 +26,6 @@
 		["Raincat","/projects/raincat/overview/"],
 		["Myth","/projects/myth/overview/"]
 	]
-
-#[[links]]
-#	category = "蚂蚁金服开源项目"
-#	link_arr = [
-#		["Ant Design", 'https://ant.design/'],
-#		["Egg ", 'https://eggjs.org/'],
-#		["SQLFlow", 'https://sqlflow.org'],
-#		["更多", 'https://tech.antfin.com/open-source'],
-#	]
 
 [[qrcode]]
 	img = "img/qrcode/qrcode_1.png"

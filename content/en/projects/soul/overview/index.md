@@ -1,7 +1,7 @@
 ---
 title: Soul Introduction
 keywords: soul
-description: Soul Introduction
+description: This is an asynchronous, high-performance, cross-language, responsive API gateway.I hope that something can protect your micro service like a soul.After referring to excellent gateways such as Kong, Spring-Cloud-Gateway, soul was born standing on the shoulders of giants!
 aliases: "/soul/docs/Home"
 ---
 

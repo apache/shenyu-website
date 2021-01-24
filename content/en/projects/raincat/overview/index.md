@@ -1,6 +1,7 @@
 ---
-title: "Raincat 介绍"
+title: "Raincat Introduction"
 aliases: "/raincat/docs/Home"
+description: Raincat is a strongly consistent distributed transaction framework based on a two-phase commit + local transaction compensation mechanism.
 ---
 
 Raincat

@@ -1,6 +1,7 @@
 ---
 title: "Raincat 介绍"
 aliases: "/raincat/docs/Home"
+description: "Raincat是基于二阶段提交+本地事务补偿机制来实现的强一致性分布式事务框架。无缝支持dubbo,motan,springcloud等Rpc框架的微服务。"
 ---
 
 Raincat

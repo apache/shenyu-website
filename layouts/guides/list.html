@@ -11,20 +11,20 @@
 {{ $Site := .Site }}
 <div class="ss-layout-container">
 	<main class="ss-layout-main -noaside">
-		{{ range .Params.levels }}
+ 		{{ range .Params.levels }}
 			<div class="ss-list">
-				<h2 class="list-title">
+			    <h2 class="list-title">
 					<a>{{ .level }}</a>
-				</h2>
+				</h2>  
 				<div class="list">
 					{{ range .links }}
-						{{ $link := path.Join "guides" . }}
+						{{ $link := path.Join "projects" . }}
 						{{ $page := $Site.GetPage $link }}
-						{{ partial "card/guide_card" $page }}
+                        {{ partial "card/guide_card" $page }}
 					{{ end }}
 				</div>
 			</div>
-		{{ end }}
+		 {{ end }} 
 	</main>
 </div>
 

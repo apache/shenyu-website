@@ -5,6 +5,6 @@
 		<h3>{{ .Params.title}}{{ if eq $language "zh"}}介绍  {{ else }} Introduction {{ end }}</h3>
 		<p>{{ .Description}}</p>
 	  </div>
-	  <img src={{ .Params.architectureImg}}/>
+	  <img src="{{ .Params.architectureImg | relURL  }}"/>
 	</div>
 </section>

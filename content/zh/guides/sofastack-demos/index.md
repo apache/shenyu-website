@@ -11,4 +11,5 @@ projects: [
   {name: "SOFALookout", link: "https://github.com/sofastack/sofa-lookout"},
   {name: "SOFARPC", link: "https://github.com/sofastack/sofa-rpc"}, 
 ]
+draft: true
 ---

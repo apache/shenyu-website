@@ -1,6 +1,7 @@
 ---
-title: "Myth 介绍"
+title: "Myth Introduction"
 aliases: "/myth/docs/Home"
+description: Myth is based on a distributed transaction framework that is ultimately consistent with reliable messaging.
 ---
 
 myth  

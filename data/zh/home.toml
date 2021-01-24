@@ -2,7 +2,7 @@
 	title = "Dromara"
 	description = "致力于微服务云原生解决方案的组织"
 	quick_start_text = "快速开始"
-	quick_start_link = "/guides/sofastack-quick-start"
+	quick_start_link = "/projects/soul/overview"
 	github_link = "https://github.com/dromara"
 
 [[feature]]

@@ -1,6 +1,7 @@
 ---
 title: "Myth 介绍"
 aliases: "/myth/docs/Home"
+description: "Myth是基于可靠消息最终一致性分布式事务框架，无缝支持dubbo，springcloud,motan等rpc框架的微服务"
 ---
 
 myth  

@@ -50,6 +50,9 @@
     box-shadow: 1px 1px 8px 10px #2c9aff08;
     background-color:rgba(255,255,255,0.3);
     padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     @include tablet {
       width: 46%;
 
@@ -265,7 +268,6 @@
 }
 
 .ss-project-card {
-  min-height: 140px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -294,7 +296,7 @@
 
   .card-title {
     margin: 0;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
     color: $text-color;
   }
@@ -305,8 +307,9 @@
 
   .card-content {
     margin: 0;
-    margin-top: 8px;
-    font-size: 18px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    font-size: 20px;
     font-weight: 500;
     color: $text-color-secondary;
   }

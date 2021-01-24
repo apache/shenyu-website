@@ -4,7 +4,7 @@ description: "Myth is based on a distributed transaction framework that is ultim
 subDesc: "Reliable messages distributed transaction framework"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "Supports multiple RPC frameworks"
-feature1Desc: "Dubbo, Spring cloud, Motan"
+feature1Desc: "Dubbo, Spring Cloud, Motan"
 feature2Img: "/img/feature/feature_loadbalances.png"
 feature2Title: "Spring-boot-starter"
 feature2Desc: "Spring-boot-starter integrates with business systems"

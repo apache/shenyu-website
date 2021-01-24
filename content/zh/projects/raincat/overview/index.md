@@ -12,7 +12,7 @@ Raincat
 
 #####  因为文件名太长，大家在拉取代码的时候执git命令：git config --global core.longpaths true
 
- # Features
+# Features
 
   * **框架特性**
 
@@ -72,15 +72,15 @@ Raincat
 
 # 视频源码分析
 
- ### [环境搭建](http://www.iqiyi.com/w_19s0ngjah5.html)
- 
- ### [启动过程](http://www.iqiyi.com/w_19s0ndc5vh.html)
- 
- ### [事务提交](http://www.iqiyi.com/w_19s0ndc8f1.html)
- 
- ### [回滚恢复](http://www.iqiyi.com/w_19s0nmod9t.html)
- 
- ### [管理后台](http://www.iqiyi.com/w_19s0nj1bjx.html)
+### [环境搭建](http://www.iqiyi.com/w_19s0ngjah5.html)
+
+### [启动过程](http://www.iqiyi.com/w_19s0ndc5vh.html)
+
+### [事务提交](http://www.iqiyi.com/w_19s0ndc8f1.html)
+
+### [回滚恢复](http://www.iqiyi.com/w_19s0nmod9t.html)
+
+### [管理后台](http://www.iqiyi.com/w_19s0nj1bjx.html)
 
 
 # Support

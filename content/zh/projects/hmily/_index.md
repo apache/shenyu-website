@@ -1,7 +1,7 @@
 ---
 title: "Hmily"
-description: "Hmily是一款高性能，零侵入，金融级分布式事务解决方案，目前主要提供柔性事务的支持，包含 TCC, TAC(自动生成回滚SQL) 方案，未来还会支持 XA 等方案。"
-subDesc: "金融级分布式事务解决方案"
+description: "Hmily是一款高性能，零侵入，柔性分布式事务解决方案，目前主要提供柔性事务的支持，包含 TCC, TAC(自动生成回滚SQL) 方案，未来还会支持 XA 等方案。"
+subDesc: "柔性分布式事务解决方案"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "高可靠性"
 feature1Desc: "支持分布式场景下，事务异常回滚，超时异常恢复，防止事务悬挂"

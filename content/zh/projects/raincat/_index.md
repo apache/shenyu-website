@@ -1,7 +1,7 @@
 ---
 title: "Raincat"
-description: "Raincat是基于二阶段提交+本地事务补偿机制来实现的强一致性分布式事务框架。无缝支持dubbo,motan,springcloud等Rpc框架的微服务。"
-subDesc: "强一致分布式事务框架"
+description: "Raincat是基于二阶段提交+本地事务补偿机制来实现的强一致性分布式事务解决方案。无缝支持dubbo,motan,springcloud等Rpc框架的微服务。"
+subDesc: "强一致性分布式事务解决方案"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "支持多种Rpc"
 feature1Desc: "raincat为dubbo,springcloud,motan提供了单独的jar包提供支持"

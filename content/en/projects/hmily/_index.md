@@ -1,7 +1,7 @@
 ---
 title: "Hmily"
 description: "Hmily is Finance-level distributed transaction solutions, Supports multiple RPC frameworks, such as Dubbo, SpringCloud, Motan, GRPC, BRPC, Tars"
-subDesc: "Finance-level distributed transaction solutions"
+subDesc: "Flexible distributed transaction solution"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "Supports multiple RPC frameworks"
 feature1Desc: "such as Dubbo, SpringCloud, Motan, GRPC, BRPC, Tars"

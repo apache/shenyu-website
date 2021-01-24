@@ -15,7 +15,7 @@
 	img = "img/home/dromara_gateway.png"
 [[feature]]
 	title = "分布式事务"
-	description = "提供金融级分布式事务解决方案，包括强一致分布式事务框架，可靠消息分布式事务框架，提供高可靠性，高性能，可观测性的解决方案，满足各种复杂场景"
+	description = "提供柔性分布式事务解决方案，包括强一致分布式事务框架，可靠消息分布式事务框架，提供高可靠性，高性能，可观测性的解决方案，满足各种复杂场景"
 	img = "img/home/dromara_distributed_transaction.png"
 
 [[soul_description]]

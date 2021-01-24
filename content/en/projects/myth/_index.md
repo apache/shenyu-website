@@ -1,7 +1,7 @@
 ---
 title: "Myth"
 description: "Myth is based on a distributed transaction framework that is ultimately consistent with reliable messaging."
-subDesc: "Reliable messages distributed transaction framework"
+subDesc: "Reliable messages distributed transaction solution"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "Supports multiple RPC frameworks"
 feature1Desc: "Dubbo, Spring Cloud, Motan"

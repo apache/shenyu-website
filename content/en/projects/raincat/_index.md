@@ -1,7 +1,7 @@
 ---
 title: "Raincat"
 description: "Raincat is a strongly consistent distributed transaction framework based on a two-phase commit + local transaction compensation mechanism."
-subDesc: "Consistent distributed transaction framework"
+subDesc: "Consistent distributed transaction solution"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "Supports multiple RPC frameworks"
 feature1Desc: "Dubbo, Spring Cloud , Motan"

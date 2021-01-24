@@ -1,7 +1,7 @@
 ---
 title: "Myth"
 description: "Myth是基于可靠消息最终一致性分布式事务框架，无缝支持dubbo，springcloud,motan等rpc框架的微服务"
-subDesc: "可靠消息分布式事务框架"
+subDesc: "可靠消息分布式事务解决方案"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "支持多种Rpc"
 feature1Desc: "Mtyh为dubbo,springcloud,motan提供了单独的jar包提供支持"

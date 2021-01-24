@@ -32,6 +32,7 @@ remote:
 ```
 
 * And you can add the needed configuration of `hmily` under the `path`, the configuration format is as follows(yml):
+
 ```yaml
 hmily:
   config:

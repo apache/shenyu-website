@@ -95,10 +95,10 @@ metrics:
 ```
 
 ### Hmily.server Configuration
- |Name                      | Type  |  Default  | Required  | Description                        |
- |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
- |configMode                |String |  local   | yes     |Configuration mode supports local,zookeeper,nacos, and apollo now. If configuration is local, it will read the configuration from yml file;If the configuration is other modes, it will get the configuration form configuration centre.
- |appName                   |String |  null   | yes     |Application name. AppName will be overwritten if also configured in hmilyConfig. 
+|Name                      | Type  |  Default  | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+|configMode                |String |  local   | yes     |Configuration mode supports local,zookeeper,nacos, and apollo now. If configuration is local, it will read the configuration from yml file;If the configuration is other modes, it will get the configuration form configuration centre.
+|appName                   |String |  null   | yes     |Application name. AppName will be overwritten if also configured in hmilyConfig. 
 
 ### Hmily.config Configuration
 

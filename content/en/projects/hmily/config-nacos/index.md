@@ -32,6 +32,7 @@ remote:
 ```
 
 * And you can add configuration in `nacos`, the format is as follows(yml):
+
 ```yaml
 hmily:
   config:

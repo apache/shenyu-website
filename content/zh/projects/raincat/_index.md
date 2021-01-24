@@ -27,5 +27,29 @@ gitee: "https://gitee.com/shuaiqiyu/Raincat"
 level: "main"
 weight: 3
 icon: "/img/icons/raincat.png"
+sidebar:
+  - title: '介绍文档'  	
+    link: 'overview'
+  - title: '启动raincat-manager'  	
+    link: 'raincat-manager-starter'
+  - title: '配置详解'  	
+    link: 'config'
+  - title: '启动admin'  	
+    link: 'admin-starter'
+  - title: '用户文档'  	
+    sub:
+      - title: 'dubbo用户'  	
+        link: 'dubbo-user'
+      - title: 'motan用户'  	
+        link: 'motan-user'
+      - title: 'springcloud用户'  	
+        link: 'springcloud-user'
+  - title: '快速体验'  	
+    sub:
+      - title: 'quick-start-dubbo'  	
+        link: 'quick-start-dubbo'
+      - title: 'quick-start-springcloud'  	
+        link: 'quick-start-springcloud'
+# draft: true
 ---
 

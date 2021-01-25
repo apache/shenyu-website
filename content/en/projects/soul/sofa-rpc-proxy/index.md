@@ -84,6 +84,7 @@ description: sofa access soul gateway
         </dependency>
    ```
    * Add the following in the xml file of your bean definition ：
+   
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.dromara.soul.client.sofa.SofaServiceBeanPostProcessor">
              <constructor-arg  ref="sofaConfig"/>
@@ -104,7 +105,6 @@ description: sofa access soul gateway
 
 ```yaml
 {"protocol":"zookeeper","register":"127.0.0.1:2181"}
-
 ```
 
 ## Interface registered to the gateway
@@ -125,7 +125,6 @@ description: sofa access soul gateway
 # Now it's to request the gateway via post：http://localhost:9195/order/test/save
 
 # Where localhost:9195 is the IP port of the gateway，default port is 9195 ，/order is the contextPath of your sofa access gateway configuration
-
 ```
 
 * Parameter passing：

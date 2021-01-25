@@ -77,6 +77,7 @@ description: sofa接入soul网关
 * spring
 
    * 引入以下依赖 ：
+   
  ```xml
         <dependency>
             <groupId>org.dromara</groupId>
@@ -105,7 +106,6 @@ description: sofa接入soul网关
 
 ```yaml
 {"protocol":"zookeeper","register":"127.0.0.1:2181"}
-
 ```
 
 ## 接口注册到网关
@@ -126,7 +126,6 @@ description: sofa接入soul网关
 # 现在就是通过 post方式请求网关：http://localhost:9195/order/test/save
 
 # 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你sofa接入网关配置的 contextPath
-
 ```
 
 * 参数传递：

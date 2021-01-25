@@ -3,23 +3,23 @@ layout: singlepage
 title: "Awesome Dromara"
 ---
 
-## 目录
+## Catalog
 
-- [已知用户 Known Users](#knownusers)
-- [贡献 Contributors](#contributors)
-- [用户登记 Registration](#registration)
+- [Known Users](#knownusers)
+- [Contributors](#contributors)
+- [Registration](#registration)
 
-## 已知用户{#knownusers}
+## Known Users{#knownusers}
 
-此处会列出我们已知的在生产环境使用了 Dromara 全部或者部分组件的公司或组织。以下排名不分先后:
+Here is a list of companies or organizations that we know have used all or some of Dromara's components in production.This list is in no particular order:
 
-<img alt="jd" src="/img/users/jd_logo.png" height="60" />
-<img alt="yy" src="/img/users/yy_logo.png" height="60" />
-<img alt="mihoyo" src="/img/users/mihayo_logo.png" height="60" />
-<img alt="shansong" src="/img/users/shansong_logo.png" height="60" />
+<img alt="jd" src="/img/users/jd_logo.png" width="150" height="60" />
+<img alt="yy" src="/img/users/yy_logo.png" width="150" height="60" />
+<img alt="mihoyo" src="/img/users/mihayo_logo.png" width="150" height="60" />
+<img alt="shansong" src="/img/users/shansong_logo.png" width="150" height="60" />
 <img alt="sibu group" src="https://yu199195.github.io/images/soul/users/sibu.jpg" height="60" />
 <img alt="guojiadianwang" src="https://yu199195.github.io/images/soul/users/guojiadianwang.jpg" height="60" />
-<img alt="cheyipai" src="/img/users/cheyipai_logo.jpg" height="60" />
+<img alt="cheyipai" src="/img/users/cheyipai_logo.jpg" width="120" height="60" />
 <img alt="caibeike" src="/img/users/caibeike_logo.png" height="60" />
 <img alt="fangfutong" src="https://yu199195.github.io/images/soul/users/fangfutong.png" height="60" />
 <img alt="chinaTelecom" src="/img/users/china_telecom_logo.png" height="60" />
@@ -39,11 +39,11 @@ title: "Awesome Dromara"
 <img alt="jiangsuyonggang" src="https://yu199195.github.io/images/soul/users/jiangsuyonggang.jpg" height="60" />
 <img alt="kk group" src="https://yu199195.github.io/images/soul/users/keking.png" height="60" />
 
-## 贡献{#contributors}
+## Contributors{#contributors}
 
-目前已经有上百位小伙伴为 Dromara 贡献了文章和代码，非常感谢他们！
+Hundreds of people have contributed articles and code to Dromara so far, thank you very much!
 
-> 本列表每月初更新，排名不分先后，按 Github 用户 ID 首字母排序。
+> This list is updated at the beginning of each month and is in no particular order, in alphabetical order of the GitHub user ID.
 
 <table>
 <tbody>
@@ -224,11 +224,11 @@ title: "Awesome Dromara"
 </tbody>
 </table>
 
-想要参与贡献，可以直接去[项目列表](/projects)找到您关注的项目。
+If you want to contribute, you can go to the [projects list](/projects) and find the projects you're interested in.
 
-## 用户登记{#registration}
+## Registration{#registration}
 
-请登记告诉我们，方便我们更好地为您服务。
+Please register and let us know so that we can serve you better.
 
-* [soul登记](https://github.com/dromara/soul/issues/68)
-* [hmily登记](https://github.com/dromara/hmily/issues/190)
+* [soul registration](https://github.com/dromara/soul/issues/68)
+* [hmily registration](https://github.com/dromara/hmily/issues/190)

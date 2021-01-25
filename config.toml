@@ -2,7 +2,7 @@ baseURL = ""
 title = "dromara(Open source organization)"
 
 languageCode = "zh-CN"
-defaultContentLanguage = "zh"
+defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 hasCJKLanguage = true
 enableGitInfo = true

@@ -16,7 +16,7 @@ This site was compiled using [Hugo](https://gohugo.io/).
 npm install
 npm run build
 hugo
-hugo server --disableFastRender
+hugo serve --bind 0.0.0.0 --disableFastRender
 ```
 Then you will see the site running on <http://localhost:1313>.
 

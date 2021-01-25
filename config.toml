@@ -35,9 +35,9 @@ googleAnalytics = "UA-187960192-2"
 
 [languages]
 	[languages.en]
-	contentDir = "content/en"
-	languageName = "English"
-	weight = 10
+        contentDir = "content/en"
+        languageName = "English"
+        weight = 10
 	[languages.zh]
 		contentDir = "content/zh"
 		languageName = "中文"
@@ -46,54 +46,54 @@ googleAnalytics = "UA-187960192-2"
 	[[languages.zh.menu.main]]
 		identifier = "projects"
 		name = "项目"
-		url = "/projects/"
+		url = "/zh/projects/"
 		weight = 1
 	[[languages.zh.menu.main]]
 		identifier = "guides"
 		name = "指南"
-		url = "/guides/"
+		url = "/zh/guides/"
 		weight = 2
 	[[languages.zh.menu.main]]
 		identifier = "blog"
 		name = "博客"
-		url = "/blog/"
+		url = "/zh/blog/"
 		weight = 3
 	[[languages.zh.menu.main]]
 		identifier = "activities"
 		name = "活动"
-		url = "/activities/"
+		url = "/zh/activities/"
 		weight = 4
 	[[languages.zh.menu.main]]
 		identifier = "awesome"
 		name = "Awesome Dromara"
-		url = "/awesome/"
+		url = "/zh/awesome/"
 		weight = 6
 	[[languages.zh.menu.main]]
 		identifier = "community"
 		name = "社区"
-		url = "/community/"
+		url = "/zh/community/"
 		weight = 5
 
 [menu]
 	[[menu.main]]
 		identifier = "projects"
 		name = "Projects"
-		url = "/en/projects/"
+		url = "/projects/"
 		weight = 1
 	[[menu.main]]
 		identifier = "guides"
 		name = "Guides"
-		url = "/en/guides/"
+		url = "/guides/"
 		weight = 2
 	[[menu.main]]
 		identifier = "blog"
 		name = "Blog"
-		url = "/en/blog/"
+		url = "/blog/"
 		weight = 3
 	[[menu.main]]
 		identifier = "activities"
 		name = "Activity"
-		url = "/en/activities/"
+		url = "/activities/"
 		weight = 4
 	[[languages.zh.menu.main]]
 		identifier = "community"

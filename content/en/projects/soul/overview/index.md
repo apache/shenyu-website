@@ -1,12 +1,12 @@
 ---
 title: Soul Introduction
 keywords: soul
-description: This is an asynchronous, high-performance, cross-language, responsive API gateway.I hope that something can protect your micro service like a soul.After referring to excellent gateways such as Kong, Spring-Cloud-Gateway, soul was born standing on the shoulders of giants!
+description: This is an asynchronous, high-performance, cross-language, responsive API gateway.
 aliases: "/soul/docs/Home"
 ---
 
 # What is the Soul？
-This is an asynchronous, high-performance, cross-language, responsive API gateway.I hope that something can protect your micro service like a soul.After referring to excellent gateways such as Kong, Spring-Cloud-Gateway, soul was born standing on the shoulders of giants!
+This is an asynchronous, high-performance, cross-language, responsive API gateway.
 
  
 # Features
@@ -31,9 +31,3 @@ This is an asynchronous, high-performance, cross-language, responsive API gatewa
 # Prerequisite
 
   *   #### JDK 1.8+
-
-  *   #### Maven 3.2.x
-
-  *   #### Git
-  
-  *   #### mysql

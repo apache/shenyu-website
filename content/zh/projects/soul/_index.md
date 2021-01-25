@@ -18,7 +18,7 @@ feature5Img: "/img/feature/feature_runtime.png"
 feature5Title: "无缝支持Dubbo，SpringCloud，HTTP REST等"
 feature5Desc: "无缝支持Dubbo，SpringCloud，HTTP REST，GRPC，Tars"
 feature6Img: "/img/feature/feature_maintenance.png"
-feature6Title: "高可用,高并发"
+feature6Title: "高可用,高性能,高并发"
 feature6Desc: "支持集群部署"
 architectureImg: "/img/architecture/soul-framework.png"
 startUp: "开始"
@@ -50,15 +50,15 @@ sidebar:
         link: 'plugin-handle-explanation'
       - title: '选择器规则详解'  	
         link: 'selector-and-rule'
-  - title: '用户使用文档'  	
+  - title: '用户文档'  	
     sub:
-      - title: 'http用户'  	
+      - title: 'Http代理'  	
         link: 'http-proxy'
-      - title: 'dubbo用户'  	
+      - title: 'Dubbo代理'  	
         link: 'dubbo-proxy'
-      - title: 'springCloud用户'  	
+      - title: 'SpringCloud代理'  	
         link: 'spring-cloud-proxy'
-      - title: 'sofa用户'  	
+      - title: 'Sofa代理'  	
         link: 'sofa-rpc-proxy' 
       - title: '数据同步策略'  	
         link: 'use-data-sync'

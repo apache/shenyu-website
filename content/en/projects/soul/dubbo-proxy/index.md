@@ -387,7 +387,7 @@ public DubboParamResolveService A() {
 
 ```java
     @Override
-    @@SoulDubboClient(path = "/insert", desc = "insert data")
+    @SoulDubboClient(path = "/insert", desc = "insert data")
     public DubboTest insert(final DubboTest dubboTest) {
         return dubboTest;
     }

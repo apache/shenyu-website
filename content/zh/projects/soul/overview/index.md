@@ -30,5 +30,5 @@ description: Soul是一个异步的，高性能的，跨语言的，响应式的
  
 # Prerequisite
 
-  *   #### JDK 1.8+
+* JDK 1.8+
 

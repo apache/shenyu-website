@@ -8,7 +8,6 @@ aliases: "/soul/docs/Home"
 # What is the Soul？
 This is an asynchronous, high-performance, cross-language, responsive API gateway.
 
- 
 # Features
 
 * Support various languages (http protocol), support dubbo, spring cloud protocol.
@@ -30,4 +29,4 @@ This is an asynchronous, high-performance, cross-language, responsive API gatewa
  
 # Prerequisite
 
-  *   #### JDK 1.8+
+* JDK 1.8+

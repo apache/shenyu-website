@@ -21,6 +21,7 @@ description: hystrix插件
 ## 插件使用
 
 * 在网关的 pom.xml 文件中添加 hystrix的支持。
+
 ```xml
   <!-- soul hystrix plugin start-->
   <dependency>

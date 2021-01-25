@@ -10,6 +10,7 @@ description:  启动raincat-manager
 ### 方式一：自己拉取代码编译：https://github.com/yu199195/Raincat
 
 * 修改application.yml 中的redis配置
+
 ```yml
 transactionWaitMaxTime: 500
 redisSaveMaxTime: 3000

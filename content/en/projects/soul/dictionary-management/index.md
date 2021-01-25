@@ -11,6 +11,7 @@ description: dict management explanation
 ### Table design
 
 * sql
+
 ```sql
 CREATE TABLE IF NOT EXISTS `soul_dict` (
    `id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'primary key id',

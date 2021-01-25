@@ -22,6 +22,7 @@ description: monitor插件
 * 在 `soul-admin`--> 插件管理-> monitor ,设置为开启。
 
 * 在 monitor 插件中新增以下配置
+
 ```yaml
 {"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
 
@@ -35,6 +36,7 @@ description: monitor插件
 ## 插件使用
 
 * 在网关的 pom.xml 文件中添加 `monitor` 的支持。
+
 ```xml
   <!-- soul monitor plugin start-->
   <dependency>
@@ -54,10 +56,10 @@ description: monitor插件
 
 * 另外还有如下自定义的 `metrics` 
 
- | 名称                      | 类型                  |标签名称       | 说明                  |
- |:------------------------ |:--------------------- |:-------------|:-------------------- |
- |request_total             |Counter                | 无           |收集Soul网关所有的请求 |
- |http_request_total        |Counter                 | path,type    |收集monitor插件匹配的请求| 
+| 名称                      | 类型                  |标签名称       | 说明                  |
+|:------------------------ |:--------------------- |:-------------|:-------------------- |
+|request_total             |Counter                | 无           |收集Soul网关所有的请求 |
+|http_request_total        |Counter                 | path,type    |收集monitor插件匹配的请求| 
  
 ## 收集 metrics
 
@@ -73,6 +75,6 @@ description: monitor插件
      - targets: ['localhost:9191']
  ```
  
- ## 面板展示
+## 面板展示
  
  推荐使用 `Grafana`，用户可以自定义查询来个性化显示面板盘，后续我会提供默认的面板盘配置。

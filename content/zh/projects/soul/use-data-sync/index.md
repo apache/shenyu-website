@@ -17,15 +17,17 @@ description: 使用不同的数据同步策略
 * 网关配置（记得重启）
 
     * 首先在 `pom.xml` 文件中 引入以下依赖：
- ```xml
+    
+    ```xml
     <!--soul data sync start use websocket-->
     <dependency>
       <groupId>org.dromara</groupId>
       <artifactId>soul-spring-boot-starter-sync-data-websocket</artifactId>
       <version>${last.version}</version>
     </dependency>
-   ```
+    ```
    * 在 springboot的 yml 文件中进行如下配置:
+   
   ```yaml
   soul :
       sync:
@@ -34,12 +36,13 @@ description: 使用不同的数据同步策略
   #urls:是指 soul-admin的地址，如果有多个，请使用（,）分割.
    ```
 
-* soul-admin 配置，或在 soul-admin 启动参数中设置 `--soul.sync.websocket='' `，然后重启服务。
-```yaml
-soul:
-  sync:
-     websocket:
-```
+    * soul-admin 配置，或在 soul-admin 启动参数中设置 `--soul.sync.websocket='' `，然后重启服务。
+   
+    ```yaml
+    soul:
+      sync:
+         websocket:
+    ```
 
 * 当建立连接以后会全量获取一次数据，以后的数据都是增量的更新与新增，性能好。
 
@@ -54,25 +57,27 @@ soul:
 
  ```xml
     <!--soul data sync start use zookeeper-->
-      <dependency>
-           <groupId>org.dromara</groupId>
-            <artifactId>soul-spring-boot-starter-sync-data-zookeeper</artifactId>
-            <version>${last.version}</version>
-      </dependency>
+    <dependency>
+        <groupId>org.dromara</groupId>
+        <artifactId>soul-spring-boot-starter-sync-data-zookeeper</artifactId>
+        <version>${last.version}</version>
+    </dependency>
  ```
 
    * 在 springboot的 yml 文件中进行如下配置:
- ```yaml
-  soul :
+   
+    ```yaml
+    soul :
       sync:
-          zookeeper:
-               url: localhost:2181
-               sessionTimeout: 5000
-               connectionTimeout: 2000
-  #url: 配置成你的zk地址，集群环境请使用（,）分隔
- ```
+        zookeeper:
+          url: localhost:2181
+          sessionTimeout: 5000
+          connectionTimeout: 2000
+          #url: 配置成你的zk地址，集群环境请使用（,）分隔
+    ```
 
-* soul-admin 配置, 或在 soul-admin 启动参数中设置 `--soul.sync.zookeeper.url='你的地址' `,然后重启服务。
+   * soul-admin 配置, 或在 soul-admin 启动参数中设置 `--soul.sync.zookeeper.url='你的地址' `,然后重启服务。
+
 ```yaml
 soul:
   sync:
@@ -89,16 +94,17 @@ soul:
 
     * 首先在 `pom.xml` 文件中 引入以下依赖：
 
- ```xml
+    ```xml
     <!--soul data sync start use http-->
-      <dependency>
-           <groupId>org.dromara</groupId>
-            <artifactId>soul-spring-boot-starter-sync-data-http</artifactId>
-            <version>${last.version}</version>
-      </dependency>
-   ```
+    <dependency>
+       <groupId>org.dromara</groupId>
+        <artifactId>soul-spring-boot-starter-sync-data-http</artifactId>
+        <version>${last.version}</version>
+    </dependency>
+    ```
 
    * 在 springboot的 yml 文件中进行如下配置:
+   
    ```yaml
   soul :
       sync:
@@ -106,12 +112,13 @@ soul:
                url: http://localhost:9095
   #url: 配置成你的 soul-admin的 ip与端口地址，多个admin集群环境请使用（,）分隔。
    ```
-* soul-admin 配置, 或在 soul-admin 启动参数中设置 `--soul.sync.http='' `,然后重启服务。
-```yaml
-soul:
-  sync:
-     http:
-```
+    * soul-admin 配置, 或在 soul-admin 启动参数中设置 `--soul.sync.http='' `,然后重启服务。
+
+    ```yaml
+    soul:
+      sync:
+         http:
+    ```
 
 * http长轮询使得网关很轻量，时效性略低。
 
@@ -124,18 +131,20 @@ soul:
 * 网关配置（记得重启）
 
     * 首先在 `pom.xml` 文件中 引入以下依赖：
- ```xml
+    
+    ```xml
     <!--soul data sync start use nacos-->
       <dependency>
            <groupId>org.dromara</groupId>
             <artifactId>soul-spring-boot-starter-sync-data-nacos</artifactId>
             <version>${last.version}</version>
       </dependency>
-   ```
+    ```
 
-  * 在 springboot的 yml 文件中进行如下配置:
- ```yaml
-  soul :
+    * 在 springboot的 yml 文件中进行如下配置:
+   
+    ```yaml
+    soul :
       sync:
          nacos:
               url: localhost:8848
@@ -146,10 +155,11 @@ soul:
                 namespace:
                 accessKey:
                 secretKey:
-  #url: 配置成你的nacos地址，集群环境请使用（,）分隔。
-  # 其他参数配置，请参考naocs官网。
- ```
-* soul-admin 配置, 或在 soul-admin 启动参数中使用 `--` 的方式一个一个传值。
+    #url: 配置成你的nacos地址，集群环境请使用（,）分隔。
+    # 其他参数配置，请参考naocs官网。
+    ```
+* soul-admin 配置, 或在 soul-admin 启动参数中使用 `--` 的方式一个一个传值
+
 ```yaml
 soul :
       sync:

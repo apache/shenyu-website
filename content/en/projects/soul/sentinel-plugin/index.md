@@ -21,6 +21,7 @@ description: sentinel plugin
 ## Plugin Usage
 
 * Introducing the follow supports to the pom.xml file of soul project.
+
 ```xml
   <!-- soul sentinel plugin start-->
   <dependency>

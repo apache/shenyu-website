@@ -28,7 +28,7 @@ description: springcloud快速体验
    > mvn -DskipTests clean install -U
    ```
 
- ### 执行demo 模块的sql语句。
+### 执行demo 模块的sql语句。
 
    [sql语句] (https://github.com/yu199195/Raincat/blob/master/raincat-sample/raincat-springcloud-sample/sql/springcloud-sample.sql) 
 

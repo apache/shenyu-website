@@ -71,7 +71,7 @@ sidebar:
       - title: 'Sofa plugin'  	
         link: 'sofa-plugin'
       - title: 'RateLimiter plugin'  	
-        link: 'rateLimiter-plugin'
+        link: 'rate-limiter-plugin'
       - title: 'Hystrix plugin'  	
         link: 'hystrix-plugin'
       - title: 'Sentinel plugin'  	

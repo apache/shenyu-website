@@ -21,86 +21,83 @@ description: Integrate dubbo with soul gateway
 
   * alibaba dubbo user, configure the dubbo version and registry center with yours.
   
- ```xml
-  
-          <!--soul alibaba dubbo plugin start-->
-          <dependency>
-              <groupId>org.dromara</groupId>
-              <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
-              <version>${last.version}</version>
-          </dependency>
-           <!-- soul  alibaba dubbo plugin end-->
-          <dependency>
-              <groupId>com.alibaba</groupId>
-              <artifactId>dubbo</artifactId>
-              <version>2.6.5</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.curator</groupId>
-              <artifactId>curator-client</artifactId>
-              <version>4.0.1</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.curator</groupId>
-              <artifactId>curator-framework</artifactId>
-              <version>4.0.1</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.curator</groupId>
-              <artifactId>curator-recipes</artifactId>
-              <version>4.0.1</version>
-          </dependency>
-       
-  ```
+    ```xml
+    <!--soul alibaba dubbo plugin start-->
+    <dependency>
+      <groupId>org.dromara</groupId>
+      <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+      <version>${last.version}</version>
+    </dependency>
+    <!-- soul  alibaba dubbo plugin end-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>dubbo</artifactId>
+      <version>2.6.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-client</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-framework</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-recipes</artifactId>
+      <version>4.0.1</version>
+    </dependency>   
+    ```
   
   * apache dubbo user, configure the dubbo version and registry center with yours.
   
-  ```xml
-  
-           <!--soul apache dubbo plugin start-->
-           <dependency>
-               <groupId>org.dromara</groupId>
-               <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
-               <version>${last.version}</version>
-           </dependency>
-           <!--soul apache dubbo plugin end-->
-  
-           <dependency>
-               <groupId>org.apache.dubbo</groupId>
-               <artifactId>dubbo</artifactId>
-               <version>2.7.5</version>
-           </dependency>
-            <!-- Dubbo Nacos registry dependency start -->
-           <dependency>
-               <groupId>org.apache.dubbo</groupId>
-               <artifactId>dubbo-registry-nacos</artifactId>
-               <version>2.7.5</version>
-           </dependency>
-           <dependency>
-               <groupId>com.alibaba.nacos</groupId>
-               <artifactId>nacos-client</artifactId>
-               <version>1.1.4</version>
-           </dependency>
-           <!-- Dubbo Nacos registry dependency  end-->
-  
-           <!-- Dubbo zookeeper registry dependency start-->
-           <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-client</artifactId>
-               <version>4.0.1</version>
-           </dependency>
-           <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-framework</artifactId>
-               <version>4.0.1</version>
-           </dependency>
-           <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-recipes</artifactId>
-               <version>4.0.1</version>
-           </dependency>
-           <!-- Dubbo zookeeper registry dependency end -->
-  ```
+    ```xml
+    <!--soul apache dubbo plugin start-->
+    <dependency>
+       <groupId>org.dromara</groupId>
+       <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
+       <version>${last.version}</version>
+    </dependency>
+    <!--soul apache dubbo plugin end-->
+    
+    <dependency>
+       <groupId>org.apache.dubbo</groupId>
+       <artifactId>dubbo</artifactId>
+       <version>2.7.5</version>
+    </dependency>
+    <!-- Dubbo Nacos registry dependency start -->
+    <dependency>
+       <groupId>org.apache.dubbo</groupId>
+       <artifactId>dubbo-registry-nacos</artifactId>
+       <version>2.7.5</version>
+    </dependency>
+    <dependency>
+       <groupId>com.alibaba.nacos</groupId>
+       <artifactId>nacos-client</artifactId>
+       <version>1.1.4</version>
+    </dependency>
+    <!-- Dubbo Nacos registry dependency  end-->
+    
+    <!-- Dubbo zookeeper registry dependency start-->
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-client</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-framework</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-recipes</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <!-- Dubbo zookeeper registry dependency end -->
+    ```
 
 * restart gateway service.
 
@@ -111,49 +108,52 @@ description: Integrate dubbo with soul gateway
     * springboot
       
        * Add these dependencies:
- ```xml
+        
+        ```xml
         <dependency>
              <groupId>org.dromara</groupId>
              <artifactId>soul-spring-boot-starter-client-alibaba-dubbo</artifactId>
              <version>${last.version}</version>
         </dependency>
- ```
+        ```
       
-  * Add these config values in your yaml file ：
+        * Add these config values in your yaml file ：
   
-   ```yaml
-      soul:
-        dubbo:
-          adminUrl: http://localhost:9095
-          contextPath: /dubbo
-          appName: dubbo    
-         # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
-         # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-         # appName：your project name,default value is the application name in dubbo config.
-  ```    
+        ```yaml
+        soul:
+          dubbo:
+            adminUrl: http://localhost:9095
+            contextPath: /dubbo
+            appName: dubbo    
+            # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
+            # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+            # appName：your project name,default value is the application name in dubbo config.
+        ```    
     
 * spring
      
    * Add these dependencies：
- ```xml
-       <dependency>
-           <groupId>org.dromara</groupId>
-           <artifactId>soul-client-alibaba-dubbo</artifactId>
-           <version>${last.version}</version>
-        </dependency>
+    
+    ```xml
+   <dependency>
+       <groupId>org.dromara</groupId>
+       <artifactId>soul-client-alibaba-dubbo</artifactId>
+       <version>${last.version}</version>
+    </dependency>
    ```
    * Inject these properties into your Sping beans XML file：      
-  ```xml
-          <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
-               <constructor-arg  ref="dubboConfig"/>
-          </bean>
-          
-          <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
-               <property name="adminUrl" value="http://localhost:9095"/>     
-               <property name="contextPath" value="/your contextPath"/>
-               <property name="appName" value="your application name"/>
-          </bean>
-   ``` 
+    
+    ```xml
+    <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
+       <constructor-arg  ref="dubboConfig"/>
+    </bean>
+    
+    <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
+       <property name="adminUrl" value="http://localhost:9095"/>     
+       <property name="contextPath" value="/your contextPath"/>
+       <property name="appName" value="your application name"/>
+    </bean>
+    ``` 
    
 * apache dubbo user
    
@@ -161,27 +161,27 @@ description: Integrate dubbo with soul gateway
       
      * add these dependencies:
        
- ```xml
+        ```xml
         <dependency>
              <groupId>org.dromara</groupId>
              <artifactId>soul-spring-boot-starter-client-apache-dubbo</artifactId>
              <version>${last.version}</version>
         </dependency>
-   ```
+        ```
       
- * Add these config values in your yaml file ：
+     * Add these config values in your yaml file ：
      
-  ```yaml
-      soul:
-        dubbo:
-          adminUrl: http://localhost:9095
-          contextPath: /dubbo
-          appName: dubbo
-     
-         # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
-         # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-         # appName：your project name,default value is the application name in dubbo config.
-  ```
+          ```yaml
+          soul:
+            dubbo:
+              adminUrl: http://localhost:9095
+              contextPath: /dubbo
+              appName: dubbo
+         
+             # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
+             # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+             # appName：your project name,default value is the application name in dubbo config.
+          ```
    
    * spring
       
@@ -193,21 +193,21 @@ description: Integrate dubbo with soul gateway
            <artifactId>soul-client-apache-dubbo</artifactId>
            <version>${last.version}</version>
         </dependency>
-       ```
+     ```
 
-* Injecct these properties into your Spring beans XML file ：
+    * Injecct these properties into your Spring beans XML file ：
        
- ```xml
-          <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
-               <constructor-arg  ref="dubboConfig"/>
-          </bean>
-          
-          <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
-               <property name="adminUrl" value="http://localhost:9095"/>     
-               <property name="contextPath" value="/your contextPath"/>
-               <property name="appName" value="your application name"/>
-          </bean>
-   ``` 
+    ```xml
+    <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
+       <constructor-arg  ref="dubboConfig"/>
+    </bean>
+    
+    <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
+       <property name="adminUrl" value="http://localhost:9095"/>     
+       <property name="contextPath" value="/your contextPath"/>
+       <property name="appName" value="your application name"/>
+    </bean>
+    ``` 
 
 ## dubbo configuration
 
@@ -217,7 +217,6 @@ description: Integrate dubbo with soul gateway
 
 ```yaml
 {"register":"zookeeper://localhost:2181"}   or {"register":"nacos://localhost:8848"}
-
 ```
 
 ## configure the interface with gateway
@@ -239,7 +238,6 @@ description: Integrate dubbo with soul gateway
 # now we can communicate with gateway through POST request http://localhost:9195/order/test/save
 
 # localhost:9195 is gateway's ip port，default port is 9195 ，/order is the contextPath you set through gateway.
-
 ```
 
 * parameter deliver：
@@ -263,20 +261,20 @@ soul :
 
   * create a new implementation class A in your gateway project of `org.dromara.soul.web.dubbo.DubboParamResolveService`.
   
- ```java
-   public interface DubboParamResolveService {
-   
-       /**
-        * Build parameter pair.
-        * this is Resolve http body to get dubbo param.
-        *
-        * @param body           the body
-        * @param parameterTypes the parameter types
-        * @return the pair
-        */
-       Pair<String[], Object[]> buildParameter(String body, String parameterTypes);
-   }
-  ```
+```java
+public interface DubboParamResolveService {
+
+   /**
+    * Build parameter pair.
+    * this is Resolve http body to get dubbo param.
+    *
+    * @param body           the body
+    * @param parameterTypes the parameter types
+    * @return the pair
+    */
+   Pair<String[], Object[]> buildParameter(String body, String parameterTypes);
+}
+```
   
   * `body` is the json string in http request.
   
@@ -286,12 +284,12 @@ soul :
   
   *  Inject your class into Spring bean, cover the default implementation.
   
- ```java
-  @Bean
-  public DubboParamResolveService A() {
-          return new A();
-  }
-  ```
+```java
+@Bean
+public DubboParamResolveService A() {
+      return new A();
+}
+```
 ## Service governance
 * Tag route
     * Add `Dubbo_Tag_Route` when send request, the current request will be routed to the provider of the specified tag, which is only valid for the current request.
@@ -306,61 +304,69 @@ soul :
     @Service(validation = "soulValidation")
     public class TestServiceImpl implements TestService {
     
-        @Override
-        @SoulDubboClient(path = "/test", desc = "test method")
-        public String test(@Valid HelloServiceRequest name) throws SoulException {
-            if (true){
-                throw new SoulException("Param binding error.");
+            @Override
+            @SoulDubboClient(path = "/test", desc = "test method")
+            public String test(@Valid HelloServiceRequest name) throws SoulException {
+                if (true){
+                    throw new SoulException("Param binding error.");
+                }
+                return "Hello " + name.getName();
             }
-            return "Hello " + name.getName();
-        }
     }
     ```
+  
     * Request param
+  
     ```java
-    public class HelloServiceRequest implements Serializable {
-    
-        private static final long serialVersionUID = -5968745817846710197L;
-    
-        @NotEmpty(message = "name cannot be empty")
-        private String name;
-    
-        @NotNull(message = "age cannot be null")
-        private Integer age;
-    
-        public String getName() {
-            return name;
+        public class HelloServiceRequest implements Serializable {
+        
+            private static final long serialVersionUID = -5968745817846710197L;
+        
+            @NotEmpty(message = "name cannot be empty")
+            private String name;
+        
+            @NotNull(message = "age cannot be null")
+            private Integer age;
+        
+            public String getName() {
+                return name;
+            }
+        
+            public void setName(String name) {
+                this.name = name;
+            }
+        
+            public Integer getAge() {
+                return age;
+            }
+        
+            public void setAge(Integer age) {
+                this.age = age;
+            }
         }
-    
-        public void setName(String name) {
-            this.name = name;
-        }
-    
-        public Integer getAge() {
-            return age;
-        }
-    
-        public void setAge(Integer age) {
-            this.age = age;
-        }
-    }
     ```
+  
     * Send request
-    ```java
+  
+    ```json
     {
         "name": ""
     }
     ```
+  
     * Response
-    ```java
+    
+    ```json
     {
         "code": 500,
         "message": "Internal Server Error",
         "data": "name cannot be empty,age cannot be null"
     }
     ```
+  
     * Error message
-    ```java
+    
+    ```json
     {
         "code": 500,
         "message": "Internal Server Error",
@@ -385,7 +391,6 @@ soul :
     public DubboTest insert(final DubboTest dubboTest) {
         return dubboTest;
     }
-
 ```
 
 * so our request path is: http://localhost:9195/dubbo/insert ,localhost:9195 is the gateway's domain name,if you changed before,so does with yours here..
@@ -394,14 +399,12 @@ soul :
 
 ```
 {"id":"1234","name":"XIAO5y"}
-
 ```
 
 * if your interface has no parameter, then the value is:
 
 ```
 {}
-
 ```
 
 * if your interface has multi-parameter, pls refer to the guide above.

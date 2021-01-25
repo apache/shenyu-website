@@ -15,6 +15,7 @@ description: http用户
 ## 引入网关对http的代理插件
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
+
 ```xml
   <!--if you use http proxy start this-->
    <dependency>
@@ -41,101 +42,106 @@ description: http用户
 * SpringBoot用户
   
    * 在你的真实服务的 `pom.xml` 新增如下依赖: 
-```xml
-     <dependency>
-         <groupId>org.dromara</groupId>
-         <artifactId>soul-spring-boot-starter-client-springmvc</artifactId>
-         <version>${last.version}</version>
-     </dependency>
- ```
+   
+    ```xml
+         <dependency>
+             <groupId>org.dromara</groupId>
+             <artifactId>soul-spring-boot-starter-client-springmvc</artifactId>
+             <version>${last.version}</version>
+         </dependency>
+     ```
+  
    * 在yml中新增如下配置：
-```yaml
-   soul:
-     http:
-       adminUrl: http://localhost:9095
-       port: 你本项目的启动端口
-       contextPath: /http
-       appName: http
-       full: false  
-   # adminUrl: 为你启动的soul-admin 项目的ip + 端口，注意要加http://
-   # port: 你本项目的启动端口
-   # contextPath: 为你的这个mvc项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
-   # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
-   # full: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller
-   ``` 
+   
+    ```yaml
+       soul:
+         http:
+           adminUrl: http://localhost:9095
+           port: 你本项目的启动端口
+           contextPath: /http
+           appName: http
+           full: false  
+       # adminUrl: 为你启动的soul-admin 项目的ip + 端口，注意要加http://
+       # port: 你本项目的启动端口
+       # contextPath: 为你的这个mvc项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
+       # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
+       # full: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller
+    ``` 
  * SpringMvc用户 
    * 在你的真实服务的 `pom.xml` 新增如下依赖：
-```xml
-       <dependency>
-           <groupId>org.dromara</groupId>
-           <artifactId>soul-client-springmvc</artifactId>
-           <version>${last.version}</version>
-       </dependency>
- ```     
+   
+    ```xml
+           <dependency>
+               <groupId>org.dromara</groupId>
+               <artifactId>soul-client-springmvc</artifactId>
+               <version>${last.version}</version>
+           </dependency>
+     ```     
   * 在你的 bean定义的xml文件中新增如下：  
- ```xml
-    <bean id ="springMvcClientBeanPostProcessor" class ="org.dromara.soul.client.springmvc.init.SpringMvcClientBeanPostProcessor">
-         <constructor-arg  ref="soulSpringMvcConfig"/>
-    </bean>
-    
-    <bean id="soulSpringMvcConfig" class="org.dromara.soul.client.springmvc.config.SoulSpringMvcConfig">
-         <property name="adminUrl" value="http://localhost:9095"/>
-         <property name="port" value="你的端口"/>
-         <property name="contextPath" value="/你的contextPath"/>
-         <property name="appName" value="你的名字"/>
-         <property name="full" value="false"/>
-    </bean>
-   ``` 
+  
+     ```xml
+        <bean id ="springMvcClientBeanPostProcessor" class ="org.dromara.soul.client.springmvc.init.SpringMvcClientBeanPostProcessor">
+             <constructor-arg  ref="soulSpringMvcConfig"/>
+        </bean>
+        
+        <bean id="soulSpringMvcConfig" class="org.dromara.soul.client.springmvc.config.SoulSpringMvcConfig">
+             <property name="adminUrl" value="http://localhost:9095"/>
+             <property name="port" value="你的端口"/>
+             <property name="contextPath" value="/你的contextPath"/>
+             <property name="appName" value="你的名字"/>
+             <property name="full" value="false"/>
+        </bean>
+    ``` 
 * 在你的 `controller` 的接口上加上 `@SoulSpringMvcClient` 注解。
   
    * 你可以把注解加到 `Controller` 类上面，里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
   
    * 举列子 （1）： 代表 `/test/payment`，`/test/findByUserId` 都会被网关代理。
    
- ```java
-  @RestController
-  @RequestMapping("/test")
-  @SoulSpringMvcClient(path = "/test/**")
-  public class HttpTestController {
-      
-      @PostMapping("/payment")
-      public UserDTO post(@RequestBody final UserDTO userDTO) {
-          return userDTO;
-      }
-   
-      @GetMapping("/findByUserId")
-      public UserDTO findByUserId(@RequestParam("userId") final String userId) {
-          UserDTO userDTO = new UserDTO();
-          userDTO.setUserId(userId);
-          userDTO.setUserName("hello world");
-          return userDTO;
-      }      
-   }
-   ```
+    ```java
+      @RestController
+      @RequestMapping("/test")
+      @SoulSpringMvcClient(path = "/test/**")
+      public class HttpTestController {
+          
+          @PostMapping("/payment")
+          public UserDTO post(@RequestBody final UserDTO userDTO) {
+              return userDTO;
+          }
+       
+          @GetMapping("/findByUserId")
+          public UserDTO findByUserId(@RequestParam("userId") final String userId) {
+              UserDTO userDTO = new UserDTO();
+              userDTO.setUserId(userId);
+              userDTO.setUserName("hello world");
+              return userDTO;
+          }      
+       }
+    ```
    * 举列子 （2）：代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
    
- ```java
-  @RestController
-  @RequestMapping("/order")
-  @SoulSpringMvcClient(path = "/order")
-  public class OrderController {
-  
-      @PostMapping("/save")
-      @SoulSpringMvcClient(path = "/save")
-      public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
-          orderDTO.setName("hello world save order");
-          return orderDTO;
+    ```java
+      @RestController
+      @RequestMapping("/order")
+      @SoulSpringMvcClient(path = "/order")
+      public class OrderController {
+      
+          @PostMapping("/save")
+          @SoulSpringMvcClient(path = "/save")
+          public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
+              orderDTO.setName("hello world save order");
+              return orderDTO;
+          }
+     
+          @GetMapping("/findById")
+          public OrderDTO findById(@RequestParam("id") final String id) {
+              OrderDTO orderDTO = new OrderDTO();
+              orderDTO.setId(id);
+              orderDTO.setName("hello world findById");
+              return orderDTO;
+          }
       }
- 
-      @GetMapping("/findById")
-      public OrderDTO findById(@RequestParam("id") final String id) {
-          OrderDTO orderDTO = new OrderDTO();
-          orderDTO.setId(id);
-          orderDTO.setName("hello world findById");
-          return orderDTO;
-      }
-  }
-   ```
+    ```
 
 * 启动你的项目，你的接口接入到了网关。
 

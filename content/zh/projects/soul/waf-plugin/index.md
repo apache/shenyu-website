@@ -15,6 +15,7 @@ description: waf插件
 * 如果用户不想使用此功能，请在admin后台停用此插件。
 
 * 插件编辑里面新增配置模式。
+
 ```yaml
 {"model":"black"}  
 # 默认为黑名单模式，设置值为 mixed 则为混合模式，下面会专门进行讲解
@@ -23,6 +24,7 @@ description: waf插件
 ## 插件使用
 
 * 在网关的 pom.xml 文件中添加 `waf` 的支持。
+
 ```xml
   <!-- soul waf plugin start-->
   <dependency>

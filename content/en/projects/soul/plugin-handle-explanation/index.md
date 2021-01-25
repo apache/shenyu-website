@@ -35,19 +35,19 @@ eg. When we developed the `springCloud` plugin, the rule table needed to store s
 Configure the corresponding entity class as follows:
 
 ```java
-public class SpringCloudRuleHandle implements RuleHandle {
-
-    /**
-     * this remote uri path.
-     */
-    private String path;
-
-    /**
-     * timeout is required.
-     */
-    private long timeout = Constants.TIME_OUT;    }
-}
-  ```
+    public class SpringCloudRuleHandle implements RuleHandle {
+    
+        /**
+         * this remote uri path.
+         */
+        private String path;
+    
+        /**
+         * timeout is required.
+         */
+        private long timeout = Constants.TIME_OUT;    
+    }
+```
 
 step1. We can go directly to the plug-in management link  `http://localhost:9095/#/system/plugin` Click Edit Plugin for processing
 ![](https://yu199195.github.io/images/soul/plugin-manager.png)

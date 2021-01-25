@@ -14,12 +14,12 @@ description: Environment Setup
 ## Invoke `Soul-Admin`
 
 * Download `soul-admin.jar`, then run it with arguments.
+
 ```yaml
 > wget  https://yu199195.github.io/jar/soul-admin.jar
 
 > java -jar soul-admin.jar --spring.datasource.url="jdbc:mysql://yoururl:3306/soul?useUnicode=true&characterEncoding=utf-8&useSSL=false"  
   --spring.datasource.username='you username'  --spring.datasource.password='you password'
- 
 ```
 * Visit `http://localhost:9095/index.html ` default username：admin  password: 123456.
 
@@ -28,6 +28,7 @@ description: Environment Setup
 * First of all, create a new Spring Boot project, pls refer to soul-bootstrap, or visit Spring Initializr:[https://spring.io/quickstart]
 
 * Add these JAR into your local Maven repository:
+   
 ```xml
   <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -57,21 +58,20 @@ description: Environment Setup
 ```
 
 * Add these config values into your `application.yaml`：
+    
 ```yaml
-spring:
-   main:
-     allow-bean-definition-overriding: true
-
-management:
-  health:
-    defaults:
-      enabled: false
-soul :
-    sync:
-        websocket :
-             urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
-swagger:
-  enable: true
+  spring:
+     main:
+       allow-bean-definition-overriding: true
+  
+  management:
+    health:
+      defaults:
+        enabled: false
+  soul :
+      sync:
+          websocket :
+               urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
 ```
 * Environment Setup has finished, kick off your project.
 

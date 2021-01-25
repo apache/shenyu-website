@@ -16,6 +16,7 @@ description: websocket plugin
 * In `soul-admin` --> plugin management --> ` divide `, set to enable.
 
 * Introducing dependencies in the pom.xml file of the gateway
+
 ```xml
   <!--if you use http proxy start this-->
    <dependency>

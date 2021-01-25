@@ -11,6 +11,7 @@ description: 字典管理详解
 ### 表设计
 
 * sql
+
 ```sql
 CREATE TABLE IF NOT EXISTS `soul_dict` (
    `id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '主键id',

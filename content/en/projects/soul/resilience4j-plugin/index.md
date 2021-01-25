@@ -21,6 +21,7 @@ description: resilience4j plugin
 ## Plugin Usage
 
 * Introducing the follow supports to the pom.xml file of soul project.
+
 ```xml
   <!-- soul resilience4j plugin start-->
   <dependency>

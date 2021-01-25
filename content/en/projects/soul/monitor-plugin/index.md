@@ -22,6 +22,7 @@ description: monitor plugin
 * In `soul-admin`--> plugin management-> monitor, set to enable.
 
 * Add the following configuration in the monitor plugin.
+
 ```yaml
 {"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
 
@@ -35,6 +36,7 @@ description: monitor plugin
 ## Plugin Setting
 
 * Introduce `monitor` dependency in the pom.xml file of the gateway.
+
 ```xml
   <!-- soul monitor plugin start-->
   <dependency>
@@ -54,10 +56,10 @@ description: monitor plugin
 
 * There are also the following custom `metrics` 
 
- | Name                      |type                  |target       | description                  |
- |:------------------------ |:--------------------- |:-------------|:-------------------- |
- |request_total             |Counter                | none           |collecting all requests of Soul Gateway |
- |http_request_total        |Counter                 | path,type    |collecting all matched requests of monitor| 
+| Name                      |type                  |target       | description                  |
+|:------------------------ |:--------------------- |:-------------|:-------------------- |
+|request_total             |Counter                | none           |collecting all requests of Soul Gateway |
+|http_request_total        |Counter                 | path,type    |collecting all matched requests of monitor| 
  
 ## Collect metrics
 
@@ -73,6 +75,6 @@ description: monitor plugin
      - targets: ['localhost:9191']
  ```
  
- ## Panel Presentation
+## Panel Presentation
  
  It is recommended to use Grafana'. Users can customize the query to personalize the display panel, and we will provide the default configuration panel later.

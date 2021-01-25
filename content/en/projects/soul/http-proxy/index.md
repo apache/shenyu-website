@@ -15,6 +15,7 @@ description: Integrate Http with soul gateway
 ## Configure soul gateway as Http proxy.
 
 * Add these dependencies in gateway's `pom.xml`：
+
 ```xml
   <!--if you use http proxy start this-->
    <dependency>
@@ -41,101 +42,105 @@ description: Integrate Http with soul gateway
 * SpringBoot user
   
    * Add these dependencies in your local maven repository `pom.xml`: 
-```xml
-     <dependency>
-         <groupId>org.dromara</groupId>
-         <artifactId>soul-spring-boot-starter-client-springmvc</artifactId>
-         <version>${last.version}</version>
-     </dependency>
- ```
+    
+    ```xml
+         <dependency>
+             <groupId>org.dromara</groupId>
+             <artifactId>soul-spring-boot-starter-client-springmvc</artifactId>
+             <version>${last.version}</version>
+         </dependency>
+    ```
    * Add these config values in your yaml file ：  
-```yaml
-   soul:
-     http:
-       adminUrl: http://localhost:9095
-       port: the port exposed by your application server
-       contextPath: /http
-       appName: http
-       full: false  
-   # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
-   # port: your project port number
-   # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-   # appName：your project name,the default value is`spring.application.name`.
-   # full: set true means providing proxy for your entire service, or only a few controller.
-   ``` 
+    
+    ```yaml
+       soul:
+         http:
+           adminUrl: http://localhost:9095
+           port: the port exposed by your application server
+           contextPath: /http
+           appName: http
+           full: false  
+       # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
+       # port: your project port number
+       # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+       # appName：your project name,the default value is`spring.application.name`.
+       # full: set true means providing proxy for your entire service, or only a few controller.
+    ``` 
  * SpringMVC user
    * Add these dependencies in your local maven repository `pom.xml`: 
-```xml
-       <dependency>
-           <groupId>org.dromara</groupId>
-           <artifactId>soul-client-springmvc</artifactId>
-           <version>${last.version}</version>
-       </dependency>
- ```     
-  * Inject these properties into your Spring beans XML file:   
- ```xml
-    <bean id ="springMvcClientBeanPostProcessor" class ="org.dromara.soul.client.springmvc.init.SpringMvcClientBeanPostProcessor">
-         <constructor-arg  ref="soulSpringMvcConfig"/>
-    </bean>
     
-    <bean id="soulSpringMvcConfig" class="org.dromara.soul.client.springmvc.config.SoulSpringMvcConfig">
-         <property name="adminUrl" value="http://localhost:9095"/>
-         <property name="port" value="your port"/>
-         <property name="contextPath" value="/your contextPath"/>
-         <property name="appName" value="your application name"/>
-         <property name="full" value="false"/>
-    </bean>
-   ``` 
+    ```xml
+           <dependency>
+               <groupId>org.dromara</groupId>
+               <artifactId>soul-client-springmvc</artifactId>
+               <version>${last.version}</version>
+           </dependency>
+    ```     
+  * Inject these properties into your Spring beans XML file:   
+
+    ```xml
+        <bean id ="springMvcClientBeanPostProcessor" class ="org.dromara.soul.client.springmvc.init.SpringMvcClientBeanPostProcessor">
+             <constructor-arg  ref="soulSpringMvcConfig"/>
+        </bean>
+        
+        <bean id="soulSpringMvcConfig" class="org.dromara.soul.client.springmvc.config.SoulSpringMvcConfig">
+             <property name="adminUrl" value="http://localhost:9095"/>
+             <property name="port" value="your port"/>
+             <property name="contextPath" value="/your contextPath"/>
+             <property name="appName" value="your application name"/>
+             <property name="full" value="false"/>
+        </bean>
+    ``` 
 * Add this annotation `@SoulSpringMvcClient` in your `controller` interface.
   
    * you can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces. 
   
    * example: （1）：both `/test/payment` and `/test/findByUserId` will be handled by proxy service.
    
- ```java
-  @RestController
-  @RequestMapping("/test")
-  @SoulSpringMvcClient(path = "/test/**")
-  public class HttpTestController {
-      
-      @PostMapping("/payment")
-      public UserDTO post(@RequestBody final UserDTO userDTO) {
-          return userDTO;
-      }
-   
-      @GetMapping("/findByUserId")
-      public UserDTO findByUserId(@RequestParam("userId") final String userId) {
-          UserDTO userDTO = new UserDTO();
-          userDTO.setUserId(userId);
-          userDTO.setUserName("hello world");
-          return userDTO;
-      }      
-   }
-   ```
+    ```java
+      @RestController
+      @RequestMapping("/test")
+      @SoulSpringMvcClient(path = "/test/**")
+      public class HttpTestController {
+          
+          @PostMapping("/payment")
+          public UserDTO post(@RequestBody final UserDTO userDTO) {
+              return userDTO;
+          }
+       
+          @GetMapping("/findByUserId")
+          public UserDTO findByUserId(@RequestParam("userId") final String userId) {
+              UserDTO userDTO = new UserDTO();
+              userDTO.setUserId(userId);
+              userDTO.setUserName("hello world");
+              return userDTO;
+          }      
+       }
+    ```
    * example （2）：`/order/save` will be handled by proxy service, but `/order/findById` won't.
    
- ```java
-  @RestController
-  @RequestMapping("/order")
-  @SoulSpringMvcClient(path = "/order")
-  public class OrderController {
-  
-      @PostMapping("/save")
-      @SoulSpringMvcClient(path = "/save")
-      public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
-          orderDTO.setName("hello world save order");
-          return orderDTO;
+    ```java
+      @RestController
+      @RequestMapping("/order")
+      @SoulSpringMvcClient(path = "/order")
+      public class OrderController {
+      
+          @PostMapping("/save")
+          @SoulSpringMvcClient(path = "/save")
+          public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
+              orderDTO.setName("hello world save order");
+              return orderDTO;
+          }
+     
+          @GetMapping("/findById")
+          public OrderDTO findById(@RequestParam("id") final String id) {
+              OrderDTO orderDTO = new OrderDTO();
+              orderDTO.setId(id);
+              orderDTO.setName("hello world findById");
+              return orderDTO;
+          }
       }
- 
-      @GetMapping("/findById")
-      public OrderDTO findById(@RequestParam("id") final String id) {
-          OrderDTO orderDTO = new OrderDTO();
-          orderDTO.setId(id);
-          orderDTO.setName("hello world findById");
-          return orderDTO;
-      }
-  }
-   ```
+    ```
 
 * Kick off your project with your interface, which is  integrated with soul gateway.
 

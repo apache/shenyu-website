@@ -21,86 +21,83 @@ description: dubbo接入soul网关
 
   * alibaba dubbo 用户, dubbo版本换成你的，注册中心的jar包换成你的，以下是参考。
 
- ```xml
-
-          <!--soul alibaba dubbo plugin start-->
-          <dependency>
-              <groupId>org.dromara</groupId>
-              <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
-               <version>${last.version}</version>
-          </dependency>
-           <!-- soul  alibaba dubbo plugin end-->
-          <dependency>
-              <groupId>com.alibaba</groupId>
-              <artifactId>dubbo</artifactId>
-              <version>2.6.5</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.curator</groupId>
-              <artifactId>curator-client</artifactId>
-              <version>4.0.1</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.curator</groupId>
-              <artifactId>curator-framework</artifactId>
-              <version>4.0.1</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.curator</groupId>
-              <artifactId>curator-recipes</artifactId>
-              <version>4.0.1</version>
-          </dependency>
-
-  ```
+    ```xml
+    <!--soul alibaba dubbo plugin start-->
+    <dependency>
+      <groupId>org.dromara</groupId>
+      <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+       <version>${last.version}</version>
+    </dependency>
+    <!-- soul  alibaba dubbo plugin end-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>dubbo</artifactId>
+      <version>2.6.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-client</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-framework</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-recipes</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    ```
 
   * apache dubbo 用户，dubbo版本换成你的，使用什么注册中心换成你的,以下是参考,使用什么注册中心，就引入啥。
 
-  ```xml
-
-           <!--soul apache dubbo plugin start-->
-           <dependency>
-               <groupId>org.dromara</groupId>
-               <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
-               <version>${last.version}</version>
-           </dependency>
-           <!--soul apache dubbo plugin end-->
-
-           <dependency>
-               <groupId>org.apache.dubbo</groupId>
-               <artifactId>dubbo</artifactId>
-               <version>2.7.5</version>
-           </dependency>
-            <!-- Dubbo Nacos registry dependency start -->
-           <dependency>
-               <groupId>org.apache.dubbo</groupId>
-               <artifactId>dubbo-registry-nacos</artifactId>
-               <version>2.7.5</version>
-           </dependency>
-           <dependency>
-               <groupId>com.alibaba.nacos</groupId>
-               <artifactId>nacos-client</artifactId>
-               <version>1.1.4</version>
-           </dependency>
-           <!-- Dubbo Nacos registry dependency  end-->
-
-           <!-- Dubbo zookeeper registry dependency start-->
-           <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-client</artifactId>
-               <version>4.0.1</version>
-           </dependency>
-           <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-framework</artifactId>
-               <version>4.0.1</version>
-           </dependency>
-           <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-recipes</artifactId>
-               <version>4.0.1</version>
-           </dependency>
-           <!-- Dubbo zookeeper registry dependency end -->
-  ```
+    ```xml
+    <!--soul apache dubbo plugin start-->
+    <dependency>
+       <groupId>org.dromara</groupId>
+       <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
+       <version>${last.version}</version>
+    </dependency>
+    <!--soul apache dubbo plugin end-->
+    
+    <dependency>
+       <groupId>org.apache.dubbo</groupId>
+       <artifactId>dubbo</artifactId>
+       <version>2.7.5</version>
+    </dependency>
+    <!-- Dubbo Nacos registry dependency start -->
+    <dependency>
+       <groupId>org.apache.dubbo</groupId>
+       <artifactId>dubbo-registry-nacos</artifactId>
+       <version>2.7.5</version>
+    </dependency>
+    <dependency>
+       <groupId>com.alibaba.nacos</groupId>
+       <artifactId>nacos-client</artifactId>
+       <version>1.1.4</version>
+    </dependency>
+    <!-- Dubbo Nacos registry dependency  end-->
+    
+    <!-- Dubbo zookeeper registry dependency start-->
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-client</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-framework</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-recipes</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <!-- Dubbo zookeeper registry dependency end -->
+    ```
 
 * 重启网关服务。
 
@@ -111,63 +108,67 @@ description: dubbo接入soul网关
     * springboot
 
        * 引入以下依赖
- ```xml
+        
+        ```xml
         <dependency>
              <groupId>org.dromara</groupId>
              <artifactId>soul-spring-boot-starter-client-alibaba-dubbo</artifactId>
              <version>${last.version}</version>
         </dependency>
- ```
+        ```
 
-  * 在你的yml文件中新增如下配置：
+        * 在你的yml文件中新增如下配置：
 
-   ```yaml
-      soul:
-        dubbo:
-          adminUrl: http://localhost:9095
-          contextPath: /dubbo
-          appName: dubbo
-         # adminUrl: 为你启动的soul-admin 项目的ip + 端口，注意要加 http://
-         # contextPath: 为你的这个项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
-         # appName：你的应用名称，不配置的话，会默认取 dubbo配置中application 中的名称
-  ```
+       ```yaml
+        soul:
+          dubbo:
+            adminUrl: http://localhost:9095
+            contextPath: /dubbo
+            appName: dubbo
+            # adminUrl: 为你启动的soul-admin 项目的ip + 端口，注意要加 http://
+            # contextPath: 为你的这个项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
+            # appName：你的应用名称，不配置的话，会默认取 dubbo配置中application 中的名称
+       ```
 
-* spring
+    * spring
 
-   * 引入以下依赖 ：
- ```xml
-       <dependency>
+        * 引入以下依赖 ：
+        
+        ```xml
+        <dependency>
            <groupId>org.dromara</groupId>
            <artifactId>soul-client-alibaba-dubbo</artifactId>
            <version>${last.version}</version>
         </dependency>
-   ```
-   * 在你的 bean定义的xml文件中新增如下 ：
-  ```xml
-          <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
-               <constructor-arg  ref="dubboConfig"/>
-          </bean>
+        ```
+        * 在你的 bean定义的xml文件中新增如下 ：
+        
+        ```xml
+        <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
+           <constructor-arg  ref="dubboConfig"/>
+        </bean>
+        
+        <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
+           <property name="adminUrl" value="http://localhost:9095"/>
+           <property name="contextPath" value="/你的contextPath"/>
+           <property name="appName" value="你的名字"/>
+        </bean>
+        ```
 
-          <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
-               <property name="adminUrl" value="http://localhost:9095"/>
-               <property name="contextPath" value="/你的contextPath"/>
-               <property name="appName" value="你的名字"/>
-          </bean>
-   ```
 
-* apache dubbo 用户
+ * apache dubbo 用户
 
-  * springboot
+    * springboot
 
-     * 引入以下依赖
+        * 引入以下依赖
 
- ```xml
+         ```xml
         <dependency>
              <groupId>org.dromara</groupId>
              <artifactId>soul-spring-boot-starter-client-apache-dubbo</artifactId>
              <version>${last.version}</version>
         </dependency>
-   ```
+        ```
 
  * 在你的yml文件中新增如下配置 ：
 
@@ -187,27 +188,27 @@ description: dubbo接入soul网关
 
      * 引入以下依赖 ：
 
- ```xml
-       <dependency>
+        ```xml
+        <dependency>
            <groupId>org.dromara</groupId>
            <artifactId>soul-client-apache-dubbo</artifactId>
            <version>${last.version}</version>
         </dependency>
- ```
+        ```
 
-* 在你的 bean定义的xml文件中新增如下 ：
+     * 在你的 bean定义的xml文件中新增如下 ：
 
- ```xml
+        ```xml
           <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
                <constructor-arg  ref="dubboConfig"/>
           </bean>
-
+        
           <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
                <property name="adminUrl" value="http://localhost:9095"/>
                <property name="contextPath" value="/你的contextPath"/>
                <property name="appName" value="你的名字"/>
           </bean>
-   ```
+        ```
 
 ## dubbo 插件设置
 
@@ -217,7 +218,6 @@ description: dubbo接入soul网关
 
 ```yaml
 {"register":"zookeeper://localhost:2181"}   or {"register":"nacos://localhost:8848"}
-
 ```
 
 ## 接口注册到网关
@@ -261,9 +261,9 @@ soul :
 
   * 在你搭建的网关项目中，新增一个类 A，实现 `org.dromara.soul.web.dubbo.DubboParamResolveService`。
 
- ```java
-   public interface DubboParamResolveService {
-
+    ```java
+    public interface DubboParamResolveService {
+    
        /**
         * Build parameter pair.
         * this is Resolve http body to get dubbo param.
@@ -273,8 +273,8 @@ soul :
         * @return the pair
         */
        Pair<String[], Object[]> buildParameter(String body, String parameterTypes);
-   }
-  ```
+    }
+    ```
 
   * `body`为http中body传的json字符串。
 
@@ -290,6 +290,7 @@ soul :
           return new A();
   }
   ```
+
 ## 服务治理
 * 标签路由
     * 请求时在header中添加`Dubbo_Tag_Route`，并设置对应的值，之后当前请求就会路由到指定tag的provider，只对当前请求有效；
@@ -300,6 +301,7 @@ soul :
 * 参数验证和自定义异常
     * 指定`validation="soulValidation"`;
     * 在接口中抛出`SoulException`时，异常信息会返回，需要注意的是显式抛出`SoulException`；
+    
     ```java
     @Service(validation = "soulValidation")
     public class TestServiceImpl implements TestService {
@@ -314,7 +316,9 @@ soul :
         }
     }
     ```
+    
     * 请求参数
+    
     ```java
     public class HelloServiceRequest implements Serializable {
     
@@ -343,28 +347,35 @@ soul :
         }
     }
     ```
+  
     * 发送请求
-    ```java
+    
+    ```json
     {
         "name": ""
     }
     ```
+  
     * 返回
-    ```java
+    
+    ```json
     {
         "code": 500,
         "message": "Internal Server Error",
         "data": "name cannot be empty,age cannot be null"
     }
     ```
+  
     * 当按照要求传递请求参数时，会返回自定义异常的信息
-    ```java
+    
+    ```json
     {
         "code": 500,
         "message": "Internal Server Error",
         "data": "Param binding error."
     }
-    ```
+    ``` 
+
 ## 大白话讲解如果通过http --> 网关--> dubbo provider
 
 * 说白了，就是把http请求，转成dubbo协议，内部使用dubbo泛化来进行调用。
@@ -378,28 +389,25 @@ soul :
 * 假如你有一个这样的方法, contextPath 配置的是 `/dubbo`
 
 ```java
-    @Override
-    @SoulDubboClient(path = "/insert", desc = "插入一条数据")
-    public DubboTest insert(final DubboTest dubboTest) {
-        return dubboTest;
-    }
-
+@Override
+@SoulDubboClient(path = "/insert", desc = "插入一条数据")
+public DubboTest insert(final DubboTest dubboTest) {
+    return dubboTest;
+}
 ```
 
 * 那么我们请求的路径为：`http://localhost:9195/dubbo/insert`，再说一下，`localhost:9195`是网关的域名，如果你更改了，这里也要改。
 
 * 那么请求参数呢？ `DubboTest` 是一个javabean对象，有2个字段，id与name ，那么我们通过body中传递这个对象的json数据就好。
 
-```
-{"id":"1234","name":"XIAO5y"}
-
-```
+    ```
+    {"id":"1234","name":"XIAO5y"}
+    ```
 
 * 如果你的接口中，没有参数，那么body传值为：
 
-```
-{}
-
-```
+    ```
+    {}
+    ```
 
 * 如果你的接口有很多个参数？往上看一点，有介绍。

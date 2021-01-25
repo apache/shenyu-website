@@ -15,6 +15,7 @@ description: waf plugin
 * If the user don't use, please disable the plugin in the backgroud.
 
 * Add configuration mode in plugin editing.
+
 ```yaml
 {"model":"black"}  
 # The default mode is blacklist mode; If setting is mixed, it will be mixed mode. We will explain it specifically below.

@@ -32,20 +32,22 @@ CREATE TABLE IF NOT EXISTS `plugin_handle` (
 ### 使用教程
 
 比如开发springCloud插件时规则表需要存一些配置到handle字段，配置对应的实体类如下：
+
 ```java
-public class SpringCloudRuleHandle implements RuleHandle {
-
-    /**
-     * this remote uri path.
-     */
-    private String path;
-
-    /**
-     * timeout is required.
-     */
-    private long timeout = Constants.TIME_OUT;    }
-}
-  ```
+    public class SpringCloudRuleHandle implements RuleHandle {
+    
+        /**
+         * this remote uri path.
+         */
+        private String path;
+    
+        /**
+         * timeout is required.
+         */
+        private long timeout = Constants.TIME_OUT;
+        
+    }
+```
 
 第一步、我们可以直接在插件管理界面 `http://localhost:9095/#/system/plugin` 点击编辑插件处理
 ![](https://yu199195.github.io/images/soul/plugin-manager.png)

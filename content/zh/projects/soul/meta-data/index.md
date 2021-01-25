@@ -38,22 +38,16 @@ CREATE TABLE  IF NOT EXISTS `meta_data` (
 
 * 重点讲一下 `rpc_ext`字段，如果是dubbo类型的服务接口，如果服务接口设置了group和version字段的时候，会存在这个字段。
 
-  * dubbo 类型 字段结构是 如下，那么存储的就是json格式的字符串。
+* dubbo 类型 字段结构是 如下，那么存储的就是json格式的字符串。
 
   ```java
-   public static class RpcExt {
-
-          private String group;
-
-          private String version;
-
-          private String loadbalance;
-
-          private Integer retries;
-
-          private Integer timeout;
-
-      }
+   public static class RpcExt {  
+      private String group;
+      private String version;
+      private String loadbalance;
+      private Integer retries;
+      private Integer timeout;
+   }
   ```
 
 ## 元数据存储

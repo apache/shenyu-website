@@ -21,6 +21,7 @@ description: sentinel插件
 ## 插件使用
 
 * 在网关的 pom.xml 文件中添加 sentinel的支持。
+
 ```xml
   <!-- soul sentinel plugin start-->
   <dependency>

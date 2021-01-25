@@ -21,6 +21,7 @@ description: hystrix plugin
 ## Plugin Instruction
 
 * Introduce `hystrix` dependency in the pom.xml file of the gateway.
+
 ```xml
   <!-- soul hystrix plugin start-->
   <dependency>

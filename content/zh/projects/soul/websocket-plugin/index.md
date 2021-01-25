@@ -16,6 +16,7 @@ description: websocket支持
 * 在 `soul-admin` --> 插件管理 --> ` divide `，设置为开启。
 
 * 在网关的 pom.xml 文件中新增依赖
+
 ```xml
   <!--if you use http proxy start this-->
    <dependency>

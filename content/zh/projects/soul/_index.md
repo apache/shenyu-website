@@ -71,7 +71,7 @@ sidebar:
       - title: 'Sofa插件'  	
         link: 'sofa-plugin'
       - title: 'RateLimiter插件'  	
-        link: 'rateLimiter-plugin'
+        link: 'rate-limiter-plugin'
       - title: 'Hystrix插件'  	
         link: 'hystrix-plugin'
       - title: 'Sentinel插件'  	

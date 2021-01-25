@@ -1,6 +1,6 @@
 ---
 title: "Soul"
-description: "This is an asynchronous, high-performance, cross-language, responsive API gateway.I hope that something can protect your micro service like a soul.After referring to excellent gateways such as Kong, Spring-Cloud-Gateway, soul was born standing on the shoulders of giants!"
+description: "This is an asynchronous, high-performance, cross-language, responsive API gateway."
 subDesc: "High-performance API Gateway"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "Cross-language"
@@ -32,22 +32,26 @@ sidebar:
     link: 'overview'
   - title: 'Team'  	
     link: 'team'
-  - title: 'Database Design'  	
-    link: 'database-design'
-  - title: 'Config'  	
-    link: 'config'
-  - title: 'DataSync'  	
-    link: 'data-sync'
-  - title: 'MetaData'  	
-    link: 'meta-data'
-  - title: 'User Document'  	
+  - title: 'Design'  	
     sub:
-      - title: 'Set up'  	
-        link: 'soul-set-up'
+      - title: 'Database Design'  	
+        link: 'database-design'
+      - title: 'Config'  	
+        link: 'config' 
+      - title: 'DataSync'  	
+        link: 'data-sync'
+      - title: 'MetaData'  	
+        link: 'meta-data' 
+  - title: 'Admin'  	
+    sub:
       - title: 'Dictionary management'  	
         link: 'dictionary-management'
       - title: 'Plugin handle explanation'  	
         link: 'plugin-handle-explanation'
+      - title: 'Selector and Rule'  	
+        link: 'selector-and-rule'     
+  - title: 'Users Guide'  	
+    sub:
       - title: 'Http proxy'  	
         link: 'http-proxy'
       - title: 'Dubbo proxy'  	
@@ -56,12 +60,10 @@ sidebar:
         link: 'spring-cloud-proxy'
       - title: 'Sofa rpc proxy'  	
         link: 'sofa-rpc-proxy'
-      - title: 'Selector and Rule'  	
-        link: 'selector-and-rule'
       - title: 'Use data sync'  	
-        link: 'use-data-sync'
-      - title: 'Context-path plugin'  	
-        link: 'context-path-plugin'
+        link: 'use-data-sync'   
+  - title: 'Plugins'  	
+    sub:
       - title: 'Divide Plugin'  	
         link: 'divide-plugin'
       - title: 'Dubbo plugin'  	
@@ -88,8 +90,12 @@ sidebar:
         link: 'rewrite-plugin'
       - title: 'Websocket plugin'  	
         link: 'websocket-plugin'
+      - title: 'Context-path plugin'  	
+        link: 'context-path-plugin'
   - title: 'Developer Guide'  	
     sub:
+      - title: 'Set up'  	
+        link: 'soul-set-up'
       - title: 'Custom filter '  	
         link: 'custom-filter'
       - title: 'Custom plugin'  	

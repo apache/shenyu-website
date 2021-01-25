@@ -1,6 +1,6 @@
 ---
 title: "Soul"
-description: "Soul是一个异步的，高性能的，跨语言的，响应式的API网关。希望能够有一样东西像灵魂一样，保护您的微服务。参考了Kong，Spring-Cloud-Gateway等优秀的网关后，站在巨人的肩膀上，Soul由此诞生！"
+description: "Soul是一个异步的，高性能的，跨语言的，响应式的API网关。"
 subDesc: "高性能微服务API网关"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "跨语言支持"
@@ -32,22 +32,26 @@ sidebar:
     link: 'overview'
   - title: '团队介绍'  	
     link: 'team'
-  - title: '数据库设计'  	
-    link: 'database-design'
-  - title: '数据配置流程'  	
-    link: 'config'
-  - title: '数据同步原理'  	
-    link: 'data-sync'
-  - title: '元数据概念介绍'  	
-    link: 'meta-data'
-  - title: '用户使用文档'  	
+  - title: '设计文档'  	
     sub:
-      - title: '搭建soul网关环境'  	
-        link: 'soul-set-up'
+      - title: '数据库设计'  	
+        link: 'database-design'
+      - title: '配置流程设计'  	
+        link: 'config'
+      - title: '数据同步原理设计'  	
+        link: 'data-sync'
+      - title: '元数据设计'  	
+        link: 'meta-data'
+  - title: 'Admin使用文档'  	
+    sub:
       - title: '字典配置'  	
         link: 'dictionary-management'
       - title: '插件配置模板'  	
         link: 'plugin-handle-explanation'
+      - title: '选择器规则详解'  	
+        link: 'selector-and-rule'
+  - title: '用户使用文档'  	
+    sub:
       - title: 'http用户'  	
         link: 'http-proxy'
       - title: 'dubbo用户'  	
@@ -55,13 +59,11 @@ sidebar:
       - title: 'springCloud用户'  	
         link: 'spring-cloud-proxy'
       - title: 'sofa用户'  	
-        link: 'sofa-rpc-proxy'
-      - title: '选择器规则详解'  	
-        link: 'selector-and-rule'
+        link: 'sofa-rpc-proxy' 
       - title: '数据同步策略'  	
         link: 'use-data-sync'
-      - title: 'Context-path插件'  	
-        link: 'context-path-plugin'
+  - title: '插件集合'  	
+    sub:
       - title: 'Divide插件'  	
         link: 'divide-plugin'
       - title: 'Dubbo插件'  	
@@ -88,8 +90,12 @@ sidebar:
         link: 'rewrite-plugin'
       - title: 'Websocket支持'  	
         link: 'websocket-plugin'
+      - title: 'Context-path插件'  	
+        link: 'context-path-plugin'
   - title: '开发者文档'  	
     sub:
+      - title: '搭建Soul网关环境'  	
+        link: 'soul-set-up'
       - title: '自定义filter'  	
         link: 'custom-filter'
       - title: '自定义插件'  	

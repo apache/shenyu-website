@@ -13,9 +13,9 @@ description:  dubbo快速体验
 
   *   #### Git
 
-  *   ### redis
+  *   #### Redis
 
-  *   ### mysql
+  * #### Mysql
 
 
 ### 代码拉取
@@ -26,7 +26,7 @@ description:  dubbo快速体验
    > cd Raincat
 
    > mvn -DskipTests clean install -U
-   ```
+ ```
 
 ### 执行demo 模块的sql语句。
 
@@ -93,7 +93,7 @@ org:
 
  ```xml
   <dubbo:registry protocol="zookeeper" address="192.168.1.148:2181"/>
-```
+ ```
 
 * 启动order项目。（执行OrderApplication中的main方法）
 

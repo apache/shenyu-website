@@ -11,11 +11,11 @@ description: springcloud快速体验
 
   *   #### Maven 3.2.x
 
-  *   #### Git
+  * #### Git
 
-  *   ### redis
+  * #### Redis
 
-  *   ### mysql
+  * #### Mysql
 
 
 ### 代码拉取
@@ -26,7 +26,7 @@ description: springcloud快速体验
    > cd Raincat
 
    > mvn -DskipTests clean install -U
-   ```
+ ```
 
 ### 执行demo 模块的sql语句。
 

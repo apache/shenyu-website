@@ -9,7 +9,7 @@ description:  TxTransactionBootstrap配置详解
 
 ###  @TxTransaction annotation详解
 
-*   该注解为分布式事务的切面（AOP point），如果业务方的service服务需要参与分布式事务，则需要加上此注解。
+*   该注解为分布式事务的切面（AOP point） ，如果业务方的service服务需要参与分布式事务，则需要加上此注解。
 
 
 ###  TxTransactionBootstrap 详解：
@@ -41,7 +41,7 @@ description:  TxTransactionBootstrap配置详解
         </bean>
     </property>
 </bean>
-```  
+```
 
 * txManagerUrl：填写你启动的txManager的ip端口，注意添加http://前缀。
 
@@ -85,7 +85,7 @@ description:  TxTransactionBootstrap配置详解
         <property name="mongoUserPwd" value="123456"/>
     </bean>
 </property>
-```    
+```
 
 * 如果你采用redis存储日志,配置如下：
 
@@ -115,7 +115,7 @@ description:  TxTransactionBootstrap配置详解
             <property name="password" value="123456"/>
         </bean>
     </property>
-    ```
+   ```
     * redis集群:
 
     ```xml
@@ -140,4 +140,4 @@ description:  TxTransactionBootstrap配置详解
             <property name="rootPath" value="/tcc"/>
         </bean>
     </property>
-    ``` 
+    ```

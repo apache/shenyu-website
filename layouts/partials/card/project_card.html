@@ -31,7 +31,11 @@
 	</p>
 	<div class="project-button-groups">
 		<a class="project-button -shadow" href={{ $link }}>{{ .Params.startUp }}</a>
-		<a class="project-button -outline" href={{ .Params.gitee }}>Gitee</a>
 		<a class="project-button -outline" href={{ .Params.github }}>GitHub</a>
+		{{ if ne .Params.gitee "" }}
+		<a class="project-button -outline" href={{ .Params.gitee }}>Gitee</a>
+		{{ else }}
+		<a class="project-button" style="background-color: transparent;"></a>
+		{{ end }}
 	</div>
 </div>

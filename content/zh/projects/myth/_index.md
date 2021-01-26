@@ -20,12 +20,15 @@ feature5Desc: "jms(activimq),amqp(rabbitmq),kafka,roceketmq"
 feature6Img: "/img/feature/feature_maintenance.png"
 feature6Title: "支持内嵌事务"
 feature6Desc: "支持rpc的且套调用"
+architectureImg: ""
 startUp: "开始"
 github: "https://github.com/dromara/myth"
 gitee: "https://gitee.com/shuaiqiyu/myth"
 level: "main"
 weight: 4
 icon: "/img/icons/myth.png"
+showIntroduce: true
+showFeature: true
 sidebar:
   - title: '介绍文档'  	
     link: 'overview'

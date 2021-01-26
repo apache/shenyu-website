@@ -2,6 +2,7 @@
   .list-title {
     font-size: 30px;
     font-weight: 450;
+    margin-left: 14px;
     color: $text-color;
   }
 
@@ -106,7 +107,7 @@
   .-selected{
     background-color:rgba(255,255,255,0.7);
     border: 1px solid rgb(255,255,255);
-    box-shadow: 1px 1px 8px 10px rgba(27 ,31 ,35 , 0.09);
+    box-shadow: 1px 1px 4px 8px rgba(27 ,31 ,35 , 0.06);
   }
 
   .-display{
@@ -166,7 +167,7 @@
       }
       img {
         width: 562px;
-        margin: 0 82px;
+        margin-left: 100px;
         max-width: 100%;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.05);
       }
@@ -228,6 +229,7 @@
         display: inline-block;
         margin-bottom: 40px;
         width: 48%;
+        margin-right: 20px;
         img {
           vertical-align: top;
           width: 60px;

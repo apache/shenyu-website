@@ -26,5 +26,7 @@ gitee: "https://gitee.com/shuaiqiyu/myth"
 level: "main"
 weight: 4
 icon: "/img/icons/myth.png"
+showIntroduce: true
+showFeature: true
 ---
 

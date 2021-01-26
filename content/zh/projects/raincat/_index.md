@@ -27,6 +27,8 @@ gitee: "https://gitee.com/shuaiqiyu/Raincat"
 level: "main"
 weight: 3
 icon: "/img/icons/raincat.png"
+showIntroduce: true
+showFeature: true
 sidebar:
   - title: '介绍文档'  	
     link: 'overview'

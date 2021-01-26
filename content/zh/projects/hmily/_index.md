@@ -27,6 +27,8 @@ gitee: "https://gitee.com/shuaiqiyu/hmily"
 level: "main"
 weight: 2
 icon: "/img/icons/hmily.png"
+showIntroduce: true
+showFeature: true
 sidebar:
   - title: 'Hmily 介绍'  	
     link: 'overview'

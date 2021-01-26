@@ -31,15 +31,21 @@
 		{{ range $idx, $val := $list }}
 			{{ if ne (len $val) 0 }}
 				<div class="ss-list">
-					<!-- <h2 class="list-title">
+					<h2 class="list-title">
 						<a>{{ i18n (index $title_list $idx) }}</a>
-					</h2> -->
+					</h2>
 					<div class="list">
 						{{ range $val }}
 							{{ partial "card/project_card" . }}
 						{{ end }}
-					</div>
+					</div> 
+				</div>
+			{{ end }}
+		{{ end }}
 
+		{{ range $idx, $val := $list }}
+			{{ if ne (len $val) 0 }}
+				<div class="ss-list"> 
 					<div class="list">
 						{{ range $val }}
 							{{ partial "card/project_introduce" . }}
@@ -54,7 +60,7 @@
 				</div>
 			{{ end }}
 		{{ end }}
-	</main>
+	</main> 
 </div>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>

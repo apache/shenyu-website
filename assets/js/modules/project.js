@@ -22,9 +22,12 @@ export default function() {
           item.classList.remove('-display')
         })
         project.classList.add('-selected');
-        $$('.introduction-section')[i].classList.add('-display');
-        $$('.feature-section')[i].classList.add('-display');
-        
+        if($$('.introduction-section')[i].children && $$('.introduction-section')[i].children.length > 0){
+          $$('.introduction-section')[i].classList.add('-display');
+        }
+        if($$('.feature-section')[i].children && $$('.feature-section')[i].children.length > 0){
+          $$('.feature-section')[i].classList.add('-display');
+        }
     })
   })
 

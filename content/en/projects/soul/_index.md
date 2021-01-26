@@ -54,6 +54,8 @@ sidebar:
         link: 'selector-and-rule'     
   - title: 'Users Guide'  	
     sub:
+      - title: 'Set up'  	
+        link: 'soul-set-up' 
       - title: 'Http proxy'  	
         link: 'http-proxy'
       - title: 'Dubbo proxy'  	
@@ -96,8 +98,6 @@ sidebar:
         link: 'context-path-plugin'
   - title: 'Developer Guide'  	
     sub:
-      - title: 'Set up'  	
-        link: 'soul-set-up'
       - title: 'Custom filter '  	
         link: 'custom-filter'
       - title: 'Custom plugin'  	

@@ -54,6 +54,8 @@ sidebar:
         link: 'selector-and-rule'
   - title: '用户文档'  	
     sub:
+      - title: '搭建Soul网关环境'  	
+        link: 'soul-set-up'
       - title: 'Http代理'  	
         link: 'http-proxy'
       - title: 'Dubbo代理'  	
@@ -96,8 +98,6 @@ sidebar:
         link: 'context-path-plugin'
   - title: '开发者文档'  	
     sub:
-      - title: '搭建Soul网关环境'  	
-        link: 'soul-set-up'
       - title: '自定义filter'  	
         link: 'custom-filter'
       - title: '自定义插件'  	

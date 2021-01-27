@@ -37,7 +37,7 @@ description: 数据同步设计
 先来张高清无码图，下图展示了 `Soul` 数据同步的流程，`Soul` 网关在启动时，会从从配置服务同步配置数据，并且支持推拉模式获取配置变更信息，并且更新本地缓存。而管理员在管理后台，变更用户、规则、插件、流量配置，通过推拉模式将变更信息同步给 `Soul` 网关，具体是 `push` 模式，还是 `pull` 模式取决于配置。关于配置同步模块，其实是一个简版的配置中心。
 ![Soul数据同步流程图](https://bestkobe.gitee.io/images/soul/soul-config-processor.png?_t=201908032316)
 
-在 `1.x` 版本中，配置服务依赖 `zookeeper` 实现，管理后台将变更信息 `push` 给网关。而 `2.x` 版本支持 `webosocket`、`http`、`zookeeper`，通过 `soul.sync.strategy` 指定对应的同步策略，默认使用 `http` 长轮询同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`soul-web` 和 `soul-admin` 必须使用相同的同步机制。
+在 `1.x` 版本中，配置服务依赖 `zookeeper` 实现，管理后台将变更信息 `push` 给网关。而 `2.x` 版本支持 `webosocket`、`http`、`zookeeper`，通过 `soul.sync.strategy` 指定对应的同步策略，默认使用 `webosocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`soul-web` 和 `soul-admin` 必须使用相同的同步机制。
 
 如下图所示，`soul-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(http、weboscket、zookeeper)，将配置发送给对应的事件处理器
 

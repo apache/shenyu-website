@@ -1,10 +1,15 @@
-* #####   cd  https://github.com/yu199195/myth/tree/master/myth-demo/myth-demo-springcloud
+---
+title: Quick Start SpringCloud
+description: Myth Quick Start SpringCloud
+---
 
-*  #####  run  EurekaServerApplication.java
+* cd  https://github.com/yu199195/myth/tree/master/myth-demo/myth-demo-springcloud
 
-*  #####  Modifiy application.yml on Indicator Item   And Modifiy you jdbc url And choose you Message Oriented Middleware
+* run  EurekaServerApplication.java
 
-    ```yml
+* Modifiy application.yml on Indicator Item   And Modifiy you jdbc url And choose you Message Oriented Middleware
+
+ ```yml
    spring:
      datasource:
         driver-class-name:  com.mysql.jdbc.Driver
@@ -34,10 +39,10 @@
       #     auto-commit-interval: 100
       #    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       #     value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
-   ```
-*  #####  Modifiy applicationContext.xml on Indicator Item And choose repositorySupport and modifiy it
+ ```
+* Modifiy applicationContext.xml on Indicator Item And choose repositorySupport and modifiy it
 
-    * ### If you use database compensation , You have to create a new database  for example：myth
+    * If you use database compensation , You have to create a new database  for example：myth
 
      ```xml
      <context:component-scan base-package="com.github.myth.*"/>
@@ -61,14 +66,14 @@
        </property>
    </bean>
     ```
-*  #####  run  SpringCloudAccountApplication.java
+*  run  SpringCloudAccountApplication.java
 
-*  #####  run  SpringCloudInventoryApplication.java
+*  run  SpringCloudInventoryApplication.java
 
-*  #####  run   SpringcloudOrderApplication.java
-     ### this mq sender so befer:
+*  run   SpringcloudOrderApplication.java
+    this mq sender so befer:
 
-    * ####   in applicationContext.xml  choose import you mq sender config  
+    * in applicationContext.xml  choose import you mq sender config  
 
       ```xml
       <import resource="spring-rocketmq.xml"/>
@@ -77,7 +82,7 @@
       <!--<import resource="spring-activemq.xml"/>-->
       ```
 
-    *  ####  modifiy you mq config for example
+    * modifiy you mq config for example
 
      ```xml
        <bean id="defaultMQProducer" class="org.apache.rocketmq.client.producer.DefaultMQProducer"
@@ -91,4 +96,4 @@
          <property name="defaultMQProducer" ref="defaultMQProducer"/>
       </bean>
      ```
-*  #####  http://127.0.0.1:8884/swagger-ui.html
+* http://127.0.0.1:8884/swagger-ui.html

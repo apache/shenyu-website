@@ -1,13 +1,18 @@
- * ### In the springcloud service provider (the participating method of the transaction, the called party).
+---
+title: SpringCloud User
+description: Myth SpringCloud User
+---
 
-     * #### add myth-springcloud dependency
+ * In the springcloud service provider (the participating method of the transaction, the called party).
+
+     * add myth-springcloud dependency
          ```xml
           <dependency>
               <groupId>com.github.myth</groupId>
               <artifactId>myth-springcloud</artifactId>
           </dependency>
         ```
-     * #### Configure MythTransactionBootstrap to start the class, either as XML or as @Bean. Specific configuration can refer to here:[configuration for details](https://github.com/yu199195/myth/wiki/Configuration).
+     * Configure MythTransactionBootstrap to start the class, either as XML or as @Bean. Specific configuration can refer to here:[configuration for details](https://github.com/yu199195/myth/wiki/Configuration).
 
        ```xml
        <context:component-scan base-package="com.github.myth.*"/>
@@ -31,9 +36,9 @@
          </property>
        </bean>
        ```
-   * #### Add @Myth to the implementation method of springcloud service.
+   * Add @Myth to the implementation method of springcloud service.
 
-   * #### Listen to the message queue (message queue name written in the annotations method), invoke the framework provides MythMqReceiveService.processMessage() method. If you use JMS, you can refer to the Demo project for details.
+   * Listen to the message queue (message queue name written in the annotations method), invoke the framework provides MythMqReceiveService.processMessage() method. If you use JMS, you can refer to the Demo project for details.
 
         ```java
         @JmsListener(destination = "account",containerFactory = "queueListenerContainerFactory")
@@ -46,9 +51,9 @@
       }
       ```
 
-   * ### In the springcloud consumer (the invoker of the transaction, the caller)
+   * In the springcloud consumer (the invoker of the transaction, the caller)
 
-      * #### add myth-springcloud dependency
+      * add myth-springcloud dependency
        ```xml
        <dependency>
             <groupId>com.github.myth</groupId>
@@ -56,7 +61,7 @@
         </dependency>
        ```
 
-      * #### Set feignClient to add @Myth annotation to the interface, the target must be set to the service interface you actually call, and it must be set correctly.
+      * Set feignClient to add @Myth annotation to the interface, the target must be set to the service interface you actually call, and it must be set correctly.
        ```java
         @FeignClient(value = "account-service", configuration = MyConfiguration.class)
         public interface AccountClient {
@@ -65,7 +70,7 @@
               Boolean payment(@RequestBody AccountDTO accountDO);
         }
        ```
-      * ####  FeignClient config: configuration = MyConfiguration.class
+      * FeignClient config: configuration = MyConfiguration.class
        ```java
              @Configuration
              public class MyConfiguration {
@@ -89,7 +94,7 @@
             }
            }
        ```
-      * #### The MythTransactionBootstrap startup class can be configured in xml or @Bean. Please refer to the specific configuration:[configuration for details](https://github.com/yu199195/myth/wiki/Configuration)
+      * The MythTransactionBootstrap startup class can be configured in xml or @Bean. Please refer to the specific configuration:[configuration for details](https://github.com/yu199195/myth/wiki/Configuration)
         ```xml
         <context:component-scan base-package="com.github.myth.*"/>
         <aop:aspectj-autoproxy expose-proxy="true"/>
@@ -115,7 +120,7 @@
           </property>
         </bean>
         ```
-      * #### Note: Please configure the automatic recovery strategy on the consumer side to prevent the message sending failure in extreme cases.
+      * Note: Please configure the automatic recovery strategy on the consumer side to prevent the message sending failure in extreme cases.
         ```xml
         <!-Set to true, show that the recovery strategy-->
         <property name="needRecover" value="true"/>
@@ -125,9 +130,9 @@
         <property name="scheduledThreadMax" value="4"/>
         ```
 
-     *  #### Select your messaging middleware type to import different jar.
+     *  Select your messaging middleware type to import different jar.
 
-       *  ##### If you are using JMS (ActiveMQ), import the jar package and configure the ActiveMQSendServiceImpl.
+       *  If you are using JMS (ActiveMQ), import the jar package and configure the ActiveMQSendServiceImpl.
           ```xml
           <dependency>
               <groupId>com.github.myth</groupId>
@@ -139,21 +144,20 @@
               <property name="jmsTemplate" ref="jmsTemplate"/>
           </bean>
           ```
-       *  ##### If you are using RabbitMQ, import the jar package and configure the RabbitMQSendServiceImpl.
+       * If you are using RabbitMQ, import the jar package and configure the RabbitMQSendServiceImpl.
 
-             ```xml
+         ```xml
              <dependency>
                  <groupId>com.github.myth</groupId>
                  <artifactId>myth-rabbitmq</artifactId>
              </dependency>
-
-             ```
-             ```xml
+         ```
+         ```xml
              <bean id="rabbitmqSendService" class="com.github.myth.rabbitmq.service.RabbitmqSendServiceImpl">
                <property name="amqpTemplate" ref="amqpTemplate"/>
             </bean>
-            ```
-       *  ##### If you are using Kafka, import the jar package and configure KafkasendServiceImpl.
+         ```
+       *  If you are using Kafka, import the jar package and configure KafkasendServiceImpl.
 
            ```xml
              <dependency>
@@ -164,10 +168,10 @@
            ```xml
            <bean id="KafkaSendService" class="com.github.myth.kafka.service.KafkaSendServiceImpl" >
               <property name="kafkaTemplate" ref="kafkaTemplate"/>
-           </bean      
+           </bean>     
            ```
 
-       *  ##### If you are using RocketMQ, import the jar package and configure the RocketMQSendServiceImpl.
+       *  If you are using RocketMQ, import the jar package and configure the RocketMQSendServiceImpl.
 
            ```xml
                  <dependency>

@@ -46,11 +46,11 @@ sidebar:
         link: 'springcloud-user'
   - title: '快速体验'  	
     sub:
-      - title: 'quick-start-dubbo'  	
+      - title: 'dubbo快速开始'  	
         link: 'quick-start-dubbo'
-      - title: 'quick-start-motan'  	
+      - title: 'motan快速开始'  	
         link: 'quick-start-motan'
-      - title: 'quick-start-springcloud'  	
+      - title: 'springcloud快速开始'  	
         link: 'quick-start-springcloud'
 ---
 

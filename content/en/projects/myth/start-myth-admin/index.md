@@ -1,4 +1,8 @@
-### Myth-admin startup tutorial
+---
+title: Myth-admin startup tutorial
+description: Myth-admin startup tutorial
+---
+
 Startup premise: the distributed transaction project has been deployed and running, and users use it according to their own RPC framework.
 
 * First, the JDK  must be 1.8+, and Git and Maven are installed locally. Execute the following command.
@@ -92,9 +96,4 @@ myth.zookeeper.sessionTimeOut=200000
 ### Step Four: visit http://ip:port/myth-admin/index.html in the browser, enter the username and password to log in.
 
 
-
-
-
-
-
-### If you have any questions, please join QQ group: 162614487 for discussion.
+__If you have any questions, please join QQ group: 162614487 for discussion.__

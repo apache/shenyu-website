@@ -1,43 +1,48 @@
-*  #####  cd https://github.com/yu199195/myth/tree/master/myth-demo/myth-demo-motan
+---
+title: Quick Start Motan
+description: Myth Quick Start Motan
+---
 
-*  #####  Modifiy application.yml on Indicator Item And Modifiy you jdbc url And zookeeper url And choose you Message Oriented Middleware
+*  cd https://github.com/yu199195/myth/tree/master/myth-demo/myth-demo-motan
+
+*  Modifiy application.yml on Indicator Item And Modifiy you jdbc url And zookeeper url And choose you Message Oriented Middleware
    
-    ```yml
-   spring:
-      motan:
-          zookeeper: 192.168.1.148:2181
-      datasource:
-          driver-class-name:  com.mysql.jdbc.Driver
-          url: jdbc:mysql://192.168.1.68:3306/myth_account?useUnicode=true&characterEncoding=utf8
-          username: xiaoyu
-          password: Wgj@555888
-      #activemq:
-      #   broker-url: tcp://120.76.52.162:61616
-      #   user: happylife
-      #   password: happylifeplat01
-      #   trust-all: true
-      #rabbitmq:
-      #    host: localhost
-      #    port: 5672
-      #    username: guest
-      #    password: guest
-      rocketmq:
-          namesrvAddr: 192.168.1.148:9876
-          consumerGroupName: account
-          instanceName: account
-      #kafka:
-        #  consumer:
-        #     bootstrap-servers: localhost:9092
-        #     group-id: test
-        #     auto-offset-reset: earliest
-        #     enable-auto-commit: true
-        #     auto-commit-interval: 100
-        #    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-        #     value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer    
-   ```
-*  #####  Modifiy applicationContext.xml on Indicator Item And choose repositorySupport and modifiy it
+```yml
+spring:
+  motan:
+    zookeeper: 192.168.1.148:2181
+  datasource:
+    driver-class-name:  com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.68:3306/myth_account?useUnicode=true&characterEncoding=utf8
+    username: xiaoyu
+    password: Wgj@555888
+  #activemq:
+  #   broker-url: tcp://120.76.52.162:61616
+  #   user: happylife
+  #   password: happylifeplat01
+  #   trust-all: true
+  #rabbitmq:
+  #    host: localhost
+  #    port: 5672
+  #    username: guest
+  #    password: guest
+  rocketmq:
+    namesrvAddr: 192.168.1.148:9876
+    consumerGroupName: account
+    instanceName: account
+    #kafka:
+    #  consumer:
+    #     bootstrap-servers: localhost:9092
+    #     group-id: test
+    #     auto-offset-reset: earliest
+    #     enable-auto-commit: true
+    #     auto-commit-interval: 100
+    #    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    #     value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer       
+```
+* Modifiy applicationContext.xml on Indicator Item And choose repositorySupport and modifiy it
 
-     ```xml
+ ```xml
      <context:component-scan base-package="com.github.myth.*"/>
    <aop:aspectj-autoproxy expose-proxy="true"/>
    <bean id="mythTransactionBootstrap" class="com.github.myth.core.bootstrap.MythTransactionBootstrap">
@@ -59,14 +64,14 @@
        </property>
    </bean>
    ```
-*  #####  run  MotanAccountApplication.java
+* run  MotanAccountApplication.java
 
-*  #####  run  MotanInventoryApplication.java
+* run  MotanInventoryApplication.java
 
-*  #####  run  MotanOrderApplication.java  
-     ### this mq sender so befer:
+* run  MotanOrderApplication.java  
+     this mq sender so befer:
 
-    *  ####   in applicationContext.xml  choose import you mq sender config  
+    * in applicationContext.xml  choose import you mq sender config  
 
       ```xml
       <import resource="spring-rocketmq.xml"/>
@@ -75,7 +80,7 @@
       <!--<import resource="spring-activemq.xml"/>-->
       ```
 
-    *  ####  modifiy you mq config for example
+    * modifiy you mq config for example
 
     ```xml
        <bean id="defaultMQProducer" class="org.apache.rocketmq.client.producer.DefaultMQProducer"
@@ -90,4 +95,4 @@
      </bean>
     ```
 
-*  ####  http://127.0.0.1:8083/swagger-ui.html
+* http://127.0.0.1:8083/swagger-ui.html

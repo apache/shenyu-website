@@ -1,6 +1,11 @@
-*  #####  cd https://github.com/yu199195/myth/tree/master/myth-demo/myth-demo-motan
+---
+title: Motan 快速开始
+description: Motan 快速开始
+---
 
-*  #####  Modifiy application.yml on Indicator Item And Modifiy you jdbc url And zookeeper url And choose you Message Oriented Middleware
+* cd https://github.com/yu199195/myth/tree/master/myth-demo/myth-demo-motan
+
+* Modifiy application.yml on Indicator Item And Modifiy you jdbc url And zookeeper url And choose you Message Oriented Middleware
    
     ```yml
    spring:
@@ -35,9 +40,9 @@
         #    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
         #     value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer    
    ```
-*  #####  Modifiy applicationContext.xml on Indicator Item And choose repositorySupport and modifiy it
+* Modifiy applicationContext.xml on Indicator Item And choose repositorySupport and modifiy it
 
-     ```xml
+   ```xml
      <context:component-scan base-package="com.github.myth.*"/>
    <aop:aspectj-autoproxy expose-proxy="true"/>
    <bean id="mythTransactionBootstrap" class="com.github.myth.core.bootstrap.MythTransactionBootstrap">
@@ -59,14 +64,14 @@
        </property>
    </bean>
    ```
-*  #####  run  MotanAccountApplication.java
+* run  MotanAccountApplication.java
 
-*  #####  run  MotanInventoryApplication.java
+* run  MotanInventoryApplication.java
 
-*  #####  run  MotanOrderApplication.java  
-     ### this mq sender so befer:
+* run  MotanOrderApplication.java  
+     this mq sender so befer:
 
-    *  ####   in applicationContext.xml  choose import you mq sender config  
+    * in applicationContext.xml  choose import you mq sender config  
 
       ```xml
       <import resource="spring-rocketmq.xml"/>
@@ -75,7 +80,7 @@
       <!--<import resource="spring-activemq.xml"/>-->
       ```
 
-    *  ####  modifiy you mq config for example
+    * modifiy you mq config for example
 
     ```xml
        <bean id="defaultMQProducer" class="org.apache.rocketmq.client.producer.DefaultMQProducer"
@@ -90,4 +95,4 @@
      </bean>
     ```
 
-*  ####  http://127.0.0.1:8083/swagger-ui.html
+* http://127.0.0.1:8083/swagger-ui.html

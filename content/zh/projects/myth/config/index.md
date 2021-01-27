@@ -1,6 +1,9 @@
-* ### @Myth
+---
+title: Myth 配置
+description: Myth Configuration
+---
 
-   *  ##### 注解源码解析
+* 注解源码解析
 
 ```java
    /**
@@ -59,10 +62,10 @@ public @interface Myth {
 ```
 
 
-   *  ##### 注解使用： 在接口方法和实现类上添加@Myth注解（dubbo,motan 加在api接口上，springcloud则需要加在feignClient上），具体参考demo工程。
+* 注解使用： 在接口方法和实现类上添加@Myth注解（dubbo,motan 加在api接口上，springcloud则需要加在feignClient上），具体参考demo工程。
 
 
-* ###  applicationContext.xml 详解：
+* applicationContext.xml 详解：
 
 ```xml
 
@@ -93,7 +96,7 @@ public @interface Myth {
 ```
 
 
-* ### MythTransactionBootstrap 详解（具体参见com.github.myth.common.config.MythConfig）
+* MythTransactionBootstrap 详解（具体参见com.github.myth.common.config.MythConfig）
 
 ```xml
   <!--数据保存序列化方式  spi扩展支持 java kroy，hessian protostuff 推荐使用kroy-->
@@ -116,7 +119,7 @@ public @interface Myth {
 
 ```
 
-* ### 当事务的发起者配置时候，请指定需要定时任务来恢复（事务的参与者不需要配置）
+* 当事务的发起者配置时候，请指定需要定时任务来恢复（事务的参与者不需要配置）
 
 ```xml
        <property name="needRecover" value="true"/>
@@ -124,7 +127,7 @@ public @interface Myth {
        <property name="scheduledThreadMax" value="4"/>
 ```
 
-* ### 事务日志采用数据库存储
+* 事务日志采用数据库存储
 
 ```xml
        <property name="repositorySupport" value="db"/>
@@ -139,7 +142,7 @@ public @interface Myth {
       </property>
 ```
 
-* ### 事务日志采用redis存储，当业务模块为集群时，推荐使用
+* 事务日志采用redis存储，当业务模块为集群时，推荐使用
 
 ```xml
 
@@ -159,7 +162,7 @@ public @interface Myth {
       </property>
 ```
 
-* ###  事务日志采用zookeeper存储，当业务模块为集群时，推荐使用
+* 事务日志采用zookeeper存储，当业务模块为集群时，推荐使用
 ```xml
          <!--配置日志存储类型为zookeeper-->
          <property name="repositorySupport" value="zookeeper"/>
@@ -171,34 +174,35 @@ public @interface Myth {
              </bean>
         </property>
 ```
-* ### 事务日志采用 **mongodb存储**,这里mongdb连接方式采用3.4.0版本推荐使用的Sha1,不是CR模式，同时mongdb应该开启权限认证，使用者需要注意
+* 事务日志采用 **mongodb存储**,这里mongdb连接方式采用3.4.0版本推荐使用的Sha1,不是CR模式，同时mongdb应该开启权限认证，使用者需要注意
 
 ```xml
-        <!--配置日志存储类型为mongodb-->
-        <property name="repositorySupport" value="mongodb"/>
-        <property name="mythMongoConfig">
-           <bean class="com.github.myth.common.config.MythMongoConfig">
-               <!--mongodb url-->
-               <property name="mongoDbUrl"  value="192.168.1.78:27017"/>
-               <!--mongodb 数据库-->
-               <property name="mongoDbName" value="happylife"/>
-               <!--mongodb 用户名-->
-               <property name="mongoUserName" value="xiaoyu"/>
-               <!--mongodb 密码-->
-               <property name="mongoUserPwd" value="123456"/>
-           </bean>
-       </property>
+<!--配置日志存储类型为mongodb-->
+<property name="repositorySupport" value="mongodb"/>
+<property name="mythMongoConfig">
+    <bean class="com.github.myth.common.config.MythMongoConfig">
+        <!--mongodb url-->
+        <property name="mongoDbUrl"  value="192.168.1.78:27017"/>
+        <!--mongodb 数据库-->
+        <property name="mongoDbName" value="happylife"/>
+        <!--mongodb 用户名-->
+        <property name="mongoUserName" value="xiaoyu"/>
+        <!--mongodb 密码-->
+        <property name="mongoUserPwd" value="123456"/>
+    </bean>
+</property>        
 ```
-*  ### 本地数据存储为file
-```xml
-     <!--配置日志存储类型为file-->
-     <property name="repositorySupport" value="file"/>
-     <property name="MythFileConfig">
-            <bean class="com.github.myth.common.config.MythFileConfig">
 
-                <property name="path"  value=""/>
-                <!--指定文件前缀，生成文件名称-->
-                <property name="prefix" value="consume"/>
-            </bean>
-      </property>
+* 本地数据存储为file
+
+```xml
+<!--配置日志存储类型为file-->
+<property name="repositorySupport" value="file"/>
+<property name="MythFileConfig">
+    <bean class="com.github.myth.common.config.MythFileConfig">
+        <property name="path"  value=""/>
+           <!--指定文件前缀，生成文件名称-->
+         <property name="prefix" value="consume"/>
+    </bean>
+ </property>
 ```

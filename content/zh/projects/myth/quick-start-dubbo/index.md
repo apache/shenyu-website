@@ -1,6 +1,11 @@
-*  #####  cd  https://github.com/yu199195/myth/tree/master/myth-demo/myth-demo-dubbo
+---
+title: Dubbo 快速开始
+description: Dubbo 快速开始
+---
 
-*  #####  Modifiy application.yml on Indicator Item  And Modifiy you jdbc url And choose you Message Oriented Middleware
+* cd https://github.com/yu199195/myth/tree/master/myth-demo/myth-demo-dubbo
+
+* Modifiy application.yml on Indicator Item  And Modifiy you jdbc url And choose you Message Oriented Middleware
 
      ```yml
      spring:
@@ -33,8 +38,8 @@
       #    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       #     value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
     ```
-*  #####  Modifiy applicationContext.xml on Indicator Item And choose repositorySupport and modifiy it
-    * ### If you use database compensation , You have to create a new database  for example：myth
+* Modifiy applicationContext.xml on Indicator Item And choose repositorySupport and modifiy it
+    * If you use database compensation , You have to create a new database  for example：myth
      ```xml
      <context:component-scan base-package="com.github.myth.*"/>
    <aop:aspectj-autoproxy expose-proxy="true"/>
@@ -58,7 +63,7 @@
    </bean>
     ```
 
-* #####  Modifiy spring-dubbo.xml on Indicator Item And  modifiy zookeeper url
+* Modifiy spring-dubbo.xml on Indicator Item And  modifiy zookeeper url
   
     ```xml
    <dubbo:application name="account-service"/>
@@ -70,14 +75,13 @@
   <dubbo:service interface="com.github.myth.demo.dubbo.account.api.service.AccountService"
                  ref="accountService"/>
   ```
-*  #####  run  DubboAccountApplication.java
+* run  DubboAccountApplication.java
 
-*  #####  run  DubboInventoryApplication.java
+* run  DubboInventoryApplication.java
 
-*  #####  run  DubboOrderApplication.java  
-     ### this mq sender so befer:
-
-    * ####   in applicationContext.xml  choose import you mq sender config  
+* run  DubboOrderApplication.java   
+    this mq sender so befer:
+    * in applicationContext.xml  choose import you mq sender config  
 
       ```xml
       <import resource="spring-rocketmq.xml"/>
@@ -86,7 +90,7 @@
       <!--<import resource="spring-activemq.xml"/>-->
       ```
 
-   *  ####  modifiy you mq config for example
+   * modifiy you mq config for example
 
      ```xml
        <bean id="defaultMQProducer" class="org.apache.rocketmq.client.producer.DefaultMQProducer"
@@ -98,7 +102,7 @@
 
       <bean id="rocketmqSendService" class="com.github.myth.rocketmq.service.RocketmqSendServiceImpl">
           <property name="defaultMQProducer" ref="defaultMQProducer"/>
-       </bean>
+      </bean>
      ```
 
-*  ####  http://127.0.0.1:8083/swagger-ui.html
+* http://127.0.0.1:8083/swagger-ui.html

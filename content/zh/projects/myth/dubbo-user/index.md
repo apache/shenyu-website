@@ -1,4 +1,9 @@
-* ###  在dubbo api 项目引入myth-annotation jar包
+---
+title: Dubbo 用户
+description: Myth Dubbo User
+---
+
+* 在dubbo api 项目引入myth-annotation jar包
 
 ```xml
        <dependency>
@@ -7,23 +12,23 @@
        </dependency>
 ```
 
-* ### 在dubbo interface 方法上加上@Myth注解 ,并设置消息队列名称,此队列就是消息中间件发消息的队列：
+* 在dubbo interface 方法上加上@Myth注解 ,并设置消息队列名称,此队列就是消息中间件发消息的队列：
 
 ```java
     @Myth(destination = "account")
     boolean payment(AccountDTO accountDTO);   
 ```
 
-* ### 在dubbo 服务提供方（事务的参与方法，被调用方）
+* 在dubbo 服务提供方（事务的参与方法，被调用方）
 
-  * #### 引入myth-dubbo 包
+  * 引入myth-dubbo 包
       ```xml
       <dependency>
            <groupId>com.github.myth</groupId>
            <artifactId>myth-dubbo</artifactId>
        </dependency>
      ```
-  * #### 配置 MythTransactionBootstrap启动类,可以采用xml方式，或者@Bean的方式,具体配置可以参考:[配置详解](https://github.com/yu199195/myth/wiki/Configuration)
+  * 配置 MythTransactionBootstrap启动类,可以采用xml方式，或者@Bean的方式,具体配置可以参考:[配置详解](https://github.com/yu199195/myth/wiki/Configuration)
 
     ```xml
     <context:component-scan base-package="com.github.myth.*"/>
@@ -47,9 +52,9 @@
       </property>
     </bean>
     ```
-* #### 在你接口的实现方法上加上@Myth
+* 在你接口的实现方法上加上@Myth
 
-* #### 监听消息队列（注解方法上写的消息队列名称),调用框架提供       的MythMqReceiveService.processMessage方法。列如使用jms，具体可以参考demo工程。
+* 监听消息队列（注解方法上写的消息队列名称),调用框架提供       的MythMqReceiveService.processMessage方法。列如使用jms，具体可以参考demo工程。
 
      ```java
      @JmsListener(destination = "account",containerFactory = "queueListenerContainerFactory")
@@ -62,9 +67,9 @@
    }
    ```
 
-* ### 在dubbo 消费方（事务的发起者，调用方）
+* 在dubbo 消费方（事务的发起者，调用方）
 
-   * #### 引入myth-dubbo 包
+   * 引入myth-dubbo 包
     ```xml
     <dependency>
          <groupId>com.github.myth</groupId>
@@ -72,7 +77,7 @@
      </dependency>
     ```
 
-   * #### 配置 MythTransactionBootstrap启动类,可以采用xml方式，或者@Bean的方式,具体配置可以参考:[配置详解](https://github.com/yu199195/myth/wiki/Configuration)
+   * 配置 MythTransactionBootstrap启动类,可以采用xml方式，或者@Bean的方式,具体配置可以参考:[配置详解](https://github.com/yu199195/myth/wiki/Configuration)
      ```xml
      <context:component-scan base-package="com.github.myth.*"/>
      <aop:aspectj-autoproxy expose-proxy="true"/>
@@ -98,7 +103,7 @@
        </property>
      </bean>
      ```
-   * #### 注意：在消费方请配置自动恢复策略:防止在极端情况下消息发送失败的情况
+   * 注意：在消费方请配置自动恢复策略:防止在极端情况下消息发送失败的情况
      ```xml
      <!-设置为true，表明采用恢复策略-->
      <property name="needRecover" value="true"/>
@@ -107,9 +112,9 @@
      <!--调度线程线程大小-->
      <property name="scheduledThreadMax" value="4"/>
      ```
-   * #### 选择你的消息中间件类型，来引入不同的jar包
+   * 选择你的消息中间件类型，来引入不同的jar包
 
-    *  ##### 如果你是使用jms（activemq），引入jar包，并配置ActivemqSendServiceImpl。
+    *  如果你是使用jms（activemq），引入jar包，并配置ActivemqSendServiceImpl。
        ```xml
        <dependency>
            <groupId>com.github.myth</groupId>
@@ -121,7 +126,7 @@
            <property name="jmsTemplate" ref="jmsTemplate"/>
        </bean>
        ```
-    *  ##### 如果你是使用 rabbitmq,引入jar包，并配置RabbitmqSendServiceImpl。
+    *  如果你是使用 rabbitmq,引入jar包，并配置RabbitmqSendServiceImpl。
 
           ```xml
           <dependency>
@@ -135,7 +140,7 @@
             <property name="amqpTemplate" ref="amqpTemplate"/>
          </bean>
          ```
-    *  ##### 如果你是使用 kafka,引入jar包，并配置KafkaSendServiceImpl。
+    *  如果你是使用 kafka,引入jar包，并配置KafkaSendServiceImpl。
 
         ```xml
           <dependency>
@@ -146,10 +151,10 @@
         ```xml
         <bean id="KafkaSendService" class="com.github.myth.kafka.service.KafkaSendServiceImpl" >
            <property name="kafkaTemplate" ref="kafkaTemplate"/>
-        </bean      
+        </bean>      
         ```
 
-    *  ##### 如果你是使用 rocketmq,引入jar包，并配置RocketmqSendServiceImpl。
+    *  如果你是使用 rocketmq,引入jar包，并配置RocketmqSendServiceImpl。
    
         ```xml
               <dependency>

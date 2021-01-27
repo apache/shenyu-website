@@ -1,8 +1,8 @@
+---
+title: Myth-admin 启动教程
+description: Myth-admin startup tutorial
+---
 
-
-
-
-### myth-admin 启动教程
 启动前提：分布式事务项目已经部署并且运行起来，用户根据自己的RPC框架进行使用
 
 * 首先用户使用的JDK必须是1.8+  本地安装了git ,maven ，执行以下命令
@@ -89,16 +89,8 @@ myth.zookeeper.sessionTimeOut=200000
 <a id="serverIpAddress" style="display: none" href="http://localhost:8888/admin">
 ```
 
-
 ### 步骤三: 运行 MythAdminApplication 中的main方法。
-
 
 ### 步骤四:在浏览器访问  http://ip:port/myth-admin/index.html  ,输入用户名，密码登录。
 
-
-
-
-
-
-
-### 如有任何问题欢迎加入QQ群：162614487 进行讨论
+__如有任何问题欢迎加入QQ群：162614487 进行讨论__

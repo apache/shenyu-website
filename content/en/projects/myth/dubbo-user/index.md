@@ -1,4 +1,9 @@
-* ###  Add myth-annotation dependency to Dubbo api project.
+---
+title: Dubbo User
+description: Myth Dubbo User
+---
+
+* Add myth-annotation dependency to Dubbo api project.
 
 ```xml
        <dependency>
@@ -7,23 +12,23 @@
        </dependency>
 ```
 
-* ### Add the @Myth annotation to the Dubbo Interface method and set the name of the message queue, which is the queue from which the messaging middleware sends messages.
+* Add the @Myth annotation to the Dubbo Interface method and set the name of the message queue, which is the queue from which the messaging middleware sends messages.
 
 ```java
     @Myth(destination = "account")
     boolean payment(AccountDTO accountDTO);   
 ```
 
-* ### In the Dubbo service provider (the participating method of the transaction, the  callee ).
+* In the Dubbo service provider (the participating method of the transaction, the  callee ).
 
-  * #### add myth-dubbo dependency
+  * add myth-dubbo dependency
       ```xml
       <dependency>
            <groupId>com.github.myth</groupId>
            <artifactId>myth-dubbo</artifactId>
        </dependency>
      ```
-  * #### The MythTransactionBootstrap startup class can be configured in xml or @Bean. Please refer to the specific configuration:[configuration for details](https://github.com/yu199195/myth/wiki/Configuration)
+  * The MythTransactionBootstrap startup class can be configured in xml or @Bean. Please refer to the specific configuration:[configuration for details](https://github.com/yu199195/myth/wiki/Configuration)
 
     ```xml
     <context:component-scan base-package="com.github.myth.*"/>
@@ -47,9 +52,9 @@
       </property>
     </bean>
     ```
-* #### Add @Myth to the implementation of your interface
+* Add @Myth to the implementation of your interface
 
-* #### Listen to the message queue (message queue name written in the annotations method), invoke the framework provides MythMqReceiveService.processMessage() method. If you use JMS, you can refer to the Demo project for details.
+* Listen to the message queue (message queue name written in the annotations method), invoke the framework provides MythMqReceiveService.processMessage() method. If you use JMS, you can refer to the Demo project for details.
 
      ```java
      @JmsListener(destination = "account",containerFactory = "queueListenerContainerFactory")
@@ -62,9 +67,9 @@
    }
    ```
 
-* ### In the Dubbo consumer (the invoker of the transaction, the caller)
+* In the Dubbo consumer (the invoker of the transaction, the caller)
 
-   * #### add myth-dubbo package
+   * add myth-dubbo package
     ```xml
     <dependency>
          <groupId>com.github.myth</groupId>
@@ -72,7 +77,7 @@
      </dependency>
     ```
 
-   * #### The MythTransactionBootstrap startup class can be configured in xml or @Bean. Please refer to the specific configuration:[configuration for details](https://github.com/yu199195/myth/wiki/Configuration)
+   * The MythTransactionBootstrap startup class can be configured in xml or @Bean. Please refer to the specific configuration:[configuration for details](https://github.com/yu199195/myth/wiki/Configuration)
      ```xml
      <context:component-scan base-package="com.github.myth.*"/>
      <aop:aspectj-autoproxy expose-proxy="true"/>
@@ -98,7 +103,7 @@
        </property>
      </bean>
      ```
-   * #### Note: Please configure the automatic recovery strategy on the consumer side to prevent the message sending failure in extreme cases.
+   * Note: Please configure the automatic recovery strategy on the consumer side to prevent the message sending failure in extreme cases.
      ```xml
      <!-Set to true, show that the recovery strategy-->
      <property name="needRecover" value="true"/>
@@ -107,9 +112,9 @@
      <!--The thread size of the scheduling thread-->
      <property name="scheduledThreadMax" value="4"/>
      ```
-   * #### Select your messaging middleware type to import different jar.
+   * Select your messaging middleware type to import different jar.
 
-    *  ##### If you are using JMS (ActiveMQ), import the jar package and configure the ActiveMQSendServiceImpl.
+    * If you are using JMS (ActiveMQ), import the jar package and configure the ActiveMQSendServiceImpl.
        ```xml
        <dependency>
            <groupId>com.github.myth</groupId>
@@ -121,7 +126,7 @@
            <property name="jmsTemplate" ref="jmsTemplate"/>
        </bean>
        ```
-    *  ##### If you are using RabbitMQ, import the jar package and configure the RabbitMQSendServiceImpl.
+    * If you are using RabbitMQ, import the jar package and configure the RabbitMQSendServiceImpl.
 
           ```xml
           <dependency>
@@ -135,7 +140,7 @@
             <property name="amqpTemplate" ref="amqpTemplate"/>
          </bean>
          ```
-    *  ##### If you are using Kafka, import the jar package and configure KafkasendServiceImpl.
+    * If you are using Kafka, import the jar package and configure KafkasendServiceImpl.
 
         ```xml
           <dependency>
@@ -149,7 +154,7 @@
         </bean      
         ```
 
-    *  ##### If you are using RocketMQ, import the jar package and configure the RocketMQSendServiceImpl.
+    * If you are using RocketMQ, import the jar package and configure the RocketMQSendServiceImpl.
    
         ```xml
               <dependency>

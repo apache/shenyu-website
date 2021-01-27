@@ -1,6 +1,9 @@
-* ### @Myth
+---
+title: Myth Configuration
+description: Myth Configuration
+---
 
-   *  #####  source code parsing for annotation
+* source code parsing for annotation
 
 ```java
 /**
@@ -57,12 +60,9 @@ public @interface Myth {
     MessageTypeEnum pattern() default MessageTypeEnum.P2P;
 
 ```
+The usage of Annotation: add the @Myth annotation to interface method and implementation class(Dubbo,motan added to the API interface. The SpringCloud needs to be added to FeignClient). Refer to the demo project for details.
 
-
-   *  ##### The usage of Annotation: add the @Myth annotation to interface method and implementation class(Dubbo,motan added to the API interface. The SpringCloud needs to be added to FeignClient). Refer to the demo project for details.
-
-
-* ###  applicationContext.xml  for details:
+* applicationContext.xml  for details:
 
 ```xml
 
@@ -92,8 +92,7 @@ public @interface Myth {
 
 ```
 
-
-* ### MythTransactionBootstrap  for details (refer  to `com.github.myth.common.config.MythConfig`)
+* MythTransactionBootstrap  for details (refer  to `com.github.myth.common.config.MythConfig`)
 
 ```xml
   <!--Serialization of data storage. The SPI extension supports Java, Kroy, Hessian, ProtoStuff, and Kroy is recommended-->
@@ -116,7 +115,7 @@ public @interface Myth {
 
 ```
 
-* ### When the invoker of a transaction is configured, specify that a timed task is required to recover. (The participants of the transaction do not need to be configured.)
+* When the invoker of a transaction is configured, specify that a timed task is required to recover. (The participants of the transaction do not need to be configured.)
 
 ```xml
        <property name="needRecover" value="true"/>
@@ -124,7 +123,7 @@ public @interface Myth {
        <property name="scheduledThreadMax" value="4"/>
 ```
 
-* ### The transaction log is stored in a database.
+* The transaction log is stored in a database.
 
 ```xml
        <property name="repositorySupport" value="db"/>
@@ -139,7 +138,7 @@ public @interface Myth {
       </property>
 ```
 
-* ### The transaction log is stored in Redis, which is recommended when the business module is clustered.
+* The transaction log is stored in Redis, which is recommended when the business module is clustered.
 
 ```xml
 
@@ -159,7 +158,8 @@ public @interface Myth {
       </property>
 ```
 
-* ###  The transaction log is stored in ZooKeeper, which is recommended when the business module is clustered.
+* The transaction log is stored in ZooKeeper, which is recommended when the business module is clustered.
+
 ```xml
          <!--配置日志存储类型为zookeeper-->
          <property name="repositorySupport" value="zookeeper"/>
@@ -171,7 +171,8 @@ public @interface Myth {
              </bean>
         </property>
 ```
-* ### The transaction log is stored in **MongoDB**, where the mongodb connection mode is version 3.4.0, and SHA1 is recommended instead of CR .  At the same time, mongodb should enable permission authentication, users need to be careful.
+
+* The transaction log is stored in **MongoDB**, where the mongodb connection mode is version 3.4.0, and SHA1 is recommended instead of CR .  At the same time, mongodb should enable permission authentication, users need to be careful.
 
 ```xml
         <!--Configure the log storage type to mongodb-->
@@ -189,7 +190,9 @@ public @interface Myth {
            </bean>
        </property>
 ```
-*  ### The local data is stored as file
+
+* The local data is stored as file
+
 ```xml
      <!--Configure the log storage type to file-->
      <property name="repositorySupport" value="file"/>

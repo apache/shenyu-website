@@ -32,5 +32,25 @@ showFeature: true
 sidebar:
   - title: '介绍文档'  	
     link: 'overview'
+  - title: '配置详解'  	
+    link: 'config'
+  - title: '启动myth-admin'  	
+    link: 'start-myth-admin'
+  - title: '用户文档'  	
+    sub:
+      - title: 'dubbo用户'  	
+        link: 'dubbo-user'
+      - title: 'motan用户'  	
+        link: 'motan-user'
+      - title: 'springcloud用户'  	
+        link: 'springcloud-user'
+  - title: '快速体验'  	
+    sub:
+      - title: 'quick-start-dubbo'  	
+        link: 'quick-start-dubbo'
+      - title: 'quick-start-motan'  	
+        link: 'quick-start-motan'
+      - title: 'quick-start-springcloud'  	
+        link: 'quick-start-springcloud'
 ---
 

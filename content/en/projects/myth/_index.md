@@ -28,5 +28,28 @@ weight: 4
 icon: "/img/icons/myth.png"
 showIntroduce: true
 showFeature: true
+sidebar:
+  - title: 'Introduction'  	
+    link: 'overview'
+  - title: 'configuration'  	
+    link: 'config'
+  - title: 'start myth-admin'  	
+    link: 'start-myth-admin'
+  - title: 'document'  	
+    sub:
+      - title: 'dubbo user'  	
+        link: 'dubbo-user'
+      - title: 'motan user'  	
+        link: 'motan-user'
+      - title: 'springcloud user'  	
+        link: 'springcloud-user'
+  - title: 'quick start'  	
+    sub:
+      - title: 'quick-start-dubbo'  	
+        link: 'quick-start-dubbo'
+      - title: 'quick-start-motan'  	
+        link: 'quick-start-motan'
+      - title: 'quick-start-springcloud'  	
+        link: 'quick-start-springcloud'
 ---
 

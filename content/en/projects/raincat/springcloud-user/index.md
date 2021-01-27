@@ -1,23 +1,22 @@
-| title                  | keywords    | description            |
-| ---------------------- | ----------- | ---------------------- |
-| springcloud user guide | springcloud | springcloud user guide |
+---
+title: springcloud user guide
+keywords: springcloud
+description:  springcloud user guide
+---
 
-# Dubbo user configuration
-
-Firstly, you should bootstrap `raincat-manager`, please refer to how to start up `TxManager`. Then, please add dependency in maven at your Dubbo service, and add `@TxTransaction` annotation in distributed transaction method.
+### Firstly, you should bootstrap `raincat-manager`, please refer to how to [bootstrap Txmanager](start-manager.md) for details. Then, please add following dependency in maven at your service, and add `@TxTransaction` annotation in your distributed transaction method.
 
 ```xml
-<dependency>
+       <dependency>
            <groupId>org.dromara</groupId>
-           <artifactId>raincat-dubbo</artifactId>
+           <artifactId>raincat-springcloud</artifactId>
            <version>2.0.0-RELEASE</version>
        </dependency>
 ```
 
-## Congigure `TxTransactionBootstrap` by Spring XML
-
+# Congigure `TxTransactionBootstrap` by Spring XML
 ```xml
-<context:component-scan base-package="org.dromara.*"/>
+    <context:component-scan base-package="org.dromara.*"/>
     <aop:aspectj-autoproxy expose-proxy="true"/>
     <bean id="txTransactionBootstrap" class="org.dromara.raincat.core.bootstrap.TxTransactionBootstrap">
         <property name="txManagerUrl" value="http://localhost:8761"/>
@@ -37,19 +36,18 @@ Firstly, you should bootstrap `raincat-manager`, please refer to how to start up
     </bean>
 ```
 
-## Congigure `TxTransactionBootstrap` by TxTransactionBootstrap
+# Congigure `TxTransactionBootstrap`  by spring boot starter
 
-* Firstly, add mave dependency `spring-boot-starter-springcloud`.
-
+* Firstly, please add maven dependency `spring-boot-starter-springcloud`.
 ```xml
  <dependency>
      <groupId>org.dromara</groupId>
-     <artifactId>raincat-spring-boot-starter-motan</artifactId>
+     <artifactId>raincat-spring-boot-starter-springcloud</artifactId>
      <version>2.0.0-RELEASE</version>
  </dependency>
 ```
 
-* Configure the `application.yml`.
+* Secondly, please configure the `application.yml` like follows.
 
 ```yml
 org:
@@ -67,13 +65,17 @@ org:
               password : 123456
 ```
 
-* `txManagerUrl` is the ip and port that you strat up `txManager` . Please add `http://` at head.
-* `serializer` is refer to the way of transaction log serialization.
-* `nettySerializer` is refer to the serialization way of how to communicate with `txManager`. Please be caution that It should be consistent with the configuration in `txManager`.
-* `compensation`: Whether compensation is required, in extreme cases, the service will compensate itself.
-* `compensationCacheType`: Storage log types, of course, support Redis, Mongodb, Zookeeper, etc. For details, please refer to the detailed configuration. 
+* `txManagerUrl` is the ip and port that you bootstrap `txManager` . Please add `http://` at head.
+
+* `serializer` is the way of transaction log serialization.
+
+* `nettySerializer` is the serialization way of how to communicate with `txManager`. Please be caution that It should be consistent with the configuration in `txManager`.
+
+* `compensation` is the property whether compensation is required or not, the service will compensate itself in some cases.
+
+* `compensationCacheType` is the types of storage log, and support Redis, Mongodb, Zookeeper, etc. For details, please refer to the [config](config.md).
 
 **NOTICE**：You need to open AOP when you want to use XML to configure.
 
-**PS**: For any question, please refer to [springcloud-sample]([springcloud-sample](https://github.com/yu199195/Raincat/tree/master/raincat-sample/raincat-springcloud-sample)).
+**PS**: For any question, please refer to [springcloud-sample](https://github.com/yu199195/Raincat/tree/master/raincat-sample/raincat-springcloud-sample).
 

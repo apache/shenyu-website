@@ -1,23 +1,24 @@
-| title            | keywords | description      |
-| ---------------- | -------- | ---------------- |
-| motan user guide | Motan    | motan user guide |
+---
+title: motan user guide
+keywords: motan
+description: motan user  guide
+---
 
-# Motan user configuration
 
-Firstly, you should bootstrap `raincat-manager`, please refer to how to start up `TxManager`. Then, please add dependency in maven at your Dubbo service, and add `@TxTransaction` annotation in distributed transaction method.
+
+### Firstly, you should bootstrap `raincat-manager`, please refer to how to [bootstrap Txmanager](start-manager.md) for details. Then, please add following dependency in maven at your service, and add `@TxTransaction` annotation in your distributed transaction method.
 
 ```xml
-<dependency>
+       <dependency>
            <groupId>org.dromara</groupId>
-           <artifactId>raincat-dubbo</artifactId>
+           <artifactId>raincat-motan</artifactId>
            <version>2.0.0-RELEASE</version>
        </dependency>
 ```
 
-## Configure `TxTransactionBootstrap` by Spring XML
-
+# Configure `TxTransactionBootstrap` by Spring XML
 ```xml
-  <context:component-scan base-package="org.dromara.*"/>
+    <context:component-scan base-package="org.dromara.*"/>
     <aop:aspectj-autoproxy expose-proxy="true"/>
     <bean id="txTransactionBootstrap" class="org.dromara.raincat.core.bootstrap.TxTransactionBootstrap">
         <property name="txManagerUrl" value="http://localhost:8761"/>
@@ -37,10 +38,9 @@ Firstly, you should bootstrap `raincat-manager`, please refer to how to start up
     </bean>
 ```
 
-## Congigure `TxTransactionBootstrap` by TxTransactionBootstrap
+# Congigure `TxTransactionBootstrap` by Spring boot starter
 
-* Firstly, add mave dependency `spring-boot-starter-springcloud`.
-
+* Firstly, please add maven dependency `raincat-spring-boot-starter-motan`.
 ```xml
  <dependency>
      <groupId>org.dromara</groupId>
@@ -49,7 +49,7 @@ Firstly, you should bootstrap `raincat-manager`, please refer to how to start up
  </dependency>
 ```
 
-* Configure the `application.yml`.
+* Secondly, please configure the `application.yml` like follows.
 
 ```yml
 org:
@@ -67,11 +67,15 @@ org:
               password : 123456
 ```
 
-* `txManagerUrl` is the ip and port that you strat up `txManager` . Please add `http://` at head.
-* `serializer` is refer to the way of transaction log serialization.
-* `nettySerializer` is refer to the serialization way of how to communicate with `txManager`. Please be caution that It should be consistent with the configuration in `txManager`.
-* `compensation`: Whether compensation is required, in extreme cases, the service will compensate itself.
-* `compensationCacheType`: Storage log types, of course, support Redis, Mongodb, Zookeeper, etc. For details, please refer to the detailed configuration. 
+* `txManagerUrl` is the ip and port that you bootstrap `txManager` . Please add `http://` at head.
+* `serializer` is the way of transaction log serialization.
+* `nettySerializer` is the serialization way of how to communicate with `txManager`. Please be caution that It should be consistent with the configuration in `txManager`.
 
-**NOTICE**：You need to open AOP when you want to use XML to configure.
+* `compensation` is the property whether compensation is required or not, the service will compensate itself in some cases.
+* `compensationCacheType` is the storage types of log, support Redis, Mongodb, Zookeeper, etc. For details, please refer to the [config](config.md).
+
+**NOTICE**: You need to open AOP when you want to use XML to configure.
+
+
+
 

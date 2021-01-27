@@ -1,35 +1,38 @@
-| title             | keywords | description       |
-| ----------------- | -------- | ----------------- |
-| dubbo quick start | dubbo    | Dubbo quick start |
+---
+title: dubbo quick start
+keywords: dubbo
+description:  dubbo quick start
+---
 
-# Dubbo quick start
 
-## Environment 
+### Environment 
 
-* **JDK1.8**
+  *   #### JDK 1.8+
 
-- **Maven 3.2.x**
-- **Git**
-- **Redis**
-- **Mysql**
+  *   #### Maven 3.2.x
 
-## Pull the code
+  *   #### Git
 
-```shell
-> git clone https://github.com/yu199195/Raincat.git
+  *   #### Redis
 
-  > cd Raincat
+  * #### Mysql
 
-  > mvn -DskipTests clean install -U
-```
 
-## Prepare the database
+### Pull the code
 
-Execute the SQL statement in demo.
+ ```shell
+   > git clone https://github.com/yu199195/Raincat.git
 
-[SQL statement](https://github.com/yu199195/Raincat/tree/master/raincat-sample/raincat-dubbo-sample/sql)
+   > cd Raincat
 
-## Configuration
+   > mvn -DskipTests clean install -U
+ ```
+
+### Prepare the database
+
+Execute the SQL statement in demo. [SQL statement](https://github.com/yu199195/Raincat/tree/master/raincat-sample/raincat-dubbo-sample/sql) 
+
+### Configuration
 
 * Please open the project in IDEA or Eclipse, and modify the Redis configuration in `application.yml`.
 
@@ -76,23 +79,21 @@ org:
               url :  jdbc:mysql://192.168.1.98:3306/tx?useUnicode=true&amp;characterEncoding=utf8
               username : root
               password : 123456
-
 ```
-
 * Modify the Zookeeper configuration in `spring-dubbo.xml`.
 
 ```xml
     <dubbo:registry protocol="zookeeper" address="localhost:2181"/>
-
 ```
 
 * Modify the Zookeeper configuration in `spring-dubbo.xml`.
 
-```xml
- <dubbo:registry protocol="zookeeper" address="192.168.1.148:2181"/>
-```
+ ```xml
+  <dubbo:registry protocol="zookeeper" address="192.168.1.148:2181"/>
+ ```
 
-* Start the order project. (Execute the `main`method in `OrderApplication`) 
+* Start the order project. (Execute the `main()` method in `OrderApplication`)
 
-* Bootstrap the stock project and consume project like others. Please access the following address.[http://127.0.0.1:8087/swagger-ui.html](http://127.0.0.1:8087/swagger-ui.html).
+### Bootstrap the project
 
+Bootstrap the stock project and consume project like others. Please access the following address.[http://127.0.0.1:8087/swagger-ui.html](http://127.0.0.1:8087/swagger-ui.html).

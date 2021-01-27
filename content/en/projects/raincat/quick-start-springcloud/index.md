@@ -1,35 +1,38 @@
-| title                   | keywords    | description             |
-| ----------------------- | ----------- | ----------------------- |
-| springcloud quick start | springcloud | springcloud quick start |
+---
+title: springcloud quick start
+keywords: springcloud
+description: springcloud quick start
+---
 
-# Dubbo quick start
 
-## Environment 
+### Environment
 
-* **JDK1.8**
+  *   #### JDK 1.8+
 
-- **Maven 3.2.x**
-- **Git**
-- **Redis**
-- **Mysql**
+  *   #### Maven 3.2.x
 
-## Pull the code
+  * #### Git
 
-```shell
-  > git clone https://github.com/yu199195/Raincat.git
+  * #### Redis
 
-  > cd Raincat
+  * #### Mysql
 
-  > mvn -DskipTests clean install -U
-```
 
-## Prepare the database
+### Pull the code
 
-Execute the SQL statement in demo.
+ ```shell
+   > git clone https://github.com/yu199195/Raincat.git
 
-[SQL statement](https://github.com/yu199195/Raincat/tree/master/raincat-sample/raincat-dubbo-sample/sql)
+   > cd Raincat
 
-## Configuration
+   > mvn -DskipTests clean install -U
+ ```
+
+### Prepare the database
+
+Execute the SQL statement in demo. [SQL statement](https://github.com/yu199195/Raincat/blob/master/raincat-sample/raincat-springcloud-sample/sql/springcloud-sample.sql) 
+
+### Configuration
 
 * Please open the project in IDEA or Eclipse, and modify the Redis configuration in `application.yml`.
 
@@ -52,6 +55,18 @@ tx:
 
 Then, bootstrap the `raincat-manager` by executing the `main()` in `TxManagerApplication`. 
 
+* Modify the alipay database configuration in `application.yml`.
+
+```yml
+spring:
+    datasource:
+        driver-class-name:  com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.1.98:3306/alipay?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: 123456
+    application:
+      name: alipay-service
+```
 * Modify the database configuration in `applicationContext.xml`.
 
 ```xml
@@ -73,6 +88,9 @@ Then, bootstrap the `raincat-manager` by executing the `main()` in `TxManagerApp
     </bean>
 ```
 
-* Bootstrap the Alipay project by executing the `main` method in `AliPayApplication`.
+### Bootstrap the project
 
-* Bootstrap the `wechat` project and `pay` project like others. Please access the following address.[http://127.0.0.1:8087/swagger-ui.html](http://127.0.0.1:8087/swagger-ui.html).
+* Bootstrap the Alipay project by executing the `main()` method in `AliPayApplication`.
+
+* Bootstrap the `wechat` project and `pay` project like others. Please access the following address. [http://127.0.0.1:8087/swagger-ui.html](http://127.0.0.1:8087/swagger-ui.html).
+

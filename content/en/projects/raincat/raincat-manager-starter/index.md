@@ -1,12 +1,14 @@
-| title                     | keywords        | description               |
-| ------------------------- | --------------- | ------------------------- |
-| Bootstrap raincat-manager | raincat-manager | Bootstrap raincat-manager |
+---
+title: Bootstrap raincat-manager
+keywords: raincat-manager
+description: Bootstrap raincat-manager
+---
 
-# Raincat manager starter
+# Bootstrap raincat-manager
 
-There are two kinds of way to bootstrap the raincat-manager.
+## Bootstrap method 
 
-1. Pull the code and compile it yourself: https://github.com/yu199195/Raincat 
+### Method 1: Pull the code from github and compile it by yourself: https://github.com/yu199195/Raincat
 
 * Modify the Redis configuration in `application.yml`.
 
@@ -27,16 +29,29 @@ tx:
        hostName : 192.168.1.91
        port: 6379
        password : foobaredbbexONE123
+
 ```
 
-- `transactionWaitMaxTime` Transaction maximum waiting time.
-- `redisSaveMaxTime` Redis maximum waiting time.
-- `tx:manager:netty`
-  - `port` is the Netty port for long connections which you can modify by yourself.
-  - `serialize`  is the Netty serialization protocol (Kroy in recommended), and it should be consistent with the serialization protocol at client.
-  - `maxConnection` Maximum number of long connections.
-  - `maxThreads netty work` is the number of threads. 
-  - `heartTime` is the Heartbeat time (seconds).
+* `transactionWaitMaxTime` is the transaction maximum waiting time.
 
-2. You can also obtain the `raincat-manager` jar directly from the maven central warehouse, then create a `config` directory, and configure `application.yml  `. Please refer to the springboot configuration file for details. 
+* `redisSaveMaxTime` is the Redis maximum waiting time.
+
+* `tx:manager:netty`
+  * `port` is the Netty port for long connections which you can modify by yourself.
+   
+* `serialize`  is the Netty serialization protocol (Kroy in recommended), and it should be consistent with the serialization protocol at client.
+   
+* `maxConnection` is the maximum number of long connections.
+   
+* `maxThreads` is the number of Netty worker thread.
+   
+* `heartTime`  is the heartbeat interval (seconds).
+
+### Method 2: Obtain the `raincat-manager` jar from the maven central warehouse.
+
+   *  Please create a `config` directory, and configure `application.yml  `. Then modify the `yml ` file and start up the application. If you want to know more details, please refer to the springboot configuration file.
+
+
+
+
 

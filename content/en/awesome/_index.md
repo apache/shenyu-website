@@ -222,6 +222,7 @@ Hundreds of people have contributed articles and code to Dromara so far, thank y
 <td><a href="https://github.com/zendwang" target="_blank"><img src="https://avatars1.githubusercontent.com/u/9959839?v=4&s=40" height="20" /> @zendwang</a></td>
 <td><a href="https://github.com/zhaozhengping" target="_blank"><img src="https://avatars2.githubusercontent.com/u/7185847?v=4&s=40" height="20" /> @zhaozhengping</a></td>
 <td><a href="https://github.com/zhoubin14524" target="_blank"><img src="https://avatars3.githubusercontent.com/u/16285170?v=4&s=40" height="20" /> @zhoubin14524</a></td>
+<td><a href="https://github.com/zhisheng17" target="_blank"><img src="https://avatars4.githubusercontent.com/u/10086212?v=4&s=40" height="20" /> @zhisheng17</a></td>
 </tr>
 </tbody>
 </table>

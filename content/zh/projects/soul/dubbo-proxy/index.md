@@ -11,7 +11,7 @@ description: dubbo接入soul网关
 
 * 支持 alibaba dubbo（< 2.7.x） 以及 apache dubbo (>=2.7.x)。
 
-* 接入前，请正确的启动 `soul-admin` , 以及[搭建环境](setup.md) Ok。
+* 接入前，请正确的启动 `soul-admin` , 以及[搭建环境](../soul-set-up) Ok。
 
 
 ## 引入网关对dubbo支持的插件

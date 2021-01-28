@@ -35,7 +35,7 @@ description: waf插件
   <!-- soul waf plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](selector.md)
+* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)
 
   * 当 `module` 设置为 `black` 模式的时候，只有匹配的流量才会执行拒绝策略，不匹配的，直接会跳过。
   

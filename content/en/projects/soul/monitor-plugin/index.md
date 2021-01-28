@@ -46,7 +46,7 @@ description: monitor plugin
   </dependency>
   <!-- soul monitor plugin end-->
 ``` 
-* Selectors and rules, please refer to: [selector](docs/en-us/soul/selector.md)。
+* Selectors and rules, please refer to: [selector](../selector-and-rule)。
      
    * Only when the url is matched, the url will request event tracking.
 

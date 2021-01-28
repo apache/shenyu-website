@@ -45,7 +45,7 @@ git checkout -b issueNo
 
 ### 编码
 
- - 请您在开发过程中遵循hmily的 [开发规范](code-conduct.md)。并在准备提交pull request之前完成相应的检查。
+ - 请您在开发过程中遵循hmily的 [开发规范](../code-conduct)。并在准备提交pull request之前完成相应的检查。
  - 将修改的代码push到fork库的分支上。
 
 ```shell

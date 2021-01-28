@@ -11,7 +11,7 @@ description: Integrate dubbo with soul gateway
 
 * Support alibaba dubbo（< 2.7.x）and apache dubbo (>=2.7.x).
 
-* Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](setup.md) is Ok.
+* Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
 
 ## Configure soul gateway as dubbo proxy

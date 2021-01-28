@@ -4,7 +4,7 @@ keywords: springcloud
 description:  springcloud user guide
 ---
 
-### Firstly, you should bootstrap `raincat-manager`, please refer to how to [bootstrap Txmanager](start-manager.md) for details. Then, please add following dependency in maven at your service, and add `@TxTransaction` annotation in your distributed transaction method.
+### Firstly, you should bootstrap `raincat-manager`, please refer to how to [bootstrap Txmanager](../raincat-manager-starter) for details. Then, please add following dependency in maven at your service, and add `@TxTransaction` annotation in your distributed transaction method.
 
 ```xml
        <dependency>
@@ -73,7 +73,7 @@ org:
 
 * `compensation` is the property whether compensation is required or not, the service will compensate itself in some cases.
 
-* `compensationCacheType` is the types of storage log, and support Redis, Mongodb, Zookeeper, etc. For details, please refer to the [config](config.md).
+* `compensationCacheType` is the types of storage log, and support Redis, Mongodb, Zookeeper, etc. For details, please refer to the [config](../config).
 
 **NOTICE**：You need to open AOP when you want to use XML to configure.
 

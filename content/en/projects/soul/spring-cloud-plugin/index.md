@@ -43,9 +43,9 @@ description: springcloud plugin
 
 * In `soul-admin` --> plugin management-> springCloud ,set to enable. 
 
-* This plugin needs to cooperate with `starter` dependency, please refer to:[user-spring](docs/en-us/soul/user-springcloud.md).
+* This plugin needs to cooperate with `starter` dependency, please refer to:[user-spring](../spring-cloud-proxy).
 
-* Selectors and rules, please refer to: [selector](docs/en-us/soul/selector.md)。
+* Selectors and rules, please refer to: [selector](../selector-and-rule)。
 
 ## Detail
 

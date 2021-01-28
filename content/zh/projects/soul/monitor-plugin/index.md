@@ -46,7 +46,7 @@ description: monitor插件
   </dependency>
   <!-- soul monitor plugin end-->
 ``` 
-* 选择器和规则，请详细看 : [选择器规则](selector.md)。
+* 选择器和规则，请详细看 : [选择器规则](../selector-and-rule)。
    
    * 只有当匹配的url，才会进行url请求埋点。
 

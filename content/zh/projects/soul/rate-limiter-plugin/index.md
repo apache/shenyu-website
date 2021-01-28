@@ -45,7 +45,7 @@ description: rateLimiter插件
   <!-- soul ratelimiter plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](selector.md)。
+* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
   
 * 速率：是你允许用户每秒执行多少请求，而丢弃任何请求。这是令牌桶的填充速率。
   

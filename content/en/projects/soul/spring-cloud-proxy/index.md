@@ -10,7 +10,7 @@ description: springCloud with soul gateway
 
 * pls enable `springCloud` plug-in in soul-admin background.
 
-* Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](setup.md) is Ok.
+* Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
 ## Configure soul gateway as Spring Cloud proxy
 

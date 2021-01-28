@@ -32,7 +32,7 @@ description: hystrix plugin
   <!-- soul hystrix plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](docs/en-us/soul/selector.md)。
+* Selectors and rules, please refer to: [selector](../selector-and-rule)。
 
 * Hystrix processing details:
     

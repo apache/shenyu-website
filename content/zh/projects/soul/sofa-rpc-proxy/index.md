@@ -8,7 +8,7 @@ description: sofa接入soul网关
 
 * 此篇文章是sofa用户使用sofa插件支持，以及自己的sofa服务接入soul网关的教程。
 
-* 接入前，请正确的启动 `soul-admin`以及[搭建环境](setup.md) Ok。
+* 接入前，请正确的启动 `soul-admin`以及[搭建环境](../soul-set-up) Ok。
 
 ## 引入网关对sofa支持的插件
 

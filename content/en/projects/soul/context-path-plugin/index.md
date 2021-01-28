@@ -27,7 +27,7 @@ description: context_path plugin
    <!-- soul context_path plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](docs/en-us/soul/selector.md)。
+* Selectors and rules, please refer to: [selector](../selector-and-rule)。
  
 
 ## Situation

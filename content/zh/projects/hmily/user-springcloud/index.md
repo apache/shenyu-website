@@ -56,7 +56,7 @@ description: Hmily-SpringCloud分布式事务用户指南
 
   * 在项目的 `resource` 添加文件名为:`hmily.yml` 的配置文件
   
-  * 具体的参数配置可以参考[配置详解](config.md),[本地配置模式](config-local.md), [zookeeper配置模式](config-zookeeper.md), [nacos配置模式](config-nacos.md),[apollo配置模式](config-apollo.md)
+  * 具体的参数配置可以参考[配置详解](../config),[本地配置模式](../config-local), [zookeeper配置模式](../config-zookeeper), [nacos配置模式](../config-nacos),[apollo配置模式](../config-apollo)
 
 ## 3. 服务实现方添加注解
 

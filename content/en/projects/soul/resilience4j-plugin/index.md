@@ -32,7 +32,7 @@ description: resilience4j plugin
   <!-- soul resilience4j plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](selector.md)
+* Selectors and rules, please refer to: [selector](../selector-and-rule)
 
 * Resilience4j Processing Details
 

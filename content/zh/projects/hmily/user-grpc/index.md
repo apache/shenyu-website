@@ -52,7 +52,7 @@ description: Grpc用户指南
 
 * 在项目的 `resource` 新建文件名为: `hmily.ym` 配置文件。
 
-* 具体的参数配置可以参考[配置详解](https://dromara.org/zh-cn/docs/hmily/config.html),[本地配置模式](https://dromara.org/zh-cn/docs/hmily/config-local.html), [zookeeper配置模式](https://dromara.org/zh-cn/docs/hmily/config-zookeeper.html), [nacos配置模式](https://dromara.org/zh-cn/docs/hmily/config-nacos.html),[apollo配置模式](https://dromara.org/zh-cn/docs/hmily/config-apollo.html)
+* 具体的参数配置可以参考[配置详解](../config),[本地配置模式](../config-local), [zookeeper配置模式](../config-zookeeper), [nacos配置模式](../config-nacos),[apollo配置模式](../config-apollo)
 
 ## Grpc拦截器配置
 

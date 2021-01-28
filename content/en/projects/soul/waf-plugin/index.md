@@ -35,7 +35,7 @@ description: waf plugin
   <!-- soul waf plugin end-->
 ``` 
 
-* Selectors and rules, please refer to : [selector](docs/en-us/soul/selector.md)
+* Selectors and rules, please refer to : [selector](../selector-and-rule)
   
   * When `module` is set to `black` mode, only the matched traffic will execute the rejection policy, and the unmatched traffic will be skipped directly.
    

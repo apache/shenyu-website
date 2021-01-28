@@ -6,7 +6,7 @@ description:  motan用户指南
 
 
 
-### 首先启动raincat-manager，具体怎么启动参考 [启动manager](start-manager.md)
+### 首先启动raincat-manager，具体怎么启动参考 [启动manager](../raincat-manager-starter)
 
 ### jar包依赖，在你的服务端添加jar包，并在需要参与分布式事务的方法上添加 @TxTransaction注解
 
@@ -77,7 +77,7 @@ org:
 
 * compensation ：是否需要补偿，极端情况下，服务自身会进行补偿。
 
-* compensationCacheType： 存储日志类型，当然还有支持redis，mongo，zookeeper等等，具体可以参考 [配置详解](config.md)。
+* compensationCacheType： 存储日志类型，当然还有支持redis，mongo，zookeeper等等，具体可以参考 [配置详解](../config)。
 
 ### 配置扫描raincat包，与开启AOP代理（XML方式配置的时候必须加上，starter方式不需要）。
 

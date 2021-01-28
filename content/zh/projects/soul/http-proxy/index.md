@@ -10,7 +10,7 @@ description: http用户
 
 * soul网关使用 divide 插件来处理http请求。请求在soul-admin后台开启它。
 
-* 接入前，请正确的启动 `soul-admin`，以及 [搭建环境](setup.md) OK。
+* 接入前，请正确的启动 `soul-admin`，以及 [搭建环境](../soul-set-up) OK。
 
 ## 引入网关对http的代理插件
 
@@ -149,9 +149,9 @@ description: http用户
 
 * 首先在 `soul-admin` 找到 divide插件，进行选择器，和规则的添加，进行流量的匹配筛选。
 
-* 如果不懂怎么配置，请看选择，规则介绍 [选择器规则介绍](selector.md)。
+* 如果不懂怎么配置，请看选择，规则介绍 [选择器规则介绍](../selector-and-rule)。
 
-* 您也可以自定义开发属于你的 http-client，参考 [多语言Http客户端开发](dev-client.md)。
+* 您也可以自定义开发属于你的 http-client，参考 [多语言Http客户端开发](../developer-soul-client)。
 
 ## 用户请求
 

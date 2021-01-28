@@ -7,7 +7,7 @@ description: sofa access soul gateway
 ## Description
 
 * This article is about sofa users using sofa plug-in support,and the tutorial of connecting your own sofa service to the soul gateway.
-* Before connecting, please start `soul-admin` correctly and [Setup Environment](setup.md) Ok。
+* Before connecting, please start `soul-admin` correctly and [Setup Environment](../soul-set-up) Ok。
 
 ## Introduce the plug-in that the gateway supports for sofa
 

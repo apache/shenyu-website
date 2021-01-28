@@ -45,7 +45,7 @@ description: rateLimiter plugin
   <!-- soul ratelimiter plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](docs/en-us/soul/selector.md)。
+* Selectors and rules, please refer to: [selector](../selector-and-rule)。
 
 * Rate: It is how many requests you allow users to execute per second, while not discarding any requests. This is the filling rate of token bucket.
   

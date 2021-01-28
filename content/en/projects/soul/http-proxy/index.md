@@ -10,7 +10,7 @@ description: Integrate Http with soul gateway
 
 * soul gateway uses divide plugin handling http request, pls enable it in soul-admin backgroud.
 
-* Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](setup.md) is Ok.
+* Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
 ## Configure soul gateway as Http proxy.
 
@@ -148,9 +148,9 @@ description: Integrate Http with soul gateway
 
 * first of all, enable the divide plugin in `soul-admin`, then add selector and rule which will filter the request.
 
-* if you don't know how to configure, pls refer to [selector guide](selector.md).
+* if you don't know how to configure, pls refer to [selector guide](../selector-and-rule).
 
-* you can also develop your cutomized http-client，refer to [multi-language Http client development](dev-client.md)。
+* you can also develop your cutomized http-client，refer to [multi-language Http client development](../developer-soul-client)。
 
 ## User request
 

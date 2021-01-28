@@ -73,7 +73,7 @@ public interface HelloService {
 
   * new a configuration file named `hmily.yml` under the `resource` directory of the current project
   
-  * the specific parameter configuration can refer to [configuration detail](config_en.md),[Local configuration mode](config-local_en.md), [Zookeeper configuration mode](config-zookeeper_en.md), [nacos configuration mode](config-nacos_en.md),[apollo configuration mode](config-apollo_en.md)
+  * the specific parameter configuration can refer to [configuration detail](../config),[Local configuration mode](../config-local), [Zookeeper configuration mode](../config-zookeeper), [nacos configuration mode](../config-nacos),[apollo configuration mode](../config-apollo)
   
   
 ## Add annotations on the implementation interface

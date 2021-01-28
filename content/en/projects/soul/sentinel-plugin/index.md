@@ -32,7 +32,7 @@ description: sentinel plugin
   <!-- soul sentinel plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](selector.md)
+* Selectors and rules, please refer to: [selector](../selector-and-rule)
 
 * Sentinel Processing Details
     

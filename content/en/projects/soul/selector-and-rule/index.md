@@ -19,7 +19,7 @@ description: detailed explanation of selector and rule
 
 * selector and rule are designed to execute only when the request meet the specific condition.
 
-* pls refer to the previous data structure [database design](db.md).
+* pls refer to the previous data structure [database design](../database-design).
 
 
 ## selector

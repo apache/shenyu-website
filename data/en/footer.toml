@@ -12,7 +12,7 @@
 	category = "Get Involved"
 	link_arr = [
 		["Feedback", 'https://github.com/dromara/soul/issues/new'],
-		["Community","/community"],
+		["Community","/zh/community"],
 		["Blog","/blog"],
 		# ["Email","mailto:sofa@alipay.cloud.com"]
 	]

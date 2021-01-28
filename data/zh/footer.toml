@@ -12,7 +12,7 @@
 	category = "参与进来"
 	link_arr = [
 		["反馈", 'https://github.com/dromara/soul/issues/new'],
-		["社区","/community"],
+		["社区","/zh/community"],
 		["博客","/blog"],
 #		["Email","mailto:sofa@alipay.cloud.com"],
 #		["加入我们","/hr/"]

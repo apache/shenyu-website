@@ -5,7 +5,7 @@ description: "Soul发布全新的架构2.2.0版本 让网关变得如此简单"
 categories: "Soul"
 tags: ["Soul"]
 date: 2020-06-17
-cover: "/soul-framework.png"
+cover: "../../img/architecture/soul-framework.png"
 ---
 
 我们还是先来看看新增功能，然后再讲故事。

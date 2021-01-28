@@ -5,7 +5,7 @@ description: "​Soul网关发布2.1.X之后，它到底有多方便？"
 categories: "Soul"
 tags: ["Soul"]
 date: 2019-12-12
-cover: "/soul-framework.png"
+cover: "../../img/architecture/soul-framework.png"
 ---
 
 **Soul** 网关自从去年10月我开源以来，经历了一年的事情，接受到了来自社区很多朋友的建议，并进行持续不断的优化，已经提供了非常丰富的功能，很多功能都是高度自定义，可视化，高度可扩展的，现在做一个归纳总结。

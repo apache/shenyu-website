@@ -5,7 +5,7 @@ description: "Soul网关学习(2-3)Http客户端接入源码解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-18
-cover: "/soul-framework.png"
+cover: "../../img/architecture/soul-framework.png"
 ---
 
 # HTTP 用户接入 Soul 网关注册逻辑分析

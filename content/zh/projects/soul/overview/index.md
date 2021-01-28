@@ -26,7 +26,7 @@ description: Soul是一个异步的，高性能的，跨语言的，响应式的
 
 # 架构图
 
-![](https://yu199195.github.io/images/soul/soul-framework.png)
+![](/img/architecture/soul-framework.png)
  
 # Prerequisite
 

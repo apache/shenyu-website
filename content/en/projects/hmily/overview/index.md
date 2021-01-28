@@ -9,7 +9,7 @@ What's Hmily？
 
 Hmily is a high-performance, zero penetration, financial-level distributed transactions solution. At present, it mainly provides support for flexible transactions, including `TCC`, `TAC` (in which, it will automatically generate rollback SQL) schemes, and `XA` and more schemes will be supported in the future.
 
- ![](https://yu199195.github.io/images/hmily/hmily.png) 
+ ![](/img/architecture/hmily-framework.png) 
 
 # Features
 

@@ -5,7 +5,7 @@ description: "Hmily Configuration Optimization For High Concurrent Transactions"
 categories: "hmily"
 tags: ["hmily"]
 date: 2018-11-14
-cover: "/hmily-2.0.2.png"
+cover: "../../img/architecture/hmily-framework.png"
 ---
 
 ### Hmily高并发事务处理

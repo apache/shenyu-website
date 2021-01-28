@@ -21,8 +21,7 @@
 [[soul_description]]
 	title = "Soul"
 	description = "High-performance, multi-protocol, extensible, responsive API Gateway"
-	img = "img/home/soul_framework.png"
-	img_width = "530px"
+	img_width = "600px"
 
 [soul_features]
 	title = "Features"

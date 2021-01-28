@@ -25,7 +25,7 @@ This is an asynchronous, high-performance, cross-language, responsive API gatewa
 
 # Architecture diagram
 
-![](https://yu199195.github.io/images/soul/soul-framework.png)
+![](/img/architecture/soul-framework.png)
  
 # Prerequisite
 

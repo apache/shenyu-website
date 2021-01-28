@@ -5,7 +5,7 @@ description: "高性能一部分不是事务TCC框架"
 categories: "hmily"
 tags: ["hmily","TCC"]
 date: 2018-09-25
-cover: "/hmily-tcc.png"
+cover: "../../img/architecture/hmily-framework.png"
 ---
 
 # Hmily框架特性[https://github.com/yu199195/hmily]

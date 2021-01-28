@@ -21,8 +21,7 @@
 [[soul_description]]
 	title = "Soul"
 	description = "高性能，多协议，易扩展，响应式的API Gateway"
-	img = "img/home/soul_framework.png"
-	img_width = "530px"
+	img_width = "600px"
 
 [soul_features]
 	title = "特性一览"

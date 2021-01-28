@@ -5,7 +5,7 @@ description: "Soul Gateway learning plugin chain and load balancing analysis"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-15
-cover: "/soul-framework.png"
+cover: "../../img/architecture/soul-framework.png"
 ---
 
 # 插件链总结

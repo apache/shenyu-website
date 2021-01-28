@@ -5,7 +5,7 @@ description: "Hmily发布2.0.2-RELEASE版本"
 categories: "hmily"
 tags: ["hmily"]
 date: 2019-04-05
-cover: "/hmily-2.0.2.png"
+cover: "../../img/architecture/hmily-framework.png"
 ---
 
 ## Hmily 发布2.0.2-RELEASE 版本

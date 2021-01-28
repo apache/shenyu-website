@@ -5,7 +5,7 @@ description: "Soul网关学习(2-1)divide插件使用"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-16
-cover: "/soul-framework.png"
+cover: "../../img/architecture/soul-framework.png"
 ---
 
 # Divide 插件使用

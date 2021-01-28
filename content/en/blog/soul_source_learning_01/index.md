@@ -5,7 +5,7 @@ description: "Soul Learning(1) Environment Configuration"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-15
-cover: "/soul-framework.png"
+cover: "../../img/architecture/soul-framework.png"
 ---
 
 # Analysis of soul (1) Set up soul environment

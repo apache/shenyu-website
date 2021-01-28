@@ -2,38 +2,38 @@
 author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2020-12-27T15:00:00.000Z
-title: "Dromara 梦码读书会介绍"	
+title: "Dromara Dream Code Book Club Introduction"	
 tags: ["DreamCode", "Dromara","GateWay"]
 cover: "/dromara-open-source.jpg"
-descripton: "Dromara 梦码读书会介绍"
+descripton: "Dromara Dream Code Book Club Introduction"
 ---
 
-![Dromara 梦码读书会介绍](soul-xmind.png)
+![Dromara Dream Code Book Club Introduction](soul-xmind.png)
 
-### Dromara 梦码读书会（Dromara 2020 活动介绍）
+### Dromara Dream Code Book Club（Dromara 2020 event introduction）
 
-- 日期：2020年12月27日，星期日
+- Date: Sunday, December 27, 2020
 
-### 活动背景
+### Activity background
 
-- 为了提高社区参与者的积极性, 促进Dromara社区的建设, 锻炼大家的表达能力和提升技术核心力量, 社区以源码阅读形式自发行的组织本次活动
+- In order to increase the enthusiasm of community participants, promote the construction of the Dromara community, exercise everyone's expressive ability and improve the core strength of technology, the community organized this event in the form of source code reading.
 
-### 活动目的,意义和目标
-- 提高积极性
-- 提升技术力量,扩展大家视野
-- 锻炼语言表达能力
-- 促进社区的和谐、团结、共进
-- 将Dromara社区做的越来越大
+### Activity purpose, meaning and goal
+- Increase motivation
+- Improve technical strength and expand everyone's horizons
+- Exercise language skills
+- Promote the harmony, unity and progress of the community
+- Make the Dromara community bigger and bigger
 
-### 活动开展
-- 活动分多期,先是挑选十二位组员进行为期12天的源码阅读,期间进行两次线上分享
-- 为了提高大家的自觉性我们设立了惩罚制度,先交出500元/人给管理员,隔天的早上8点作业未提交,分享迟到者扣100元/次,提前请假者无需惩罚
-- 每人根据每天阅读的内容,以文字形式写到各自的作业提交区
+### Activity development
+- The activity is divided into multiple phases. First, twelve members are selected for a 12-day source code reading, and two online sharing is carried out during the period.
+- In order to improve everyone's consciousness, we have set up a punishment system. First hand over 500 yuan to the administrator. If homework is not submitted at 8 am the next day, 100 yuan will be deducted for sharing latecomers. Those who ask for leave in advance do not need to be punished.
+- Each person writes to their homework submission area in text based on the content they read every day.
 
-### 活动负责人以及主要参与者
+### Activity leader and main participants
 
-#### 负责人
-- 崔,kimming,猫大人
+#### Principal
+- Cui, Kimming, Xiaoyu 
 
-#### 主要参与者
-- Dromara 社区组员
+#### The main participants
+- Dromara community member

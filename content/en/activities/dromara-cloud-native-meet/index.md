@@ -2,38 +2,38 @@
 author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2021-01-21T15:00:00.000Z
-title: "Dromara Soul 源码阅读分享会"	
+title: "Dromara Soul source code reading sharing session"	
 tags: ["Soul", "Dromara","Reactor"]
 cover: "/dromara-open-source.jpg"
-descripton: "Dromara Soul源码线上分享会，1 月 24 日 15 点至17 点。"
+descripton: "Dromara Soul source code online sharing session, January 24 from 15:00 to 17:00."
 ---
 
-![Dromara 线上活动](soul-xmind.png)
+![Dromara Online Activity](soul-xmind.png)
 
-### Dromara 源码阅读（Soul 2021 首次活动）
+### Dromara source code reading (Soul 2021 first activity)
 
-- 日期：2021年1月24日，星期日
-- 时间：15:00 – 17:00
-- 地点：线上腾讯会议室
+- Date: Sunday, January 24, 2021
+- Time: 15:00 – 17:00
+- Location: Tencent Meeting
 
-### 活动详情
+### Activity Details
 
-**15:00 - 15:10 开场介绍梦码分享流程 by kimming & 崔**
+**15:00-15:10 Opening introduction of dream code sharing process by kimming & Cui**
 
-**15:10 - 15:25 Soul 数据同步之websocket by 婷**
+**15:10-15:25 Soul data synchronization websocket by Ting**
 
-**15:25 - 15:50 Http 探活分享 by 朱明**
+**15:25-15:50 Http Discovery Sharing by Zhu Ming**
 
-**15:50 - 16:10 基于Sofa-Rpc协议的分析 by 东东**
+**15:50-16:10 Analysis based on the Sofa-Rpc protocol by Dongdong**
 
-**16:10 - 16:25 Metrics 监控 by 葛天野**
+**16:10-16:25 Metrics Monitoring by Ge Tianye**
 
-**16:25 - 16:40 Http 长轮询分享 by 杜宇航**
+**16:25-16:40 Http Long Polling Sharing by Du Yuhang**
 
-**16:40 - 16:55 数据同步整体架构分享与介绍 by 夏文涛**
+**16:40-16:55 Sharing and introducing the overall architecture of data synchronization by Wentao Xia**
 
-**16:55 - 17:05 微内核架构分享 by 沈祥俊**
+**16:55-17:05 Microkernel Architecture Sharing by Shen Xiangjun**
 
-**17:05 - 17:20 分享读源码的心得与感悟 by 金泽**
+**17:05-17:20 Sharing the experience and insights of reading source code by JinZe**
 
-**17:20 - 17:30 Soul 作者 猫大人 总结与 社区发展 展望 by 猫大人**
+**17:20-17:30 Summary and Community Development Prospects by Xiaoyu**

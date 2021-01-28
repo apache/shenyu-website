@@ -14,11 +14,11 @@ cover: "/soul-framework.png"
 
 先启动soul-bootstrap（9195）、soul-admin（9095）两个模块，我们通过bootstrap配置文件可以看到，两者是通过WebSocket协议进行数据同步：
 
-![图片](https://uploader.shimo.im/f/nGr4Gtt1RDaxFZhp.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/01.png)
 
 通过bootstrap日志也可以看到：
 
-![图片](https://uploader.shimo.im/f/cvJNUI1WLaJEk0Pe.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/02.png)
 
 所谓的数据同步是指将soul-admin中配置的数据，同步到soul集群中的JVM内存里面，是网关高性能的关键。
 
@@ -28,7 +28,7 @@ cover: "/soul-framework.png"
 
 divide插件是网关处理http协议请求的核心处理插件，也是soul唯一默认开启的插件：
 
-![图片](https://uploader.shimo.im/f/0CIBpm0YatPSWUUu.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/03.png)
 
 我们可以想象一下网关到底是做什么的，去猜测一下处理http请求的divide插件可能具备哪些功能呢？
 
@@ -42,7 +42,7 @@ divide插件是网关处理http协议请求的核心处理插件，也是soul唯
 
 ### 选择器
 
-![图片](https://uploader.shimo.im/f/KlNWtqo6shqyJYWZ.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/04.png)
 
    * **名称**：为你的选择器起一个容易分辨的名字
    * **类型**：custom flow 是自定义流量。full flow 是全流量。自定义流量就是请求会走你下面的匹配方式与条件。全流量则不走。
@@ -64,9 +64,9 @@ divide插件是网关处理http协议请求的核心处理插件，也是soul唯
     * **执行顺序**：当多个选择器的时候，执行顺序小的优先执行。
 ### 选择器规则
 
-![图片](https://uploader.shimo.im/f/If4ekdjZ1T0j11fy.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/05.png)
 
-![图片](https://uploader.shimo.im/f/CTJJ5j55VhfIxVsS.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/06.png)
 
 可以看到，规则的配置和选择器类似，可以理解为更细粒度的自定义配置。
 
@@ -74,7 +74,7 @@ divide插件是网关处理http协议请求的核心处理插件，也是soul唯
 
 废话少说，我们直接运行soul提供的examples模块来演示divide插件。
 
-![图片](https://uploader.shimo.im/f/8i3YFAMvzXsKJg7o.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/07.png)
 
 注意，我们最终运行的是soul-examples-http模块。配置文件可以使用默认的，也可以自定义contextPath和appName，如上图。
 
@@ -82,11 +82,11 @@ divide插件是网关处理http协议请求的核心处理插件，也是soul唯
 
 我们启动端口为8188的这个进程后，可以发现管理控制台divide插件列表中自动配置了这个实例对应的选择器、规则：
 
-![图片](https://uploader.shimo.im/f/ozvPWCqVaXEGwG2E.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/08.png)
 
 可以看到我启动的这个8188项目地址自动注册上去了：
 
-![图片](https://uploader.shimo.im/f/MzTmhBkyZSRIiPAp.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/09.png)
 
 ### 测试网关路由
 
@@ -95,36 +95,36 @@ divide插件是网关处理http协议请求的核心处理插件，也是soul唯
 ```plain
 http://localhost:8188/order/findById?id=1
 ```
-![图片](https://uploader.shimo.im/f/OJi1lpFiwlHN53EE.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/10.png)
 
 然后再测试通过网关转发到这个接口：
 
 ```plain
 http://localhost:9195/my-http/order/findById?id=1
 ```
-![图片](https://uploader.shimo.im/f/8p4u4OKuWp3inEVh.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/11.png)
 
 看日志发现确实经过了网关转发到了8188接口地址：
 
-![图片](https://uploader.shimo.im/f/iE6V4aNqbaaUQz2K.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/12.png)
 
 ### 测试负载均衡
 
 我们修改端口为8189，启动第二个进程。
 
-![图片](https://uploader.shimo.im/f/arghWSgrccJ5262m.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/13.png)
 
 注意IDEA需要取消 Single instance only 的限制：
 
-![图片](https://uploader.shimo.im/f/cMdvwK0RI7AxmLf6.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/14.png)
 
 我们再进入管理控制台，发现my-http选择器下出现两个配置地址：
 
-![图片](https://uploader.shimo.im/f/nC35SJOlCZnNIrAz.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/15.png)
 
 此时我们继续测试，发现负载均衡策略确实生效了：
 
-![图片](https://uploader.shimo.im/f/int2660TqS1nAkYB.png!thumbnail?fileGuid=fGQAODvCNjs7kNIH)
+![图片](/img/soul/yuanjie/16.png)
 
 今天只是演示了divide插件最基础的配置，还有其他各种规则配置后面都可以试一试~
 

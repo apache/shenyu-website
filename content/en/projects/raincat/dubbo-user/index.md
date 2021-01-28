@@ -1,5 +1,5 @@
 ---
-title: dubbo user configuration
+title: Dubbo user configuration
 keywords: dubbo
 description:  dubbo user configuration
 ---
@@ -14,7 +14,7 @@ description:  dubbo user configuration
        </dependency>
 ```
 
-# Congigure `TxTransactionBootstrap` by Spring XML
+# Configure `TxTransactionBootstrap` by Spring XML
 ```xml
     <context:component-scan base-package="org.dromara.*"/>
     <aop:aspectj-autoproxy expose-proxy="true"/>
@@ -36,7 +36,7 @@ description:  dubbo user configuration
     </bean>
 ```
 
-# Congigure `TxTransactionBootstrap` by spring boot starter
+# Configure `TxTransactionBootstrap` by spring boot starter
 
 * Firstly, please add maven dependency `raincat-spring-boot-starter-dubbo` provided by Raincat.
 ```xml

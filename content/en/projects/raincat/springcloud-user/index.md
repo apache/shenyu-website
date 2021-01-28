@@ -1,5 +1,5 @@
 ---
-title: springcloud user guide
+title: Springcloud user guide
 keywords: springcloud
 description:  springcloud user guide
 ---
@@ -14,7 +14,7 @@ description:  springcloud user guide
        </dependency>
 ```
 
-# Congigure `TxTransactionBootstrap` by Spring XML
+# Configure `TxTransactionBootstrap` by Spring XML
 ```xml
     <context:component-scan base-package="org.dromara.*"/>
     <aop:aspectj-autoproxy expose-proxy="true"/>
@@ -36,7 +36,7 @@ description:  springcloud user guide
     </bean>
 ```
 
-# Congigure `TxTransactionBootstrap`  by spring boot starter
+# Configure `TxTransactionBootstrap`  by spring boot starter
 
 * Firstly, please add maven dependency `spring-boot-starter-springcloud`.
 ```xml

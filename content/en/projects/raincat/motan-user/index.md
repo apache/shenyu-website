@@ -1,5 +1,5 @@
 ---
-title: motan user guide
+title: Motan user guide
 keywords: motan
 description: motan user  guide
 ---
@@ -38,7 +38,7 @@ description: motan user  guide
     </bean>
 ```
 
-# Congigure `TxTransactionBootstrap` by Spring boot starter
+# Configure `TxTransactionBootstrap` by Spring boot starter
 
 * Firstly, please add maven dependency `raincat-spring-boot-starter-motan`.
 ```xml

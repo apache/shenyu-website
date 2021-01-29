@@ -49,7 +49,7 @@ description: divide插件
      
   * ip + port 检测
   
-     * 在soul-admin 会有一个定时任务来扫描 配置的ip端口，如果发现下线，则会除该 ip + port  
+     * 在soul-admin 会有一个定时任务来扫描 配置的ip端口，如果发现下线，则会删除该 ip + port  
      
      * 可以进行如下配置 ：
      

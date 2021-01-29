@@ -96,7 +96,7 @@ description: http用户
   
    * 你可以把注解加到 `Controller` 类上面，里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
   
-   * 举列子 （1）： 代表 `/test/payment`，`/test/findByUserId` 都会被网关代理。
+   * 举例子 （1）： 代表 `/test/payment`，`/test/findByUserId` 都会被网关代理。
    
     ```java
       @RestController
@@ -118,7 +118,7 @@ description: http用户
           }      
        }
     ```
-   * 举列子 （2）：代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
+   * 举例子 （2）：代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
    
     ```java
       @RestController

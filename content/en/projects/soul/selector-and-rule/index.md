@@ -112,7 +112,7 @@ description: detailed explanation of selector and rule
   
     * especially in the waf plugin, if you find some ip is unsafe, you can add a match condition with this ip, then it can't access any more.
   
-    * if you use nginx proxy before soul, you can get the right ip with refering to [dev-iphost](dev-iphost.md)
+    * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../custom-parsing-ip-and-host)
  
 * host matching
 
@@ -120,7 +120,7 @@ description: detailed explanation of selector and rule
     
   * especially in waf plugin, if you find some host is unsafe, you can add a match condition with this host, then it can't access any more.
     
-  * if you use nginx proxy before soul, you can get the right ip with refering to [dev-iphost](dev-iphost.md) 
+  * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../custom-parsing-ip-and-host)
     
 *  post matching
 

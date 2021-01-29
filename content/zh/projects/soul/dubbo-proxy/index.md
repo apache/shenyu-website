@@ -101,7 +101,7 @@ description: dubbo接入soul网关
 
 * 重启网关服务。
 
-## dubbo服务接入网关，可以参考：[soul-test-dubbo](https://github.com/Dromara/soul/tree/master/soul-test/soul-test-dubbo)
+## dubbo服务接入网关，可以参考：[soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo)
 
  * alibaba dubbo 用户
 
@@ -245,7 +245,7 @@ description: dubbo接入soul网关
 
    * 通过 http post 方式访问网关，通过body，json类型传递。
 
-   * 更多参数类型传递，可以参考 [soul-test-dubbo](https://github.com/Dromara/soul/tree/master/soul-test/soul-test-dubbo) 中的接口定义，以及参数传递方式。
+   * 更多参数类型传递，可以参考 [soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo) 中的接口定义，以及参数传递方式。
 
 * 单个java bean参数类型 （默认）
 

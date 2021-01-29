@@ -11,7 +11,7 @@ description: 团队介绍
 |肖宇        |yu199195     |  VP          | [京东](https://jd.com)                   |
 |张永伦      |tuohai666    |  PMC         | [京东](https://jd.com)                   |
 |邓力铭      |dengliming   |  PMC         | 某创业公司                                | 
-|汤昱东      |tydhot       |  PMC         | [perfma](https://perfma.com/)            |
+|汤煜冬      |tydhot       |  PMC         | [perfma](https://perfma.com/)            |
 |张磊        |SaberSola    |  PMC         | [哈罗](https://www.helloglobal.com/)     | 
 |陈斌        |prFor        |  PMC         | 某创业公司                                |
 |黄晓峰      |huangxfchn   |  committer   | [shein](https://www.shein.com.hk)        | 

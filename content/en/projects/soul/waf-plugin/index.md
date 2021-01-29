@@ -47,4 +47,4 @@ description: waf plugin
 
 * When faced with replay attacks, you can intercept illegal ip and host, and set reject strategy according to matched ip or host.
 
-* How to determine ip and host, please refer to:[dev-iphost](docs/en-us/soul/dev-iphost.md)
+* How to determine ip and host, please refer to: [parsing-ip-and-host](../custom-parsing-ip-and-host)

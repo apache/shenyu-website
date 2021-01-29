@@ -101,7 +101,7 @@ description: Integrate dubbo with soul gateway
 
 * restart gateway service.
 
-## dubbo integration with gateway,pls refer to : [soul-test-dubbo](https://github.com/Dromara/soul/tree/master/soul-test/soul-test-dubbo)
+## dubbo integration with gateway,pls refer to : [soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo)
 
  * alibaba dubbo user
    
@@ -244,7 +244,7 @@ description: Integrate dubbo with soul gateway
    
    * communicate with gateway through body or json of http post request.
    
-   * more parameter types, pls refer to the interface definition in  [soul-test-dubbo](https://github.com/Dromara/soul/tree/master/soul-test/soul-test-dubbo) and parameter passing
+   * more parameter types, pls refer to the interface definition in  [soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo) and parameter passing
      method.
 
 * Single java bean parameter type (defaulta).

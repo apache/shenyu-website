@@ -47,7 +47,7 @@ description: sofa access soul gateway
 
 * Restart the gateway service。
 
-## sofa service access gateway, you can refer to：(soul-test-sofa)[https://github.com/dromara/soul/tree/master/soul-test/soul-test-sofa]
+## sofa service access gateway, you can refer to：[soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa)
 
  * Springboot
 
@@ -131,7 +131,7 @@ description: sofa access soul gateway
 
    * Access the gateway through http post，and pass through body and json。
 
-   * For more parameter type transfer, please refer to the interface definition in [soul-test-sofa](https://github.com/dromara/soul/tree/master/soul-test/soul-test-sofa) and the parameter transfer method。
+   * For more parameter type transfer, please refer to the interface definition in [soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa) and the parameter transfer method。
 
 * Single java bean parameter type （default）
 

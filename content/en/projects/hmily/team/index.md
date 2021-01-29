@@ -15,4 +15,4 @@ description: Hmily Team
 |Chen Bin                  |prFor       |  committer   | A startup company   |
 |Jiang Xiao Feng           |SteNicholas |  committer   | [Alibaba Cloud](https://cn.aliyun.com/) |
 |Li Lang                   |cysy-lli    |  committer   | [Ctrip](https://www.ctrip.com/)     |
-|Tang Yi Dong              |tydhot      |  committer   | [perfma](https://perfma.com/)       |
+|Tang Yu Dong              |tydhot      |  committer   | [perfma](https://perfma.com/)       |

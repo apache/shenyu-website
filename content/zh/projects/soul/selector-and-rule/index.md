@@ -113,7 +113,7 @@ description: 选择器规则详解
   
     * 尤其是在waf插件里面，如果发现一个ip地址有攻击，可以新增一条匹配条件，填上该ip，拒绝该ip的访问。
   
-    * 如果在soul前面使用了nginx代理，为了获取正确的ip，你可能要参考 [dev-iphost](dev-iphost.md)
+    * 如果在soul前面使用了nginx代理，为了获取正确的ip，你可能要参考 [parsing-ip-and-host](../custom-parsing-ip-and-host)
  
 * host匹配
 
@@ -121,7 +121,7 @@ description: 选择器规则详解
     
   * 尤其是在waf插件里面，如果发现一个host地址有攻击，可以新增一条匹配条件，填上该host，拒绝该host的访问。
     
-  * 如果在soul前面使用了nginx代理，为了获取正确的host，你可能要参考 [dev-iphost](dev-iphost.md)  
+  * 如果在soul前面使用了nginx代理，为了获取正确的host，你可能要参考 [parsing-ip-and-host](../custom-parsing-ip-and-host)
     
 *  post匹配
 

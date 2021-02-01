@@ -27,7 +27,6 @@ Let's take a look at the new features first, and then I would like to share my s
 ## Experience the new architecture and get a high-availability and high-performance gateway in 10 minutes. 
 
 ### Bootstrap soul-admin
-
 - Please Download soul-admin.jar, and bootstrap it.
 ```shell
 > wget  https://yu199195.github.io/jar/soul-admin.jar
@@ -37,7 +36,6 @@ Let's take a look at the new features first, and then I would like to share my s
 - Please access http://localhost:9095/index.html , and the default user name is `admin`, password is `123456`。
 
 ### Build your own gateway
-
 - Firstly, you should create an empty springboot project, please refer to `soul-bootstrap`. You can also visit the spring official website :[https://spring.io/quickstart]
 - Secondly, please add Maven dependency like follows：
 
@@ -111,7 +109,7 @@ soul :
     </dependency>
    <!-- soul alibaba dubbo plugin end-->
 ```
- If you are using apache-dubbo, then you should add the following dependencies in the `pom.xml` file.
+If you are using apache-dubbo, then you should add the following dependencies in the `pom.xml` file.
 
 ```xml
    <!--soul apache dubbo plugin start-->
@@ -122,7 +120,7 @@ soul :
     </dependency>
    <!-- soul apache dubbo plugin end-->
 ```
-For your inference: https://dromara.org/zh-cn/docs/soul/user-dubbo.html
+For your inference: https://dromara.org/zh-cn/docs/soul/user-dubbo.html.
 
 - Q: What if I want to use the current limiting function?
 
@@ -136,6 +134,7 @@ For your inference: https://dromara.org/zh-cn/docs/soul/user-dubbo.html
   </dependency>
   <!-- soul ratelimiter plugin end-->
 ```
+
 All in all, If you want to use some plug-ins, then you can add the Mave dependency in the `pom.xml`, but this is not called hot pluggable.
 
 - Q: What should I do if I don’t want to use some plug-ins? 
@@ -143,9 +142,8 @@ All in all, If you want to use some plug-ins, then you can add the Mave dependen
 
 ## Features of Soul Gateway
 
-* I think the biggest feature is in traffic screening and control. No matter how complex the request is, traffic can be filtered, filtered, and processed according to various conditions, rules, and matching methods. This process is completely visualized, customized and effective immediately, without any changes to the program.
-
-- Each configuration is configured in the soul-admin console and will be synchronized to the JVM memory of each Soul gateway node. This is also the key point of the high performance of the Soul cluster. Inside the soul gateway, http long polling, websocket, Zookeeper are used In other ways.
+- I think the biggest feature is in traffic screening and control. No matter how complex the request is, traffic can be filtered, filtered, and processed according to various conditions, rules, and matching methods. This process is completely visualized, customized and effective immediately, without any changes to the program.
+- Each configuration is configured in the soul-admin console and will be synchronized to the JVM memory of each Soul gateway node. This is also one of the keys to the high performance of the Soul cluster. Inside the soul gateway, http long polling, websocket, Zookeeper are used In other ways, the functions of the distributed configuration center are independently realized.
 - Soul gateway uses Reactor code to achieve the independent thread scheduling, low consumption. When we open 10 plug-ins, the delay of all traffic passing through the gateway is 1~2ms.
 - The plug-in mechanism provides functions such as rate limiting, circuit breaker, black and white list, authentication, etc.
 - Support A/B test, blue and green release (because all traffic is controlled, this is easy to do).
@@ -158,6 +156,11 @@ First of all, I think we should follow pragmatism, when you need to use it , the
 
 - First of all, as rising popularity of microservices, our back-end is divided into many micro-services. I believe that your companies has a back-end management system. I guess they generally have the following architecture .
 ![soul-admin](soul-admin.png)
+=======
+
+- First of all, as rising popularity of microservices, our back-end is divided into many micro-services. I believe that your companies has a back-end management system. I guess they generally have the following architecture .
+![soul-admin](soul-admin.png)
+
 - It may cause some troubles as follows:
     - The developers of every microservice are developing on this, which will become more and more cumbersome.
 
@@ -170,6 +173,9 @@ First of all, I think we should follow pragmatism, when you need to use it , the
 
 ### Scenario2: Company entrance gateway (open platform)
 
+- Some people may say I can disassemble them into a few web projects. But this will bring a new trouble, where to do load balance? Where to do unified certification? 
+- Soul gateway solves all the above problems very well, just register your microservice to Soul gateway. You can do whatever you want. For example, the order module has 2 nodes, and you want to release a new version, you can send request to one of them in the gateway, and update the version in the other node. When update complete, let the request go though both two nodes. So Java programmer can also do the jod of maintaner's.
+- If you need unified authentication, you only need to add an authentication plug-in suitable for your business to the gateway.
 - If a company wants to do open-platform or an entry gateway, authentication, rate limiting, circuit breaker, monitoring are required.
 - If your company is in Dubbo system, after the developers have written the dubbo service, should they add a new web project to provide an interface for others?
 -  If an interface attacked by a large amount of traffic, how do you deal with it?

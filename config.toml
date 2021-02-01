@@ -95,7 +95,7 @@ googleAnalytics = "UA-187960192-2"
 		name = "Activity"
 		url = "/activities/"
 		weight = 4
-	[[languages.zh.menu.main]]
+	[[menu.main]]
 		identifier = "community"
 		name = "Community"
 		url = "/community/"

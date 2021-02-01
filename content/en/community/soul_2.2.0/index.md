@@ -26,8 +26,7 @@ Let's take a look at the new features first, and then I would like to share my s
 
 ## Experience the new architecture and get a high-availability and high-performance gateway in 10 minutes. 
 
-**Bootstrap soul-admin**
-
+### Bootstrap soul-admin
 - Please Download soul-admin.jar, and bootstrap it.
 ```shell
 > wget  https://yu199195.github.io/jar/soul-admin.jar
@@ -36,8 +35,7 @@ Let's take a look at the new features first, and then I would like to share my s
 ```
 - Please access http://localhost:9095/index.html , and the default user name is `admin`, password is `123456`。
 
-**Build your own gateway **
-
+### Build your own gateway
 - Firstly, you should create an empty springboot project, please refer to `soul-bootstrap`. You can also visit the spring official website :[https://spring.io/quickstart]
 - Secondly, please add Maven dependency like follows：
 
@@ -111,7 +109,7 @@ soul :
     </dependency>
    <!-- soul alibaba dubbo plugin end-->
 ```
-2） If you are using apache-dubbo, then you should add the following dependencies in the `pom.xml` file.
+If you are using apache-dubbo, then you should add the following dependencies in the `pom.xml` file.
 
 ```xml
    <!--soul apache dubbo plugin start-->
@@ -122,7 +120,7 @@ soul :
     </dependency>
    <!-- soul apache dubbo plugin end-->
 ```
-3) For your inference: https://dromara.org/zh-cn/docs/soul/user-dubbo.html
+For your inference: https://dromara.org/zh-cn/docs/soul/user-dubbo.html.
 
 - Q: What if I want to use the current limiting function?
 
@@ -136,7 +134,9 @@ soul :
   </dependency>
   <!-- soul ratelimiter plugin end-->
 ```
-- All in all, If you want to use some plug-ins, then you can add the Mave dependency in the `pom.xml`, but this is not called hot pluggable.
+
+All in all, If you want to use some plug-ins, then you can add the Mave dependency in the `pom.xml`, but this is not called hot pluggable.
+
 - Q: What should I do if I don’t want to use some plug-ins? 
 - A: You can disable or enable the plug-in in the soul-admin. That is hot pluggable.
 
@@ -152,7 +152,11 @@ soul :
 
 First of all, I think we should follow pragmatism, when you need to use it , then you have monmentum to know it. Thus, where are you need Soul?
 
-**Scenario1: Adimistration backend**
+### Scenario1: Adimistration backend
+
+- First of all, as rising popularity of microservices, our back-end is divided into many micro-services. I believe that your companies has a back-end management system. I guess they generally have the following architecture .
+![soul-admin](soul-admin.png)
+=======
 
 - First of all, as rising popularity of microservices, our back-end is divided into many micro-services. I believe that your companies has a back-end management system. I guess they generally have the following architecture .
 ![soul-admin](soul-admin.png)
@@ -163,11 +167,15 @@ First of all, I think we should follow pragmatism, when you need to use it , the
     - How to publish without downtime? If you want to publish the commodity module, all other modules will not be able to work at this time.
 
     - If a certain module interface requires a lot of requests (multiple deployments are required), and another module does not need it, how can you split it?
+- Some people may say I can disassemble them into a few web projects. But this will bring a new trouble, where to do load balance? Where to do unified certification? 
+- Soul gateway solves all the above problems very well, just register your microservice to Soul gateway. You can do whatever you want. For example, the order module has 2 nodes, and you want to release a new version, you can send request to one of them in the gateway, and update the version in the other node. When update complete, let the request go though both two nodes. So Java programmer can also do the jod of maintaner's.
+- If you need unified authentication, you only need to add an authentication plug-in suitable for your business to the gateway.
+
+### Scenario2: Company entrance gateway (open platform)
 
 - Some people may say I can disassemble them into a few web projects. But this will bring a new trouble, where to do load balance? Where to do unified certification? 
 - Soul gateway solves all the above problems very well, just register your microservice to Soul gateway. You can do whatever you want. For example, the order module has 2 nodes, and you want to release a new version, you can send request to one of them in the gateway, and update the version in the other node. When update complete, let the request go though both two nodes. So Java programmer can also do the jod of maintaner's.
 - If you need unified authentication, you only need to add an authentication plug-in suitable for your business to the gateway.
-**Scenario1: Company entrance gateway (open platform)**
 - If a company wants to do open-platform or an entry gateway, authentication, rate limiting, circuit breaker, monitoring are required.
 - If your company is in Dubbo system, after the developers have written the dubbo service, should they add a new web project to provide an interface for others?
 -  If an interface attacked by a large amount of traffic, how do you deal with it?

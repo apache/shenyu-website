@@ -9,76 +9,82 @@ cover: "../../img/architecture/hmily-framework.png"
 ---
 
 
-Thank you friends for your support all the way, and keep everyone waiting. In this version, our team refactored the entire project, reasonably divided functional modules, added configuration centers, adjusted the underlying storage structure, solved difficult bugs, and supported other new features, and absorbed more outstanding open source communities. Joining of talents.
+Thank you guys for your support all the way, and keep everyone waiting. In this version, our team refactored the entire project, reasonably divided functional modules, added configuration centers, adjusted the underlying storage structure, solved difficult bugs, and supported other new features, and absorbed more outstanding open source community members to join in.
 
-## Architecture panorama 
+## Architecture 
 ![架构全景图](hmily-2.0.2.png)
 ### Features 
 
-- High availability·: Supports abnormal transaction rollback and overtime abnormal recovery in distributed scenarios to prevent transaction suspension. 
+- High availability·: Supports abnormal transaction rollback and overtime  transaction recovery in distributed scenarios to prevent transaction suspension. 
 - Ease of use: Provide zero-invasive Spring-Boot, Spring-Namespace to quickly integrate with business systems.
 - High performance: Decentralized design, fully integrated with business systems, naturally supports cluster deployment.
-- Observability: Performance monitoring of multiple metrics by Metrics, as well as admin management background UI display.
-- Multiple RPCs: support Dubbo, SpringCloud, Motan, sofa-rpc and other well-known RPC frameworks.
+- Observability: Performance monitoring of multiple metrics by Metrics, as well as admin management UI .
+- Multiple RPCs: support Dubbo, SpringCloud, Motan, Sofa-rpc and other well-known RPC frameworks.
 - Log storage: Support Mysql, Oracle, Mongodb, Redis, Zookeeper, etc.
 - Complex scenarios: Support RPC nested call transactions. 
+
+
 
 ### Refactoring part
 
 - **Module division:**
 
-    * Extract the SPI custom module open-the-box.
+    * Extract the SPI custom module and It's open-the-box.
 
     - SPI module that defines multiple storage methods for transaction logs.
     - SPI module that defines multiple serialization methods for transaction logs.
-    - Add configuration center, support various mainstream configuration centers (nacos, apollo, zookeeper, etc.), and support dynamic refresh of configuration.
-    - Added metrics module to monitor various information at runtime.
+    - Add configuration center, support various mainstream configuration centers (Nacos, Apollo, Zookeeper, etc.), and support dynamic refresh of configuration.
+    - Add metrics module to monitor various information at runtime.
     - Remove the core transaction execution module.
     - Extract multiple RPC support modules.
     - Extract the Spring and Spring Boot support modules.
 
 - **On the dependent package version:**
-    
-    - Guava upgraded to 29.0.
-- Curator upgraded to 5.1.0.
+  
+    - Guava upgraded to 2.9.0.
+    - Curator upgraded to 5.1.0.
     
 - **Code quality:**
-    
-- Strict check-style code inspection, adhering to the principle of elegance and simplicity (talk is cheap, show you code). 
-    
+  
+  - Strict check-style code inspection, adhering to the principle of elegance and simplicity (talk is cheap, show you code). 
+  
 - **openness :**
-    
-- The community pursues the basic principles of simplicity, happiness, and harmony.
-    
+  
+  - The community pursues the basic principles of simplicity, happiness, and harmony.
+  
 - **Goal:**
-    
+  
     - Create a high-availability, high-performance, easy-to-use financial-level distributed transaction solution.
 
-### Solve difficult bugs:
+
+
+### Solve bugs:
 
 - The Dubbo framework does not support the use of annotations (spring-boot-starter-dubbo). 
 - The Motan framework does not support the use of annotations.
-- If  Spring Cloud users use Feign and Hystrix to integrate hmily, the thread switching problem occurs.
+- If  Spring Cloud users use Feign and Hystrix to integrate Hmily, the thread switching problem occurs.
 - In extreme cases, the transaction log serialization is abnormal.
 - If timeout  happen in `try  `, It will  cause the transaction suspension bug.
 - When the `confirm` and `cancel` phases are abnormal, the transaction fails to rollback.
 - In the transaction log storage, two modes of synchronous and asynchronous are supported for users to choose. 
 
-### User use and upgrade guide 
 
-For hmily users, it only takes three steps to achieve the BASE transaction between RPC service calls
 
-- Refer to the jar packages supported by hmily for various rpc.
-- Add hmily configuration.
-- Add `@Hmily` annotation to rpc interface method.
+### User guide 
 
-**Dependency changes **
+For Hmily users, it only takes three steps to achieve the BASE transaction between RPC service calls
 
-There is no change to the dependencies, only the version needs to be upgraded to 2.1.0. Here are examples of Dubbo microservices
+- Add the maven dependencies supported by Hmily for various RPC.
+- Add Hmily configuration.
+- Add `@Hmily` annotation to RPC interface method.
 
-**Dubbo RPC microservices**
+#### Dependency changes 
 
-- Dubbo interface service dependency
+There is no change to the dependencies, only the version needs to be upgraded to 2.1.0. Here are examples of Dubbo microservices.
+
+#### Dubbo RPC microservices
+
+- Dubbo interface service dependency.
 
 ```xml
      <dependency>
@@ -88,7 +94,7 @@ There is no change to the dependencies, only the version needs to be upgraded to
       </dependency>
 ```
 
-- Dubbo service provider depends on (<2.7)
+- Dubbo service provider depends on version<2.7.
 
 ```xml
        <dependency>
@@ -106,9 +112,9 @@ There is no change to the dependencies, only the version needs to be upgraded to
         </dependency>
 ```
 
-**Hmily configuration changes**
+#### Hmily configuration changes
 
-In the new version 2.1.0, the hmily-config module has been added to support local and registry modes. The user first needs to create a new file named `hmily.yml` under the project `resouce` file. The default path is the project's `resource` directory, it can also be specified with `-Dhmily.conf`, or the configuration can be placed in the `user.dir` directory. Priority level `-Dhmily.conf`> `user.dir`> `resource`. The file format is as follows (part of it, the following is the local mode of configuration): 
+In the new version 2.1.0, the hmily-config module has been added to support local and registry modes. The user first needs to create a new file named `hmily.yml` under the project `resouce` file. The default path is the project's `resource` directory, it can also be specified with `-Dhmily.conf`, or the configuration can be placed in the `user.dir` directory. Priority level `-Dhmily.conf`> `user.dir`> `resource`. The file format is as follows (The local mode of configuration): 
 
 ```yml
   server:
@@ -184,11 +190,13 @@ remote:
     meta: http://192.168.3.22:808
 ```
 
-There are other configuration methods and detailed explanations of configuration content, please refer to: https://dromara.org/zh-cn/docs/hmily/config.html .
+If you want to know more configuration methods and detailed explanations of configuration content, please refer to: https://dromara.org/zh-cn/docs/hmily/config.html .
 
-**Changes in the use of annotation methods** In the previous version, rpc interface and implementation only need to add `@Hmily` annotation, now need to be changed, in the rpc interface method is to add `@Hmily`, used to identify this is a hmily distributed transaction interface method , You need to add `@HmilyTCC` to the method implementation of the interface, and then specify the method names of `confirm` and `cancel`. 
+**Changes in the use of annotation methods** 
 
-**Example (say method in dubbo needs to participate in distributed transactions):** 
+In the previous version, RPC interface and implementation only need to add `@Hmily` annotation, but now It need to be changed, you need to add `@Hmily` in the RPC interface method,  which is used to identify this is a Hmily distributed transaction interface method , besides,  you need to add `@HmilyTCC` to the implementation of the interface, and then specify the method names of `confirm` and `cancel`. 
+
+**Example (say method in Dubbo needs to participate in distributed transactions):** 
 
 ```java
 public interface HelloService {
@@ -216,7 +224,7 @@ public class HelloServiceImpl implements HelloService  {
 
 **Example (say method in springcloud needs to participate in distributed transactions):**
 
-* Spring-cloud service caller FeignClient
+* Spring-cloud service caller FeignClient.
 
 ```java
 @FeignClient(value = "helle-service")
@@ -228,7 +236,7 @@ public interface HelloService {
 }
 ```
 
-- Spring-cloud provider
+- Spring-cloud provider.
 
 ```java
 @RestController
@@ -266,18 +274,22 @@ public class HelloServiceImpl implements HelloService  {
     }
 }
 ```
-- **Changes in transaction log storage structure** In use, users don't need to care about using or upgrading, the framework will be initialized by default. 
+- **Changes in transaction log storage structure** 
+
+  Users don't need to care about using or upgrading, the framework will be initialized by default. 
+
+  
 
 ## Next version
 
--  -Because of the adjustment of the architecture, it will be easier to support other modes. In the next version, TAC mode (try-auto-cancel) will be released to use this mode, which will greatly simplify the use of the framework. Developers will not You need to care about the development of confirm and cancel methods, and provide better compatibility with the transformation of the old system. Don't worry about additional development tasks, leave everything to hmily. -
+-  Because of the adjustment of the architecture, it will be easier to support other modes. In the next version, TAC mode (try-auto-cancel) will be released, which will greatly simplify the use of the framework.  You need only to care about the development of `confirm` and `cancel` methods, and It's provide better compatibility with the transformation of the old system. Don't worry about additional development tasks, just leave everything to Hmily!
 - It will support Brpc.
 - It will support Tars-rpc.
 
-## Community co-construction
+## Community
 
-We uphold the principle of harmony and happiness and code first. If you have ideas, you are willing to grow with us and contribute together, come and join us!
+We uphold the principle of harmony and happiness. If you have ideas and want to contribute to community, come and join us!
 
-* github: https://github.com/dromara/hmily
-* gitee: https://gitee.com/shuaiqiyu/hmily
-* qq group: 162614487
+* Github: https://github.com/dromara/hmily
+* Gitee: https://gitee.com/shuaiqiyu/hmily
+* QQ group: 162614487

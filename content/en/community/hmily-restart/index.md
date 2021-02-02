@@ -12,9 +12,9 @@ Hmily is a flexible distributed transaction architecture with high performance, 
 
 ## Adjust Hmily architecture with more reasonable module partition
 
-**Architecture: **
+**Architecture:**
 
-![全景图](hmily-2.0.2.png)
+![全景图](../../img/architecture/hmily-framework.png)
 
 **Architecture adjustment:**
 

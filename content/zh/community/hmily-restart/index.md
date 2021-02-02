@@ -14,7 +14,7 @@ Hmily是一款高性能，高可靠，易使用的柔性分布式事务解决方
 
 **全景图：**
 
-![全景图](hmily-2.0.2.png)
+![全景图](/img/architecture/hmily-framework.png)
 
 **架构调整：**
 

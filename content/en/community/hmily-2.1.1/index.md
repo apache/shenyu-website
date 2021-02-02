@@ -12,7 +12,7 @@ cover: "../../img/architecture/hmily-framework.png"
 Thank you guys for your support all the way, and keep everyone waiting. In this version, our team refactored the entire project, reasonably divided functional modules, added configuration centers, adjusted the underlying storage structure, solved difficult bugs, and supported other new features, and absorbed more outstanding open source community members to join in.
 
 ## Architecture 
-![架构全景图](hmily-2.0.2.png)
+![架构全景图](../../img/architecture/hmily-framework.png)
 ### Features 
 
 - High availability·: Supports abnormal transaction rollback and overtime  transaction recovery in distributed scenarios to prevent transaction suspension. 

@@ -15,7 +15,7 @@ description: 正确获取Ip与host
 
 *  在soul网关自带实现为：`org.dromara.soul.web.forwarde.ForwardedRemoteAddressResolver`。
 
-*  它需要你在 `nginx` 设置 `X-Forwarded-For`，以便来或者正确的 ip 与 host。
+*  它需要你在 `nginx` 设置 `X-Forwarded-For`，以便来获取正确的 ip 与 host。
 
 
 ## 扩展实现

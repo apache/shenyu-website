@@ -37,9 +37,9 @@ description: waf plugin
 
 * Selectors and rules, please refer to : [selector](../selector-and-rule)
   
-  * When `module` is set to `black` mode, only the matched traffic will execute the rejection policy, and the unmatched traffic will be skipped directly.
+  * When `model` is set to `black` mode, only the matched traffic will execute the rejection policy, and the unmatched traffic will be skipped directly.
    
-  * When module' is set to mixed' mode, all traffic will pass through waf plugin. For different matching traffic, users can set whether to reject or pass.
+  * When `model` is set to `mixed` mode, all traffic will pass through waf plugin. For different matching traffic, users can set whether to reject or pass.
 
 ## Situation
 

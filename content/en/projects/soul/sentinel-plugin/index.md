@@ -36,19 +36,19 @@ description: sentinel plugin
 
 * Sentinel Processing Details
     
-    * `Whether open flow control(1 or 0)`: whether enable sentinel flow control function.
+    * `flowRuleEnable (1 or 0)`: whether enable sentinel flow control function.
     
-    * `Traffic shaping control behavior`: effect(reject directly/ queue/ slow start up), it do not support flow control by invocation relation. 
+    * `flowRuleControlBehavior`: effect(reject directly/ queue/ slow start up), it do not support flow control by invocation relation. 
     
-    * `Type of threshold of flow control`: type of current limit threshold(QPS or Thread Count)。
+    * `flowRuleGrade`: type of current limit threshold(QPS or Thread Count)。
         
-    * `Whether open circuit breaking(1 or 0)`: whether enable circuit breaking function of `sentinel`.
+    * `degradeRuleEnable (1 or 0)`: whether enable circuit breaking function of `sentinel`.
         
-    * `Type of circuit breaker`: circuit breaker strategy, support RT of seconds level/ Error Ratio of seconds level/ Error Count of minutes level strategy.
+    * `degradeRuleGrade`: circuit breaker strategy, support RT of seconds level/ Error Ratio of seconds level/ Error Count of minutes level strategy.
         
-    * `Circuit breaking threshold`: threshold.
+    * `degradeRuleCount`: threshold.
       
-    * `Size of circuit breaking window`: time of degrading(unit: second).
+    * `degradeRuleTimeWindow`: time of degrading(unit: second).
         
-    * `URI of circuit breaking`: degraded uri after circuit breaking.
+    * `fallbackUri`: degraded uri after circuit breaking.
 

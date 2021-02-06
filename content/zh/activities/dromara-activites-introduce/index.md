@@ -8,7 +8,7 @@ cover: "/dromara-open-source.jpg"
 descripton: "Dromara 梦码读书会介绍"
 ---
 
-![Dromara 梦码读书会介绍](soul-xmind.png)
+![Dromara 梦码读书会介绍](/img/soul/activite/soul-xmind.png)
 
 ### Dromara 梦码读书会（Dromara 2020 活动介绍）
 

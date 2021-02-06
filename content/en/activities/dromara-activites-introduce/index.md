@@ -8,7 +8,7 @@ cover: "/dromara-open-source.jpg"
 descripton: "Dromara Dream Code Book Club Introduction"
 ---
 
-![Dromara Dream Code Book Club Introduction](soul-xmind.png)
+![Dromara Dream Code Book Club Introduction](/img/soul/activite/soul-xmind.png)
 
 ### Dromara Dream Code Book Club（Dromara 2020 event introduction）
 

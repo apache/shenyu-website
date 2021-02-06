@@ -2,13 +2,13 @@
 author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2021-01-21T15:00:00.000Z
-title: "Dromara Soul 源码阅读分享会"	
+title: "Dromara Soul 源码01期阅读分享会01"	
 tags: ["Soul", "Dromara","Reactor"]
 cover: "/dromara-open-source.jpg"
 descripton: "Dromara Soul源码线上分享会，1 月 24 日 15 点至17 点。"
 ---
 
-![Dromara 线上活动](soul-xmind.png)
+![Dromara 线上活动](/img/soul/activite/soul-xmind.png)
 
 ### Dromara 源码阅读（Soul 2021 首次活动）
 

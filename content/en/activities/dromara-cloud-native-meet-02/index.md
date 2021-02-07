@@ -24,7 +24,7 @@ descripton: "Dromara Soul source code 02 online sharing session, February 6th fr
 
 **20:25 - 20:50 [Introduction to Reactive Programming](https://zhoutzzz.com/archives/xiang-ying-shi-bian-cheng-reactiveprogramming) by Ztzzz**
 
-**20:50 - 21:10 Soul single test summary by yangze**
+**20:50 - 21:10 Soul Unit Test by yangze**
 
 **21:10 - 21:25 [Fault-tolerant design](http://icyfenix.cn/distribution/traffic-management/failure.html) by jiangwenbo**
 

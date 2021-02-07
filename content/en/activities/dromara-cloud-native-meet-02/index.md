@@ -24,13 +24,13 @@ descripton: "Dromara Soul source code 02 online sharing session, February 6th fr
 
 **20:25 - 20:50 [Introduction to Reactive Programming](https://zhoutzzz.com/archives/xiang-ying-shi-bian-cheng-reactiveprogramming) by Ztzzz**
 
-**20:50 - 21:10 Soul Unit Test by yangze**
+**20:50 - 21:10 [Soul Unit Test](https://www.yuque.com/docs/share/27992671-8d47-4bba-b2dc-c0e39074d649?#) by yangze**
 
 **21:10 - 21:25 [Fault-tolerant design](http://icyfenix.cn/distribution/traffic-management/failure.html) by jiangwenbo**
 
-**21:25 - 21:40 Soul [Web Flux loading process and processing request analysis](https://blog.csdn.net/u012180773?t=1) by rwby**
+**21:25 - 21:40 [Soul Web Flux loading process and processing request analysis](https://blog.csdn.net/u012180773?t=1) by rwby**
 
-**21:40 - 21:55 Soul current limiting and fusing analysis by liupenghui**
+**21:40 - 21:55 [Soul current limiting and fusing analysis](https://redick01.github.io/redick.github.io/#/blog/sourcecode/soul/soul_19) by liupenghui**
 
 **21:55 - 22:05 Summary of common Java problems by muou**
 

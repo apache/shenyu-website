@@ -19,3 +19,4 @@ description: Team Introduction
 |zhuang hao chao           |dmsolr         |  committer | [YY](https://www.yy.com/)                        |  
 |Jiang Xiaofeng            |SteNicholas    |  committer | [aliyun](https://www.aliyun.com)                 |
 |Ding jianming             |nuo-promise    |  committer | a start-up company                               |
+|Feng Zhenbing             |fengzhenbing   |  committer | a start-up company                               |

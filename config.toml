@@ -11,6 +11,8 @@ disableKinds = ["taxonomyTerm"]
 
 Paginate = 10
 googleAnalytics = "UA-187960192-2"
+[markup.goldmark.renderer]
+unsafe = true
 [params]
 	github = "https://github.com/dromara/dromara.github.io"
   description = "The girl on the prairie"

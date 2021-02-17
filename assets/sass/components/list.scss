@@ -116,6 +116,7 @@
 
   .introduction-section {
     display: none;
+    width: 100%;
     .introduction-body {
       max-width: 1400px;
       box-sizing: border-box;
@@ -144,10 +145,29 @@
         height: 17px;
         background-image: linear-gradient( 0deg, #243949 0%, #4C6B8E 51%, #517fa4 100%);
       }
+      @media screen and (max-width: 1106px) {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 40px;
+          height: 75px;
+          opacity: 0.3;
+          border-right: 1px solid #666;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          left: 39px;
+          top: 75px;
+          width: 3px;
+          height: 17px;
+          background-image: linear-gradient( 0deg, #243949 0%, #4C6B8E 51%, #517fa4 100%);
+        }
+      }
       .introduction {
         display: inline-block;
         width: calc(100% - 826px);
-        min-width: 520px;
         max-width: 590px;
         h3 {
           font-family: Avenir-Heavy;
@@ -266,6 +286,11 @@
   position: absolute;
   top: 0px;
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .particles_bg {
+    display: none;
+  }
 }
 
 .ss-project-card {

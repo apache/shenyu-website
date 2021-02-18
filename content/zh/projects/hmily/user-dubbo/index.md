@@ -147,7 +147,7 @@ public class HelloServiceImpl implements HelloService  {
 hmily.support.rpc.annotation = true 
 ```      
 
-或者在项目中显示注入：
+或者在项目中显式注入：
 
 ```java
 @Bean
@@ -167,7 +167,7 @@ public BeanPostProcessor refererAnnotationBeanPostProcessor() {
 #### 负载均衡
 
   * 如果服务部署了几个节点， 负载均衡算法最好使用 `hmily`, 这样 `try`, `confirm`, `cancel` 调用会落在同一个节点
-    充分利用了缓存，提搞了效率。
+    充分利用了缓存，提高了效率。
     
   * 支持一下几种 `hmilyConsistentHash `, `hmilyLeastActive `,  `hmilyRandom `, `hmilyRoundRobin ` 几种方式均是继承dubbo原生的
     
@@ -177,7 +177,7 @@ public BeanPostProcessor refererAnnotationBeanPostProcessor() {
     
 #### 设置永不重试
     
-  * 需要进行分布式事务的dubbo接口，调用放要设置为永远不重试(retries="0")
+  * 需要进行分布式事务的dubbo接口，调用方要设置为永远不重试(retries="0")
 
 ```xml
    <dubbo:reference  interface="xxx"  id="xxx" retries="0"/>           

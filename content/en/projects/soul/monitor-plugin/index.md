@@ -60,21 +60,55 @@ description: monitor plugin
 |:------------------------ |:--------------------- |:-------------|:-------------------- |
 |request_total             |Counter                | none           |collecting all requests of Soul Gateway |
 |http_request_total        |Counter                 | path,type    |collecting all matched requests of monitor| 
- 
+
 ## Collect metrics
 
- * Users build their own `Prometheus` service, and add the following configuration in prometheus.yml file:
- 
+Users need to install `Prometheus` service to collect
+
+* Choose the corresponding environment [download address](https://prometheus.io/download/) to install
+* Modify configuration file: `prometheus.yml`
+
  ```yaml
  scrape_configs:
    # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-   - job_name: 'shardingSphere-proxy'
+   - job_name: 'prometheus'
      # metrics_path defaults to '/metrics'
      # scheme defaults to 'http'.
      static_configs:
-     - targets: ['localhost:9191']
+     - targets: ['localhost:9190']
  ```
- 
-## Panel Presentation
- 
- It is recommended to use Grafana'. Users can customize the query to personalize the display panel, and we will provide the default configuration panel later.
+**Note:** The `job_name` corresponds to the `metricsName` of the `monitor` plug-in configuration
+
+* After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`, Success can be verified at http://localhost:9090/
+
+## Panel display
+
+It is recommended to use `Grafana`, Users can customize the query to personalize the display panel.
+
+Here's how to install and deploy `Grafana for Windows`
+
+* Install Grafana
+
+[download](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) Unzip it and enter the `bin` directory and `double-click` `grafana-server.exe` to run it. Go to http://localhost:3000/?orgId=1 `admin/admin` to verify the success
+
+* Config Prometheus DataSource
+
+![](/img/soul/monitor/prometheus-datasource.png)
+
+* Config JVM Dashboard
+
+Click `Create` - `Import` and enter the dashboards ID (8563 recommended).
+
+![](/img/soul/monitor/jvm-import.png)
+
+The final JVM monitor panel looks like this:
+
+![](/img/soul/monitor/jvm.png)
+
+* Config Custom Metric Dashboard `request_total`、`http_request_total`
+
+Click `Create` - `Import` and enter the [panel config json](/img/soul/monitor/request_metric_dashboard.json)
+
+The final custom HTTP request monitoring panel looks like this:
+
+![](/img/soul/monitor/request-metric.png)

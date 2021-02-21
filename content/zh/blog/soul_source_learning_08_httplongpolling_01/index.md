@@ -5,7 +5,7 @@ description: "Soul网关学习Http长轮询解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-25
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 ## 后台与网关数据同步 (Http长轮询篇)

@@ -5,7 +5,7 @@ description: "Soul网关学习插件链与负载均衡解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-15
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 # 插件链总结

@@ -5,7 +5,7 @@ description: "Soul网关发布1.0.4-RELEASE版本"
 categories: "Soul"
 tags: ["Soul"]
 date: 2019-04-09
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 ### Soul网关发布1.0.4-RELEASE版本

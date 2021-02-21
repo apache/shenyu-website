@@ -5,7 +5,7 @@ description: "How Does The Divide Plugin Forward HTTP Requests"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-17
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 # Divide 插件如何转发http请求

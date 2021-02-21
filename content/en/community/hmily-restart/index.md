@@ -5,7 +5,7 @@ description: "Monthly report after Hmily restart"
 categories: "hmily"
 tags: ["hmily"]
 date: 2020-09-08
-cover: "../../img/architecture/hmily-framework.png"
+cover: "/img/architecture/hmily-framework.png"
 ---
 
 Hmily is a flexible distributed transaction architecture with high performance, high avalibility and ease to use. At present, it provides support for Dubbo, Spring-Cloud, Motan, GRPC and other RPC frameworks. In terms of ease of use, it provides zero-intrusive rapid integration of Spring-Boot and Spring-Namespace, with the goal of building a distributed transaction solution of financial level.

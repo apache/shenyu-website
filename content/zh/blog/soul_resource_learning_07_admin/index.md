@@ -5,7 +5,7 @@ description: "Soul网关学习Admin源码分析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-20
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 # 源码分析

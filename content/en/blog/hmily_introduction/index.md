@@ -5,7 +5,7 @@ description: "High-Performance Asynchronous Distributed Transaction TCC Framewor
 categories: "hmily"
 tags: ["hmily","TCC"]
 date: 2018-09-25
-cover: "../../img/architecture/hmily-framework.png"
+cover: "/img/architecture/hmily-framework.png"
 ---
 
 # Hmily框架特性[https://github.com/yu199195/hmily]

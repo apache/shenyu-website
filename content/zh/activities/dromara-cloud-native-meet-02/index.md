@@ -4,7 +4,7 @@ authorlink: "https://github.com/yu199195"
 date: 2021-02-06T15:00:00.000Z
 title: "Dromara Soul 源码01期阅读分享会02"	
 tags: ["Soul", "Dromara","Reactor"]
-cover: "/dromara-open-source.jpg"
+cover: "/img/activities/dromara-open-source.jpg"
 descripton: "Dromara Soul源码02期线上分享会，2 月 6 日 20 点至23 点。"
 ---
 

@@ -5,7 +5,7 @@ description: "时隔一年，Hmily发布全新架构的2.1.1版本"
 categories: "hmily"
 tags: ["hmily"]
 date: 2020-09-28
-cover: "../../img/architecture/hmily-framework.png"
+cover: "/img/architecture/hmily-framework.png"
 ---
 
 

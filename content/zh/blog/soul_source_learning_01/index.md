@@ -5,7 +5,7 @@ description: "Soul网关学习(1)环境配置"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-15
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 # Soul源码分析（1） 环境配置

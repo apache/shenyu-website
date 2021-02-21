@@ -5,7 +5,7 @@ description: "Soul Gateway Learns WebSocket Data Synchronization Analysis"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-22
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 > Fanjinpeng

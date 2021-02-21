@@ -5,7 +5,7 @@ description: "One year later, Hmily released version 2.1.1 of the new architectu
 categories: "hmily"
 tags: ["hmily"]
 date: 2020-09-28
-cover: "../../img/architecture/hmily-framework.png"
+cover: "/img/architecture/hmily-framework.png"
 ---
 
 

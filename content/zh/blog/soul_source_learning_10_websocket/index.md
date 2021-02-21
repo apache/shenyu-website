@@ -5,7 +5,7 @@ description: "Soul网关学习WebSocket数据同步解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-22
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 > 范金鹏

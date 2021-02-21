@@ -5,7 +5,7 @@ description: "Hmily Configuration Optimization For High Concurrent Transactions"
 categories: "hmily"
 tags: ["hmily"]
 date: 2018-11-14
-cover: "../../img/architecture/hmily-framework.png"
+cover: "/img/architecture/hmily-framework.png"
 ---
 
 ### Hmily高并发事务处理
@@ -104,39 +104,41 @@ hmily支持Spring bean xml 方式的配置，同时也支持spring boot start ym
 
 * redis哨兵模式集群:
 
-   ```xml
-   <property name="repositorySupport" value="redis"/>
-    <property name="tccRedisConfig">
-        <bean class="com.hmily.tcc.common.config.TccRedisConfig">
-            <property name="masterName" value="aaa"/>
-            <property name="sentinel" value="true"/>
-            <property name="sentinelUrl" value="192.168.1.91:26379;192.168.1.92:26379;192.168.1.93:26379"/>
-            <property name="password" value="123456"/>
-        </bean>
-    </property>
-    ```
+```xml
+<property name="repositorySupport" value="redis"/>
+ <property name="tccRedisConfig">
+     <bean class="com.hmily.tcc.common.config.TccRedisConfig">
+         <property name="masterName" value="aaa"/>
+         <property name="sentinel" value="true"/>
+         <property name="sentinelUrl" value="192.168.1.91:26379;192.168.1.92:26379;192.168.1.93:26379"/>
+         <property name="password" value="123456"/>
+     </bean>
+ </property>
+ ```
+
 * redis集群:
 
-   ```xml
-   <property name="repositorySupport" value="redis"/>
-    <property name="tccRedisConfig">
-        <bean class="com.hmily.tcc.common.config.TccRedisConfig">
-            <property name="cluster" value="true"/>
-            <property name="clusterUrl" value="192.168.1.91:26379;192.168.1.92:26379;192.168.1.93:26379"/>
-            <property name="password" value="123456"/>
-        </bean>
-    </property>
-    ```
+```xml
+<property name="repositorySupport" value="redis"/>
+ <property name="tccRedisConfig">
+     <bean class="com.hmily.tcc.common.config.TccRedisConfig">
+         <property name="cluster" value="true"/>
+         <property name="clusterUrl" value="192.168.1.91:26379;192.168.1.92:26379;192.168.1.93:26379"/>
+         <property name="password" value="123456"/>
+     </bean>
+ </property>
+ ```
 * 如果你采用zookeeper存储日志,配置如下：
-       ```xml
-        <property name="repositorySupport" value="zookeeper"/>
-        <property name="tccZookeeperConfig">
-            <bean class="om.hmily.tcc.common.config.TccZookeeperConfig">
-                <property name="host"  value="192.168.1.73:2181"/>
-                <property name="sessionTimeOut" value="100000"/>
-                <property name="rootPath" value="/tcc"/>
-            </bean>
-        </property>
-       ``` 
+
+ ```xml
+  <property name="repositorySupport" value="zookeeper"/>
+  <property name="tccZookeeperConfig">
+      <bean class="om.hmily.tcc.common.config.TccZookeeperConfig">
+          <property name="host"  value="192.168.1.73:2181"/>
+          <property name="sessionTimeOut" value="100000"/>
+          <property name="rootPath" value="/tcc"/>
+      </bean>
+  </property>
+ ``` 
 * 数据库的配置在上面已经有了，使用file方式的存储我就不介绍了.
 * 以上就是今天分享的内容，一个注解，几行配置轻轻松松搞定高并发分布式事务！

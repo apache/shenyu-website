@@ -1,15 +1,7 @@
 <article class="ss-summary ss-card">
 	{{ $coverImgSrc := "" }}
 	{{ if isset .Params "cover" }}
-		{{ if hasPrefix .Params.cover "/" }}
-			{{ $cover :=  slicestr .Params.cover 1 }}
-			{{ $coverImg := .Page.Resources.Match $cover }}
-			{{ if $coverImg }}
-				{{ $coverImgSrc = (index $coverImg 0).RelPermalink }}
-			{{ end }}
-		{{ else }}
-			{{ $coverImgSrc = .Params.cover }}
-		{{ end }}
+		{{ $coverImgSrc = .Params.cover }}
 	{{ end }}
 
 	<img class="cover" src="{{ $coverImgSrc }}" />

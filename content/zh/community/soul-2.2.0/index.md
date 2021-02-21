@@ -5,7 +5,7 @@ description: "Soul发布全新的架构2.2.0版本 让网关变得如此简单"
 categories: "Soul"
 tags: ["Soul"]
 date: 2020-06-17
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 我们还是先来看看新增功能，然后再讲故事。
@@ -172,7 +172,7 @@ soul :
 - 如果一个接口被攻击，你怎么处理呢？如果被大流量攻击，你怎么处理呢？
 - 不巧，soul 在设计之初就是来干这种事情的，我们来看一下整体的架构图。
 
-![soul-framework](soul-framework.png)
+![soul-framework](/img/architecture/soul-framework.png)
 
 - Soul网关是使用响应式编程实现的，响应式编程绝对是未来 java邻域的重要方向，看风向标Spring体系就好了。我在14年的时候，天天写for循环操作集合，溜的一笔。领导对我说，要使用lambda表达式，这是未来的重点，今天来看，如果你是java程序员，你不会lambda函数式编程，你好意思么。
 ## 从发布2.2.0，谈谈近几年的开源体会。

@@ -5,7 +5,7 @@ description: "Soul网关学习(2-2)divide插件源码解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-17
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 # Divide 插件如何转发http请求

@@ -5,7 +5,7 @@ description: "Soul Learning (2) HTTP Client Access Source Code Parsing"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-18
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 # HTTP 用户接入 Soul 网关注册逻辑分析

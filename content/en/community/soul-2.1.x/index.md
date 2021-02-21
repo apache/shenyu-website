@@ -5,7 +5,7 @@ description: "How convenient is the 2.1.X version of Soul Gateway?"
 categories: "Soul"
 tags: ["Soul"]
 date: 2019-12-12
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 It has been a year since I open sourced Soul gateway in October last year, and received many suggestions from you guys in community. It has provided very rich functions after optimization, many of functions are highly cusmized, visualized, and highly extensible, now let's make a summary. 

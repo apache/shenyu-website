@@ -5,7 +5,7 @@ description: "Hmily released 2.0.2-Release"
 categories: "hmily"
 tags: ["hmily"]
 date: 2019-04-05
-cover: "../../img/architecture/hmily-framework.png"
+cover: "/img/architecture/hmily-framework.png"
 ---
 
 ## Hmily released 2.0.2-Release

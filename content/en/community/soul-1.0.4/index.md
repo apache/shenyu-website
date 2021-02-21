@@ -5,7 +5,7 @@ description: "Soul Gateway released version 1.0.4-RELEASE"
 categories: "Soul"
 tags: ["Soul"]
 date: 2019-04-09
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 ### Soul Gateway released version 1.0.4-RELEASE

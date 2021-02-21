@@ -5,7 +5,7 @@ description: "Soul Gateway Learning Admin Source Code Analysis"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-20
-cover: "../../img/architecture/soul-framework.png"
+cover: "/img/architecture/soul-framework.png"
 ---
 
 # 源码分析

@@ -30,7 +30,7 @@ cover: "/img/architecture/soul-framework.png"
 
 这里把 divide 插件启动，F12，看下前台会调用 soul-admin 哪个接口。
 
-![open_divide_plugin](/img/soul/fanjinpeng/open_divide_plugin.png)
+![open_divide_plugin](/img/soul/blog3/open_divide_plugin.png)
 
  可以看到前台向后台发送了一个 PUT 请求：http://localhost:9095/plugin/5 
 
@@ -291,7 +291,7 @@ public interface DataChangedListener {
 
 其继承关系：
 
-![DataChangedListener](/img/soul/fanjinpeng/DataChangedListener.png)
+![DataChangedListener](/img/soul/blog3/DataChangedListener.png)
 
  因为默认是采用的 websocket，这里的监听器对应的就是 WebsocketDataChangedListener，Alt + F7，搜索到这个类实例化的地方，就是如下的配置类： 
 
@@ -583,7 +583,7 @@ WebsocketController 使用了 @ServerEndpoint("/websocket") 注解，开启了�
 
 ### 后台如何建立Websocket?
 
-![05](/img/soul/zhuming/05.png)
+![05](/img/soul/blog1/05.png)
 DataSyncConfiguration: 作为 Spring Bean 的配置工厂, 可以根据配置信息, 构建各类监听器, 包括 HTTP 长轮询方式、Zookeeper 方式、Nacos 方式、Websocket 方法.
 
 ```java
@@ -610,7 +610,7 @@ WebsocketCollector: 监听 websocket 连接及接收信息, 维护所有连接�
 
 ### 网关如何建立Websocket? 
 
-![06](/img/soul/zhuming/06.png)
+![06](/img/soul/blog1/06.png)
 
 
 
@@ -687,7 +687,7 @@ public class WebsocketDataHandler {
 
 实现 Websocket 通信的入口类 `SoulWebsocketClient` 在接到后台通信后, 调用 `WebsocketDataHandler` 的 `executor()` 方法匹配信息类型, 并调用对应的 `DataHandler` 的 `handler()` 去处理信息.
 
-![07](/img/soul/zhuming/07.png)
+![07](/img/soul/blog1/07.png)
 
 AbstractDataHandler: 实现 `handler()` 方法, 根据事件的类型 (如刷新、更新、创建、删除等), 调用对应事件抽象方法.
 
@@ -746,7 +746,7 @@ public class PluginDataHandler extends AbstractDataHandler<PluginData> {
 
 CommonPluginDataSubscriber: 订阅器的 `onSubscribe()` 方法会通知到所有注入为 Bean 的 `PluginDataHandler` 类 (不要和前面的同名类混淆, 它是 `soul-plugin-base` 下的接口, 它的实现类在各个可插拔插件包)
 
-![image-20210122172333111](/img/soul/zhuming/image-20210122172333111.png)
+![image-20210122172333111](/img/soul/blog1/image-20210122172333111.png)
 
 ```java
 public class CommonPluginDataSubscriber implements PluginDataSubscriber {

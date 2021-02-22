@@ -19,13 +19,13 @@ cover: "/img/architecture/soul-framework.png"
 网关启动后, 会调用后台提供的接口拉取数据, 并将数据发送到各个插件的数据处理类中
 
 下面展示下网关启动拉取数据的处理流程:
-![01](/img/soul/zhuming/01.png)
+![01](/img/soul/blog1/01.png)
 
 
 
 这几个处理步骤被分散到下面这些类的方法协作中:
 
-![02](/img/soul/zhuming/02.png)
+![02](/img/soul/blog1/02.png)
 
 
 
@@ -201,7 +201,7 @@ protected void refresh(final List<PluginData> data) {
 
 下面展示下网关监听数据变动的整体流程:
 
-![03](/img/soul/zhuming/03.png)
+![03](/img/soul/blog1/03.png)
 
 
 
@@ -209,7 +209,7 @@ protected void refresh(final List<PluginData> data) {
 
 对应的实际代码实现如下:
 
-![04](/img/soul/zhuming/04.png)
+![04](/img/soul/blog1/04.png)
 
 
 

@@ -25,15 +25,15 @@ AK/SK（Access Key ID/Secret Access Key）即访问密钥，包含访问密钥ID
   <!-- soul sign plugin end-->
 ```
 ### 新增appKey，secretKey
-![image.png](/img/soul/tangtian/01.png)
-![image.png](/img/soul/tangtian/02.png)
-![image.png](/img/soul/tangtian/03.png)
-![image.png](/img/soul/tangtian/04.png)
+![image.png](/img/soul/blog4/01.png)
+![image.png](/img/soul/blog4/02.png)
+![image.png](/img/soul/blog4/03.png)
+![image.png](/img/soul/blog4/04.png)
 ## 配置选择器和规则器
 添加选择器
-![image.png](/img/soul/tangtian/05.png)
+![image.png](/img/soul/blog4/05.png)
 添加规则器
-![image.png](/img/soul/tangtian/06.png)
+![image.png](/img/soul/blog4/06.png)
 
 
 ### 增加获取鉴权服务
@@ -63,20 +63,20 @@ AK/SK（Access Key ID/Secret Access Key）即访问密钥，包含访问密钥ID
 
 
 下面需要注意的
-![image.png](/img/soul/tangtian/07.png)
+![image.png](/img/soul/blog4/07.png)
 ### 在网关中增加鉴权头信息
-![image.png](/img/soul/tangtian/08.png)
+![image.png](/img/soul/blog4/08.png)
 ### 请求的结果演示
 通过的返回
-![image.png](/img/soul/tangtian/09.png)
+![image.png](/img/soul/blog4/09.png)
 5min超时的返回
-![image.png](/img/soul/tangtian/10.png)
+![image.png](/img/soul/blog4/10.png)
 appKey填写错误的返回
-![image.png](/img/soul/tangtian/11.png)
+![image.png](/img/soul/blog4/11.png)
 签名错误的返回
-![image.png](/img/soul/tangtian/12.png)
+![image.png](/img/soul/blog4/12.png)
 禁用sign插件的返回
-![image.png](/img/soul/tangtian/13.png)
+![image.png](/img/soul/blog4/13.png)
 ## sign插件的实现分析
 ### java中Pair
 简单的说就是pair保存的是一对key value，而map可以保存多对key value。

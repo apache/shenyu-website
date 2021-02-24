@@ -235,13 +235,14 @@
   padding: 0 4px;
   margin: 0 1px;
   vertical-align: middle;
-  background: #f5f5f5;
-  border-radius: 2px;
+  background: rgba(40, 130, 209, 0.23);
+  border-radius: 0.5rem;
   border: 1px solid #e8e8e8;
   word-wrap: break-word;
   word-break: break-all;
   hyphens: none;
   text-indent: 0;
+  padding: 0px 5px;
 }
 
 .typo kbd {

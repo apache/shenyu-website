@@ -46,3 +46,25 @@ description: soul编码指南
  - 日志与注释一律使用英文。
  - 注释只能包含javadoc，todo和fixme。
  - 公开的类和方法必须有javadoc，其他类和方法以及覆盖自父类的方法无需javadoc。
+ 
+## 单元测试规范
+
+ - 测试代码和生产代码需遵守相同代码规范。
+ - 单元测试需遵循AIR（Automatic, Independent, Repeatable）设计理念。
+   - 自动化（Automatic）：单元测试应全自动执行，而非交互式。禁止人工检查输出结果，不允许使用`System.out`，`log`等，必须使用断言进行验证。
+   - 独立性（Independent）：禁止单元测试用例间的互相调用，禁止依赖执行的先后次序。每个单元测试均可独立运行。
+   - 可重复执行（Repeatable）：单元测试不能受到外界环境的影响，可以重复执行。
+ - 单元测试需遵循BCDE（Border, Correct, Design, Error）设计原则。
+   - 边界值测试（Border）：通过循环边界、特殊数值、数据顺序等边界的输入，得到预期结果。
+   - 正确性测试（Correct）：通过正确的输入，得到预期结果。
+   - 合理性设计（Design）：与生产代码设计相结合，设计高质量的单元测试。
+   - 容错性测试（Error）：通过非法数据、异常流程等错误的输入，得到预期结果。
+ - 如无特殊理由，测试需全覆盖。
+ - 每个测试用例需精确断言。
+ - 准备环境的代码和测试代码分离。
+ - 只有junit `Assert`，hamcrest `CoreMatchers`，Mockito相关可以使用static import。
+ - 单数据断言，应使用`assertTrue`，`assertFalse`，`assertNull`和`assertNotNull`。
+ - 多数据断言，应使用`assertThat`。
+ - 精确断言，尽量不使用`not`，`containsString`断言。
+ - 测试用例的真实值应名为为actualXXX，期望值应命名为expectedXXX。
+ - 测试类和`@Test`标注的方法无需javadoc。

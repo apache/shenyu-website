@@ -17,4 +17,4 @@ description: Database Design
 
    * one selector corresponds to multiple match conditions,one rule corresponds to multiple match conditions.
 
-   * Each rule handles differently in corresponding plugin according to field handler,field handler is a json string.You can view detail during the use of admin.
+   * Each rule handles differently in corresponding plugin according to field handler,field handler is a kind of data of JSON string type.You can view detail during the use of admin.

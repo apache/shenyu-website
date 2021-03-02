@@ -26,7 +26,7 @@ github: "https://github.com/dromara/hmily"
 gitee: "https://gitee.com/shuaiqiyu/hmily"
 level: "main"
 weight: 2
-icon: "/img/icons/hmily.png"
+icon: "/img/logo/hmily.png"
 showIntroduce: true
 showFeature: true
 sidebar:

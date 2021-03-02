@@ -15,9 +15,13 @@
 				{{ else }}
 					{{ $link = path.Join .RelPermalink "/overview" }}
 				{{ end }}
+				{{ if isset .Params "icon" }}
+					<img class="project-icon" src="{{ .Params.icon | relURL }}" />
+				{{ else }} 
 				  <a href={{ $link }}>
 					{{ .Title }}
 				</a>  
+				{{ end }} 
 			</h3>
 		</div>
 		<div class="gitstar">

@@ -25,7 +25,6 @@ github: "https://github.com/dromara/athena"
 gitee: ""
 level: "tool"
 weight: 6
-icon: ""
 showIntroduce: false
 showFeature: false
 sidebar:

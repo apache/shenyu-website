@@ -25,7 +25,6 @@ github: "https://github.com/dromara/hodor"
 gitee: ""
 level: "incubating"
 weight: 5
-icon: ""
 showIntroduce: false
 showFeature: false
 sidebar:

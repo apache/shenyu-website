@@ -26,7 +26,7 @@ github: "https://github.com/dromara/raincat"
 gitee: "https://gitee.com/shuaiqiyu/Raincat"
 level: "main"
 weight: 3
-icon: "/img/icons/raincat.png"
+icon: "/img/logo/raincat.png"
 showIntroduce: true
 showFeature: true
 sidebar:

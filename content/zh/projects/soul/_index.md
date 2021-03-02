@@ -26,7 +26,7 @@ github: "https://github.com/dromara/soul"
 gitee: "https://gitee.com/shuaiqiyu/soul"
 level: "main"
 weight: 1
-icon: "/img/icons/soul.png"
+icon: "/img/logo/soul.png"
 showIntroduce: true
 showFeature: true
 sidebar:

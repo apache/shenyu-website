@@ -25,7 +25,7 @@ github: "https://github.com/dromara/myth"
 gitee: "https://gitee.com/shuaiqiyu/myth"
 level: "main"
 weight: 4
-icon: "/img/icons/myth.png"
+icon: "/img/logo/myth.png"
 showIntroduce: true
 showFeature: true
 sidebar:

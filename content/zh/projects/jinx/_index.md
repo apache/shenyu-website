@@ -25,7 +25,6 @@ github: "https://github.com/dromara/jinx"
 gitee: ""
 level: "tool"
 weight: 7
-icon: "/img/icons/myth.png"
 showIntroduce: false
 showFeature: false
 sidebar:

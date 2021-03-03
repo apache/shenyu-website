@@ -48,4 +48,4 @@ description: hystrix plugin
         
     * Command Key: generally set to specific path interface.
      
-    * CallBackUrl: default url /fallback/hystrix.
+    * CallBackUrl: default url: /fallback/hystrix.

@@ -47,4 +47,5 @@ description: hystrix plugin
     * Grouping Key: generally set as: contextPath
         
     * Command Key: generally set to specific path interface.
-
+     
+    * CallBackUrl: default url /fallback/hystrix.

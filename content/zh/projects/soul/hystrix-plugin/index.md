@@ -47,4 +47,5 @@ description: hystrix插件
     * 分组Key： 一般设置为:contextPath
     
     * 命令Key: 一般设置为具体的 路径接口。
-
+    
+    * 失败降级URL: 默认为 /fallback/hystrix。

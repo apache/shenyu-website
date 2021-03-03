@@ -110,6 +110,8 @@ sidebar:
         link: 'websocket-plugin'
       - title: 'Context-path插件'  	
         link: 'context-path-plugin'
+      - title: 'Redirect插件'  	
+        link: 'redirect-plugin'
   - title: '开发者文档'  	
     sub:
       - title: '自定义filter'  	

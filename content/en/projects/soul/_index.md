@@ -110,6 +110,8 @@ sidebar:
         link: 'websocket-plugin'
       - title: 'Context-path plugin'  	
         link: 'context-path-plugin'
+      - title: 'Redirect plugin'  	
+        link: 'redirect-plugin'
   - title: 'Developer Guide'  	
     sub:
       - title: 'Custom filter '  	

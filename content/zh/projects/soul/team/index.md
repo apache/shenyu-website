@@ -20,3 +20,4 @@ description: 团队介绍
 |蒋晓峰      |SteNicholas  |  committer   | [阿里云](https://www.aliyun.com)          |
 |丁剑明      |nuo-promise  |  committer   | 某创业公司                                 |
 |冯振兵      |fengzhenbing |  committer   | 某创业公司                                 |
+|杨泽        |HoldDie      |  committer   | [IBM](https://www.ibm.com/)               |

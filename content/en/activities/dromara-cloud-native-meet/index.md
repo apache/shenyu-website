@@ -4,7 +4,7 @@ authorlink: "https://github.com/yu199195"
 date: 2021-01-21T15:00:00.000Z
 title: "Dromara Soul source code 01 reading sharing session 01"	
 tags: ["Soul", "Dromara","Reactor"]
-cover: "/img/activities/dromara-open-source.jpg"
+cover: "/img/activities/dromara-open-soul-02.jpg"
 descripton: "Dromara Soul source code online sharing session, January 24 from 15:00 to 17:00."
 ---
 

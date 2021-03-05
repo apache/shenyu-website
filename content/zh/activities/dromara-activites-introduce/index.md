@@ -4,7 +4,7 @@ authorlink: "https://github.com/yu199195"
 date: 2020-12-27T15:00:00.000Z
 title: "Dromara 梦码读书会介绍"	
 tags: ["DreamCode", "Dromara","GateWay"]
-cover: "/img/activities/dromara-open-source.jpg"
+cover: "/img/activities/dromara-open-soul-01.jpg"
 descripton: "Dromara 梦码读书会介绍"
 ---
 

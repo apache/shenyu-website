@@ -55,17 +55,21 @@ description: http用户
    
     ```yaml
        soul:
-         http:
-           adminUrl: http://localhost:9095
-           port: 你本项目的启动端口
-           contextPath: /http
-           appName: http
-           full: false  
-       # adminUrl: 为你启动的soul-admin 项目的ip + 端口，注意要加http://
+         client:
+           registerType: http
+           serverLists: http://localhost:9095
+           props:
+             contextPath: /http
+             appName: http
+             port: 8188  
+             isFull: false
+       # registerType : 服务注册类型，支持 http/zookeeper
+       # serverList: 为http注册类型时，填写Soul-Admin项目的地址，注意加上http://，多个地址用英文逗号分隔
+       #             为zookeeper注册类型时，填写zookeeper地址，多个地址用英文分隔
        # port: 你本项目的启动端口
        # contextPath: 为你的这个mvc项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
        # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
-       # full: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller
+       # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller
     ``` 
  * SpringMvc用户 
    * 在你的真实服务的 `pom.xml` 新增如下依赖：
@@ -81,15 +85,20 @@ description: http用户
   
      ```xml
         <bean id ="springMvcClientBeanPostProcessor" class ="org.dromara.soul.client.springmvc.init.SpringMvcClientBeanPostProcessor">
-             <constructor-arg  ref="soulSpringMvcConfig"/>
+             <constructor-arg  ref="soulRegisterCenterConfig"/>
         </bean>
         
-        <bean id="soulSpringMvcConfig" class="org.dromara.soul.client.springmvc.config.SoulSpringMvcConfig">
-             <property name="adminUrl" value="http://localhost:9095"/>
-             <property name="port" value="你的端口"/>
-             <property name="contextPath" value="/你的contextPath"/>
-             <property name="appName" value="你的名字"/>
-             <property name="full" value="false"/>
+        <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
+             <property name="registerType" value="http"/>
+             <property name="registerType" value="http://localhost:9095"/>
+             <property name="props">
+                  <map>
+                    <entry key="contextPath" value="/你的contextPath"/>
+                    <entry key="appName" value="你的名字"/>
+                    <entry key="port" value="你的端口"/>
+                    <entry key="isFull" value="false"/>
+                  </map>
+             </property>
         </bean>
     ``` 
 * 在你的 `controller` 的接口上加上 `@SoulSpringMvcClient` 注解。

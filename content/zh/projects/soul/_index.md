@@ -44,6 +44,8 @@ sidebar:
         link: 'data-sync'
       - title: '元数据设计'  	
         link: 'meta-data'
+      - title: '注册中心设计'
+        link: 'register-center-design'
   - title: 'Admin使用文档'  	
     sub:
       - title: '字典配置'  	
@@ -66,6 +68,8 @@ sidebar:
         link: 'sofa-rpc-proxy' 
       - title: '数据同步策略'  	
         link: 'use-data-sync'
+      - title: '注册中心配置'  	
+        link: 'use-register-center'
   - title: '快速开始'  	
     sub:
       - title: 'Dubbo'  	

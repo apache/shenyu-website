@@ -65,13 +65,17 @@ description: sofa接入soul网关
 
    ```yaml
         soul:
-          sofa:
-            adminUrl: http://localhost:9095
-            contextPath: /sofa
-            appName: sofa
-         # adminUrl: 为你启动的soul-admin 项目的ip + 端口，注意要加 http://
-         # contextPath: 为你的这个项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
-         # appName：你的应用名称，不配置的话，会默认取sofa配置中application 中的名称
+          client:
+            registerType: http
+            serverLists: http://localhost:9095
+            props:
+              contextPath: /http
+              appName: http
+        # registerType : 服务注册类型，支持 http/zookeeper
+        # serverList: 为http注册类型时，填写Soul-Admin项目的地址，注意加上http://，多个地址用英文逗号分隔
+        #             为zookeeper注册类型时，填写zookeeper地址，多个地址用英文分隔
+        # contextPath: 为你的这个mvc项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
+        # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
   ```
 
 * spring

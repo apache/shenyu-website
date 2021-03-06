@@ -1,20 +1,15 @@
----
-title: use register center
+                               ---
+title: register center access config
 keywords: soul
-description: use register center
+description: register center access config
 ---
 
-## Description
+## Explain
+Explain register center access config
 
-* register：service discover
-
-* principle，please look：[register center design](../register-center-design)。
-
-## HTTP register config
-
+## HTTP register center
 ### Soul-Admin config
-
-Add the config in your application.yml.
+Set the config in application.yml
 
 ```yaml
 soul:
@@ -22,16 +17,8 @@ soul:
     registerType: http
 ```
 
-### integration server
-
-Add the config in your application.yml.
-
-- registerType : set http
-- serverLists : Soul-Admin address list
-- contextPath : your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-- appName : your project name,default value is the application name in dubbo config.
-- port ： your project port number
-- isFull : set true means providing proxy for your entire service, or only a few controller.
+### backend server config
+Set the config in application.yml
 
 ```yaml
 soul:
@@ -42,12 +29,19 @@ soul:
       contextPath: /http
       appName: http
       port: 8188
-      ifFull: false
-```
+      isFull: false
+# registerType : register type, set http
+# serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
+# port: your project port number; apply to springmvc/tars/grpc
+# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# appName：your project name,the default value is`spring.application.name`.
+# isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
+``` 
 
-## Zookeeper config
+## Zookeeper register center
 ### Soul-Admin config
-Add these dependencies in your local maven repository `pom.xml`:
+Add dependency in pom.xml
+
 
 ```xml
         <dependency>
@@ -57,7 +51,7 @@ Add these dependencies in your local maven repository `pom.xml`:
         </dependency>
 ```
 
-Add the config in your application.yml.
+Set the config in application.yml
 
 ```yaml
 soul:
@@ -69,16 +63,8 @@ soul:
       connectionTimeout: 2000
 ```
 
-### integration server
-
-Add the config in your application.yml.
-
-- registerType : set zookeeper
-- serverLists : Zookeeper address list
-- contextPath : your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-- appName : your project name,default value is the application name in dubbo config.
-- port ： your project port number
-- isFull : set true means providing proxy for your entire service, or only a few controller.
+### backend server config
+Set the config in application.yml
 
 ```yaml
 soul:
@@ -88,6 +74,12 @@ soul:
     props:
       contextPath: /http
       appName: http
-      port: 8188
-      ifFull: false
-```
+      port: 8188  
+      isFull: false
+# registerType : register type, set zookeeper
+# serverList: when register type is zookeeper，set zookeeper address list
+# port: your project port number; apply to springmvc/tars/grpc
+# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# appName：your project name,the default value is`spring.application.name`.
+# isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
+``` 

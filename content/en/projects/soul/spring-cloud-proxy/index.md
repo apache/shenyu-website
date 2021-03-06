@@ -12,6 +12,8 @@ description: springCloud with soul gateway
 
 * Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
+* backend server register center config, please look:[register center access config](../use-register-center)
+
 ## Configure soul gateway as Spring Cloud proxy
 
 * add these dependencies in gateway's pom.xml:
@@ -96,7 +98,7 @@ description: springCloud with soul gateway
  </dependency>
 ```
 
-* add these config values in your yaml file:
+* add these config values in your yaml file, backend server register center config, please look:[register center access config](../use-register-center):
 
 ```yaml
 client:

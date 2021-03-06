@@ -12,6 +12,8 @@ description: http用户
 
 * 接入前，请正确的启动 `soul-admin`，以及 [搭建环境](../soul-set-up) OK。
 
+* 注册中心详细接入配置请参考：[注册中心接入配置](../use-register-center)
+
 ## 引入网关对http的代理插件
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
@@ -51,7 +53,7 @@ description: http用户
          </dependency>
      ```
   
-   * 在yml中新增如下配置：
+   * 在yml中新增如下配置, 注册中心详细接入配置请参考：[注册中心接入配置](../use-register-center)：
    
     ```yaml
        soul:

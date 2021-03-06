@@ -13,6 +13,7 @@ description: Integrate dubbo with soul gateway
 
 * Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
+* backend server register center config, please look:[register center access config](../use-register-center)
 
 ## Configure soul gateway as dubbo proxy
 
@@ -117,7 +118,7 @@ description: Integrate dubbo with soul gateway
         </dependency>
         ```
       
-        * Add these config values in your yaml file ：
+        * Add these config values in your yaml file, backend server register center config, please look:[register center access config](../use-register-center)
         
       ```yaml
        client:
@@ -180,7 +181,7 @@ description: Integrate dubbo with soul gateway
         </dependency>
         ```
       
-     * Add these config values in your yaml file ：
+     * Add these config values in your yaml file, backend server register center config, please look:[dubbo register center config](../register-center-dubbo)：
 
        ```yaml
        client:

@@ -7,7 +7,10 @@ description: sofa access soul gateway
 ## Description
 
 * This article is about sofa users using sofa plug-in support,and the tutorial of connecting your own sofa service to the soul gateway.
+  
 * Before connecting, please start `soul-admin` correctly and [Setup Environment](../soul-set-up) Ok。
+
+* backend server register center config, please look:[register center access config](../use-register-center)
 
 ## Introduce the plug-in that the gateway supports for sofa
 
@@ -60,7 +63,7 @@ description: sofa access soul gateway
         </dependency>
  ```
 
-  * Add the following configuration to your yml file ：
+  * Add the following configuration to your yml file, backend server register center config, please look:[register center access config](../use-register-center)：
 
    ```yaml
         client:

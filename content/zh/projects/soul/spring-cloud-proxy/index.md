@@ -12,6 +12,8 @@ description: springCloud接入soul网关
 
 * 接入前，请正确的启动 `soul-admin`以及[搭建环境](../soul-set-up) Ok。
 
+* 注册中心详细接入配置请参考：[注册中心接入配置](../use-register-center)
+
 ## 引入网关 springCloud的插件支持
 
 * 在网关的 pom.xml 文件中引入如下依赖。
@@ -102,7 +104,7 @@ description: springCloud接入soul网关
  </dependency>
 ```
 
-* 在你的yml文件中新增如下配置：
+* 在你的yml文件中新增如下配置,注册中心详细接入配置请参考：[注册中心接入配置](../use-register-center)：
 
 ```yaml
 soul:

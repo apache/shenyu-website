@@ -118,17 +118,22 @@ description: Integrate dubbo with soul gateway
         ```
       
         * Add these config values in your yaml file ：
-  
-        ```yaml
-        soul:
-          dubbo:
-            adminUrl: http://localhost:9095
-            contextPath: /dubbo
-            appName: dubbo    
-            # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
-            # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-            # appName：your project name,default value is the application name in dubbo config.
-        ```    
+        
+      ```yaml
+       client:
+           registerType: http
+           serverLists: http://localhost:9095
+           props:
+             contextPath: /http
+             appName: http
+             isFull: false
+       # registerType : register type, support http/zookeeper
+       # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
+       #             when register type is zookeeper，set zookeeper address list
+       # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+       # appName：your project name,the default value is`spring.application.name`.
+       # isFull: set true means providing proxy for your entire service, or only a few controller.
+      ``` 
     
 * spring
      
@@ -145,13 +150,19 @@ description: Integrate dubbo with soul gateway
     
     ```xml
     <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
-       <constructor-arg  ref="dubboConfig"/>
+       <constructor-arg  ref="soulRegisterCenterConfig"/>
     </bean>
     
-    <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
-       <property name="adminUrl" value="http://localhost:9095"/>     
-       <property name="contextPath" value="/your contextPath"/>
-       <property name="appName" value="your application name"/>
+    <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
+       <property name="registerType" value="http"/>
+       <property name="registerType" value="http://localhost:9095"/>
+       <property name="props">
+            <map>
+                 <entry key="contextPath" value="/your contextPath"/>
+                 <entry key="appName" value="your name"/>
+                 <entry key="isFull" value="false"/>
+            </map>
+       </property>
     </bean>
     ``` 
    
@@ -170,20 +181,24 @@ description: Integrate dubbo with soul gateway
         ```
       
      * Add these config values in your yaml file ：
-     
-          ```yaml
-          soul:
-            dubbo:
-              adminUrl: http://localhost:9095
-              contextPath: /dubbo
-              appName: dubbo
-         
-             # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
-             # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-             # appName：your project name,default value is the application name in dubbo config.
-          ```
-   
-   * spring
+
+       ```yaml
+       client:
+         registerType: http
+         serverLists: http://localhost:9095
+         props:
+           contextPath: /http
+           appName: http
+           isFull: false
+       # registerType : register type, support http/zookeeper
+       # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
+       #             when register type is zookeeper，set zookeeper address list
+       # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+       # appName：your project name,the default value is`spring.application.name`.
+       # isFull: set true means providing proxy for your entire service, or only a few controller.
+       ```
+
+       * spring
       
      * Add these dependencies ：
        
@@ -199,13 +214,19 @@ description: Integrate dubbo with soul gateway
        
     ```xml
     <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
-       <constructor-arg  ref="dubboConfig"/>
+       <constructor-arg  ref="soulRegisterCenterConfig"/>
     </bean>
     
-    <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
-       <property name="adminUrl" value="http://localhost:9095"/>     
-       <property name="contextPath" value="/your contextPath"/>
-       <property name="appName" value="your application name"/>
+    <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
+       <property name="registerType" value="http"/>
+       <property name="registerType" value="http://localhost:9095"/>
+       <property name="props">
+            <map>
+                 <entry key="contextPath" value="/your contextPath"/>
+                 <entry key="appName" value="your name"/>
+                 <entry key="isFull" value="false"/>
+            </map>
+       </property>
     </bean>
     ``` 
 

@@ -99,14 +99,19 @@ description: springCloud with soul gateway
 * add these config values in your yaml file:
 
 ```yaml
-soul:
-  springcloud:
-    admin-url: http://localhost:9095
-    context-path: /springcloud
+client:
+  registerType: http
+  serverLists: http://localhost:9095
+  props:
+    contextPath: /http
     appName: http
-# adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
-# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-# appName：your project name,the default value is`spring.application.name`.
+    isFull: false
+  # registerType : register type, support http/zookeeper
+  # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
+  #             when register type is zookeeper，set zookeeper address list
+  # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+  # appName：your project name,the default value is`spring.application.name`.
+  # isFull: set true means providing proxy for your entire service, or only a few controller.
 ```
 
 

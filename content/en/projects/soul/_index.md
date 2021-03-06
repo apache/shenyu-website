@@ -44,6 +44,8 @@ sidebar:
         link: 'data-sync'
       - title: 'MetaData'  	
         link: 'meta-data' 
+      - title: 'register center'  	
+        link: 'register-center-design'
   - title: 'Admin'  	
     sub:
       - title: 'Dictionary management'  	
@@ -66,6 +68,8 @@ sidebar:
         link: 'sofa-rpc-proxy'
       - title: 'Use data sync'  	
         link: 'use-data-sync'  
+      - title: 'use register center'  	
+        link: 'use-register-center'
   - title: 'Quick Start'  	
     sub:
       - title: 'Dubbo'  	

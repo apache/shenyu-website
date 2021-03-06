@@ -11,8 +11,8 @@ description: 使用不同的注册中心
 * 实现原理，请看：[注册中心设计](../register-center-design)。
 
 ## HTTP配置
-
-* Soul-Admin配置：在application.yml进行配置，设置如下：
+### Soul-Admin 配置
+在application.yml进行配置，设置如下：
 
 ```yaml
 soul:
@@ -20,7 +20,8 @@ soul:
     registerType: http
 ```
 
-* 需要接入的服务配置：在application.yml进行配置，设置如下,不同类型的服务配置稍有差异，具体查看用户文档中各接入类型代理文档：
+### 需要接入的服务配置
+在application.yml进行配置，设置如下,不同类型的服务配置稍有差异，具体查看用户文档中各接入类型代理文档：
 
 - registerType : 填写zookeeper
 - serverLists : Soul-Admin的地址列表,多个地址之间用英文逗号分隔
@@ -42,16 +43,31 @@ soul:
 ```
 
 ## Zookeeper配置
+### Soul-Admin配置
+pom.xml 添加依赖
 
-* Soul-Admin配置：在application.yml进行配置，设置如下：
+```xml
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-register-server-zookeeper</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
+在application.yml进行配置，设置如下：
 
 ```yaml
 soul:
   register:
-    registerType: http
+    registerType: zookeeper
+    serverLists : localhost:2181
+    props:
+      sessionTimeout: 5000
+      connectionTimeout: 2000
 ```
 
-* 需要接入的服务配置：在application.yml进行配置，设置如下,不同类型的服务配置稍有差异，具体查看用户文档中各接入类型代理文档：
+### 需要接入的服务配置
+在application.yml进行配置，设置如下,不同类型的服务配置稍有差异，具体查看用户文档中各接入类型代理文档：
 
 - registerType : 填写zookeeper
 - serverLists : Zookeeper的地址列表,多个地址之间用英文逗号分隔

@@ -53,18 +53,21 @@ description: Integrate Http with soul gateway
    * Add these config values in your yaml file ：  
     
     ```yaml
-       soul:
-         http:
-           adminUrl: http://localhost:9095
-           port: the port exposed by your application server
-           contextPath: /http
-           appName: http
-           full: false  
-       # adminUrl: 'ip + port' of your soul-admin project, pls note 'http://' is necessary.
+       client:
+           registerType: http
+           serverLists: http://localhost:9095
+           props:
+             contextPath: /http
+             appName: http
+             port: 8188  
+             isFull: false
+       # registerType : register type, support http/zookeeper
+       # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
+       #             when register type is zookeeper，set zookeeper address list
        # port: your project port number
        # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
        # appName：your project name,the default value is`spring.application.name`.
-       # full: set true means providing proxy for your entire service, or only a few controller.
+       # isFull: set true means providing proxy for your entire service, or only a few controller.
     ``` 
  * SpringMVC user
    * Add these dependencies in your local maven repository `pom.xml`: 
@@ -80,15 +83,20 @@ description: Integrate Http with soul gateway
 
     ```xml
         <bean id ="springMvcClientBeanPostProcessor" class ="org.dromara.soul.client.springmvc.init.SpringMvcClientBeanPostProcessor">
-             <constructor-arg  ref="soulSpringMvcConfig"/>
+             <constructor-arg  ref="soulRegisterCenterConfig"/>
         </bean>
         
-        <bean id="soulSpringMvcConfig" class="org.dromara.soul.client.springmvc.config.SoulSpringMvcConfig">
-             <property name="adminUrl" value="http://localhost:9095"/>
-             <property name="port" value="your port"/>
-             <property name="contextPath" value="/your contextPath"/>
-             <property name="appName" value="your application name"/>
-             <property name="full" value="false"/>
+        <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig;">
+             <property name="registerType" value="http"/>
+             <property name="registerType" value="http://localhost:9095"/>
+             <property name="props">
+                  <map>
+                    <entry key="contextPath" value="/your contextPath"/>
+                    <entry key="appName" value="your server name"/>
+                    <entry key="port" value="your server port"/>
+                    <entry key="isFull" value="false"/>
+                  </map>
+             </property>
         </bean>
     ``` 
 * Add this annotation `@SoulSpringMvcClient` in your `controller` interface.

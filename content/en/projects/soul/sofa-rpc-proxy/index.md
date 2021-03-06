@@ -63,14 +63,19 @@ description: sofa access soul gateway
   * Add the following configuration to your yml file ：
 
    ```yaml
-        soul:
-          sofa:
-            adminUrl: http://localhost:9095
-            contextPath: /sofa
-            appName: sofa
-         # adminUrl: The ip + port of the soul-admin project started for you, pay attention to adding http://
-         # contextPath: Route prefix in soul gateway for your project，Such as /order ，/product etc，The gateway will route according to your prefix.
-         # appName：Your application name, if not configured, it will default to the name in the application in the sofa configuration
+        client:
+          registerType: http
+          serverLists: http://localhost:9095
+          props:
+            contextPath: /http
+            appName: http
+            isFull: false
+        # registerType : register type, support http/zookeeper
+        # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
+        #             when register type is zookeeper，set zookeeper address list
+        # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+        # appName：your project name,the default value is`spring.application.name`.
+        # isFull: set true means providing proxy for your entire service, or only a few controller.
   ```
 
 * Spring

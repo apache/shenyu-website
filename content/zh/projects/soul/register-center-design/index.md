@@ -10,7 +10,7 @@ description: 注册中心设计
 ## 原理分析
 注册中心主要是用于服务的动态发现，注册流程图如下：
 
-![register-center](https://github.com/lw1243925457/SE-Notes/blob/master/profession/%E7%BC%96%E7%A8%8B%E7%B1%BB/%E5%BC%80%E6%BA%90/soul/picture/register-center.png)
+![register-center](https://gitee.com/free-love/SE-Notes/blob/master/profession/%E7%BC%96%E7%A8%8B%E7%B1%BB/%E5%BC%80%E6%BA%90/soul/picture/register-center.png)
 
 ### Client
 启动后使用SPI根据配置的注册方式加载相应的注册中心客户端（HTTP/Zookeeper等）,并初始化distrupt

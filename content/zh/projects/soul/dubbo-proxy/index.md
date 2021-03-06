@@ -149,14 +149,20 @@ description: dubbo接入soul网关
         
         ```xml
         <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
-           <constructor-arg  ref="dubboConfig"/>
+           <constructor-arg  ref="soulRegisterCenterConfig"/>
         </bean>
         
-        <bean id="dubboConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
-           <property name="adminUrl" value="http://localhost:9095"/>
-           <property name="contextPath" value="/你的contextPath"/>
-           <property name="appName" value="你的名字"/>
-        </bean>
+        <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
+               <property name="registerType" value="http"/>
+               <property name="registerType" value="http://localhost:9095"/>
+               <property name="props">
+                  <map>
+                    <entry key="contextPath" value="/你的contextPath"/>
+                    <entry key="appName" value="你的名字"/>
+                    <entry key="ifFull" value="false"/>
+                  </map>
+                </property>
+          </bean>
         ```
 
 
@@ -210,13 +216,14 @@ description: dubbo接入soul网关
                <constructor-arg  ref="soulRegisterCenterConfig"/>
           </bean>
         
-          <bean id="soulRegisterCenterConfig" class="org.dromara.soul.client.dubbo.common.config.DubboConfig">
+          <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
                <property name="registerType" value="http"/>
                <property name="registerType" value="http://localhost:9095"/>
                <property name="props">
                   <map>
                     <entry key="contextPath" value="/你的contextPath"/>
                     <entry key="appName" value="你的名字"/>
+                    <entry key="ifFull" value="false"/>
                   </map>
                 </property>
           </bean>

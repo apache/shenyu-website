@@ -68,7 +68,11 @@ sidebar:
         link: 'sofa-rpc-proxy' 
       - title: '数据同步策略'  	
         link: 'use-data-sync'
-      - title: '注册中心配置'  	
+  - title: '注册中心'  	
+    sub:
+      - title: '注册中心设计'
+        link: 'register-center-design'
+      - title: '注册中心接入配置'  	
         link: 'use-register-center'
   - title: '快速开始'  	
     sub:

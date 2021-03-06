@@ -68,7 +68,11 @@ sidebar:
         link: 'sofa-rpc-proxy'
       - title: 'Use data sync'  	
         link: 'use-data-sync'  
-      - title: 'use register center'  	
+  - title: 'register center'  	
+    sub:
+      - title: 'register center design'
+        link: 'register-center-design'
+      - title: 'register center access'  	
         link: 'use-register-center'
   - title: 'Quick Start'  	
     sub:

@@ -12,6 +12,8 @@ description: Integrate Http with soul gateway
 
 * Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
+* backend server register center config, please look:[register center access config](../use-register-center)
+
 ## Configure soul gateway as Http proxy.
 
 * Add these dependencies in gateway's `pom.xml`：
@@ -50,7 +52,7 @@ description: Integrate Http with soul gateway
              <version>${last.version}</version>
          </dependency>
     ```
-   * Add these config values in your yaml file ：  
+   * Add these config values in your yaml file, backend server register center config, please look:[register center access config](../use-register-center)：  
     
     ```yaml
        client:

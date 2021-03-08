@@ -48,11 +48,11 @@ soul
    ├──regsiter
    ├    ├──metadata
    ├    ├     ├──${rpcType}
-   ├    ├     ├      ├────contextPath}
+   ├    ├     ├      ├────${contextPath}
    ├    ├     ├               ├──${ruleName} : save metadata data of MetaDataRegisterDTO
    ├    ├──uri
    ├    ├     ├──${rpcType}
-   ├    ├     ├      ├────contextPath}
+   ├    ├     ├      ├────${contextPath}
    ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
    ├    ├     ├               ├──${ip:prot}
 ```

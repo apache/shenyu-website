@@ -40,7 +40,7 @@ description: http用户
 
 ##### Soul-Client接入方式。 （此方式针对SpringMvc,SpringBoot用户）
 
-* SpringBoot用户
+* `SpringBoot用户`
   
    * 在你的真实服务的 `pom.xml` 新增如下依赖: 
    
@@ -52,9 +52,9 @@ description: http用户
          </dependency>
      ```
   
-   * 在yml中新增如下配置, 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)：
+   * 注册中心详细接入配置请参考：[注册中心接入](../register-center-access).
 
-* SpringMvc用户 
+* `SpringMvc用户` 
 
    * 在你的真实服务的 `pom.xml` 新增如下依赖：
    

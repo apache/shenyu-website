@@ -115,7 +115,7 @@ description: dubbo接入soul网关
         </dependency>
         ```
 
-        * 在你的yml文件中新增如下配置,注册中心详细接入配置请参考：[注册中心接入](../register-center-access)：
+        * 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)。
 
     * spring
 
@@ -163,7 +163,7 @@ description: dubbo接入soul网关
         </dependency>
         ```
 
- * 在你的yml文件中新增如下配置,注册中心详细接入配置请参考：[Dubbo注册接入配置](../register-center-dubbo)：
+        * 注册中心详细接入配置请参考：[注册中心配置](../register-center-access).
 
    * spring
 

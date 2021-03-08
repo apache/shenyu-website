@@ -71,7 +71,7 @@ sidebar:
       - title: '设计'
         link: 'register-center-design'
       - title: '接入'  	
-        link: 'register-center-access '
+        link: 'register-center-access'
   - title: '快速开始'  	
     sub:
       - title: 'Dubbo'  	

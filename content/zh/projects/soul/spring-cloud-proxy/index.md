@@ -102,7 +102,7 @@ description: springCloud接入soul网关
  </dependency>
 ```
 
-* 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)：
+* 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)
 
 
 * 在你的 `controller`的接口上加上 `@SoulSpringCloudClient` 注解

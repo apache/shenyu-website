@@ -61,7 +61,7 @@ description: sofa access soul gateway
         </dependency>
  ```
 
-  * Add the following configuration to your yml file, backend server register center config, please look:[register center access](../register-center-access)：
+  * backend server register center config, please look:[register center access](../register-center-access).
 
 * Spring
 

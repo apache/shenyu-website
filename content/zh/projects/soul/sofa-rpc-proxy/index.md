@@ -61,7 +61,7 @@ description: sofa接入soul网关
         </dependency>
  ```
 
-  * 在你的yml文件中新增如下配置,注册中心详细接入配置请参考：[注册中心接入](../register-center-access)：
+  * 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)
 
 * spring
 

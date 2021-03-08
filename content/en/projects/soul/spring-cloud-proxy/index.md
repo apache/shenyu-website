@@ -96,7 +96,7 @@ description: springCloud with soul gateway
  </dependency>
 ```
 
-* add these config values in your yaml file, backend server register center config, please look:[register center access](../register-center-access):
+* backend server register center config, please look:[register center access](../register-center-access).
 
 
 * add the annotation `@SoulSpringCloudClient` in your `controller` interface.

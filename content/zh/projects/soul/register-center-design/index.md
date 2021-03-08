@@ -11,7 +11,7 @@ description: 注册中心设计
 
 ### Client
 
-![](/img/soul/register/client.jpg)
+![](/img/soul/register/client.png)
 
 启动后使用SPI根据配置的注册方式加载相应的注册中心客户端（HTTP/Zookeeper等
 

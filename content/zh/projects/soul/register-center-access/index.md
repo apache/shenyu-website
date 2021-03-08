@@ -5,19 +5,27 @@ description: 注册中心接入配置
 ---
 
 ## 说明
-说明接入的后台服务如何配置使用注册中心
 
-## HTTP注册中心配置
+说明然后使用不同的注册方式，快速接入。
+
+## HTTP方式注册
+
 ### Soul-Admin配置
+
 在 application.yml 配置注册中心为HTTP即可，如下：
 
 ```yaml
 soul:
   register:
     registerType: http
+    props:
+      checked: true  #是否开启检测
+      zombieCheckTimes: 5 #失败几次后剔除服务
+      scheduledTime: 10 #定时检测间隔时间 （秒）
 ```
 
-### 需要接入的服务配置
+### Soul-Client配置
+
 在 application.yml 中配置注册方式为HTTP，并填写Soul-Admin服务地址列表，如下：
 
 ```yaml
@@ -38,10 +46,11 @@ soul:
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
 ``` 
 
-## Zookeeper注册中心配置
-### Soul-Admin配置
-首先在 pom.xml 文件中加入相关的依赖：
+## Zookeeper方式注册
 
+### Soul-Admin配置
+
+* 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
 
 ```xml
         <dependency>
@@ -51,7 +60,7 @@ soul:
         </dependency>
 ```
 
-在 application.yml 配置注册中心为Zookeeper，填写相关zookeeper服务地址和参数，如下：
+* 在 application.yml 配置注册中心为Zookeeper，填写相关zookeeper服务地址和参数，如下：
 
 ```yaml
 soul:
@@ -63,8 +72,19 @@ soul:
       connectionTimeout: 2000
 ```
 
-### 需要接入的服务配置
-在 application.yml 中配置注册方式为Zookeeper，并填写Zookeeper服务地址和相关参数，如下：
+### Soul-Client配置
+
+* 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
+
+```xml
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-register-client-zookeeper</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
+* 在 application.yml 中配置注册方式为Zookeeper，并填写Zookeeper服务地址和相关参数，如下：
 
 ```yaml
 soul:

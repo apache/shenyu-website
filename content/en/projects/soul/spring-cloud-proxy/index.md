@@ -12,8 +12,6 @@ description: springCloud with soul gateway
 
 * Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
-* backend server register center config, please look:[register center access config](../use-register-center)
-
 ## Configure soul gateway as Spring Cloud proxy
 
 * add these dependencies in gateway's pom.xml:
@@ -98,23 +96,7 @@ description: springCloud with soul gateway
  </dependency>
 ```
 
-* add these config values in your yaml file, backend server register center config, please look:[register center access config](../use-register-center):
-
-```yaml
-client:
-  registerType: http
-  serverLists: http://localhost:9095
-  props:
-    contextPath: /http
-    appName: http
-    isFull: false
-  # registerType : register type, support http/zookeeper
-  # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
-  #             when register type is zookeeper，set zookeeper address list
-  # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-  # appName：your project name,the default value is`spring.application.name`.
-  # isFull: set true means providing proxy for your entire service, or only a few controller.
-```
+* add these config values in your yaml file, backend server register center config, please look:[register center access](../register-center-access):
 
 
 * add the annotation `@SoulSpringCloudClient` in your `controller` interface.

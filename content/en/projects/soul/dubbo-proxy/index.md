@@ -13,7 +13,7 @@ description: Integrate dubbo with soul gateway
 
 * Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
-* backend server register center config, please look:[register center access config](../use-register-center)
+* backend server register center config, please look:[register center access](../register-center-access)
 
 ## Configure soul gateway as dubbo proxy
 
@@ -118,54 +118,38 @@ description: Integrate dubbo with soul gateway
         </dependency>
         ```
       
-        * Add these config values in your yaml file, backend server register center config, please look:[register center access config](../use-register-center)
+        * Add these config values in your yaml file, backend server register center config, please look:[register center access](../register-center-access)
         
-      ```yaml
-       client:
-           registerType: http
-           serverLists: http://localhost:9095
-           props:
-             contextPath: /http
-             appName: http
-             isFull: false
-       # registerType : register type, support http/zookeeper
-       # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
-       #             when register type is zookeeper，set zookeeper address list
-       # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-       # appName：your project name,the default value is`spring.application.name`.
-       # isFull: set true means providing proxy for your entire service, or only a few controller.
-      ``` 
-    
-* spring
+    * spring
      
-   * Add these dependencies：
+       * Add these dependencies：
     
-    ```xml
-   <dependency>
-       <groupId>org.dromara</groupId>
-       <artifactId>soul-client-alibaba-dubbo</artifactId>
-       <version>${last.version}</version>
-    </dependency>
-   ```
-   * Inject these properties into your Sping beans XML file：      
+         ```xml
+            <dependency>
+              <groupId>org.dromara</groupId>
+              <artifactId>soul-client-alibaba-dubbo</artifactId>
+              <version>${last.version}</version>
+           </dependency>
+         ```
+       * Inject these properties into your Sping beans XML file：      
     
-    ```xml
-    <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
-       <constructor-arg  ref="soulRegisterCenterConfig"/>
-    </bean>
+       ```xml
+           <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
+                <constructor-arg  ref="soulRegisterCenterConfig"/>
+           </bean>
     
-    <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
-       <property name="registerType" value="http"/>
-       <property name="registerType" value="http://localhost:9095"/>
-       <property name="props">
-            <map>
-                 <entry key="contextPath" value="/your contextPath"/>
-                 <entry key="appName" value="your name"/>
-                 <entry key="isFull" value="false"/>
-            </map>
-       </property>
-    </bean>
-    ``` 
+          <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
+              <property name="registerType" value="http"/>
+              <property name="serverList" value="http://localhost:9095"/>
+              <property name="props">
+                  <map>
+                      <entry key="contextPath" value="/your contextPath"/>
+                      <entry key="appName" value="your name"/>
+                      <entry key="isFull" value="false"/>
+                  </map>
+               </property>
+            </bean>
+       ``` 
    
 * apache dubbo user
    
@@ -181,25 +165,9 @@ description: Integrate dubbo with soul gateway
         </dependency>
         ```
       
-     * Add these config values in your yaml file, backend server register center config, please look:[dubbo register center config](../register-center-dubbo)：
+     * Add these config values in your yaml file, backend server register center config, please look:[dubbo register center](../register-center-access)：
 
-       ```yaml
-       client:
-         registerType: http
-         serverLists: http://localhost:9095
-         props:
-           contextPath: /http
-           appName: http
-           isFull: false
-       # registerType : register type, support http/zookeeper
-       # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
-       #             when register type is zookeeper，set zookeeper address list
-       # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-       # appName：your project name,the default value is`spring.application.name`.
-       # isFull: set true means providing proxy for your entire service, or only a few controller.
-       ```
-
-       * spring
+  * spring
       
      * Add these dependencies ：
        
@@ -211,7 +179,7 @@ description: Integrate dubbo with soul gateway
         </dependency>
      ```
 
-    * Injecct these properties into your Spring beans XML file ：
+     * Injecct these properties into your Spring beans XML file ：
        
     ```xml
     <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
@@ -220,7 +188,7 @@ description: Integrate dubbo with soul gateway
     
     <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
        <property name="registerType" value="http"/>
-       <property name="registerType" value="http://localhost:9095"/>
+       <property name="serverList" value="http://localhost:9095"/>
        <property name="props">
             <map>
                  <entry key="contextPath" value="/your contextPath"/>

@@ -1,24 +1,32 @@
                                ---
-title: register center access config
+title: register center access
 keywords: soul
-description: register center access config
+description: register center access
 ---
 
 ## Explain
+
 Explain register center access config
 
-## HTTP register center
-### Soul-Admin config
-Set the config in application.yml
+## HTTP Registry
+
+### Soul-Admin 
+
+* Set the config in application.yml
 
 ```yaml
 soul:
   register:
     registerType: http
+    props:
+      checked: true  # is checked
+      zombieCheckTimes: 5 # How many times does it fail to detect the service
+      scheduledTime: 10 # Timed detection interval time
 ```
 
-### backend server config
-Set the config in application.yml
+### Soul-Client
+
+* Set the config in application.yml
 
 ```yaml
 soul:
@@ -38,10 +46,11 @@ soul:
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
 
-## Zookeeper register center
-### Soul-Admin config
-Add dependency in pom.xml
+## Zookeeper Registry
 
+### Soul-Admin 
+
+* Add dependency in pom.xml (Default has been added):
 
 ```xml
         <dependency>
@@ -51,7 +60,7 @@ Add dependency in pom.xml
         </dependency>
 ```
 
-Set the config in application.yml
+* Set the config in application.yml
 
 ```yaml
 soul:
@@ -63,8 +72,19 @@ soul:
       connectionTimeout: 2000
 ```
 
-### backend server config
-Set the config in application.yml
+### Soul-Client
+
+* Add dependency in pom.xml (Default has been added):
+
+```xml
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-register-client-zookeeper</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
+* Set the config in application.yml
 
 ```yaml
 soul:

@@ -10,8 +10,6 @@ description: sofa access soul gateway
   
 * Before connecting, please start `soul-admin` correctly and [Setup Environment](../soul-set-up) Ok。
 
-* backend server register center config, please look:[register center access config](../use-register-center)
-
 ## Introduce the plug-in that the gateway supports for sofa
 
 * Add the following dependencies in the gateway's `pom.xml` file：
@@ -52,7 +50,7 @@ description: sofa access soul gateway
 
 ## sofa service access gateway, you can refer to：[soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa)
 
- * Springboot
+* Springboot
 
     * Introduce the following dependencies :
  ```xml
@@ -63,23 +61,7 @@ description: sofa access soul gateway
         </dependency>
  ```
 
-  * Add the following configuration to your yml file, backend server register center config, please look:[register center access config](../use-register-center)：
-
-   ```yaml
-        client:
-          registerType: http
-          serverLists: http://localhost:9095
-          props:
-            contextPath: /http
-            appName: http
-            isFull: false
-        # registerType : register type, support http/zookeeper
-        # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
-        #             when register type is zookeeper，set zookeeper address list
-        # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-        # appName：your project name,the default value is`spring.application.name`.
-        # isFull: set true means providing proxy for your entire service, or only a few controller.
-  ```
+  * Add the following configuration to your yml file, backend server register center config, please look:[register center access](../register-center-access)：
 
 * Spring
 
@@ -95,14 +77,20 @@ description: sofa access soul gateway
    
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.dromara.soul.client.sofa.SofaServiceBeanPostProcessor">
-             <constructor-arg  ref="sofaConfig"/>
+             <constructor-arg  ref="soulRegisterCenterConfig"/>
         </bean>
 
-        <bean id="sofaConfig" class="org.dromara.soul.client.sofa.common.config.SofaConfig">
-             <property name="adminUrl" value="http://localhost:9095"/>
-             <property name="contextPath" value="/your contextPath"/>
-             <property name="appName" value="your name"/>
-        </bean>
+     <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
+       <property name="registerType" value="http"/>
+       <property name="serverList" value="http://localhost:9095"/>
+       <property name="props">
+            <map>
+                 <entry key="contextPath" value="/your contextPath"/>
+                 <entry key="appName" value="your name"/>
+                 <entry key="isFull" value="false"/>
+            </map>
+       </property>
+    </bean>
    ```
 
 ## sofa Plugin settings

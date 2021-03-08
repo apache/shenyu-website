@@ -10,8 +10,6 @@ description: sofa接入soul网关
 
 * 接入前，请正确的启动 `soul-admin`以及[搭建环境](../soul-set-up) Ok。
 
-* 注册中心详细接入配置请参考：[注册中心接入配置](../use-register-center)
-
 ## 引入网关对sofa支持的插件
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
@@ -63,22 +61,7 @@ description: sofa接入soul网关
         </dependency>
  ```
 
-  * 在你的yml文件中新增如下配置,注册中心详细接入配置请参考：[注册中心接入配置](../use-register-center)：
-
-   ```yaml
-        soul:
-          client:
-            registerType: http
-            serverLists: http://localhost:9095
-            props:
-              contextPath: /http
-              appName: http
-        # registerType : 服务注册类型，支持 http/zookeeper
-        # serverList: 为http注册类型时，填写Soul-Admin项目的地址，注意加上http://，多个地址用英文逗号分隔
-        #             为zookeeper注册类型时，填写zookeeper地址，多个地址用英文分隔
-        # contextPath: 为你的这个mvc项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
-        # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
-  ```
+  * 在你的yml文件中新增如下配置,注册中心详细接入配置请参考：[注册中心接入](../register-center-access)：
 
 * spring
 
@@ -94,13 +77,18 @@ description: sofa接入soul网关
    * 在你的 bean定义的xml文件中新增如下 ：
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.dromara.soul.client.sofa.SofaServiceBeanPostProcessor">
-             <constructor-arg  ref="sofaConfig"/>
+             <constructor-arg  ref="soulRegisterCenterConfig"/>
         </bean>
-
-        <bean id="sofaConfig" class="org.dromara.soul.client.sofa.common.config.SofaConfig">
-             <property name="adminUrl" value="http://localhost:9095"/>
-             <property name="contextPath" value="/你的contextPath"/>
-             <property name="appName" value="你的名字"/>
+        <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
+               <property name="registerType" value="http"/>
+               <property name="serverList" value="http://localhost:9095"/>
+               <property name="props">
+                  <map>
+                    <entry key="contextPath" value="/你的contextPath"/>
+                    <entry key="appName" value="你的名字"/>
+                    <entry key="ifFull" value="false"/>
+                  </map>
+                </property>
         </bean>
    ```
 

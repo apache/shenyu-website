@@ -12,7 +12,7 @@ description: Integrate Http with soul gateway
 
 * Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
 
-* backend server register center config, please look:[register center access config](../use-register-center)
+* backend server register center config, please look:[register center access config](../register-center-access)
 
 ## Configure soul gateway as Http proxy.
 
@@ -41,7 +41,7 @@ description: Integrate Http with soul gateway
 
 ##### add Soul-Client methods（available for SpringMVC,SpringBoot user）
 
-* SpringBoot user
+* SpringBoot User
   
    * Add these dependencies in your local maven repository `pom.xml`: 
     
@@ -52,26 +52,10 @@ description: Integrate Http with soul gateway
              <version>${last.version}</version>
          </dependency>
     ```
-   * Add these config values in your yaml file, backend server register center config, please look:[register center access config](../use-register-center)：  
+   * Add these config values in your yaml file, backend server register center config, please look:[register center access config](../register-center-access)：  
     
-    ```yaml
-       client:
-           registerType: http
-           serverLists: http://localhost:9095
-           props:
-             contextPath: /http
-             appName: http
-             port: 8188  
-             isFull: false
-       # registerType : register type, support http/zookeeper
-       # serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
-       #             when register type is zookeeper，set zookeeper address list
-       # port: your project port number
-       # contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
-       # appName：your project name,the default value is`spring.application.name`.
-       # isFull: set true means providing proxy for your entire service, or only a few controller.
-    ``` 
- * SpringMVC user
+* SpringMVC user
+
    * Add these dependencies in your local maven repository `pom.xml`: 
     
     ```xml
@@ -90,7 +74,7 @@ description: Integrate Http with soul gateway
         
         <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig;">
              <property name="registerType" value="http"/>
-             <property name="registerType" value="http://localhost:9095"/>
+             <property name="serverList" value="http://localhost:9095"/>
              <property name="props">
                   <map>
                     <entry key="contextPath" value="/your contextPath"/>
@@ -101,6 +85,7 @@ description: Integrate Http with soul gateway
              </property>
         </bean>
     ``` 
+    
 * Add this annotation `@SoulSpringMvcClient` in your `controller` interface.
   
    * you can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces. 

@@ -44,8 +44,6 @@ sidebar:
         link: 'data-sync'
       - title: 'MetaData'  	
         link: 'meta-data' 
-      - title: 'register center'  	
-        link: 'register-center-design'
   - title: 'Admin'  	
     sub:
       - title: 'Dictionary management'  	
@@ -70,10 +68,10 @@ sidebar:
         link: 'use-data-sync'  
   - title: 'Register Center'  	
     sub:
-      - title: 'Register Center Design'
+      - title: 'Design'
         link: 'register-center-design'
-      - title: 'Register Center Access'  	
-        link: 'use-register-center'
+      - title: 'Access'  	
+        link: 'register-center-access'
   - title: 'Quick Start'  	
     sub:
       - title: 'Dubbo'  	

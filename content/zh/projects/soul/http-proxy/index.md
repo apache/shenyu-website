@@ -12,7 +12,6 @@ description: http用户
 
 * 接入前，请正确的启动 `soul-admin`，以及 [搭建环境](../soul-set-up) OK。
 
-* 注册中心详细接入配置请参考：[注册中心接入配置](../use-register-center)
 
 ## 引入网关对http的代理插件
 
@@ -53,27 +52,10 @@ description: http用户
          </dependency>
      ```
   
-   * 在yml中新增如下配置, 注册中心详细接入配置请参考：[注册中心接入配置](../use-register-center)：
-   
-    ```yaml
-       soul:
-         client:
-           registerType: http
-           serverLists: http://localhost:9095
-           props:
-             contextPath: /http
-             appName: http
-             port: 8188  
-             isFull: false
-       # registerType : 服务注册类型，支持 http/zookeeper
-       # serverList: 为http注册类型时，填写Soul-Admin项目的地址，注意加上http://，多个地址用英文逗号分隔
-       #             为zookeeper注册类型时，填写zookeeper地址，多个地址用英文分隔
-       # port: 你本项目的启动端口
-       # contextPath: 为你的这个mvc项目在soul网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
-       # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
-       # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller
-    ``` 
- * SpringMvc用户 
+   * 在yml中新增如下配置, 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)：
+
+* SpringMvc用户 
+
    * 在你的真实服务的 `pom.xml` 新增如下依赖：
    
     ```xml
@@ -92,7 +74,7 @@ description: http用户
         
         <bean id="soulRegisterCenterConfig" class="org.dromara.soul.register.common.config.SoulRegisterCenterConfig">
              <property name="registerType" value="http"/>
-             <property name="registerType" value="http://localhost:9095"/>
+             <property name="serverList" value="http://localhost:9095"/>
              <property name="props">
                   <map>
                     <entry key="contextPath" value="/你的contextPath"/>

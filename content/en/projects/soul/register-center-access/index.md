@@ -103,3 +103,62 @@ soul:
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
+
+
+## Etcd Registry
+
+### Soul-Admin
+
+* Add dependency in pom.xml (Default has been added):
+
+```xml
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-register-server-etcd</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
+* Set the config in application.yml
+
+```yaml
+soul:
+  register:
+    registerType: etcd
+    serverLists : http://localhost:2379
+    props:
+      etcdTimeout: 5000
+      etcdTTL: 5
+```
+
+### Soul-Client
+
+* Add dependency in pom.xml (Default has been added):
+
+```xml
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-register-client-etcd</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
+* Set the config in application.yml
+
+```yaml
+soul:
+  client:
+    registerType: etcd
+    serverLists: http://localhost:2379
+    props:
+      contextPath: /http
+      appName: http
+      port: 8188  
+      isFull: false
+# registerType : register type, set etcd 
+# serverList: when register type is etcd, add etcd address list
+# port: your project port number; apply to springmvc/tars/grpc
+# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# appName：your project name,the default value is`spring.application.name`.
+# isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
+``` 

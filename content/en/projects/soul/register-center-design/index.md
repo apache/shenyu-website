@@ -67,6 +67,32 @@ Trigger selector and rule data update and event publish, when metadata data node
 
 Trigger selector and upstream update and event publish, when uri data node update.
 
+## Etcd Registry
+
+Etcd storage struct is:
+
+```
+soul
+   ├──regsiter
+   ├    ├──metadata
+   ├    ├     ├──${rpcType}
+   ├    ├     ├      ├────${contextPath}
+   ├    ├     ├               ├──${ruleName} : save metadata data of MetaDataRegisterDTO
+   ├    ├──uri
+   ├    ├     ├──${rpcType}
+   ├    ├     ├      ├────${contextPath}
+   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:prot}
+```
+
+Etcd register client will save data to etcd when soul client start.
+
+Etcd register server will watch data node.
+
+Trigger selector and rule data update and event publish, when metadata data node update.
+
+Trigger selector and upstream update and event publish, when uri data node update.
+
 
 ## SPI
 
@@ -78,6 +104,7 @@ Trigger selector and upstream update and event publish, when uri data node updat
 | -------------------------------- | --------------------------- |
 | HttpClientRegisterRepository     | Http client register repository |
 | ZookeeperClientRegisterRepository| Zookeeper client register repository |
+| EtcdClientRegisterRepository     | Etcd client register repository |
 
 
 | *SPI Name*                       | *Description*                 |
@@ -88,3 +115,4 @@ Trigger selector and upstream update and event publish, when uri data node updat
 | -------------------------------- | ----------------------------- |
 | SoulHttpRegistryController       | Http server repository        |
 | ZookeeperServerRegisterRepository| Zookeeper server registry repository |
+| EtcdServerRegisterRepository     | Etcd server registry repository |

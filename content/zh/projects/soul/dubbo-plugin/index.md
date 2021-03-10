@@ -16,7 +16,7 @@ description: dubbo插件
   <!--if you use dubbo start this-->
    <dependency>
        <groupId>org.dromara</groupId>
-       <artifactId>soul-spring-boot-starter-plugin-alibab-dubbo</artifactId>
+       <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
        <version>${last.version}</version>
    </dependency>
 

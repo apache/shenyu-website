@@ -100,29 +100,29 @@ public void handlerPlugin(final PluginData pluginData) {
   
  ps：Singleton.INST是枚举实现的单例模式。
  
- ### 限流插件是底层是如何实现的呢？
+### 限流插件是底层是如何实现的呢？
  
- #### Debug 调用链
+#### Debug 调用链
  
- **RateLimiterPlugin**由于需要对特定规则进行限流，所以依旧实现了**AbstractSoulPlugin**，之前依旧梳理过**AbstractSoulPlugin的excute**的方法和作用了，所以这里不重复解释，可观看<a href="https://juejin.cn/post/6921685390982119438">Http 调用流程梳理</a>，加深对该类的印象。
+**RateLimiterPlugin**由于需要对特定规则进行限流，所以依旧实现了**AbstractSoulPlugin**，之前依旧梳理过**AbstractSoulPlugin的excute**的方法和作用了，所以这里不重复解释，可观看<a href="https://juejin.cn/post/6921685390982119438">Http 调用流程梳理</a>，加深对该类的印象。
  
- 本节重点还是看具体的**doexcute**方法做了哪些事。
-  ```java
-    protected Mono<Void> doExecute(final ServerWebExchange exchange, final SoulPluginChain chain, final SelectorData selector, final RuleData rule) {
-        final String handle = rule.getHandle();
-        final RateLimiterHandle limiterHandle = GsonUtils.getInstance().fromJson(handle, RateLimiterHandle.class);
-        return redisRateLimiter.isAllowed(rule.getId(), limiterHandle.getReplenishRate(), limiterHandle.getBurstCapacity())
-                .flatMap(response -> {
-                    if (!response.isAllowed()) {
-                        //返回的错误信息 429错误编码
-                        exchange.getResponse().setStatusCode(HttpStatus.TOO_MANY_REQUESTS);
-                        Object error = SoulResultWrap.error(SoulResultEnum.TOO_MANY_REQUESTS.getCode(), SoulResultEnum.TOO_MANY_REQUESTS.getMsg(), null);
-                        return WebFluxResultUtils.result(exchange, error);
-                    }
-                    return chain.execute(exchange);
-                });
-    }
-  ```
+本节重点还是看具体的**doexcute**方法做了哪些事。
+```java
+   protected Mono<Void> doExecute(final ServerWebExchange exchange, final SoulPluginChain chain, final SelectorData selector, final RuleData rule) {
+       final String handle = rule.getHandle();
+       final RateLimiterHandle limiterHandle = GsonUtils.getInstance().fromJson(handle, RateLimiterHandle.class);
+       return redisRateLimiter.isAllowed(rule.getId(), limiterHandle.getReplenishRate(), limiterHandle.getBurstCapacity())
+               .flatMap(response -> {
+                   if (!response.isAllowed()) {
+                       //返回的错误信息 429错误编码
+                       exchange.getResponse().setStatusCode(HttpStatus.TOO_MANY_REQUESTS);
+                       Object error = SoulResultWrap.error(SoulResultEnum.TOO_MANY_REQUESTS.getCode(), SoulResultEnum.TOO_MANY_REQUESTS.getMsg(), null);
+                       return WebFluxResultUtils.result(exchange, error);
+                   }
+                   return chain.execute(exchange);
+               });
+   }
+```
   
   在上述代码中可以看出是通过**redisRateLimiter.isAllowed**来判断是否获取令牌成功的。
   该方法如下
@@ -151,10 +151,11 @@ public void handlerPlugin(final PluginData pluginData) {
                 }).doOnError(throwable -> log.error("Error determining if user allowed from redis:{}", throwable.getMessage()));
     }
  ```
- #### 方法getKeys(id)
+#### 方法getKeys(id)
 
-该方法是获取redis需要操作的key，一共获取了两个类型的Key，格式如下
-  ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55ce72f4e044405fbd3b1461905072f2~tplv-k3u1fbpfcp-watermark.image)
+该方法是获取redis需要操作的key，一共获取了两个类型的Key，格式如下:
+
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55ce72f4e044405fbd3b1461905072f2~tplv-k3u1fbpfcp-watermark.image)
   
   中间那位特别长的数字是**规则ID**，因为限流的最小粒度是规则。
   
@@ -171,7 +172,7 @@ public void handlerPlugin(final PluginData pluginData) {
 ps：这里需要提醒一下限流算法是令牌桶算法，令牌桶算法一共有两种大体实现，一种是有个线程不断生成令牌，当请求进来时，先从对应的队列中获取令牌，但这种令牌生成方式在设定阈值特别大时，会非常消耗性能，所以有了第二种令牌桶算法，在获取令牌时实时计算令牌数量，而soul就是基于第二种实现的。
  
  
- #### Lua限流算法分析
+#### Lua限流算法分析
  
  ```lua
  -- 当前规则令牌剩余数量存储key
@@ -228,5 +229,6 @@ return { allowed_num, new_tokens }
 Lua代码整体逻辑还是非常明朗的，在这里细讲也讲不出个啥来，代码注释已经打全了。
 
 本人在这里疑惑的有两点
+
 - **ttl**参数的计算 乘2 的目的是为了怕不是整数？，所以进行的*2 取最小操作?
 - **filled_tokens**参数的计算 核心代码last_tokens+(delta*rate)，其中delta参数是两个十位时间戳相减得来 ，但是rate是按秒来生成的，难道不应该是last_tokens+((delta/1000)*rate)吗？

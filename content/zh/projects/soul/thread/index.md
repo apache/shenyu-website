@@ -10,7 +10,7 @@ description: 线程模型
 
 ## io与work线程
 
-* soul内置依赖 `spring-webflux` 而其底层是使用的netty，这一块只要是使用的netty线程模型。
+* soul内置依赖 `spring-webflux` 而其底层是使用的netty，这一块主要是使用的netty线程模型。
 
 ## 业务线程
 

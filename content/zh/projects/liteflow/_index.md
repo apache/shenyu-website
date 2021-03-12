@@ -1,7 +1,7 @@
 ---
-title: "Athena"
-description: "metrics 字节码工具"
-subDesc: "metrics 字节码工具"
+title: "Liteflow"
+description: "轻量，快速，稳定，可编排的组件式流程引擎"
+subDesc: "轻量，快速，稳定，可编排的组件式流程引擎"
 feature1Img: ""
 feature1Title: ""
 feature1Desc: ""
@@ -21,14 +21,12 @@ feature6Img: ""
 feature6Title: ""
 feature6Desc: ""
 startUp: "开始"
-github: "https://github.com/dromara/athena"
-gitee: ""
+link: "https://yomahub.com/liteflow/"
+github: "https://github.com/dromara/liteflow"
+gitee: "https://gitee.com/dromara/liteFlow"
 level: "tool"
-weight: 10
+weight: 8
+icon: "/img/logo/liteflow.png"
 showIntroduce: false
 showFeature: false
-sidebar:
-  - title: '介绍文档'  	
-    link: 'overview'
 ---
-

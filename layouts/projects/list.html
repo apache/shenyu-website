@@ -18,8 +18,8 @@
 {{ $tool_projects := where $pages ".Params.level" "tool" }}
 {{ $ecosystem_projects := where $pages ".Params.level" "ecosystem" }}
 
-{{ $title_list := slice "main_project" "incubating_project" "tool_projects" "ecosystem_projects" }}
-{{ $list := slice $main_projects $incubating_projects $tool_projects $ecosystem_projects }}
+{{ $title_list := slice "main_project" "tool_projects" "incubating_project" "ecosystem_projects" }}
+{{ $list := slice $main_projects $tool_projects $incubating_projects $ecosystem_projects }}
 
 <div class="home-background -no-max-width">
 	<img src="{{ (resources.Get "/img/cover-light.jpg").RelPermalink }}" />

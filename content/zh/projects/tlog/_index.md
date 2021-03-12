@@ -1,7 +1,7 @@
 ---
-title: "Athena"
-description: "metrics 字节码工具"
-subDesc: "metrics 字节码工具"
+title: "TLog"
+description: "轻量级的分布式日志标记追踪神器"
+subDesc: "轻量级的分布式日志标记追踪神器"
 feature1Img: ""
 feature1Title: ""
 feature1Desc: ""
@@ -21,14 +21,12 @@ feature6Img: ""
 feature6Title: ""
 feature6Desc: ""
 startUp: "开始"
-github: "https://github.com/dromara/athena"
-gitee: ""
+link: "https://yomahub.com/tlog/"
+github: "https://github.com/dromara/TLog"
+gitee: "https://gitee.com/dromara/TLog"
 level: "tool"
-weight: 10
+weight: 7
+icon: "/img/logo/tlog.png"
 showIntroduce: false
 showFeature: false
-sidebar:
-  - title: '介绍文档'  	
-    link: 'overview'
 ---
-

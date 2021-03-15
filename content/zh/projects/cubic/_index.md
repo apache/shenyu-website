@@ -1,7 +1,7 @@
 ---
-title: "Athena"
-description: "metrics 字节码工具"
-subDesc: "metrics 字节码工具"
+title: "Cubic"
+description: "无侵入分布式监控，致力于应用级监控的工具"
+subDesc: "无侵入分布式监控，致力于应用级监控的工具"
 feature1Img: ""
 feature1Title: ""
 feature1Desc: ""
@@ -20,15 +20,12 @@ feature5Desc: ""
 feature6Img: ""
 feature6Title: ""
 feature6Desc: ""
-startUp: "开始"
-github: "https://github.com/dromara/athena"
-gitee: ""
+startUp: "Start up"
+link: "https://gitee.com/dromara/cubic/blob/master/docs/cn/quick_start.md"
+github: "https://github.com/dromara/cubic"
+gitee: "https://gitee.com/dromara/cubic"
 level: "tool"
-weight: 12
+weight: 10
 showIntroduce: false
 showFeature: false
-sidebar:
-  - title: '介绍文档'  	
-    link: 'overview'
 ---
-

@@ -24,7 +24,7 @@ startUp: "Start up"
 github: "https://github.com/dromara/athena"
 gitee: ""
 level: "tool"
-weight: 10
+weight: 12
 showIntroduce: false
 showFeature: false
 ---

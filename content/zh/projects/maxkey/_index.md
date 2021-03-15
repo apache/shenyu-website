@@ -1,7 +1,7 @@
 ---
-title: "Athena"
-description: "metrics 字节码工具"
-subDesc: "metrics 字节码工具"
+title: "MaxKey"
+description: "业界领先的企业级开源IAM身份管理和身份认证产品"
+subDesc: "业界领先的企业级开源IAM身份管理和身份认证产品"
 feature1Img: ""
 feature1Title: ""
 feature1Desc: ""
@@ -20,15 +20,13 @@ feature5Desc: ""
 feature6Img: ""
 feature6Title: ""
 feature6Desc: ""
-startUp: "开始"
-github: "https://github.com/dromara/athena"
-gitee: ""
+startUp: "Start up"
+link: "https://maxkey.top/"
+github: "https://github.com/dromara/MaxKey"
+gitee: "https://gitee.com/dromara/MaxKey"
 level: "tool"
-weight: 12
+weight: 9
+icon: "/img/logo/maxkey.png"
 showIntroduce: false
 showFeature: false
-sidebar:
-  - title: '介绍文档'  	
-    link: 'overview'
 ---
-

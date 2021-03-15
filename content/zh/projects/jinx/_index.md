@@ -24,7 +24,7 @@ startUp: "开始"
 github: "https://github.com/dromara/jinx"
 gitee: ""
 level: "tool"
-weight: 9
+weight: 11
 showIntroduce: false
 showFeature: false
 sidebar:

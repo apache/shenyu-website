@@ -166,7 +166,7 @@ When `soul-web` gateway layer receives the http response information,pull modifi
 
 github: https://github.com/Dromara/soul
 
-gitee:  https://gitee.com/shuaiqiyu/soul
+gitee:  https://gitee.com/dromara/soul
 
 There also have video tutorials on the project homepage,you can go to watch it if needed.
 

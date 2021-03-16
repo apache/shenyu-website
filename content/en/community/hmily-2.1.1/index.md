@@ -291,5 +291,5 @@ public class HelloServiceImpl implements HelloService  {
 We uphold the principle of harmony and happiness. If you have ideas and want to contribute to community, come and join us!
 
 * Github: https://github.com/dromara/hmily
-* Gitee: https://gitee.com/shuaiqiyu/hmily
+* Gitee: https://gitee.com/dromara/hmily
 * QQ group: 162614487

@@ -45,4 +45,4 @@ cover: "/img/architecture/soul-framework.png"
 
  * github地址: https://github.com/Dromara/soul
 
- * gitee地址： https://gitee.com/shuaiqiyu/soul
+ * gitee地址： https://gitee.com/dromara/soul

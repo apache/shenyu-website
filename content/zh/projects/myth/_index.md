@@ -23,7 +23,7 @@ feature6Desc: "支持rpc的且套调用"
 architectureImg: ""
 startUp: "开始"
 github: "https://github.com/dromara/myth"
-gitee: "https://gitee.com/shuaiqiyu/myth"
+gitee: "https://gitee.com/dromara/myth"
 level: "main"
 weight: 4
 icon: "/img/logo/myth.png"

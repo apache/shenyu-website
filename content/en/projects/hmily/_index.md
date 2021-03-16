@@ -23,7 +23,7 @@ feature6Desc: "Support RPC nested invocation transactions"
 architectureImg: "/img/architecture/hmily-framework.png"
 startUp: "Start up"
 github: "https://github.com/dromara/hmily"
-gitee: "https://gitee.com/shuaiqiyu/hmily"
+gitee: "https://gitee.com/dromara/hmily"
 level: "main"
 weight: 2
 icon: "/img/logo/hmily.png"

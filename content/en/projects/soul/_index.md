@@ -23,7 +23,7 @@ feature6Desc: "Support cluster deployment"
 architectureImg: "/img/architecture/soul-framework.png"
 startUp: "Start up"
 github: "https://github.com/dromara/soul"
-gitee: "https://gitee.com/shuaiqiyu/soul"
+gitee: "https://gitee.com/dromara/soul"
 level: "main"
 weight: 1
 icon: "/img/logo/soul.png"

@@ -166,7 +166,7 @@ class DataChangeTask implements Runnable {
 
 github: https://github.com/Dromara/soul
 
-gitee:  https://gitee.com/shuaiqiyu/soul
+gitee:  https://gitee.com/dromara/soul
 
 项目主页上还有视频教程，有需要的朋友可以去观看。
 

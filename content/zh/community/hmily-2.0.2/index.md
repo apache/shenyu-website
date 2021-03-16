@@ -57,6 +57,6 @@ hmily ：
 
 * github地址: https://github.com/yu199195/hmily
 
-* gitee地址： https://gitee.com/shuaiqiyu/hmily
+* gitee地址： https://gitee.com/dromara/hmily
 
 * 欢迎大家star fork ，提供优秀的代码与建议。

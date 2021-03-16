@@ -14,7 +14,7 @@ cover: "/img/architecture/hmily-framework.png"
 Hmily在参开源中国年度受欢迎投票 https://www.oschina.net/project/top_cn_2018?origin=zhzd 点击链接，搜索Hmily帮忙投下票,在第11横排第二个，感谢大家！
 也欢迎大家关注，或者提交pr，让Hmily变的更好，更完美。
  gitHub: [https://github.com/yu199195/hmily]
- gitee:  [https://gitee.com/shuaiqiyu/hmily]
+ gitee:  [https://gitee.com/dromara/hmily]
 
 接下来回答一下 社区的一些问题，和大家一些疑惑的地方！
 

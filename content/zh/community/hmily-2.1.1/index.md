@@ -289,5 +289,5 @@ public class HelloServiceImpl implements HelloService  {
 我们秉承`和谐快乐`，`代码至上` 的原则，如果你有想法，愿意和我们一起成长，一起贡献，快来加入我们吧！
 
 - github：https://github.com/dromara/hmily
-- gitee：https://gitee.com/shuaiqiyu/hmily
+- gitee：https://gitee.com/dromara/hmily
 - qq群: 162614487

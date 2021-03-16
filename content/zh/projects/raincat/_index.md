@@ -23,7 +23,7 @@ feature6Desc: "支持rpc的且套调用"
 architectureImg: "/img/architecture/raincat-framework.png"
 startUp: "开始"
 github: "https://github.com/dromara/raincat"
-gitee: "https://gitee.com/shuaiqiyu/Raincat"
+gitee: "https://gitee.com/dromara/Raincat"
 level: "main"
 weight: 3
 icon: "/img/logo/raincat.png"

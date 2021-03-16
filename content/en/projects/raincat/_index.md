@@ -23,7 +23,7 @@ feature6Desc: "Support rpc and set call "
 architectureImg: "/img/architecture/raincat-framework.png"
 startUp: "Start up"
 github: "https://github.com/dromara/raincat"
-gitee: "https://gitee.com/shuaiqiyu/Raincat"
+gitee: "https://gitee.com/dromara/Raincat"
 level: "main"
 weight: 3
 icon: "/img/logo/raincat.png"

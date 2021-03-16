@@ -92,7 +92,7 @@ public class DubboTest implements Serializable {
 
 - github地址 ：https://github.com/Dromara/soul
 
-- gitee地址 ：https://gitee.com/shuaiqiyu/soul
+- gitee地址 ：https://gitee.com/dromara/soul
 
 - 文档：https://dromara.org/zh-cn/docs/soul/soul.html
 

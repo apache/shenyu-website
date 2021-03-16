@@ -23,7 +23,7 @@ feature6Desc: "支持集群部署"
 architectureImg: "/img/architecture/soul-framework.png"
 startUp: "开始"
 github: "https://github.com/dromara/soul"
-gitee: "https://gitee.com/shuaiqiyu/soul"
+gitee: "https://gitee.com/dromara/soul"
 level: "main"
 weight: 1
 icon: "/img/logo/soul.png"

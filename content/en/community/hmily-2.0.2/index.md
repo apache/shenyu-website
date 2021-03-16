@@ -56,6 +56,6 @@ hmily ：
 
 * Github: https://github.com/yu199195/hmily
 
-* Gitee:  https://gitee.com/shuaiqiyu/hmily
+* Gitee:  https://gitee.com/dromara/hmily
 
   Welcome to Star Fork, provide excellent code and suggestions.

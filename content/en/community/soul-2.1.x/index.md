@@ -105,7 +105,7 @@ First of all, I think we should follow pragmatism, when you need to use it , the
 ### At last
 
 - Github: https://github.com/Dromara/soul
-- Gitee: https://gitee.com/shuaiqiyu/soul
+- Gitee: https://gitee.com/dromara/soul
 - Document: https://dromara.org/zh-cn/docs/soul/soul.html
 - QQ group: 429951241
 - Finally, Soul3.0 has been open sourced, which has been verified in the double 11 concurrency scene for 2 years. I hope It will help you guys.

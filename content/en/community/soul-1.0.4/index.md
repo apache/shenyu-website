@@ -45,4 +45,4 @@ cover: "/img/architecture/soul-framework.png"
 
  * Github: https://github.com/Dromara/soul
 
- * Gitee:  https://gitee.com/shuaiqiyu/soul
+ * Gitee:  https://gitee.com/dromara/soul

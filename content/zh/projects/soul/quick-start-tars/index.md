@@ -28,7 +28,7 @@ description: Tars快速开始
 
 下载[soul-examples-tars](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-tars)
 
-修改`application.yml`中的`ipAndPort`为你本地ip
+修改`application.yml`中的`host`为你本地ip
 
 修改配置`src/main/resources/SoulExampleServer.SoulExampleApp.config.conf`：
 

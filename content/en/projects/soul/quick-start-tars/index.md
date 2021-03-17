@@ -29,7 +29,7 @@ Note: `soul-bootstrap` need to import tars dependencies
 
 Download [soul-examples-tars](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-tars)
 
-Modify `ipAndPort` in `application.yml` to be your local IP
+Modify `host` in `application.yml` to be your local IP
 
 Modify config `src/main/resources/SoulExampleServer.SoulExampleApp.config.conf`:
 

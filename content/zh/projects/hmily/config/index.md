@@ -107,7 +107,7 @@ metrics:
 |名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 |appName                   |String |  无      | 必填     |一般填你微服务的应用名称，请不要重复|
-|serializer                |String |  kryo    |  非必填  |这是指定事务日志的序列化方式，目前支持填写 `kryo`, `hessian`, `jdk`, `jdk`, `protostuff`|
+|serializer                |String |  kryo    |  非必填  |这是指定事务日志的序列化方式，目前支持填写 `kryo`, `hessian`, `jdk`, `protostuff`|
 |contextTransmittalMode    |String |threadLocal| 非必填  |这是事务上下文传递的模式，目前支持填写 `threadLocal`, `transmittable` (跨线程模式) |
 |scheduledThreadMax        |int    |CPU * 2    | 非必填  |调度线程数最大线程数量 |
 |scheduledRecoveryDelay    |int(单位:秒) | 60   | 非必填  |事务日志自动恢复调度周期 |

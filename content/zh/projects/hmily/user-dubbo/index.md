@@ -31,7 +31,7 @@ public interface HelloService {
   
   * 步骤二 ： 新增`Hmily`配置
   
-  * 步骤三 ： 在实现方法上添加注解。`TC`C模式，则需要完成 `confirm`，`cancel`方法的开发
+  * 步骤三 ： 在实现方法上添加注解。`TCC`模式，则需要完成 `confirm`，`cancel`方法的开发
 
 ### 引入依赖
 

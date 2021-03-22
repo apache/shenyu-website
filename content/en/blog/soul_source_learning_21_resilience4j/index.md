@@ -89,7 +89,7 @@ Hystrix不更新了，Spring提供Netflix Hystrix的替换方案，即Resilence4
 
 	* automaticTransitionFromOpenToHalfOpenEnabled：是否自动从open状态转换为half-open状态，,true：是，false：否，默认值：false。
  ```
- ### 限流
+### 限流
  * 参数配置
  如下是参数配置校验，参数值小于默认值，会直接赋值默认值，因此方便测试效果直接修改源码的配置
 ： 每次刷新令牌的数量为2 ，刷新令牌的时间间隔为1s，超时时间为1s

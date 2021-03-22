@@ -11,13 +11,13 @@ cover: "/img/soul/blog6/03.jpg"
 
 ## 目标
 * 什么是Resilience4J
-* sould的Resilience4j体验
+* soul的Resilience4j体验
  	- 限流
  	- 熔断
 * Resilience4J插件源码解读
 
 ## 什么是Resilience4j
-* Resilience4J是Spring Cloud G版本推荐的容错方案，它是一个轻量级的容错库
+* Resilience4J是Spring Cloud Gateway推荐的容错方案，它是一个轻量级的容错库
 * 借鉴了Hystrix而设计，并且采用JDK8 这个函数式编程，即lambda表达式
 * 相比之下， Netflix Hystrix 对Archaius 具有编译依赖性，Resilience4j你无需引用全部依赖，可以根据自己需要的功能引用相关的模块即可
 Hystrix不更新了，Spring提供Netflix Hystrix的替换方案，即Resilence4J

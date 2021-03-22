@@ -61,7 +61,7 @@ soul
 
 Soul-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）写到如上的zookeeper节点中。
 
-Soul-Admin使用Zookeeper的Watch机制，对数据的更新和删除等时间进行监听，数据变更后触发对应的注册处理逻辑。
+Soul-Admin使用Zookeeper的Watch机制，对数据的更新和删除等事件进行监听，数据变更后触发对应的注册处理逻辑。
 
 在收到MetaDataRegisterDTO节点变更后，触发selector和rule的数据变更和数据同步事件发布。
 
@@ -87,7 +87,33 @@ soul
 
 Soul-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）以Ephemeral方式写到如上的Etcd节点中。
 
-Soul-Admin使用Etcd的Watch机制，对数据的更新和删除等时间进行监听，数据变更后触发对应的注册处理逻辑。
+Soul-Admin使用Etcd的Watch机制，对数据的更新和删除等事件进行监听，数据变更后触发对应的注册处理逻辑。
+
+在收到MetaDataRegisterDTO节点变更后，触发selector和rule的数据变更和数据同步事件发布。
+
+收到URIRegisterDTO节点变更后，触发selector的upstream的更新和数据同步事件发布。
+
+## Consul 注册
+
+Consul的Metadata和URI分两部分存储，URIRegisterDTO随着服务注册记录在服务的metadata里，服务下线时随着服务节点一起消失。
+
+![](/img/soul/register/Consul-ui.png)
+
+Consul的MetaDataRegisterDTO存在Key/Value里，键值存储结构如下：
+
+```
+soul
+   ├──regsiter
+   ├    ├──metadata
+   ├    ├     ├──${rpcType}
+   ├    ├     ├      ├────${contextPath}
+   ├    ├     ├               ├──${ruleName} : save metadata data of MetaDataRegisterDTO
+
+```
+
+Soul-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）分别放在ServiceInstance的Metadata（URIRegisterDTO）和KeyValue（MetaDataRegisterDTO），按照上述方式进行存储。
+
+Soul-Admin通过监听Catalog和KeyValue的index的变化，来感知数据的更新和删除，数据变更后触发对应的注册处理逻辑。
 
 在收到MetaDataRegisterDTO节点变更后，触发selector和rule的数据变更和数据同步事件发布。
 
@@ -104,6 +130,7 @@ Soul-Admin使用Etcd的Watch机制，对数据的更新和删除等时间进行�
 | HttpClientRegisterRepository     | 基于Http请求的实现 |
 | ZookeeperClientRegisterRepository| 基于Zookeeper注册的实现 |
 | EtcdClientRegisterRepository     | 基于etcd注册的实现 |
+| ConsulClientRegisterRepository     | 基于consul注册的实现 |
 
 
 | *SPI 名称*                       | *详细说明*                 |
@@ -115,3 +142,4 @@ Soul-Admin使用Etcd的Watch机制，对数据的更新和删除等时间进行�
 | SoulHttpRegistryController       | 使用Http服务接口来处理客户端注册请求        |
 | ZookeeperServerRegisterRepository| 使用Zookeeper来处理客户端注册节点 |
 | EtcdServerRegisterRepository     | 使用etcd来处理客户端注册节点 |
+| ConsulServerRegisterRepository     | 使用consul来处理客户端注册节点 |

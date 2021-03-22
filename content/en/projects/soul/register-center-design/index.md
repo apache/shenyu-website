@@ -93,6 +93,31 @@ Trigger selector and rule data update and event publish, when metadata data node
 
 Trigger selector and upstream update and event publish, when uri data node update.
 
+## Consul Registry
+
+Consul register client will save URIRegisterDTO to service instance metadata, and URIRegisterDTO will disappear with service unregister. 
+
+![](/img/soul/register/Consul-ui.png)
+
+And Consul register client will save MetaDataRegisterDTO to Key/Value store, storage struct is:
+
+```
+soul
+   ├──regsiter
+   ├    ├──metadata
+   ├    ├     ├──${rpcType}
+   ├    ├     ├      ├────${contextPath}
+   ├    ├     ├               ├──${ruleName} : save metadata data of MetaDataRegisterDTO
+
+```
+
+Consul register client will save data to consul when soul client start.
+
+Consul register server will watch data node.
+
+Trigger selector and rule data update and event publish, when metadata data node update.
+
+Trigger selector and upstream update and event publish, when uri data node update.
 
 ## SPI
 
@@ -105,6 +130,7 @@ Trigger selector and upstream update and event publish, when uri data node updat
 | HttpClientRegisterRepository     | Http client register repository |
 | ZookeeperClientRegisterRepository| Zookeeper client register repository |
 | EtcdClientRegisterRepository     | Etcd client register repository |
+| ConsulClientRegisterRepository     | Consul client register repository |
 
 
 | *SPI Name*                       | *Description*                 |
@@ -116,3 +142,4 @@ Trigger selector and upstream update and event publish, when uri data node updat
 | SoulHttpRegistryController       | Http server repository        |
 | ZookeeperServerRegisterRepository| Zookeeper server registry repository |
 | EtcdServerRegisterRepository     | Etcd server registry repository |
+| ConsulServerRegisterRepository     | Consul server registry repository |

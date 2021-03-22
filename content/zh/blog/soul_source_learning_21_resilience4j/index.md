@@ -92,7 +92,8 @@ Hystrix不更新了，Spring提供Netflix Hystrix的替换方案，即Resilence4
 * 参数配置
  如下是参数配置校验，参数值小于默认值，会直接赋值默认值，因此方便测试效果直接修改源码的配置
 ： 每次刷新令牌的数量为2 ，刷新令牌的时间间隔为1s，超时时间为1s
- ```java
+
+```java
     /**
      * check filed default value.
      *
@@ -120,7 +121,8 @@ Hystrix不更新了，Spring提供Netflix Hystrix的替换方案，即Resilence4
     }
 ```
 * 使用SuperBenchmarker工具，4个线程，执行10s
- ```java
+
+```java
 C:\Users\v-yanb07>sb -u http://localhost:9195/http/test/findByUserId?userId=1 -c 4 -N 10
 Starting at 2021-03-14 15:46:28
 [Press C to stop the test]
@@ -180,7 +182,7 @@ Avg: 1677ms
 * Resilience4JHandle#checkData手动设置超时时间为1s
 ```java
     resilience4JHandle.setTimeoutDuration(1000);
-   ```
+```
  * pos接口调用
  >http://localhost:9195/http/test/findByUserId?userId=1
  
@@ -240,46 +242,46 @@ Resilience4JPlugn其他soul中插件一样继承AbstractSoulPlugin，只要开�
         return rateLimiter(exchange, chain, rule);
     }
   ```
-   - 限流 Resilience4JPlugin#rateLimiter 
+- 限流 Resilience4JPlugin#rateLimiter 
 
-  	```java
-     private Mono<Void> rateLimiter(final ServerWebExchange exchange, final SoulPluginChain chain, final RuleData rule) {
-        return ratelimiterExecutor.run(
-               // chain.execute(exchange)  后续插件执行
-                chain.execute(exchange), fallback(ratelimiterExecutor, exchange, null), Resilience4JBuilder.build(rule))
-                .onErrorResume(throwable -> ratelimiterExecutor.withoutFallback(exchange, throwable))  
-       
+```java
+    private Mono<Void> rateLimiter(final ServerWebExchange exchange, final SoulPluginChain chain, final RuleData rule) {
+    return ratelimiterExecutor.run(
+            // chain.execute(exchange)  后续插件执行
+            chain.execute(exchange), fallback(ratelimiterExecutor, exchange, null), Resilience4JBuilder.build(rule))
+            .onErrorResume(throwable -> ratelimiterExecutor.withoutFallback(exchange, throwable))  
+    
 
-      //ratelimiterExecutor.run调用
-      @Override
-    public <T> Mono<T> run(final Mono<T> toRun, final Function<Throwable, Mono<T>> fallback, final Resilience4JConf conf) {
-        //限流器组件
-        RateLimiter rateLimiter = Resilience4JRegistryFactory.rateLimiter(conf.getId(), conf.getRateLimiterConfig());
-        //限流执行
-        Mono<T> to = toRun.transformDeferred(RateLimiterOperator.of(rateLimiter));
-        if (fallback != null) {
-        //回调的执行
-            return to.onErrorResume(fallback);
-        }
-        return to;
+    //ratelimiterExecutor.run调用
+    @Override
+public <T> Mono<T> run(final Mono<T> toRun, final Function<Throwable, Mono<T>> fallback, final Resilience4JConf conf) {
+    //限流器组件
+    RateLimiter rateLimiter = Resilience4JRegistryFactory.rateLimiter(conf.getId(), conf.getRateLimiterConfig());
+    //限流执行
+    Mono<T> to = toRun.transformDeferred(RateLimiterOperator.of(rateLimiter));
+    if (fallback != null) {
+    //回调的执行
+        return to.onErrorResume(fallback);
     }
+    return to;
+}
 
 
- 	 // to.onErrorResume(fallback);
- 	 default Mono<Void> fallback(ServerWebExchange exchange, String uri, Throwable t) {
-        if (StringUtils.isBlank(uri)) {
-            return withoutFallback(exchange, t);
-        }
-        DispatcherHandler dispatcherHandler = SpringBeanUtils.getInstance().getBean(DispatcherHandler.class);
-        ServerHttpRequest request = exchange.getRequest().mutate().uri(Objects.requireNonNull(UriUtils.createUri(uri))).build();
-        ServerWebExchange mutated = exchange.mutate().request(request).build();
-       //回调的执行地方
-        return dispatcherHandler.handle(mutated);
-    }    
-  ``
-
+    // to.onErrorResume(fallback);
+    default Mono<Void> fallback(ServerWebExchange exchange, String uri, Throwable t) {
+    if (StringUtils.isBlank(uri)) {
+        return withoutFallback(exchange, t);
+    }
+    DispatcherHandler dispatcherHandler = SpringBeanUtils.getInstance().getBean(DispatcherHandler.class);
+    ServerHttpRequest request = exchange.getRequest().mutate().uri(Objects.requireNonNull(UriUtils.createUri(uri))).build();
+    ServerWebExchange mutated = exchange.mutate().request(request).build();
+    //回调的执行地方
+    return dispatcherHandler.handle(mutated);
+}    
+```
 
 -  熔断 Resilience4JPlugin#combined
+
 ```java
     private Mono<Void> combined(final ServerWebExchange exchange, final SoulPluginChain chain, final RuleData rule) {
         Resilience4JConf conf = Resilience4JBuilder.build(rule);
@@ -314,7 +316,7 @@ Resilience4JPlugn其他soul中插件一样继承AbstractSoulPlugin，只要开�
         }
         return to;
     }
-  ```
+ ```
 ## 总结
 * soul网关提供限流和熔断，熔断默认是关闭的
 * 参数值小于默认值，会直接使用默认值

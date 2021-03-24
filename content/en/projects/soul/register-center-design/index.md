@@ -119,6 +119,28 @@ Trigger selector and rule data update and event publish, when metadata data node
 
 Trigger selector and upstream update and event publish, when uri data node update.
 
+## Nacos Register
+
+Nacos register have two parts：URI and Metadata。
+
+URI is instance register. URI instance node will delete when server is down.
+
+URI service instance name like below. Every URI instance has ip and port and contextPath as identifiers.
+
+```
+soul.register.service.${rpcType}
+```
+
+When URI instance up, it will publish metadata config. It's name like below.
+
+```
+soul.register.service.${rpcType}.${contextPath}
+```
+
+Trigger selector and upstream update and event publish, when URI service up or down.
+
+Trigger selector and rule data update and event publish, when metadata config update.
+
 ## SPI
 
 | *SPI Name*                       | *Description*               |
@@ -130,7 +152,8 @@ Trigger selector and upstream update and event publish, when uri data node updat
 | HttpClientRegisterRepository     | Http client register repository |
 | ZookeeperClientRegisterRepository| Zookeeper client register repository |
 | EtcdClientRegisterRepository     | Etcd client register repository |
-| ConsulClientRegisterRepository     | Consul client register repository |
+| ConsulClientRegisterRepository   | Consul client register repository |
+| NacosClientRegisterRepository    | Nacos client register repository |
 
 
 | *SPI Name*                       | *Description*                 |
@@ -142,4 +165,5 @@ Trigger selector and upstream update and event publish, when uri data node updat
 | SoulHttpRegistryController       | Http server repository        |
 | ZookeeperServerRegisterRepository| Zookeeper server registry repository |
 | EtcdServerRegisterRepository     | Etcd server registry repository |
-| ConsulServerRegisterRepository     | Consul server registry repository |
+| ConsulServerRegisterRepository   | Consul server registry repository |
+| NacosServerRegisterRepository    | Nacos server registry repository |

@@ -119,6 +119,32 @@ Soul-Admin通过监听Catalog和KeyValue的index的变化，来感知数据的�
 
 收到URIRegisterDTO节点变更后，触发selector的upstream的更新和数据同步事件发布。
 
+## Nacos 注册
+
+Nacos分为两部分：URI 和 Metadata。
+
+URI 使用实例注册方式，在服务异常的情况下，相关URI数据节点会自动进行删除，并发送事件到订阅端，订阅端进行相关的下线处理。
+
+Metadata 使用配置注册方式，没有相关上下线操作，当有URI实例注册时，会相应的发布Metadata配置，订阅端监听数据变化，进行更新处理。
+
+URI 实例注册命令规则如下：
+
+```
+soul.register.service.${rpcType}
+```
+
+初始监听所有的RpcType节点，其下的{contextPath}实例会对应注册到其下，根据IP和Port进行区分，并携带其对应的contextPath信息。
+
+URI 实例上下线之后，触发selector的upstream的更新和数据同步事件发布。
+
+URI 实例上线时，会发布对应的 Metadata 数据，其节点名称命令规则如下：
+
+```
+soul.register.service.${rpcType}.${contextPath}
+```
+
+订阅端会对所有的Metadata配置继续监听，当初次订阅和配置更新后，触发selector和rule的数据变更和数据同步事件发布。
+
 ## SPI 扩展
 
 | *SPI 名称*                       | *详细说明*               |
@@ -130,7 +156,8 @@ Soul-Admin通过监听Catalog和KeyValue的index的变化，来感知数据的�
 | HttpClientRegisterRepository     | 基于Http请求的实现 |
 | ZookeeperClientRegisterRepository| 基于Zookeeper注册的实现 |
 | EtcdClientRegisterRepository     | 基于etcd注册的实现 |
-| ConsulClientRegisterRepository     | 基于consul注册的实现 |
+| ConsulClientRegisterRepository   | 基于consul注册的实现 |
+| NacosClientRegisterRepository    | 基于Nacos注册的实现 |
 
 
 | *SPI 名称*                       | *详细说明*                 |
@@ -142,4 +169,5 @@ Soul-Admin通过监听Catalog和KeyValue的index的变化，来感知数据的�
 | SoulHttpRegistryController       | 使用Http服务接口来处理客户端注册请求        |
 | ZookeeperServerRegisterRepository| 使用Zookeeper来处理客户端注册节点 |
 | EtcdServerRegisterRepository     | 使用etcd来处理客户端注册节点 |
-| ConsulServerRegisterRepository     | 使用consul来处理客户端注册节点 |
+| ConsulServerRegisterRepository   | 使用consul来处理客户端注册节点 |
+| NacosServerRegisterRepository    | 使用Nacos来处理客户端注册节点 |

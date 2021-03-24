@@ -261,3 +261,62 @@ spring:
 # host: Consul server host, the default value is localhost.
 # port: Consul server port, the default value is 8500.
 ``` 
+
+## Nacos Registry
+
+### Soul-Admin
+
+* Add dependency in pom.xml (Default has been added):
+
+```xml
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-register-server-nacos</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
+* Set the config in application.yml
+
+```yaml
+soul:
+  register:
+    registerType: nacos
+    serverLists : localhost:8848
+    props:
+      nacosNameSpace: SoulRegisterCenter
+```
+
+### Soul-Client
+
+* Add dependency in pom.xml (Default has been added):
+
+```xml
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-register-client-nacos</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
+* Set the config in application.yml
+
+```yaml
+soul:
+  client:
+    registerType: nacos
+    serverLists: localhost:8848
+    props:
+      contextPath: /http
+      appName: http
+      port: 8188  
+      isFull: false
+      nacosNameSpace: SoulRegisterCenter
+# registerType : register type, set etcd 
+# serverList: when register type is etcd, add etcd address list
+# port: your project port number; apply to springmvc/tars/grpc
+# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# appName：your project name,the default value is`spring.application.name`.
+# isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
+# nacosNameSpace: nacos namespace
+``` 

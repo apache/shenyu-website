@@ -26,21 +26,12 @@ description: Tars快速开始
 
 ## 运行soul-examples-tars项目
 
-下载[soul-examples-tars](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-tars)
+### 建立tars节点
+根据[此文](https://tarscloud.github.io/TarsDocs/dev/tarsjava/tars-quick-start.html)在当前tars平台建立       
+- 应用名:SoulExampleServer,服务名称:SoulExampleApp,Obj名:HelloObj,端口21715的节点。        
+在完成节点的建立后，到soul-examples-tars目录下执行mvn clean package命令打包并按照[此文](https://tarscloud.github.io/TarsDocs/dev/tarsjava/tars-quick-start.html)在前面建立的节点上使用打包的成果物进行节点发布。发布成功后，可以停止节点。      
 
-修改`application.yml`中的`host`为你本地ip
-
-修改配置`src/main/resources/SoulExampleServer.SoulExampleApp.config.conf`：
-
-* 建议弄清楚 config 的主要配置项含义, 参考开发指南
-* config 中的 ip 要注意提供成本机的
-* local=..., 表示开放的本机给 tarsnode 连接的端口, 如果没有 tarsnode, 可以掉这项配置
-* `locator`: registry服务的地址，必须是有ip port的，如果不需要registry来定位服务，则不需要配置；
-* `node=tars.tarsnode.ServerObj@xxxx`，表示连接的 tarsnode 的地址，如果本地没有 tarsnode， 这项配置可以去掉
-
-更多config配置说明请参考[Tars官方文档](https://github.com/TarsCloud/TarsJava/blob/master/docs/tars_java_user_guide.md)
-
-运行`org.dromara.soul.examples.tars.SoulTestTarsApplication`main方法启动项目。
+将rescouces目录下的SoulExampleServer.SoulExampleApp.config.conf文件里的192.168.41.103全局替换成tars平台ip
 
 **注：** 服务启动时需要在启动命令中指定配置文件地址 **-Dconfig=xxx/SoulExampleServer.SoulExampleApp.config.conf**
 
@@ -73,6 +64,8 @@ Caused by: java.lang.NullPointerException
 	... 17 more
 The exception occurred at load server config
 ```
+
+run SoulTestTarsApplication.java
 
 成功启动会有如下日志：
 ```shell

@@ -9,7 +9,7 @@ description: Database Design
 
 * Database Table UML Diagram:
 
- ![](https://yu199195.github.io/images/soul/soul-db.png)
+ ![](/img/soul/db/soul-db.png)
 
 * Detailed design:
   
@@ -18,3 +18,10 @@ description: Database Design
    * one selector corresponds to multiple match conditions,one rule corresponds to multiple match conditions.
 
    * Each rule handles differently in corresponding plugin according to field handler,field handler is a kind of data of JSON string type.You can view detail during the use of admin.
+
+* Plugin use database to store user name,role,resource data and relationship. 
+* Database Table UML Diagram:
+ ![](/img/soul/db/soul-permission-db.png)
+
+* Detailed design:
+   - one user corresponds to multiple role,one role corresponds to multiple resources.

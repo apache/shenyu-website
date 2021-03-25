@@ -9,7 +9,7 @@ description: 数据库设计
 
 * 数据库表UML类图:
 
- ![](https://yu199195.github.io/images/soul/soul-db.png)
+ ![](/img/soul/db/soul-db.png)
 
 * 设计详解:
   
@@ -18,3 +18,11 @@ description: 数据库设计
    * 一个选择器对应多个匹配条件，一个规则对应多个匹配条件。
 
    * 每个规则在对应插件下，不同的处理表现为handle字段，handle字段就是一个json字符串。具体的可以在admin使用过程中进行查看。
+
+* 资源权限设计,来存储用户名称,角色,资源数据,以及对应关系
+* 数据库UML类图:
+
+![](/img/soul/db/soul-permission-db.png)
+
+* 设计详情:
+   * 一个用户对应多个角色,一个角色对应多个资源。

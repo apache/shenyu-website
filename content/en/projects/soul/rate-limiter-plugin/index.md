@@ -32,7 +32,7 @@ description: rateLimiter plugin
 - water (request) go to the leaky bucket first. The leaky bucket goes out at a fixed speed. When the flow speed is too fast, it will overflow directly (reject service)
 
 * Flow Diagram：
-  ![](https://redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/leakybucket.png)
+  ![](https://github.com/dromara/dromara.github.io/static/img/soul/plugin/ratelimiter/leakybucket.png)
 
 
 #### Using redis sliding time window algorithm to limit traffic.
@@ -40,7 +40,7 @@ description: rateLimiter plugin
 - The sliding time window maintains the count value of unit time. Whenever a requests pass, the count value will be increased by 1. When the count value exceeds the preset threshold, other requests in unit time will be rejected. If the unit time has ended, clear the counter to zero and start the next round counting.
 
 * Flow Diagram：
-  ![](https://redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/sldingwindow.png)
+  ![](https://github.com/dromara/dromara.github.io/static/img/soul/plugin/ratelimiter/sldingwindow.png)
 
 
 ## Plugin Setting

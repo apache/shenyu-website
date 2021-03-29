@@ -33,7 +33,7 @@ description: rateLimiter插件
 - ⽔（请求）先进⼊到漏桶⾥，漏桶以⼀定的速度出⽔，当⽔流⼊速度过⼤会直接溢出（拒绝服务）
 
 * 流程图：
-  ![](https://redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/leakybucket.png)
+  ![](https://github.com/dromara/dromara.github.io/static/img/soul/plugin/ratelimiter/leakybucket.png)
 
 
 #### 基于redis实现的滑动窗口算法
@@ -41,10 +41,10 @@ description: rateLimiter插件
 - 滑动时间窗口通过维护⼀个单位时间内的计数值，每当⼀个请求通过时，就将计数值加1，当计数值超过预先设定的阈值时，就拒绝单位时间内的其他请求。如果单位时间已经结束，则将计数器清零，开启下⼀轮的计数。
 
 * 算法图：
-  ![](https:redick01.github.io/redick.github.io/_media/image/source_code/soul/soul19/huadongwindow.jpg)
+  ![](https://github.com/dromara/dromara.github.io/static/img/soul/plugin/ratelimiter/huadongwindow.jpg)
 
 * 流程图：
-  ![](https://redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/sldingwindow.png)
+  ![](https://github.com/dromara/dromara.github.io/static/img/soul/plugin/ratelimiter/sldingwindow.png)
 
   
 ## 插件设置

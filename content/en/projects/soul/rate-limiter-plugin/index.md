@@ -40,7 +40,7 @@ description: rateLimiter plugin
 - The sliding time window maintains the count value of unit time. Whenever a requests pass, the count value will be increased by 1. When the count value exceeds the preset threshold, other requests in unit time will be rejected. If the unit time has ended, clear the counter to zero and start the next round counting.
 
 * Flow Diagram：
-  ![](https:redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/sldingwindow.png)
+  ![](https://redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/sldingwindow.png)
 
 
 ## Plugin Setting
@@ -75,30 +75,30 @@ description: rateLimiter plugin
 
 * * Token bucket algorithm/Concurrent token bucket algorithm
 
-```
+
 lgorithmName：tocketBucket/concurrent
 
 replenishRate：It is how many requests you allow users to execute per second, while not discarding any requests. This is the filling rate of token bucket.
 
 burstCapacity：it is the maximum number of requests that users are allowed to execute in one second. This is token bucket can save the number of token.
-```
+
 
 * * Leaky bucket algorithm
 
-```
+
 algorithmName：leakyBucket
 
 replenishRate：The rate at which requests are executed per unit time, and the rate at which water droplets leak out of the leaky bucket.
 
 burstCapacity：The maximum number of requests that users are allowed to execute in one second. This is the amount of water in the bucket.
-```
+
   
 * * Sliding time window algorithm
 
-```
+
 algorithmName：sildingWindow
 
 replenishRate：The rate of requests per unit time, used to calculate the size of the time window.
 
 burstCapacity：The maximum number of requests in the time window (per unit time).
-```
+

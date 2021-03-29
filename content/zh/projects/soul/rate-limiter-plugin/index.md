@@ -41,10 +41,10 @@ description: rateLimiter插件
 - 滑动时间窗口通过维护⼀个单位时间内的计数值，每当⼀个请求通过时，就将计数值加1，当计数值超过预先设定的阈值时，就拒绝单位时间内的其他请求。如果单位时间已经结束，则将计数器清零，开启下⼀轮的计数。
 
 * 算法图：
-  ![](https:redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/huadongwindow.jpg)
+  ![](https:redick01.github.io/redick.github.io/_media/image/source_code/soul/soul19/huadongwindow.jpg)
 
 * 流程图：
-  ![](https:redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/sldingwindow.png)
+  ![](https://redick01.github.io/redick.github.io/_media/image/source_code/soul/soul-result2/sldingwindow.png)
 
   
 ## 插件设置
@@ -79,30 +79,27 @@ description: rateLimiter插件
 
 * * 令牌桶算法/并发令牌桶算法
 
-```
+
 algorithmName（算法名）：tocketBucket/concurrent
 
 replenishRate（速率）：是你允许用户每秒执行多少请求，而丢弃任何请求。这是令牌桶的填充速率。
 
 burstCapacity（容量）：是允许用户在一秒钟内执行的最大请求数。这是令牌桶可以保存的令牌数。
-```
+
 
 * * 漏桶算法 
 
-```
 algorithmName（算法名）：leakyBucket
 
 replenishRate（速率）：单位时间内执行请求的速率，漏桶中水滴漏出的速率。
 
 burstCapacity（容量）：是允许用户在一秒钟内执行的最大请求数。这是桶中的水量。
-```
+
 
 * * 滑动窗口算法
 
-```
 algorithmName（算法名）：sildingWindow
 
 replenishRate（速率）：单位时间内执行请求的速率，用于计算时间窗口大小。
 
 burstCapacity（容量）：时间窗口内（单位时间内）最大的请求数量。
-```

@@ -42,7 +42,9 @@ Here is a list of companies or organizations that we know have used all or some 
 <img alt="jiangsuyonggang" src="https://yu199195.github.io/images/soul/users/jiangsuyonggang.jpg" height="60" />
 <img alt="kk group" src="https://yu199195.github.io/images/soul/users/keking.png" height="60" />
 <img alt="songguo" src="/img/users/songguo.png" height="60" />
-
+<img alt="lianlian" src="/img/users/lianlian.png" height="60" />
+<img alt="dasouche" src="/img/users/dasouche.png" height="60" />
+<img alt="weimai" src="/img/users/weimai.png" height="60" />
 ## Contributors{#contributors}
 
 Hundreds of people have contributed articles and code to Dromara so far, thank you very much!

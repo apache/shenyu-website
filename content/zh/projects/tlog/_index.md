@@ -25,7 +25,7 @@ link: "https://yomahub.com/tlog/"
 github: "https://github.com/dromara/TLog"
 gitee: "https://gitee.com/dromara/TLog"
 level: "tool"
-weight: 7
+weight: 8
 icon: "/img/logo/tlog.png"
 showIntroduce: false
 showFeature: false

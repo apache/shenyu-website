@@ -1,7 +1,7 @@
 ---
-title: "Liteflow"
-description: "轻量，快速，稳定，可编排的组件式流程引擎"
-subDesc: "轻量，快速，稳定，可编排的组件式流程引擎"
+title: "Jpom"
+description: "Simple & Low-intrusion project management platform"
+subDesc: "Simple & Low-intrusion project management platform"
 feature1Img: ""
 feature1Title: ""
 feature1Desc: ""
@@ -20,13 +20,13 @@ feature5Desc: ""
 feature6Img: ""
 feature6Title: ""
 feature6Desc: ""
-startUp: "开始"
-link: "https://yomahub.com/liteflow/"
-github: "https://github.com/dromara/liteflow"
-gitee: "https://gitee.com/dromara/liteFlow"
+startUp: "Start up"
+link: "https://jpom.io/"
+github: "https://github.com/dromara/Jpom"
+gitee: "https://gitee.com/dromara/Jpom"
 level: "tool"
-weight: 9
-icon: "/img/logo/liteflow.png"
+weight: 7
+icon: "/img/logo/jpom.png"
 showIntroduce: false
 showFeature: false
 ---

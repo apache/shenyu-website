@@ -21,11 +21,12 @@ feature6Img: ""
 feature6Title: ""
 feature6Desc: ""
 startUp: "Start up"
-link: "https://gitee.com/dromara/cubic/blob/master/docs/cn/quick_start.md"
+link: "https://cubic.jiagoujishu.com/"
 github: "https://github.com/dromara/cubic"
 gitee: "https://gitee.com/dromara/cubic"
 level: "tool"
 weight: 10
 showIntroduce: false
 showFeature: false
+icon: "/img/logo/cubic.png"
 ---

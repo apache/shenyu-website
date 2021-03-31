@@ -4,18 +4,16 @@ keywords: soul
 description: customising response structure
 ---
 
-## description
+## Description
 
 * This doc offers examples for customising response structure.
-
 * The response body structure in gateways should be unified, it is recommended for specify yours. 
 
 
-### default implementation
+## Default Implementation
 
-* The default implementation class is `org.dromara.soul.plugin.api.result.DefaultSoulResult`
-
-* Following is the response structure:
+* The default implementation class is `org.dromara.soul.plugin.api.result.DefaultSoulResult`.
+* Following is the response structure.
 
 ```java
 public class SoulDefaultEntity implements Serializable {
@@ -40,7 +38,7 @@ public class SoulDefaultEntity implements Serializable {
 }
 ```
 
-## extensions
+## Extensions
 
 *  Declare a new class named "A" and implements `org.dromara.soul.plugin.api.result.SoulResult`
 
@@ -70,9 +68,7 @@ public class SoulDefaultEntity implements Serializable {
 
 ```
 
-* T is a generic parameter for your response data.
-
-
+* `T` is a generic parameter for your response data.
 * Register defined class as a Spring Bean.
 
 ```java

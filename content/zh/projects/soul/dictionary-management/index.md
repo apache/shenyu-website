@@ -8,10 +8,9 @@ description: 字典管理详解
 
 * 字典管理主要用来维护和管理公用数据字典
 
-### 表设计
+## 表设计
 
 * sql
-
 ```sql
 CREATE TABLE IF NOT EXISTS `soul_dict` (
    `id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '主键id',

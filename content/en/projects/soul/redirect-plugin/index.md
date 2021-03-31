@@ -4,18 +4,18 @@ keywords: redirect
 description: redirect plugin
 ---
 
-# Explanation
+## Explanation
 
-> When the soul gateway makes proxy calls to the target service, it also allows users to use the `redirect` plug-in to redirect requests.
+When the soul gateway makes proxy calls to the target service, it also allows users to use the `redirect` plugin to redirect requests.
 
 ## Plugin Setting
 
 * In `soul-admin` --> plugin management --> `redirect` ,set to enable。
 * Introduce `redirect` support in the pox.xml file of the gateway.
-* If the user don't use, please disable the plugin in the backgroud.
+* If the user don't use, please disable the plugin in the background.
 * Selectors and rules, only matching requests will be forwarded and redirected, please see: [Selector rules](../selector-and-rule)。
 
-## Maven dependency
+## Maven Dependency
 
 Add the plugin dependency in the pom.xml file of the soul-bootstrap project.
 
@@ -38,11 +38,11 @@ Add the plugin dependency in the pom.xml file of the soul-bootstrap project.
 * When we configure a custom path in `Rule`, it should be a reachable service path.
 * When the request is matched, the `Soul Gateway` will perform the `308` service jump according to the customized path.
 
-![重定向配置](/img/soul/plugin/redirect/redirect-01.png)
+![Redirect](/img/soul/plugin/redirect/redirect-01.png)
 
 ### Gateway's own interface forwarding
 
 * When the matching rules are met, the service will use the `DispatcherHandler` internal interface for forwarding.
 * To implement the gateway's own interface forwarding, we need to use `/` as the prefix in the configuration path. The specific configuration is as shown in the figure below.
 
-![自身接口转发](/img/soul/plugin/redirect/redirect-02.png)
+![Forwarding](/img/soul/plugin/redirect/redirect-02.png)

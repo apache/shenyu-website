@@ -14,7 +14,6 @@ description: resilience4j插件
 ## 插件设置
 
 * 在 `soul-admin` -->  插件管理 --> `resilience4j`，设置为开启。
-
 * 如果用户不使用，则在 `soul-admin` 后台把此插件停用。
 
 

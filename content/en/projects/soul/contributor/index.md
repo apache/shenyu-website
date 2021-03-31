@@ -20,7 +20,7 @@ You can report a bug, submit a new function enhancement suggestion, or submit a 
 
 **Fork Soul repo**
 
- - Fork a `Soul` repo to your own repo to work, then setting upstream.
+- Fork a `Soul` repo to your own repo to work, then setting upstream.
 
 ```shell
 git remote add upstream https://github.com/dromara/soul.git
@@ -41,12 +41,12 @@ git pull upstream master
 git checkout -b issueNo
 ```
 
- **Notice** ：We will merge PR using squash, commit log will be different form upstream if you use old branch.
+**Notice** ：We will merge PR using squash, commit log will be different form upstream if you use old branch.
 
 **Coding**
 
-  - Please obey the [Code of Conduct](/en/contribute/code-conduct/) during the process of development and finish the check before submitting the pull request.
-  - push code to your fork repo.
+- Please obey the [Code of Conduct](/en/contribute/code-conduct/) during the process of development and finish the check before submitting the pull request.
+- push code to your fork repo.
 
 ```shell
 git add modified-file-names
@@ -78,7 +78,7 @@ git config --global user.email "username@mail.com"
 
 **FAQ**
 
- - After each Pull Request (PR), you need to execute the following operations, otherwise, the previous PR commit records will be mixed with this PR commit records. The specific operation process is as follows:
+- After each Pull Request (PR), you need to execute the following operations, otherwise, the previous PR commit records will be mixed with this PR commit records. The specific operation process is as follows:
 
 ```shell
 git checkout master

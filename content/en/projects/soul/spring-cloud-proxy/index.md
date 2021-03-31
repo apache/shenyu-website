@@ -6,35 +6,33 @@ description: springCloud with soul gateway
 
 ## Features
 
-* this article is a guide about how to integrate Spring Cloud with soul gateway quickly.
-
-* pls enable `springCloud` plug-in in soul-admin background.
-
-* Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
+* This article is a guide about how to integrate Spring Cloud with soul gateway quickly.
+* Please enable `springCloud` plug-in in soul-admin background.
+* Please start `soul-admin` successfully before integrating and [Environment Setup](../soul-set-up) is Ok.
 
 ## Configure soul gateway as Spring Cloud proxy
 
 * add these dependencies in gateway's pom.xml:
 
 ```xml
-  <!--soul springCloud plugin start-->
-  <dependency>
-       <groupId>org.dromara</groupId>
-       <artifactId>soul-spring-boot-starter-plugin-springcloud</artifactId>
-       <version>${last.version}</version>
-  </dependency>
-   <!--soul springCloud plugin end-->
+<!--soul springCloud plugin start-->
+<dependency>
+    <groupId>org.dromara</groupId>
+    <artifactId>soul-spring-boot-starter-plugin-springcloud</artifactId>
+    <version>${last.version}</version>
+</dependency>
+ <!--soul springCloud plugin end-->
 
-   <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-commons</artifactId>
-        <version>2.2.0.RELEASE</version>
-   </dependency> 
-   <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        <version>2.2.0.RELEASE</version>
-   </dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-commons</artifactId>
+    <version>2.2.0.RELEASE</version>
+</dependency> 
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+    <version>2.2.0.RELEASE</version>
+</dependency>
 ```
 
 * If you use `eureka` as SpringCloud registry center.
@@ -84,7 +82,7 @@ description: springCloud with soul gateway
 
 * restart your gateway service.
 
-## SpringCloud integration with gateway.
+## SpringCloud integration with gateway
 
 * add these dependencies in your project：
 
@@ -152,13 +150,13 @@ description: springCloud with soul gateway
 ```
 
   
-* start your service, get the log `dubbo client register success `，then your interface has been added with soul gateway successfully.
+* start your service, get the log `dubbo client register success `, then your interface has been added with soul gateway successfully.
   
-## plugin setting
+## Plugin Setting
 
 * enable Spring Cloud plugin in `soul-admin`.
 
-## User request
+## User Request
 
 * Send the request as before, only two points need to notice.
 
@@ -179,4 +177,4 @@ description: springCloud with soul gateway
 # Any questions, pls join the group and we can talk about it.
 
 ```
-* then you can visit, very easy and simple。
+* Then you can visit, very easy and simple.

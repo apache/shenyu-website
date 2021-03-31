@@ -10,7 +10,7 @@ description: 注册中心接入配置
 
 ## HTTP方式注册
 
-### Soul-Admin配置
+#### Soul-Admin配置
 
 在 application.yml 配置注册中心为HTTP即可，如下：
 
@@ -24,7 +24,7 @@ soul:
       scheduledTime: 10 #定时检测间隔时间 （秒）
 ```
 
-### Soul-Client配置
+#### Soul-Client配置
 
 在 application.yml 中配置注册方式为HTTP，并填写Soul-Admin服务地址列表，如下：
 
@@ -48,7 +48,7 @@ soul:
 
 ## Zookeeper方式注册
 
-### Soul-Admin配置
+#### Soul-Admin配置
 
 * 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
 
@@ -72,7 +72,7 @@ soul:
       connectionTimeout: 2000
 ```
 
-### Soul-Client配置
+#### Soul-Client配置
 
 * 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
 
@@ -106,7 +106,7 @@ soul:
 
 ## Etcd方式注册
 
-### Soul-Admin配置
+#### Soul-Admin配置
 
 * 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
 
@@ -130,7 +130,7 @@ soul:
       etcdTTL: 5
 ```
 
-### Soul-Client配置
+#### Soul-Client配置
 
 * 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
 
@@ -164,7 +164,7 @@ soul:
 
 ## Consul方式注册
 
-### Soul-Admin配置
+#### Soul-Admin配置
 
 * 首先在 pom.xml 文件中加入相关的依赖：
 
@@ -215,7 +215,7 @@ spring:
 
 ```
 
-### Soul-Client配置
+#### Soul-Client配置
 
 **注意，consul注册中心目前和SpringCloud服务不兼容，会和Eureka/Nacos注册中心冲突** 
 
@@ -262,7 +262,7 @@ spring:
 
 ## Nacos方式注册
 
-### Soul-Admin配置
+#### Soul-Admin配置
 
 * 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
 
@@ -285,7 +285,7 @@ soul:
       nacosNameSpace: SoulRegisterCenter
 ```
 
-### Soul-Client配置
+#### Soul-Client配置
 
 * 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
 

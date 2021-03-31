@@ -7,9 +7,7 @@ description: http用户
 ## 说明
 
 * 本文旨在帮助http用户。
-
 * soul网关使用 divide 插件来处理http请求。请求在soul-admin后台开启它。
-
 * 接入前，请正确的启动 `soul-admin`，以及 [搭建环境](../soul-set-up) OK。
 
 

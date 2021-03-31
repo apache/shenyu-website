@@ -8,8 +8,7 @@ description: 注册中心设计
 
 * 本篇主要讲解注册中心原理
 
-
-### Client
+## Client
 
 ![](/img/soul/register/client.png)
 
@@ -23,7 +22,7 @@ description: 注册中心设计
 
 Disruptor在其中起数据与操作解耦的作用，利于扩展
 
-### Server 
+## Server 
 
 ![](/img/soul/register/server.png)
 

@@ -53,7 +53,7 @@ description: rateLimiter plugin
 
 * If it is a sentinel, cluster and other multi-node configuration in URL, please use `;` for each instance; Division. For example, 192.168.1.1:6379; 192.168.1.2:6379。
 
-* If the user don't use, please disable the plugin in the backgroud.
+* If the user don't use, please disable the plugin in the background.
  
 ## Plugin Detail
 

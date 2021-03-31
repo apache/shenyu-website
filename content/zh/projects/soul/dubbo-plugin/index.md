@@ -7,24 +7,22 @@ description: dubbo插件
 ## 说明
 
 * dubbo插件是将`http协议` 转换成`dubbo协议` 的插件，也是网关实现dubbo泛化调用的关键。
-
 * dubbo插件需要配合元数据才能实现dubbo的调用，具体请看: [元数据](../meta-data)。
-
 * apache dubbo 和 alibaba dubbo用户，都是使用该同一插件。
 
 ```xml
-  <!--if you use dubbo start this-->
-   <dependency>
-       <groupId>org.dromara</groupId>
-       <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
-       <version>${last.version}</version>
-   </dependency>
+<!--if you use dubbo start this-->
+<dependency>
+    <groupId>org.dromara</groupId>
+    <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+    <version>${last.version}</version>
+</dependency>
 
-   <dependency>
-       <groupId>org.dromara</groupId>
-       <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
-       <version>${last.version}</version>
-   </dependency>
+<dependency>
+    <groupId>org.dromara</groupId>
+    <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
+    <version>${last.version}</version>
+</dependency>
 ```
 
 ## 插件设置

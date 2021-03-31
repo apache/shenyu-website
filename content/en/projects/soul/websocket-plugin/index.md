@@ -7,29 +7,26 @@ description: websocket plugin
 ## Explanation
 
 * Soul gateway also support proxy of websocket.
-
 * In websocket support, divide plugin is used in it.
-
 
 ## Plugin Setting
 
 * In `soul-admin` --> plugin management --> ` divide `, set to enable.
-
 * Introducing dependencies in the pom.xml file of the gateway
 
 ```xml
-  <!--if you use http proxy start this-->
-   <dependency>
-       <groupId>org.dromara</groupId>
-       <artifactId>soul-spring-boot-starter-plugin-divide</artifactId>
-       <version>${last.version}</version>
-   </dependency>
+<!--if you use http proxy start this-->
+<dependency>
+    <groupId>org.dromara</groupId>
+    <artifactId>soul-spring-boot-starter-plugin-divide</artifactId>
+    <version>${last.version}</version>
+</dependency>
 
-   <dependency>
-       <groupId>org.dromara</groupId>
-       <artifactId>soul-spring-boot-starter-plugin-httpclient</artifactId>
-       <version>${last.version}</version>
-   </dependency>
+<dependency>
+    <groupId>org.dromara</groupId>
+    <artifactId>soul-spring-boot-starter-plugin-httpclient</artifactId>
+    <version>${last.version}</version>
+</dependency>
 ```
 ## Request Path
 

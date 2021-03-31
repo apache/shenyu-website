@@ -8,14 +8,11 @@ description: rewrite plugin
 
 * When making proxy invokes to the target service, soul Gateway also allows users to rewrite the request path using the `rewrite` plugin.
 
-
 ## Plugin Setting
 
-* In `soul-admin` --> plugin management --> `rewrite` ,set to enable。
-
+* In `soul-admin` --> plugin management --> `rewrite` ,set to enable.
 * Introduce `rewrite` support in the pox.xml file of the gateway.
-
-* If the user don't use, please disable the plugin in the backgroud.
+* If the user don't use, please disable the plugin in the background.
 
 ```xml
   <!-- soul rewrite plugin start-->
@@ -27,9 +24,8 @@ description: rewrite plugin
   <!-- soul rewrite plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule)。
- 
-  * Only those matched request will be rewritten.
+* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Only those matched request will be rewritten.
 
 ## Situation
 

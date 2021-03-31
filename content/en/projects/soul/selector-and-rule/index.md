@@ -6,23 +6,19 @@ description: detailed explanation of selector and rule
 
 ## Features
 
-* selector and rule are the key point of soul gateway, you can manage any request with it.
+* Selector and rule are the key point of soul gateway, you can manage any request with it.
 
-* this chapter is mainly focus on the concepts of selector and rule and how to use it.
-
-
-## overview
-
-* one plugin has many selector and a selector has many rules, selector is the first filter of request, and the rule is the final filter.
-
-* pls consider this, it would be perfect when the plugin executes the request until it reached the config value.
-
-* selector and rule are designed to execute only when the request meet the specific condition.
-
-* pls refer to the previous data structure [database design](../database-design).
+* This chapter is mainly focus on the concepts of selector and rule and how to use it.
 
 
-## selector
+## Overview
+
+* One plugin has many selector and a selector has many rules, selector is the first filter of request, and the rule is the final filter.
+* Please consider this, it would be perfect when the plugin executes the request until it reached the config value.
+* Selector and rule are designed to execute only when the request meet the specific condition.
+* Please refer to the previous data structure [database design](../database-design).
+
+## Selector
 
 ![](https://yu199195.github.io/images/soul/selector.png)
 
@@ -51,7 +47,7 @@ description: detailed explanation of selector and rule
 
  * selector advice : combine `uri` conditon and `match` prefix（/contextPath）as the first request filter.
  
-## rule
+## Rule
  ![](https://yu199195.github.io/images/soul/rule.png)
  
  * when the request was passed by the seletor, then it will be processed by the rule, the final filter.
@@ -84,7 +80,7 @@ description: detailed explanation of selector and rule
 
 * rule advice: combine `uri` condition with `match` the real `uri path` condition as the final filter.
     
-## condition detailed explanation
+## Condition Explanation
 
 * uri matching （recommend）
 
@@ -122,7 +118,7 @@ description: detailed explanation of selector and rule
     
   * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../custom-parsing-ip-and-host)
     
-*  post matching
+* post matching
 
     * not recommend to use.
 

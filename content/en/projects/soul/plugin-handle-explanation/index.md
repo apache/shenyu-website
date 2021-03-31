@@ -9,7 +9,7 @@ description: plugin handle explanation
 * In our Soul-Admin background, each plugin uses the Handle field to represent a different processing, and plugin processing is used to manage and edit custom processing fields in JSON.
 * This feature is mainly used to support the plug-in handling template configuration
 
-### Table design
+## Table Design
 
 * sql
 ```sql
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `plugin_handle` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 ```
 
-### Tutorial
+## Tutorial
 
 eg. When we developed the `springCloud` plugin, the rule table needed to store some configuration into the handle field,
 Configure the corresponding entity class as follows:
@@ -49,14 +49,14 @@ Configure the corresponding entity class as follows:
     }
 ```
 
-step1. We can go directly to the plug-in management link  `http://localhost:9095/#/system/plugin` Click Edit Plugin for processing
+**step1.** We can go directly to the plug-in management link  `http://localhost:9095/#/system/plugin` Click Edit Plugin for processing
 ![](https://yu199195.github.io/images/soul/plugin-manager.png)
 
-step2. Add a string type field path and a numeric type TIMEOUT
+**step2.** Add a string type field path and a numeric type TIMEOUT
 
 ![](https://yu199195.github.io/images/soul/add-plugin-handle.png)
 
-step3. Finally, you can enter path, TIMEOUT and commit to the handle field when you add a rule in the plugin rule configuration page
+**step3.** Finally, you can enter path, TIMEOUT and commit to the handle field when you add a rule in the plugin rule configuration page
 
 ![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
 

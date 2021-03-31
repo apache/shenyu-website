@@ -7,11 +7,10 @@ description: 自定义网关返回数据格式
 ## 说明
 
 * 本文是说明基于soul网关返回自定义的数据个数。
-
 * 网关需要统一的返回格式，而每个公司都有自己定义的一套，所以需要对次进行扩展。
 
 
-### 默认实现
+## 默认实现
 
 * 默认的实现为 `org.dromara.soul.plugin.api.result.DefaultSoulResult`
 
@@ -71,7 +70,6 @@ public class SoulDefaultEntity implements Serializable {
 ```
 
 * 其他 泛型 T 为你自定义的数据格式，返回它就好
-
 
 * 把你新增的实现类注册成为spring的bean，如下
 

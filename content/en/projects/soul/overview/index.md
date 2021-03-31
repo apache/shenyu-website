@@ -5,28 +5,18 @@ description: This is an asynchronous, high-performance, cross-language, responsi
 aliases: "/soul/docs/Home"
 ---
 
-# What is the Soul？
+## What is the Soul？
 This is an asynchronous, high-performance, cross-language, responsive API gateway.
 
-# Features
+## Features
 
 * Support various languages (http protocol), support dubbo, spring cloud protocol.
-
 * Plugin design idea, plugin hot swap, easy to expand.
-
 * Flexible flow filtering to meet various flow control.
-
 * Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.
-
 * Dynamic flow configuration, high performance, gateway consumption is 1~2ms.
-
 * Support cluster deployment, A/B Test, blue-green release.
 
-
-# Architecture diagram
+# Architecture Diagram
 
 ![](/img/architecture/soul-framework.png)
- 
-# Prerequisite
-
-* JDK 1.8+

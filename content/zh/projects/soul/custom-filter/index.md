@@ -9,10 +9,9 @@ description: filter扩展
 
 * 本文是说明如何进行 `org.springframework.web.server.WebFliter` 的扩展。
 
+## 跨域支持
 
-##  跨域支持
-
-*  新增 `org.dromara.soul.bootstrap.cors.CrossFilter` 实现 WebFilter。
+* 新增 `org.dromara.soul.bootstrap.cors.CrossFilter` 实现 WebFilter。
 
  ```java
  public class CrossFilter implements WebFilter {
@@ -80,7 +79,7 @@ public final class HealthFilter implements WebFilter {
 
 ```
 
-##  继承 `org.dromara.soul.web.filter.AbstractWebFilter`
+## 继承 `org.dromara.soul.web.filter.AbstractWebFilter`
 
 * 新增一个类，继承它。
 

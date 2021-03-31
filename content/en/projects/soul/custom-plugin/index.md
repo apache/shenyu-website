@@ -4,19 +4,15 @@ keywords: soul
 description: plugins
 ---
 
-## description
+## Description
 
 * Plugins are core executors of soul gateway. Every plugin handles matched requests when enabled.
-
-* There are two kinds of plugins in the soul gateway:
-  
-   * The first type is a call chain with a single responsibility, and traffic cannot be customized.
-   
-   * The other one can do its own chain of responsibility for matched traffic.
-
+* There are two kinds of plugins in the soul gateway.
+* The first type is a call chain with a single responsibility, and traffic cannot be customized.
+* The other one can do its own chain of responsibility for matched traffic.
 * You could reference from soul-plugin module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
 
-## single responsibility plugins
+## Single Responsibility Plugins
 
 * Add following dependency:
 
@@ -75,17 +71,12 @@ public interface SoulPlugin {
 }
 
 ```
-* Detailed instruction of interface methods:
-       
-   * `execute()` core method, you can do any task here freely.
-   
-   * `getOrder()` get the order of current plugin.
-   
-   * `named()` acquire the name of specific plugin.
-   
-   * `skip()` determines whether this plugin should be skipped under certain conditions.
-   
+Detailed instruction of interface methods:
 
+* `execute()` core method, you can do any task here freely.
+* `getOrder()` get the order of current plugin.
+* `named()` acquire the name of specific plugin.
+* `skip()` determines whether this plugin should be skipped under certain conditions.
 * Register plugin in Spring as a Bean, or simply apply `@Component` in implementation class.
 
 ```java
@@ -96,7 +87,7 @@ public interface SoulPlugin {
 ```
  
 
-## Matching traffic processing plugin
+## Matching Traffic Processing Plugin
 
 * Introduce the following dependency:
 ```xml
@@ -106,7 +97,7 @@ public interface SoulPlugin {
         <version>${last.version}</version>
   </dependency>
 ```
-*  Add a new class A, inherit from `org.dromara.soul.plugin.base.AbstractSoulPlugin`
+* Add a new class A, inherit from `org.dromara.soul.plugin.base.AbstractSoulPlugin`
 
 * examples down below:
 
@@ -266,7 +257,6 @@ public interface PluginDataHandler {
 ```
 
 * Ensure `pluginNamed()` is same as the plugin name you defined.
-
 * Register defined class as a Spring Bean, or simply apply `@Component` in implementation class.
 ```java
     @Bean

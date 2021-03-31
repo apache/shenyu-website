@@ -9,7 +9,7 @@ description: 自定义sign插件检验
 
 * 用户可以自定义签名认证算法来实现验证。
 
-###  扩展
+## 扩展
 
 *  默认的实现为 `org.dromara.soul.plugin.sign.service.DefaultSignService`。
 

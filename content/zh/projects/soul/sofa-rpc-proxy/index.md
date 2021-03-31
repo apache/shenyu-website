@@ -7,14 +7,12 @@ description: sofa接入soul网关
 ## 说明
 
 * 此篇文章是sofa用户使用sofa插件支持，以及自己的sofa服务接入soul网关的教程。
-
 * 接入前，请正确的启动 `soul-admin`以及[搭建环境](../soul-set-up) Ok。
 
 ## 引入网关对sofa支持的插件
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
-
-  * sofa版本换成你的，注册中心的jar包换成你的，以下是参考。
+* sofa版本换成你的，注册中心的jar包换成你的，以下是参考。
 
  ```xml
 
@@ -125,13 +123,10 @@ description: sofa接入soul网关
 * 参数传递：
 
    * 通过 http post 方式访问网关，通过body，json类型传递。
-
    * 更多参数类型传递，可以参考[soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa) 中的接口定义，以及参数传递方式。
 
 * 单个java bean参数类型 （默认）
-
 * 自定义实现多参数支持：
-
   * 在你搭建的网关项目中，新增一个类 A，实现 `org.dromara.soul.plugin.api.sofa.SofaParamResolveService`。
 
  ```java

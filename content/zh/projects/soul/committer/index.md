@@ -10,9 +10,7 @@ description: soul-committer提交者指南
 成为committer你会拥有
 
 * soul仓库写的权限
-
 * idea 正版使用
-
 
 ## 提交者责任
 

@@ -7,14 +7,12 @@ description: Integrate Http with soul gateway
 ## Features
 
 * This chapter is a guide about integrating Http service with soul gateway.
-
-* soul gateway uses divide plugin handling http request, pls enable it in soul-admin backgroud.
-
-* Pls start `soul-admin` successfully beofore integrating , and [Environement Setup](../soul-set-up) is Ok.
+* Soul gateway uses divide plugin handling http request, pls enable it in soul-admin background.
+* Please start `soul-admin` successfully before integrating and [Environment Setup](../soul-set-up) is Ok.
 
 ## Configure soul gateway as Http proxy.
 
-* Add these dependencies in gateway's `pom.xml`：
+* Add these dependencies in gateway's `pom.xml`:
 
 ```xml
   <!--if you use http proxy start this-->
@@ -41,7 +39,7 @@ description: Integrate Http with soul gateway
 
 * `SpringBoot User`
   
-   * Add these dependencies in your local maven repository `pom.xml`: 
+   * Add these dependencies in your local maven repository `pom.xml`:
     
     ```xml
          <dependency>
@@ -51,7 +49,7 @@ description: Integrate Http with soul gateway
          </dependency>
     ```
   
-   * backend server register center config, please look:[register center access](../register-center-access).  
+   * Backend server register center config, please look:[register center access](../register-center-access).  
 
 * `SpringMVC User`
 
@@ -87,9 +85,9 @@ description: Integrate Http with soul gateway
     
 * Add this annotation `@SoulSpringMvcClient` in your `controller` interface.
   
-   * you can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces. 
+   * You can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces. 
   
-   * example: （1）：both `/test/payment` and `/test/findByUserId` will be handled by proxy service.
+   * Example1: both `/test/payment` and `/test/findByUserId` will be handled by proxy service.
    
     ```java
       @RestController
@@ -111,7 +109,7 @@ description: Integrate Http with soul gateway
           }      
        }
     ```
-   * example （2）：`/order/save` will be handled by proxy service, but `/order/findById` won't.
+   * Example2: `/order/save` will be handled by proxy service, but `/order/findById` won't.
    
     ```java
       @RestController
@@ -136,23 +134,19 @@ description: Integrate Http with soul gateway
       }
     ```
 
-* Kick off your project with your interface, which is  integrated with soul gateway.
+* Kick off your project with your interface, which is integrated with soul gateway.
 
 ## Configure soul gateway as an Http proxy（other framework）
 
 * first of all, enable the divide plugin in `soul-admin`, then add selector and rule which will filter the request.
-
 * if you don't know how to configure, pls refer to [selector guide](../selector-and-rule).
-
 * you can also develop your cutomized http-client，refer to [multi-language Http client development](../developer-soul-client)。
 
 ## User request
 
 * Send the request as before, only two points need to notice.
-
-* firstly，the domain name that requested before in your service, now need to replace with gateway's domain name.
-
-* secondly，soul gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `soul-admin`, if your familiar with it.
+* Firstly，the domain name that requested before in your service, now need to replace with gateway's domain name.
+* Secondly，soul gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `soul-admin`, if your familiar with it.
  
 ```yaml
 
@@ -167,4 +161,4 @@ description: Integrate Http with soul gateway
 # Any questions, pls join the group and we can talk about it.
 
 ```
-* then you can visit, very easy and simple.
+* Then you can visit, very easy and simple.

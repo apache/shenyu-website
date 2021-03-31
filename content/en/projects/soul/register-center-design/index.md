@@ -8,7 +8,7 @@ description: register center design
 
 * This article mainly explains three ways of register center and their principles.
 
-### Client
+#### Client
 
 ![](/img/soul/register/client.png)
 
@@ -20,7 +20,7 @@ Soul register client get data from Disruptor, send request to register server.
 
 Disruptor can decouple data from operation and facilitate expansion.
 
-### Server 
+#### Server 
 
 ![](/img/soul/register/server.png)
 

@@ -7,15 +7,13 @@ description: 正确获取Ip与host
 ## 说明
 
 * 本文是说明，如果网关前面有一层`nginx` 的时候，如何获取正确的ip与端口。
-
 * 获取正确的之后，在插件以及选择器中，可以根据 ip，与host来进行匹配。
 
+## 默认实现
 
-##  默认实现
+* 在soul网关自带实现为：`org.dromara.soul.web.forwarde.ForwardedRemoteAddressResolver`。
 
-*  在soul网关自带实现为：`org.dromara.soul.web.forwarde.ForwardedRemoteAddressResolver`。
-
-*  它需要你在 `nginx` 设置 `X-Forwarded-For`，以便来获取正确的 ip 与 host。
+* 它需要你在 `nginx` 设置 `X-Forwarded-For`，以便来获取正确的 ip 与 host。
 
 
 ## 扩展实现

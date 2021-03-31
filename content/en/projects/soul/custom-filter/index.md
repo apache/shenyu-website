@@ -5,12 +5,11 @@ description: filter extension
 ---
 
 
-## description
+## Description
 
 * This doc shows a demo for how to extend `org.springframework.web.server.WebFliter`.
 
-
-##  CORS support
+## CORS Support
 
 * `org.dromara.soul.bootstrap.cors.CrossFilter` is designed for WebFilter implementation.
 
@@ -51,7 +50,6 @@ description: filter extension
 ```
 * Registering CrossFilter as a Spring Bean and you are ready to go.
 
-
 ## Filtering Spring Boot health check
 
 * You can control the order by applying `@Order` to the implementation class .
@@ -83,7 +81,6 @@ public final class HealthFilter implements WebFilter {
 ##  Extending `org.dromara.soul.web.filter.AbstractWebFilter`
 
 * Add a new class and inherit from `org.dromara.soul.web.filter.AbstractWebFilter`.
-
 * Implement abstract methods of parent class.
 
 ```java

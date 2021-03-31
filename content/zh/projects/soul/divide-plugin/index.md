@@ -11,7 +11,6 @@ description: divide插件
 ## 插件设置
 
 * 开启插件，`soul-admin` --> 插件管理--> `divide` 设置为启用。
-
 * divide插件，配合如下 starter一起才能生效，具体请看：[http用户](../http-proxy)。
 
 ```xml

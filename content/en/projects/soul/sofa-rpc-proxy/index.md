@@ -7,46 +7,42 @@ description: sofa access soul gateway
 ## Description
 
 * This article is about sofa users using sofa plug-in support,and the tutorial of connecting your own sofa service to the soul gateway.
-  
 * Before connecting, please start `soul-admin` correctly and [Setup Environment](../soul-set-up) Ok。
 
 ## Introduce the plug-in that the gateway supports for sofa
 
 * Add the following dependencies in the gateway's `pom.xml` file：
-
-  * Replace the sofa version with yours, and replace the jar package in the registry with yours, The following is a reference。
+* Replace the sofa version with yours, and replace the jar package in the registry with yours, The following is a reference。
 
  ```xml
+<dependency>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>sofa-rpc-all</artifactId>
+    <version>5.7.6</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-client</artifactId>
+    <version>4.0.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-framework</artifactId>
+    <version>4.0.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-recipes</artifactId>
+    <version>4.0.1</version>
+</dependency>
+<dependency>
+    <groupId>org.dromara</groupId>
+    <artifactId>soul-spring-boot-starter-plugin-sofa</artifactId>
+    <version>${last.version}</version>
+</dependency>
+```
 
-	    <dependency>
-            <groupId>com.alipay.sofa</groupId>
-            <artifactId>sofa-rpc-all</artifactId>
-            <version>5.7.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-client</artifactId>
-            <version>4.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>4.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-recipes</artifactId>
-            <version>4.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.dromara</groupId>
-            <artifactId>soul-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${last.version}</version>
-        </dependency>
-
-  ```
-
-* Restart the gateway service。
+* Restart the gateway service.
 
 ## sofa service access gateway, you can refer to：[soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa)
 
@@ -65,7 +61,7 @@ description: sofa access soul gateway
 
 * Spring
 
-   * Introduce the following dependencies ：
+   * Introduce the following dependencies:
  ```xml
         <dependency>
             <groupId>org.dromara</groupId>
@@ -73,7 +69,7 @@ description: sofa access soul gateway
             <version>${project.version}</version>
         </dependency>
    ```
-   * Add the following in the xml file of your bean definition ：
+   * Add the following in the xml file of your bean definition:
    
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.dromara.soul.client.sofa.SofaServiceBeanPostProcessor">
@@ -93,9 +89,9 @@ description: sofa access soul gateway
     </bean>
    ```
 
-## sofa Plugin settings
+## Plugin Settings
 
-* First in the `soul-admin` plugin management, set the `sofa` plugin to open。
+* First in the `soul-admin` plugin management, set the `sofa` plugin to open.
 
 * Secondly, configure your registered address in the `sofa` plugin, or the address of other registry.
 
@@ -112,8 +108,7 @@ description: sofa access soul gateway
 ## sofa user request and parameter description
 
 * To put it bluntly, it is to request your sofa service through http
-
-* Soul gateway needs to have a routing prefix, this routing prefix is ​​for you to access the project for configuration `contextPath`
+* Soul gateway needs to have a routing prefix, this routing prefix is for you to access the project for configuration `contextPath`
 
 ```yaml
 # For example, if you have an order service, it has an interface and its registration path /order/test/save
@@ -125,15 +120,12 @@ description: sofa access soul gateway
 
 * Parameter passing：
 
-   * Access the gateway through http post，and pass through body and json。
+   * Access the gateway through http post，and pass through body and json.
+   * For more parameter type transfer, please refer to the interface definition in [soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa) and the parameter transfer method.
 
-   * For more parameter type transfer, please refer to the interface definition in [soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa) and the parameter transfer method。
-
-* Single java bean parameter type （default）
-
+* Single java bean parameter type (default)
 * Customize multi-parameter support:
-
-  * In the gateway project you built，add a new class A，implements org.dromara.soul.plugin.api.sofa.SofaParamResolveService。
+* In the gateway project you built，add a new class A，implements org.dromara.soul.plugin.api.sofa.SofaParamResolveService。
 
  ```java
     public interface SofaParamResolveService {
@@ -152,15 +144,15 @@ description: sofa access soul gateway
 
   * `body` is the json string passed by body in http. 
 
-  *  `parameterTypes`: list of matched method parameter types,if there are multiple,use `,` to separate。
+  * `parameterTypes`: list of matched method parameter types, If there are multiple, use `,` to separate.
 
-  *  In Pair，left is the parameter type，and right is the parameter value. This is the standard for sofa generalization calls.
+  * In Pair，left is the parameter type，and right is the parameter value. This is the standard for sofa generalization calls.
 
-  * Register your class as a String bean and override the default implementation。
+  * Register your class as a String bean and override the default implementation.
 
  ```java
-    @Bean
-     public SofaParamResolveService A() {
-             return new A();
-     }
-  ```
+@Bean
+public SofaParamResolveService A() {
+    return new A();
+}
+```

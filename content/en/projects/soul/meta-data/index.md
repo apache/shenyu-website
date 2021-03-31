@@ -8,7 +8,7 @@ description: MetaData Concept Design
 
 * This article mainly explains the concept,design of metadata and how to connect in the soul gateway.
 
-## Technical solutions
+## Technical Solutions
 
 * Add a new table in the database,and data can synchronize to the JVM memory of gateway according to the data synchronization scheme.
 
@@ -52,10 +52,8 @@ CREATE TABLE  IF NOT EXISTS `meta_data` (
 
 ## MetaData Storage
 
-* a dubbo interface corresponds to a meta data.
-
-* spring cloud protocol,only store one record, path: `/contextPath/**`.
-
-* http service,no data.
+* A dubbo interface corresponds to a meta data.
+* SpringCloud protocol, only store one record, path: `/contextPath/**`.
+* Http service, no data.
 
 

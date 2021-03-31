@@ -48,7 +48,7 @@ description: websocket支持
 ![](https://yu199195.github.io/images/soul/websocket-selector.png)
 
 
-* 在这一条选择器下新增一条 规则 ：
+* 在这一条选择器下新增一条 规则：
 
 ![](https://yu199195.github.io/images/soul/websocket-rule.png)
 

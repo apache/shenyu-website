@@ -7,16 +7,13 @@ description: sentinel plugin
 ## Explanation
 
 * Sentinel is one of the options that supports flow control and circuit breaking.
-
 * Sentinel supports flow control and circuit breaking functions for gateway.
 
 
 ## Plugin Setting
 
 * In `soul-admin` -->  plugin management --> `sentinel` set to enable.
-
 * If you don't want to use it, please close the plugin in `soul-admin`.
-
 
 ## Plugin Usage
 
@@ -33,7 +30,6 @@ description: sentinel plugin
 ``` 
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule)
-
 * Sentinel Processing Details
     
     * `flowRuleEnable (1 or 0)`: whether enable sentinel flow control function.

@@ -7,15 +7,14 @@ description: sofa插件
 ## 说明
 
 * sofa插件是将`http协议` 转换成`sofa协议` 的插件，也是网关实现sofa泛化调用的关键。
-
 * sofa插件需要配合元数据才能实现dubbo的调用，具体请看：[元数据](../meta-data)。
 
 ```xml
-        <dependency>
-            <groupId>org.dromara</groupId>
-            <artifactId>soul-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${last.version}</version>
-        </dependency>
+<dependency>
+    <groupId>org.dromara</groupId>
+    <artifactId>soul-spring-boot-starter-plugin-sofa</artifactId>
+    <version>${last.version}</version>
+</dependency>
 ```
 
 ## 插件设置

@@ -26,9 +26,8 @@ description: sign plugin
   <!-- soul sign plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule)。
- 
-  * Only those matched requests can be authenticated by signature.   
+* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Only those matched requests can be authenticated by signature.   
 
 
 ## Add AK/SK
@@ -51,11 +50,11 @@ description: sign plugin
   
  * Step 3: Construct parameters (the following are general parameters)
  
-| Field        | Value    |  Description  |
-| --------   | -----:  | :----: |
+| Field      | Value    |  Description  |
+| --------   | --------  | :--------: |
 | timestamp  |  current timestamp(String)   |  The number of milliseconds of the current time（gateway will filter requests the before 5 minutes）    |
 | path       | /api/service/abc  | The path that you want to request(Modify by yourself according to your configuration of gateway) |
-| version       | 1.0.0  |  `1.0.0` is a fixed value ，String |
+| version       | 1.0.0  |  `1.0.0` is a fixed string value |
 
  Sort the above two field natually according to the key, then splice fields and fields, finally splice SK. The following is a code example.
  
@@ -107,12 +106,12 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 * The signature plugin will filter requests after 5 minutes by default
 
-## If the authentication fails, will return code 401, message may change.
+* If the authentication fails, will return code 401, message may change.
 
 ```json
 "code":401,"message":"sign is not pass,Please check you sign algorithm!","data":null}
 ```
 
-## Extension of Signature Authentication Algorithm
+## Extension
 
 * Please refer to: [dev-sign](../custom-sign-algorithm).

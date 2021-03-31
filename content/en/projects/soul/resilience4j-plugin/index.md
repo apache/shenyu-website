@@ -6,17 +6,13 @@ description: resilience4j plugin
 
 ## Explanation
 
-* resilience4j is one of the options that supports flow control and circuit breaking.
-
-* resilience4j supports flow control and circuit breaking functions for gateway.
-
+* Resilience4j is one of the options that supports flow control and circuit breaking.
+* Resilience4j supports flow control and circuit breaking functions for gateway.
 
 ## Plugin Setting
 
 * In `soul-admin` -->  plugin management --> `resilience4j` set to enable.
-
 * If you don't want to use it, please close the plugin in `soul-admin`.
-
 
 ## Plugin Usage
 

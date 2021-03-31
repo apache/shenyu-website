@@ -4,9 +4,7 @@ keywords: db
 description: 数据库设计
 ---
 
-
 * 插件采用数据库设计，来存储插件，选择器，规则配置数据，以及对应关系。
-
 * 数据库表UML类图:
 
  ![](/img/soul/db/soul-db.png)
@@ -19,8 +17,8 @@ description: 数据库设计
 
    * 每个规则在对应插件下，不同的处理表现为handle字段，handle字段就是一个json字符串。具体的可以在admin使用过程中进行查看。
 
-* 资源权限设计,来存储用户名称,角色,资源数据,以及对应关系
-* 数据库UML类图:
+* 资源权限设计用来存储用户名称、角色、资源数据以及对应关系
+* 数据库UML类图：
 
 ![](/img/soul/db/soul-permission-db.png)
 

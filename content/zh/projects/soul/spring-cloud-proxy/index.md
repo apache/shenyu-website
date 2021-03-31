@@ -90,7 +90,7 @@ description: springCloud接入soul网关
 
 * 重启你的网关服务。
 
-## SpringCloud服务接入网关。
+## SpringCloud服务接入网关
 
 * 在你提供服务的项目中，引入如下依赖：
 

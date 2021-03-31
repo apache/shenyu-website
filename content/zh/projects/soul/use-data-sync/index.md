@@ -161,15 +161,15 @@ soul:
 * soul-admin 配置, 或在 soul-admin 启动参数中使用 `--` 的方式一个一个传值
 
 ```yaml
-soul :
-      sync:
-         nacos:
-              url: localhost:8848
-              namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
-              acm:
-                enabled: false
-                endpoint: acm.aliyun.com
-                namespace:
-                accessKey:
-                secretKey:
+soul:
+  sync:
+    nacos:
+     url: localhost:8848
+     namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+     acm:
+       enabled: false
+       endpoint: acm.aliyun.com
+       namespace:
+       accessKey:
+       secretKey:
 ```

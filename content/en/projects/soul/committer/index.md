@@ -9,7 +9,6 @@ description: Soul Committer's Guide
 After you have made a lot of contributions, the community will nominate. Become a committer you will have
 
 * Permissions written by Soul repository
-
 * Idea is used legally
 
 ## Committer Responsibilities

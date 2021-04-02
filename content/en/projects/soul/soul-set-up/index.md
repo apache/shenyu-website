@@ -11,7 +11,7 @@ description: Environment Setup
 * System Requirement: JDK 1.8+, Mysql 5.0 +.
 
 
-## `Soul-Admin`
+## Soul-Admin
 
 ### remote download
 
@@ -72,7 +72,7 @@ description: Environment Setup
 Visit `http://localhost:9095/index.html ` default username：admin  password: 123456.
 
 
-## `Soul-Bootstrap`
+## Soul-Bootstrap
 
 ### remote download
 

@@ -9,7 +9,7 @@ description: 环境搭建
 * soul 2.2.0以后都是基于插件化可插拔的思想，本文是说明如何基于soul搭建属于你自己网关。
 * 请确保你的机器安装了JDK 1.8+，Mysql 5.0 + 。
 
-## 启动 `Soul-Admin`
+## 启动 Soul-Admin
 
 ### 远程下载
 
@@ -74,7 +74,7 @@ description: 环境搭建
 访问 http://localhost:9095   用户名密码为: `admin/123456`
 
 
-## 启动 `Soul-Bootstrap`
+## 启动 Soul-Bootstrap
 
 ### 远程下载
 

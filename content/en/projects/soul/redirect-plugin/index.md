@@ -1,5 +1,5 @@
 ---
-title: redirect-plugin
+title: Redirect Plugin
 keywords: redirect
 description: redirect plugin
 ---

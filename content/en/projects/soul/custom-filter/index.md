@@ -1,5 +1,5 @@
 ---
-title: filter extension
+title: Filter Extension
 keywords: soul
 description: filter extension
 ---

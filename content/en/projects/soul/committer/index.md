@@ -1,5 +1,5 @@
 ---
-https://gitee.com/holddie/website.gittitle: soul-committer
+title: Soul Committer
 keywords: soul-committer
 description: Soul Committer's Guide
 ---

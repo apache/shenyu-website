@@ -1,5 +1,5 @@
 ---
-title: rewrite插件
+title: Rewrite插件
 keywords: rewrite
 description: rewrite插件
 ---

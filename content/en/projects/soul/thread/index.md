@@ -1,5 +1,5 @@
 ---
-title: thread model
+title: Thread Model
 keywords: soul
 description: thread model
 ---

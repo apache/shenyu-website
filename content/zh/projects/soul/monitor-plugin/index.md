@@ -1,5 +1,5 @@
 ---
-title: monitor插件
+title: Monitor插件
 keywords: monitor
 description: monitor插件
 ---

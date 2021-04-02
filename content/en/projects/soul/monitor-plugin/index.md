@@ -1,5 +1,5 @@
 ---
-title: plugin-monitor
+title: Monitor Plugin
 keywords: monitor
 description: monitor plugin
 ---

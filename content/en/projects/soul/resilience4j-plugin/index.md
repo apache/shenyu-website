@@ -1,5 +1,5 @@
 ---
-title: plugin-resilience4j
+title: Resilience4j Plugin
 keywords: soul
 description: resilience4j plugin
 ---

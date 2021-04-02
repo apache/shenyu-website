@@ -1,5 +1,5 @@
 ---
-title: plugin-websocket
+title: Websocket Plugin
 keywords: soul
 description: websocket plugin
 ---

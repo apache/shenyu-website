@@ -1,5 +1,5 @@
 ---
-title: plugin-rateLimiter
+title: RateLimiter Plugin
 keywords: rateLimiter
 description: rateLimiter plugin
 ---

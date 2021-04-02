@@ -1,5 +1,5 @@
 ---
-title: customising response structure
+title: Custom Response
 keywords: soul
 description: customising response structure
 ---

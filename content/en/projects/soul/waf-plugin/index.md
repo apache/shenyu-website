@@ -1,5 +1,5 @@
 ---
-title: plugin-waf
+title: Waf Plugin
 keywords: waf
 description: waf plugin
 ---

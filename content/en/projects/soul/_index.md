@@ -114,7 +114,7 @@ sidebar:
         link: 'rewrite-plugin'
       - title: 'Websocket Plugin'  	
         link: 'websocket-plugin'
-      - title: 'Context-path Plugin'  	
+      - title: 'Context Path Plugin'  	
         link: 'context-path-plugin'
       - title: 'Redirect Plugin'  	
         link: 'redirect-plugin'

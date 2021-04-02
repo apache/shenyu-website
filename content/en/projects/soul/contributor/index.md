@@ -1,5 +1,5 @@
 ---
-title: soul-contributor
+title: Soul Contributor
 keywords: soul-contributor
 description: Soul Contributor's Guide
 ---

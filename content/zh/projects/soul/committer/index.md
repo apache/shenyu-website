@@ -1,5 +1,5 @@
 ---
-title: soul-committer
+title: Soul Committer
 keywords: soul-committer
 description: soul-committer提交者指南
 ---

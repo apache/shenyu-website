@@ -1,5 +1,5 @@
 ---
-title: waf插件
+title: Waf插件
 keywords: waf
 description: waf插件
 ---

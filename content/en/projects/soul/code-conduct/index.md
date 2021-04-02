@@ -1,5 +1,5 @@
 ---
-title: soul-code-conduct
+title: Soul Code Conduct
 keywords: soul-code-conduct
 description: Soul Coding Guide
 ---

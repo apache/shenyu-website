@@ -1,5 +1,5 @@
 ---
-title: 自定义sign插件检验
+title: 自定义sign插件检验算法
 keywords: soul
 description: 自定义sign插件检验
 ---

@@ -1,5 +1,5 @@
 ---
-title: plugin-dubbo
+title: Dubbo Plugin
 keywords: dubbo
 description: dubbo plugin
 ---

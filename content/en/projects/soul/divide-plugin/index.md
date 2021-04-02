@@ -1,5 +1,5 @@
 ---
-title: plugin-divide
+title: Divide Plugin
 keywords: divide
 description: divide plugin
 ---

@@ -1,5 +1,5 @@
 ---
-title: sofa插件
+title: Sofa插件
 keywords: sofa
 description: sofa插件
 ---

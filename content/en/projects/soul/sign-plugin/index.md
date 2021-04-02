@@ -1,5 +1,5 @@
 ---
-title: plugin-sign
+title: Sign Plugin
 keywords: sign
 description: sign plugin
 ---

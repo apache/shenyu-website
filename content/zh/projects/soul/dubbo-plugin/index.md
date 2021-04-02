@@ -1,5 +1,5 @@
 ---
-title: dubbo插件
+title: Dubbo插件
 keywords: dubbo
 description: dubbo插件
 ---

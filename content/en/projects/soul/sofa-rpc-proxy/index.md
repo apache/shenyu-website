@@ -1,5 +1,5 @@
 ---
-title: sofa access soul gateway
+title: Sofa RPC Proxy
 keywords: sofa
 description: sofa access soul gateway
 ---

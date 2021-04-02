@@ -1,7 +1,7 @@
 ---
-title: plugin-springcloud
-keywords: springcloud
-description: springcloud plugin
+title: SpringCloud Plugin
+keywords: SpringCloud
+description: SpringCloud Plugin
 ---
 
 ## Explanation

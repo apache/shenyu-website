@@ -1,5 +1,5 @@
 ---
-title: hystrix插件
+title: Hystrix插件
 keywords: soul
 description: hystrix插件
 ---

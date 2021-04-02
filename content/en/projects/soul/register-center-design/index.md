@@ -1,5 +1,5 @@
 ---
-title: register center design
+title: Register Center Design
 keywords: soul
 description: register center design
 ---

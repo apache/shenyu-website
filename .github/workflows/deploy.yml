@@ -38,6 +38,7 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
           publish_branch: gh-pages
           publish_dir: ./public
+          keep_files: true
       - name: Atomic Algolia
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:

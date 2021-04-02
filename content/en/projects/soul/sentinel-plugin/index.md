@@ -1,5 +1,5 @@
 ---
-title: plugin-sentinel
+title: Sentinel Plugin
 keywords: soul
 description: sentinel plugin
 ---

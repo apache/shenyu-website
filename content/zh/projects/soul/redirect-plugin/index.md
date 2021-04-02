@@ -1,5 +1,5 @@
 ---
-title: redirect插件
+title: 重定向插件
 keywords: redirect
 description: redirect插件
 ---

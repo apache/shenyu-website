@@ -1,5 +1,5 @@
 ---
-title: performance optimization for soul
+title: Soul Optimize
 keywords: soul
 description: performance optimization for soul
 ---

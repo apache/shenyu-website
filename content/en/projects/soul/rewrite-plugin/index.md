@@ -1,10 +1,10 @@
 ---
-title: plugin-rewrite
+title: Rewrite Plugin
 keywords: rewrite
 description: rewrite plugin
 ---
 
-# Explanation
+## Explanation
 
 * When making proxy invokes to the target service, soul Gateway also allows users to rewrite the request path using the `rewrite` plugin.
 

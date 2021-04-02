@@ -1,5 +1,5 @@
 ---
-title: sign插件
+title: Sign插件
 keywords: sign
 description: sign插件
 ---

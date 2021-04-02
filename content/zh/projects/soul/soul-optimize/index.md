@@ -1,5 +1,5 @@
 ---
-title: soul性能优化
+title: Soul性能优化
 keywords: soul
 description: soul性能优化
 ---

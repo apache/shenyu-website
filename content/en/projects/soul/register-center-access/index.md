@@ -1,5 +1,5 @@
-                               ---
-title: register center access
+---
+title: Register Center Access
 keywords: soul
 description: register center access
 ---
@@ -10,7 +10,7 @@ Explain register center access config
 
 ## HTTP Registry
 
-### Soul-Admin 
+#### Soul-Admin 
 
 * Set the config in application.yml
 
@@ -24,7 +24,7 @@ soul:
       scheduledTime: 10 # Timed detection interval time
 ```
 
-### Soul-Client
+#### Soul-Client
 
 * Set the config in application.yml
 
@@ -48,7 +48,7 @@ soul:
 
 ## Zookeeper Registry
 
-### Soul-Admin 
+#### Soul-Admin 
 
 * Add dependency in pom.xml (Default has been added):
 
@@ -72,7 +72,7 @@ soul:
       connectionTimeout: 2000
 ```
 
-### Soul-Client
+#### Soul-Client
 
 * Add dependency in pom.xml (Default has been added):
 
@@ -107,7 +107,7 @@ soul:
 
 ## Etcd Registry
 
-### Soul-Admin
+#### Soul-Admin
 
 * Add dependency in pom.xml (Default has been added):
 
@@ -131,7 +131,7 @@ soul:
       etcdTTL: 5
 ```
 
-### Soul-Client
+#### Soul-Client
 
 * Add dependency in pom.xml (Default has been added):
 
@@ -165,7 +165,7 @@ soul:
 
 ## Consul Registry
 
-### Soul-Admin 
+#### Soul-Admin 
 
 * Add dependency in pom.xml :
 
@@ -216,7 +216,7 @@ spring:
 
 ```
 
-### Soul-Client
+#### Soul-Client
 
 **Note, consul registry is not compatible with current and SpringCloud will and Eureka / Nacos registry conflicts** 
 
@@ -264,7 +264,7 @@ spring:
 
 ## Nacos Registry
 
-### Soul-Admin
+#### Soul-Admin
 
 * Add dependency in pom.xml (Default has been added):
 
@@ -287,7 +287,7 @@ soul:
       nacosNameSpace: SoulRegisterCenter
 ```
 
-### Soul-Client
+#### Soul-Client
 
 * Add dependency in pom.xml (Default has been added):
 

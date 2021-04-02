@@ -1,5 +1,5 @@
 ---
-title: dict management
+title: Dict Management
 keywords: dict
 description: dict management explanation
 ---

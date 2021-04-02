@@ -1,5 +1,5 @@
 ---
-title: sofa接入soul网关
+title: Sofa接入网关
 keywords: sofa
 description: sofa接入soul网关
 ---

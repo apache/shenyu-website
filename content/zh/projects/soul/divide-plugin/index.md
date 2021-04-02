@@ -1,5 +1,5 @@
 ---
-title: divide插件
+title: Divide插件
 keywords: divide
 description: divide插件
 ---

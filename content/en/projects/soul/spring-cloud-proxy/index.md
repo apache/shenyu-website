@@ -1,5 +1,5 @@
 ---
-title: springCloud with soul gateway
+title: SpringCloud Proxy
 keywords: soul
 description: springCloud with soul gateway
 ---

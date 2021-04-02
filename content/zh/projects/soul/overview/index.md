@@ -1,9 +1,10 @@
 ---
-title: soul介绍
+title: Soul介绍
 keywords: soul
 description: Soul是一个异步的，高性能的，跨语言的，响应式的API网关。
 ---
 
+# Soul 介绍
 
 ## 什么是Soul
 这是一个异步的，高性能的，跨语言的，响应式的API网关。

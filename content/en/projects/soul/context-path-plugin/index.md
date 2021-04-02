@@ -1,5 +1,5 @@
 ---
-title: plugin-context-path-mapping
+title: Plugin Context Path Mapping
 keywords: context_path
 description: context_path plugin
 ---

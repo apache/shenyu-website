@@ -1,5 +1,5 @@
 ---
-title: specify sign plugins for examination
+title: Custom Sign Algorithm
 keywords: soul
 description: specify sign plugins for examination
 ---

@@ -1,5 +1,5 @@
 ---
-title: plugins
+title: Custom Plugin
 keywords: soul
 description: plugins
 ---

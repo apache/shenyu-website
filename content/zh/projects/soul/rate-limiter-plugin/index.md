@@ -1,5 +1,5 @@
 ---
-title: rateLimiter插件
+title: 限流插件
 keywords: rateLimiter
 description: rateLimiter插件
 ---

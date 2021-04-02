@@ -1,5 +1,5 @@
 ---
-title: sentinel插件
+title: Sentinel插件
 keywords: soul
 description: sentinel插件
 ---

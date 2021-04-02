@@ -1,5 +1,5 @@
 ---
-title: selector detailed explanation
+title: Selector Detailed Explanation
 keywords: soul
 description: detailed explanation of selector and rule
 ---

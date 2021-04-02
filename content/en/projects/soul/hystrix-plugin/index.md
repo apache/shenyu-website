@@ -1,5 +1,5 @@
 ---
-title: plugin-hystrix
+title: Hystrix Plugin
 keywords: soul
 description: hystrix plugin
 ---

@@ -1,7 +1,7 @@
 ---
-title: springCloud接入soul网关
+title: SpringCloud接入Soul网关
 keywords: soul
-description: springCloud接入soul网关
+description: SpringCloud接入Soul网关
 ---
 
 ## 说明

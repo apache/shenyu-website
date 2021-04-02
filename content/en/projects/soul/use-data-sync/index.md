@@ -1,7 +1,7 @@
 ---
-title: use different data-sync strategy.
+title: Use Different Data-Sync Strategy
 keywords: soul
-description: use different data-sync strategy.
+description: use different data-sync strategy
 ---
 
 ## Features

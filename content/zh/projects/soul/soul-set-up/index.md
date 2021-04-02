@@ -11,16 +11,105 @@ description: 环境搭建
 
 ## 启动 `Soul-Admin`
 
-* 下载`soul-admin.jar`包，并启动。
+### 远程下载
 
-```yaml
-> wget  https://yu199195.github.io/jar/soul-admin.jar
+* [2.3.0](https://github.com/dromara/soul/releases/tag/2.3.0) 下载 `soul-admin-bin-2.3.0-RELEASE.tar.gz`
 
-> java -jar soul-admin.jar --spring.datasource.url="jdbc:mysql://你的url:3306/soul?useUnicode=true&characterEncoding=utf-8&useSSL=false"  
-  --spring.datasource.username='you username'  --spring.datasource.password='you password'
+* 解压缩 `soul-admin-bin-2.3.0-RELEASE.tar.gz`。 进入 bin 目录。
+
+* 使用 `h2` 来存储后台数据
+
 ```
-  
-* 访问 `http://localhost:9095/index.html ` 默认的用户名： admin  密码:123456。
+> windwos : start.bat --spring.profiles.active = h2
+
+> linux : ./start.sh --spring.profiles.active = h2
+```
+
+* 使用 `mysql` 来存储后台数据。 进入 `/conf` 目录，修改 `application.yaml` 中`mysql` 的配置。
+
+```
+> windwos : start.bat 
+
+> linux : ./start.sh 
+```
+
+### docker构建
+
+```
+> docker pull dromara/soul-admin
+```
+
+* 使用 `h2` 来存储后台数据
+```
+> docker network create soul
+> docker run -d -p 9095:9095 --net soul dromara/soul-admin
+```
+
+* 使用 `mysql` 来存储后台数据。
+
+```
+> docker run -d -p 9095:9095 --net soul dromara/soul-admin -eSPRING_PROFILES_ACTIVE = mysql -e 
+```
+
+### 本地构建
+
+* 下载代码
+```
+> git clone https://github.com/dromara/soul.git
+> cd soul
+```
+
+* 编译代码
+```
+> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+```
+
+* 启动 `SoulAdminBootstrap`。 
+
+   * 如果使用h2来存储，设置变量 `--spring.profiles.active = h2`
+   
+   * 如果使用mysql来存储，修改 `application.yaml` 中的 `mysql` 配置。
+   
+
+访问 http://localhost:9095   用户名密码为: `admin/123456`
+
+
+## 启动 `Soul-Bootstrap`
+
+### 远程下载
+
+* [2.3.0](https://github.com/dromara/soul/releases/tag/2.3.0) 下载 `soul-bootstrap-bin-2.3.0-RELEASE.tar.gz`
+
+* 解压缩 `soul-bootstrap-bin-2.3.0-RELEASE.tar.gz`。 进入 bin 目录。
+
+```
+> windwos : start.bat 
+
+> linux : ./start.sh 
+```
+
+### docker构建
+
+```
+> docker network create soul
+> docker pull dromara/soul-bootstrap
+> docker run -d -p 9195:9195 --net soul dromara/soul-bootstrap
+```
+
+### 本地构建
+
+* 下载代码
+```
+> git clone https://github.com/dromara/soul.git
+> cd soul
+```
+
+* 编译代码
+```
+> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+```
+
+* 启动 `SoulBootstrap`。 
 
 ## 搭建自己的网关（推荐）
 

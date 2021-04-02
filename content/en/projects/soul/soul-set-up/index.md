@@ -10,17 +10,99 @@ description: Environment Setup
   With soul you can easily create application with your own gateway.
 * System Requirement: JDK 1.8+, Mysql 5.0 +.
 
-## Invoke `Soul-Admin`
 
-* Download `soul-admin.jar`, then run it with arguments.
+## `Soul-Admin`
 
-```yaml
-> wget  https://yu199195.github.io/jar/soul-admin.jar
+### remote download
 
-> java -jar soul-admin.jar --spring.datasource.url="jdbc:mysql://yoururl:3306/soul?useUnicode=true&characterEncoding=utf-8&useSSL=false"  
-  --spring.datasource.username='you username'  --spring.datasource.password='you password'
+* [2.3.0](https://github.com/dromara/soul/releases/tag/2.3.0) download `soul-admin-bin-2.3.0-RELEASE.tar.gz`
+
+* tar `soul-admin-bin-2.3.0-RELEASE.tar.gz`. cd `/bin`.
+
+* use `h2` store.
+
 ```
-* Visit `http://localhost:9095/index.html ` default username：admin  password: 123456.
+> windwos : start.bat --spring.profiles.active = h2
+
+> linux : ./start.sh --spring.profiles.active = h2
+```
+
+* use `mysql` store.  cd `/conf` and then modify `mysql` config in  `application.yaml`.
+
+```
+> windwos : start.bat 
+
+> linux : ./start.sh 
+```
+
+### docker
+
+```
+> docker pull dromara/soul-admin
+```
+
+* use `h2` store
+```
+> docker network create soul
+> docker run -d -p 9095:9095 --net soul dromara/soul-admin
+```
+
+* use `mysql` store.
+
+```
+> docker run -d -p 9095:9095 --net soul dromara/soul-admin -eSPRING_PROFILES_ACTIVE = mysql -e 
+```
+
+### local
+
+* download
+```
+> git clone https://github.com/dromara/soul.git
+> cd soul
+> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+```
+
+* setup for  `SoulAdminBootstrap`. 
+
+   * if use h2 store please set env  `--spring.profiles.active = h2`
+   
+   * if use mysql store, please modify `mysql` config in  `application.yaml`.
+   
+
+Visit `http://localhost:9095/index.html ` default username：admin  password: 123456.
+
+
+## `Soul-Bootstrap`
+
+### remote download
+
+* [2.3.0](https://github.com/dromara/soul/releases/tag/2.3.0) download `soul-bootstrap-bin-2.3.0-RELEASE.tar.gz`
+
+* tar `soul-bootstrap-bin-2.3.0-RELEASE.tar.gz`, ant then cd `/bin`.
+
+```
+> windwos : start.bat 
+
+> linux : ./start.sh 
+```
+
+### docker
+
+```
+> docker network create soul
+> docker pull dromara/soul-bootstrap
+> docker run -d -p 9195:9195 --net soul dromara/soul-bootstrap
+```
+
+### local
+
+```
+> git clone https://github.com/dromara/soul.git
+> cd soul
+> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+```
+
+* setup for `SoulBootstrap`. 
 
 ## Build your own gateway（recommend）
 

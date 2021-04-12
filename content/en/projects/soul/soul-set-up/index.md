@@ -50,13 +50,13 @@ description: Environment Setup
 * use `mysql` store.
 
 ```
-> docker run -d -p 9095:9095 --net soul dromara/soul-admin -e SPRING_PROFILES_ACTIVE=mysql
+> docker run -e "SPRING_PROFILES_ACTIVE=mysql" -d -p 9095:9095 --net soul dromara/soul-admin
 ```
 
 If you want to override environment variables, you can do like this.
 
 ```
-> docker run -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://192.168.1.9:3306/soul?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.password=123456" -d -p 9095:9095 --net soul dromara/soul-admin
+docker run -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://192.168.1.9:3306/soul?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.password=123456" -d -p 9095:9095 --net soul dromara/soul-admin
 ```
 
 Another way, bind volume and mounts

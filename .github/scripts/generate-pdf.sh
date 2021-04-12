@@ -99,7 +99,6 @@ function generate_pdf {
         for f in `find . -type f -name "index.md"`
         do
             path=${f%/*}
-            dos2unix $f
             echo "============================" >> "${path}/index.rst"
             echo `cat $f|grep -oP '^title: .*'|awk -F ": " '{print $2}'` >> "${path}/index.rst"
             echo "============================" >> "${path}/index.rst"

@@ -39,18 +39,18 @@ description: Environment Setup
 
 ```
 > docker pull dromara/soul-admin
+> docker network create soul
 ```
 
 * use `h2` store
 ```
-> docker network create soul
 > docker run -d -p 9095:9095 --net soul dromara/soul-admin
 ```
 
 * use `mysql` store.
 
 ```
-> docker run -d -p 9095:9095 --net soul dromara/soul-admin -eSPRING_PROFILES_ACTIVE = mysql -e 
+> docker run -d -p 9095:9095 --net soul dromara/soul-admin -e SPRING_PROFILES_ACTIVE=mysql
 ```
 
 ### local
@@ -141,18 +141,18 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
 * Add these config values into your `application.yaml`：
     
 ```yaml
-  spring:
-     main:
-       allow-bean-definition-overriding: true
-  
-  management:
-    health:
-      defaults:
-        enabled: false
-  soul :
-      sync:
-          websocket :
-               urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  health:
+    defaults:
+      enabled: false
+soul :
+  sync:
+    websocket :
+      urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
 ```
 * Environment Setup has finished, kick off your project.
 

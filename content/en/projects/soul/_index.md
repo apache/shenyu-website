@@ -146,6 +146,8 @@ sidebar:
         link: 'committer'
       - title: 'Code Conduct'  	
         link: 'code-conduct'
+  - title: 'Doc Download'  	
+    link: 'download'
 # draft: true
 ---
 

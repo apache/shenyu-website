@@ -20,4 +20,4 @@ description: Team Introduction
 |Jiang Xiaofeng            |SteNicholas    |  committer | [aliyun](https://www.aliyun.com)                 |
 |Ding jianming             |nuo-promise    |  committer | a start-up company                               |
 |Feng Zhenbing             |fengzhenbing   |  committer | a start-up company                               |
-|yangze                    |HoldDie        |  committer   | [IBM](https://www.ibm.com/)               |
+|yangze                    |HoldDie        |  committer | [IBM](https://www.ibm.com/)                      |

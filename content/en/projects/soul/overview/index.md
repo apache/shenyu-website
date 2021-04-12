@@ -5,9 +5,8 @@ description: This is an asynchronous, high-performance, cross-language, responsi
 aliases: "/soul/docs/Home"
 ---
 
-# Soul Introduction
-
 ## What is the Soul?
+
 This is an asynchronous, high-performance, cross-language, responsive API gateway.
 
 ## Features

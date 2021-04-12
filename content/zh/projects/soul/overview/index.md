@@ -4,9 +4,8 @@ keywords: soul
 description: Soul是一个异步的，高性能的，跨语言的，响应式的API网关。
 ---
 
-# Soul 介绍
-
 ## 什么是Soul
+
 这是一个异步的，高性能的，跨语言的，响应式的API网关。
 
 ## 功能
@@ -19,4 +18,5 @@ description: Soul是一个异步的，高性能的，跨语言的，响应式的
 * 支持集群部署，支持 A/B Test，蓝绿发布。
 
 ## 架构图
+
 ![](/img/architecture/soul-framework.png)

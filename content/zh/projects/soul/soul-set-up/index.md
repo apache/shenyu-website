@@ -53,13 +53,17 @@ description: 环境搭建
 
 如果你想覆盖环境变量，你可以这样操作。
 
-`docker run -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://192.168.1.9:3306/soul?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.password=123456" -d -p 9095:9095 --net soul dromara/soul-admin:2.2.1`
+```
+> docker run -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://192.168.1.9:3306/soul?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.password=123456" -d -p 9095:9095 --net soul dromara/soul-admin
+```
 
 另外一种方式，可以挂载你本地磁盘其他目录
 
 把你的`application.yml`配置放到xxx目录， 然后执行以下语句。
 
-`docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul dromara/soul-admin:2.2.1`
+```
+docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul dromara/soul-admin
+```
 
 ### 本地构建
 

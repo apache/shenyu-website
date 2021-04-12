@@ -37,18 +37,18 @@ description: 环境搭建
 
 ```
 > docker pull dromara/soul-admin
+> docker network create soul
 ```
 
 * 使用 `h2` 来存储后台数据
 ```
-> docker network create soul
 > docker run -d -p 9095:9095 --net soul dromara/soul-admin
 ```
 
 * 使用 `mysql` 来存储后台数据。
 
 ```
-> docker run -d -p 9095:9095 --net soul dromara/soul-admin -eSPRING_PROFILES_ACTIVE = mysql -e 
+> docker run -d -p 9095:9095 --net soul dromara/soul-admin -e SPRING_PROFILES_ACTIVE=mysql
 ```
 
 ### 本地构建
@@ -147,18 +147,18 @@ description: 环境搭建
 * 在你的 `application.yaml` 文件中加上如下配置：
 
 ```yaml
-    spring:
-       main:
-         allow-bean-definition-overriding: true
-    
-    management:
-      health:
-        defaults:
-          enabled: false
-    soul :
-        sync:
-            websocket :
-                 urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  health:
+    defaults:
+      enabled: false
+soul :
+  sync:
+    websocket :
+      urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
 ```
 * 你的项目环境搭建完成，启动你的项目。
 

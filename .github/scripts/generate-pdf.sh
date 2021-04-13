@@ -103,7 +103,7 @@ function generate_pdf {
             echo `cat $f|grep -oP '^title: .*'|awk -F ": " '{print $2}'` >> "${path}/index.rst"
             echo "============================" >> "${path}/index.rst"
             echo -e ".. toctree::\n   :maxdepth: 1\n   :titlesonly:\n\n   index.md" >> "${path}/index.rst"
-            pandoc $f -o "$f.rst"
+            pandoc $f --wrap=none -o "$f.rst"
             rm $f
         done
 

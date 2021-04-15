@@ -13,11 +13,7 @@ description: 团队介绍
 |邓力铭      |dengliming   |  PMC         | 某创业公司                                | 
 |汤煜冬      |tydhot       |  PMC         | [perfma](https://perfma.com/)            |
 |张磊        |SaberSola    |  PMC         | [哈罗](https://www.helloglobal.com/)     | 
-|陈斌        |prFor        |  PMC         | 某创业公司                                |
 |黄晓峰      |huangxfchn   |  committer   | [shein](https://www.shein.com.hk)        | 
-|梁自强      |241600489    |  committer   | [滴滴](https://www.didiglobal.com/)       | 
-|庄浩潮      |dmsolr       |  committer   | [欢聚时代（YY）](https://www.yy.com/)      | 
-|蒋晓峰      |SteNicholas  |  committer   | [阿里云](https://www.aliyun.com)          |
 |丁剑明      |nuo-promise  |  committer   | 某创业公司                                 |
 |冯振兵      |fengzhenbing |  committer   | 某创业公司                                 |
 |杨泽        |HoldDie      |  committer   | [IBM](https://www.ibm.com/)               |

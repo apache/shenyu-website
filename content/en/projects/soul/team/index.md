@@ -13,11 +13,7 @@ description: Team Introduction
 |Deng Liming               |dengliming     |  PMC       | a start-up company                               | 
 |Tang Yudong               |tydhot         |  PMC       | [perfma](https://perfma.com/)                    |
 |Zhang lei                 |SaberSola      |  PMC       | [helloglobal](https://www.helloglobal.com/)      |
-|Chen Bing                 |prFor          |  PMC       | a start-up company                               |
-|Huang Xiaofeng            |huangxfchn     |  committer | [shein](https://www.shein.com.hk)                | 
-|Liang Ziqiang             |241600489      |  committer | [didi](https://www.didiglobal.com/)              | 
-|zhuang hao chao           |dmsolr         |  committer | [YY](https://www.yy.com/)                        |  
-|Jiang Xiaofeng            |SteNicholas    |  committer | [aliyun](https://www.aliyun.com)                 |
+|Huang Xiaofeng            |huangxfchn     |  committer | [shein](https://www.shein.com.hk)                |  
 |Ding jianming             |nuo-promise    |  committer | a start-up company                               |
 |Feng Zhenbing             |fengzhenbing   |  committer | a start-up company                               |
 |yangze                    |HoldDie        |  committer | [IBM](https://www.ibm.com/)                      |

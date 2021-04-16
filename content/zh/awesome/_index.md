@@ -13,12 +13,10 @@ title: "Awesome Dromara"
 
 此处会列出我们已知的在生产环境使用了 Dromara 全部或者部分组件的公司或组织。以下排名不分先后:
 
-<img alt="jd" src="/img/users/jd_logo.png" width="150" height="60" />
 <img alt="yy" src="/img/users/yy_logo.png" width="150" height="60" />
 <img alt="mihoyo" src="/img/users/mihayo_logo.png" width="150" height="60" />
 <img alt="shansong" src="/img/users/shansong_logo.png" width="150" height="60" />
 <img alt="sibu group" src="https://yu199195.github.io/images/soul/users/sibu.jpg" height="60" />
-<img alt="guojiadianwang" src="https://yu199195.github.io/images/soul/users/guojiadianwang.jpg" height="60" />
 <img alt="cheyipai" src="/img/users/cheyipai_logo.jpg" width="120" height="60" />
 <img alt="caibeike" src="/img/users/caibeike_logo.png" height="60" />
 <img alt="fangfutong" src="https://yu199195.github.io/images/soul/users/fangfutong.png" height="60" />

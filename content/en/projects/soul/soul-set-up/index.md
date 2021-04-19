@@ -8,7 +8,7 @@ description: Environment Setup
 
 * Soul is an open source plugin framework, which is flexibility and extensibility since 2.2.0 version.
   With soul you can easily create application with your own gateway.
-* System Requirement: JDK 1.8+, Mysql 5.0 +.
+* System Requirement: JDK 1.8+, Mysql 5.5.20 +.
 
 
 ## Soul-Admin
@@ -76,12 +76,12 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 > mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
-* setup for  `SoulAdminBootstrap`. 
+* setup for  `SoulAdminBootstrap`.
 
-   * if use h2 store please set env  `--spring.profiles.active = h2`
-   
-   * if use mysql store, please modify `mysql` config in  `application.yaml`.
-   
+  * if use h2 store please set env  `--spring.profiles.active = h2`
+
+  * if use mysql store, please modify `mysql` config in  `application.yaml`.
+
 
 Visit `http://localhost:9095/index.html ` default username：admin  password: 123456.
 
@@ -116,14 +116,14 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
 > mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
-* setup for `SoulBootstrap`. 
+* setup for `SoulBootstrap`.
 
 ## Build your own gateway（recommend）
 
 * First of all, create a new Spring Boot project, pls refer to soul-bootstrap, or visit Spring Initializr:[https://spring.io/quickstart]
 
 * Add these JAR into your local Maven repository:
-   
+
 ```xml
   <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -153,7 +153,7 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
 ```
 
 * Add these config values into your `application.yaml`：
-    
+
 ```yaml
 spring:
   main:

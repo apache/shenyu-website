@@ -120,7 +120,7 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
 
 ## Build your own gateway（recommend）
 
-* First of all, create a new Spring Boot project. You can refer to the way how you start the soul-bootstrap, or visit (Spring Initializer)[https://spring.io/quickstart]
+* First of all, create a new Spring Boot project. You can refer to the way how you start the soul-bootstrap, or visit [Spring Initializer](https://spring.io/quickstart)
 
 * Add these JAR into your Maven pom.xml:
 

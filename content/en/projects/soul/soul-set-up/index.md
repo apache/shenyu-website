@@ -120,9 +120,9 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
 
 ## Build your own gateway（recommend）
 
-* First of all, create a new Spring Boot project, pls refer to soul-bootstrap, or visit Spring Initializr:[https://spring.io/quickstart]
+* First of all, create a new Spring Boot project. You can refer to the way how you start the soul-bootstrap, or visit (Spring Initializer)[https://spring.io/quickstart]
 
-* Add these JAR into your local Maven repository:
+* Add these JAR into your Maven pom.xml:
 
 ```xml
   <dependency>
@@ -168,7 +168,7 @@ soul :
     websocket :
       urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
 ```
-* Environment Setup has finished, kick off your project.
+* Environment Setup has finished, now your project is launched.
 
 
 

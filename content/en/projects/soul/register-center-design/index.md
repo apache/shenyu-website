@@ -12,11 +12,11 @@ description: register center design
 
 ![](/img/soul/register/client.png)
 
-When client server start, load register center client by spi.
+When client server start, the register center client will be loaded by spi.
 
 Put data to Disruptor when spring bean load.
 
-Soul register client get data from Disruptor, send request to register server.
+Soul register client get data from Disruptor, and it will send request to register server.
 
 Disruptor can decouple data from operation and facilitate expansion.
 
@@ -24,11 +24,11 @@ Disruptor can decouple data from operation and facilitate expansion.
 
 ![](/img/soul/register/server.png)
 
-When Soul-Admin server start, load register center server by spi. Disruptor inited.
+When Soul-Admin server start, register center server will be loaded by spi. Meanwile Disruptor will be inited too.
 
-Soul register server get data from register client, then put to Disruptor.
+Soul register server get data from register client, and then put then to Disruptor.
 
-Soul-Admin Disruptor consumer get data of register server from Disruptor queue,  then save to database and publish data synchronize event.
+Soul-Admin Disruptor consumer get data from register server by Disruptor queue,  then save them to database and publish data synchronize event.
 
 Disruptor can decouple data from operation and buffering.
 
@@ -59,13 +59,13 @@ soul
    ├    ├     ├               ├──${ip:prot}
 ```
 
-Zookeeper register client will save data to zookeeper when soul client start.
+Zookeeper register client will save data to zookeeper when soul client is started.
 
-Zookeeper register server will watch data node.
+Zookeeper register server will keep watching the change of data node.
 
-Trigger selector and rule data update and event publish, when metadata data node update.
+Trigger selector and rule data update and event will be published, when metadata data node update.
 
-Trigger selector and upstream update and event publish, when uri data node update.
+Trigger selector and upstream update and event will be published, when uri data node update.
 
 ## Etcd Registry
 
@@ -85,13 +85,13 @@ soul
    ├    ├     ├               ├──${ip:prot}
 ```
 
-Etcd register client will save data to etcd when soul client start.
+Etcd register client will save data to etcd when soul client is started.
 
-Etcd register server will watch data node.
+Etcd register server will keep watching the change of data node.
 
-Trigger selector and rule data update and event publish, when metadata data node update.
+Trigger selector and rule data update and event will be published, when metadata data node update.
 
-Trigger selector and upstream update and event publish, when uri data node update.
+Trigger selector and upstream update and event will be published, when uri data node update.
 
 ## Consul Registry
 
@@ -111,21 +111,21 @@ soul
 
 ```
 
-Consul register client will save data to consul when soul client start.
+Consul register client will save data to consul when soul client is started.
 
-Consul register server will watch data node.
+Consul register server will keep watching the change of data node.
 
-Trigger selector and rule data update and event publish, when metadata data node update.
+Trigger selector and rule data update and event will be published, when metadata data node update.
 
-Trigger selector and upstream update and event publish, when uri data node update.
+Trigger selector and upstream update and event will be published, when uri data node update.
 
 ## Nacos Register
 
 Nacos register have two parts：URI and Metadata。
 
-URI is instance register. URI instance node will delete when server is down.
+URI is instance register. URI instance node will be deleted when server is down.
 
-URI service instance name like below. Every URI instance has ip and port and contextPath as identifiers.
+URI service's instance name will be named like below. Every URI instance has ip, port and contextPath as identifiers.
 
 ```
 soul.register.service.${rpcType}
@@ -137,9 +137,9 @@ When URI instance up, it will publish metadata config. It's name like below.
 soul.register.service.${rpcType}.${contextPath}
 ```
 
-Trigger selector and upstream update and event publish, when URI service up or down.
+Trigger selector and upstream update and event will be published, when URI service up or down.
 
-Trigger selector and rule data update and event publish, when metadata config update.
+Trigger selector and rule data update and event will be published, when metadata config update.
 
 ## SPI
 

@@ -118,6 +118,8 @@ sidebar:
         link: 'context-path-plugin'
       - title: 'Redirect Plugin'  	
         link: 'redirect-plugin'
+      - title: 'Logging Plugin'  	
+        link: 'logging-plugin'        
   - title: 'Developer Guide'  	
     sub:
       - title: 'Custom filter'  	

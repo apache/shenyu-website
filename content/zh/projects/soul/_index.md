@@ -118,6 +118,8 @@ sidebar:
         link: 'context-path-plugin'
       - title: 'Redirect插件'  	
         link: 'redirect-plugin'
+      - title: 'Logging插件'  	
+        link: 'logging-plugin'
   - title: '开发者文档'  	
     sub:
       - title: '自定义filter'  	

@@ -151,18 +151,13 @@ description: http用户
 * 第一点，你之前请求的域名是你自己的服务，现在要换成网关的域名 （这个你听的懂？）
 
 * 第二点，soul网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以自由在 `soul-admin` 中的divide插件进行自由更改。
- 
-```yaml
-
-# 比如你有一个 order服务 它有一个接口，请求路径 http://localhost:8080/test/save
-
-# 现在就需要换成：http://localhost:9195/order/test/save
-
-# 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你接入网关配置的 contextPath
-
-# 其他参数，请求方式不变。
-
-# 我讲到这里还不懂？ 请加群问吧
-
-```
+    * 比如你有一个 order服务 它有一个接口，请求路径 http://localhost:8080/test/save
+    
+    * 现在就需要换成：http://localhost:9195/order/test/save
+    
+    * 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你接入网关配置的 contextPath
+    
+    * 其他参数，请求方式不变。
+    
+    * 我讲到这里还不懂？ 请加群问吧
 * 然后你就可以进行访问了，如此的方便与简单。

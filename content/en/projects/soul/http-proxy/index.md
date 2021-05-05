@@ -147,18 +147,14 @@ description: Integrate Http with soul gateway
 * Send the request as before, only two points need to notice.
 * Firstly，the domain name that requested before in your service, now need to replace with gateway's domain name.
 * Secondly，soul gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `soul-admin`, if you are familiar with it.
- 
-```yaml
+    * for example, if you have an order service and it has a interface, the request url: http://localhost:8080/test/save
+    
+    * Now need to change to:  http://localhost:9195/order/test/save
+    
+    * We can see localhost:9195 is your gateway's ip port，default port number is 9195 ，/order is your contextPath which you configured with gateway.
+    
+    * other parameters doesn't change in request method.
+    
+    * Any questions, pls join the group and we can talk about it.
 
-# for example, if you have an order service and it has a interface, the request url: http://localhost:8080/test/save
-
-# Now need to change to:  http://localhost:9195/order/test/save
-
-# We can see localhost:9195 is your gateway's ip port，default port number is 9195 ，/order is your contextPath which you configured with gateway.
-
-# other parameters doesn't change in request method.
-
-# Any questions, pls join the group and we can talk about it.
-
-```
 * Then you can visit, very easy and simple.

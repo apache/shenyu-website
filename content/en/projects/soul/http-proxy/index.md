@@ -146,7 +146,7 @@ description: Integrate Http with soul gateway
 
 * Send the request as before, only two points need to notice.
 * Firstly，the domain name that requested before in your service, now need to replace with gateway's domain name.
-* Secondly，soul gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `soul-admin`, if your familiar with it.
+* Secondly，soul gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `soul-admin`, if you are familiar with it.
  
 ```yaml
 

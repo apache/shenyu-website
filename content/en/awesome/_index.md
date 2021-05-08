@@ -1,6 +1,6 @@
 ---
 layout: singlepage
-title: "Awesome Dromara"
+title: "Awesome ShenYu"
 ---
 
 ## Catalog

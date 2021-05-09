@@ -72,6 +72,9 @@ other = "项目"
 [title_guide]
 other = "指南"
 
+[title_document]
+other = "文档"
+
 [title_blog]
 other = "博客"
 

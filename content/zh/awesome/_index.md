@@ -1,6 +1,6 @@
 ---
 layout: singlepage
-title: "Awesome Dromara"
+title: "Awesome ShenYu"
 ---
 
 ## 目录
@@ -11,7 +11,7 @@ title: "Awesome Dromara"
 
 ## 已知用户{#knownusers}
 
-此处会列出我们已知的在生产环境使用了 Dromara 全部或者部分组件的公司或组织。以下排名不分先后:
+此处会列出我们已知的在生产环境使用了 ShenYu 全部或者部分组件的公司或组织。以下排名不分先后:
 
 <img alt="yy" src="/img/users/yy_logo.png" width="150" height="60" />
 <img alt="mihoyo" src="/img/users/mihayo_logo.png" width="150" height="60" />
@@ -237,5 +237,4 @@ title: "Awesome Dromara"
 
 请登记告诉我们，方便我们更好地为您服务。
 
-* [soul登记](https://github.com/dromara/soul/issues/68)
-* [hmily登记](https://github.com/dromara/hmily/issues/190)
+* [shenyu登记](https://github.com/dromara/shenyu/issues/68)

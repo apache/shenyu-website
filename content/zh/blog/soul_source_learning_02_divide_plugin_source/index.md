@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习(2-2)Http代理之divide插件源码解析"
+title: "ShenYu网关学习(2-2)Http代理之divide插件源码解析"
 author: "季鹏"
-description: "Soul网关学习(2-2)divide插件源码解析"
+description: "ShenYu网关学习(2-2)divide插件源码解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-17

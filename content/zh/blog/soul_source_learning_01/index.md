@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习(1)环境配置"
+title: "ShenYu网关学习(1)环境配置"
 author: "陈曦"
-description: "Soul网关学习(1)环境配置"
+description: "ShenYu网关学习(1)环境配置"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-15

@@ -1,7 +1,7 @@
 ---
-title: "Soul Gateway Learning Sign Plugin"
+title: "ShenYu Gateway Learning Sign Plugin"
 author: "tangtian"
-description: "Soul Gateway Learning Sign Plugin"
+description: "ShenYu Gateway Learning Sign Plugin"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-29
@@ -16,13 +16,13 @@ AK/SK（Access Key ID/Secret Access Key）即访问密钥，包含访问密钥ID
 ## 插件使用-以（/dubbo/findAll）为例
 ### 在SoulBootstrap的 pom.xml 文件中添加 `sign` 的支持
 ```xml
-  <!-- soul sign plugin start-->
+  <!-- ShenYu sign plugin start-->
   <dependency>
       <groupId>org.dromara</groupId>
       <artifactId>soul-spring-boot-starter-plugin-sign</artifactId>
      <version>${last.version}</version>
   </dependency>
-  <!-- soul sign plugin end-->
+  <!-- ShenYu sign plugin end-->
 ```
 ### 新增appKey，secretKey
 ![image.png](/img/soul/blog4/01.png)

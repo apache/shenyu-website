@@ -1,7 +1,7 @@
 ---
-title: "Soul Gateway Learning Sentinel Plugin"
+title: "ShenYu Gateway Learning Sentinel Plugin"
 author: "luoxiaolong"
-description: "Soul Gateway Learning Sentinel Plugin"
+description: "ShenYu Gateway Learning Sentinel Plugin"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-03-19

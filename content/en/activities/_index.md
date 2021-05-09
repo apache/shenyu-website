@@ -1,5 +1,5 @@
 +++
 draft= false
 title = "Activities"
-description = "Dromara community events"
+description = "ShenYu community events"
 +++

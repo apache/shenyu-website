@@ -1,7 +1,7 @@
 ---
-title: "Soul Gateway learning plugin chain and load balancing analysis"
+title: "ShenYu Gateway learning plugin chain and load balancing analysis"
 author: "zhuming"
-description: "Soul Gateway learning plugin chain and load balancing analysis"
+description: "ShenYu Gateway learning plugin chain and load balancing analysis"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-15

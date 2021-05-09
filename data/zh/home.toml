@@ -1,6 +1,6 @@
 [slogan]
-	title = "Dromara"
-	description = "致力于微服务云原生解决方案的组织"
+	title = "ShenYu"
+	description = "高性能，多协议，易扩展，响应式的API Gateway"
 	quick_start_text = "快速开始"
 	quick_start_link = "/projects/soul/overview"
 	github_link = "https://github.com/dromara"
@@ -10,17 +10,17 @@
 	description = "技术栈全面开源共建、 保持社区中立、兼容社区 兼容开源生态，随时欢迎参与各种贡献"
 	img = "img/home/dromara_open.png"
 [[feature]]
-	title = "网关"
-	description = "高性能微服务API网关，兼容各种主流框架体系，支持热插拔，用户可以定制化开发，满足用户各种场景的现状和未来需求，经历过大规模场景的锤炼"
+	title = "高性能"
+	description = "高性能微服务API网关，经历过大规模场景的锤炼。流量配置动态化，性能极高，网关消耗在 1~2ms"
 	img = "img/home/dromara_gateway.png"
 [[feature]]
-	title = "分布式事务"
-	description = "提供柔性分布式事务解决方案，包括强一致分布式事务框架，可靠消息分布式事务框架，提供高可靠性，高性能，可观测性的解决方案，满足各种复杂场景"
+	title = "插件化"
+	description = "插件化设计思想，插件热插拔，易扩展。内置丰富的插件支持，鉴权，限流，熔断，防火墙等"
 	img = "img/home/dromara_distributed_transaction.png"
 
 [[soul_description]]
-	title = "Soul"
-	description = "高性能，多协议，易扩展，响应式的API Gateway"
+	title = "架构设计"
+	description = "高性能微服务API网关，兼容各种主流框架体系，支持热插拔，用户可以定制化开发，满足用户各种场景的现状和未来需求，经历过大规模场景的锤炼"
 	img_width = "600px"
 
 [soul_features]

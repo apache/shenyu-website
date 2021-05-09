@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习(2-1)Http代理之divide插件使用"
+title: "ShenYu网关学习(2-1)Http代理之divide插件使用"
 author: "袁杰"
-description: "Soul网关学习(2-1)divide插件使用"
+description: "ShenYu网关学习(2-1)divide插件使用"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-16

@@ -1,6 +1,6 @@
 [slogan]
-	title = "Dromara"
-	description = "An organization dedicated to native solutions for the microservice cloud"
+	title = "ShenYu"
+	description = "High-performance, multi-protocol, extensible, responsive API Gateway"
 	quick_start_text = "Quick Start"
 	quick_start_link = "/projects/soul/overview"
 	github_link = "https://github.com/dromara"
@@ -10,17 +10,17 @@
 	description = "The technology stack is fully open source construction, maintain the community neutrality, compatible with the community open source ecology, welcome to participate in various contributions at any time"
 	img = "img/home/dromara_open.png"
 [[feature]]
-	title = "Gateway"
-	description = "High-performance micro-service API gateway, compatible with a variety of mainstream framework systems, support hot plug, users can customize the development, meet the current situation and future needs of users in a variety of scenarios, experienced the temper of large-scale scenes"
+	title = "High-Performance"
+	description = "High-performance micro-service API gateway, experienced the temper of large-scale scenes.Dynamic flow configuration, high performance, gateway consumption is 1~2ms"
 	img = "img/home/dromara_gateway.png"
 [[feature]]
-	title = "Distributed Transaction"
-	description = "Provide financial level distributed transaction solutions, including strongly consistent distributed transaction framework, reliable message distributed transaction framework, to provide high reliability, high performance, observable solutions to meet a variety of complex scenarios"
+	title = "Pluggable"
+	description = "Plug-in design idea, plug-in hot plug, easy to expand.Built-in rich plugin support, authentication, limiting, fuse, firewall, etc"
 	img = "img/home/dromara_distributed_transaction.png"
 
 [[soul_description]]
-	title = "Soul"
-	description = "High-performance, multi-protocol, extensible, responsive API Gateway"
+	title = "Architecture Diagram"
+	description = "High-performance micro-service API gateway, compatible with a variety of mainstream framework systems, support hot plug, users can customize the development, meet the current situation and future needs of users in a variety of scenarios, experienced the temper of large-scale scenes"
 	img_width = "600px"
 
 [soul_features]

@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习Sentinel插件原理解析"
+title: "ShenYu网关学习Sentinel插件原理解析"
 author: "骆潇龙"
-description: "Soul网关学习Sentinel插件原理解析"
+description: "ShenYu网关学习Sentinel插件原理解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-03-19

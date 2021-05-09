@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习divide插件源码解读"
+title: "ShenYu网关学习divide插件源码解读"
 author: "沈祥俊"
-description: "Soul网关学习divide插件源码解读"
+description: "ShenYu网关学习divide插件源码解读"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-02-01

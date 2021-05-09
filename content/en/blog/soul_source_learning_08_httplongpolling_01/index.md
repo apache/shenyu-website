@@ -1,7 +1,7 @@
 ---
-title: "Soul Gateway Learns Http Long Polling Analysis 01"
+title: "ShenYu Gateway Learns Http Long Polling Analysis 01"
 author: "zhuming"
-description: "Soul Gateway Learns Http Long Polling Analysis"
+description: "ShenYu Gateway Learns Http Long Polling Analysis"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-25

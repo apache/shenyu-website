@@ -1,7 +1,7 @@
 ---
-title: "Soul Gateway Learns Zookeeper Data Synchronization 01"
+title: "ShenYu Gateway Learns Zookeeper Data Synchronization 01"
 author: "liquan"
-description: "Soul Gateway Learns Zookeeper Data Synchronization"
+description: "ShenYu Gateway Learns Zookeeper Data Synchronization"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-20
@@ -26,7 +26,7 @@ soul:
 
 soul-bootstrap/pom.xml
 ```xml
-<!--soul data sync start use zookeeper-->
+<!--ShenYu data sync start use zookeeper-->
 <dependency>
     <groupId>org.dromara</groupId>
     <artifactId>soul-spring-boot-starter-sync-data-zookeeper</artifactId>
@@ -36,7 +36,7 @@ soul-bootstrap/pom.xml
 soul-bootstrap/src/main/resources/application-local.yml
 
 ```yaml
-soul :
+ShenYu :
     sync:
         zookeeper:
              url: localhost:2181
@@ -72,7 +72,7 @@ Starting zookeeper ... STARTED
 3、soul-bootstrap 网关服务启动，服务启动后可以看到发起的ZooKeeper请求调用
 
 ```
-2021-01-20 17:35:58.996  INFO 64583 --- [           main] s.b.s.d.z.ZookeeperSyncDataConfiguration : you use zookeeper sync soul data.......
+2021-01-20 17:35:58.996  INFO 64583 --- [           main] s.b.s.d.z.ZookeeperSyncDataConfiguration : you use zookeeper sync ShenYu data.......
 2021-01-20 17:35:59.003  INFO 64583 --- [-localhost:2181] org.I0Itec.zkclient.ZkEventThread        : Starting ZkClient event thread.
 ......
 
@@ -87,7 +87,7 @@ Starting zookeeper ... STARTED
 ![在这里插入图片描述](/img/soul/blog5/zk1.png)
 
 
-###### 三、Soul 网关 Zookeeper 数据同步原理解析
+###### 三、ShenYu网关 Zookeeper 数据同步原理解析
 在 soul-admin 启动后在控制台中看到了 org.I0Itec.zkclient.ZkClient，以此为入口进行跟踪调试。
 
 1、ZookeeperConfiguration 作用：注册 zkClient 到Spring容器。

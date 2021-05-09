@@ -1,5 +1,5 @@
 ---
-title: "Soul Learning(2) How Does The Divide Plugin Forward Http Requests"
+title: "ShenYuLearning(2) How Does The Divide Plugin Forward Http Requests"
 author: "jipeng"
 description: "How Does The Divide Plugin Forward HTTP Requests"
 categories: "Soul"

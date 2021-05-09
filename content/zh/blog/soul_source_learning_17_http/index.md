@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习Http请求探险"
+title: "ShenYu网关学习Http请求探险"
 author: "百钰"
-description: "Soul网关学习Http请求探险"
+description: "ShenYu网关学习Http请求探险"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-26
@@ -9,7 +9,7 @@ cover: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d89a3b45058846be94aa0b
 ---
 
 # 回顾
-在Soul 请求处理概览概览这篇文章中，我们已经知晓了Soul针对于请求的处理入库在**DefaultSoulPluginChain的excute**，其中执行了一个插件链的模式来完成了请求的处理。
+在ShenYu 请求处理概览概览这篇文章中，我们已经知晓了Soul针对于请求的处理入库在**DefaultSoulPluginChain的excute**，其中执行了一个插件链的模式来完成了请求的处理。
 
 我们大体梳理了注入到**plugins**的插件，但是即使这样依然不能纵观全局，对此特地对soul插件所涉及的类进行了相关梳理，整体梳理结果如下图。
 
@@ -374,7 +374,7 @@ public Mono<Void> execute(final ServerWebExchange exchange, final SoulPluginChai
 
 # 总结
 
-到此为止，一个基于Soul网关发起的Http请求调用流程大体已经结束。
+到此为止，一个基于ShenYu网关发起的Http请求调用流程大体已经结束。
 
 梳理http请求调用流程
 - Global插件封装SoulContext对象

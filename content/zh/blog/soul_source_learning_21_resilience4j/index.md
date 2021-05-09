@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习Resilience4j插件原理解析"
+title: "ShenYu网关学习Resilience4j插件原理解析"
 author: "闫兵"
-description: "Soul网关学习Resilience4j插件原理解析"
+description: "ShenYu网关学习Resilience4j插件原理解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-03-22

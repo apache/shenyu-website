@@ -1,16 +1,16 @@
 ---
-title: "Soul Learning(1) Environment Configuration"
+title: "ShenYuLearning(1) Environment Configuration"
 author: "chenxi"
-description: "Soul Learning(1) Environment Configuration"
+description: "ShenYuLearning(1) Environment Configuration"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-15
 cover: "/img/architecture/soul-framework.png"
 ---
 
-# Analysis of soul (1) Set up soul environment
+# Analysis of ShenYu (1) Set up ShenYu environment
 
-> soul is a High-Performance Java API Gateway
+> ShenYu is a High-Performance Java API Gateway
 >
 > GitHub：https://github.com/dromara/soul
 >
@@ -28,7 +28,7 @@ git clone https://github.com/cchenxi/soul.git
 
 ### 1.3.Open the source code with idea
 
-### 1.4. Compile the soul source code
+### 1.4. Compile the ShenYu source code
 
 You can compile the project as follows.
 
@@ -74,7 +74,7 @@ Please make sure the ip and the port has been configured for `soul-admin`.
 If the console output as follows, it means the startup is successful.
 
 ```plain text
-2021-01-14 15:01:15.832  INFO 17943 --- [           main] b.s.s.d.w.WebsocketSyncDataConfiguration : you use websocket sync soul data.......
+2021-01-14 15:01:15.832  INFO 17943 --- [           main] b.s.s.d.w.WebsocketSyncDataConfiguration : you use websocket sync ShenYu data.......
 2021-01-14 15:01:15.924  INFO 17943 --- [           main] o.d.s.p.s.d.w.WebsocketSyncDataService   : websocket connection is successful.....
 2021-01-14 15:01:16.113  INFO 17943 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
 log4j:WARN No appenders could be found for logger (com.alibaba.dubbo.common.logger.LoggerFactory).
@@ -194,7 +194,7 @@ Use `wrk` to press test and compare the two ways as follows.
 The performance drops slightly after using the gateway, probably because of the extra layer of forwarding.
 
 ```shell
-➜  soul git:(master) ✗ wrk -t8 -c40 -d30s http://localhost:8189/test/findByUserId\?userId\=1
+➜  ShenYu git:(master) ✗ wrk -t8 -c40 -d30s http://localhost:8189/test/findByUserId\?userId\=1
 Running 30s test @ http://localhost:8189/test/findByUserId?userId=1
   8 threads and 40 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -203,7 +203,7 @@ Running 30s test @ http://localhost:8189/test/findByUserId?userId=1
   486269 requests in 30.05s, 51.01MB read
 Requests/sec:  16179.68
 Transfer/sec:      1.70MB
-➜  soul git:(master) ✗ wrk -t8 -c40 -d30s http://localhost:9195/http/test/findByUserId\?userId\=1
+➜  ShenYu git:(master) ✗ wrk -t8 -c40 -d30s http://localhost:9195/http/test/findByUserId\?userId\=1
 Running 30s test @ http://localhost:9195/http/test/findByUserId?userId=1
   8 threads and 40 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev

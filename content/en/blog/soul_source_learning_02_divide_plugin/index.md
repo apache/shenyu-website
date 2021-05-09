@@ -1,7 +1,7 @@
 ---
-title: "Soul Learning(2) Use Divide Plugin"
+title: "ShenYuLearning(2) Use Divide Plugin"
 author: "yuanjie"
-description: "Soul Learning(2) Use Divide Plugin"
+description: "ShenYuLearning(2) Use Divide Plugin"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-16

@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习Admin源码分析"
+title: "ShenYu网关学习Admin源码分析"
 author: "曾林辉"
-description: "Soul网关学习Admin源码分析"
+description: "ShenYu网关学习Admin源码分析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-20

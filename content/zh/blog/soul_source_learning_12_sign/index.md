@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习Sign插件"
+title: "ShenYu网关学习Sign插件"
 author: "唐甜"
-description: "Soul网关学习Sign插件"
+description: "ShenYu网关学习Sign插件"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-29

@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习RateLimiter插件原理解析"
+title: "ShenYu网关学习RateLimiter插件原理解析"
 author: "百钰"
-description: "Soul网关学习RateLimiter插件原理解析"
+description: "ShenYu网关学习RateLimiter插件原理解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-30
@@ -33,7 +33,7 @@ ps：关于限流算法常见的有四种实现**令牌桶算法**，**漏斗算
 
 #### 启用对应插件
 
-在Soul网关**系统管理-插件管理**处，将状态更改为启用状态，注意此处需要填写redis相关配置，Soul令牌桶基于Redis。
+在ShenYu网关**系统管理-插件管理**处，将状态更改为启用状态，注意此处需要填写redis相关配置，Soul令牌桶基于Redis。
 
 为什么Soul的令牌桶算法要基于redis？
 
@@ -42,7 +42,7 @@ ps：关于限流算法常见的有四种实现**令牌桶算法**，**漏斗算
 ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e25dd524c294b4f9c227e3f2127757f~tplv-k3u1fbpfcp-watermark.image)
 
 #### 添加限流选择器、规则
-在Soul网关**插件列表**处，选择rate_limiter处添加规则及选择器配置，不懂如何添加的可以先阅读<a href="https://juejin.cn/post/6922431625230417928">选择器\规则的匹配逻辑</a>.
+在ShenYu网关**插件列表**处，选择rate_limiter处添加规则及选择器配置，不懂如何添加的可以先阅读<a href="https://juejin.cn/post/6922431625230417928">选择器\规则的匹配逻辑</a>.
 ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9cbbc63ed6214aeda8c70f8e34d7c19c~tplv-k3u1fbpfcp-watermark.image)
 ![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25e67268dd5e4aa9a081a51963a03da8~tplv-k3u1fbpfcp-watermark.image)
 在此处添加的容量及速率都为1 主要为了验证插件是否启用。
@@ -64,7 +64,7 @@ ps：关于限流算法常见的有四种实现**令牌桶算法**，**漏斗算
 
 答案自然数据同步脱不了干系。
 
-在修改插件的配置时，也发布了一个插件数据变更的事件通知，在之前梳理<a href="https://juejin.cn/post/6920609782349086727">Soul网关同步数据整体流程</a>时,已经得知修改的插件数据除了更改了JVM缓存内的数据外，还对对应的插件进行下发操作，如下图
+在修改插件的配置时，也发布了一个插件数据变更的事件通知，在之前梳理<a href="https://juejin.cn/post/6920609782349086727">ShenYu网关同步数据整体流程</a>时,已经得知修改的插件数据除了更改了JVM缓存内的数据外，还对对应的插件进行下发操作，如下图
 ![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9434447ebc674f58b65c26b65f855181~tplv-k3u1fbpfcp-watermark.image)
 而针对于**RateLimiterPlugin**而言，其主要实现了**handlePlugin**的接口，那这个对应的实现到底做了哪些事呢？
 

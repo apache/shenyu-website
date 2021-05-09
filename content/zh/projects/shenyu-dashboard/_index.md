@@ -1,7 +1,7 @@
 ---
-title: "TLog"
-description: "轻量级的分布式日志标记追踪神器"
-subDesc: "轻量级的分布式日志标记追踪神器"
+title: "Dashboard"
+description: "ShenYu网关前端工程"
+subDesc: "ShenYu网关前端工程"
 feature1Img: ""
 feature1Title: ""
 feature1Desc: ""
@@ -20,13 +20,13 @@ feature5Desc: ""
 feature6Img: ""
 feature6Title: ""
 feature6Desc: ""
-startUp: "开始"
-link: "https://yomahub.com/tlog/"
-github: "https://github.com/dromara/TLog"
-gitee: "https://gitee.com/dromara/TLog"
-level: "tool"
-weight: 8
-icon: "/img/logo/tlog.png"
+startUp: ""
+# link: "https://yomahub.com/tlog/"
+github: "https://github.com/dromara/shenyu-dashboard"
+gitee: ""
+level: "main"
+weight: 2
+# icon: "/img/logo/tlog.png"
 showIntroduce: false
 showFeature: false
 ---

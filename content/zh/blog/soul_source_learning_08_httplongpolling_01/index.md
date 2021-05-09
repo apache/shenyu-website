@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习Http长轮询解析01"
+title: "ShenYu网关学习Http长轮询解析01"
 author: "朱明"
-description: "Soul网关学习Http长轮询解析"
+description: "ShenYu网关学习Http长轮询解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-25
@@ -12,7 +12,7 @@ cover: "/img/architecture/soul-framework.png"
 ### 配置
 **后台信息模式切换**
 
-在上篇分析 Zookeeper 同步的文章 ([Soul网关源码分析-11期](https://blog.csdn.net/zm469568595/article/details/113065463)) 中, 我们通过 DataSyncConfiguration 这个配置类做的切换, 这次有了经验, 直接贴配置
+在上篇分析 Zookeeper 同步的文章 ([ShenYu网关源码分析-11期](https://blog.csdn.net/zm469568595/article/details/113065463)) 中, 我们通过 DataSyncConfiguration 这个配置类做的切换, 这次有了经验, 直接贴配置
 
 ```yml
 soul:

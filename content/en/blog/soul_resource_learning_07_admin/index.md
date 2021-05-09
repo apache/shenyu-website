@@ -1,7 +1,7 @@
 ---
-title: "Soul Gateway Learning Admin Source Code Analysis"
+title: "ShenYu Gateway Learning Admin Source Code Analysis"
 author: "zenglinhui"
-description: "Soul Gateway Learning Admin Source Code Analysis"
+description: "ShenYu Gateway Learning Admin Source Code Analysis"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-20
@@ -17,7 +17,7 @@ cover: "/img/architecture/soul-framework.png"
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210117034215738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
 数据库中对应的表为下图所示，divide 状态是启用，在上一篇中，就是用这个插件来测试网关
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210117035235400.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
-同时请求的还有选择器，请求的 controller 见下图。在上篇的演示中，我们直接在页面把选择器中的条件 CRUD，可以实时反应到网关中去，而不需要重启网关，所以这里除了query方法中，增加、删除、和修改方法中,在保存到数据库之后都有一个 publishEvent 方法。就是这个事件方法，可以让用户直接在 soul 后台配置规则，从而达到时时生效的目地
+同时请求的还有选择器，请求的 controller 见下图。在上篇的演示中，我们直接在页面把选择器中的条件 CRUD，可以实时反应到网关中去，而不需要重启网关，所以这里除了query方法中，增加、删除、和修改方法中,在保存到数据库之后都有一个 publishEvent 方法。就是这个事件方法，可以让用户直接在 ShenYu 后台配置规则，从而达到时时生效的目地
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210117040000892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
 ```
 public int createOrUpdate(final SelectorDTO selectorDTO) {
@@ -115,7 +115,7 @@ public int createOrUpdate(final SelectorDTO selectorDTO) {
 2021-01-22 01:00:19.077  INFO 20800 --- [-long-polling-2] o.d.s.a.l.AbstractDataChangedListener    : update config cache[META_DATA], old: {group='META_DATA', md5='5f79d821e3b601330631a2d53294fb34', lastModifyTime=1611248302571}, updated: {group='META_DATA', md5='5f79d821e3b601330631a2d53294fb34', lastModifyTime=1611248419077}
 2021-01-22 01:00:19.077  INFO 20800 --- [-long-polling-2] a.l.h.HttpLongPollingDataChangedListener : http sync strategy refresh config success.
 ```
-5. soul 中还有其它方法同步数据，这些后面有精力再分析，soul-admin 源码先分析到这，如果后续再分析的话，会另外再写一遍文章，这里就先到此为止
+5. ShenYu 中还有其它方法同步数据，这些后面有精力再分析，soul-admin 源码先分析到这，如果后续再分析的话，会另外再写一遍文章，这里就先到此为止
 # 总结
 soul-admin 中还有功能现在还没有使用到，还有很多好玩的东西，这篇会持续更新，到用到的时候再去具体分析里面的源码。
 1. 2021-01-20分析了 soul-admin 用websocket 同步数据到 soul-bootstrap 中

@@ -1,7 +1,7 @@
 ---
-title: "Soul Gateway Learning RateLimiter Plugin"
+title: "ShenYu Gateway Learning RateLimiter Plugin"
 author: "baiyu"
-description: "Soul Gateway Learning RateLimiter Plugin"
+description: "ShenYu Gateway Learning RateLimiter Plugin"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-30

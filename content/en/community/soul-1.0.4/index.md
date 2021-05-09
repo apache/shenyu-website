@@ -1,14 +1,14 @@
 ---
-title: "Soul Gateway released version 1.0.4-RELEASE"
+title: "ShenYu Gateway released version 1.0.4-RELEASE"
 author: "xiaoyu"
-description: "Soul Gateway released version 1.0.4-RELEASE"
+description: "ShenYu Gateway released version 1.0.4-RELEASE"
 categories: "Soul"
 tags: ["Soul"]
 date: 2019-04-09
 cover: "/img/architecture/soul-framework.png"
 ---
 
-### Soul Gateway released version 1.0.4-RELEASE
+### ShenYu Gateway released version 1.0.4-RELEASE
 
 * Fix the bug that appeared in the Soul-admin of version 1.0.3.
 * The serialization method supports custom extensions. The default serialization method has been changed from Kroy to Java serialization method.

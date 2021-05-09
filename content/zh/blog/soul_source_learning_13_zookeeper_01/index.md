@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习Zookeeper数据同步01"
+title: "ShenYu网关学习Zookeeper数据同步01"
 author: "李权"
-description: "Soul网关学习Zookeeper数据同步"
+description: "ShenYu网关学习Zookeeper数据同步"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-20
@@ -87,7 +87,7 @@ Starting zookeeper ... STARTED
 ![在这里插入图片描述](/img/soul/blog5/zk1.png)
 
 
-###### 三、Soul 网关 Zookeeper 数据同步原理解析
+###### 三、ShenYu 网关 Zookeeper 数据同步原理解析
 在 soul-admin 启动后在控制台中看到了 org.I0Itec.zkclient.ZkClient，以此为入口进行跟踪调试。
 
 1、ZookeeperConfiguration 作用：注册 zkClient 到Spring容器。
@@ -266,4 +266,4 @@ zookeeper 同步数据。
 soul-admin 启动就会同步网关数据 rule、metaData、selector、plugin 等到 zookeeper。数据变化会发布 DataChangedEvent事件，监听事件将数据同步至zookeeper。
 
 
-[Soul网关数据同步原理](https://dromara.org/projects/soul/data-sync/)
+[ShenYu网关数据同步原理](https://dromara.org/projects/soul/data-sync/)

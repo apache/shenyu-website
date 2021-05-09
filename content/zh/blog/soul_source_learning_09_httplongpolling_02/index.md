@@ -1,7 +1,7 @@
 ---
-title: "Soul网关学习Http长轮询解析02"
+title: "ShenYu网关学习Http长轮询解析02"
 author: "朱明"
-description: "Soul网关学习Http长轮询解析"
+description: "ShenYu网关学习Http长轮询解析"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-27

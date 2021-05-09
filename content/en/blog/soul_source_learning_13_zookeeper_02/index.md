@@ -1,7 +1,7 @@
 ---
-title: "Soul Gateway Learns Zookeeper Data Synchronization 02"
+title: "ShenYu Gateway Learns Zookeeper Data Synchronization 02"
 author: "liquan"
-description: "Soul Gateway Learns Zookeeper Data Synchronization"
+description: "ShenYu Gateway Learns Zookeeper Data Synchronization"
 categories: "Soul"
 tags: ["Soul"]
 date: 2021-01-21
@@ -62,7 +62,7 @@ public class ZookeeperSyncDataConfiguration {
     @Bean
     public SyncDataService syncDataService(final ObjectProvider<ZkClient> zkClient, final ObjectProvider<PluginDataSubscriber> pluginSubscriber,
                                            final ObjectProvider<List<MetaDataSubscriber>> metaSubscribers, final ObjectProvider<List<AuthDataSubscriber>> authSubscribers) {
-        log.info("you use zookeeper sync soul data.......");
+        log.info("you use zookeeper sync ShenYu data.......");
         return new ZookeeperSyncDataService(zkClient.getIfAvailable(), pluginSubscriber.getIfAvailable(),
                 metaSubscribers.getIfAvailable(Collections::emptyList), authSubscribers.getIfAvailable(Collections::emptyList));
     }

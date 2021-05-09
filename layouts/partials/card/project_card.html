@@ -34,7 +34,10 @@
 		{{ .Params.subDesc  }}
 	</p>
 	<div class="project-button-groups">
+		{{ if ne .Params.startUp "" }}
 		<a class="project-button -shadow" href={{ $link }}>{{ .Params.startUp }}</a>
+		{{ end }}
+
 		<a class="project-button -outline" href={{ .Params.github }}>GitHub</a>
 		{{ if ne .Params.gitee "" }}
 		<a class="project-button -outline" href={{ .Params.gitee }}>Gitee</a>

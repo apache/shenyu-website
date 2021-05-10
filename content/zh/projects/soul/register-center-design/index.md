@@ -1,6 +1,6 @@
 ---
 title: 注册中心设计
-keywords: soul
+keywords: shenyu
 description: 注册中心设计
 ---
 
@@ -18,7 +18,7 @@ description: 注册中心设计
 
 通过实现Spring Bean相关的后处理器接口，在其中获取需要进行注册的服务接口信息，将获取的信息放入Disruptor中
 
-注册中心客户端从Disruptor中读取数据，并将接口信息注册到Soul-Admin
+注册中心客户端从Disruptor中读取数据，并将接口信息注册到Shenyu-Admin
 
 Disruptor在其中起数据与操作解耦的作用，利于扩展
 
@@ -26,26 +26,26 @@ Disruptor在其中起数据与操作解耦的作用，利于扩展
 
 ![](/img/soul/register/server.png)
 
-在Soul-Admin配置中声明使用的注册中心服务端类型，如HTTP/Zookeeper
+在Shenyu-Admin配置中声明使用的注册中心服务端类型，如HTTP/Zookeeper
 
-Soul-Admin启动时，更加配置的类型，加载并初始化对应的注册中心服务端
+Shenyu-Admin启动时，更加配置的类型，加载并初始化对应的注册中心服务端
 
-注册中心服务端收到Soul-Client注册的接口信息后，将其放入Disruptor中，然后会触发注册处理逻辑，将服务接口信息更新并发布同步事件
+注册中心服务端收到Shenyu-Client注册的接口信息后，将其放入Disruptor中，然后会触发注册处理逻辑，将服务接口信息更新并发布同步事件
 
 Disruptor在其中起到数据与操作解耦，利于扩展；同时比较注册请求过多，导致注册异常，有数据缓冲作用
 
 ## Http 注册
 
-HTTP服务注册原理较为简单，在Soul-Client启动后，会调用Soul-Admin的相关服务注册接口，上传数据进行注册
+HTTP服务注册原理较为简单，在Shenyu-Client启动后，会调用Shenyu-Admin的相关服务注册接口，上传数据进行注册
 
-Soul-Admin web服务接口收到请求后进行数据更新和数据同步事件发布
+Shenyu-Admin web服务接口收到请求后进行数据更新和数据同步事件发布
 
 ## Zookeeper 注册
 
 Zookeeper存储结构如下：
 
 ```
-soul
+shenyu
    ├──regsiter
    ├    ├──metadata
    ├    ├     ├──${rpcType}
@@ -58,9 +58,9 @@ soul
    ├    ├     ├               ├──${ip:prot}
 ```
 
-Soul-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）写到如上的zookeeper节点中。
+Shenyu-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）写到如上的zookeeper节点中。
 
-Soul-Admin使用Zookeeper的Watch机制，对数据的更新和删除等事件进行监听，数据变更后触发对应的注册处理逻辑。
+Shenyu-Admin使用Zookeeper的Watch机制，对数据的更新和删除等事件进行监听，数据变更后触发对应的注册处理逻辑。
 
 在收到MetaDataRegisterDTO节点变更后，触发selector和rule的数据变更和数据同步事件发布。
 
@@ -71,7 +71,7 @@ Soul-Admin使用Zookeeper的Watch机制，对数据的更新和删除等事件�
 Etcd的键值存储结构如下：
 
 ```
-soul
+shenyu
    ├──regsiter
    ├    ├──metadata
    ├    ├     ├──${rpcType}
@@ -84,9 +84,9 @@ soul
    ├    ├     ├               ├──${ip:prot}
 ```
 
-Soul-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）以Ephemeral方式写到如上的Etcd节点中。
+Shenyu-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）以Ephemeral方式写到如上的Etcd节点中。
 
-Soul-Admin使用Etcd的Watch机制，对数据的更新和删除等事件进行监听，数据变更后触发对应的注册处理逻辑。
+Shenyu-Admin使用Etcd的Watch机制，对数据的更新和删除等事件进行监听，数据变更后触发对应的注册处理逻辑。
 
 在收到MetaDataRegisterDTO节点变更后，触发selector和rule的数据变更和数据同步事件发布。
 
@@ -101,7 +101,7 @@ Consul的Metadata和URI分两部分存储，URIRegisterDTO随着服务注册记�
 Consul的MetaDataRegisterDTO存在Key/Value里，键值存储结构如下：
 
 ```
-soul
+shenyu
    ├──regsiter
    ├    ├──metadata
    ├    ├     ├──${rpcType}
@@ -110,9 +110,9 @@ soul
 
 ```
 
-Soul-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）分别放在ServiceInstance的Metadata（URIRegisterDTO）和KeyValue（MetaDataRegisterDTO），按照上述方式进行存储。
+Shenyu-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）分别放在ServiceInstance的Metadata（URIRegisterDTO）和KeyValue（MetaDataRegisterDTO），按照上述方式进行存储。
 
-Soul-Admin通过监听Catalog和KeyValue的index的变化，来感知数据的更新和删除，数据变更后触发对应的注册处理逻辑。
+Shenyu-Admin通过监听Catalog和KeyValue的index的变化，来感知数据的更新和删除，数据变更后触发对应的注册处理逻辑。
 
 在收到MetaDataRegisterDTO节点变更后，触发selector和rule的数据变更和数据同步事件发布。
 
@@ -129,7 +129,7 @@ Metadata 使用配置注册方式，没有相关上下线操作，当有URI实�
 URI 实例注册命令规则如下：
 
 ```
-soul.register.service.${rpcType}
+shenyu.register.service.${rpcType}
 ```
 
 初始监听所有的RpcType节点，其下的{contextPath}实例会对应注册到其下，根据IP和Port进行区分，并携带其对应的contextPath信息。
@@ -139,7 +139,7 @@ URI 实例上下线之后，触发selector的upstream的更新和数据同步事
 URI 实例上线时，会发布对应的 Metadata 数据，其节点名称命令规则如下：
 
 ```
-soul.register.service.${rpcType}.${contextPath}
+shenyu.register.service.${rpcType}.${contextPath}
 ```
 
 订阅端会对所有的Metadata配置继续监听，当初次订阅和配置更新后，触发selector和rule的数据变更和数据同步事件发布。
@@ -148,7 +148,7 @@ soul.register.service.${rpcType}.${contextPath}
 
 | *SPI 名称*                       | *详细说明*               |
 | -------------------------------- | --------------------------- |
-| SoulClientRegisterRepository     | Soul网关客户端接入注册服务资源      |
+| ShenyuClientRegisterRepository     | Shenyu网关客户端接入注册服务资源      |
 
 | *已知实现类*                      | *详细说明*               |
 | -------------------------------- | --------------------------- |
@@ -161,11 +161,11 @@ soul.register.service.${rpcType}.${contextPath}
 
 | *SPI 名称*                       | *详细说明*                 |
 | -------------------------------- | ----------------------------- |
-| SoulServerRegisterRepository     | Soul网关客户端注册的后台服务资源      |
+| ShenyuServerRegisterRepository     | Shenyu网关客户端注册的后台服务资源      |
 
 | *已知实现类*                       | *详细说明*                 |
 | -------------------------------- | ----------------------------- |
-| SoulHttpRegistryController       | 使用Http服务接口来处理客户端注册请求        |
+| ShenyuHttpRegistryController       | 使用Http服务接口来处理客户端注册请求        |
 | ZookeeperServerRegisterRepository| 使用Zookeeper来处理客户端注册节点 |
 | EtcdServerRegisterRepository     | 使用etcd来处理客户端注册节点 |
 | ConsulServerRegisterRepository   | 使用consul来处理客户端注册节点 |

@@ -1,6 +1,6 @@
 ---
 title: Register Center Access
-keywords: soul
+keywords: shenyu
 description: register center access
 ---
 
@@ -10,12 +10,12 @@ Explain register center access config
 
 ## HTTP Registry
 
-#### Soul-Admin 
+#### Shenyu-Admin 
 
 * Set the config in application.yml
 
 ```yaml
-soul:
+shenyu:
   register:
     registerType: http
     props:
@@ -24,12 +24,12 @@ soul:
       scheduledTime: 10 # Timed detection interval time
 ```
 
-#### Soul-Client
+#### Shenyu-Client
 
 * Set the config in application.yml
 
 ```yaml
-soul:
+shenyu:
   client:
     registerType: http
     serverLists: http://localhost:9095
@@ -39,23 +39,23 @@ soul:
       port: 8188
       isFull: false
 # registerType : register type, set http
-# serverList: when register type is http，set Soul-Admin address list，pls note 'http://' is necessary.
+# serverList: when register type is http，set Shenyu-Admin address list，pls note 'http://' is necessary.
 # port: your project port number; apply to springmvc/tars/grpc
-# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
 
 ## Zookeeper Registry
 
-#### Soul-Admin 
+#### Shenyu-Admin 
 
 * Add dependency in pom.xml (Default has been added):
 
 ```xml
         <dependency>
             <groupId>org.dromara</groupId>
-            <artifactId>soul-register-server-zookeeper</artifactId>
+            <artifactId>shenyu-register-server-zookeeper</artifactId>
             <version>${project.version}</version>
         </dependency>
 ```
@@ -63,7 +63,7 @@ soul:
 * Set the config in application.yml
 
 ```yaml
-soul:
+shenyu:
   register:
     registerType: zookeeper
     serverLists : localhost:2181
@@ -72,14 +72,14 @@ soul:
       connectionTimeout: 2000
 ```
 
-#### Soul-Client
+#### Shenyu-Client
 
 * Add dependency in pom.xml (Default has been added):
 
 ```xml
         <dependency>
             <groupId>org.dromara</groupId>
-            <artifactId>soul-register-client-zookeeper</artifactId>
+            <artifactId>shenyu-register-client-zookeeper</artifactId>
             <version>${project.version}</version>
         </dependency>
 ```
@@ -87,7 +87,7 @@ soul:
 * Set the config in application.yml
 
 ```yaml
-soul:
+shenyu:
   client:
     registerType: zookeeper
     serverLists: localhost:2181
@@ -99,7 +99,7 @@ soul:
 # registerType : register type, set zookeeper
 # serverList: when register type is zookeeper，set zookeeper address list
 # port: your project port number; apply to springmvc/tars/grpc
-# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
@@ -107,14 +107,14 @@ soul:
 
 ## Etcd Registry
 
-#### Soul-Admin
+#### Shenyu-Admin
 
 * Add dependency in pom.xml (Default has been added):
 
 ```xml
         <dependency>
             <groupId>org.dromara</groupId>
-            <artifactId>soul-register-server-etcd</artifactId>
+            <artifactId>shenyu-register-server-etcd</artifactId>
             <version>${project.version}</version>
         </dependency>
 ```
@@ -122,7 +122,7 @@ soul:
 * Set the config in application.yml
 
 ```yaml
-soul:
+shenyu:
   register:
     registerType: etcd
     serverLists : http://localhost:2379
@@ -131,14 +131,14 @@ soul:
       etcdTTL: 5
 ```
 
-#### Soul-Client
+#### Shenyu-Client
 
 * Add dependency in pom.xml (Default has been added):
 
 ```xml
         <dependency>
             <groupId>org.dromara</groupId>
-            <artifactId>soul-register-client-etcd</artifactId>
+            <artifactId>shenyu-register-client-etcd</artifactId>
             <version>${project.version}</version>
         </dependency>
 ```
@@ -146,7 +146,7 @@ soul:
 * Set the config in application.yml
 
 ```yaml
-soul:
+shenyu:
   client:
     registerType: etcd
     serverLists: http://localhost:2379
@@ -158,22 +158,22 @@ soul:
 # registerType : register type, set etcd 
 # serverList: when register type is etcd, add etcd address list
 # port: your project port number; apply to springmvc/tars/grpc
-# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
 
 ## Consul Registry
 
-#### Soul-Admin 
+#### Shenyu-Admin 
 
 * Add dependency in pom.xml :
 
 ```xml
-               <!--soul-register-server-consul (Default has been added)-->
+               <!--shenyu-register-server-consul (Default has been added)-->
                <dependency>
                    <groupId>org.dromara</groupId>
-                   <artifactId>soul-register-server-consul</artifactId>
+                   <artifactId>shenyu-register-server-consul</artifactId>
                    <version>${project.version}</version>
                </dependency>
 
@@ -188,7 +188,7 @@ soul:
 * Set the config in application.yml, additional need add spring.cloud.consul：
 
 ```yaml
-soul:
+shenyu:
   register:
     registerType: consul
     props:
@@ -199,8 +199,8 @@ spring:
   cloud:
     consul:
       discovery:
-        instance-id: soul-admin-1
-        service-name: soul-admin
+        instance-id: shenyu-admin-1
+        service-name: shenyu-admin
         tags-as-metadata: false
       host: localhost
       port: 8500
@@ -216,7 +216,7 @@ spring:
 
 ```
 
-#### Soul-Client
+#### Shenyu-Client
 
 **Note, consul registry is not compatible with current and SpringCloud will and Eureka / Nacos registry conflicts** 
 
@@ -233,7 +233,7 @@ spring:
 * Set the config in application.yml, additional need add spring.cloud.consul：
 
 ```yaml
-soul:
+shenyu:
   client:
     registerType: consul 
     props:
@@ -246,14 +246,14 @@ spring:
   cloud:
     consul:
       discovery:
-        instance-id: soul-http-1
-        service-name: soul-http
+        instance-id: shenyu-http-1
+        service-name: shenyu-http
       host: localhost
       port: 8500
 
 # registerType : register type, set consul.
 # port: your project port number; apply to springmvc/tars/grpc
-# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc
 # instance-id: Required, Consul needs to find specific services through instance-id.
@@ -264,14 +264,14 @@ spring:
 
 ## Nacos Registry
 
-#### Soul-Admin
+#### Shenyu-Admin
 
 * Add dependency in pom.xml (Default has been added):
 
 ```xml
         <dependency>
             <groupId>org.dromara</groupId>
-            <artifactId>soul-register-server-nacos</artifactId>
+            <artifactId>shenyu-register-server-nacos</artifactId>
             <version>${project.version}</version>
         </dependency>
 ```
@@ -279,22 +279,22 @@ spring:
 * Set the config in application.yml
 
 ```yaml
-soul:
+shenyu:
   register:
     registerType: nacos
     serverLists : localhost:8848
     props:
-      nacosNameSpace: SoulRegisterCenter
+      nacosNameSpace: ShenyuRegisterCenter
 ```
 
-#### Soul-Client
+#### Shenyu-Client
 
 * Add dependency in pom.xml (Default has been added):
 
 ```xml
         <dependency>
             <groupId>org.dromara</groupId>
-            <artifactId>soul-register-client-nacos</artifactId>
+            <artifactId>shenyu-register-client-nacos</artifactId>
             <version>${project.version}</version>
         </dependency>
 ```
@@ -302,7 +302,7 @@ soul:
 * Set the config in application.yml
 
 ```yaml
-soul:
+shenyu:
   client:
     registerType: nacos
     serverLists: localhost:8848
@@ -311,11 +311,11 @@ soul:
       appName: http
       port: 8188  
       isFull: false
-      nacosNameSpace: SoulRegisterCenter
+      nacosNameSpace: ShenyuRegisterCenter
 # registerType : register type, set etcd 
 # serverList: when register type is etcd, add etcd address list
 # port: your project port number; apply to springmvc/tars/grpc
-# contextPath: your project's route prefix through soul gateway, such as /order ，/product etc，gateway will route based on it.
+# contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 # nacosNameSpace: nacos namespace

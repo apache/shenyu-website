@@ -16,7 +16,7 @@ cover: "/img/soul/blog6/01.jpg"
 
 - 在 `soul-admin` –> 插件管理 –> `redirect`，设置为开启。
 - 在 `soul-bootstrap` 项目的 `pom.xml` 文件中添加 `redirect` 的 `maven` 依赖。
-- 在 `soul- admin` 后台设置选择器规则，只有匹配的请求，才会进行转发和重定向，请详细看：[选择器规则](https://dromara.org/zh/projects/soul/selector-and-rule)。
+- 在 `soul- admin` 后台设置选择器规则，只有匹配的请求，才会进行转发和重定向，请详细看：[选择器规则](https://dromara.org/zh/projects/shenyu/selector-and-rule)。
 
 ## Maven 依赖
 

@@ -58,7 +58,7 @@ Hystrix不更新了，Spring提供Netflix Hystrix的替换方案，即Resilence4
 
 
 
-* [soul官网的配置介绍]( https://dromara.org/zh/projects/soul/resilience4j-plugin/)
+* [soul官网的配置介绍]( https://dromara.org/zh/projects/shenyu/resilience4j-plugin/)
 
 ```
 * Resilience4j处理详解：

@@ -2,7 +2,7 @@
 	title = "ShenYu"
 	description = "High-performance, multi-protocol, extensible, responsive API Gateway"
 	quick_start_text = "Quick Start"
-	quick_start_link = "/projects/soul/overview"
+	quick_start_link = "/projects/shenyu/overview"
 	github_link = "https://github.com/dromara"
 
 [[feature]]

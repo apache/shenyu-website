@@ -1,6 +1,6 @@
 ---
 title: Register Center Design
-keywords: soul
+keywords: shenyu
 description: register center design
 ---
 
@@ -16,7 +16,7 @@ When client server start, the register center client will be loaded by spi.
 
 Put data to Disruptor when spring bean load.
 
-Soul register client get data from Disruptor, and it will send request to register server.
+Shenyu register client get data from Disruptor, and it will send request to register server.
 
 Disruptor can decouple data from operation and facilitate expansion.
 
@@ -24,11 +24,11 @@ Disruptor can decouple data from operation and facilitate expansion.
 
 ![](/img/soul/register/server.png)
 
-When Soul-Admin server start, register center server will be loaded by spi. Meanwile Disruptor will be inited too.
+When Shenyu-Admin server start, register center server will be loaded by spi. Meanwile Disruptor will be inited too.
 
-Soul register server get data from register client, and then put then to Disruptor.
+Shenyu register server get data from register client, and then put then to Disruptor.
 
-Soul-Admin Disruptor consumer get data from register server by Disruptor queue,  then save them to database and publish data synchronize event.
+Shenyu-Admin Disruptor consumer get data from register server by Disruptor queue,  then save them to database and publish data synchronize event.
 
 Disruptor can decouple data from operation and buffering.
 
@@ -37,16 +37,16 @@ Disruptor can decouple data from operation and buffering.
 
 Principle of http register center is simple
 
-Call interface of register server when Soul-Client start.
+Call interface of register server when Shenyu-Client start.
 
-Soul-Admin accept request,  then save to database and publish data synchronize event.
+Shenyu-Admin accept request, then save to database and publish data synchronize event.
 
 ## Zookeeper Registry
 
 Zookeeper storage struct is:
 
 ```
-soul
+shenyu
    ├──regsiter
    ├    ├──metadata
    ├    ├     ├──${rpcType}
@@ -59,7 +59,7 @@ soul
    ├    ├     ├               ├──${ip:prot}
 ```
 
-Zookeeper register client will save data to zookeeper when soul client is started.
+Zookeeper register client will save data to zookeeper when shenyu client is started.
 
 Zookeeper register server will keep watching the change of data node.
 
@@ -72,7 +72,7 @@ Trigger selector and upstream update and event will be published, when uri data 
 Etcd storage struct is:
 
 ```
-soul
+shenyu
    ├──regsiter
    ├    ├──metadata
    ├    ├     ├──${rpcType}
@@ -85,7 +85,7 @@ soul
    ├    ├     ├               ├──${ip:prot}
 ```
 
-Etcd register client will save data to etcd when soul client is started.
+Etcd register client will save data to etcd when shenyu client is started.
 
 Etcd register server will keep watching the change of data node.
 
@@ -102,7 +102,7 @@ Consul register client will save URIRegisterDTO to service instance metadata, an
 And Consul register client will save MetaDataRegisterDTO to Key/Value store, storage struct is:
 
 ```
-soul
+shenyu
    ├──regsiter
    ├    ├──metadata
    ├    ├     ├──${rpcType}
@@ -111,7 +111,7 @@ soul
 
 ```
 
-Consul register client will save data to consul when soul client is started.
+Consul register client will save data to consul when shenyu client is started.
 
 Consul register server will keep watching the change of data node.
 
@@ -128,13 +128,13 @@ URI is instance register. URI instance node will be deleted when server is down.
 URI service's instance name will be named like below. Every URI instance has ip, port and contextPath as identifiers.
 
 ```
-soul.register.service.${rpcType}
+shenyu.register.service.${rpcType}
 ```
 
 When URI instance up, it will publish metadata config. It's name like below.
 
 ```
-soul.register.service.${rpcType}.${contextPath}
+shenyu.register.service.${rpcType}.${contextPath}
 ```
 
 Trigger selector and upstream update and event will be published, when URI service up or down.
@@ -145,7 +145,7 @@ Trigger selector and rule data update and event will be published, when metadata
 
 | *SPI Name*                       | *Description*               |
 | -------------------------------- | --------------------------- |
-| SoulClientRegisterRepository     | Soul client register SPI       |
+| ShenyuClientRegisterRepository   | Shenyu client register SPI       |
 
 | *Implementation Class*           | *Description*               |
 | -------------------------------- | --------------------------- |
@@ -158,11 +158,11 @@ Trigger selector and rule data update and event will be published, when metadata
 
 | *SPI Name*                       | *Description*                 |
 | -------------------------------- | ----------------------------- |
-| SoulServerRegisterRepository     | Soul server register SPI      |
+| ShenyuServerRegisterRepository     | Shenyu server register SPI      |
 
 | *Implementation Class*           | *Description*                 |
 | -------------------------------- | ----------------------------- |
-| SoulHttpRegistryController       | Http server repository        |
+| ShenyuHttpRegistryController       | Http server repository        |
 | ZookeeperServerRegisterRepository| Zookeeper server registry repository |
 | EtcdServerRegisterRepository     | Etcd server registry repository |
 | ConsulServerRegisterRepository   | Consul server registry repository |

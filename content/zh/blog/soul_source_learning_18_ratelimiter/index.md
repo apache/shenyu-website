@@ -2,8 +2,8 @@
 title: "ShenYu网关学习RateLimiter插件原理解析"
 author: "百钰"
 description: "ShenYu网关学习RateLimiter插件原理解析"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-30
 cover: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9434447ebc674f58b65c26b65f855181~tplv-k3u1fbpfcp-watermark.image"
 ---

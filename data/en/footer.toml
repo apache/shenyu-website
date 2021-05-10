@@ -4,7 +4,8 @@
 	category = "Resources"
 	link_arr = [
 		["Github", 'https://github.com/dromara'],
-		["Gitee", 'https://gitee.com/dromara'],
+		["Subscribe Mail", 'mailto://dev-subscribe@shenyu.apache.org'],
+		["Mail Archive", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
 		# ["Samples", 'https://github.com/dromara-guides'],
 	]
 

@@ -2,8 +2,8 @@
 title: "ShenYu网关学习Zookeeper数据同步01"
 author: "李权"
 description: "ShenYu网关学习Zookeeper数据同步"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-20
 cover: "/img/architecture/soul-framework.png"
 ---

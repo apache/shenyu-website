@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning SPI"
 author: "zhuming"
 description: "ShenYu Gateway Learning SPI"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-30
 cover: "/img/architecture/soul-framework.png"
 ---

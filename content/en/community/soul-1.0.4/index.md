@@ -2,8 +2,8 @@
 title: "ShenYu Gateway released version 1.0.4-RELEASE"
 author: "xiaoyu"
 description: "ShenYu Gateway released version 1.0.4-RELEASE"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2019-04-09
 cover: "/img/architecture/soul-framework.png"
 ---

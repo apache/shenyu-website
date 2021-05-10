@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning Resilience4j Plugin"
 author: "yanbing"
 description: "ShenYu Gateway Learning Resilience4j Plugin"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-03-22
 cover: "/img/soul/blog6/03.jpg"
 

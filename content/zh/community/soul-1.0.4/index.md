@@ -2,8 +2,8 @@
 title: "ShenYu网关发布1.0.4-RELEASE版本"
 author: "xiaoyu"
 description: "ShenYu网关发布1.0.4-RELEASE版本"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2019-04-09
 cover: "/img/architecture/soul-framework.png"
 ---

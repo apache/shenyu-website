@@ -2,8 +2,8 @@
 title: "ShenYu网关学习Admin源码分析"
 author: "曾林辉"
 description: "ShenYu网关学习Admin源码分析"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-20
 cover: "/img/architecture/soul-framework.png"
 ---

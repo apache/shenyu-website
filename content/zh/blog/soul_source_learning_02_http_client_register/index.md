@@ -2,8 +2,8 @@
 title: "ShenYu网关学习(2-3)Http客户端接入源码解析"
 author: "范金鹏"
 description: "ShenYu网关学习(2-3)Http客户端接入源码解析"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-18
 cover: "/img/architecture/soul-framework.png"
 ---

@@ -2,8 +2,8 @@
 title: "ShenYu网关学习插件链与负载均衡解析"
 author: "朱明"
 description: "ShenYu网关学习插件链与负载均衡解析"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-15
 cover: "/img/architecture/soul-framework.png"
 ---

@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learns Zookeeper Data Synchronization 02"
 author: "liquan"
 description: "ShenYu Gateway Learns Zookeeper Data Synchronization"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-21
 cover: "/img/architecture/soul-framework.png"
 ---

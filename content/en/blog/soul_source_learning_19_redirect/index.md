@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning Redirect Plugin"
 author: "axing"
 description: "ShenYu Gateway Learning Redirect Plugin"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-03-16
 cover: "/img/soul/blog6/01.jpg"
 ---

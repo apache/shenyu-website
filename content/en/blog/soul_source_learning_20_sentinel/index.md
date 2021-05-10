@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning Sentinel Plugin"
 author: "luoxiaolong"
 description: "ShenYu Gateway Learning Sentinel Plugin"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-03-19
 cover: "/img/soul/blog6/02.jpg"
 ---

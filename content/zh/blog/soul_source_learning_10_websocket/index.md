@@ -2,8 +2,8 @@
 title: "ShenYu网关学习WebSocket数据同步解析"
 author: "范金鹏,朱明"
 description: "ShenYu网关学习WebSocket数据同步解析"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-22
 cover: "/img/architecture/soul-framework.png"
 ---

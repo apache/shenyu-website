@@ -2,8 +2,8 @@
 title: "ShenYu网关学习Sign插件"
 author: "唐甜"
 description: "ShenYu网关学习Sign插件"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-29
 cover: "/img/architecture/soul-framework.png"
 ---

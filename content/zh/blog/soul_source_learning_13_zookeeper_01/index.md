@@ -266,4 +266,4 @@ zookeeper 同步数据。
 soul-admin 启动就会同步网关数据 rule、metaData、selector、plugin 等到 zookeeper。数据变化会发布 DataChangedEvent事件，监听事件将数据同步至zookeeper。
 
 
-[ShenYu网关数据同步原理](https://dromara.org/projects/soul/data-sync/)
+[ShenYu网关数据同步原理](https://dromara.org/projects/shenyu/data-sync/)

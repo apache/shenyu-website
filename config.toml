@@ -58,7 +58,7 @@ unsafe = true
 	[[languages.zh.menu.main]]
 		identifier = "document"
 		name = "文档"
-		url = "/zh/projects/soul/overview/"
+		url = "/zh/projects/shenyu/overview/"
 		weight = 2
 	[[languages.zh.menu.main]]
 		identifier = "blog"
@@ -95,7 +95,7 @@ unsafe = true
 	[[menu.main]]
 		identifier = "document"
 		name = "Document"
-		url = "/projects/soul/overview/"
+		url = "/projects/shenyu/overview/"
 		weight = 2
 	[[menu.main]]
 		identifier = "blog"

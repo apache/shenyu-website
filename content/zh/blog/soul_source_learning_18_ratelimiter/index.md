@@ -16,7 +16,7 @@ cover: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9434447ebc674f58b65c26
 
 ### 阅读官方文档 对其有大概认知
 
-<a href="https://dromara.org/zh/projects/soul/rate-limiter-plugin/">rateLimiter插件</a>
+<a href="https://dromara.org/zh/projects/shenyu/rate-limiter-plugin/">rateLimiter插件</a>
 
 通过官方文档的阅读我们得知了**RateLimiterPlugin**的两个核心点**速率、容量**
 

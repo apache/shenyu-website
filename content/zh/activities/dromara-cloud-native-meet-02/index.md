@@ -3,7 +3,7 @@ author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2021-02-06T15:00:00.000Z
 title: "ShenYu 源码01期阅读分享会02"	
-tags: ["Soul", "ShenYu","Reactor"]
+tags: ["ShenYu","Reactor"]
 cover: "/img/activities/dromara-open-soul-03.jpg"
 descripton: "ShenYu源码02期线上分享会，2 月 6 日 20 点至23 点。"
 ---

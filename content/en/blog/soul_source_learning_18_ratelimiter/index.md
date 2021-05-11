@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning RateLimiter Plugin"
 author: "baiyu"
 description: "ShenYu Gateway Learning RateLimiter Plugin"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-30
 cover: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9434447ebc674f58b65c26b65f855181~tplv-k3u1fbpfcp-watermark.image"
 ---

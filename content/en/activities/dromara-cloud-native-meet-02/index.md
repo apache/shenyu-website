@@ -3,7 +3,7 @@ author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2021-02-06T15:00:00.000Z
 title: "ShenYu Source Code 01 Reading Sharing Session 02"	
-tags: ["Soul", "Dromara","Reactor"]
+tags: ["Dromara","Reactor"]
 cover: "/img/activities/dromara-open-soul-03.jpg"
 descripton: "ShenYu source code 02 online sharing session, February 6th from 20:00 to 23:00."
 ---

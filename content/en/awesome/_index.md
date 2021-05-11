@@ -235,5 +235,4 @@ If you want to contribute, you can go to the [projects list](/projects) and find
 
 Please register and let us know so that we can serve you better.
 
-* [soul registration](https://github.com/dromara/soul/issues/68)
-* [hmily registration](https://github.com/dromara/hmily/issues/190)
+* [ShenYu registration](https://github.com/dromara/soul/issues/68)

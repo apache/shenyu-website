@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning Sign Plugin"
 author: "tangtian"
 description: "ShenYu Gateway Learning Sign Plugin"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-29
 cover: "/img/architecture/soul-framework.png"
 ---

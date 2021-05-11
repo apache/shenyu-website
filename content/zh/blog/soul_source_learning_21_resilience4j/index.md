@@ -2,8 +2,8 @@
 title: "ShenYu网关学习Resilience4j插件原理解析"
 author: "闫兵"
 description: "ShenYu网关学习Resilience4j插件原理解析"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-03-22
 cover: "/img/soul/blog6/03.jpg"
 ---

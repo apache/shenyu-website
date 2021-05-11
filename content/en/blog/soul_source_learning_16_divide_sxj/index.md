@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning Divide Plugin Source Code Interpretation"
 author: "shenxiangjun"
 description: "ShenYu Gateway Learning Divide Plugin Source Code Interpretation"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-02-01
 cover: "/img/soul/activite/soul-xmind.png"
 ---

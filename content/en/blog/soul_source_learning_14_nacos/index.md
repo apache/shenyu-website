@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learns Nacos Data Synchronization"
 author: "liquan"
 description: "ShenYu Gateway Learns Nacos Data Synchronization"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-26
 cover: "/img/soul/blog5/ns15.png"
 ---

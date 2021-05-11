@@ -2,8 +2,8 @@
 title: "ShenYu网关学习Nacos数据同步"
 author: "李权"
 description: "ShenYu网关学习Nacos数据同步"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-26
 cover: "/img/soul/blog5/ns15.png"
 ---

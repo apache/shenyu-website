@@ -2,8 +2,8 @@
 title: "ShenYu网关学习Apache Dubbo插件原理解析"
 author: "nuo-promise"
 description: "ShenYu网关学习Apache Dubbo插件原理解析"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-03-23
 cover: "/img/soul/blog8/08.jpg"
 ---

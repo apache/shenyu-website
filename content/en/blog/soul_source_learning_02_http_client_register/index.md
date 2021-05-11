@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning (2) HTTP Client Access Source Code Parsing"
 author: "fanjinpeng"
 description: "ShenYuLearning (2) HTTP Client Access Source Code Parsing"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-18
 cover: "/img/architecture/soul-framework.png"
 ---

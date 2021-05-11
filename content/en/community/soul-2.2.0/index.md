@@ -2,8 +2,8 @@
 title: "【ShenYu gateway version2.2.0 release】Make high-performance gateways so easy!"
 author: "xiaoyu"
 description: "ShenYu released version 2.2.0 with new architecture that makes gateways so easy. "
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2020-06-17
 cover: "/img/architecture/soul-framework.png"
 ---

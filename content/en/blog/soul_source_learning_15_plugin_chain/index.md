@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning Plugin Chain Implementation"
 author: "shenxiangjun"
 description: "ShenYu Gateway Learning Plugin Chain Implementation"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-21
 cover: "/img/soul/blog6/mirco.png"
 ---

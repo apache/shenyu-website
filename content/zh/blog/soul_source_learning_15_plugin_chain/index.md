@@ -2,8 +2,8 @@
 title: "ShenYu网关学习插件链实现"
 author: "沈祥俊"
 description: "ShenYu网关学习插件链实现"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-21
 cover: "/img/soul/blog6/mirco.png"
 ---

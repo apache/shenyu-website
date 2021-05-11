@@ -2,8 +2,8 @@
 title: "How convenient is the 2.1.X version of ShenYu Gateway?"
 author: "xiaoyu"
 description: "How convenient is the 2.1.X version of ShenYu Gateway?"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2019-12-12
 cover: "/img/architecture/soul-framework.png"
 ---

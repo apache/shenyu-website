@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning Admin Source Code Analysis"
 author: "zenglinhui"
 description: "ShenYu Gateway Learning Admin Source Code Analysis"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-20
 cover: "/img/architecture/soul-framework.png"
 ---

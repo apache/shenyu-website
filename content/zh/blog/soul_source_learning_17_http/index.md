@@ -2,8 +2,8 @@
 title: "ShenYu网关学习Http请求探险"
 author: "百钰"
 description: "ShenYu网关学习Http请求探险"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-26
 cover: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d89a3b45058846be94aa0b8935ec1868~tplv-k3u1fbpfcp-watermark.image"
 ---

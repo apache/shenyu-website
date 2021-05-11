@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learns Http Long Polling Analysis 02"
 author: "zhuming"
 description: "ShenYu Gateway Learns Http Long Polling Analysis"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-27
 cover: "/img/architecture/soul-framework.png"
 ---

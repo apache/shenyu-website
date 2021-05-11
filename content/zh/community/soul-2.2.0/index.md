@@ -2,8 +2,8 @@
 title: "【ShenYu网关发布2.2.0】让高性能网关变得如此简单！"
 author: "xiaoyu"
 description: "Soul发布全新的架构2.2.0版本 让网关变得如此简单"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2020-06-17
 cover: "/img/architecture/soul-framework.png"
 ---

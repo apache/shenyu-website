@@ -2,8 +2,8 @@
 title: "ShenYu网关学习SPI学习使用"
 author: "朱明"
 description: "ShenYu网关学习SPI学习使用"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-30
 cover: "/img/architecture/soul-framework.png"
 ---

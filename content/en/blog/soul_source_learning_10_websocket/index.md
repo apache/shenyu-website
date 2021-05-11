@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learns WebSocket Data Synchronization Analysis"
 author: "fanjinpeng,zhuming"
 description: "ShenYu Gateway Learns WebSocket Data Synchronization Analysis"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-22
 cover: "/img/architecture/soul-framework.png"
 ---

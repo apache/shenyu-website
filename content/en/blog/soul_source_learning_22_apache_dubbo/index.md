@@ -2,8 +2,8 @@
 title: "ShenYu Gateway Learning Apache Dubbo Plugin"
 author: "nuo-promise"
 description: "ShenYu Gateway Learning Apache Dubbo Plugin"
-categories: "Soul"
-tags: ["Soul"]
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-03-23
 cover: "/img/soul/blog8/08.jpg"
 ---

@@ -20,4 +20,4 @@ This is an asynchronous, high-performance, cross-language, responsive API gatewa
 
 # Architecture Diagram
 
-![](/img/architecture/soul-framework.png)
+![](/img/architecture/shenyu-framework.png)

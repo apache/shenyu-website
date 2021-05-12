@@ -21,7 +21,7 @@ description: 使用不同的数据同步策略
     ```xml
     <!--shenyu data sync start use websocket-->
     <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
       <version>${last.version}</version>
     </dependency>
@@ -29,7 +29,7 @@ description: 使用不同的数据同步策略
    * 在 springboot的 yml 文件中进行如下配置:
    
   ```yaml
-  shenyu :
+  shenyu:
       sync:
           websocket :
                urls: ws://localhost:9095/websocket
@@ -58,7 +58,7 @@ description: 使用不同的数据同步策略
  ```xml
     <!--shenyu data sync start use zookeeper-->
     <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
         <version>${last.version}</version>
     </dependency>
@@ -67,7 +67,7 @@ description: 使用不同的数据同步策略
    * 在 springboot的 yml 文件中进行如下配置:
    
     ```yaml
-    shenyu :
+    shenyu:
       sync:
         zookeeper:
           url: localhost:2181
@@ -97,7 +97,7 @@ shenyu:
     ```xml
     <!--shenyu data sync start use http-->
     <dependency>
-       <groupId>org.dromara</groupId>
+       <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
         <version>${last.version}</version>
     </dependency>
@@ -106,7 +106,7 @@ shenyu:
    * 在 springboot的 yml 文件中进行如下配置:
    
    ```yaml
-  shenyu :
+  shenyu:
       sync:
           http:
                url: http://localhost:9095
@@ -135,7 +135,7 @@ shenyu:
     ```xml
     <!--shenyu data sync start use nacos-->
       <dependency>
-           <groupId>org.dromara</groupId>
+           <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
             <version>${last.version}</version>
       </dependency>
@@ -144,7 +144,7 @@ shenyu:
     * 在 springboot的 yml 文件中进行如下配置:
    
     ```yaml
-    shenyu :
+    shenyu:
       sync:
          nacos:
               url: localhost:8848

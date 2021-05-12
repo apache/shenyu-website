@@ -1,13 +1,13 @@
 ---
-title: Sofa接入网关
+title: Sofa 接入网关
 keywords: sofa
-description: sofa接入shenyu网关
+description: sofa 接入 shenyu 网关
 ---
 
 ## 说明
 
-* 此篇文章是sofa用户使用sofa插件支持，以及自己的sofa服务接入shenyu网关的教程。
-* 接入前，请正确的启动 `shenyu-admin`以及[搭建环境](../shenyu-set-up) Ok。
+* 此篇文章是 sofa 用户使用 sofa 插件支持，以及自己的 sofa 服务接入 shenyu 网关的教程。
+* 接入前，请正确的启动 `shenyu-admin` 以及[搭建环境](../shenyu-set-up) Ok。
 
 ## 引入网关对sofa支持的插件
 
@@ -37,7 +37,7 @@ description: sofa接入shenyu网关
             <version>4.0.1</version>
         </dependency>
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
             <version>${last.version}</version>
         </dependency>
@@ -53,7 +53,7 @@ description: sofa接入shenyu网关
     * 引入以下依赖
  ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-client-sofa</artifactId>
             <version>${shenyu.version}</version>
         </dependency>
@@ -67,17 +67,17 @@ description: sofa接入shenyu网关
    
  ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-client-sofa</artifactId>
             <version>${project.version}</version>
         </dependency>
    ```
    * 在你的 bean定义的xml文件中新增如下 ：
   ```xml
-        <bean id ="sofaServiceBeanPostProcessor" class ="org.dromara.shenyu.client.sofa.SofaServiceBeanPostProcessor">
+        <bean id ="sofaServiceBeanPostProcessor" class ="org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor">
              <constructor-arg  ref="shenyuRegisterCenterConfig"/>
         </bean>
-        <bean id="shenyuRegisterCenterConfig" class="org.dromara.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
                <property name="registerType" value="http"/>
                <property name="serverList" value="http://localhost:9095"/>
                <property name="props">
@@ -94,7 +94,7 @@ description: sofa接入shenyu网关
 
 * 首先在 `shenyu-admin` 插件管理中，把`sofa` 插件设置为开启。
 
-* 其次在 `sofa ` 插件中配置你的注册地址或者其他注册中心的地址.
+* 其次在 `sofa` 插件中配置你的注册地址或者其他注册中心的地址.
 
 ```yaml
 {"protocol":"zookeeper","register":"127.0.0.1:2181"}
@@ -104,7 +104,7 @@ description: sofa接入shenyu网关
 
 * 你sofa服务实现类的，方法上加上 @ShenyuSofaClient 注解，表示该接口方法注册到网关。
 
-* 启动你的提供者，输出日志 `sofa client register success ` 大功告成，你的sofa接口已经发布到 shenyu网关.如果还有不懂的，可以参考 `shenyu-test-sofa`项目。
+* 启动你的提供者，输出日志 `sofa client register success` 大功告成，你的sofa接口已经发布到 shenyu 网关.如果还有不懂的，可以参考 `shenyu-test-sofa`项目。
 
 ## sofa用户请求以及参数说明
 
@@ -127,7 +127,7 @@ description: sofa接入shenyu网关
 
 * 单个java bean参数类型 （默认）
 * 自定义实现多参数支持：
-  * 在你搭建的网关项目中，新增一个类 A，实现 `org.dromara.shenyu.plugin.api.sofa.SofaParamResolveService`。
+  * 在你搭建的网关项目中，新增一个类 A，实现 `org.apache.shenyu.plugin.api.sofa.SofaParamResolveService`。
 
  ```java
     public interface SofaParamResolveService {

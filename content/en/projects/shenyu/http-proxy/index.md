@@ -17,13 +17,13 @@ description: Integrate Http with shenyu gateway
 ```xml
   <!--if you use http proxy start this-->
    <dependency>
-       <groupId>org.dromara</groupId>
+       <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
        <version>${last.version}</version>
    </dependency>
 
    <dependency>
-       <groupId>org.dromara</groupId>
+       <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
        <version>${last.version}</version>
    </dependency>
@@ -43,7 +43,7 @@ description: Integrate Http with shenyu gateway
     
     ```xml
          <dependency>
-             <groupId>org.dromara</groupId>
+             <groupId>org.apache.shenyu</groupId>
              <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
              <version>${last.version}</version>
          </dependency>
@@ -57,7 +57,7 @@ description: Integrate Http with shenyu gateway
     
     ```xml
            <dependency>
-               <groupId>org.dromara</groupId>
+               <groupId>org.apache.shenyu</groupId>
                <artifactId>shenyu-client-springmvc</artifactId>
                <version>${last.version}</version>
            </dependency>
@@ -65,11 +65,11 @@ description: Integrate Http with shenyu gateway
   * Inject these properties into your Spring beans XML file:   
 
     ```xml
-        <bean id ="springMvcClientBeanPostProcessor" class ="org.dromara.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
+        <bean id ="springMvcClientBeanPostProcessor" class ="org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
              <constructor-arg  ref="shenyuRegisterCenterConfig"/>
         </bean>
         
-        <bean id="shenyuRegisterCenterConfig" class="org.dromara.shenyu.register.common.config.ShenyuRegisterCenterConfig;">
+        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig;">
              <property name="registerType" value="http"/>
              <property name="serverList" value="http://localhost:9095"/>
              <property name="props">

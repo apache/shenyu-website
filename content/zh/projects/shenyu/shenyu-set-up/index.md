@@ -6,31 +6,31 @@ description: 环境搭建
 
 ## 说明
 
-* shenyu 2.2.0以后都是基于插件化可插拔的思想，本文是说明如何基于shenyu搭建属于你自己网关。
-* 请确保你的机器安装了JDK 1.8+，Mysql 5.5.20 + 。
+* shenyu 2.2.0 以后都是基于插件化可插拔的思想，本文是说明如何基于 shenyu 搭建属于你自己网关。
+* 请确保你的机器安装了 JDK 1.8+，Mysql 5.5.20 +。
 
 ## 启动 Shenyu-Admin
 
 ### 远程下载
 
-* [2.3.0](https://github.com/dromara/shenyu/releases/tag/2.3.0) 下载 `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`
+* [2.3.0](https://github.com/dromara/soul/releases/tag/2.3.0) 下载 `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`
 
 * 解压缩 `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`。 进入 bin 目录。
 
 * 使用 `h2` 来存储后台数据
 
 ```
-> windwos : start.bat --spring.profiles.active = h2
+> windows: start.bat --spring.profiles.active = h2
 
-> linux : ./start.sh --spring.profiles.active = h2
+> linux: ./start.sh --spring.profiles.active = h2
 ```
 
-* 使用 `mysql` 来存储后台数据。 进入 `/conf` 目录，修改 `application.yaml` 中`mysql` 的配置。
+* 使用 `mysql` 来存储后台数据。 进入 `/conf` 目录，修改 `application.yaml` 中 `mysql` 的配置。
 
 ```
-> windwos : start.bat 
+> windows: start.bat 
 
-> linux : ./start.sh 
+> linux: ./start.sh 
 ```
 
 ### docker构建
@@ -59,7 +59,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysq
 
 另外一种方式，可以挂载你本地磁盘其他目录
 
-把你的`application.yml`配置放到xxx目录， 然后执行以下语句。
+把你的 `application.yml` 配置放到xxx目录， 然后执行以下语句。
 
 ```
 docker run -v D:\tmp\conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu dromara/shenyu-admin
@@ -92,7 +92,7 @@ docker run -v D:\tmp\conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu d
 
 ### 远程下载
 
-* [2.3.0](https://github.com/dromara/shenyu/releases/tag/2.3.0) 下载 `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`
+* [2.3.0](https://github.com/dromara/soul/releases/tag/2.3.0) 下载 `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`
 
 * 解压缩 `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`。 进入 bin 目录。
 
@@ -127,7 +127,7 @@ docker run -v D:\tmp\conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu d
 
 ## 搭建自己的网关（推荐）
 
-* 首先你新建一个空的springboot项目，可以参考 shenyu-bootstrap. 也可以在spring官网:[https://spring.io/quickstart]
+* 首先你新建一个空的 springboot 项目，可以参考 shenyu-bootstrap. 也可以在 spring 官网:[https://spring.io/quickstart]
 
 * 引入如下jar包：
 
@@ -146,14 +146,14 @@ docker run -v D:\tmp\conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu d
 
   <!--shenyu gateway start-->
   <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
         <version>${last.version}</version>
   </dependency>
   
    <!--shenyu data sync start use websocket-->
    <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
         <version>${last.version}</version>
    </dependency>
@@ -169,10 +169,10 @@ management:
   health:
     defaults:
       enabled: false
-shenyu :
+shenyu:
   sync:
     websocket :
-      urls: ws://localhost:9095/websocket  //设置成你的shenyu-admin地址
+      urls: ws://localhost:9095/websocket  //设置成你的 shenyu-admin 地址
 ```
 * 你的项目环境搭建完成，启动你的项目。
 

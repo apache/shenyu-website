@@ -17,11 +17,11 @@ description: Integrate dubbo with shenyu gateway
 ```xml
 <!--shenyu alibaba dubbo plugin start-->
 <dependency>
-  <groupId>org.dromara</groupId>
+  <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
   <version>${last.version}</version>
 </dependency>
-<!-- shenyu  alibaba dubbo plugin end-->
+<!-- shenyu alibaba dubbo plugin end-->
 <dependency>
   <groupId>com.alibaba</groupId>
   <artifactId>dubbo</artifactId>
@@ -48,7 +48,7 @@ description: Integrate dubbo with shenyu gateway
 ```xml
 <!--shenyu apache dubbo plugin start-->
 <dependency>
-   <groupId>org.dromara</groupId>
+   <groupId>org.apache.shenyu</groupId>
    <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
    <version>${last.version}</version>
 </dependency>
@@ -100,7 +100,7 @@ description: Integrate dubbo with shenyu gateway
        * Add these dependencies:
         ```xml
         <dependency>
-             <groupId>org.dromara</groupId>
+             <groupId>org.apache.shenyu</groupId>
              <artifactId>shenyu-spring-boot-starter-client-alibaba-dubbo</artifactId>
              <version>${last.version}</version>
         </dependency>
@@ -112,7 +112,7 @@ description: Integrate dubbo with shenyu gateway
        * Add these dependencies：
        ```xml
           <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-client-alibaba-dubbo</artifactId>
             <version>${last.version}</version>
          </dependency>
@@ -120,11 +120,11 @@ description: Integrate dubbo with shenyu gateway
        * Inject these properties into your Sping beans XML file：      
     
        ```xml
-       <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
+       <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
             <constructor-arg  ref="shenyuRegisterCenterConfig"/>
        </bean>
     
-       <bean id="shenyuRegisterCenterConfig" class="org.dromara.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+       <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
           <property name="registerType" value="http"/>
           <property name="serverList" value="http://localhost:9095"/>
           <property name="props">
@@ -143,7 +143,7 @@ description: Integrate dubbo with shenyu gateway
      * Add these dependencies:
      ```xml
      <dependency>
-          <groupId>org.dromara</groupId>
+          <groupId>org.apache.shenyu</groupId>
           <artifactId>shenyu-spring-boot-starter-client-apache-dubbo</artifactId>
           <version>${last.version}</version>
      </dependency>
@@ -154,7 +154,7 @@ description: Integrate dubbo with shenyu gateway
      * Add these dependencies:
      ```xml
        <dependency>
-           <groupId>org.dromara</groupId>
+           <groupId>org.apache.shenyu</groupId>
            <artifactId>shenyu-client-apache-dubbo</artifactId>
            <version>${last.version}</version>
         </dependency>
@@ -162,11 +162,11 @@ description: Integrate dubbo with shenyu gateway
 
      * Injecct these properties into your Spring beans XML file:
     ```xml
-    <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
+    <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
        <constructor-arg  ref="shenyuRegisterCenterConfig"/>
     </bean>
     
-    <bean id="shenyuRegisterCenterConfig" class="org.dromara.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+    <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
        <property name="registerType" value="http"/>
        <property name="serverList" value="http://localhost:9095"/>
        <property name="props">
@@ -222,7 +222,7 @@ shenyu:
 ```
 
 * Support for customized multi-parameter type
-* Create a new implementation class A in your gateway project of `org.dromara.shenyu.web.dubbo.DubboParamResolveService`.
+* Create a new implementation class A in your gateway project of `org.apache.shenyu.web.dubbo.DubboParamResolveService`.
   
 ```java
 public interface DubboParamResolveService {

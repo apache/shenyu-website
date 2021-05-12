@@ -6,10 +6,10 @@ description: sofa access shenyu gateway
 
 ## Description
 
-* This article is about sofa users using sofa plug-in support,and the tutorial of connecting your own sofa service to the shenyu gateway.
+* This article is about sofa users using sofa plugin support,and the tutorial of connecting your own sofa service to the shenyu gateway.
 * Before connecting, please start `shenyu-admin` correctly and [Setup Environment](../shenyu-set-up) Ok。
 
-## Introduce the plug-in that the gateway supports for sofa
+## Introduce the plugin that the gateway supports for sofa
 
 * Add the following dependencies in the gateway's `pom.xml` file：
 * Replace the sofa version with yours, and replace the jar package in the registry with yours, The following is a reference。
@@ -36,7 +36,7 @@ description: sofa access shenyu gateway
     <version>4.0.1</version>
 </dependency>
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
     <version>${last.version}</version>
 </dependency>
@@ -51,7 +51,7 @@ description: sofa access shenyu gateway
     * Introduce the following dependencies :
  ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-client-sofa</artifactId>
             <version>${shenyu.version}</version>
         </dependency>
@@ -64,7 +64,7 @@ description: sofa access shenyu gateway
    * Introduce the following dependencies:
  ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-client-sofa</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -72,11 +72,11 @@ description: sofa access shenyu gateway
    * Add the following in the xml file of your bean definition:
    
   ```xml
-        <bean id ="sofaServiceBeanPostProcessor" class ="org.dromara.shenyu.client.sofa.SofaServiceBeanPostProcessor">
+        <bean id ="sofaServiceBeanPostProcessor" class ="org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor">
              <constructor-arg  ref="shenyuRegisterCenterConfig"/>
         </bean>
 
-     <bean id="shenyuRegisterCenterConfig" class="org.dromara.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+     <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
        <property name="registerType" value="http"/>
        <property name="serverList" value="http://localhost:9095"/>
        <property name="props">
@@ -125,7 +125,7 @@ description: sofa access shenyu gateway
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:
-* In the gateway project you built，add a new class A，implements org.dromara.shenyu.plugin.api.sofa.SofaParamResolveService。
+* In the gateway project you built，add a new class A，implements org.apache.shenyu.plugin.api.sofa.SofaParamResolveService。
 
  ```java
     public interface SofaParamResolveService {

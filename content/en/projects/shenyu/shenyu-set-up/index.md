@@ -139,14 +139,14 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
 
   <!--shenyu gateway start-->
   <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
         <version>${last.version}</version>
   </dependency>
   
    <!--shenyu data sync start use websocket-->
    <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
         <version>${last.version}</version>
    </dependency>
@@ -163,7 +163,7 @@ management:
   health:
     defaults:
       enabled: false
-shenyu :
+shenyu:
   sync:
     websocket :
       urls: ws://localhost:9095/websocket  //设置成你的shenyu-admin地址

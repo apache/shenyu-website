@@ -19,13 +19,13 @@ description: SpringCloud接入Shenyu网关
 ```xml
   <!--shenyu springCloud plugin start-->
   <dependency>
-       <groupId>org.dromara</groupId>
+       <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
         <version>${last.version}</version>
   </dependency>
 
   <dependency>
-       <groupId>org.dromara</groupId>
+       <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
        <version>${last.version}</version>
    </dependency>
@@ -96,7 +96,7 @@ description: SpringCloud接入Shenyu网关
 
 ```xml
  <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-client-springcloud</artifactId>
       <version>${last.version}</version>
  </dependency>

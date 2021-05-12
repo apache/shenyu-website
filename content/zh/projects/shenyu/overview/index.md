@@ -19,4 +19,4 @@ description: Shenyu是一个异步的，高性能的，跨语言的，响应式�
 
 ## 架构图
 
-![](/img/architecture/soul-framework.png)
+![](/img/architecture/shenyu-framework.png)

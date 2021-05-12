@@ -19,7 +19,7 @@ description: use different data-sync strategy
     ```xml
     <!--shenyu data sync start use websocket-->
     <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
       <version>${last.version}</version>
     </dependency>
@@ -27,7 +27,7 @@ description: use different data-sync strategy
    * add these config values in springboot yaml file:
     
     ```yaml
-    shenyu :
+    shenyu:
       sync:
           websocket :
                urls: ws://localhost:9095/websocket
@@ -155,7 +155,7 @@ description: use different data-sync strategy
       # url: config with your nacos address, pls use (,) to split your cluster environment.
       # other configure，pls refer to the naocs website.
      ```
-    * shenyu-admin config: passing values one by one with '--' operator in the shenyu-Admin startup parameter.
+    * shenyu-admin config: passing values one by one with '--' operator in the shenyu-admin startup parameter.
 
     ```yaml
     shenyu :

@@ -97,7 +97,7 @@ description: dubbo接入shenyu网关
 
 * 重启网关服务。
 
-## dubbo服务接入网关，可以参考：[shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
+## dubbo服务接入网关，可以参考：[shenyu-examples-dubbo](https://github.com/dromara/soul/tree/master/shenyu-examples/shenyu-examples-dubbo)
 
  * alibaba dubbo 用户
 
@@ -129,11 +129,11 @@ description: dubbo接入shenyu网关
         * 在你的 bean定义的xml文件中新增如下 ：
         
         ```xml
-        <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
+        <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
            <constructor-arg  ref="shenyuRegisterCenterConfig"/>
         </bean>
         
-        <bean id="shenyuRegisterCenterConfig" class="org.dromara.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
                <property name="registerType" value="http"/>
                <property name="serverList" value="http://localhost:9095"/>
                <property name="props">
@@ -178,11 +178,11 @@ description: dubbo接入shenyu网关
      * 在你的 bean定义的xml文件中新增如下 ：
 
         ```xml
-          <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
+          <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
                <constructor-arg  ref="shenyuRegisterCenterConfig"/>
           </bean>
         
-          <bean id="shenyuRegisterCenterConfig" class="org.dromara.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+          <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
                <property name="registerType" value="http"/>
                <property name="serverList" value="http://localhost:9095"/>
                <property name="props">
@@ -207,9 +207,9 @@ description: dubbo接入shenyu网关
 
 ## 接口注册到网关
 
-* 你dubbo服务实现类的，方法上加上 `@SoulDubboClient` 注解，表示该接口方法注册到网关。
+* 你dubbo服务实现类的，方法上加上 `@ShenyuDubboClient` 注解，表示该接口方法注册到网关。
 
-* 启动你的提供者，输出日志 `dubbo client register success ` 大功告成，你的dubbo接口已经发布到 shenyu网关.如果还有不懂的，可以参考 `shenyu-test-dubbo`项目。
+* 启动你的提供者，输出日志 `dubbo client register success ` 大功告成，你的dubbo接口已经发布到shenyu网关.如果还有不懂的，可以参考 `shenyu-test-dubbo`项目。
 
 ## dubbo用户请求以及参数说明
 
@@ -230,21 +230,21 @@ description: dubbo接入shenyu网关
 
    * 通过 http post 方式访问网关，通过body，json类型传递。
 
-   * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
+   * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/dromara/soul/tree/master/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
 
 * 单个java bean参数类型 （默认）
 
 * 多参数类型支持，在网关的yaml 配置中新增如下配置：
 
 ```yaml
-shenyu :
-    dubbo :
+shenyu:
+    dubbo:
       parameter: multi
 ```
 
 * 自定义实现多参数支持:
 
-  * 在你搭建的网关项目中，新增一个类 A，实现 `org.dromara.shenyu.web.dubbo.DubboParamResolveService`。
+  * 在你搭建的网关项目中，新增一个类 A，实现 `org.apache.shenyu.web.dubbo.DubboParamResolveService`。
 
     ```java
     public interface DubboParamResolveService {
@@ -280,22 +280,22 @@ shenyu :
 * 标签路由
     * 请求时在header中添加`Dubbo_Tag_Route`，并设置对应的值，之后当前请求就会路由到指定tag的provider，只对当前请求有效；
 * 服务提供者直连
-    * 设置`@SoulDubboClient`注解中的`url`属性；
+    * 设置`@ShenyuDubboClient`注解中的`url`属性；
     * 修改Admin控制台修改元数据内的url属性；
     * 对所有请求有效；
 * 参数验证和自定义异常
     * 指定`validation="shenyuValidation"`;
-    * 在接口中抛出`SoulException`时，异常信息会返回，需要注意的是显式抛出`SoulException`；
+    * 在接口中抛出`ShenyuException`时，异常信息会返回，需要注意的是显式抛出`ShenyuException`；
     
     ```java
     @Service(validation = "shenyuValidation")
     public class TestServiceImpl implements TestService {
     
         @Override
-        @SoulDubboClient(path = "/test", desc = "test method")
-        public String test(@Valid HelloServiceRequest name) throws SoulException {
+        @ShenyuDubboClient(path = "/test", desc = "test method")
+        public String test(@Valid HelloServiceRequest name) throws ShenyuException {
             if (true){
-                throw new SoulException("Param binding error.");
+                throw new ShenyuException("Param binding error.");
             }
             return "Hello " + name.getName();
         }
@@ -365,7 +365,7 @@ shenyu :
 
 * 说白了，就是把http请求，转成dubbo协议，内部使用dubbo泛化来进行调用。
 
-* 首先你要回想下，你的dubbo服务在接入网关的时候，是不是加了个 `@SoulDubboClient` 注解，里面是不是有个path字段来指定你请求的路径？
+* 首先你要回想下，你的dubbo服务在接入网关的时候，是不是加了个 `@ShenyuDubboClient` 注解，里面是不是有个path字段来指定你请求的路径？
 
 * 你是不是还在yml中配置了一个 `contextPath`?
 
@@ -375,7 +375,7 @@ shenyu :
 
 ```java
 @Override
-@SoulDubboClient(path = "/insert", desc = "插入一条数据")
+@ShenyuDubboClient(path = "/insert", desc = "插入一条数据")
 public DubboTest insert(final DubboTest dubboTest) {
     return dubboTest;
 }

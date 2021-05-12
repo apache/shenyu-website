@@ -7,8 +7,8 @@ description: springCloud with shenyu gateway
 ## Features
 
 * This article is a guide about how to integrate Spring Cloud with shenyu gateway quickly.
-* Please enable `springCloud` plug-in in shenyu-admin background.
-* Please start `shenyu-admin` successfully before integrating and [Environment Setup](../shenyu-set-up) is Ok.
+* Please enable `springCloud` plugin in shenyu-admin background.
+* Please start `shenyu-admin` successfully before integrating and [Environment Setup](../soul-set-up) is Ok.
 
 ## Configure shenyu gateway as Spring Cloud proxy
 
@@ -17,7 +17,7 @@ description: springCloud with shenyu gateway
 ```xml
 <!--shenyu springCloud plugin start-->
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
     <version>${last.version}</version>
 </dependency>
@@ -88,7 +88,7 @@ description: springCloud with shenyu gateway
 
 ```xml
  <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-client-springcloud</artifactId>
       <version>${last.version}</version>
  </dependency>

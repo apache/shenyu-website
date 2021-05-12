@@ -91,7 +91,7 @@ public class WebsocketSyncCache extends WebsocketCacheHandler {
 
 ## Http长轮询
 
-zookeeper、websocket 数据同步的机制比较简单，而 http 同步会相对复杂一些。Shenyu 借鉴了 `Apollo`、`Nacos` 的设计思想，取其精华，自己实现了 `http` 长轮询数据同步功能。注意，这里并非传统的 ajax 长轮询！
+zookeeper、websocket 数据同步的机制比较简单，而 http Shenyu 借鉴了 `Apollo`、`Nacos` 的设计思想，取其精华，自己实现了 `http` 长轮询数据同步功能。注意，这里并非传统的 ajax 长轮询！
 
 ![http长轮询](https://bestkobe.gitee.io/images/soul/http-long-polling.png?_t=201908032339)
 

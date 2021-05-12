@@ -66,11 +66,11 @@ description: http用户
   * 在你的 bean定义的xml文件中新增如下：  
   
      ```xml
-        <bean id ="springMvcClientBeanPostProcessor" class ="org.dromara.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
+        <bean id ="springMvcClientBeanPostProcessor" class ="org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
              <constructor-arg  ref="shenyuRegisterCenterConfig"/>
         </bean>
         
-        <bean id="shenyuRegisterCenterConfig" class="org.dromara.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
              <property name="registerType" value="http"/>
              <property name="serverList" value="http://localhost:9095"/>
              <property name="props">

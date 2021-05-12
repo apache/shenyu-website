@@ -7,7 +7,7 @@ description: plugin handle explanation
 ## Explanation
 
 * In our Shenyu-Admin background, each plugin uses the Handle field to represent a different processing, and plugin processing is used to manage and edit custom processing fields in JSON.
-* This feature is mainly used to support the plug-in handling template configuration
+* This feature is mainly used to support the plugin handling template configuration
 
 ## Table Design
 
@@ -36,10 +36,12 @@ Configure the corresponding entity class as follows:
 
 ```java
     public class SpringCloudRuleHandle implements RuleHandle {
+    
         /**
          * this remote uri path.
          */
         private String path;
+    
         /**
          * timeout is required.
          */
@@ -58,7 +60,7 @@ Configure the corresponding entity class as follows:
 
 ![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
 
-_Note: If data_type is configured to be `3` `selection box`, the input field drop-down selection on the new rule page is displayed by going to the [shenyu_dict](shenyu-dict.md) table to find all the options available_
+_Note: If data_type is configured to be `3` `selection box`, the input field drop-down selection on the new rule page is displayed by going to the [shenyu_dict](../dictionary-management) table to find all the options available_
 
 * The Sentinel plug-in, for example, is shown below:
 

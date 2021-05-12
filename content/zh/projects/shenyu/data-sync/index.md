@@ -28,7 +28,7 @@ description: 数据同步设计
 
 *动态配置更新？每次我查数据库，或者redis不就行了吗？拿到的就是最新的，哪里那么多事情呢？*
 
-shenyu作为网关，为了提供更高的响应速度，所有的配置都缓存在JVM的Hashmap中，每次请求都走的本地缓存，速度非常快。所以本文也可以理解为分布式环境中，内存同步的三种方式。
+shenyu 作为网关，为了提供更高的响应速度，所有的配置都缓存在JVM的Hashmap中，每次请求都走的本地缓存，速度非常快。所以本文也可以理解为分布式环境中，内存同步的三种方式。
 
 ## 原理分析
 
@@ -44,7 +44,7 @@ shenyu作为网关，为了提供更高的响应速度，所有的配置都缓�
 - 如果是 `http` 同步策略，`shenyu-web` 主动发起长轮询请求，默认有 90s 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 http 请求，如果有数据发生变更则响应变更的数据信息，如果超过 60s 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 http 请求，反复同样的请求
   ![Shenyu配置同步策略流程图](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
 
-## Zookeeper同步
+## Zookeeper 同步
 
 基于 zookeeper 的同步原理很简单，主要是依赖 `zookeeper` 的 watch 机制，`shenyu-web` 会监听配置的节点，`shenyu-admin` 在启动的时候，会将数据全量写入 `zookeeper`，后续数据发生变更时，会增量更新 `zookeeper` 的节点，与此同时，`shenyu-web` 会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
@@ -52,7 +52,7 @@ shenyu作为网关，为了提供更高的响应速度，所有的配置都缓�
 
 `shenyu` 将配置信息写到zookeeper节点，是通过精细设计的。
 
-## Websocket同步
+## Websocket 同步
 
 `websocket` 和 `zookeeper` 机制有点类似，将网关与 `admin` 建立好 `websocket` 连接时，`admin` 会推送一次全量数据，后续如果配置数据发生变更，则将增量数据通过 `websocket` 主动推送给 `shenyu-web`
 
@@ -163,10 +163,10 @@ class DataChangeTask implements Runnable {
 
 github: https://github.com/Dromara/shenyu
 
-gitee:  https://gitee.com/dromara/shenyu
+gitee: https://gitee.com/dromara/shenyu
 
 项目主页上还有视频教程，有需要的朋友可以去观看。
 
 ## 最后
 
-此文介绍了`shenyu`作为一个高可用的微服务网关，为了优化响应速度，在对配置、规则、选择器数据进行本地缓存的三种方式，学了此文，我相信你对现在比较流行的配置中心有了一定的了解，看他们的代码也许会变得容易，我相信你也可以自己写一个分布式配置中心出来。3.0版本已经在规划中，肯定会给大家带来惊喜。
+此文介绍了`shenyu` 作为一个高可用的微服务网关，为了优化响应速度，在对配置、规则、选择器数据进行本地缓存的三种方式，学了此文，我相信你对现在比较流行的配置中心有了一定的了解，看他们的代码也许会变得容易，我相信你也可以自己写一个分布式配置中心出来。3.0版本已经在规划中，肯定会给大家带来惊喜。

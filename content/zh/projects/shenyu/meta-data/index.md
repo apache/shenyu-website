@@ -6,7 +6,7 @@ description: 元数据概念设计
 
 ## 说明
 
-* 本篇主要讲解在shenyu网关中元数据的概念，设计，以及如何对接。
+* 本篇主要讲解在 shenyu 网关中元数据的概念，设计，以及如何对接。
 
 ## 技术方案
 
@@ -32,13 +32,13 @@ CREATE TABLE  IF NOT EXISTS `meta_data` (
 
 ```
 
-* 元数据设计，目前最主要的是对dubbo的泛化调用上进行使用。
+* 元数据设计，目前最主要的是对 dubbo 的泛化调用上进行使用。
 
-* 我重点讲一下 `path` 字段，在请求网关的时候，会根据你的path字段来匹配到一条数据，然后进行后续的流程.
+* 我重点讲一下 `path` 字段，在请求网关的时候，会根据你的 path 字段来匹配到一条数据，然后进行后续的流程。
 
-* 重点讲一下 `rpc_ext`字段，如果是dubbo类型的服务接口，如果服务接口设置了group和version字段的时候，会存在这个字段。
+* 重点讲一下 `rpc_ext`字段，如果是 dubbo 类型的服务接口，如果服务接口设置了 group 和 version 字段的时候，会存在这个字段。
 
-* dubbo 类型 字段结构是 如下，那么存储的就是json格式的字符串。
+* dubbo 类型 字段结构是 如下，那么存储的就是 json 格式的字符串。
 
   ```java
    public static class RpcExt {  
@@ -52,10 +52,10 @@ CREATE TABLE  IF NOT EXISTS `meta_data` (
 
 ## 元数据存储
 
-* 每个dubbo接口方法，对应一条元数据。
+* 每个 dubbo 接口方法，对应一条元数据。
 
-* springcloud协议，只会存储一条数据， path为 `/contextPath/**`。
+* springcloud 协议，只会存储一条数据， path为 `/contextPath/**`。
 
-* http服务，则不会有任何数据。
+* http 服务，则不会有任何数据。
 
 

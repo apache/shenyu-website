@@ -7,7 +7,7 @@ description: sofa 接入 shenyu 网关
 ## 说明
 
 * 此篇文章是 sofa 用户使用 sofa 插件支持，以及自己的 sofa 服务接入 shenyu 网关的教程。
-* 接入前，请正确的启动 `shenyu-admin` 以及[搭建环境](../soul-set-up) Ok。
+* 接入前，请正确的启动 `shenyu-admin` 以及[搭建环境](../shenyu-set-up) Ok。
 
 ## 引入网关对sofa支持的插件
 

@@ -7,7 +7,7 @@ description: sofa access shenyu gateway
 ## Description
 
 * This article is about sofa users using sofa plugin support,and the tutorial of connecting your own sofa service to the shenyu gateway.
-* Before connecting, please start `shenyu-admin` correctly and [Setup Environment](../soul-set-up) Ok。
+* Before connecting, please start `shenyu-admin` correctly and [Setup Environment](../shenyu-set-up) Ok。
 
 ## Introduce the plugin that the gateway supports for sofa
 

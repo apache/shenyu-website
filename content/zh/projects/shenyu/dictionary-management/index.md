@@ -27,10 +27,8 @@ CREATE TABLE IF NOT EXISTS `shenyu_dict` (
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-* 目前使用场景是插件处理配置data_type=3下拉框时使用 
+* 目前使用场景是插件处理配置 data_type=3 下拉框时使用 
 
-假如sentinel插件处理字段中的degradeRuleGrade
-
-那么新增规则时，编辑degradeRuleGrade字段时会自动从字典表查出type=degradeRuleGrade的所有字典作为下拉选项。
+假如 sentinel 插件处理字段中的 degradeRuleGrade， 那么新增规则时，编辑 degradeRuleGrade 字段时会自动从字典表查出 type=degradeRuleGrade 的所有字典作为下拉选项。
 
 

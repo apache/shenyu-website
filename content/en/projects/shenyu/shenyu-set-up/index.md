@@ -163,7 +163,7 @@ management:
   health:
     defaults:
       enabled: false
-shenyu :
+shenyu:
   sync:
     websocket :
       urls: ws://localhost:9095/websocket  //设置成你的shenyu-admin地址

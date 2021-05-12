@@ -1,13 +1,13 @@
 ---
-title: Dubbo接入shenyu网关
+title: Dubbo 接入 shenyu 网关
 keywords: shenyu
-description: dubbo接入shenyu网关
+description: dubbo 接入shenyu 网关
 ---
 
 
 ## 说明
 
-* 此篇文章是dubbo用户使用dubbo插件支持，以及自己的dubbo服务接入shenyu网关的教程。
+* 此篇文章是 dubbo 用户使用 dubbo 插件支持，以及自己的 dubbo 服务接入 shenyu 网关的教程。
 * 支持 alibaba dubbo（< 2.7.x） 以及 apache dubbo (>=2.7.x)。
 * 接入前，请正确的启动 `shenyu-admin`，以及[搭建环境](../shenyu-set-up) Ok。
 
@@ -15,12 +15,12 @@ description: dubbo接入shenyu网关
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
 
-  * alibaba dubbo 用户, dubbo版本换成你的，注册中心的jar包换成你的，以下是参考。
+  * alibaba dubbo 用户, dubbo 版本换成你的，注册中心的 jar 包换成你的，以下是参考。
 
     ```xml
     <!--shenyu alibaba dubbo plugin start-->
     <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
        <version>${last.version}</version>
     </dependency>
@@ -47,12 +47,12 @@ description: dubbo接入shenyu网关
     </dependency>
     ```
 
-  * apache dubbo 用户，dubbo版本换成你的，使用什么注册中心换成你的,以下是参考,使用什么注册中心，就引入啥。
+  * apache dubbo 用户，dubbo 版本换成你的，使用什么注册中心换成你的, 以下是参考≥≥使用什么注册中心，就引入啥。
 
     ```xml
     <!--shenyu apache dubbo plugin start-->
     <dependency>
-       <groupId>org.dromara</groupId>
+       <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
        <version>${last.version}</version>
     </dependency>
@@ -97,7 +97,7 @@ description: dubbo接入shenyu网关
 
 * 重启网关服务。
 
-## dubbo服务接入网关，可以参考：[shenyu-examples-dubbo](https://github.com/dromara/soul/tree/master/shenyu-examples/shenyu-examples-dubbo)
+## dubbo 服务接入网关，可以参考：[shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
 
  * alibaba dubbo 用户
 
@@ -107,7 +107,7 @@ description: dubbo接入shenyu网关
         
         ```xml
         <dependency>
-             <groupId>org.dromara</groupId>
+             <groupId>org.apache.shenyu</groupId>
              <artifactId>shenyu-spring-boot-starter-client-alibaba-dubbo</artifactId>
              <version>${last.version}</version>
         </dependency>
@@ -121,12 +121,12 @@ description: dubbo接入shenyu网关
         
         ```xml
         <dependency>
-           <groupId>org.dromara</groupId>
+           <groupId>org.apache.shenyu</groupId>
            <artifactId>shenyu-client-alibaba-dubbo</artifactId>
            <version>${last.version}</version>
         </dependency>
         ```
-        * 在你的 bean定义的xml文件中新增如下 ：
+        * 在你的 bean 定义的 xml 文件中新增如下 ：
         
         ```xml
         <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
@@ -155,7 +155,7 @@ description: dubbo接入shenyu网关
 
          ```xml
         <dependency>
-             <groupId>org.dromara</groupId>
+             <groupId>org.apache.shenyu</groupId>
              <artifactId>shenyu-spring-boot-starter-client-apache-dubbo</artifactId>
              <version>${last.version}</version>
         </dependency>
@@ -169,17 +169,17 @@ description: dubbo接入shenyu网关
 
         ```xml
         <dependency>
-           <groupId>org.dromara</groupId>
+           <groupId>org.apache.shenyu</groupId>
            <artifactId>shenyu-client-apache-dubbo</artifactId>
            <version>${last.version}</version>
         </dependency>
         ```
 
-     * 在你的 bean定义的xml文件中新增如下 ：
+     * 在你的 bean 定义的 xml 文件中新增如下 ：
 
         ```xml
           <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
-               <constructor-arg  ref="shenyuRegisterCenterConfig"/>
+               <constructor-arg ref="shenyuRegisterCenterConfig"/>
           </bean>
         
           <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
@@ -207,22 +207,22 @@ description: dubbo接入shenyu网关
 
 ## 接口注册到网关
 
-* 你dubbo服务实现类的，方法上加上 `@ShenyuDubboClient` 注解，表示该接口方法注册到网关。
+* 你 dubbo 服务实现类的，方法上加上 `@ShenyuDubboClient` 注解，表示该接口方法注册到网关。
 
-* 启动你的提供者，输出日志 `dubbo client register success ` 大功告成，你的dubbo接口已经发布到shenyu网关.如果还有不懂的，可以参考 `shenyu-test-dubbo`项目。
+* 启动你的提供者，输出日志 `dubbo client register success ` 大功告成，你的 dubbo 接口已经发布到 shenyu 网关.如果还有不懂的，可以参考 `shenyu-test-dubbo`项目。
 
 ## dubbo用户请求以及参数说明
 
-* 说白了，就是通过http的方式来请求你的dubbo服务
+* 说白了，就是通过 http 的方式来请求你的 dubbo 服务
 
-* shenyu网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`
+* shenyu 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`
 
 ```yaml
 # 比如你有一个 order服务 它有一个接口，它的注册路径 /order/test/save
 
-# 现在就是通过 post方式请求网关：http://localhost:9195/order/test/save
+# 现在就是通过 post 方式请求网关：http://localhost:9195/order/test/save
 
-# 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你dubbo接入网关配置的 contextPath
+# 其中 localhost:9195 为网关的 ip 端口，默认端口是 9195 ，/order 是你 dubbo 接入网关配置的 contextPath
 
 ```
 
@@ -230,9 +230,9 @@ description: dubbo接入shenyu网关
 
    * 通过 http post 方式访问网关，通过body，json类型传递。
 
-   * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/dromara/soul/tree/master/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
+   * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
 
-* 单个java bean参数类型 （默认）
+* 单个 java bean参数类型（默认）
 
 * 多参数类型支持，在网关的yaml 配置中新增如下配置：
 
@@ -261,13 +261,13 @@ shenyu:
     }
     ```
 
-  * `body`为http中body传的json字符串。
+  * `body` 为 http 中 body 传的 json 字符串。
 
-  *  `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用`,`分割。
+  *  `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用 `,` 分割。
 
-  *  Pair中，left为参数类型，right为参数值，这是dubbo泛化调用的标准
+  *  Pair 中，left 为参数类型，right 为参数值，这是 dubbo 泛化调用的标准
 
-  * 把你的类注册成Spring的bean，覆盖默认的实现。
+  * 把你的类注册成 Spring 的 bean，覆盖默认的实现。
 
  ```java
   @Bean
@@ -278,14 +278,14 @@ shenyu:
 
 ## 服务治理
 * 标签路由
-    * 请求时在header中添加`Dubbo_Tag_Route`，并设置对应的值，之后当前请求就会路由到指定tag的provider，只对当前请求有效；
+    * 请求时在 header 中添加 `Dubbo_Tag_Route`，并设置对应的值，之后当前请求就会路由到指定 tag 的 provider，只对当前请求有效；
 * 服务提供者直连
-    * 设置`@ShenyuDubboClient`注解中的`url`属性；
-    * 修改Admin控制台修改元数据内的url属性；
+    * 设置 `@ShenyuDubboClient` 注解中的 `url` 属性；
+    * 修改 Admin 控制台修改元数据内的 url 属性；
     * 对所有请求有效；
 * 参数验证和自定义异常
-    * 指定`validation="shenyuValidation"`;
-    * 在接口中抛出`ShenyuException`时，异常信息会返回，需要注意的是显式抛出`ShenyuException`；
+    * 指定 `validation = "shenyuValidation"`;
+    * 在接口中抛出 `ShenyuException` 时，异常信息会返回，需要注意的是显式抛出 `ShenyuException`；
     
     ```java
     @Service(validation = "shenyuValidation")
@@ -361,11 +361,11 @@ shenyu:
     }
     ``` 
 
-## 大白话讲解如果通过http --> 网关--> dubbo provider
+## 大白话讲解如果通过 http --> 网关 --> dubbo provider
 
-* 说白了，就是把http请求，转成dubbo协议，内部使用dubbo泛化来进行调用。
+* 说白了，就是把 http 请求，转成 dubbo 协议，内部使用 dubbo 泛化来进行调用。
 
-* 首先你要回想下，你的dubbo服务在接入网关的时候，是不是加了个 `@ShenyuDubboClient` 注解，里面是不是有个path字段来指定你请求的路径？
+* 首先你要回想下，你的 dubbo 服务在接入网关的时候，是不是加了个 `@ShenyuDubboClient` 注解，里面是不是有个 path 字段来指定你请求的路径？
 
 * 你是不是还在yml中配置了一个 `contextPath`?
 
@@ -383,13 +383,13 @@ public DubboTest insert(final DubboTest dubboTest) {
 
 * 那么我们请求的路径为：`http://localhost:9195/dubbo/insert`，再说一下，`localhost:9195`是网关的域名，如果你更改了，这里也要改。
 
-* 那么请求参数呢？ `DubboTest` 是一个javabean对象，有2个字段，id与name ，那么我们通过body中传递这个对象的json数据就好。
+* 那么请求参数呢？ `DubboTest` 是一个 javabean 对象，有 2 个字段，id 与 name ，那么我们通过 body 中传递这个对象的 json 数据就好。
 
     ```
-    {"id":"1234","name":"XIAO5y"}
+    {"id": "1234", "name": "XIAO5y"}
     ```
 
-* 如果你的接口中，没有参数，那么body传值为：
+* 如果你的接口中，没有参数，那么 body 传值为：
 
     ```
     {}

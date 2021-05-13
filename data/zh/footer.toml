@@ -4,7 +4,8 @@
 	category = "资源"
 	link_arr = [
 		["Github", 'https://github.com/dromara'],
-		["Gitee", 'https://gitee.com/dromara'],
+		["订阅邮件", 'mailto://dev-subscribe@shenyu.apache.org'],
+		["邮件归档", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
 #		["示例", 'https://github.com/dromara-guides'],
 	]
 
@@ -19,10 +20,7 @@
 [[links]]
 	category = "文档"
 	link_arr = [
-		["Soul", '/zh/projects/soul/overview/'],
-		["Hmily","/zh/projects/hmily/overview/"],
-		["Raincat","/zh/projects/raincat/overview/"],
-		["Myth","/zh/projects/myth/overview/"]
+		["ShenYu", '/zh/projects/shenyu/overview/']
 	]
 
 [[qrcode]]

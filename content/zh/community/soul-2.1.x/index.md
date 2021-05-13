@@ -1,9 +1,9 @@
 ---
-title: "Soul网关发布的2.1.X版本，到底有多方便？"
+title: "ShenYu网关发布的2.1.X版本，到底有多方便？"
 author: "xiaoyu"
-description: "​Soul网关发布2.1.X之后，它到底有多方便？"
-categories: "Soul"
-tags: ["Soul"]
+description: "​ShenYu网关发布2.1.X之后，它到底有多方便？"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2019-12-12
 cover: "/img/architecture/soul-framework.png"
 ---

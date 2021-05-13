@@ -2,28 +2,28 @@
 author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2020-12-27T15:00:00.000Z
-title: "Dromara Dream Code Book Club Introduction"	
+title: "ShenYu Dream Code Book Club Introduction"	
 tags: ["DreamCode", "Dromara","GateWay"]
 cover: "/img/activities/dromara-open-soul-01.jpg"
-descripton: "Dromara Dream Code Book Club Introduction"
+descripton: "ShenYu Dream Code Book Club Introduction"
 ---
 
-![Dromara Dream Code Book Club Introduction](/img/soul/activite/soul-xmind.png)
+![ShenYu Dream Code Book Club Introduction](/img/soul/activite/soul-xmind.png)
 
-### Dromara Dream Code Book Club（Dromara 2020 event introduction）
+### ShenYu Dream Code Book Club（ShenYu 2020 event introduction）
 
 - Date: Sunday, December 27, 2020
 
 ### Activity background
 
-- In order to increase the enthusiasm of community participants, promote the construction of the Dromara community, exercise everyone's expressive ability and improve the core strength of technology, the community organized this event in the form of source code reading.
+- In order to increase the enthusiasm of community participants, promote the construction of the ShenYu community, exercise everyone's expressive ability and improve the core strength of technology, the community organized this event in the form of source code reading.
 
 ### Activity purpose, meaning and goal
 - Increase motivation
 - Improve technical strength and expand everyone's horizons
 - Exercise language skills
 - Promote the harmony, unity and progress of the community
-- Make the Dromara community bigger and bigger
+- Make the ShenYu community bigger and bigger
 
 ### Activity development
 - The activity is divided into multiple phases. First, twelve members are selected for a 12-day source code reading, and two online sharing is carried out during the period.
@@ -36,4 +36,4 @@ descripton: "Dromara Dream Code Book Club Introduction"
 - Cui, Kimming, Xiaoyu 
 
 #### The main participants
-- Dromara community member
+- ShenYu community member

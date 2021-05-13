@@ -1,14 +1,14 @@
 ---
-title: "Soul网关发布1.0.4-RELEASE版本"
+title: "ShenYu网关发布1.0.4-RELEASE版本"
 author: "xiaoyu"
-description: "Soul网关发布1.0.4-RELEASE版本"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu网关发布1.0.4-RELEASE版本"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2019-04-09
 cover: "/img/architecture/soul-framework.png"
 ---
 
-### Soul网关发布1.0.4-RELEASE版本
+### ShenYu网关发布1.0.4-RELEASE版本
 
 * 修复在1.0.3版本的后台管理中，出现的bug。
 * 配置信息序列化方式支持自定义扩展。默认的序列化方式由kroy 改为了java序列化方式。

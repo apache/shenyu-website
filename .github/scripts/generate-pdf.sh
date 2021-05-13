@@ -118,4 +118,4 @@ function generate_pdf {
 }
 
 prepare
-generate_pdf "soul"
+generate_pdf "shenyu"

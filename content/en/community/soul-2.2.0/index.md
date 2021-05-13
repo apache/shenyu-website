@@ -1,9 +1,9 @@
 ---
-title: "【Soul gateway version2.2.0 release】Make high-performance gateways so easy!"
+title: "【ShenYu gateway version2.2.0 release】Make high-performance gateways so easy!"
 author: "xiaoyu"
-description: "Soul released version 2.2.0 with new architecture that makes gateways so easy. "
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu released version 2.2.0 with new architecture that makes gateways so easy. "
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2020-06-17
 cover: "/img/architecture/soul-framework.png"
 ---
@@ -54,14 +54,14 @@ Let's take a look at the new features first, and then I would like to share my s
         <version>2.2.2-RELEASE</version>
   </dependency>
 
-  <!--soul gateway start-->
+  <!--ShenYu gateway start-->
   <dependency>
         <groupId>org.dromara</groupId>
         <artifactId>soul-spring-boot-starter-gateway</artifactId>
         <version>2.2.0</version>
   </dependency>
 
-   <!--soul data sync start use websocket-->
+   <!--ShenYu data sync start use websocket-->
    <dependency>
         <groupId>org.dromara</groupId>
         <artifactId>soul-spring-boot-starter-sync-data-websocket</artifactId>
@@ -78,7 +78,7 @@ management:
   health:
     defaults:
       enabled: false
-soul :
+ShenYu :
     sync:
         websocket :
              urls: ws://localhost:9095/websocket  //Set to youe soul-admin address.
@@ -92,35 +92,35 @@ soul :
 
 - A: You can add the following dependencies in `pom.xml`, please access https://dromara.org/zh-cn/docs/soul/soul.html for details.
 ```xml
-  <!-- soul hystrix plugin start-->
+  <!-- ShenYu hystrix plugin start-->
   <dependency>
       <groupId>org.dromara</groupId>
       <artifactId>soul-spring-boot-starter-plugin-hystrix</artifactId>
       <version>2.2.0</version>
   </dependency>
-  <!-- soul hystrix plugin end-->
+  <!-- ShenYu hystrix plugin end-->
 ```
 - Q: How can I use Dubbo service?
 - A: If you are using Alibaba-Dubbo, then you should add the following dependencies in `pom.xml`.
 ```xml
-   <!--soul alibaba dubbo plugin start-->
+   <!--ShenYu alibaba dubbo plugin start-->
     <dependency>
           <groupId>org.dromara</groupId>
           <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
           <version>2.2.0</version>
     </dependency>
-   <!-- soul alibaba dubbo plugin end-->
+   <!-- ShenYu alibaba dubbo plugin end-->
 ```
 If you are using Apache-Dubbo, then you should add the following dependencies in `pom.xml`.
 
 ```xml
-   <!--soul apache dubbo plugin start-->
+   <!--ShenYu apache dubbo plugin start-->
     <dependency>
           <groupId>org.dromara</groupId>
           <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
           <version>2.2.0</version>
     </dependency>
-   <!-- soul apache dubbo plugin end-->
+   <!-- ShenYu apache dubbo plugin end-->
 ```
 For your inference: https://dromara.org/zh-cn/docs/soul/user-dubbo.html.
 
@@ -128,13 +128,13 @@ For your inference: https://dromara.org/zh-cn/docs/soul/user-dubbo.html.
 
 - A: You can add the following dependencies, for your inference: https://dromara.org/zh-cn/docs/soul/plugin-rateLimiter.html 
 ```xml
-  <!-- soul ratelimiter plugin start-->
+  <!-- ShenYu ratelimiter plugin start-->
   <dependency>
       <groupId>org.dromara</groupId>
       <artifactId>soul-spring-boot-starter-plugin-ratelimiter</artifactId>
       <version>2.2.0</version>
   </dependency>
-  <!-- soul ratelimiter plugin end-->
+  <!-- ShenYu ratelimiter plugin end-->
 
 ```
 
@@ -146,17 +146,17 @@ All in all, If you want to use some plug-ins, then you can add the Maven depende
 
 
 
-### Features of Soul Gateway
+### Features of ShenYu Gateway
 
 - I think the biggest feature is traffic screening and control. No matter how complex the request is, traffic can be filtered, and processed according to various selectors, rules, and matching methods. This process is completely visualized, customized and effective immediately, without any changes to the program.
-- Configurations is configured in the soul-admin and will be synchronized to the JVM memory of each Soul gateway node. This is also one of the keypoints to the high performance of the Soul gateway cluster. By the way, Http long polling, websocket, and Zookeeper are used to implement cache synchronization between Soul admin and Soul gateway.
-- Soul gateway uses Reactor code to achieve the independent thread scheduling with low consumption. When we open 10 plug-ins, the delay of all traffic passing through the gateway is 1~2ms.
+- Configurations is configured in the soul-admin and will be synchronized to the JVM memory of each ShenYu gateway node. This is also one of the keypoints to the high performance of the ShenYu gateway cluster. By the way, Http long polling, websocket, and Zookeeper are used to implement cache synchronization between ShenYu admin and ShenYu gateway.
+- ShenYu gateway uses Reactor code to achieve the independent thread scheduling with low consumption. When we open 10 plug-ins, the delay of all traffic passing through the gateway is 1~2ms.
 - The plug-in mechanism provides functions such as rate limiting, circuit breaker, black and white list, authentication, etc.
-- Soul gateway supports A/B test, blue and green release (because all traffic is controlled, this is easy to do).
+- ShenYu gateway supports A/B test, blue and green release (because all traffic is controlled, this is easy to do).
 
 
 
-## What scenarios of Soul gateway are suitable, and what should you pay attention to?
+## What scenarios of ShenYu gateway are suitable, and what should you pay attention to?
 
 First of all, I think we should follow pragmatism, when you need to use it , then you have monmentum to know it. Thus, where are you need Soul?
 
@@ -176,7 +176,7 @@ First of all, I think we should follow pragmatism, when you need to use it , the
     
 - Some people may say I can disassemble them into a few web projects. But this will bring new troubles, where to do load balance? Where to do unified certification? 
 
-- Soul gateway solves all the above problems very well, just register your microservice to Soul gateway. You can do whatever you want. For example, the order module has 2 nodes, and you want to release a new version, you can send request to one of them in the gateway, and update the version in the other node. When the update complete, let the request go though both two nodes. So Java programmer can also do the jod of system operation engineer.
+- ShenYu gateway solves all the above problems very well, just register your microservice to ShenYu gateway. You can do whatever you want. For example, the order module has 2 nodes, and you want to release a new version, you can send request to one of them in the gateway, and update the version in the other node. When the update complete, let the request go though both two nodes. So Java programmer can also do the jod of system operation engineer.
 
 - If you need unified authentication, you only need to add an authentication plug-in suitable for your business to the gateway.
 
@@ -185,20 +185,20 @@ First of all, I think we should follow pragmatism, when you need to use it , the
 - If a company wants to do open-platform or an entrance gateway， authentication, rate limiting, circuit breaker, monitoring are indispensable.
 - If your company is in Dubbo system, when developers have written the Dubbo service, there is no need to add a new web project to provide an interface.
 -  If an interface attacked by a large amount of request, how do you deal with it?
-- Soul is here to solve the trouble above, this is the purpose of the design. Let’s take a look at the overall architecture diagram. 
+- ShenYu is here to solve the trouble above, this is the purpose of the design. Let’s take a look at the overall architecture diagram. 
 
 ![soul-framework](/img/architecture/soul-framework.png)
 
-- Soul gateway is implemented using reactive programming.  Just look at the weather vane Spring, responsive programming is definitely an important direction in the future. When I was in 2014, I wrote for loop  every day. The leader told me to use lambda expressions, which would be the trend of the future. Nowadays, if you are a java programmer but don't know lambda expression, you are out.
+- ShenYu gateway is implemented using reactive programming.  Just look at the weather vane Spring, responsive programming is definitely an important direction in the future. When I was in 2014, I wrote for loop  every day. The leader told me to use lambda expressions, which would be the trend of the future. Nowadays, if you are a java programmer but don't know lambda expression, you are out.
 
 
 
 ## My open source story
-I started writing open source projects when I was in 2017. At first, I discussed distributed transactions "LCN" with Wang Liang. Later, I wrote distributed transaction middleware such as Hmily, Raincat, Myth, etc., and then wrote the Soul gateway, I have encountered many interesting things along the way, but also suffered from many novice users. The general feeling is that high extensiable, and pluggable design are really important for a good open source project. Here are some cases.
+I started writing open source projects when I was in 2017. At first, I discussed distributed transactions "LCN" with Wang Liang. Later, I wrote distributed transaction middleware such as Hmily, Raincat, Myth, etc., and then wrote the ShenYu gateway, I have encountered many interesting things along the way, but also suffered from many novice users. The general feeling is that high extensiable, and pluggable design are really important for a good open source project. Here are some cases.
 
-- Case 1: Soul gateway only supports Zookeeper at the beginning of data synchronization. Some users have reported that we do not have Zookeeper, What should we do?
-- Case 2: Soul gateway supports Dubbo, but some users are Alibaba-Dubbo and some users are Apache-Dubbo, What should we do?
-- Case 3: The clients provided by soul at the beginning are all based on Springboot. Some users are traditional Spring. What should we do?
+- Case 1: ShenYu gateway only supports Zookeeper at the beginning of data synchronization. Some users have reported that we do not have Zookeeper, What should we do?
+- Case 2: ShenYu gateway supports Dubbo, but some users are Alibaba-Dubbo and some users are Apache-Dubbo, What should we do?
+- Case 3: The clients provided by ShenYu at the beginning are all based on Springboot. Some users are traditional Spring. What should we do?
 
 So plug-in design and SPI pluggable design is imperative.
 

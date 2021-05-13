@@ -1,9 +1,9 @@
 ---
-title: "Soul网关学习Resilience4j插件原理解析"
+title: "ShenYu网关学习Resilience4j插件原理解析"
 author: "闫兵"
-description: "Soul网关学习Resilience4j插件原理解析"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu网关学习Resilience4j插件原理解析"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-03-22
 cover: "/img/soul/blog6/03.jpg"
 ---
@@ -57,7 +57,7 @@ Hystrix不更新了，Spring提供Netflix Hystrix的替换方案，即Resilence4
 
 
 
-* [soul官网的配置介绍]( https://dromara.org/zh/projects/soul/resilience4j-plugin/)
+* [soul官网的配置介绍]( https://dromara.org/zh/projects/shenyu/resilience4j-plugin/)
 
 ```
 * Resilience4j处理详解：

@@ -1,0 +1,32 @@
+---
+title: "Dashboard"
+description: "Dashboard for ShenYu"
+subDesc: "Dashboard for ShenYu"
+feature1Img: ""
+feature1Title: ""
+feature1Desc: ""
+feature2Img: ""
+feature2Title: ""
+feature2Desc: ""
+feature3Img: ""
+feature3Title: ""
+feature3Desc: ""
+feature4Img: ""
+feature4Title: ""
+feature4Desc: ""
+feature5Img: ""
+feature5Title: ""
+feature5Desc: ""
+feature6Img: ""
+feature6Title: ""
+feature6Desc: ""
+startUp: ""
+# link: "https://yomahub.com/tlog/"
+github: "https://github.com/dromara/shenyu-dashboard"
+gitee: ""
+level: "main"
+weight: 2
+# icon: "/img/logo/tlog.png"
+showIntroduce: false
+showFeature: false
+---

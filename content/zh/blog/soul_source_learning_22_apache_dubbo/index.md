@@ -1,9 +1,9 @@
 ---
-title: "Soul网关学习Apache Dubbo插件原理解析"
+title: "ShenYu网关学习Apache Dubbo插件原理解析"
 author: "nuo-promise"
-description: "Soul网关学习Apache Dubbo插件原理解析"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu网关学习Apache Dubbo插件原理解析"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-03-23
 cover: "/img/soul/blog8/08.jpg"
 ---
@@ -19,7 +19,7 @@ cover: "/img/soul/blog8/08.jpg"
    - 通过API方式使用泛化调用
    - 通过spring使用泛化调用
    - 泛化调用实现流程
-- Soul Dubbo 插件调用解析
+- ShenYu Dubbo 插件调用解析
    - ApachDubboPlugin泛化调用准备
    - ApacheDubboProxySerivce
    - DubboResponsePlugin
@@ -108,7 +108,7 @@ PRIMARY KEY (`id`) USING BTREE
 ```java
 @SoulDubboClient(path = "/insert", desc = "Insert a row of data")
 public DubboTest insert(final DubboTest dubboTest) {
-    dubboTest.setName("hello world Soul Apache Dubbo: " + dubboTest.getName());
+    dubboTest.setName("hello world ShenYu Apache Dubbo: " + dubboTest.getName());
     return dubboTest;
 }
 ```
@@ -198,7 +198,7 @@ public interface GenericService {
 
 }
 ```
-### Soul Dubbo 插件调用解析 
+### ShenYu Dubbo 插件调用解析 
 当业务请求发起时候,首先进入 `SoulWebHandler` (至于为什么成为请求入口自行查询,本文不作解释) 类的 `Handle` 方法,下面就带了 `plugins` 从 `DefaultSoulPluginChain` 类开始进入插件链调用。
 ```java
 @Override

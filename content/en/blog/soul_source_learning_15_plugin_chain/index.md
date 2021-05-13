@@ -1,22 +1,22 @@
 ---
-title: "Soul Gateway Learning Plugin Chain Implementation"
+title: "ShenYu Gateway Learning Plugin Chain Implementation"
 author: "shenxiangjun"
-description: "Soul Gateway Learning Plugin Chain Implementation"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu Gateway Learning Plugin Chain Implementation"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-21
 cover: "/img/soul/blog6/mirco.png"
 ---
 
 ### 一、引言
 
-**插件是 Soul 的灵魂。**
+**插件是 ShenYu的灵魂。**
 
-Soul 使用了插件化设计思想，实现了插件的热插拔，且极易扩展。内置丰富的插件支持，鉴权，限流，熔断，防火墙等等。
+ShenYu使用了插件化设计思想，实现了插件的热插拔，且极易扩展。内置丰富的插件支持，鉴权，限流，熔断，防火墙等等。
 
 ![image-20210122021834793](https://gitee.com/stephenshen/pic-bed/raw/master/img/20210122021834.png)
 
-Soul 是如何实现插件化设计的呢？
+ShenYu是如何实现插件化设计的呢？
 
 在探究插件化设计之前，我们需要先了解下微内核架构（又称插件化架构）。
 
@@ -56,9 +56,9 @@ Soul 是如何实现插件化设计的呢？
 
 
 
-### 三、Soul 的插件化设计
+### 三、ShenYu的插件化设计
 
-参照微内核架构来看，Soul 的 `soul-web` 模块相当于核心系统，`soul-plugin` 下的子模块相当于插件模块。
+参照微内核架构来看，ShenYu的 `soul-web` 模块相当于核心系统，`soul-plugin` 下的子模块相当于插件模块。
 
 **插件管理方面：**
 
@@ -76,9 +76,9 @@ Soul 是如何实现插件化设计的呢？
 
 
 
-### 四、Soul 的插件化实现
+### 四、ShenYu的插件化实现
 
-Soul 网关中定义了一条插件链，所有的插件都在这条链上依次处理。
+ShenYu网关中定义了一条插件链，所有的插件都在这条链上依次处理。
 
 在探究插件链之前，我们先来看看插件实现。
 
@@ -86,11 +86,11 @@ Soul 网关中定义了一条插件链，所有的插件都在这条链上依次
 
 #### 1、插件实现
 
-Soul 中所有插件最终均继承自 SoulPlugin，其完整继承关系如下所示：
+ShenYu中所有插件最终均继承自 SoulPlugin，其完整继承关系如下所示：
 
 ![SoulPlugin](https://gitee.com/stephenshen/pic-bed/raw/master/img/20210122022709.jpg)
 
-可以看到，Soul 的插件生态极其丰富，正是如此丰富的插件支撑起了 Soul 网关强大的扩展能力。
+可以看到，ShenYu的插件生态极其丰富，正是如此丰富的插件支撑起了 ShenYu网关强大的扩展能力。
 
 我们以常用的 DividePlugin 为例，分析插件内部所做工作。
 
@@ -181,13 +181,13 @@ return chain.execute(exchange);
 
 #### 2、插件链实现
 
-借由插件链，Soul 将众多插件整合到一起进行统一调度处理。
+借由插件链，ShenYu将众多插件整合到一起进行统一调度处理。
 
 插件链继承结构：
 
 ![SoulPluginChain](https://gitee.com/stephenshen/pic-bed/raw/master/img/20210122035121.jpg)
 
-可以看到，Soul 中插件链 SoulPluginChain 仅有一个默认实现类 DefaultSoulPluginChain。
+可以看到，ShenYu中插件链 SoulPluginChain 仅有一个默认实现类 DefaultSoulPluginChain。
 
 
 
@@ -251,7 +251,7 @@ handle 方法负责插件链执行指标度量的采集，通过在 DefaultSoulP
 
 ![image-20210122042354171](https://gitee.com/stephenshen/pic-bed/raw/master/img/20210122042354.png)
 
-SoulConfiguration 是 Soul 的核心配置类，负责自动装配网关所需的核心 bean 对象。
+SoulConfiguration 是 ShenYu的核心配置类，负责自动装配网关所需的核心 bean 对象。
 
 如装配 SoulWebHandler：
 
@@ -278,7 +278,7 @@ soul-bootstrap 启动的过程中，所有插件是怎么形成 ObjectProvider<L
 
 
 
-SoulWebHandler 所在的配置类通过配置 @ComponentScan("org.dromara.soul")，通知 spring 扫描 org.dromara.soul 包。
+SoulWebHandler 所在的配置类通过配置 @ComponentScan("org.dromara.soul")，通知 spring 扫描 org.dromara.ShenYu 包。
 
 借助 springboot 的 starter 机制，将 spring.factories 里指定的配置类自动加载到容器。
 
@@ -290,7 +290,7 @@ SoulWebHandler 所在的配置类通过配置 @ComponentScan("org.dromara.soul")
 
 ### 总结
 
-本篇从微内核架构说起，并以此为框架分析 Soul 的插件化设计，再结合源码实现，基本理清了 Soul 中插件式设计的实现。
+本篇从微内核架构说起，并以此为框架分析 ShenYu的插件化设计，再结合源码实现，基本理清了 ShenYu中插件式设计的实现。
 
 需要注意：
 

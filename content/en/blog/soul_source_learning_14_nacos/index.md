@@ -1,9 +1,9 @@
 ---
-title: "Soul Gateway Learns Nacos Data Synchronization"
+title: "ShenYu Gateway Learns Nacos Data Synchronization"
 author: "liquan"
-description: "Soul Gateway Learns Nacos Data Synchronization"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu Gateway Learns Nacos Data Synchronization"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-26
 cover: "/img/soul/blog5/ns15.png"
 ---
@@ -36,7 +36,7 @@ soul-admin/pom.xml，这里默认配置是有的
 * soul-bootstrap 
 soul-bootstrap/src/main/resources/application-local.yml
 ```yaml
-soul :
+ShenYu :
     sync:
         nacos:
           url: localhost:8848
@@ -126,7 +126,7 @@ soul-admin 点击同步数据，将认证数据会同步到nacos
 ```
 2021-01-25 17:56:54.798  INFO 10051 --- [           main] o.d.s.w.configuration.SoulConfiguration  : load plugin:[monitor] [org.dromara.soul.plugin.monitor.MonitorPlugin]
 2021-01-25 17:56:54.798  INFO 10051 --- [           main] o.d.s.w.configuration.SoulConfiguration  : load plugin:[response] [org.dromara.soul.plugin.httpclient.response.WebClientResponsePlugin]
-2021-01-25 17:56:54.990  INFO 10051 --- [           main] d.s.s.s.s.d.n.NacosSyncDataConfiguration : you use nacos sync soul data.......
+2021-01-25 17:56:54.990  INFO 10051 --- [           main] d.s.s.s.s.d.n.NacosSyncDataConfiguration : you use nacos sync ShenYu data.......
 2021-01-25 17:56:58.890  INFO 10051 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
 2021-01-25 17:56:59.758  INFO 10051 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 9195
 2021-01-25 17:56:59.764  INFO 10051 --- [           main] o.d.s.b.SoulBootstrapApplication         : Started SoulBootstrapApplication in 8.401 seconds (JVM running for 9.95)
@@ -266,7 +266,7 @@ public class NacosSyncDataConfiguration {
     @Bean
     public SyncDataService nacosSyncDataService(final ObjectProvider<ConfigService> configService, final ObjectProvider<PluginDataSubscriber> pluginSubscriber,
                                            final ObjectProvider<List<MetaDataSubscriber>> metaSubscribers, final ObjectProvider<List<AuthDataSubscriber>> authSubscribers) {
-        log.info("you use nacos sync soul data.......");
+        log.info("you use nacos sync ShenYu data.......");
         return new NacosSyncDataService(configService.getIfAvailable(), pluginSubscriber.getIfAvailable(),
                 metaSubscribers.getIfAvailable(Collections::emptyList), authSubscribers.getIfAvailable(Collections::emptyList));
     }

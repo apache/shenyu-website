@@ -1,9 +1,9 @@
 ---
-title: "Soul Gateway Learns Http Long Polling Analysis 02"
+title: "ShenYu Gateway Learns Http Long Polling Analysis 02"
 author: "zhuming"
-description: "Soul Gateway Learns Http Long Polling Analysis"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu Gateway Learns Http Long Polling Analysis"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-27
 cover: "/img/architecture/soul-framework.png"
 ---
@@ -46,7 +46,7 @@ public class HttpSyncDataService implements SyncDataService, AutoCloseable {
                                              SoulThreadFactory.create("http-long-polling", true));
       this.serverList.forEach(server -> this.executor.execute(new HttpLongPollingTask(server)));
     } else {
-      log.info("soul http long polling was started, executor=[{}]", executor);
+      log.info("ShenYu http long polling was started, executor=[{}]", executor);
     }
   }
 }

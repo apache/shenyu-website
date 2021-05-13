@@ -1,9 +1,9 @@
 ---
-title: "Soul网关学习SPI学习使用"
+title: "ShenYu网关学习SPI学习使用"
 author: "朱明"
-description: "Soul网关学习SPI学习使用"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu网关学习SPI学习使用"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-30
 cover: "/img/architecture/soul-framework.png"
 ---
@@ -523,7 +523,7 @@ public static void main(String[] args) throws ClassNotFoundException {
 
 ## SOUL SPI 实现
 
-Java 中 SPI 的使用方式我们已经掰开来了解透彻了, 而 Soul 中的 SPI 是自己设计的, 采用 Dubbo 中 SPI 的设计思想. 在 `org.dromara.soul.spi.SPI` 注释类上可以看到相关注释.
+Java 中 SPI 的使用方式我们已经掰开来了解透彻了, 而 ShenYu 中的 SPI 是自己设计的, 采用 Dubbo 中 SPI 的设计思想. 在 `org.dromara.soul.spi.SPI` 注释类上可以看到相关注释.
 
 ```java
 /**
@@ -540,7 +540,7 @@ Java 中 SPI 的使用方式我们已经掰开来了解透彻了, 而 Soul 中�
 1. 如果使用 ServiceLoader 不当, **没有正确利用到它的缓存机制**, 会导致每次获取具体实现类都要反射出类对象以及初始化实例对象, 性能完蛋不说, 每次得到的对象都不一样可能会引发程序问题.
 2. 即每次找寻具体实现类都要迭代一遍才行, 虽然子类少的使用没什么影响, 但这种方式还是很傻. 另外参考 MySQL 驱动中 JDBC 的实现, 还需要自行设计一套比较复杂的筛选机制.
 
-那么 Soul SPI 的实现, 是如何解决这两个问题的?   关键就在接下来的两个子模块中
+那么 ShenYu SPI 的实现, 是如何解决这两个问题的?   关键就在接下来的两个子模块中
 
 * 优化的 ExtensionLoader
 * 增强型 getJoin()
@@ -551,7 +551,7 @@ Java 中 SPI 的使用方式我们已经掰开来了解透彻了, 而 Soul 中�
 
 ![image-20210130214402997](/img/soul/blog1/image-20210130214402997.png)
 
-其中最核心的类就是 ExtensionLoader, 可以说是 Soul 版的 ServiceLoader, 它也定义了 SPI 资源文件的路径位置
+其中最核心的类就是 ExtensionLoader, 可以说是 ShenYu 版的 ServiceLoader, 它也定义了 SPI 资源文件的路径位置
 
 ```java
 public final class ExtensionLoader<T> {
@@ -582,7 +582,7 @@ public final class ExtensionLoader<T> {
 
 这个方法的作用其实就像是 ServiceLoader 的 `load()` 方法, 会返回一个 ServiceLoader 对象.
 
-只是 Soul 中的实现改了种方式, 将 ExtensionLoader 对象缓存起来, 这样 **二次调用时传入相同 Class 对象也会返回同样的 ExtensionLoader, 避免了 ServiceLoader 使用时不理解其机制导致没有用到它的缓存, 每次迭代都去反射初始化所有实现类**
+只是 ShenYu 中的实现改了种方式, 将 ExtensionLoader 对象缓存起来, 这样 **二次调用时传入相同 Class 对象也会返回同样的 ExtensionLoader, 避免了 ServiceLoader 使用时不理解其机制导致没有用到它的缓存, 每次迭代都去反射初始化所有实现类**
 
 ### 增强型搜索 getJoin()
 
@@ -621,7 +621,7 @@ private final Map<Class<?>, Object> joinInstances = new ConcurrentHashMap<>();
 private final Map<String, Holder<Object>> cachedInstances = new ConcurrentHashMap<>();
 ```
 
-它的 `key` 其实就是 Soul SPI 资源文件中我们配置的信息, 比如 Divide 插件的负载均衡实现类的资源文件
+它的 `key` 其实就是 ShenYu SPI 资源文件中我们配置的信息, 比如 Divide 插件的负载均衡实现类的资源文件
 
 ![image-20210130230250748](/img/soul/blog1/image-20210130230250748.png)
 

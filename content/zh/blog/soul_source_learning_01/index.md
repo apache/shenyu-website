@@ -1,9 +1,9 @@
 ---
-title: "Soul网关学习(1)环境配置"
+title: "ShenYu网关学习(1)环境配置"
 author: "陈曦"
-description: "Soul网关学习(1)环境配置"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu网关学习(1)环境配置"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-15
 cover: "/img/architecture/soul-framework.png"
 ---

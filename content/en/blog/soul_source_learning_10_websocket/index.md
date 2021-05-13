@@ -1,9 +1,9 @@
 ---
-title: "Soul Gateway Learns WebSocket Data Synchronization Analysis"
+title: "ShenYu Gateway Learns WebSocket Data Synchronization Analysis"
 author: "fanjinpeng,zhuming"
-description: "Soul Gateway Learns WebSocket Data Synchronization Analysis"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu Gateway Learns WebSocket Data Synchronization Analysis"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-22
 cover: "/img/architecture/soul-framework.png"
 ---
@@ -12,9 +12,9 @@ cover: "/img/architecture/soul-framework.png"
 
 # 1.前情回顾
 
-在第4篇中，我们分析了 HTTP 用户业务系统接入 Soul 网关后，会调用 soul-admin 的注册接口，把需要网关代理的接口信息全部注册到 soul-admin 上，在最后，会通过 websocket 长连接，将soul-admin 接收到的接口信息同步给 Soul 网关（即 soul-bootstrap），今天就来接着继续分析，数据是怎么同步到 soul-bootstrap 的。
+在第4篇中，我们分析了 HTTP 用户业务系统接入 ShenYu网关后，会调用 soul-admin 的注册接口，把需要网关代理的接口信息全部注册到 soul-admin 上，在最后，会通过 websocket 长连接，将soul-admin 接收到的接口信息同步给 ShenYu网关（即 soul-bootstrap），今天就来接着继续分析，数据是怎么同步到 soul-bootstrap 的。
 
-不清楚流程的可以出门左转看下第4篇文章 [【Soul源码阅读】4.HTTP 用户接入 Soul 调用 /soul-client/springmvc-register 接口逻辑分析](https://blog.csdn.net/hellboy0621/article/details/112727101)
+不清楚流程的可以出门左转看下第4篇文章 [【Soul源码阅读】4.HTTP 用户接入 ShenYu调用 /soul-client/springmvc-register 接口逻辑分析](https://blog.csdn.net/hellboy0621/article/details/112727101)
 
 # 2.soul-admin 与 soul-bootstrap 数据同步
 
@@ -626,7 +626,7 @@ public class WebsocketSyncDataConfiguration {
   // 收集所有注册为 Bean 的订阅器,  如 PluginDataSubscriber、MetaDataSubscriber、AuthDataSubscriber
   @Bean
   public SyncDataService websocketSyncDataService(final ObjectProvider<WebsocketConfig> websocketConfig, final ObjectProvider<PluginDataSubscriber> pluginSubscriber, final ObjectProvider<List<MetaDataSubscriber>> metaSubscribers, final ObjectProvider<List<AuthDataSubscriber>> authSubscribers) {
-    log.info("you use websocket sync soul data.......");
+    log.info("you use websocket sync ShenYu data.......");
     return new WebsocketSyncDataService(websocketConfig.getIfAvailable(WebsocketConfig::new), pluginSubscriber.getIfAvailable(), metaSubscribers.getIfAvailable(Collections::emptyList), authSubscribers.getIfAvailable(Collections::emptyList));
   }
   

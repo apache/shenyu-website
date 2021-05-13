@@ -72,6 +72,9 @@ other = "Project"
 [title_guide]
 other = "Guide"
 
+[title_document]
+other = "Document"
+
 [title_blog]
 other = "Blog"
 

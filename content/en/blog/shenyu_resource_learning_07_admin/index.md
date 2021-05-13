@@ -1,11 +1,11 @@
 ---
-title: "Soul Gateway Learning Admin Source Code Analysis"
+title: "ShenYu Gateway Learning Admin Source Code Analysis"
 author: "zenglinhui"
-description: "Soul Gateway Learning Admin Source Code Analysis"
-categories: "Soul"
-tags: ["Soul"]
+description: "ShenYu Gateway Learning Admin Source Code Analysis"
+categories: "ShenYu"
+tags: ["ShenYu"]
 date: 2021-01-20
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # 源码分析
@@ -17,7 +17,7 @@ cover: "/img/architecture/soul-framework.png"
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210117034215738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
 数据库中对应的表为下图所示，divide 状态是启用，在上一篇中，就是用这个插件来测试网关
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210117035235400.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
-同时请求的还有选择器，请求的 controller 见下图。在上篇的演示中，我们直接在页面把选择器中的条件 CRUD，可以实时反应到网关中去，而不需要重启网关，所以这里除了query方法中，增加、删除、和修改方法中,在保存到数据库之后都有一个 publishEvent 方法。就是这个事件方法，可以让用户直接在 soul 后台配置规则，从而达到时时生效的目地
+同时请求的还有选择器，请求的 controller 见下图。在上篇的演示中，我们直接在页面把选择器中的条件 CRUD，可以实时反应到网关中去，而不需要重启网关，所以这里除了query方法中，增加、删除、和修改方法中,在保存到数据库之后都有一个 publishEvent 方法。就是这个事件方法，可以让用户直接在 ShenYu 后台配置规则，从而达到时时生效的目地
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210117040000892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
 ```
 public int createOrUpdate(final SelectorDTO selectorDTO) {
@@ -44,10 +44,10 @@ public int createOrUpdate(final SelectorDTO selectorDTO) {
         return selectorCount;
     }
 ```
-2. **与soul-bootstrap 数据同步(websocket)源码分析**
+2. **与ShenYu-bootstrap 数据同步(websocket)源码分析**
 
 之前介绍了 admin 页面操作之后把数据保存数据库，然后用了 spring 自带的响应式编程把数据同步到 bootstrap 项目，以达到动态刷新网关规则及插件，而不用添加配置后去重启网关。
-当 soul-bootstrap 启动时，看日志会打出来这么一段
+当 ShenYu-bootstrap 启动时，看日志会打出来这么一段
 ```
 2021-01-21 00:33:39.620  INFO 14276 --- [0.0-9095-exec-5] o.d.s.a.l.websocket.WebsocketCollector   : websocket on open successful....
 ```
@@ -71,7 +71,7 @@ public int createOrUpdate(final SelectorDTO selectorDTO) {
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2021012101272614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
 - 这里通过 send 方法把更新的数据发到 bootstrap 中，到此 admin 怎么同步数据到 bootstrap 中就真相大白了
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210121013002688.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
-3. **与soul-bootstrap 数据同步(zookeeper)源码分析**
+3. **与shenyu-bootstrap 数据同步(zookeeper)源码分析**
 话不多说，先上图，把 websocket 的配置先注释掉，打开 zookeeper 的配置，前提是把本地或者远程的 zookeeper 服务打开，然后启动 soul-admin 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210121152407500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
 首先进入了 ZookeeperDataInit 类的 run 方法，这个方法执行完之后，奇怪的一点是跳到了 WebsocketDataChangedListener 类中去了
@@ -85,7 +85,7 @@ public int createOrUpdate(final SelectorDTO selectorDTO) {
 而且之后的 onSelectorChanged、onMetaDataChanged 、onRuleChanged 方法都会先走 WebsocketDataChangedListener 类里面相对应的方法，然后才会进 ZookeeperDataChangedListener 类的方法。如果插件数据有更改，也是通过上面的步骤重新来一遍。
 这里面同步数据会进两个 Listener 类的问题到这还没解决，突然想到在 pom 文件里面有对 websocket 的依赖，因为 application.yml 文件中已经把 websocket 这个配置注释掉了(不是把enable=false)，先把这个依赖注释掉再看，然后看着代码编译都不通过了。还有一个办法是把 websocket 改成不启用，改完重启发现不会再跳到 websocket 相关的类中了
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210122000547192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
-4. **与soul-bootstrap 数据同步(http)源码分析**
+4. **与shenyu-bootstrap 数据同步(http)源码分析**
 
 老规矩，改 yml 文件中的配置，然后找到对应的 listener 类打断点调试，这里如果是用 http 的话 websocket 相关的类还是会被访问到，所以这里一样的不能直接注释
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210122005803207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1dGFuYm8xMjM=,size_16,color_FFFFFF,t_70)
@@ -115,9 +115,9 @@ public int createOrUpdate(final SelectorDTO selectorDTO) {
 2021-01-22 01:00:19.077  INFO 20800 --- [-long-polling-2] o.d.s.a.l.AbstractDataChangedListener    : update config cache[META_DATA], old: {group='META_DATA', md5='5f79d821e3b601330631a2d53294fb34', lastModifyTime=1611248302571}, updated: {group='META_DATA', md5='5f79d821e3b601330631a2d53294fb34', lastModifyTime=1611248419077}
 2021-01-22 01:00:19.077  INFO 20800 --- [-long-polling-2] a.l.h.HttpLongPollingDataChangedListener : http sync strategy refresh config success.
 ```
-5. soul 中还有其它方法同步数据，这些后面有精力再分析，soul-admin 源码先分析到这，如果后续再分析的话，会另外再写一遍文章，这里就先到此为止
+5. ShenYu 中还有其它方法同步数据，这些后面有精力再分析，shenyu-admin 源码先分析到这，如果后续再分析的话，会另外再写一遍文章，这里就先到此为止
 # 总结
-soul-admin 中还有功能现在还没有使用到，还有很多好玩的东西，这篇会持续更新，到用到的时候再去具体分析里面的源码。
-1. 2021-01-20分析了 soul-admin 用websocket 同步数据到 soul-bootstrap 中
-2. 2021-01-21分析了 soul-admin 用 zookeeper 同步数据到 soul-bootstrap 中
-3. 2021-01-21分析了 soul-admin 用 http 同步数据到 soul-bootstrap 中
+shenyu-admin 中还有功能现在还没有使用到，还有很多好玩的东西，这篇会持续更新，到用到的时候再去具体分析里面的源码。
+1. 2021-01-20分析了 shenyu-admin 用websocket 同步数据到 shenyu-bootstrap 中
+2. 2021-01-21分析了 shenyu-admin 用 zookeeper 同步数据到 shenyu-bootstrap 中
+3. 2021-01-21分析了 shenyu-admin 用 http 同步数据到 shenyu-bootstrap 中

@@ -5,7 +5,7 @@ description: "ShenYuLearning(1) Environment Configuration"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-15
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # Analysis of ShenYu (1) Set up ShenYu environment

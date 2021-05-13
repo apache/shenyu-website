@@ -5,7 +5,7 @@ description: "ShenYu Gateway Learning SPI"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-30
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # SOUL 中 SPI 的使用

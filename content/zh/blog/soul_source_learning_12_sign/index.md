@@ -5,7 +5,7 @@ description: "ShenYu网关学习Sign插件"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-29
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 

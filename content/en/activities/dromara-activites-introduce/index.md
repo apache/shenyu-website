@@ -8,7 +8,7 @@ cover: "/img/activities/dromara-open-soul-01.jpg"
 descripton: "ShenYu Dream Code Book Club Introduction"
 ---
 
-![ShenYu Dream Code Book Club Introduction](/img/soul/activite/soul-xmind.png)
+![ShenYu Dream Code Book Club Introduction](/img/shenyu/activite/soul-xmind.png)
 
 ### ShenYu Dream Code Book Club（ShenYu 2020 event introduction）
 

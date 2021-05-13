@@ -8,7 +8,7 @@ cover: "/img/activities/dromara-open-soul-02.jpg"
 descripton: "ShenYu source code online sharing session, January 24 from 15:00 to 17:00."
 ---
 
-![ShenYu Online Activity](/img/soul/activite/soul-xmind.png)
+![ShenYu Online Activity](/img/shenyu/activite/soul-xmind.png)
 
 ### ShenYu source code reading (Soul 2021 first activity)
 

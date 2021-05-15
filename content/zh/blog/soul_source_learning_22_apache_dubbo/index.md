@@ -5,7 +5,7 @@ description: "ShenYu网关学习Apache Dubbo插件原理解析"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-03-23
-cover: "/img/soul/blog8/08.jpg"
+cover: "/img/shenyu/blog8/08.jpg"
 ---
 
 ## 目标
@@ -33,7 +33,7 @@ Apache Dubbo 是一款高性能、轻量级的开源Java服务框架,主要提�
 #### 元数据介绍
 元数据作用就是在进行协议转换时候要获取真实的请求 `path` 、`methodName` 、  `parameterTypes` 为泛化调用做好准备
 
-![image.png](/img/soul/blog8/01.png)
+![image.png](/img/shenyu/blog8/01.png)
 
 - 在数据库中,我们有一张表单独存储Dubbo元信息，通过数据同步方案,会把这张表的数据同步到网关的JVM内存中
 - 表结构如下
@@ -93,7 +93,7 @@ PRIMARY KEY (`id`) USING BTREE
 
 #### soul-admin 配置
 
-![image.png](/img/soul/blog8/02.png)
+![image.png](/img/shenyu/blog8/02.png)
 
 > 登录soul-admin后台在插件管理页面打开Dubbo配置选项的开关,和填写注册中心的连接地址
 
@@ -164,10 +164,10 @@ reference.setProtocol("dubbo");
 >    - 调用时,将hashMap结构的参数转换成对应Pojo
 >    - 返回结果是,将Pojo转换成hashMap
 > 
-![image.png](/img/soul/blog8/03.png)
+![image.png](/img/shenyu/blog8/03.png)
 > - GenericImplFilter : 负责consumer端参数的转换,将Pojo转换成hashMap接口
 > 
-![image.png](/img/soul/blog8/04.png)
+![image.png](/img/shenyu/blog8/04.png)
 
 ```java
 /**
@@ -227,7 +227,7 @@ public Mono<Void> execute(final ServerWebExchange exchange) {
 }
 ```
 > 本章只关注Apache Dubbo 所以我们重点放到Dubbo 插件的调用。
-> ![image.png](/img/soul/blog8/05.png)
+> ![image.png](/img/shenyu/blog8/05.png)
 > 经过Debug网关程序我们知道其实是按照上面的顺序一个一个的进行判断调用。下面我们关注 `ApacheDubboPlugin` 
 
 #### ApachDubboPlugin 泛化调用准备
@@ -316,11 +316,11 @@ public Mono<Void> execute(final ServerWebExchange exchange, final SoulPluginChai
 }
 ```
 
-#### ![image.png](/img/soul/blog8/06.png)
+#### ![image.png](/img/shenyu/blog8/06.png)
 
 #### WebFluxResultUtils 返回结果
 
-![image.png](/img/soul/blog8/07.png)
+![image.png](/img/shenyu/blog8/07.png)
 
 ### Dubbo泛化调用介绍
 Dubbo泛化调用主要就分为两块分别是消费端如何使用 `GenericImplFilter` 拦截泛化调用、服务提供端如何使用 `GenericFilter` 拦截请求后把泛化参数序列化然后请求给具体服务。

@@ -5,7 +5,7 @@ description: "ShenYu Gateway Learning Plugin Chain Implementation"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-21
-cover: "/img/soul/blog6/mirco.png"
+cover: "/img/shenyu/blog6/mirco.png"
 ---
 
 ### 一、引言
@@ -26,7 +26,7 @@ ShenYu是如何实现插件化设计的呢？
 
 #### 1、架构释义
 
-![img](/img/soul/blog6/mirco.png)
+![img](/img/shenyu/blog6/mirco.png)
 
 微内核架构也被称为插件化架构，是一种**面向功能进行拆分**的可扩展性架构，通常用于实现基于产品的应用。
 

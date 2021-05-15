@@ -49,7 +49,7 @@ public class LoadBalanceUtils {
 
 书中也有个非常形象的脑图, 展示了 SPI 的使用:
 
-![08](/img/soul/blog1/08.png)
+![08](/img/shenyu/blog1/08.png)
 
 也就是说在我们代码中的实现里, 无需去写入一个 Factory 工厂, 用 MAP 去包装一些子类, 最终返回的类型是父接口. 只需要定义好资源文件, 让父接口与它的子类在文件中写明, 即可通过设置好的方式拿到所有定义的子类对象:
 
@@ -66,9 +66,9 @@ for(Interface interface : loaders){
 
 按照 SPI 的规范, 我建了一个 demo, 看看具体的实现效果
 
-![image-20210129095623013](/img/soul/blog1/image-20210129095623013.png)
+![image-20210129095623013](/img/shenyu/blog1/image-20210129095623013.png)
 
-![image-20210129095703911](/img/soul/blog1/image-20210129095703911.png)
+![image-20210129095703911](/img/shenyu/blog1/image-20210129095703911.png)
 
 Animal 中定义一个 `run()` 方法, 而子类实现它.
 
@@ -105,7 +105,7 @@ private static void test() {
 }
 ```
 
-![image-20210129103047851](/img/soul/blog1/image-20210129103047851.png)
+![image-20210129103047851](/img/shenyu/blog1/image-20210129103047851.png)
 
 在调用后我们得到之前在资源文件中写入的实现类, 并成功调取它们各自的 `run()` 方法.
 
@@ -128,7 +128,7 @@ private static void test() {
 }
 ```
 
-![image-20210129103451844](/img/soul/blog1/image-20210129103451844.png)
+![image-20210129103451844](/img/shenyu/blog1/image-20210129103451844.png)
 
 两次调用出现的对象却不一样, 不由让我替其性能揪心一下, 所以我们先分析下它的代码, 看看到底怎么实现.
 
@@ -225,7 +225,7 @@ private class LazyIterator implements Iterator<S> {
 }
 ```
 
-![image-20210129111231212](/img/soul/blog1/image-20210129111231212.png)
+![image-20210129111231212](/img/shenyu/blog1/image-20210129111231212.png)
 
 `hasNext()` 的调用可以获取到我们资源中的类名, 写入到实例属性 `nextName` 中, 并返回 `true`, 让迭代器可以进行 `next()` 的调用
 
@@ -287,7 +287,7 @@ private static void test(ServiceLoader<Animal> load) {
 }
 ```
 
-![image-20210129113307494](/img/soul/blog1/image-20210129113307494.png)
+![image-20210129113307494](/img/shenyu/blog1/image-20210129113307494.png)
 
 ### Java SPI 思考
 
@@ -311,7 +311,7 @@ Java SPI 中我们还有很多的细节没有描述到, 但主流程就是这些
 
 各个数据库连接包中关于 JDBC 方式实现, 都需要实现其 Driver 接口, 这块其实用的就是 SPI 的方式, 我们看看 `mysql-connector-java.jar` 
 
-![image-20210130202512831](/img/soul/blog1/image-20210130202512831.png)
+![image-20210130202512831](/img/shenyu/blog1/image-20210130202512831.png)
 
 那么 JDK 中的 JDBC 相关类, 是如何实现这块的? 关键类就是 DriverManager
 
@@ -549,7 +549,7 @@ Java 中 SPI 的使用方式我们已经掰开来了解透彻了, 而 ShenYu 中
 
 先来看 SPI 实现项目的全貌, 项目为 `soul-spi`:
 
-![image-20210130214402997](/img/soul/blog1/image-20210130214402997.png)
+![image-20210130214402997](/img/shenyu/blog1/image-20210130214402997.png)
 
 其中最核心的类就是 ExtensionLoader, 可以说是 ShenYu 版的 ServiceLoader, 它也定义了 SPI 资源文件的路径位置
 
@@ -623,7 +623,7 @@ private final Map<String, Holder<Object>> cachedInstances = new ConcurrentHashMa
 
 它的 `key` 其实就是 ShenYu SPI 资源文件中我们配置的信息, 比如 Divide 插件的负载均衡实现类的资源文件
 
-![image-20210130230250748](/img/soul/blog1/image-20210130230250748.png)
+![image-20210130230250748](/img/shenyu/blog1/image-20210130230250748.png)
 
 而它的 `value` 则是 Holder 对象, 其中存有实现类的对象. 调用 `getJoin()` 时传入标识 (比如 random) 获得实现类对象.
 
@@ -684,7 +684,7 @@ private T createExtension(final String name) {
 
 通过 ExtensionLoader 加载某个接口的实现类时, 缓存调用流程图如下:
 
-![09](/img/soul/blog1/09.png)
+![09](/img/shenyu/blog1/09.png)
 
 ### 详细源码分析 (可跳过)
 

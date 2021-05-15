@@ -5,7 +5,7 @@ description: "ShenYu Gateway Learns Http Long Polling Analysis"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-25
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## 后台与网关数据同步 (Http长轮询篇)

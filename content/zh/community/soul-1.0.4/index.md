@@ -5,7 +5,7 @@ description: "ShenYu网关发布1.0.4-RELEASE版本"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2019-04-09
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ### ShenYu网关发布1.0.4-RELEASE版本

@@ -5,7 +5,7 @@ description: "ShenYu网关学习(2-3)Http客户端接入源码解析"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-18
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # HTTP 用户接入 ShenYu 网关注册逻辑分析

@@ -5,7 +5,7 @@ description: "How convenient is the 2.1.X version of ShenYu Gateway?"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2019-12-12
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 It has been a year since I open sourced ShenYu gateway in October last year, and received many suggestions from you guys in community. It has provided very rich functions after optimization, many of functions are highly cusmized, visualized, and highly extensible, now let's make a summary. 
@@ -89,11 +89,11 @@ First of all, I think we should follow pragmatism, when you need to use it , the
 
 - ShenYu is here to solve the trouble above, this is the purpose of the design. Let’s take a look at the overall architecture diagram. 
 
-  ![soul-framework](soul-framework.png)
+  ![soul-framework](shenyu-framework.png)
 
 - ShenYu gateway is implemented using reactive programming.  Just look at the weather vane Spring, responsive programming is definitely an important direction in the future. When I was in 2014, I wrote for loop  every day. The leader told me to use lambda expressions, which would be the trend of the future. Nowadays, if you are a java programmer but don't know lambda expression, you are out.
 
-![soul-framework](soul-framework.png)
+![soul-framework](shenyu-framework.png)
 
 ### There are many other functions
 

@@ -5,7 +5,7 @@ description: "ShenYu网关学习(1)环境配置"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-15
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # Soul源码分析（1） 环境配置

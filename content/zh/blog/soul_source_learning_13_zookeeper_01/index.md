@@ -5,7 +5,7 @@ description: "ShenYu网关学习Zookeeper数据同步"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-20
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 #### 启动 soul-admin、soul-bootstrap， 使用zookeeper同步数据到网关
@@ -84,7 +84,7 @@ Starting zookeeper ... STARTED
 ```
 
 4、查看 zookeeper 上的soul网关同步的注册信息
-![在这里插入图片描述](/img/soul/blog5/zk1.png)
+![在这里插入图片描述](/img/shenyu/blog5/zk1.png)
 
 
 ###### 三、ShenYu 网关 Zookeeper 数据同步原理解析
@@ -114,9 +114,9 @@ public class ZookeeperConfiguration {
 }
 ```
 soul-admin 启动后，会实读取 zookeeper 配置信息，向容器中注入 zkClient 和 zookeeper建立连接。
-![在这里插入图片描述](/img/soul/blog5/zk2.png)
+![在这里插入图片描述](/img/shenyu/blog5/zk2.png)
 
-![在这里插入图片描述](/img/soul/blog5/zk3.png)
+![在这里插入图片描述](/img/shenyu/blog5/zk3.png)
 
 2、实例化 ZkClient 的调用栈中会调用 DataChangedEventDispatcher 的 afterPropertiesSet 方法。
 
@@ -251,16 +251,16 @@ public class SyncDataServiceImpl implements SyncDataService {
 }
 ```
 
-![在这里插入图片描述](/img/soul/blog5//zk4.png)
+![在这里插入图片描述](/img/shenyu/blog5//zk4.png)
 
 6、事件发布后 org.dromara.soul.admin.listener.DataChangedEventDispatcher 类的onApplicationEvent 方法会监听事件变化，遍历所有的监听者进行数据同步处理，这里的监听者实现类是 ZookeeperDataChangedListener，根据对应的事件类型通过 zkClient 向
 zookeeper 同步数据。
  
-![在这里插入图片描述](/img/soul/blog5//zk5.png)
+![在这里插入图片描述](/img/shenyu/blog5//zk5.png)
 
 7、soul-admin 初始化到数据到zookeeper思维导图
 
-![在这里插入图片描述](/img/soul/blog5//zk6.png)
+![在这里插入图片描述](/img/shenyu/blog5//zk6.png)
 
 ###### 四、总结
 soul-admin 启动就会同步网关数据 rule、metaData、selector、plugin 等到 zookeeper。数据变化会发布 DataChangedEvent事件，监听事件将数据同步至zookeeper。

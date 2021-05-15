@@ -1,9 +1,21 @@
 # Links in footer
 
 [[links]]
+	category = "Apache"
+	link_arr = [
+		["Foundation", "https://www.apache.org/"],
+		["License", "https://www.apache.org/licenses/"],
+		["Security", "https://www.apache.org/security/"],
+		["Events", "http://www.apache.org/events/current-event"],
+		["Sponsorship", "http://www.apache.org/foundation/sponsorship.html"],
+		["Thanks", "http://www.apache.org/foundation/thanks.html"],
+	]
+
+[[links]]
 	category = "资源"
 	link_arr = [
 		["Github", 'https://github.com/dromara'],
+		["文档", '/zh/projects/shenyu/overview/'],
 		["订阅邮件", 'mailto://dev-subscribe@shenyu.apache.org'],
 		["邮件归档", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
 #		["示例", 'https://github.com/dromara-guides'],
@@ -17,11 +29,6 @@
 		["博客","/zh/blog"],
 	]
 
-[[links]]
-	category = "文档"
-	link_arr = [
-		["ShenYu", '/zh/projects/shenyu/overview/']
-	]
 
 [[qrcode]]
 	img = "img/qrcode/qrcode_1.png"

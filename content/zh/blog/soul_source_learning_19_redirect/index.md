@@ -5,7 +5,7 @@ description: "ShenYu网关学习Redirect插件原理解析"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-03-16
-cover: "/img/soul/blog6/01.jpg"
+cover: "/img/shenyu/blog6/01.jpg"
 ---
 
 # 介绍

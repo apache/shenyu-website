@@ -5,7 +5,7 @@ description: "ShenYu网关学习插件链与负载均衡解析"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-15
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # 插件链总结
@@ -278,11 +278,11 @@ protected Mono<Void> doExecute(final ServerWebExchange exchange, final SoulPlugi
 
 ShenYu网关的负载均衡如何执行, 不止涉及到各种策略 (hasn、随机、轮询), 也涉及到 "权重分数" 这个概念, 管理后台的具体配置如下: 
 
-![](/img/soul/blog1/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ptNDY5NTY4NTk1,size_16,color_FFFFFF,t_70.png)
+![](/img/shenyu/blog1/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ptNDY5NTY4NTk1,size_16,color_FFFFFF,t_70.png)
 
-![](/img/soul/blog1/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ptNDY5NTY4NTk1,size_16,color_FFFFFF,t_70-20210118110416590.png)
+![](/img/shenyu/blog1/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ptNDY5NTY4NTk1,size_16,color_FFFFFF,t_70-20210118110416590.png)
 
-![image-20210118113516468](/img/soul/blog1/image-20210118113516468.png)
+![image-20210118113516468](/img/shenyu/blog1/image-20210118113516468.png)
 
 展示完后台配置, 我们具体看看各个策略的代码实现.
 

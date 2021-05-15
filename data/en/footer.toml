@@ -1,9 +1,21 @@
 # Links in footer
 
 [[links]]
+	category = "Apache"
+	link_arr = [
+		["Foundation", "https://www.apache.org/"],
+		["License", "https://www.apache.org/licenses/"],
+		["Security", "https://www.apache.org/security/"],
+		["Events", "http://www.apache.org/events/current-event"],
+		["Sponsorship", "http://www.apache.org/foundation/sponsorship.html"],
+		["Thanks", "http://www.apache.org/foundation/thanks.html"],
+	]
+
+[[links]]
 	category = "Resources"
 	link_arr = [
 		["Github", 'https://github.com/dromara'],
+		["Documentation", '/projects/shenyu/overview/'],
 		["Subscribe Mail", 'mailto://dev-subscribe@shenyu.apache.org'],
 		["Mail Archive", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
 		# ["Samples", 'https://github.com/dromara-guides'],
@@ -16,12 +28,6 @@
 		["Community","/community"],
 		["Blog","/blog"],
 		# ["Email","mailto:sofa@alipay.cloud.com"]
-	]
-
-[[links]]
-	category = "Document"
-	link_arr = [
-		["ShenYu", '/projects/shenyu/overview/']
 	]
 
 #[[links]]

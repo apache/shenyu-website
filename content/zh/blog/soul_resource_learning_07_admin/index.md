@@ -5,7 +5,7 @@ description: "ShenYu网关学习Admin源码分析"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-20
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # 源码分析

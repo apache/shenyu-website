@@ -5,7 +5,7 @@ description: "ShenYu Gateway Learning Resilience4j Plugin"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-03-22
-cover: "/img/soul/blog6/03.jpg"
+cover: "/img/shenyu/blog6/03.jpg"
 
 ---
 

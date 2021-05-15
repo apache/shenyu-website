@@ -5,7 +5,7 @@ description: "ShenYu网关学习(2-1)divide插件使用"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-16
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # Divide 插件使用

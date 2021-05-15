@@ -14,7 +14,7 @@ googleAnalytics = "UA-187960192-2"
 [markup.goldmark.renderer]
 unsafe = true
 [params]
-	github = "https://github.com/dromara/dromara.github.io"
+	github = "https://github.com/dromara/shenyu-website"
   description = "The girl on the prairie"
 
 # 首页订阅
@@ -45,11 +45,11 @@ unsafe = true
 		languageName = "中文"
 		weight = 20
 
-	[[languages.zh.menu.main]]
-		identifier = "projects"
-		name = "项目"
-		url = "/zh/projects/"
-		weight = 1
+	#[[languages.zh.menu.main]]
+	#	identifier = "projects"
+	#	name = "项目"
+	#	url = "/zh/projects/"
+	#	weight = 1
 	#[[languages.zh.menu.main]]
 	#	identifier = "guides"
 	#	name = "指南"
@@ -82,11 +82,11 @@ unsafe = true
 		weight = 5
 
 [menu]
-	[[menu.main]]
-		identifier = "projects"
-		name = "Projects"
-		url = "/projects/"
-		weight = 1
+	#[[menu.main]]
+	#	identifier = "projects"
+	#	name = "Projects"
+	#	url = "/projects/"
+	#	weight = 1
 	#[[menu.main]]
 	#	identifier = "guides"
 	#	name = "Guides"
@@ -94,7 +94,7 @@ unsafe = true
 	#	weight = 2
 	[[menu.main]]
 		identifier = "document"
-		name = "Document"
+		name = "Documentation"
 		url = "/projects/shenyu/overview/"
 		weight = 2
 	[[menu.main]]

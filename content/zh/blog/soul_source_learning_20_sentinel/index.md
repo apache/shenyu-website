@@ -5,7 +5,7 @@ description: "ShenYu网关学习Sentinel插件原理解析"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-03-19
-cover: "/img/soul/blog6/02.jpg"
+cover: "/img/shenyu/blog6/02.jpg"
 ---
 
 # 概述

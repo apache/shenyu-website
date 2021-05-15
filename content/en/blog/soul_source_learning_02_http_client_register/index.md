@@ -5,7 +5,7 @@ description: "ShenYuLearning (2) HTTP Client Access Source Code Parsing"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-18
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 # HTTP 用户接入 ShenYu网关注册逻辑分析

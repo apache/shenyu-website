@@ -5,7 +5,7 @@ description: "ShenYu released version 2.2.0 with new architecture that makes gat
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2020-06-17
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 Let's take a look at the new features first, and then I would like to share my story.
@@ -187,7 +187,7 @@ First of all, I think we should follow pragmatism, when you need to use it , the
 -  If an interface attacked by a large amount of request, how do you deal with it?
 - ShenYu is here to solve the trouble above, this is the purpose of the design. Let’s take a look at the overall architecture diagram. 
 
-![soul-framework](/img/architecture/soul-framework.png)
+![soul-framework](/img/architecture/shenyu-framework.png)
 
 - ShenYu gateway is implemented using reactive programming.  Just look at the weather vane Spring, responsive programming is definitely an important direction in the future. When I was in 2014, I wrote for loop  every day. The leader told me to use lambda expressions, which would be the trend of the future. Nowadays, if you are a java programmer but don't know lambda expression, you are out.
 

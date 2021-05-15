@@ -5,7 +5,7 @@ description: "​ShenYu网关发布2.1.X之后，它到底有多方便？"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2019-12-12
-cover: "/img/architecture/soul-framework.png"
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 **Soul** 网关自从去年10月我开源以来，经历了一年的事情，接受到了来自社区很多朋友的建议，并进行持续不断的优化，已经提供了非常丰富的功能，很多功能都是高度自定义，可视化，高度可扩展的，现在做一个归纳总结。
@@ -79,7 +79,7 @@ public class DubboTest implements Serializable {
 
 - 不巧，soul 在设计之初就是来干这种事情的，我们来看一下整体的架构图。
 
-![soul-framework](soul-framework.png)
+![soul-framework](shenyu-framework.png)
 
 
 ## 零零总总还有很多其他功能

@@ -13,13 +13,13 @@ description: dubbo插件
 ```xml
 <!--if you use dubbo start this-->
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
     <version>${last.version}</version>
 </dependency>
 
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
     <version>${last.version}</version>
 </dependency>

@@ -46,7 +46,7 @@ Hystrix不更新了，Spring提供Netflix Hystrix的替换方案，即Resilence4
 * 在soul网关添加依赖
  ```Java   
        <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>soul-spring-boot-starter-plugin-ratelimiter</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -13,8 +13,8 @@ Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `she
 
 ```xml
 <!--shenyu springCloud plugin start-->
-dependency>
-    <groupId>org.dromara</groupId>
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
     <version>${project.version}</version>
 </dependency>

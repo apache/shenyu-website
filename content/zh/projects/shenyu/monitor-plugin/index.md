@@ -40,7 +40,7 @@ description: monitor插件
 ```xml
   <!-- shenyu monitor plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-monitor</artifactId>
       <version>${last.version}</version>
   </dependency>

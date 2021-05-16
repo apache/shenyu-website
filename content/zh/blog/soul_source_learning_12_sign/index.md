@@ -18,7 +18,7 @@ AK/SK（Access Key ID/Secret Access Key）即访问密钥，包含访问密钥ID
 ```xml
   <!-- soul sign plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>soul-spring-boot-starter-plugin-sign</artifactId>
      <version>${last.version}</version>
   </dependency>

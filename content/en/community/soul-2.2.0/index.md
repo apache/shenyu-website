@@ -56,14 +56,14 @@ Let's take a look at the new features first, and then I would like to share my s
 
   <!--ShenYu gateway start-->
   <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>soul-spring-boot-starter-gateway</artifactId>
         <version>2.2.0</version>
   </dependency>
 
    <!--ShenYu data sync start use websocket-->
    <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>soul-spring-boot-starter-sync-data-websocket</artifactId>
         <version>2.2.0</version>
    </dependency>
@@ -94,7 +94,7 @@ ShenYu :
 ```xml
   <!-- ShenYu hystrix plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>soul-spring-boot-starter-plugin-hystrix</artifactId>
       <version>2.2.0</version>
   </dependency>
@@ -105,7 +105,7 @@ ShenYu :
 ```xml
    <!--ShenYu alibaba dubbo plugin start-->
     <dependency>
-          <groupId>org.dromara</groupId>
+          <groupId>org.apache.shenyu</groupId>
           <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
           <version>2.2.0</version>
     </dependency>
@@ -116,7 +116,7 @@ If you are using Apache-Dubbo, then you should add the following dependencies in
 ```xml
    <!--ShenYu apache dubbo plugin start-->
     <dependency>
-          <groupId>org.dromara</groupId>
+          <groupId>org.apache.shenyu</groupId>
           <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
           <version>2.2.0</version>
     </dependency>
@@ -130,7 +130,7 @@ For your inference: https://dromara.org/zh-cn/docs/soul/user-dubbo.html.
 ```xml
   <!-- ShenYu ratelimiter plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>soul-spring-boot-starter-plugin-ratelimiter</artifactId>
       <version>2.2.0</version>
   </dependency>

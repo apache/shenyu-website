@@ -39,7 +39,7 @@ cover: "/img/architecture/shenyu-framework.png"
 1、soul-bootstrap 依赖
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>soul-spring-boot-starter-sync-data-zookeeper</artifactId>
     <version>${project.version}</version>
 </dependency>

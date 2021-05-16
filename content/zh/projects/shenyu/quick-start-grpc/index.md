@@ -12,7 +12,7 @@ description: Grpc快速开始
 注：`shenyu-bootstrap`需要引入grpc依赖
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-grpc</artifactId>
     <version>${project.version}</version>
 </dependency>

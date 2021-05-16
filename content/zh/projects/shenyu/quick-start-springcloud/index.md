@@ -14,7 +14,7 @@ description: SpringCloud快速开始
 ```xml
 <!--shenyu springCloud plugin start-->
 dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
     <version>${project.version}</version>
 </dependency>

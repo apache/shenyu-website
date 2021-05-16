@@ -62,7 +62,7 @@ description: rateLimiter plugin
 ```xml
   <!-- shenyu ratelimiter plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-ratelimiter</artifactId>
       <version>${last.version}</version>
   </dependency>

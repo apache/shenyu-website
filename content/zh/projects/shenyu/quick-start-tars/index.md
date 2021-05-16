@@ -12,7 +12,7 @@ description: Tars快速开始
 注：`shenyu-bootstrap`需要引入tars依赖
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-tars</artifactId>
     <version>${project.version}</version>
 </dependency>

@@ -54,7 +54,7 @@ shenyu:
 
 ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-zookeeper</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -78,7 +78,7 @@ shenyu:
 
 ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-client-zookeeper</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -112,7 +112,7 @@ shenyu:
 
 ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-etcd</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -136,7 +136,7 @@ shenyu:
 
 ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-client-etcd</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -171,7 +171,7 @@ shenyu:
 ```xml
                <!--shenyu-register-server-consul默认已经引入-->
                <dependency>
-                   <groupId>org.dromara</groupId>
+                   <groupId>org.apache.shenyu</groupId>
                    <artifactId>shenyu-register-server-consul</artifactId>
                    <version>${project.version}</version>
                </dependency>
@@ -268,7 +268,7 @@ spring:
 
 ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-nacos</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -291,7 +291,7 @@ shenyu:
 
 ```xml
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-client-nacos</artifactId>
             <version>${project.version}</version>
         </dependency>

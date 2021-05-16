@@ -17,7 +17,7 @@ description: logging plugin
 ```xml
    <!-- shenyu logging plugin start-->
     <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-logging</artifactId>
       <version>${last.version}</version>
     </dependency>

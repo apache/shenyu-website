@@ -18,7 +18,7 @@ description: 插件扩展
 
 ```
  <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-plugin-api</artifactId>
         <version>${last.version}</version>
   </dependency>
@@ -97,7 +97,7 @@ public interface ShenyuPlugin {
 * 引入如下依赖：
 ```xml
  <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-plugin-base</artifactId>
         <version>${last.version}</version>
   </dependency>

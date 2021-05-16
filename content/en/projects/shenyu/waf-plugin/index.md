@@ -26,7 +26,7 @@ description: waf plugin
 ```xml
   <!-- shenyu waf plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-waf</artifactId>
       <version>${last.version}</version>
   </dependency>

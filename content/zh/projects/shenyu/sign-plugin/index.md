@@ -20,7 +20,7 @@ description: sign插件
 ```xml
   <!-- shenyu sign plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-sign</artifactId>
      <version>${last.version}</version>
   </dependency>

@@ -18,7 +18,7 @@ description: Sofa快速开始
     <version>${sofa.rpc.version}</version>
 </dependency>
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
     <version>${project.version}</version>
 </dependency>

@@ -65,7 +65,7 @@ PRIMARY KEY (`id`) USING BTREE
 
 ```java
 <dependency>
- <groupId>org.dromara</groupId>
+ <groupId>org.apache.shenyu</groupId>
  <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
  <version>${project.version}</version>
 </dependency>
@@ -100,7 +100,7 @@ PRIMARY KEY (`id`) USING BTREE
 #### dubbo服务pom配置
 ```java
 <dependency>
- <groupId>org.dromara</groupId>
+ <groupId>org.apache.shenyu</groupId>
  <artifactId>soul-spring-boot-starter-client-apache-dubbo</artifactId>
  <version>${soul.version}</version>
 </dependency>

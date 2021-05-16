@@ -13,7 +13,7 @@ Note: `shenyu-bootstrap` need to import tars dependencies
 
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-tars</artifactId>
     <version>${project.version}</version>
 </dependency>

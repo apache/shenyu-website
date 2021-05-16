@@ -12,7 +12,7 @@ Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `she
 Note: `shenyu-bootstrap` need to import grpc dependencies
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-grpc</artifactId>
     <version>${project.version}</version>
 </dependency>

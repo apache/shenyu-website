@@ -21,7 +21,7 @@ description: resilience4j plugin
 ```xml
   <!-- shenyu resilience4j plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-resilience4j</artifactId>
        <version>${last.version}</version>
   </dependency>

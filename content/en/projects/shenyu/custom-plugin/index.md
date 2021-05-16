@@ -18,7 +18,7 @@ description: plugins
 
 ```
  <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-plugin-api</artifactId>
         <version>${last.version}</version>
   </dependency>
@@ -92,7 +92,7 @@ Detailed instruction of interface methods:
 * Introduce the following dependency:
 ```xml
  <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-plugin-base</artifactId>
         <version>${last.version}</version>
   </dependency>

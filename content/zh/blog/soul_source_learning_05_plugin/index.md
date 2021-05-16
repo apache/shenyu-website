@@ -181,7 +181,7 @@ public class DividePluginConfiguration {
 
 ```xml
 <dependency>
-  <groupId>org.dromara</groupId>
+  <groupId>org.apache.shenyu</groupId>
   <artifactId>soul-spring-boot-starter-plugin-divide</artifactId>
   <version>${project.version}</version>
 </dependency>

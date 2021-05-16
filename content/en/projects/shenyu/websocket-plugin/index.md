@@ -17,13 +17,13 @@ description: websocket plugin
 ```xml
 <!--if you use http proxy start this-->
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
     <version>${last.version}</version>
 </dependency>
 
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
     <version>${last.version}</version>
 </dependency>

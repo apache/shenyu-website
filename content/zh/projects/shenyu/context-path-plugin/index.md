@@ -17,7 +17,7 @@ description: context_path插件
 ```xml
   <!-- shenyu context_path plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-context-path</artifactId>
      <version>${last.version}</version>
   </dependency>

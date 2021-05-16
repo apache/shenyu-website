@@ -28,7 +28,7 @@ soul-bootstrap/pom.xml
 ```xml
 <!--ShenYu data sync start use zookeeper-->
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>soul-spring-boot-starter-sync-data-zookeeper</artifactId>
     <version>${project.version}</version>
 </dependency>

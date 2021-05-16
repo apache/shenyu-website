@@ -22,7 +22,7 @@ description: sentinel plugin
 ```xml
   <!-- shenyu sentinel plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-sentinel</artifactId>
        <version>${last.version}</version>
   </dependency>

@@ -32,12 +32,12 @@ cover: "/img/architecture/shenyu-framework.png"
 ```
         <!--if you use http proxy start this-->
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>soul-spring-boot-starter-plugin-divide</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.dromara</groupId>
+            <groupId>org.apache.shenyu</groupId>
             <artifactId>soul-spring-boot-starter-plugin-httpclient</artifactId>
             <version>${project.version}</version>
         </dependency>

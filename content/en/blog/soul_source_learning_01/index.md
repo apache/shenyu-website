@@ -96,7 +96,7 @@ You can see the dependency in `soul-examples-http`'s pom.xml.
 
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>soul-spring-boot-starter-client-springmvc</artifactId>
     <version>${soul.version}</version>
 </dependency>

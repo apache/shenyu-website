@@ -51,7 +51,7 @@ ShenYu :
 soul-bootstrap/pom.xml，下面的配置默认是没有的，需要手动添加
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>soul-spring-boot-starter-sync-data-nacos</artifactId>
     <version>${project.version}</version>
 </dependency>

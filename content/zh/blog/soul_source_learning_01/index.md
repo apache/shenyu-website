@@ -97,7 +97,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>soul-spring-boot-starter-client-springmvc</artifactId>
     <version>${soul.version}</version>
 </dependency>

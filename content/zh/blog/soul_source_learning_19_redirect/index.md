@@ -24,7 +24,7 @@ cover: "/img/shenyu/blog6/01.jpg"
 
 ```xml
 <dependency>
-  <groupId>org.dromara</groupId>
+  <groupId>org.apache.shenyu</groupId>
   <artifactId>soul-spring-boot-starter-plugin-redirect</artifactId>
   <version>${last.version}</version>
 </dependency>

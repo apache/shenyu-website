@@ -11,7 +11,7 @@ description: sofa插件
 
 ```xml
 <dependency>
-    <groupId>org.dromara</groupId>
+    <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
     <version>${last.version}</version>
 </dependency>

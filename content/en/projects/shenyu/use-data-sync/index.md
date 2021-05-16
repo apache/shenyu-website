@@ -54,7 +54,7 @@ description: use different data-sync strategy
     ```xml
     <!--shenyu data sync start use zookeeper-->
       <dependency>
-           <groupId>org.dromara</groupId>
+           <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
             <version>${last.version}</version>
       </dependency>
@@ -94,7 +94,7 @@ description: use different data-sync strategy
     ```xml
     <!--shenyu data sync start use http-->
       <dependency>
-           <groupId>org.dromara</groupId>
+           <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
             <version>${last.version}</version>
       </dependency>
@@ -132,7 +132,7 @@ description: use different data-sync strategy
     ```xml
     <!--shenyu data sync start use nacos-->
       <dependency>
-           <groupId>org.dromara</groupId>
+           <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
             <version>${last.version}</version>
       </dependency>

@@ -21,7 +21,7 @@ description: hystrix plugin
 ```xml
   <!-- shenyu hystrix plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-hystrix</artifactId>
        <version>${last.version}</version>
   </dependency>

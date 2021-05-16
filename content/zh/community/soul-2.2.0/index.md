@@ -55,14 +55,14 @@ cover: "/img/architecture/shenyu-framework.png"
 
   <!--soul gateway start-->
   <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>soul-spring-boot-starter-gateway</artifactId>
         <version>2.2.0</version>
   </dependency>
 
    <!--soul data sync start use websocket-->
    <dependency>
-        <groupId>org.dromara</groupId>
+        <groupId>org.apache.shenyu</groupId>
         <artifactId>soul-spring-boot-starter-sync-data-websocket</artifactId>
         <version>2.2.0</version>
    </dependency>
@@ -93,7 +93,7 @@ soul :
 ```
   <!-- soul hystrix plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>soul-spring-boot-starter-plugin-hystrix</artifactId>
       <version>2.2.0</version>
   </dependency>
@@ -106,7 +106,7 @@ soul :
 ```
    <!--soul alibaba dubbo plugin start-->
     <dependency>
-          <groupId>org.dromara</groupId>
+          <groupId>org.apache.shenyu</groupId>
           <artifactId>soul-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
           <version>2.2.0</version>
     </dependency>
@@ -116,7 +116,7 @@ soul :
 ```
    <!--soul apache dubbo plugin start-->
     <dependency>
-          <groupId>org.dromara</groupId>
+          <groupId>org.apache.shenyu</groupId>
           <artifactId>soul-spring-boot-starter-plugin-apache-dubbo</artifactId>
           <version>2.2.0</version>
     </dependency>
@@ -129,7 +129,7 @@ soul :
 ```
   <!-- soul ratelimiter plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
+      <groupId>org.apache.shenyu</groupId>
       <artifactId>soul-spring-boot-starter-plugin-ratelimiter</artifactId>
       <version>2.2.0</version>
   </dependency>

@@ -47,7 +47,7 @@ title: "Awesome ShenYu"
 
 ## 贡献{#contributors}
 
-目前已经有上百位小伙伴为 Dromara 贡献了文章和代码，非常感谢他们！
+目前已经有上百位小伙伴为 ShenYu 贡献了文章和代码，非常感谢他们！
 
 > 本列表每月初更新，排名不分先后，按 Github 用户 ID 首字母排序。
 
@@ -231,7 +231,7 @@ title: "Awesome ShenYu"
 </tbody>
 </table>
 
-想要参与贡献，可以直接去[项目列表](/projects)找到您关注的项目。
+想要参与贡献，可以直接去[ShenYu](https://github.com/dromara/shenyu/)，并fork。
 
 ## 用户登记{#registration}
 

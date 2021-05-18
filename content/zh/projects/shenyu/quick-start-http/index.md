@@ -56,9 +56,9 @@ description: Http快速开始
 
 打开插件管理->divide 可以看到插件规则配置列表
 
-![](/img/soul/quick-start/http/rule-list.png)
+![](/img/shenyu/quick-start/http/rule-list.png)
 
 下面使用postman模拟http的方式来请求你的http服务
 
-![](/img/soul/quick-start/http/postman-test.png)
+![](/img/shenyu/quick-start/http/postman-test.png)
 

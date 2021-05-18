@@ -10,7 +10,7 @@ description: register center design
 
 #### Client
 
-![](/img/soul/register/client.png)
+![](/img/shenyu/register/client.png)
 
 When client server start, the register center client will be loaded by spi.
 
@@ -22,7 +22,7 @@ Disruptor can decouple data from operation and facilitate expansion.
 
 #### Server 
 
-![](/img/soul/register/server.png)
+![](/img/shenyu/register/server.png)
 
 When Shenyu-Admin server start, register center server will be loaded by spi. Meanwile Disruptor will be inited too.
 
@@ -97,7 +97,7 @@ Trigger selector and upstream update and event will be published, when uri data 
 
 Consul register client will save URIRegisterDTO to service instance metadata, and URIRegisterDTO will disappear with service unregister. 
 
-![](/img/soul/register/Consul-ui.png)
+![](/img/shenyu/register/Consul-ui.png)
 
 And Consul register client will save MetaDataRegisterDTO to Key/Value store, storage struct is:
 

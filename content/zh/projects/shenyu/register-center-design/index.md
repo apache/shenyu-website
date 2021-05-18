@@ -10,7 +10,7 @@ description: 注册中心设计
 
 ## Client
 
-![](/img/soul/register/client.png)
+![](/img/shenyu/register/client.png)
 
 配置中声明使用的注册中心客户端类型，如HTTP/Zookeeper
 
@@ -24,7 +24,7 @@ Disruptor在其中起数据与操作解耦的作用，利于扩展
 
 ## Server 
 
-![](/img/soul/register/server.png)
+![](/img/shenyu/register/server.png)
 
 在Shenyu-Admin配置中声明使用的注册中心服务端类型，如HTTP/Zookeeper
 
@@ -96,7 +96,7 @@ Shenyu-Admin使用Etcd的Watch机制，对数据的更新和删除等事件进�
 
 Consul的Metadata和URI分两部分存储，URIRegisterDTO随着服务注册记录在服务的metadata里，服务下线时随着服务节点一起消失。
 
-![](/img/soul/register/Consul-ui.png)
+![](/img/shenyu/register/Consul-ui.png)
 
 Consul的MetaDataRegisterDTO存在Key/Value里，键值存储结构如下：
 

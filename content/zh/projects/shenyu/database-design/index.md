@@ -7,7 +7,7 @@ description: 数据库设计
 * 插件采用数据库设计，来存储插件，选择器，规则配置数据，以及对应关系。
 * 数据库表 UML 类图:
 
- ![](/img/soul/db/shenyu-db.png)
+ ![](/img/shenyu/db/shenyu-db.png)
 
 * 设计详解:
   
@@ -21,7 +21,7 @@ description: 数据库设计
    
 * 数据库UML类图：
 
-![](/img/soul/db/shenyu-permission-db.png)
+![](/img/shenyu/db/shenyu-permission-db.png)
 
 * 设计详情:
    * 一个用户对应多个角色,一个角色对应多个资源。

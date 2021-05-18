@@ -5,7 +5,7 @@ description: "ShenYu网关学习divide插件源码解读"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-02-01
-cover: "/img/shenyu/activite/soul-xmind.png"
+cover: "/img/shenyu/activite/shenyu-xmind.png"
 ---
 
 ## 插件概述

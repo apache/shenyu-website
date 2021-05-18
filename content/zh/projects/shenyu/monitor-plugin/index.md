@@ -93,17 +93,17 @@ description: monitor插件
 
 * 配置Prometheus数据源
 
-![](/img/soul/monitor/prometheus-datasource.png)
+![](/img/shenyu/monitor/prometheus-datasource.png)
 
 * 配置JVM面板
 
 点击`Create` - `Import`，输入dashboards的id（推荐8563）
 
-![](/img/soul/monitor/jvm-import.png)
+![](/img/shenyu/monitor/jvm-import.png)
 
 最终JVM监控面板效果如下：
 
-![](/img/soul/monitor/jvm.png)
+![](/img/shenyu/monitor/jvm.png)
 
 * 配置自定义metric面板`request_total`、`http_request_total`
 
@@ -111,6 +111,6 @@ description: monitor插件
 
 最终自定义Http请求监控面板效果如下：
 
-![](/img/soul/monitor/request-metric.png)
+![](/img/shenyu/monitor/request-metric.png)
 
 

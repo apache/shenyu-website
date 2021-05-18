@@ -3,12 +3,12 @@ author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2020-12-27T15:00:00.000Z
 title: "ShenYu Dream Code Book Club Introduction"	
-tags: ["DreamCode", "Dromara","GateWay"]
-cover: "/img/activities/dromara-open-soul-01.jpg"
+tags: ["DreamCode", "Apache","GateWay"]
+cover: "/img/activities/apache-open-shenyu-01.jpg"
 descripton: "ShenYu Dream Code Book Club Introduction"
 ---
 
-![ShenYu Dream Code Book Club Introduction](/img/shenyu/activite/soul-xmind.png)
+![ShenYu Dream Code Book Club Introduction](/img/shenyu/activite/shenyu-xmind.png)
 
 ### ShenYu Dream Code Book Club（ShenYu 2020 event introduction）
 

@@ -101,8 +101,8 @@ dependency>
 
 打开插件管理->springCloud 可以看到插件规则配置列表
 
-![](/img/soul/quick-start/springcloud/rule-list.png)
+![](/img/shenyu/quick-start/springcloud/rule-list.png)
 
 下面使用postman模拟http的方式来请求你的SpringCloud服务
 
-![](/img/soul/quick-start/springcloud/postman-test.png)
+![](/img/shenyu/quick-start/springcloud/postman-test.png)

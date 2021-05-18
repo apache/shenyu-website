@@ -43,11 +43,11 @@ The `shenyu-examples-dubbo` project will automatically register interface method
 
 Open Plugin Management -> dubbo to see the list of plugin rule configurations
 
-![](/img/soul/quick-start/dubbo/rule-list.jpg)
+![](/img/shenyu/quick-start/dubbo/rule-list.jpg)
 
 Use PostMan to simulate HTTP to request your Dubbo service
 
-![](/img/soul/quick-start/dubbo/postman-findbyid.jpg)
+![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 
 Complex multi-parameter example: The related interface implementation class is `org.dromara.shenyu.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`.
 ```java
@@ -60,7 +60,7 @@ public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id,
     return test;
 }
 ```
-![](/img/soul/quick-start/dubbo/postman-multiparams.jpg)
+![](/img/shenyu/quick-start/dubbo/postman-multiparams.jpg)
 
 When your arguments do not match, the following exception will occur:
 ```java

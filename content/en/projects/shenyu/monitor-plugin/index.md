@@ -87,22 +87,22 @@ Here's how to install and deploy `Grafana for Windows`
 
 * Config Prometheus DataSource
 
-![](/img/soul/monitor/prometheus-datasource.png)
+![](/img/shenyu/monitor/prometheus-datasource.png)
 
 * Config JVM Dashboard
 
 Click `Create` - `Import` and enter the dashboards ID (8563 recommended).
 
-![](/img/soul/monitor/jvm-import.png)
+![](/img/shenyu/monitor/jvm-import.png)
 
 The final JVM monitor panel looks like this:
 
-![](/img/soul/monitor/jvm.png)
+![](/img/shenyu/monitor/jvm.png)
 
 * Config Custom Metric Dashboard `request_total`、`http_request_total`
 
-Click `Create` - `Import` and enter the [panel config json](/img/soul/monitor/request_metric_dashboard.json)
+Click `Create` - `Import` and enter the [panel config json](/img/shenyu/monitor/request_metric_dashboard.json)
 
 The final custom HTTP request monitoring panel looks like this:
 
-![](/img/soul/monitor/request-metric.png)
+![](/img/shenyu/monitor/request-metric.png)

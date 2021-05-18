@@ -1,80 +1,81 @@
 ---
-title: "ShenYuLearning(1) Environment Configuration"
-author: "chenxi"
-description: "ShenYuLearning(1) Environment Configuration"
+title: "ShenYu网关学习(1)环境配置"
+author: "陈曦"
+description: "ShenYu网关学习(1)环境配置"
 categories: "ShenYu"
 tags: ["ShenYu"]
 date: 2021-01-15
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-# Analysis of ShenYu (1) Set up ShenYu environment
+# Soul源码分析（1） 环境配置
 
-> ShenYu is a High-Performance Java API Gateway
->
+> soul is a High-Performance Java API Gateway
+> 
 > GitHub：https://github.com/dromara/soul
->
-> document：https://dromara.org/zh-cn/docs/soul/soul.html
+> 
+> 官方文档：https://dromara.org/zh-cn/docs/soul/soul.html
 
-## 1. Prepare source code
+## 1. 源代码准备
 
-### 1.1. Fork [dromara/soul](https://github.com/dromara/soul.git) repository to my github [cchenxi/soul](https://github.com/cchenxi/soul.git)
+### 1.1. fork [dromara/soul](https://github.com/dromara/soul.git)源代码至自己的仓库[cchenxi/soul](https://github.com/cchenxi/soul.git)
 
-### 1.2. Clone the repository
+### 1.2. clone自己仓库中的soul源代码至本地
 
 ```shell
 git clone https://github.com/cchenxi/soul.git
 ```
 
-### 1.3.Open the source code with idea
+### 1.3.使用idea打开soul源代码
 
-### 1.4. Compile the ShenYu source code
+### 1.4.编译soul源代码
 
-You can compile the project as follows.
+执行以下maven命令，等待编译完成
+
+![-w1723](/img/shenyu/01/16106054898861.jpg)
+
 
 ```shell
 mvn clean package install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Drat.skip=true -Dcheckstyle.skip=true
 ```
 
-![-w1723](/img/soul/01/16106054898861.jpg)
+## 2. 启动 `soul`
 
-## 2. Startup `soul`
+### 2.1. 启动`soul-admin`模块
 
-### 2.1. Startup `soul-admin` module
+> `soul-admin`是soul网关的后台管理系统
 
-> `soul-admin` is the management system for soul.
+选择使用MySQL数据库存储网关数据，修改数据源配置为自己的数据库配置。
 
-Choose to use `MySQL` to storage gateway data and modify the datasource config.
-
-![-w1186](/img/soul/01/16106065488032.jpg)
+![-w1186](/img/shenyu/01/16106065488032.jpg)
 
 
-Run `org.dromara.soul.admin.SoulAdminBootstrap`.
+运行启动类 `org.dromara.soul.admin.SoulAdminBootstrap`。
 
-When success, please visit the website `http://localhost:9095/`, then jump to the login page, and input the corresponding user name and password to log in.
+启动成功后，访问地址 http://localhost:9095/ ，跳转到登录页↓
 
-The user name is `admin` and the password is `123456`.
+![-w593](/img/shenyu/01/16106069731233.jpg)
 
-![-w593](/img/soul/01/16106069731233.jpg)
+使用用户名`admin`，密码 `123456` 登录。
 
-![-w1262](/img/soul/01/16106073045599.jpg)
+![-w1262](/img/shenyu/01/16106073045599.jpg)
 
 
 
-### 2.2. Startup `soul-bootstrap` module
+### 2.2. 启动`soul-bootstrap`模块
 
-> `soul-bootstrap` is the core of soul.
+> `soul-bootstrap`是网关系统的核心
 
-Check the configuration of `soul-bootstrap`.
+检查`soul-bootstrap`的配置
 
-![-w917](/img/soul/01/16106076385761.jpg)
+![-w917](/img/shenyu/01/16106076385761.jpg)
 
-Please make sure the ip and the port has been configured for `soul-admin`.
+这里需要配置成 `soul-admin`的ip和端口
 
-If the console output as follows, it means the startup is successful.
+控制台输出如下内容表示 `soul-bootstrap`启动成功
 
 ```plain text
-2021-01-14 15:01:15.832  INFO 17943 --- [           main] b.s.s.d.w.WebsocketSyncDataConfiguration : you use websocket sync ShenYu data.......
+2021-01-14 15:01:15.832  INFO 17943 --- [           main] b.s.s.d.w.WebsocketSyncDataConfiguration : you use websocket sync soul data.......
 2021-01-14 15:01:15.924  INFO 17943 --- [           main] o.d.s.p.s.d.w.WebsocketSyncDataService   : websocket connection is successful.....
 2021-01-14 15:01:16.113  INFO 17943 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
 log4j:WARN No appenders could be found for logger (com.alibaba.dubbo.common.logger.LoggerFactory).
@@ -84,15 +85,15 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 2021-01-14 15:01:17.154  INFO 17943 --- [           main] o.d.s.b.SoulBootstrapApplication         : Started SoulBootstrapApplication in 5.508 seconds (JVM running for 6.762)
 ```
 
-## 3. Test
+## 3. 测试http请求转发
 
-> Add the `soul-examples` module to soul's pom.xml for test.
+> 为了方便测试，把`soul-examples`模块添加到soul的pom里
 
-### 3.1. Startup an HTTP backend service
+### 3.1. 启动一个服务
 
-Startup `soul-examples-http`
+启动`soul-examples-http`项目
 
-You can see the dependency in `soul-examples-http`'s pom.xml.
+`soul-examples-http`的pom中引入了依赖
 
 ```xml
 <dependency>
@@ -102,7 +103,7 @@ You can see the dependency in `soul-examples-http`'s pom.xml.
 </dependency>
 ```
 
-Configure the `application.yml`
+在 `application.yml`中配置
 
 ```yaml
 soul:
@@ -114,21 +115,20 @@ soul:
     full: false
 ```
 
-If `soul.http.full`=false, you need to add the `@SoulSpringMvcClient` annotation in controller or controller method.
+如果soul.http.full=false，则需要在具体的http接口上配置 `@SoulSpringMvcClient` 注解
 
-#### 3.1.1. Test the service
+#### 3.1.1. 测试http服务
 
-Visit `http://localhost:8188/test/findByUserId?userId=1` and the result as follows.
+执行http请求 `http://localhost:8188/test/findByUserId?userId=1` 结果如下图
 
-![-w684](/img/soul/01/16106235724795.jpg)
+![-w684](/img/shenyu/01/16106235724795.jpg)
 
-#### 3.1.2. Test forward HTTP request
+#### 3.1.2. 测试网关转发
 
-Visit `http://localhost:9195/http/test/findByUserId?userId=1` and the result as follows.
+执行http请求 `http://localhost:9195/http/test/findByUserId?userId=1` 结果如下图
 
-![-w665](/img/soul/01/16106237733891.jpg)
-
-You can see the following information in the console of `soul-bootstrap`. It means the forward HTTP request is successful.
+![-w665](/img/shenyu/01/16106237733891.jpg)
+在`soul-bootstrap`的控制台中输出如下信息
 
 ```shell
 2021-01-14 20:42:57.123  INFO 29812 --- [work-threads-11] o.d.soul.plugin.base.AbstractSoulPlugin  : divide selector success match , selector name :/http
@@ -136,32 +136,30 @@ You can see the following information in the console of `soul-bootstrap`. It mea
 2021-01-14 20:42:57.126  INFO 29812 --- [work-threads-11] o.d.s.plugin.httpclient.WebClientPlugin  : The request urlPath is http://172.27.121.155:8188/test/findByUserId?userId=1, retryTimes is 0
 ```
 
-### 3.2. Startup two HTTP backend services to simulate load balance
+可以观察到网关可以将请求正常转发。
 
-Choose `Allow parallel run`
+### 3.2. 启动两个服务模拟负载均衡
 
-Change the port to `8189`
+勾选 `Allow parallel run`，修改端口为`8189`，再次启动`soul-examples-http`项目
 
-Startup `soul-examples-http` again
+![-w1104](/img/shenyu/01/16106249542903.jpg)
 
-![-w1104](/img/soul/01/16106249542903.jpg)
+#### 3.2.1. 测试http服务
 
-#### 3.2.1. Test the service
+执行http请求 `http://localhost:8189/test/findByUserId?userId=1` 结果如下图
 
-Visit `http://localhost:8189/test/findByUserId?userId=1` and the result as follows.
+![-w693](/img/shenyu/01/16106250513285.jpg)
 
-![-w693](/img/soul/01/16106250513285.jpg)
+#### 3.2.2. 测试负载均衡
 
-#### 3.2.2. Test load balance
+![-w1096](/img/shenyu/01/16106266610601.jpg)
 
-![-w1096](/img/soul/01/16106266610601.jpg)
+将8188和8189两个端口对应的服务配置到选择器中
 
-Configure two HTTP service in selector
+多次执行http请求 `http://localhost:9195/http/test/findByUserId?userId=1` 结果如下图
 
-Visit `http://localhost:9195/http/test/findByUserId?userId=1` more and more and result as follows.
-
-![-w595](/img/soul/01/16106267572581.jpg)
-You can see the following information in the console of `soul-bootstrap`. It means the load balance is successful.
+![-w595](/img/shenyu/01/16106267572581.jpg)
+在`soul-bootstrap`的控制台中输出如下信息
 
 ```shell
 2021-01-14 20:48:34.460  INFO 29812 --- [work-threads-21] o.d.soul.plugin.base.AbstractSoulPlugin  : divide selector success match , selector name :/http
@@ -184,17 +182,14 @@ You can see the following information in the console of `soul-bootstrap`. It mea
 2021-01-14 20:48:40.977  INFO 29812 --- [-work-threads-1] o.d.s.plugin.httpclient.WebClientPlugin  : The request urlPath is http://172.27.121.155:8188/test/findByUserId?userId=1, retryTimes is 0
 ```
 
-#### 3.2.3. Press test
+可以观察到请求既有转发到8188端口的，也有转发到8189的，可以实现负载均衡
 
-Use `wrk` to press test and compare the two ways as follows.
+#### 3.2.3. 压测
 
-1. Visit the backend service directly.
-2. Visit the service via soul.
-
-The performance drops slightly after using the gateway, probably because of the extra layer of forwarding.
+简单对直连和使用网关两种方式的请求进行压测
 
 ```shell
-➜  ShenYu git:(master) ✗ wrk -t8 -c40 -d30s http://localhost:8189/test/findByUserId\?userId\=1
+➜  soul git:(master) ✗ wrk -t8 -c40 -d30s http://localhost:8189/test/findByUserId\?userId\=1
 Running 30s test @ http://localhost:8189/test/findByUserId?userId=1
   8 threads and 40 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -203,7 +198,7 @@ Running 30s test @ http://localhost:8189/test/findByUserId?userId=1
   486269 requests in 30.05s, 51.01MB read
 Requests/sec:  16179.68
 Transfer/sec:      1.70MB
-➜  ShenYu git:(master) ✗ wrk -t8 -c40 -d30s http://localhost:9195/http/test/findByUserId\?userId\=1
+➜  soul git:(master) ✗ wrk -t8 -c40 -d30s http://localhost:9195/http/test/findByUserId\?userId\=1
 Running 30s test @ http://localhost:9195/http/test/findByUserId?userId=1
   8 threads and 40 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -214,12 +209,16 @@ Requests/sec:   3639.60
 Transfer/sec:    390.98KB
 ```
 
-#### 3.2.4. Problem in the process
+可以发现，使用网关后性能有些下降，主要是因为多了一层转发。
 
-When startup the port of `8189`，but the output of console is still `8188`.
+#### 3.2.4. 问题
 
-![-w1675](/img/soul/01/16106270140398.jpg)
+在启动8189端口时，注册的客户端端口还是8188
 
-After modify the value of `soul.http.port`, the problem solved.
+![-w1675](/img/shenyu/01/16106270140398.jpg)
 
-![-w520](/img/soul/01/16106405075031.jpg)
+先手动配置选择器的配置，后来在群友的帮助下定位到是 `soul.http.port`没有改
+
+修改后的配置如下
+
+![-w520](/img/shenyu/01/16106405075031.jpg)

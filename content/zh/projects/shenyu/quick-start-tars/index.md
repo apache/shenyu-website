@@ -98,9 +98,9 @@ The session manager service started...
 
 打开插件管理->tars可以看到插件规则配置列表
 
-![](/img/soul/quick-start/tars/rule-list.png)
+![](/img/shenyu/quick-start/tars/rule-list.png)
 
 下面使用postman模拟http的方式来请求你的tars服务
 
-![](/img/soul/quick-start/tars/postman-test.png)
+![](/img/shenyu/quick-start/tars/postman-test.png)
 

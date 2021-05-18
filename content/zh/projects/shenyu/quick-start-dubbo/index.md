@@ -43,11 +43,11 @@ description: Dubbo快速开始
 
 打开插件管理->dubbo可以看到插件规则配置列表
 
-![](/img/soul/quick-start/dubbo/rule-list.jpg)
+![](/img/shenyu/quick-start/dubbo/rule-list.jpg)
 
 下面使用postman模拟http的方式来请求你的dubbo服务
 
-![](/img/soul/quick-start/dubbo/postman-findbyid.jpg)
+![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 
 复杂多参数示例：对应接口实现类为`org.dromara.shenyu.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`
 ```java
@@ -60,7 +60,7 @@ public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id,
     return test;
 }
 ```
-![](/img/soul/quick-start/dubbo/postman-multiparams.jpg)
+![](/img/shenyu/quick-start/dubbo/postman-multiparams.jpg)
 
 当你的参数不匹配时会报如下异常：
 ```java

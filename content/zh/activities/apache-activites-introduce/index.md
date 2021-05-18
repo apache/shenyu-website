@@ -4,11 +4,11 @@ authorlink: "https://github.com/yu199195"
 date: 2020-12-27T15:00:00.000Z
 title: "ShenYu 梦码读书会介绍"	
 tags: ["DreamCode", "ShenYu","GateWay"]
-cover: "/img/activities/dromara-open-soul-01.jpg"
+cover: "/img/activities/apache-open-shenyu-01.jpg"
 descripton: "ShenYu 梦码读书会介绍"
 ---
 
-![ShenYu 梦码读书会介绍](/img/shenyu/activite/soul-xmind.png)
+![ShenYu 梦码读书会介绍](/img/shenyu/activite/shenyu-xmind.png)
 
 ### ShenYu 梦码读书会（ShenYu 2020 活动介绍）
 

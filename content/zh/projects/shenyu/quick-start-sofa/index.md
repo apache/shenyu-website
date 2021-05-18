@@ -105,11 +105,11 @@ com:
 
 打开插件管理->sofa可以看到插件规则配置列表
 
-![](/img/soul/quick-start/sofa/rule-list.png)
+![](/img/shenyu/quick-start/sofa/rule-list.png)
 
 下面使用postman模拟http的方式来请求你的sofa服务
 
-![](/img/soul/quick-start/sofa/postman-findbyid.png)
+![](/img/shenyu/quick-start/sofa/postman-findbyid.png)
 
 复杂多参数示例：对应接口实现类为`org.dromara.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
 ```java
@@ -122,4 +122,4 @@ public SofaSimpleTypeBean batchSaveNameAndId(final List<SofaSimpleTypeBean> sofa
     return simpleTypeBean;
 }
 ```
-![](/img/soul/quick-start/sofa/postman-multiparams.png)
+![](/img/shenyu/quick-start/sofa/postman-multiparams.png)

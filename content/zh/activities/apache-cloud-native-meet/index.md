@@ -4,11 +4,11 @@ authorlink: "https://github.com/yu199195"
 date: 2021-01-21T15:00:00.000Z
 title: "ShenYu 源码01期阅读分享会01"	
 tags: [ "ShenYu","Reactor"]
-cover: "/img/activities/dromara-open-soul-02.jpg"
+cover: "/img/activities/apache-open-shenyu-02.jpg"
 descripton: "ShenYu源码线上分享会，1 月 24 日 15 点至17 点。"
 ---
 
-![ShenYu 线上活动](/img/shenyu/activite/soul-xmind.png)
+![ShenYu 线上活动](/img/shenyu/activite/shenyu-xmind.png)
 
 ### ShenYu 源码阅读（Soul 2021 首次活动）
 

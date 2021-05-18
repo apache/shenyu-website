@@ -1,5 +1,5 @@
 ---
-title: Shenyu Code Conduct
+title: ShenYu Code Conduct
 keywords: shenyu-code-conduct
 description: shenyu编码指南
 ---

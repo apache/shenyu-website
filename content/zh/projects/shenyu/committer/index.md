@@ -1,5 +1,5 @@
 ---
-title: Shenyu Committer
+title: ShenYu Committer
 keywords: shenyu-committer
 description: shenyu-committer提交者指南
 ---

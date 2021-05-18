@@ -36,7 +36,7 @@ description: redirect插件
 #### 重定向
 
 * 我们在 `Rule` 配置自定义路径时，应该为一个可达的服务路径。
-* 当匹配到请求后，根据自定义的路径，`Shenyu 网关`会进行 `308` 服务跳转。
+* 当匹配到请求后，根据自定义的路径，`ShenYu 网关`会进行 `308` 服务跳转。
 
 ![重定向配置](/img/soul/plugin/redirect/redirect-01.png)
 

@@ -3,7 +3,7 @@ title: Dubbo快速开始
 description: Dubbo快速开始
 ---
 
-本文档将演示了如何快速使用Dubbo接入Shenyu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)。
+本文档将演示了如何快速使用Dubbo接入ShenYu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)。
 
 ## 环境准备
 

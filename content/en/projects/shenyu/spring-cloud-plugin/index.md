@@ -48,5 +48,5 @@ description: SpringCloud Plugin
 ## Detail
 
 * Application name: it is your specific application name that needs to be invoked after the conditions are matched.
-* Shenyu will obtain the real IP of the corresponding service and initiate http proxy calls from registration center of springCloud.
+* ShenYu will obtain the real IP of the corresponding service and initiate http proxy calls from registration center of springCloud.
    

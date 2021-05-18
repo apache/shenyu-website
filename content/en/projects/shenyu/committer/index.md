@@ -1,14 +1,14 @@
 ---
-title: Shenyu Committer
+title: ShenYu Committer
 keywords: shenyu-committer
-description: Shenyu Committer's Guide
+description: ShenYu Committer's Guide
 ---
 
 ## Committer Promotion
 
 After you have made a lot of contributions, the community will nominate. Become a committer you will have
 
-* Permissions written by Shenyu repository
+* Permissions written by ShenYu repository
 * Idea is used legally
 
 ## Committer Responsibilities

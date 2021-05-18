@@ -3,7 +3,7 @@ title: Quick start with sofa
 description: Quick start with sofa
 ---
 
-This document introduces how to quickly access the Shenyu Gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa).
+This document introduces how to quickly access the ShenYu Gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa).
 
 ## Environment to prepare
 

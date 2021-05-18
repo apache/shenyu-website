@@ -1,7 +1,7 @@
 ---
-title: SpringCloud接入Shenyu网关
+title: SpringCloud接入ShenYu网关
 keywords: shenyu
-description: SpringCloud接入Shenyu网关
+description: SpringCloud接入ShenYu网关
 ---
 
 ## 说明

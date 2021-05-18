@@ -3,7 +3,7 @@ title: Quick start with http
 description: Quick start with http
 ---
 
-This document introduces how to quickly access the Shenyu Gateway using Http. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-http).
+This document introduces how to quickly access the ShenYu Gateway using Http. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-http).
 
 ## Environment to prepare
 

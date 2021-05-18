@@ -1,10 +1,10 @@
 ---
-title: Shenyu 介绍
+title: ShenYu 介绍
 keywords: shenyu
-description: Shenyu 是一个异步的，高性能的，跨语言的，响应式的API网关。
+description: ShenYu 是一个异步的，高性能的，跨语言的，响应式的API网关。
 ---
 
-## 什么是 Shenyu
+## 什么是 ShenYu
 
 这是一个异步的，高性能的，跨语言的，响应式的API网关。
 

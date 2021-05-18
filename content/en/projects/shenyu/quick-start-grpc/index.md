@@ -3,7 +3,7 @@ title: Quick start with grpc
 description: Quick start with grpc
 ---
 
-This document introduces how to quickly access the Shenyu Gateway using Grpc. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-grpc).
+This document introduces how to quickly access the ShenYu Gateway using Grpc. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-grpc).
 
 ## Environment to prepare
 

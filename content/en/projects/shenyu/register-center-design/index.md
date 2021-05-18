@@ -16,7 +16,7 @@ When client server start, the register center client will be loaded by spi.
 
 Put data to Disruptor when spring bean load.
 
-Shenyu register client get data from Disruptor, and it will send request to register server.
+ShenYu register client get data from Disruptor, and it will send request to register server.
 
 Disruptor can decouple data from operation and facilitate expansion.
 
@@ -26,7 +26,7 @@ Disruptor can decouple data from operation and facilitate expansion.
 
 When Shenyu-Admin server start, register center server will be loaded by spi. Meanwile Disruptor will be inited too.
 
-Shenyu register server get data from register client, and then put then to Disruptor.
+ShenYu register server get data from register client, and then put then to Disruptor.
 
 Shenyu-Admin Disruptor consumer get data from register server by Disruptor queue,  then save them to database and publish data synchronize event.
 
@@ -145,7 +145,7 @@ Trigger selector and rule data update and event will be published, when metadata
 
 | *SPI Name*                       | *Description*               |
 | -------------------------------- | --------------------------- |
-| ShenyuClientRegisterRepository   | Shenyu client register SPI       |
+| ShenyuClientRegisterRepository   | ShenYu client register SPI       |
 
 | *Implementation Class*           | *Description*               |
 | -------------------------------- | --------------------------- |
@@ -158,7 +158,7 @@ Trigger selector and rule data update and event will be published, when metadata
 
 | *SPI Name*                       | *Description*                 |
 | -------------------------------- | ----------------------------- |
-| ShenyuServerRegisterRepository     | Shenyu server register SPI      |
+| ShenyuServerRegisterRepository     | ShenYu server register SPI      |
 
 | *Implementation Class*           | *Description*                 |
 | -------------------------------- | ----------------------------- |

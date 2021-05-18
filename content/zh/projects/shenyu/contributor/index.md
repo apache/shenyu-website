@@ -1,5 +1,5 @@
 ---
-title: Shenyu Contributor
+title: ShenYu Contributor
 keywords: shenyu-contributor
 description: shenyu-contributor贡献者指南
 ---
@@ -58,7 +58,7 @@ git push origin issueNo
 
  - 发送一个pull request到shenyu的master分支。
  - 接着导师做CodeReview，然后他会与您讨论一些细节（包括设计，实现，性能等）。当导师对本次修改满意后，会将提交合并到当前开发版本的分支中。
- - 最后，恭喜您已经成为了Shenyu的贡献者！
+ - 最后，恭喜您已经成为了ShenYu的贡献者！
 
 **删除分支**
 

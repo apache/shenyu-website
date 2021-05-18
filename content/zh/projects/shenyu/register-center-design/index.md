@@ -148,7 +148,7 @@ shenyu.register.service.${rpcType}.${contextPath}
 
 | *SPI 名称*                       | *详细说明*               |
 | -------------------------------- | --------------------------- |
-| ShenyuClientRegisterRepository     | Shenyu网关客户端接入注册服务资源      |
+| ShenyuClientRegisterRepository     | ShenYu网关客户端接入注册服务资源      |
 
 | *已知实现类*                      | *详细说明*               |
 | -------------------------------- | --------------------------- |
@@ -161,7 +161,7 @@ shenyu.register.service.${rpcType}.${contextPath}
 
 | *SPI 名称*                       | *详细说明*                 |
 | -------------------------------- | ----------------------------- |
-| ShenyuServerRegisterRepository     | Shenyu网关客户端注册的后台服务资源      |
+| ShenyuServerRegisterRepository     | ShenYu网关客户端注册的后台服务资源      |
 
 | *已知实现类*                       | *详细说明*                 |
 | -------------------------------- | ----------------------------- |

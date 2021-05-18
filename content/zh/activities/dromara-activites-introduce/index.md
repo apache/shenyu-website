@@ -8,7 +8,7 @@ cover: "/img/activities/dromara-open-soul-01.jpg"
 descripton: "ShenYu 梦码读书会介绍"
 ---
 
-![ShenYu 梦码读书会介绍](/img/soul/activite/soul-xmind.png)
+![ShenYu 梦码读书会介绍](/img/shenyu/activite/soul-xmind.png)
 
 ### ShenYu 梦码读书会（ShenYu 2020 活动介绍）
 

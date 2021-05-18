@@ -1,7 +1,7 @@
 ---
-title: Shenyu Code Conduct
+title: ShenYu Code Conduct
 keywords: shenyu-code-conduct
-description: Shenyu Coding Guide
+description: ShenYu Coding Guide
 ---
 
 ## Development Guidelines

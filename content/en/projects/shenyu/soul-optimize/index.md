@@ -1,5 +1,5 @@
 ---
-title: Shenyu Optimize
+title: ShenYu Optimize
 keywords: shenyu
 description: performance optimization for shenyu
 ---
@@ -10,7 +10,7 @@ description: performance optimization for shenyu
 
 ## Time Consumption
 
-* Shenyu is JVM driven and processing time for a single request is nearly between `1-3` ms.
+* ShenYu is JVM driven and processing time for a single request is nearly between `1-3` ms.
 
 ## Netty Optimization
 

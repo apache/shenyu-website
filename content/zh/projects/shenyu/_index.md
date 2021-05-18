@@ -54,7 +54,7 @@ sidebar:
         link: 'selector-and-rule'
   - title: '用户文档'  	
     sub:
-      - title: '搭建Shenyu网关环境'  	
+      - title: '搭建ShenYu网关环境'  	
         link: 'shenyu-set-up'
       - title: 'Http代理'  	
         link: 'http-proxy'

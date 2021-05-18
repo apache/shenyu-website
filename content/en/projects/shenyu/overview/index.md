@@ -1,11 +1,11 @@
 ---
-title: Shenyu Introduction
+title: ShenYu Introduction
 keywords: shenyu
 description: This is an asynchronous, high-performance, cross-language, responsive API gateway.
 aliases: "/shenyu/docs/Home"
 ---
 
-## What is the Shenyu?
+## What is the ShenYu?
 
 This is an asynchronous, high-performance, cross-language, responsive API gateway.
 

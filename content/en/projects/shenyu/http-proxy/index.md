@@ -7,7 +7,7 @@ description: Integrate Http with shenyu gateway
 ## Features
 
 * This chapter is a guide about integrating Http service with shenyu gateway.
-* Shenyu gateway uses divide plugin handling http request, pls enable it in shenyu-admin background.
+* ShenYu gateway uses divide plugin handling http request, pls enable it in shenyu-admin background.
 * Please start `shenyu-admin` successfully before integrating and [Environment Setup](../shenyu-set-up) is Ok.
 
 ## Configure shenyu gateway as Http proxy.

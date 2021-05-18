@@ -1,7 +1,7 @@
 ---
-title: Shenyu Contributor
+title: ShenYu Contributor
 keywords: shenyu-contributor
-description: Shenyu Contributor's Guide
+description: ShenYu Contributor's Guide
 ---
 
 You can report a bug, submit a new function enhancement suggestion, or submit a pull request directly.
@@ -18,9 +18,9 @@ You can report a bug, submit a new function enhancement suggestion, or submit a 
 
 ## Developer Flow
 
-**Fork Shenyu repo**
+**Fork ShenYu repo**
 
-- Fork a `Shenyu` repo to your own repo to work, then setting upstream.
+- Fork a `ShenYu` repo to your own repo to work, then setting upstream.
 
 ```shell
 git remote add upstream https://github.com/dromara/shenyu.git

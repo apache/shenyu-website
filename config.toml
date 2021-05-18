@@ -1,5 +1,5 @@
 baseURL = ""
-title = "Shenyu"
+title = "ShenYu"
 
 languageCode = "zh-CN"
 defaultContentLanguage = "en"
@@ -72,7 +72,7 @@ unsafe = true
 		weight = 4
 	[[languages.zh.menu.main]]
 		identifier = "awesome"
-		name = "Awesome Shenyu"
+		name = "Awesome ShenYu"
 		url = "/zh/awesome/"
 		weight = 6
 	[[languages.zh.menu.main]]
@@ -114,7 +114,7 @@ unsafe = true
 		weight = 5
 	[[menu.main]]
 		identifier = "awesome"
-		name = "Awesome Shenyu"
+		name = "Awesome ShenYu"
 		url = "/awesome/"
 		weight = 6
 

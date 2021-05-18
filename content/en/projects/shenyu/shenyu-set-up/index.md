@@ -6,7 +6,7 @@ description: Environment Setup
 
 ## Features
 
-* Shenyu is an open source plugin framework, which is flexibility and extensibility since 2.2.0 version.
+* ShenYu is an open source plugin framework, which is flexibility and extensibility since 2.2.0 version.
   With shenyu you can easily create application with your own gateway.
 * System Requirement: JDK 1.8+, Mysql 5.5.20 +.
 

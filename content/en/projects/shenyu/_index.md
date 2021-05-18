@@ -133,11 +133,11 @@ sidebar:
         link: 'custom-result'
       - title: 'Custom Sign Algorithm'  	
         link: 'custom-sign-algorithm'
-      - title: 'Developer Shenyu Client'  	
+      - title: 'Developer ShenYu Client'  	
         link: 'developer-shenyu-client'
       - title: 'Thread'  	
         link: 'thread'
-      - title: 'Shenyu Optimize'  	
+      - title: 'ShenYu Optimize'  	
         link: 'shenyu-optimize'
   - title: 'Community'  	
     sub:

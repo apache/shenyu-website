@@ -108,7 +108,7 @@ description: sofa access shenyu gateway
 ## sofa user request and parameter description
 
 * To put it bluntly, it is to request your sofa service through http
-* Shenyu gateway needs to have a routing prefix, this routing prefix is for you to access the project for configuration `contextPath`
+* ShenYu gateway needs to have a routing prefix, this routing prefix is for you to access the project for configuration `contextPath`
 
 ```yaml
 # For example, if you have an order service, it has an interface and its registration path /order/test/save

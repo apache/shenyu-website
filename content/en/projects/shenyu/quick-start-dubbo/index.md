@@ -3,7 +3,7 @@ title: Quick start with Dubbo
 description: Quick start with Dubbo
 ---
 
-This document introduces how to quickly access the Shenyu Gateway using Dubbo. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo).
+This document introduces how to quickly access the ShenYu Gateway using Dubbo. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo).
 
 ## Environment to prepare
 

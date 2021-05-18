@@ -1,4 +1,4 @@
-# Shenyu Official Website
+# ShenYu Official Website
 
 ![Website Deploy](https://github.com/dromara/shenyu-website/workflows/Website%20Deploy/badge.svg)
 

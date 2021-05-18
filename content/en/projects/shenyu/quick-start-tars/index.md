@@ -3,7 +3,7 @@ title: Quick start with Tars
 description: Quick start with Tars
 ---
 
-This document introduces how to quickly access the Shenyu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-tars).
+This document introduces how to quickly access the ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-tars).
 
 ## Environment to prepare
 

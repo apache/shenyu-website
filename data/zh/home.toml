@@ -1,5 +1,5 @@
 [slogan]
-	title = "ShenYu"
+	title = "Apache ShenYu (Incubating)"
 	description = "高性能，多协议，易扩展，响应式的API Gateway"
 	quick_start_text = "快速开始"
 	quick_start_link = "/projects/shenyu/overview"

@@ -6,7 +6,7 @@ description: websocket plugin
 
 ## Explanation
 
-* Shenyu gateway also support proxy of websocket.
+* ShenYu gateway also support proxy of websocket.
 * In websocket support, divide plugin is used in it.
 
 ## Plugin Setting

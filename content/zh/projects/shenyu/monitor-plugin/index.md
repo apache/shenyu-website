@@ -58,7 +58,7 @@ description: monitor插件
 
 | 名称                      | 类型                  |标签名称       | 说明                  |
 |:------------------------ |:--------------------- |:-------------|:-------------------- |
-|request_total             |Counter                | 无           |收集Shenyu网关所有的请求 |
+|request_total             |Counter                | 无           |收集ShenYu网关所有的请求 |
 |http_request_total        |Counter                 | path,type    |收集monitor插件匹配的请求| 
 
 ## 收集 metrics

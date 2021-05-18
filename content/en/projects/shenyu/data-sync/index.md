@@ -10,21 +10,21 @@ This article mainly explains three ways of database synchronization and their pr
 
 ## Preface
 
-Gateway is the entrance of request and it is a very important part in micro service architecture, therefore the importance of gateway high availability is self-evident. When we use gateway, we have to change configuration such as flow rule, route rule for satisfying business requirement. Therefore, the dynamic configuration of the gateway is an important factor to ensure the high availability of the gateway. Then, how does `Shenyu` support dynamic configuration?
+Gateway is the entrance of request and it is a very important part in micro service architecture, therefore the importance of gateway high availability is self-evident. When we use gateway, we have to change configuration such as flow rule, route rule for satisfying business requirement. Therefore, the dynamic configuration of the gateway is an important factor to ensure the high availability of the gateway. Then, how does `ShenYu` support dynamic configuration?
 
-Anyone who has used `Shenyu` knows, `Shenyu` plugin are hot swap,and the selector, rule of all plugins are dynamic configured, they take effect immediately without restarting service.But during using `Shenyu` gateway, users also report many problems
+Anyone who has used `ShenYu` knows, `ShenYu` plugin are hot swap,and the selector, rule of all plugins are dynamic configured, they take effect immediately without restarting service.But during using `ShenYu` gateway, users also report many problems
 
 - Rely on `zookeeper`, this troubles users who use `etcd` `consul` and `nacos` registry
 - Rely on `redis`,`influxdb`, I have not used the limiting plugin, monitoring plugin, why do I need these
 
-Therefore,we have done a partial reconstruction of `Shenyu`,after two months of version iteration,we released version `2.0`
+Therefore,we have done a partial reconstruction of `ShenYu`,after two months of version iteration,we released version `2.0`
 
 - Data Synchronization removes the strong dependence on `zookeeper`,and we add `http long polling` and `websocket`
 - Limiting plugin and monitoring plugin realize real dynamic configuration,we use `admin` backend for dynamic configuration instead of `yml` configuration before
 
 *Q: Someone may ask me,why don't you use configuration center for synchronization?*  
 
-First of all, it will add extra costs, not only for maintenance, but also make `Shenyu` heavy; In addition, using configuration center, data format is uncontrollable and it is not convenient for `shenyu-admin` to do configuration management.
+First of all, it will add extra costs, not only for maintenance, but also make `ShenYu` heavy; In addition, using configuration center, data format is uncontrollable and it is not convenient for `shenyu-admin` to do configuration management.
 
 *Q: Someone may also ask,dynamic configuration update?Every time I can get latest data from database or redis,why are you making it complicated?*
 
@@ -32,8 +32,8 @@ As a gateway, shenyu cached all the configuration in the `HashMap` of JVM in ord
 
 ## Principle Analysis
 
-This is a HD uncoded image, it shows the flow of `Shenyu` data synchronization, when `Shenyu` gateway starts, it will synchronize configuration data from the configuration service and support push-pull mode to obtain configuration change information, and update the local cache.When administrator changes user,rule,plugin,flow configuration in the backend, modified information will synchronize to the `Shenyu` gateway through the push-pull mode,whether it is the push mode or the pull mode depends on the configuration.About the configuration synchronization module, it is actually a simplified configuration center.
-![Shenyu Data Synchronization Flow Chart](https://bestkobe.gitee.io/images/soul/soul-config-processor.png?_t=201908032316)
+This is a HD uncoded image, it shows the flow of `ShenYu` data synchronization, when `ShenYu` gateway starts, it will synchronize configuration data from the configuration service and support push-pull mode to obtain configuration change information, and update the local cache.When administrator changes user,rule,plugin,flow configuration in the backend, modified information will synchronize to the `ShenYu` gateway through the push-pull mode,whether it is the push mode or the pull mode depends on the configuration.About the configuration synchronization module, it is actually a simplified configuration center.
+![ShenYu Data Synchronization Flow Chart](https://bestkobe.gitee.io/images/soul/soul-config-processor.png?_t=201908032316)
 
 At version `1.x` ,configuration service depends on `zookeeper`,management backend `push` the modified information to gateway.But version `2.x` supports `webosocket`,`http`,`zookeeper`,it can specify the corresponding synchronization strategy through `shenyu.sync.strategy` and use `webosocket` synchronization strategy by default which can achieve second-level data synchronization.But,note that `shenyu-web` and `shenyu-admin` must use the same synchronization mechanism.
 
@@ -42,7 +42,7 @@ As showing picture below,`shenyu-admin` will issue a configuration change notifi
 - If it is a `websocket` synchronization strategy,it will push modified data to `shenyu-web`,and corresponding `WebsocketCacheHandler` handler will handle `admin` data push at the gateway layer
 - If it is a  `zookeeper` synchronization strategy,it will push modified data to `zookeeper`,and the `ZookeeperSyncCache` will monitor the data changes of `zookeeper` and process them
 - If it is a  `http` synchronization strategy,`shenyu-web` proactively initiates long polling requests,90 seconds timeout by default,if there is no modified data in `shenyu-admin`,http request will be blocked,if there is a data change, it will respond to the changed data information,if there is no data change after 60 seconds,then respond with empty data,gateway continue to make http request after getting response,this kind of request will repeat
-  ![Shenyu Configuration Synchronization Strategy Flow Chart](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
+  ![ShenYu Configuration Synchronization Strategy Flow Chart](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
 
 ## Zookeeper Synchronization
 
@@ -91,7 +91,7 @@ public class WebsocketSyncCache extends WebsocketCacheHandler {
 
 ## Http Long Polling
 
-The mechanism of zookeeper and websocket data synchronization is relatively simple,but http synchronization will be relatively complicated.Shenyu borrows the design ideas of `Apollo` and `Nacos` and realizes `http` long polling data synchronization using their advantages.Note that this is not traditional ajax long polling.
+The mechanism of zookeeper and websocket data synchronization is relatively simple,but http synchronization will be relatively complicated.ShenYu borrows the design ideas of `Apollo` and `Nacos` and realizes `http` long polling data synchronization using their advantages.Note that this is not traditional ajax long polling.
 
 ![http long polling](https://bestkobe.gitee.io/images/soul/http-long-polling.png?_t=201908032339)
 

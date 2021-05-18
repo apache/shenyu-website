@@ -8,7 +8,7 @@ cover: "/img/activities/dromara-open-soul-03.jpg"
 descripton: "ShenYu源码02期线上分享会，2 月 6 日 20 点至23 点。"
 ---
 
-![ShenYu 线上活动](/img/soul/activite/soul-xmind.png)
+![ShenYu 线上活动](/img/shenyu/activite/soul-xmind.png)
 
 ### ShenYu 源码阅读（Soul 2021 首次活动）
 

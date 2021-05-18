@@ -36,7 +36,7 @@ Add the plugin dependency in the pom.xml file of the shenyu-bootstrap project.
 ### Redirect
 
 * When we configure a custom path in `Rule`, it should be a reachable service path.
-* When the request is matched, the `Shenyu Gateway` will perform the `308` service jump according to the customized path.
+* When the request is matched, the `ShenYu Gateway` will perform the `308` service jump according to the customized path.
 
 ![Redirect](/img/soul/plugin/redirect/redirect-01.png)
 

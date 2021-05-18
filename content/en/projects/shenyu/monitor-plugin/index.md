@@ -52,7 +52,7 @@ description: monitor plugin
 
 | Name                      |type                  |target       | description                  |
 |:------------------------ |:--------------------- |:-------------|:-------------------- |
-|request_total             |Counter                | none           |collecting all requests of Shenyu Gateway |
+|request_total             |Counter                | none           |collecting all requests of ShenYu Gateway |
 |http_request_total        |Counter                 | path,type    |collecting all matched requests of monitor| 
 
 ## Collect metrics

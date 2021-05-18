@@ -16,4 +16,4 @@ description: file uploading and downloading
 
 ## File Downloading
 
-* Shenyu supports downloading files in streams. There is no need to change anything.
+* ShenYu supports downloading files in streams. There is no need to change anything.

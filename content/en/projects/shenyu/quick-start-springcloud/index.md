@@ -3,7 +3,7 @@ title: Quick start with SpringCloud
 description: Quick start with SpringCloud
 ---
 
-This document introduces how to quickly access the Shenyu Gateway using SpringCloud. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud).
+This document introduces how to quickly access the ShenYu Gateway using SpringCloud. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud).
 
 ## Environment to prepare
 

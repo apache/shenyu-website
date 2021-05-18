@@ -102,8 +102,8 @@ The `shenyu-examples-springcloud` project will automatically register interface 
 
 Open Plugin Management -> springcloud to see the list of plugin rule configurations
 
-![](/img/soul/quick-start/springcloud/rule-list.png)
+![](/img/shenyu/quick-start/springcloud/rule-list.png)
 
 Use PostMan to simulate HTTP to request your SpringCloud service
 
-![](/img/soul/quick-start/springcloud/postman-test.png)
+![](/img/shenyu/quick-start/springcloud/postman-test.png)

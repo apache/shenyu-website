@@ -55,8 +55,8 @@ The `shenyu-examples-http` project will automatically register interface methods
 
 Open Plugin Management -> divide to see the list of plugin rule configurations
 
-![](/img/soul/quick-start/http/rule-list.png)
+![](/img/shenyu/quick-start/http/rule-list.png)
 
 Use PostMan to simulate HTTP to request your http service
 
-![](/img/soul/quick-start/http/postman-test.png)
+![](/img/shenyu/quick-start/http/postman-test.png)

@@ -104,10 +104,10 @@ The following log appears when the startup is successful:
 The `shenyu-examples-sofa` project will automatically register interface methods annotated with `@ShenyuSofaClient` in the shenyu gateway after successful startup.
 
 Open Plugin Management -> sofa to see the list of plugin rule configurations
-![](/img/soul/quick-start/sofa/rule-list.png)
+![](/img/shenyu/quick-start/sofa/rule-list.png)
 
 Use PostMan to simulate HTTP to request your Sofa service
-![](/img/soul/quick-start/sofa/postman-findbyid.png)
+![](/img/shenyu/quick-start/sofa/postman-findbyid.png)
 
 Complex multi-parameter example: The related interface implementation class is `org.dromara.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
 ```java
@@ -120,4 +120,4 @@ public SofaSimpleTypeBean batchSaveNameAndId(final List<SofaSimpleTypeBean> sofa
     return simpleTypeBean;
 }
 ```
-![](/img/soul/quick-start/sofa/postman-multiparams.png)
+![](/img/shenyu/quick-start/sofa/postman-multiparams.png)

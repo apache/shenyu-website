@@ -100,9 +100,9 @@ The `shenyu-examples-tars` project will automatically register interface methods
 
 Open Plugin Management -> tars to see the list of plugin rule configurations
 
-![](/img/soul/quick-start/tars/rule-list.png)
+![](/img/shenyu/quick-start/tars/rule-list.png)
 
 Use PostMan to simulate HTTP to request your tars service
 
-![](/img/soul/quick-start/tars/postman-test.png)
+![](/img/shenyu/quick-start/tars/postman-test.png)
 

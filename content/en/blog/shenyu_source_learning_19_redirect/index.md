@@ -39,14 +39,14 @@ cover: "/img/shenyu/blog6/01.jpg"
 - 我们在 `Rule` 配置自定义路径时，应该为一个可达的服务路径。
 - 当匹配到请求后，根据自定义的路径，`ShenYu网关`会进行 `308` 服务跳转。
 
-![重定向配置](https://dromara.org/img/soul/plugin/redirect/redirect-01.png)
+![重定向配置](https://dromara.org/img/shenyu/plugin/redirect/redirect-01.png)
 
 ### 网关自身接口转发
 
 - 当满足匹配规则时，服务内部会使用 `DispatcherHandler` 内部接口转发。
 - 要实现网关自身接口转发，我们需要在配置路径使用 `/` 作为前缀开始，具体配置如下图。
 
-![自身接口转发](https://dromara.org/img/soul/plugin/redirect/redirect-02.png)
+![自身接口转发](https://dromara.org/img/shenyu/plugin/redirect/redirect-02.png)
 
 ## 源码解析
 

@@ -46,8 +46,8 @@ The `shenyu-examples-grpc` project will automatically register interface methods
 
 Open Plugin Management -> grpc to see the list of plugin rule configurations
 
-![](/img/soul/quick-start/grpc/rule-list.png)
+![](/img/shenyu/quick-start/grpc/rule-list.png)
 
 Use PostMan to simulate HTTP to request your Grpc service
 
-![](/img/soul/quick-start/grpc/postman-test.png)
+![](/img/shenyu/quick-start/grpc/postman-test.png)

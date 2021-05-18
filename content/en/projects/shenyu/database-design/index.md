@@ -7,7 +7,7 @@ description: Database Design
 * Plugin use database to store plugin, selector, rule configuration data and relationship.
 
 * The Database Table UML Diagram:
-![](/img/soul/db/shenyu-db.png)
+![](/img/shenyu/db/shenyu-db.png)
 
 * Detailed design:
 
@@ -20,7 +20,7 @@ description: Database Design
   * Plugin use database to store user name,role,resource data and relationship. 
 
 * The Permission Table UML Diagram:
-![](/img/soul/db/shenyu-permission-db.png)
+![](/img/shenyu/db/shenyu-permission-db.png)
 
 * Detailed design:
   - one user corresponds to multiple role,one role corresponds to multiple resources.

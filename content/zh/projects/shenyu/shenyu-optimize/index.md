@@ -1,23 +1,23 @@
 ---
-title: Shenyu性能优化
-keywords: shenyu
-description: shenyu性能优化
+title: ShenYu 性能优化
+keywords: ShenYu
+description: ShenYu 性能优化
 ---
 
 ## 说明
 
-* 本文主要介绍如何对shenyu进行优化
+* 本文主要介绍如何对 ShenYu 进行优化
 
 
 ## 本身消耗
 
-* shenyu本身所有的操作，都是基于jvm内存来匹配，本身消耗时间大概在 1-3 ms左右。
+* ShenYu 本身所有的操作，都是基于 jvm 内存来匹配，本身消耗时间大概在 1-3ms 左右。
 
 ## 底层netty调优
 
-* shenyu内置依赖 `spring-webflux` 而其底层是使用的netty
+* ShenYu内置依赖 `spring-webflux` 而其底层是使用的 netty
 
-* 我们可以自定义netty的相关参数来对shenyu 进行优化,以下是示例：
+* 我们可以自定义 netty 的相关参数来对 ShenYu 进行优化,以下是示例：
 
 ```java
    @Bean
@@ -42,7 +42,7 @@ description: shenyu性能优化
     }
 ```
 
-* 这个类在 shenyu-bootstrap中已经内置，在压测的时候，可以根据自己的需求来进行优化设置。
+* 这个类在 shenyu-bootstrap 中已经内置，在压测的时候，可以根据自己的需求来进行优化设置。
 
 * 业务线程模型可以看[线程模型](../thread)
 

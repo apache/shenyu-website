@@ -14,8 +14,8 @@ description: performance optimization for shenyu
 
 ## Netty Optimization
 
-* `spring-webflux` is one of dependencies of shenyu, and it uses Netty in lower layer.
-* The demo down below demonstrates tuning shenyu by customizing params in Netty.
+* `spring-webflux` is one of dependencies of ShenYu, and it uses Netty in lower layer.
+* The demo down below demonstrates tuning ShenYu by customizing params in Netty.
 
 ```java
 @Bean
@@ -40,5 +40,5 @@ private static class EventLoopNettyCustomizer implements NettyServerCustomizer {
 }
 ```
 
-* Shenyu-bootstrap offers this class, you may modify it when benchmarking your app if necessary.
+* The `shenyu-bootstrap` module offers this class, you may modify it when benchmarking your app if necessary.
 * You can get references of business thread model from [thread model](../thread)

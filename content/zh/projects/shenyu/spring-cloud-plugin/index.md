@@ -48,5 +48,5 @@ description: SpringCloud插件
 ## 详解
 
 * 应用名称：就是你根据条件匹配以后，需要调用的你的具体的应用名称。
-* shenyu会从springCloud的注册中心上面，根据应用名称获取对应的服务真实ip地址，发起http代理调用。
+* ShenYu 会从 springCloud 的注册中心上面，根据应用名称获取对应的服务真实ip地址，发起http代理调用。
 

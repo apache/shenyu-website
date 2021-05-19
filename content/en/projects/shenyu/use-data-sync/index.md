@@ -6,7 +6,7 @@ description: use different data-sync strategy
 
 ## Features
 
-* Data synchronization is the key of gateway high performance, which is to sync 'shenyu-admin' config data into the JVM memory of shenyu cluster.
+* Data synchronization is the key of gateway high performance, which is to sync 'shenyu-admin' config data into the JVM memory of ShenYu cluster.
 * Implementation principles, pls refer to：[dataSync](../data-sync)。
 * In the article, the gateway is the environment you setup. please refer to：[Environment Setup](../shenyu-set-up).
 
@@ -15,7 +15,7 @@ description: use different data-sync strategy
 * gateway setting（note:restart）
 
     * Add these dependencies in `pom.xml`：
-    
+
     ```xml
     <!--shenyu data sync start use websocket-->
     <dependency>
@@ -25,7 +25,7 @@ description: use different data-sync strategy
     </dependency>
     ```
    * add these config values in springboot yaml file:
-    
+
     ```yaml
     shenyu:
       sync:
@@ -61,7 +61,7 @@ description: use different data-sync strategy
     ```
 
    * Add these dependencies in  springboot yaml file:
-   
+
     ```yaml
     shenyu :
       sync:
@@ -73,7 +73,7 @@ description: use different data-sync strategy
     ```
 
     * shenyu-admin config: configure the shenyu-admin's starting parameter with `--shenyu.sync.zookeeper.url='your address' `,then restart the service.
-    
+
     ```yaml
     shenyu:
       sync:
@@ -101,7 +101,7 @@ description: use different data-sync strategy
     ```
 
    * add these config values in your springboot yaml file:
-   
+
       ```yaml
       shenyu :
           sync:
@@ -128,7 +128,7 @@ description: use different data-sync strategy
 * gateway setting（note:restart）
 
     * Add these dependencies in your `pom.xml`：
-    
+
     ```xml
     <!--shenyu data sync start use nacos-->
       <dependency>
@@ -139,7 +139,7 @@ description: use different data-sync strategy
     ```
 
   * add these config values in the springboot yaml file:
-  
+
      ```yaml
       shenyu :
           sync:

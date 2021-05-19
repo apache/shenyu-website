@@ -6,7 +6,7 @@ description: 使用不同的数据同步策略
 
 ## 说明
 
-* 数据同步是指将 `shenyu-admin` 配置的数据，同步到 `shenyu` 集群中的JVM内存里面，是网关高性能的关键。
+* 数据同步是指将 `shenyu-admin` 配置的数据，同步到 `ShenYu` 集群中的JVM内存里面，是网关高性能的关键。
 
 * 实现原理，请看：[数据同步](../data-sync)。
 
@@ -17,7 +17,7 @@ description: 使用不同的数据同步策略
 * 网关配置（记得重启）
 
     * 首先在 `pom.xml` 文件中 引入以下依赖：
-    
+
     ```xml
     <!--shenyu data sync start use websocket-->
     <dependency>
@@ -27,7 +27,7 @@ description: 使用不同的数据同步策略
     </dependency>
     ```
    * 在 springboot的 yml 文件中进行如下配置:
-   
+
   ```yaml
   shenyu:
       sync:
@@ -37,7 +37,7 @@ description: 使用不同的数据同步策略
    ```
 
     * shenyu-admin 配置，或在 shenyu-admin 启动参数中设置 `--shenyu.sync.websocket='' `，然后重启服务。
-   
+
     ```yaml
     shenyu:
       sync:
@@ -65,7 +65,7 @@ description: 使用不同的数据同步策略
  ```
 
    * 在 springboot的 yml 文件中进行如下配置:
-   
+
     ```yaml
     shenyu:
       sync:
@@ -104,13 +104,13 @@ shenyu:
     ```
 
    * 在 springboot的 yml 文件中进行如下配置:
-   
+
    ```yaml
   shenyu:
       sync:
           http:
                url: http://localhost:9095
-  #url: 配置成你的 shenyu-admin的 ip与端口地址，多个admin集群环境请使用（,）分隔。
+  #url: 配置成你的 shenyu-admin 的 ip 与端口地址，多个admin集群环境请使用（,）分隔。
    ```
     * shenyu-admin 配置, 或在 shenyu-admin 启动参数中设置 `--shenyu.sync.http='' `,然后重启服务。
 
@@ -131,7 +131,7 @@ shenyu:
 * 网关配置（记得重启）
 
     * 首先在 `pom.xml` 文件中 引入以下依赖：
-    
+
     ```xml
     <!--shenyu data sync start use nacos-->
       <dependency>
@@ -142,7 +142,7 @@ shenyu:
     ```
 
     * 在 springboot的 yml 文件中进行如下配置:
-   
+
     ```yaml
     shenyu:
       sync:

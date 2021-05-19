@@ -17,7 +17,7 @@ description: waf插件
 * 插件编辑里面新增配置模式。
 
 ```yaml
-{"model":"black"}  
+{"model":"black"}
 # 默认为黑名单模式，设置值为 mixed 则为混合模式，下面会专门进行讲解
 ```
 
@@ -33,18 +33,18 @@ description: waf插件
       <version>${last.version}</version>
   </dependency>
   <!-- shenyu waf plugin end-->
-``` 
+```
 
 * 选择器和规则，请详细看：[选择器规则](../selector-and-rule)
 
   * 当 `model` 设置为 `black` 模式的时候，只有匹配的流量才会执行拒绝策略，不匹配的，直接会跳过。
-  
+
   * 当 `model` 设置为 `mixed` 模式的时候，所有的流量都会通过 waf插件，针对不同的匹配流量，用户可以设置是拒绝，还是通过。
 
 ## 场景
 
-* waf插件也是shenyu的前置插件，主要用来拦截非法请求，或者异常请求，并且给与相关的拒绝策略。
+* waf插件也是 ShenYu 的前置插件，主要用来拦截非法请求，或者异常请求，并且给与相关的拒绝策略。
 
-* 当面对重放攻击时，你可以根据ip或者host来进行匹配，拦截掉非法的ip与host，设置reject策略。
+* 当面对重放攻击时，你可以根据ip或者host来进行匹配，拦截掉非法的 ip 与 host，设置 reject 策略。
 
 * 关于如何确定 ip 与 host 值，请看 [parsing-ip-and-host](../custom-parsing-ip-and-host)

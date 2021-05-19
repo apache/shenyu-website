@@ -15,7 +15,7 @@ description: waf plugin
 * Add configuration mode in plugin editing.
 
 ```yaml
-{"model":"black"}  
+{"model":"black"}
 # The default mode is blacklist mode; If setting is mixed, it will be mixed mode. We will explain it specifically below.
 ```
 
@@ -31,7 +31,7 @@ description: waf plugin
       <version>${last.version}</version>
   </dependency>
   <!-- shenyu waf plugin end-->
-``` 
+```
 
 * Selectors and rules, please refer to : [selector](../selector-and-rule)
 * When `model` is set to `black` mode, only the matched traffic will execute the rejection policy, and the unmatched traffic will be skipped directly.
@@ -39,6 +39,6 @@ description: waf plugin
 
 ## Situation
 
-* Waf is also the pre-plugin of shenyu, which is mainly used to intercept illegal requests or exception requests and give relevant rejection policies.
+* Waf is also the pre-plugin of ShenYu, which is mainly used to intercept illegal requests or exception requests and give relevant rejection policies.
 * When faced with replay attacks, you can intercept illegal ip and host, and set reject strategy according to matched ip or host.
 * How to determine ip and host, please refer to: [parsing-ip-and-host](../custom-parsing-ip-and-host)

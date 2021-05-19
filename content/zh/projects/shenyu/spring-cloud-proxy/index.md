@@ -6,7 +6,7 @@ description: SpringCloud接入ShenYu网关
 
 ## 说明
 
-* 此篇文章是教你如何将springCloud接口，快速接入到shenyu网关。
+* 此篇文章是教你如何将springCloud接口，快速接入到 ShenYu 网关。
 
 * 请在 shenyu-admin 后台将 `springCloud` 插件设置为开启。
 
@@ -158,7 +158,7 @@ description: SpringCloud接入ShenYu网关
 ```
 
 
-   * 举列子 （3）： isFull：`true`  代表 `/sb-demo7-api/**`，整个服务会被网关代理 
+   * 举列子 （3）： isFull：`true`  代表 `/sb-demo7-api/**`，整个服务会被网关代理
 ```yaml
 shenyu:
   client:
@@ -202,7 +202,7 @@ shenyu:
 
 ## 插件设置
 
-* 在 `shenyu-admin` 插件管理中，把 springCloud插件设置为开启。
+* 在 `shenyu-admin` 插件管理中，把 springCloud 插件设置为开启。
 
 ## 用户请求
 
@@ -210,7 +210,7 @@ shenyu:
 
 * 第一点，你之前请求的域名是你自己的服务，现在要换成网关的域名 （这个你听的懂？）
 
-* 第二点，shenyu网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以自由在 `shenyu-admin` 中的 springCloud插件进行自由更改。
+* 第二点，ShenYu 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以自由在 `shenyu-admin` 中的 springCloud插件进行自由更改。
 
 ```yaml
 

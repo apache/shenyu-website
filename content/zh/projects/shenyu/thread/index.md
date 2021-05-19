@@ -6,11 +6,11 @@ description: 线程模型
 
 ## 说明
 
-* 本文主要介绍shenyu的线程模型，以及各种场景的使用。
+* 本文主要介绍 ShenYu 的线程模型，以及各种场景的使用。
 
 ## io与work线程
 
-* shenyu内置依赖 `spring-webflux` 而其底层是使用的netty，这一块主要是使用的netty线程模型。
+* shenyu内置依赖 `spring-webflux` 而其底层是使用的 netty，这一块主要是使用的 netty 线程模型。
 
 ## 业务线程
 

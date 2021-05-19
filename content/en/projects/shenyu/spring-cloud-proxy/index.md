@@ -27,7 +27,7 @@ description: springCloud with shenyu gateway
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-commons</artifactId>
     <version>2.2.0.RELEASE</version>
-</dependency> 
+</dependency>
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
@@ -38,7 +38,7 @@ description: springCloud with shenyu gateway
 * If you use `eureka` as SpringCloud registry center.
 
   * add these dependencies:
-  
+
  ```xml
    <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -46,9 +46,9 @@ description: springCloud with shenyu gateway
         <version>2.2.0.RELEASE</version>
    </dependency>
    ```
-  
+
    * add these config values in gateway's yaml file:
-   
+
  ```yaml
     eureka:
       client:
@@ -61,7 +61,7 @@ description: springCloud with shenyu gateway
 * if you use `nacos` as Spring Cloud registry center.
 
   * add these dependencies:
-  
+
  ```xml
   <dependency>
         <groupId>com.alibaba.cloud</groupId>
@@ -69,9 +69,9 @@ description: springCloud with shenyu gateway
         <version>2.1.0.RELEASE</version>
   </dependency>
    ```
-  
+
    * add these config values in gateway's yaml file:
-   
+
  ```yaml
    spring:
       cloud:
@@ -100,45 +100,45 @@ description: springCloud with shenyu gateway
 * add the annotation `@ShenyuSpringCloudClient` in your `controller` interface.
 
  * you can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces.
-  
+
    * example （1）：both `/test/payment` and `/test/findByUserId` will be handled by gateway.
-   
+
  ```java
   @RestController
   @RequestMapping("/test")
   @ShenyuSpringCloudClient(path = "/test/**")
   public class HttpTestController {
-      
+
       @PostMapping("/payment")
       public UserDTO post(@RequestBody final UserDTO userDTO) {
           return userDTO;
       }
-      
+
       @GetMapping("/findByUserId")
       public UserDTO findByUserId(@RequestParam("userId") final String userId) {
           UserDTO userDTO = new UserDTO();
           userDTO.setUserId(userId);
           userDTO.setUserName("hello world");
           return userDTO;
-      }    
+      }
    }
 ```
-  
+
    * example （2）：`/order/save` will be handled by gateway, and `/order/findById` won't.
-  
+
  ```java
   @RestController
   @RequestMapping("/order")
   @ShenyuSpringCloudClient(path = "/order")
   public class OrderController {
-  
+
       @PostMapping("/save")
       @ShenyuSpringMvcClient(path = "/save")
       public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
           orderDTO.setName("hello world save order");
           return orderDTO;
       }
- 
+
       @GetMapping("/findById")
       public OrderDTO findById(@RequestParam("id") final String id) {
           OrderDTO orderDTO = new OrderDTO();
@@ -149,9 +149,9 @@ description: springCloud with shenyu gateway
   }
 ```
 
-  
-* start your service, get the log `dubbo client register success `, then your interface has been added with shenyu gateway successfully.
-  
+
+* start your service, get the log `dubbo client register success `, then your interface has been added with ShenYu gateway successfully.
+
 ## Plugin Setting
 
 * enable Spring Cloud plugin in `shenyu-admin`.
@@ -162,7 +162,7 @@ description: springCloud with shenyu gateway
 
 * firstly，the domain name that requested before in your service, now need to replace with gateway's domain name.
 
-* secondly，shenyu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if your familiar with it. 
+* secondly，ShenYu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if your familiar with it.
 
 ```yaml
 
@@ -170,7 +170,7 @@ description: springCloud with shenyu gateway
 
 # now need to change to：http://localhost:9195/order/test/save
 
-# we can see localhost:9195 is the gateway's ip port, default port number is 9195 ，/order is the contextPath in your config yaml file. 
+# we can see localhost:9195 is the gateway's ip port, default port number is 9195 ，/order is the contextPath in your config yaml file.
 
 # the request of other parameters don't change.
 

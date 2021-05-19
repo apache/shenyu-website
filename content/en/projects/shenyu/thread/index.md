@@ -6,11 +6,11 @@ description: thread model
 
 ## Description
 
-* This article gives an introduction to thread models in shenyu and usage in various scenarios.
+* This article gives an introduction to thread models in ShenYu and usage in various scenarios.
 
 ## IO And Work Thread
 
-* `spring-webflux` is one of dependencies of shenyu, and it uses Netty thread model in lower layer. 
+* `spring-webflux` is one of dependencies of ShenYu, and it uses Netty thread model in lower layer.
 
 ## Business Thread
 

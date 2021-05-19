@@ -6,7 +6,7 @@ description: websocket支持
 
 ## 说明
 
-* shenyu网关是支持 websocket的代理。
+* ShenYu 网关是支持 websocket的代理。
 
 * websocket支持中，使用了divide插件。
 
@@ -33,11 +33,11 @@ description: websocket支持
 ```
 ## 请求路径
 
-* 使用shenyu代理websocket的时候，其请求路径为（例子）：`ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket`。
+* 使用 ShenYu 代理websocket的时候，其请求路径为（例子）：`ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket`。
 
 ```yaml
 参数详解:
-1.localhost:8080 是shenyu启动的ip和端口。
+1.localhost:8080 是 ShenYu 启动的ip和端口。
 2.module（必填）：值是你用来匹配selector的关键
 3.method （参数）: 你的 websocket路径，同时也用做匹配rule
 4.rpcType ：websocket 必填，且必须为websocket
@@ -55,8 +55,8 @@ description: websocket支持
 
 * 总结，这个时候注意看你的路径 `ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket`。
 
-  它就会被你新增的选择器规则匹配，然后代理的的真实websocket地址为：`127.0.0.1:8080/websocket`，这样shenyu就进行的websocket的代理。
-  
-  你就可以进行和websocket服务进行通信了，就是这么简单。
-  
-* 最后再说一句，module，method 命名和值，你完全可以自己来决定，我的只是列子，只要选择器 和规则能够匹配就行。  
+  它就会被你新增的选择器规则匹配，然后代理的的真实websocket地址为：`127.0.0.1:8080/websocket`，这样 ShenYu 就进行的websocket的代理。
+
+  你就可以进行和 websocket 服务进行通信了，就是这么简单。
+
+* 最后再说一句，module，method 命名和值，你完全可以自己来决定，我的只是列子，只要选择器 和规则能够匹配就行。

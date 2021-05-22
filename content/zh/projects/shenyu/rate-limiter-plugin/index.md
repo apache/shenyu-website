@@ -8,9 +8,9 @@ description: rateLimiter插件
 
 * 限流插件，是网关对流量管控限制核心的实现。
 
-* shenyu网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
+* ShenYu 网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
 
-* shenyu网关的限流算法实现都是基于`redis`。
+* ShenYu 网关的限流算法实现都是基于`redis`。
 
 * 可以到接口级别，也可以到参数级别，具体怎么用，还得看你对流量配置。
 
@@ -46,7 +46,7 @@ description: rateLimiter插件
 * 流程图：
   ![](/img/shenyu/plugin/ratelimiter/sldingwindow.png)
 
-  
+
 ## 插件设置
 
 * 在 `shenyu-admin`--> 插件管理--> `rate_limiter` 将其设置为开启。
@@ -57,8 +57,8 @@ description: rateLimiter插件
 
 * 如果是哨兵，集群等多节点的，在URL中的配置，请对每个实列使用 `;` 分割. 如 192.168.1.1:6379;192.168.1.2:6379。
 
-* 如果用户无需使用，在admin后台把插件禁用。 
- 
+* 如果用户无需使用，在admin后台把插件禁用。
+
 ## 插件使用
 
 * 在网关的 pom.xml 文件中添加 rateLimiter的支持。
@@ -71,10 +71,10 @@ description: rateLimiter插件
       <version>${last.version}</version>
   </dependency>
   <!-- shenyu ratelimiter plugin end-->
-``` 
+```
 
 * 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
-  
+
 * 规则详细说明
 
 * * 令牌桶算法/并发令牌桶算法
@@ -87,7 +87,7 @@ replenishRate（速率）：是你允许用户每秒执行多少请求，而丢�
 burstCapacity（容量）：是允许用户在一秒钟内执行的最大请求数。这是令牌桶可以保存的令牌数。
 
 
-* * 漏桶算法 
+* * 漏桶算法
 
 algorithmName（算法名）：leakyBucket
 

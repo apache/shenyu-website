@@ -7,7 +7,7 @@ description: http 用户
 ## 说明
 
 * 本文旨在帮助 http 用户。
-* shenyu 网关使用 divide 插件来处理 http 请求。请求在 shenyu-admin 后台开启它。
+* ShenYu 网关使用 divide 插件来处理 http 请求。请求在 shenyu-admin 后台开启它。
 * 接入前，请正确的启动 `shenyu-admin`，以及 [搭建环境](../shenyu-set-up) OK。
 
 
@@ -39,9 +39,9 @@ description: http 用户
 ##### Shenyu-Client 接入方式。 （此方式针对 SpringMvc, SpringBoot 用户）
 
 * `SpringBoot 用户`
-  
-   * 在你的真实服务的 `pom.xml` 新增如下依赖: 
-   
+
+   * 在你的真实服务的 `pom.xml` 新增如下依赖:
+
     ```xml
          <dependency>
              <groupId>org.apache.shenyu</groupId>
@@ -49,27 +49,27 @@ description: http 用户
              <version>${last.version}</version>
          </dependency>
      ```
-  
+
    * 注册中心详细接入配置请参考：[注册中心接入](../register-center-access).
 
-* `SpringMvc 用户` 
+* `SpringMvc 用户`
 
    * 在你的真实服务的 `pom.xml` 新增如下依赖：
-   
+
     ```xml
            <dependency>
                <groupId>org.apache.shenyu</groupId>
                <artifactId>shenyu-client-springmvc</artifactId>
                <version>${last.version}</version>
            </dependency>
-     ```     
-  * 在你的 bean 定义的 xml 文件中新增如下：  
-  
+     ```
+  * 在你的 bean 定义的 xml 文件中新增如下：
+
      ```xml
         <bean id ="springMvcClientBeanPostProcessor" class ="org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
              <constructor-arg  ref="shenyuRegisterCenterConfig"/>
         </bean>
-        
+
         <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
              <property name="registerType" value="http"/>
              <property name="serverList" value="http://localhost:9095"/>
@@ -82,48 +82,48 @@ description: http 用户
                   </map>
              </property>
         </bean>
-    ``` 
+    ```
 * 在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
-  
+
    * 你可以把注解加到 `Controller` 类上面，里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
-  
+
    * 举例子（1）： 代表 `/test/payment`，`/test/findByUserId` 都会被网关代理。
-   
+
     ```java
       @RestController
       @RequestMapping("/test")
       @ShenyuSpringMvcClient(path = "/test/**")
       public class HttpTestController {
-          
+
           @PostMapping("/payment")
           public UserDTO post(@RequestBody final UserDTO userDTO) {
               return userDTO;
           }
-       
+
           @GetMapping("/findByUserId")
           public UserDTO findByUserId(@RequestParam("userId") final String userId) {
               UserDTO userDTO = new UserDTO();
               userDTO.setUserId(userId);
               userDTO.setUserName("hello world");
               return userDTO;
-          }      
+          }
        }
     ```
    * 举例子（2）：代表 `/order/save`，会被网关代理，而 `/order/findById` 则不会。
-   
+
     ```java
       @RestController
       @RequestMapping("/order")
       @ShenyuSpringMvcClient(path = "/order")
       public class OrderController {
-      
+
           @PostMapping("/save")
           @ShenyuSpringMvcClient(path = "/save")
           public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
               orderDTO.setName("hello world save order");
               return orderDTO;
           }
-     
+
           @GetMapping("/findById")
           public OrderDTO findById(@RequestParam("id") final String id) {
               OrderDTO orderDTO = new OrderDTO();
@@ -150,14 +150,14 @@ description: http 用户
 
 * 第一点，你之前请求的域名是你自己的服务，现在要换成网关的域名 （这个你听的懂？）
 
-* 第二点，shenyu 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以自由在 `shenyu-admin` 中的divide插件进行自由更改。
+* 第二点，ShenYu 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以自由在 `shenyu-admin` 中的divide插件进行自由更改。
     * 比如你有一个 order 服务 它有一个接口，请求路径 http://localhost:8080/test/save
-    
+
     * 现在就需要换成：http://localhost:9195/order/test/save
-    
+
     * 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你接入网关配置的 contextPath
-    
+
     * 其他参数，请求方式不变。
-    
+
     * 我讲到这里还不懂？ 请加群问吧
 * 然后你就可以进行访问了，如此的方便与简单。

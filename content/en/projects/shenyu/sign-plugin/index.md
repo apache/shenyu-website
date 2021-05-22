@@ -6,7 +6,7 @@ description: sign plugin
 
 ## Explanation
 
-* Sign is a native plugin of shenyu Gateway and is used to process signature authentication of requests.
+* Sign is a native plugin of ShenYu Gateway and is used to process signature authentication of requests.
 
 ## Plugin Setting
 
@@ -24,10 +24,10 @@ description: sign plugin
      <version>${last.version}</version>
   </dependency>
   <!-- shenyu sign plugin end-->
-``` 
+```
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule).
-* Only those matched requests can be authenticated by signature.   
+* Only those matched requests can be authenticated by signature.
 
 
 ## Add AK/SK
@@ -36,20 +36,20 @@ description: sign plugin
 
 
 ## Implementation of Gateway Technology
- 
- * Adopt Ak/SK authentication technical scheme. 
- * Adopt authentication plug-in and Chain of Responsibility Pattern to realize. 
+
+ * Adopt Ak/SK authentication technical scheme.
+ * Adopt authentication plug-in and Chain of Responsibility Pattern to realize.
  * Take effect when the authentication plugin is enabled and all interfaces are configured for authentication.
- 
- 
+
+
  ## Authentication Guide
- 
- * Step 1: AK/SK is assigned by the gateway. For example, the AK assigned to you is: ` 1test123456781 ` SK is: ` 506eeb535cf740d7a755cb49f4a1536' 
- 
+
+ * Step 1: AK/SK is assigned by the gateway. For example, the AK assigned to you is: ` 1test123456781 ` SK is: ` 506eeb535cf740d7a755cb49f4a1536'
+
  * Step 2: Decide the gateway path you want to access, such as ` /api/service/abc'
-  
+
  * Step 3: Construct parameters (the following are general parameters)
- 
+
 | Field      | Value    |  Description  |
 | --------   | --------  | :--------: |
 | timestamp  |  current timestamp(String)   |  The number of milliseconds of the current time（gateway will filter requests the before 5 minutes）    |
@@ -57,13 +57,13 @@ description: sign plugin
 | version       | 1.0.0  |  `1.0.0` is a fixed string value |
 
  Sort the above two field natually according to the key, then splice fields and fields, finally splice SK. The following is a code example.
- 
+
 
 Step 1: First, construct a Map.
 ```java
 
    Map<String, String> map = Maps.newHashMapWithExpectedSize(2);
-   //timestamp is string format of millisecond. String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli()) 
+   //timestamp is string format of millisecond. String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
    map.put("timestamp","1571711067186");  // Value should be string format of milliseconds
    map.put("path", "/api/service/abc");
    map.put("version", "1.0.0");
@@ -88,7 +88,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```
 
 * The final returned value is:A021BF82BE342668B78CD9ADE593D683
- 
+
 ## Request GateWay
 
 * If your visited path is:/api/service/abc。

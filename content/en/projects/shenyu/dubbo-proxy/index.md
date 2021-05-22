@@ -1,12 +1,12 @@
 ---
-title: Integrate dubbo with shenyu gateway
-keywords: shenyu
-description: Integrate dubbo with shenyu gateway
+title: Integrate dubbo with ShenYu Gateway
+keywords: ShenYu
+description: Integrate dubbo with ShenYu gateway
 ---
 
 ## Features
 
-* This chapter is a guide about integrating dubbo service with shenyu gateway.
+* This chapter is a guide about integrating dubbo service with ShenYu Gateway.
 * Support Alibaba Dubbo(< 2.7.x) and Apache Dubbo (>=2.7.x).
 * Please start `shenyu-admin` successfully before integrating, and [Environment Setup](../shenyu-set-up) is Ok.
 
@@ -41,10 +41,10 @@ description: Integrate dubbo with shenyu gateway
   <groupId>org.apache.curator</groupId>
   <artifactId>curator-recipes</artifactId>
   <version>4.0.1</version>
-</dependency>   
+</dependency>
 ```
 * Apache dubbo user, configure the dubbo version and registry center with yours.
-  
+
 ```xml
 <!--shenyu apache dubbo plugin start-->
 <dependency>
@@ -105,9 +105,9 @@ description: Integrate dubbo with shenyu gateway
              <version>${last.version}</version>
         </dependency>
         ```
-      
+
         * backend server register center config, please look:[register center access](../register-center-access).
-        
+
     * Spring
        * Add these dependencies：
        ```xml
@@ -117,13 +117,13 @@ description: Integrate dubbo with shenyu gateway
             <version>${last.version}</version>
          </dependency>
        ```
-       * Inject these properties into your Sping beans XML file：      
-    
+       * Inject these properties into your Sping beans XML file：
+
        ```xml
        <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
             <constructor-arg  ref="shenyuRegisterCenterConfig"/>
        </bean>
-    
+
        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
           <property name="registerType" value="http"/>
           <property name="serverList" value="http://localhost:9095"/>
@@ -135,11 +135,11 @@ description: Integrate dubbo with shenyu gateway
               </map>
            </property>
         </bean>
-       ``` 
+       ```
 * Apache Dubbo User
-   
+
   * SpringBoot
-      
+
      * Add these dependencies:
      ```xml
      <dependency>
@@ -150,7 +150,7 @@ description: Integrate dubbo with shenyu gateway
      ```
      * backend server register center config, please look:[register center_access](../register-center-access)：
 
-  * Spring  
+  * Spring
      * Add these dependencies:
      ```xml
        <dependency>
@@ -165,7 +165,7 @@ description: Integrate dubbo with shenyu gateway
     <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
        <constructor-arg  ref="shenyuRegisterCenterConfig"/>
     </bean>
-    
+
     <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
        <property name="registerType" value="http"/>
        <property name="serverList" value="http://localhost:9095"/>
@@ -177,7 +177,7 @@ description: Integrate dubbo with shenyu gateway
             </map>
        </property>
     </bean>
-    ``` 
+    ```
 
 ## Dubbo configuration
 
@@ -192,14 +192,14 @@ description: Integrate dubbo with shenyu gateway
 
 * you can add the annotation `@ShenyuDubboClient` to your dubbo service implementation class, so that the interface method will be configured with gateway.
 
-* start your provider and get the log `dubbo client register success `，then your dubbo interface has been added with shenyu gateway successfully.Pls refer to `shenyu-test-dubbo`
+* start your provider and get the log `dubbo client register success `，then your dubbo interface has been added with ShenYu Gateway successfully.Pls refer to `shenyu-test-dubbo`
   project.
 
 ### Dubbo user request and parameter explanation.
 
 * communicate with dubbo service through Http transport protocol.
-* shenyu gateway need a route prefix which configured when accessing the project.
- 
+* ShenYu Gateway need a route prefix which configured when accessing the project.
+
 ```yaml
 # for example: you have an order service and it has a interface, his registry address: /order/test/save
 
@@ -223,7 +223,7 @@ shenyu:
 
 * Support for customized multi-parameter type
 * Create a new implementation class A in your gateway project of `org.apache.shenyu.web.dubbo.DubboParamResolveService`.
-  
+
 ```java
 public interface DubboParamResolveService {
 
@@ -238,12 +238,12 @@ public interface DubboParamResolveService {
    Pair<String[], Object[]> buildParameter(String body, String parameterTypes);
 }
 ```
-  
+
 * `body` is the json string in http request.
 * `parameterTypes`: the list of method parameter types that are matched，split with `,`.
 *  in Pair，left is parmeter type，right is parameter value, it's the standard of dubbo generalization calls.
 *  Inject your class into Spring bean, cover the default implementation.
-  
+
 ```java
 @Bean
 public DubboParamResolveService A() {
@@ -264,7 +264,7 @@ public DubboParamResolveService A() {
     ```java
     @Service(validation = "shenyuValidation")
     public class TestServiceImpl implements TestService {
-    
+
             @Override
             @ShenyuDubboClient(path = "/test", desc = "test method")
             public String test(@Valid HelloServiceRequest name) throws ShenyuException {
@@ -275,48 +275,48 @@ public DubboParamResolveService A() {
             }
     }
     ```
-  
+
     * Request param
-  
+
     ```java
         public class HelloServiceRequest implements Serializable {
-        
+
             private static final long serialVersionUID = -5968745817846710197L;
-        
+
             @NotEmpty(message = "name cannot be empty")
             private String name;
-        
+
             @NotNull(message = "age cannot be null")
             private Integer age;
-        
+
             public String getName() {
                 return name;
             }
-        
+
             public void setName(String name) {
                 this.name = name;
             }
-        
+
             public Integer getAge() {
                 return age;
             }
-        
+
             public void setAge(Integer age) {
                 this.age = age;
             }
         }
     ```
-  
+
     * Send request
-  
+
     ```json
     {
         "name": ""
     }
     ```
-  
+
     * Response
-    
+
     ```json
     {
         "code": 500,
@@ -324,9 +324,9 @@ public DubboParamResolveService A() {
         "data": "name cannot be empty,age cannot be null"
     }
     ```
-  
+
     * Error message
-    
+
     ```json
     {
         "code": 500,

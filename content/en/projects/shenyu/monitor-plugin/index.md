@@ -10,9 +10,9 @@ description: monitor plugin
 
 ## Technical Solutions
 
-* Flow Diagram 
+* Flow Diagram
     ![](https://yu199195.github.io/images/soul/soul-metrics.png)
-* Make even tracking in shenyu gateway by asynchronous or synchronous mode. 
+* Make even tracking in ShenYu Gateway by asynchronous or synchronous mode.
 
 * The `prometheus` server pulls metrics' through http request, and then displays it by `Grafana`.
 
@@ -25,7 +25,7 @@ description: monitor plugin
 {"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
 
 # port : Pulled ports for exposing to prometheus service.
-# host : If not filled in, it is the host of shenyu Gateway.
+# host : If not filled in, it is the host of ShenYu Gateway.
 # async :"true" is asynchronous event tracking， false is synchronous event tracking.
 ```
 
@@ -40,7 +40,7 @@ description: monitor plugin
       <version>${last.version}</version>
   </dependency>
   <!-- shenyu monitor plugin end-->
-``` 
+```
 * Selectors and rules, please refer to: [selector](../selector-and-rule).
 * Only when the url is matched, the url will request event tracking.
 
@@ -48,12 +48,12 @@ description: monitor plugin
 
 * All JVM，thread，memory，and other related infomation will be made event tracking，you can add a JVM module in the Granfana' panel, and it will be fully displayed, please refer to： https://github.com/prometheus/jmx_exporter
 
-* There are also the following custom `metrics` 
+* There are also the following custom `metrics`
 
 | Name                      |type                  |target       | description                  |
 |:------------------------ |:--------------------- |:-------------|:-------------------- |
 |request_total             |Counter                | none           |collecting all requests of ShenYu Gateway |
-|http_request_total        |Counter                 | path,type    |collecting all matched requests of monitor| 
+|http_request_total        |Counter                 | path,type    |collecting all matched requests of monitor|
 
 ## Collect metrics
 

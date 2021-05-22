@@ -1,13 +1,13 @@
 ---
-title: Dubbo 接入 shenyu 网关
-keywords: shenyu
-description: dubbo 接入shenyu 网关
+title: Dubbo 接入 ShenYu 网关
+keywords: ShenYu
+description: dubbo 接入 ShenYu 网关
 ---
 
 
 ## 说明
 
-* 此篇文章是 dubbo 用户使用 dubbo 插件支持，以及自己的 dubbo 服务接入 shenyu 网关的教程。
+* 此篇文章是 dubbo 用户使用 dubbo 插件支持，以及自己的 dubbo 服务接入 ShenYu 网关的教程。
 * 支持 alibaba dubbo（< 2.7.x） 以及 apache dubbo (>=2.7.x)。
 * 接入前，请正确的启动 `shenyu-admin`，以及[搭建环境](../shenyu-set-up) Ok。
 
@@ -57,7 +57,7 @@ description: dubbo 接入shenyu 网关
        <version>${last.version}</version>
     </dependency>
     <!--shenyu apache dubbo plugin end-->
-    
+
     <dependency>
        <groupId>org.apache.dubbo</groupId>
        <artifactId>dubbo</artifactId>
@@ -75,7 +75,7 @@ description: dubbo 接入shenyu 网关
        <version>1.1.4</version>
     </dependency>
     <!-- Dubbo Nacos registry dependency  end-->
-    
+
     <!-- Dubbo zookeeper registry dependency start-->
     <dependency>
        <groupId>org.apache.curator</groupId>
@@ -104,7 +104,7 @@ description: dubbo 接入shenyu 网关
     * springboot
 
        * 引入以下依赖
-        
+
         ```xml
         <dependency>
              <groupId>org.apache.shenyu</groupId>
@@ -118,7 +118,7 @@ description: dubbo 接入shenyu 网关
     * spring
 
         * 引入以下依赖 ：
-        
+
         ```xml
         <dependency>
            <groupId>org.apache.shenyu</groupId>
@@ -127,12 +127,12 @@ description: dubbo 接入shenyu 网关
         </dependency>
         ```
         * 在你的 bean 定义的 xml 文件中新增如下 ：
-        
+
         ```xml
         <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
            <constructor-arg  ref="shenyuRegisterCenterConfig"/>
         </bean>
-        
+
         <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
                <property name="registerType" value="http"/>
                <property name="serverList" value="http://localhost:9095"/>
@@ -181,7 +181,7 @@ description: dubbo 接入shenyu 网关
           <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
                <constructor-arg ref="shenyuRegisterCenterConfig"/>
           </bean>
-        
+
           <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
                <property name="registerType" value="http"/>
                <property name="serverList" value="http://localhost:9095"/>
@@ -209,13 +209,13 @@ description: dubbo 接入shenyu 网关
 
 * 你 dubbo 服务实现类的，方法上加上 `@ShenyuDubboClient` 注解，表示该接口方法注册到网关。
 
-* 启动你的提供者，输出日志 `dubbo client register success ` 大功告成，你的 dubbo 接口已经发布到 shenyu 网关.如果还有不懂的，可以参考 `shenyu-test-dubbo`项目。
+* 启动你的提供者，输出日志 `dubbo client register success ` 大功告成，你的 dubbo 接口已经发布到 ShenYu 网关.如果还有不懂的，可以参考 `shenyu-test-dubbo`项目。
 
 ## dubbo用户请求以及参数说明
 
 * 说白了，就是通过 http 的方式来请求你的 dubbo 服务
 
-* shenyu 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`
+* ShenYu 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`
 
 ```yaml
 # 比如你有一个 order服务 它有一个接口，它的注册路径 /order/test/save
@@ -248,7 +248,7 @@ shenyu:
 
     ```java
     public interface DubboParamResolveService {
-    
+
        /**
         * Build parameter pair.
         * this is Resolve http body to get dubbo param.
@@ -286,11 +286,11 @@ shenyu:
 * 参数验证和自定义异常
     * 指定 `validation = "shenyuValidation"`;
     * 在接口中抛出 `ShenyuException` 时，异常信息会返回，需要注意的是显式抛出 `ShenyuException`；
-    
+
     ```java
     @Service(validation = "shenyuValidation")
     public class TestServiceImpl implements TestService {
-    
+
         @Override
         @ShenyuDubboClient(path = "/test", desc = "test method")
         public String test(@Valid HelloServiceRequest name) throws ShenyuException {
@@ -301,48 +301,48 @@ shenyu:
         }
     }
     ```
-    
+
     * 请求参数
-    
+
     ```java
     public class HelloServiceRequest implements Serializable {
-    
+
         private static final long serialVersionUID = -5968745817846710197L;
-    
+
         @NotEmpty(message = "name cannot be empty")
         private String name;
-    
+
         @NotNull(message = "age cannot be null")
         private Integer age;
-    
+
         public String getName() {
             return name;
         }
-    
+
         public void setName(String name) {
             this.name = name;
         }
-    
+
         public Integer getAge() {
             return age;
         }
-    
+
         public void setAge(Integer age) {
             this.age = age;
         }
     }
     ```
-  
+
     * 发送请求
-    
+
     ```json
     {
         "name": ""
     }
     ```
-  
+
     * 返回
-    
+
     ```json
     {
         "code": 500,
@@ -350,16 +350,16 @@ shenyu:
         "data": "name cannot be empty,age cannot be null"
     }
     ```
-  
+
     * 当按照要求传递请求参数时，会返回自定义异常的信息
-    
+
     ```json
     {
         "code": 500,
         "message": "Internal Server Error",
         "data": "Param binding error."
     }
-    ``` 
+    ```
 
 ## 大白话讲解如果通过 http --> 网关 --> dubbo provider
 

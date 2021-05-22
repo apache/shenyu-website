@@ -6,7 +6,7 @@ description: sign插件
 
 ## 说明
 
-* sign插件是 shenyu网关自带的，用来对请求进行签名认证的插件。
+* sign插件是 ShenYu 网关自带的，用来对请求进行签名认证的插件。
 
 
 ## 插件设置
@@ -25,7 +25,7 @@ description: sign插件
      <version>${last.version}</version>
   </dependency>
   <!-- shenyu sign plugin end-->
-``` 
+```
 
 * 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
 
@@ -37,20 +37,20 @@ description: sign插件
 * 在shenyu-admin --> 认证管理中，点击新增，新增一条 AK/SK。
 
 ## 网关技术实现
- 
+
  * 采用Ak/SK鉴权技术方案。
  * 采用鉴权插件，责任链的模式来完成。
  * 当鉴权插件开启，并配置所有接口鉴权时候生效。
- 
- 
+
+
 ## 鉴权使用指南
- 
- * 第一步：AK/SK由网关来进行分配，比如分配给你的AK为: `1TEST123456781`  	SK为：`506EEB535CF740D7A755CB4B9F4A1536` 
- 
+
+ * 第一步：AK/SK由网关来进行分配，比如分配给你的AK为: `1TEST123456781`  	SK为：`506EEB535CF740D7A755CB4B9F4A1536`
+
  * 第二步：确定好你要访问的网关路径 比如 `/api/service/abc`
- 
+
  * 第三步：构造参数（以下是通用参数）
- 
+
 | 字段        | 值    |  描述  |
 | --------   | -----:  | :----: |
 | timestamp  |  当前时间戳(String类型)   |  当前时间的毫秒数（网关会过滤掉5分钟之前的请求）    |
@@ -58,14 +58,14 @@ description: sign插件
 | version       | 1.0.0  | 目前定位1.0.0 写死，String类型 |
 
  对上述2个字段进行key的自然排序，然后进行字段与字段值拼接最后再拼接上SK，代码示例。
- 
+
 
 第一步：首先构造一个Map。
 ```java
 
    Map<String, String> map = Maps.newHashMapWithExpectedSize(2);
-   //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli()) 
-   map.put("timestamp","1571711067186");  //值应该为毫秒数的字符串形式 
+   //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
+   map.put("timestamp","1571711067186");  //值应该为毫秒数的字符串形式
    map.put("path", "/api/service/abc");
    map.put("version", "1.0.0");
 ```
@@ -89,7 +89,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```
 
 * 最后得到的值为：`A021BF82BE342668B78CD9ADE593D683`
- 
+
 ## 请求网关
 
 * 假如你访问的路径为：`/api/service/abc`。

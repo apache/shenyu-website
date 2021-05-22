@@ -6,7 +6,7 @@ description: 元数据概念设计
 
 ## 说明
 
-* 本篇主要讲解在 shenyu 网关中元数据的概念，设计，以及如何对接。
+* 本篇主要讲解在 ShenYu 网关中元数据的概念，设计，以及如何对接。
 
 ## 技术方案
 
@@ -41,7 +41,7 @@ CREATE TABLE  IF NOT EXISTS `meta_data` (
 * dubbo 类型 字段结构是 如下，那么存储的就是 json 格式的字符串。
 
   ```java
-   public static class RpcExt {  
+   public static class RpcExt {
       private String group;
       private String version;
       private String loadbalance;

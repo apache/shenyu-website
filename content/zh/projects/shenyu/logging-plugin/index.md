@@ -6,7 +6,7 @@ description: logging插件
 
 ## 说明
 
-* shenyu网关在对目标服务调用的时候，还容许用户使用 `logging` 插件在日志中打印本次请求信息，包含请求路径、请求方法、请求参数和响应头、响应体等信息。
+* ShenYu 网关在对目标服务调用的时候，还容许用户使用 `logging` 插件在日志中打印本次请求信息，包含请求路径、请求方法、请求参数和响应头、响应体等信息。
 
 ## 插件设置
 
@@ -22,7 +22,7 @@ description: logging插件
     <version>${last.version}</version>
   </dependency>
   <!-- shenyu logging plugin end-->
-``` 
+```
 
 * 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
 * 只有匹配的请求，并且配置规则才会打印本次请求相关信息。

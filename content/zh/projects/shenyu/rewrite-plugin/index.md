@@ -6,7 +6,7 @@ description: rewrite插件
 
 ## 说明
 
-* shenyu网关在对目标服务进行代理调用的时候，还容许用户使用 `rewrite` 插件来重写请求路径
+* ShenYu 网关在对目标服务进行代理调用的时候，还容许用户使用 `rewrite` 插件来重写请求路径
 
 ## 插件设置
 
@@ -24,7 +24,7 @@ description: rewrite插件
      <version>${last.version}</version>
   </dependency>
   <!-- shenyu rewrite plugin end-->
-``` 
+```
 
 * 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
 

@@ -22,13 +22,13 @@ Therefore,we have done a partial reconstruction of `ShenYu`,after two months of 
 - Data Synchronization removes the strong dependence on `zookeeper`,and we add `http long polling` and `websocket`
 - Limiting plugin and monitoring plugin realize real dynamic configuration,we use `admin` backend for dynamic configuration instead of `yml` configuration before
 
-*Q: Someone may ask me,why don't you use configuration center for synchronization?*  
+*Q: Someone may ask me,why don't you use configuration center for synchronization?*
 
 First of all, it will add extra costs, not only for maintenance, but also make `ShenYu` heavy; In addition, using configuration center, data format is uncontrollable and it is not convenient for `shenyu-admin` to do configuration management.
 
 *Q: Someone may also ask,dynamic configuration update?Every time I can get latest data from database or redis,why are you making it complicated?*
 
-As a gateway, shenyu cached all the configuration in the `HashMap` of JVM in order to provide higher response speed and we use local cache for every request, It's very fast. So this article can also be understood as three ways of memory synchronization in a distributed environment.
+As a gateway, `ShenYu` cached all the configuration in the `HashMap` of JVM in order to provide higher response speed and we use local cache for every request, It's very fast. So this article can also be understood as three ways of memory synchronization in a distributed environment.
 
 ## Principle Analysis
 
@@ -50,13 +50,13 @@ The zookeeper-based synchronization principle is very simple,it mainly depends o
 
 ![Zookeeper Node Design](https://yu199195.github.io/images/soul/soul-zookeeper.png)
 
-`shenyu` writes the configuration information to the zookeeper node,and it is meticulously designed.
+`ShenYu` writes the configuration information to the zookeeper node,and it is meticulously designed.
 
 ## WebSocket Synchronization
 
 The mechanism of `websocket` and `zookeeper` is similar,when the gateway and the `admin` establish a `websocket` connection,`admin` will push all data at once,it will automatically push incremental data to `shenyu-web` through `websocket` when configured data changes
 
-When we use websocket synchronization,pay attention to reconnect after disconnection,which also called keep heartbeat.`shenyu` uses `java-websocket` ,a third-party library,to connect to `websocket`.
+When we use websocket synchronization,pay attention to reconnect after disconnection,which also called keep heartbeat.`ShenYu` uses `java-websocket` ,a third-party library,to connect to `websocket`.
 
 ```java
 public class WebsocketSyncCache extends WebsocketCacheHandler {
@@ -76,7 +76,7 @@ public class WebsocketSyncCache extends WebsocketCacheHandler {
                 @Override
                 public void onMessage(final String result) {
                   //....
-                }    
+                }
             };
         //connect
         client.connectBlocking();
@@ -114,7 +114,7 @@ public void doLongPolling(final HttpServletRequest request, final HttpServletRes
     asyncContext.setTimeout(0L);
     scheduler.execute(new LongPollingClient(asyncContext, clientIp, 60));
 }
-    
+
 class LongPollingClient implements Runnable {
     LongPollingClient(final AsyncContext ac, final String ip, final long timeoutTime) {
         // omit......
@@ -128,7 +128,7 @@ class LongPollingClient implements Runnable {
             List<ConfigGroupEnum> changedGroups = HttpLongPollingDataChangedListener.compareMD5((HttpServletRequest) asyncContext.getRequest());
             sendResponse(changedGroups);
         }, timeoutTime, TimeUnit.MILLISECONDS);
-        // 
+        //
         clients.add(this);
     }
 }
@@ -170,4 +170,4 @@ There also have video tutorials on the project homepage,you can go to watch it i
 
 ## At Last
 
-This article introduces that,in order to optimize the response speed, `shenyu` as a highly available micro service gateway, its three ways to cache the configuration rule selector data locally.After learning this article,I believe you have a certain understanding of the popular configuration center,it may be easier to learn their codes,I believe you can also write a distributed configuration center.Version 3.0 is already under planning,and I believe it will definitely surprise you.
+This article introduces that,in order to optimize the response speed, `ShenYu` as a highly available micro service gateway, its three ways to cache the configuration rule selector data locally.After learning this article,I believe you have a certain understanding of the popular configuration center,it may be easier to learn their codes,I believe you can also write a distributed configuration center.Version 3.0 is already under planning,and I believe it will definitely surprise you.

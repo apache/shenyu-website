@@ -6,7 +6,7 @@ description: file uploading and downloading
 
 ## description
 
-* This doc gives a brief description for uploading and downloading files using shenyu.
+* This doc gives a brief description for uploading and downloading files using ShenYu.
 
 ## File Uploading
 

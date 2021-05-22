@@ -6,7 +6,7 @@ description: redirect插件
 
 ## 说明
 
-> shenyu网关在对目标服务进行代理调用的时候，还容许用户使用 `redirect` 插件来重定向请求。
+> ShenYu 网关在对目标服务进行代理调用的时候，还容许用户使用 `redirect` 插件来重定向请求。
 
 ## 插件设置
 

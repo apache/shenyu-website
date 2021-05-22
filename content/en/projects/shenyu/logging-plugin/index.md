@@ -6,7 +6,7 @@ description: logging plugin
 
 ## Explanation
 
-* When making invokes to the target service, shenyu gateway also allows users to print the request information in the log that includes the request path, request method, request parameters, response header, response body ...etc.
+* When making invokes to the target service, ShenYu gateway also allows users to print the request information in the log that includes the request path, request method, request parameters, response header, response body ...etc.
 
 ## Plugin Setting
 
@@ -22,11 +22,11 @@ description: logging plugin
       <version>${last.version}</version>
     </dependency>
    <!-- shenyu logging plugin end-->
-``` 
+```
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule)。
 * Only those matched requests can print the information about this request.
- 
+
 ## Situation
 
 * Users may want to view the information about request(including request headers, request parameters, response headers, response body...etc) where in the side of gateway when debugging during development or troubleshooting problems online.

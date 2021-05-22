@@ -8,9 +8,9 @@ description: rateLimiter plugin
 
 * rateLimiter is core implementation of gateway restrictions on network traffic.
 
-* The shenyu gateway provides a variety of current limiting algorithms, including `token bucket algorithm`, `concurrent token bucket algorithm`, `leaky bucket algorithm` and `sliding time window algorithm`.
+* The ShenYu gateway provides a variety of current limiting algorithms, including `token bucket algorithm`, `concurrent token bucket algorithm`, `leaky bucket algorithm` and `sliding time window algorithm`.
 
-* The implementation of current limiting algorithm of shenyu gateway is based on `redis`.
+* The implementation of current limiting algorithm of ShenYu gateway is based on `redis`.
 
 * You can set to the interface level or the parameter level. How to use it depends on your traffic configuration.
 
@@ -46,7 +46,7 @@ description: rateLimiter plugin
 ## Plugin Setting
 
 * In `shenyu-admin`--> plugin management--> `rate_limiter` set to enable.
- 
+
 * Configure redis in the plugin.
 
 * Currently, supporting redis patterns of single, sentinel, and cluster.
@@ -54,7 +54,7 @@ description: rateLimiter plugin
 * If it is a sentinel, cluster and other multi-node configuration in URL, please use `;` for each instance; Division. For example, 192.168.1.1:6379; 192.168.1.2:6379。
 
 * If the user don't use, please disable the plugin in the background.
- 
+
 ## Plugin Detail
 
 * Introduce `rateLimiter` dependency in pom.xml file of the gateway.
@@ -67,7 +67,7 @@ description: rateLimiter plugin
       <version>${last.version}</version>
   </dependency>
   <!-- shenyu ratelimiter plugin end-->
-``` 
+```
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule)。
 
@@ -92,7 +92,7 @@ replenishRate：The rate at which requests are executed per unit time, and the r
 
 burstCapacity：The maximum number of requests that users are allowed to execute in one second. This is the amount of water in the bucket.
 
-  
+
 * * Sliding time window algorithm
 
 

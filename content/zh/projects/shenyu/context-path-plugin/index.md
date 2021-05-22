@@ -6,7 +6,7 @@ description: context_path插件
 
 ## 说明
 
-* shenyu网关在对目标服务调用的时候，还容许用户使用 `context_path` 插件来重写请求路径的contextPath
+* ShenYu 网关在对目标服务调用的时候，还容许用户使用 `context_path` 插件来重写请求路径的contextPath
 
 ## 插件设置
 
@@ -22,7 +22,7 @@ description: context_path插件
      <version>${last.version}</version>
   </dependency>
   <!-- shenyu context_path plugin end-->
-``` 
+```
 
 * 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
 * 只有匹配的请求，并且配置规则才会进行重写contextPath。

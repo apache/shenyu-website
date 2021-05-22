@@ -1,6 +1,6 @@
 ---
 title: 正确获取Ip与host
-keywords: shenyu
+keywords: ShenYu
 description: 正确获取Ip与host
 ---
 
@@ -11,7 +11,7 @@ description: 正确获取Ip与host
 
 ## 默认实现
 
-* 在shenyu网关自带实现为：`org.dromara.shenyu.web.forwarde.ForwardedRemoteAddressResolver`。
+* 在 ShenYu 网关自带实现为：`org.dromara.shenyu.web.forwarde.ForwardedRemoteAddressResolver`。
 
 * 它需要你在 `nginx` 设置 `X-Forwarded-For`，以便来获取正确的 ip 与 host。
 

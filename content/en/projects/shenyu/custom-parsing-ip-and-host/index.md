@@ -1,17 +1,17 @@
 ---
 title: Fetching Correct IP Address And Host
-keywords: shenyu
+keywords: ShenYu
 description: Fetching correct IP address and host
 ---
 
 ## Description
 
-* This doc demonstrates how to get correct IP address and host when shenyu serves behind nginx reverse proxy.
+* This doc demonstrates how to get correct IP address and host when ShenYu serves behind nginx reverse proxy.
 * After fetched real IP and host, you can match them with plugins and selectors.
 
 ## Default Implementation
 
-*  The embedded implementation in shenyu is :`org.dromara.shenyu.web.forwarde.ForwardedRemoteAddressResolver`。
+*  The embedded implementation in ShenYu is :`org.dromara.shenyu.web.forwarde.ForwardedRemoteAddressResolver`。
 
 *  You need to config `X-Forwarded-For` in `nginx` first to get correct IP address and host.
 

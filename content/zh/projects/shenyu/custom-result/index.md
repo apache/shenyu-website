@@ -6,7 +6,7 @@ description: 自定义网关返回数据格式
 
 ## 说明
 
-* 本文是说明基于shenyu网关返回自定义的数据个数。
+* 本文是说明基于 ShenYu 网关返回自定义的数据个数。
 * 网关需要统一的返回格式，而每个公司都有自己定义的一套，所以需要对次进行扩展。
 
 
@@ -45,7 +45,7 @@ public class ShenyuDefaultEntity implements Serializable {
 
 ```java
  public interface ShenyuResult<T> {
- 
+
      /**
       * Success t.
       *

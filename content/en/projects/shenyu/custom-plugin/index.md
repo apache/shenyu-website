@@ -6,8 +6,8 @@ description: plugins
 
 ## Description
 
-* Plugins are core executors of shenyu gateway. Every plugin handles matched requests when enabled.
-* There are two kinds of plugins in the shenyu gateway.
+* Plugins are core executors of ShenYu gateway. Every plugin handles matched requests when enabled.
+* There are two kinds of plugins in the ShenYu gateway.
 * The first type is a call chain with a single responsibility, and traffic cannot be customized.
 * The other one can do its own chain of responsibility for matched traffic.
 * You could reference from shenyu-plugin module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
@@ -28,7 +28,7 @@ description: plugins
 
 ```java
 public interface ShenyuPlugin {
-    
+
     /**
      * Process the Web request and (optionally) delegate to the next
      * {@code WebFilter} through the given {@link ShenyuPluginChain}.
@@ -38,7 +38,7 @@ public interface ShenyuPlugin {
      * @return {@code Mono<Void>} to indicate when request processing is complete
      */
     Mono<Void> execute(ServerWebExchange exchange, ShenyuPluginChain chain);
-    
+
     /**
      * return plugin order .
      * This attribute To determine the plugin execution order in the same type plugin.
@@ -46,7 +46,7 @@ public interface ShenyuPlugin {
      * @return int order
      */
     int getOrder();
-    
+
     /**
      * acquire plugin name.
      * this is plugin name define you must offer the right name.
@@ -57,7 +57,7 @@ public interface ShenyuPlugin {
     default String named() {
         return "";
     }
-    
+
     /**
      * plugin is execute.
      * if return true this plugin can not execute.
@@ -85,7 +85,7 @@ Detailed instruction of interface methods:
         return new A();
     }
 ```
- 
+
 
 ## Matching Traffic Processing Plugin
 
@@ -110,7 +110,7 @@ Detailed instruction of interface methods:
  * @author xiaoyu(Myth)
  */
 public class CustomPlugin extends AbstractShenyuPlugin {
-    
+
     /**
      * return plugin order .
      * The same plugin he executes in the same order.
@@ -180,7 +180,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
    * Re-login  `shenyu-admin`, the plugin you added now showing on plugin-list page, you can choose selectors for matching.
 
-   * There is a field named `handler` in rules, it is customized json string to be processed. You can process data after acquiring a ruleHandle (` final String ruleHandle = rule.getHandle();`) in `doExecute()` method. 
+   * There is a field named `handler` in rules, it is customized json string to be processed. You can process data after acquiring a ruleHandle (` final String ruleHandle = rule.getHandle();`) in `doExecute()` method.
 
 * Register plugin in Spring as a Bean, or simply apply `@Component` in implementation class.
 
@@ -197,7 +197,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
 ```java
 public interface PluginDataHandler {
-    
+
     /**
      * Handler plugin.
      *
@@ -205,7 +205,7 @@ public interface PluginDataHandler {
      */
     default void handlerPlugin(PluginData pluginData) {
     }
-    
+
     /**
      * Remove plugin.
      *
@@ -213,7 +213,7 @@ public interface PluginDataHandler {
      */
     default void removePlugin(PluginData pluginData) {
     }
-    
+
     /**
      * Handler selector.
      *
@@ -221,7 +221,7 @@ public interface PluginDataHandler {
      */
     default void handlerSelector(SelectorData selectorData) {
     }
-    
+
     /**
      * Remove selector.
      *
@@ -229,7 +229,7 @@ public interface PluginDataHandler {
      */
     default void removeSelector(SelectorData selectorData) {
     }
-    
+
     /**
      * Handler rule.
      *
@@ -237,7 +237,7 @@ public interface PluginDataHandler {
      */
     default void handlerRule(RuleData ruleData) {
     }
-    
+
     /**
      * Remove rule.
      *
@@ -245,14 +245,14 @@ public interface PluginDataHandler {
      */
     default void removeRule(RuleData ruleData) {
     }
-    
+
     /**
      * Plugin named string.
      *
      * @return the string
      */
     String pluginNamed();
-    
+
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: ShenYu Code Conduct
 keywords: shenyu-code-conduct
-description: shenyu编码指南
+description: ShenYu 编码指南
 ---
 
 ## 开发理念
@@ -20,7 +20,7 @@ description: shenyu编码指南
 - 确保使用Checkstyle检查代码，违反验证规则的需要有特殊理由。模板位置在`https://github.com/dromara/shenyu/blob/master/script/shenyu_checkstyle.xml`，请使用checkstyle 8.8运行规则。
 - 应尽量将设计精细化拆分；做到小幅度修改，多次数提交，但应保证提交的完整性。
 - 确保遵守编码规范。
- 
+
 ## 编码规范
 
 - 使用linux换行符。
@@ -46,7 +46,7 @@ description: shenyu编码指南
 - 日志与注释一律使用英文。
 - 注释只能包含javadoc，todo和fixme。
 - 公开的类和方法必须有javadoc，其他类和方法以及覆盖自父类的方法无需javadoc。
- 
+
 ## 单元测试规范
 
 - 测试代码和生产代码需遵守相同代码规范。

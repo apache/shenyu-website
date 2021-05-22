@@ -1,6 +1,6 @@
 ---
 title: Filter Extension
-keywords: shenyu
+keywords: ShenYu
 description: filter extension
 ---
 
@@ -15,17 +15,17 @@ description: filter extension
 
  ```java
  public class CrossFilter implements WebFilter {
- 
+
      private static final String ALLOWED_HEADERS = "x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN,token,username,client";
- 
+
      private static final String ALLOWED_METHODS = "*";
- 
+
      private static final String ALLOWED_ORIGIN = "*";
- 
+
      private static final String ALLOWED_EXPOSE = "*";
- 
+
      private static final String MAX_AGE = "18000";
- 
+
      @Override
      @SuppressWarnings("all")
      public Mono<Void> filter(final ServerWebExchange exchange, final WebFilterChain chain) {

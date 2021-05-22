@@ -6,7 +6,7 @@ description: redirect plugin
 
 ## Explanation
 
-When the shenyu gateway makes proxy calls to the target service, it also allows users to use the `redirect` plugin to redirect requests.
+When the ShenYu gateway makes proxy calls to the target service, it also allows users to use the `redirect` plugin to redirect requests.
 
 ## Plugin Setting
 

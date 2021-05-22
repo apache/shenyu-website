@@ -20,7 +20,7 @@ description: shenyu-contributor贡献者指南
 
 **Fork分支到本地**
 
- - 从shenyu的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为shenyu的repo。
+ - 从 ShenYu 的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为 ShenYu 的repo。
 
 ```shell
 git remote add upstream https://github.com/dromara/shenyu.git
@@ -45,7 +45,7 @@ git checkout -b issueNo
 
 **编码**
 
- - 请您在开发过程中遵循shenyu的 [开发规范](../code-conduct)。并在准备提交pull request之前完成相应的检查。
+ - 请您在开发过程中遵循 ShenYu 的 [开发规范](../code-conduct)。并在准备提交pull request之前完成相应的检查。
  - 将修改的代码push到fork库的分支上。
 
 ```shell
@@ -56,14 +56,14 @@ git push origin issueNo
 
 **提交PR**
 
- - 发送一个pull request到shenyu的master分支。
+ - 发送一个pull request到 ShenYu 的master分支。
  - 接着导师做CodeReview，然后他会与您讨论一些细节（包括设计，实现，性能等）。当导师对本次修改满意后，会将提交合并到当前开发版本的分支中。
  - 最后，恭喜您已经成为了ShenYu的贡献者！
 
 **删除分支**
 
- - 在导师将pull request合并到shenyu的master分支中之后，您就可以将远程的分支（origin/issueNo）及与远程分支（origin/issueNo）关联的本地分支（issueNo）删除。
- 
+ - 在导师将pull request合并到 ShenYu 的master分支中之后，您就可以将远程的分支（origin/issueNo）及与远程分支（origin/issueNo）关联的本地分支（issueNo）删除。
+
 ```shell
 git checkout master
 git branch -d issueNo

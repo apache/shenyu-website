@@ -6,7 +6,7 @@ description: context_path plugin
 
 ## Explanation
 
-* When making invokes to the target service, shenyu Gateway also allows users to customize the context using the `context_path` plugin.
+* When making invokes to the target service, ShenYu Gateway also allows users to customize the context using the `context_path` plugin.
 
 ## Plugin Setting
 
@@ -22,10 +22,10 @@ description: context_path plugin
       <version>${last.version}</version>
    </dependency>
    <!-- shenyu context_path plugin end-->
-``` 
+```
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule)。
- 
+
 ## Situation
 
 * As the name suggests,the context_path plugin redefines the contextPath of URI.

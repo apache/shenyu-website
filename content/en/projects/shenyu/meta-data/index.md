@@ -1,12 +1,12 @@
 ---
 title: MetaData Concept Design
-keywords: shenyu
+keywords: ShenYu
 description: MetaData Concept Design
 ---
 
 ## Description
 
-* This article mainly explains the concept,design of metadata and how to connect in the shenyu gateway.
+* This article mainly explains the concept,design of metadata and how to connect in the ShenYu Gateway.
 
 ## Technical Solutions
 
@@ -39,9 +39,9 @@ CREATE TABLE  IF NOT EXISTS `meta_data` (
 * Pay attention to the field `rpc_ext`,if it is a dubbo service interface and service interface has group and version field,this field exists.
 
 * dubbo field structure as below,then we store json format string.
-  
+
   ```java
-     public static class RpcExt {  
+     public static class RpcExt {
         private String group;
         private String version;
         private String loadbalance;

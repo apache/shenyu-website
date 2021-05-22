@@ -58,11 +58,11 @@ git push origin issueNo
 
  - Send a pull request to the master branch.
  - The mentor will do code review before discussing some details (including the design, the implementation and the performance) with you. The request will be merged into the branch of current development version after the edit is well enough.
- - At last, congratulate to be an official contributor of Shenyu.
+ - At last, congratulate to be an official contributor of ShenYu.
 
 **Delete Branch**
 
- - You can delete the remote branch (origin/issueNo) and the local branch (issueNo) associated with the remote branch (origin/issueNo) after the mentor merged the pull request into the master branch of Shenyu.
+ - You can delete the remote branch (origin/issueNo) and the local branch (issueNo) associated with the remote branch (origin/issueNo) after the mentor merged the pull request into the master branch of ShenYu.
 
 ```shell
 git checkout master

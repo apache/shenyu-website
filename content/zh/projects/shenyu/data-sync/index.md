@@ -28,12 +28,12 @@ description: 数据同步设计
 
 *动态配置更新？每次我查数据库，或者redis不就行了吗？拿到的就是最新的，哪里那么多事情呢？*
 
-shenyu 作为网关，为了提供更高的响应速度，所有的配置都缓存在JVM的Hashmap中，每次请求都走的本地缓存，速度非常快。所以本文也可以理解为分布式环境中，内存同步的三种方式。
+`ShenYu` 作为网关，为了提供更高的响应速度，所有的配置都缓存在JVM的Hashmap中，每次请求都走的本地缓存，速度非常快。所以本文也可以理解为分布式环境中，内存同步的三种方式。
 
 ## 原理分析
 
 先来张高清无码图，下图展示了 `ShenYu` 数据同步的流程，`ShenYu` 网关在启动时，会从配置服务同步配置数据，并且支持推拉模式获取配置变更信息，并且更新本地缓存。而管理员在管理后台，变更用户、规则、插件、流量配置，通过推拉模式将变更信息同步给 `ShenYu` 网关，具体是 `push` 模式，还是 `pull` 模式取决于配置。关于配置同步模块，其实是一个简版的配置中心。
-![Shenyu数据同步流程图](https://bestkobe.gitee.io/images/soul/soul-config-processor.png?_t=201908032316)
+![ShenYu数据同步流程图](https://bestkobe.gitee.io/images/soul/soul-config-processor.png?_t=201908032316)
 
 在 `1.x` 版本中，配置服务依赖 `zookeeper` 实现，管理后台将变更信息 `push` 给网关。而 `2.x` 版本支持 `webosocket`、`http`、`zookeeper`，通过 `shenyu.sync.strategy` 指定对应的同步策略，默认使用 `webosocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`shenyu-web` 和 `shenyu-admin` 必须使用相同的同步机制。
 
@@ -42,7 +42,7 @@ shenyu 作为网关，为了提供更高的响应速度，所有的配置都缓�
 - 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketCacheHandler` 处理器来处理 `admin` 的数据推送
 - 如果是 `zookeeper` 同步策略，将变更数据更新到 `zookeeper`，而 `ZookeeperSyncCache` 会监听到 `zookeeper` 的数据变更，并予以处理
 - 如果是 `http` 同步策略，`shenyu-web` 主动发起长轮询请求，默认有 90s 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 http 请求，如果有数据发生变更则响应变更的数据信息，如果超过 60s 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 http 请求，反复同样的请求
-  ![Shenyu配置同步策略流程图](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
+  ![ShenYu配置同步策略流程图](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
 
 ## Zookeeper 同步
 
@@ -50,13 +50,13 @@ shenyu 作为网关，为了提供更高的响应速度，所有的配置都缓�
 
 ![zookeeper节点设计](https://yu199195.github.io/images/soul/soul-zookeeper.png)
 
-`shenyu` 将配置信息写到zookeeper节点，是通过精细设计的。
+`ShenYu` 将配置信息写到zookeeper节点，是通过精细设计的。
 
 ## Websocket 同步
 
 `websocket` 和 `zookeeper` 机制有点类似，将网关与 `admin` 建立好 `websocket` 连接时，`admin` 会推送一次全量数据，后续如果配置数据发生变更，则将增量数据通过 `websocket` 主动推送给 `shenyu-web`
 
-使用websocket同步的时候，特别要注意断线重连，也叫保持心跳。`shenyu`使用`java-websocket` 这个第三方库来进行`websocket`连接。
+使用websocket同步的时候，特别要注意断线重连，也叫保持心跳。`ShenYu`使用`java-websocket` 这个第三方库来进行`websocket`连接。
 
 ```java
 public class WebsocketSyncCache extends WebsocketCacheHandler {
@@ -169,4 +169,4 @@ gitee: https://gitee.com/dromara/shenyu
 
 ## 最后
 
-此文介绍了`shenyu` 作为一个高可用的微服务网关，为了优化响应速度，在对配置、规则、选择器数据进行本地缓存的三种方式，学了此文，我相信你对现在比较流行的配置中心有了一定的了解，看他们的代码也许会变得容易，我相信你也可以自己写一个分布式配置中心出来。3.0版本已经在规划中，肯定会给大家带来惊喜。
+此文介绍了 `ShenYu` 作为一个高可用的微服务网关，为了优化响应速度，在对配置、规则、选择器数据进行本地缓存的三种方式，学了此文，我相信你对现在比较流行的配置中心有了一定的了解，看他们的代码也许会变得容易，我相信你也可以自己写一个分布式配置中心出来。3.0版本已经在规划中，肯定会给大家带来惊喜。

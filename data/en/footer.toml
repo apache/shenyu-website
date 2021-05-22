@@ -4,6 +4,7 @@
 	category = "Apache"
 	link_arr = [
 		["Foundation", "https://www.apache.org/"],
+		["GitHub Issue Tracker", "https://github.com/dromara/shenyu/issues"],
 		["License", "https://www.apache.org/licenses/"],
 		["Security", "https://www.apache.org/security/"],
 		["Events", "http://www.apache.org/events/current-event"],

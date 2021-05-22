@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="links">
 			{{ range $data.links }}
-				<div class="cate">
+				<div class='cate {{ if eq .category  "Apache" }} -show-mobile {{end}}'>
 					<h2 class="cate-title">{{ .category }}</h2>
 					{{ range .link_arr  }}
 						<a class="link" href="{{ index . 1 }}">{{ index . 0 }}</a>

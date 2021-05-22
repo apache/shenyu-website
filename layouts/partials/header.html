@@ -48,6 +48,18 @@
 					<a class="navbar-item {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq .URL  $currentPage.URL) }} -active{{end}}"
 						href="{{ .URL }}">{{ .Name }}</a>
 				{{ end }}
+				<span class="navbar-item nav-hover">
+					<a>Links</a>
+					  <div class="dropdown-menu">
+						<a class="dropdown-item"  href="https://www.apache.org/">Apache Software Foundation</a>
+						<a class="dropdown-item"  href="https://github.com/dromara/shenyu/issues">GitHub Issue Tracker</a>
+						<a class="dropdown-item"  href="https://www.apache.org/">License</a>
+						<a class="dropdown-item"  href="http://www.apache.org/events/current-event">Apache Events</a>
+						<a class="dropdown-item"  href="https://www.apache.org/licenses/">Security</a>
+						<a class="dropdown-item"  href="http://www.apache.org/foundation/sponsorship.html">Sponsor and Donate</a>
+						<a class="dropdown-item"  href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+					  </div> 
+				</span>
 			</div>
 			<div class="navbar-end">
 				<div class="navbar-item">

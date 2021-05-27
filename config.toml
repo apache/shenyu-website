@@ -55,9 +55,9 @@ unsafe = true
 	#	name = "指南"
 	#	url = "/zh/guides/"
 	#	weight = 2
-	[[menu.main]]
+	[[languages.zh.menu.main]]
 		identifier = "download"
-		name = "Download"
+		name = "下载"
 		url = "/zh/projects/shenyu/download/"
 		weight = 1
 	[[languages.zh.menu.main]]
@@ -70,21 +70,21 @@ unsafe = true
 		name = "博客"
 		url = "/zh/blog/"
 		weight = 3
-	[[languages.zh.menu.main]]
-		identifier = "activities"
-		name = "活动"
-		url = "/zh/activities/"
-		weight = 4
+	# [[languages.zh.menu.main]]
+	# 	identifier = "activities"
+	# 	name = "活动"
+	# 	url = "/zh/activities/"
+	# 	weight = 4
 	[[languages.zh.menu.main]]
 		identifier = "community"
 		name = "社区"
 		url = "/zh/community/"
-		weight = 5
+		weight = 4
 	[[languages.zh.menu.main]]
 		identifier = "awesome"
 		name = "Awesome ShenYu"
 		url = "/zh/awesome/"
-		weight = 6
+		weight = 5
 	#[[languages.zh.menu.main]]
 	#	identifier = "Links"
 	#	name = "Links"
@@ -116,21 +116,21 @@ unsafe = true
 		name = "Blog"
 		url = "/blog/"
 		weight = 3
-	[[menu.main]]
-		identifier = "activities"
-		name = "Activity"
-		url = "/activities/"
-		weight = 4
+	# [[menu.main]]
+	# 	identifier = "activities"
+	# 	name = "Activity"
+	# 	url = "/activities/"
+	# 	weight = 4
 	[[menu.main]]
 		identifier = "community"
 		name = "Community"
 		url = "/community/"
-		weight = 5
+		weight = 4
 	[[menu.main]]
 		identifier = "awesome"
 		name = "Awesome ShenYu"
 		url = "/awesome/"
-		weight = 6
+		weight = 5
 
 [sitemap]
   changefreq = "monthly"

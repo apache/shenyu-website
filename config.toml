@@ -55,6 +55,11 @@ unsafe = true
 	#	name = "指南"
 	#	url = "/zh/guides/"
 	#	weight = 2
+	[[menu.main]]
+		identifier = "download"
+		name = "Download"
+		url = "/zh/projects/shenyu/download/"
+		weight = 1
 	[[languages.zh.menu.main]]
 		identifier = "document"
 		name = "文档"
@@ -96,6 +101,11 @@ unsafe = true
 	#	name = "Guides"
 	#	url = "/guides/"
 	#	weight = 2
+	[[menu.main]]
+		identifier = "download"
+		name = "Download"
+		url = "/projects/shenyu/download/"
+		weight = 1
 	[[menu.main]]
 		identifier = "document"
 		name = "Documentation"

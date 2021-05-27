@@ -26,20 +26,20 @@ description: Jwt插件
 * 在网关的 pom.xml 文件中添加 `jwt` 的支持。
 
 ```xml
-  <!-- soul jwt plugin start-->
+  <!-- shenyu jwt plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
-      <artifactId>soul-spring-boot-starter-plugin-jwt</artifactId>
+      <groupId>org.apache.shenyu</groupId>
+      <artifactId>shenyu-spring-boot-starter-plugin-jwt</artifactId>
       <version>${last.version}</version>
   </dependency>
-  <!-- soul jwt plugin end-->
+  <!-- shenyu jwt plugin end-->
   
 ``` 
 * 不需要配置选择器和规则。
 
 * secretKey 使用 jwt 生成 token 的时候，写的私钥。必填项。
 
-* filterPath 鉴权白名单列表，填请求接口的 API 路径。 例如：http://127.0.0.1:8080/cloud/soul , filterPath 添加 /cloud/soul 即可。
+* filterPath 鉴权白名单列表，填请求接口的 API 路径。 例如：http://127.0.0.1:8080/cloud/shenyu , filterPath 添加 /cloud/shenyu 即可。
 
 ## 场景
 

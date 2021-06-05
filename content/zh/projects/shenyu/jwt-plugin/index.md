@@ -10,7 +10,7 @@ description: Jwt插件
 
 ## 插件设置
 
-* 在 `soul-admin` --> 插件管理-> `jwt` 设置为开启。
+* 在 `shenyu-admin` --> 插件管理-> `jwt` 设置为开启。
 
 * 如果用户不想使用此功能，请在admin后台停用此插件。
 
@@ -35,7 +35,7 @@ description: Jwt插件
   <!-- shenyu jwt plugin end-->
   
 ``` 
-* 不需要配置选择器和规则。
+* 需要配置选择器和规则。
 
 * secretKey 使用 jwt 生成 token 的时候，写的私钥。必填项。
 
@@ -43,6 +43,6 @@ description: Jwt插件
 
 ## 场景
 
-* 需要在网关鉴权的 API 接口，统一鉴权。
+* 需要在网关统一鉴权。
 
 

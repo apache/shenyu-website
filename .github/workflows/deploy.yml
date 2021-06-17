@@ -36,14 +36,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          publish_branch: gh-pages
+          publish_branch: asf-site
           publish_dir: ./public
           keep_files: true
-      - name: Atomic Algolia
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-          ALGOLIA_INDEX_FILE: "./public/algolia.json"
-        run: npm run algolia

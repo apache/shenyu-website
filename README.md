@@ -2,7 +2,7 @@
 
 ![Website Deploy](https://github.com/dromara/shenyu-website/workflows/Website%20Deploy/badge.svg)
 
-This project keeps all sources used for building up Dromara official website which's served at <https://dromara.org/>. 
+This project keeps all sources used for building up ShenYu official website which's served at <https://shenyu.apache.org/>. 
 This site was compiled using [Hugo](https://gohugo.io/).
                                                                                                                       
 ## Requirement
@@ -24,7 +24,7 @@ Then you will see the site running on <http://localhost:1313>.
 
 * Create new branch
 * Commit and push changes to content (e.g. The `.md` file in `/content`).
-* Submit pull request to `master` branch
+* Submit pull request to `main` branch
 
 ## License
 

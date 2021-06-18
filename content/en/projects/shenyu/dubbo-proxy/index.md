@@ -93,7 +93,7 @@ description: Integrate dubbo with ShenYu gateway
 
 * restart gateway service.
 
-  Dubbo integration with gateway,pls refer to : [shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
+  Dubbo integration with gateway,pls refer to : [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
 
  * Alibaba Dubbo User
     * SpringBoot
@@ -210,7 +210,7 @@ description: Integrate dubbo with ShenYu gateway
 
 * parameter deliver:
    * communicate with gateway through body or json of http post request.
-   * more parameter types, pls refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) and parameter passing
+   * more parameter types, pls refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) and parameter passing
      method.
 * Single java bean parameter type (`default`).
 * Multi-parameter type support, add this config value in gateway's yaml file:

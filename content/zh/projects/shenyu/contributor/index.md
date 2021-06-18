@@ -9,8 +9,8 @@ description: shenyu-contributor贡献者指南
 ## 提交issue
 
  - 在提交issue之前，请经过充分的搜索，确定该issue不是通过简单的检索即可以解决的问题。
- - 查看[issue列表](https://github.com/dromara/shenyu/issues)，确定该issue不是一个重复的问题。
- - [新建](https://github.com/dromara/shenyu/issues/new/choose)一个issue并选择您的issue类型。
+ - 查看[issue列表](https://github.com/apache/incubator-shenyu/issues)，确定该issue不是一个重复的问题。
+ - [新建](https://github.com/apache/incubator-shenyu/issues/new/choose)一个issue并选择您的issue类型。
  - 使用一个清晰并有描述性的标题来定义issue。
  - 根据模板填写必要信息。
  - 在提交issue之后，对该issue分配合适的标签。如：bug，enhancement，discussion等。
@@ -23,7 +23,7 @@ description: shenyu-contributor贡献者指南
  - 从 ShenYu 的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为 ShenYu 的repo。
 
 ```shell
-git remote add upstream https://github.com/dromara/shenyu.git
+git remote add upstream https://github.com/apache/incubator-shenyu.git
 ```
 
 **选择issue**

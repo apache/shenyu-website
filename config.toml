@@ -14,7 +14,7 @@ googleAnalytics = "UA-187960192-2"
 [markup.goldmark.renderer]
 unsafe = true
 [params]
-	github = "https://github.com/dromara/shenyu-website"
+	github = "https://github.com/apache/incubator-shenyu-website"
   description = "The girl on the prairie"
 
 # 首页订阅

@@ -3,7 +3,7 @@
 	description = "High-performance, multi-protocol, extensible, responsive API Gateway"
 	quick_start_text = "Quick Start"
 	quick_start_link = "/projects/shenyu/overview"
-	github_link = "https://github.com/dromara"
+	github_link = "https://github.com/apache/incubator-shenyu"
 
 [[feature]]
 	title = "Open"

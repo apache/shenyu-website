@@ -43,6 +43,6 @@ cover: "/img/architecture/shenyu-framework.png"
 
  * Official website document: https://dromara.org/website/zh-cn/docs/soul/soul.html
 
- * Github: https://github.com/Dromara/soul
+ * Github: https://github.com/apache/incubator-shenyu
 
  * Gitee:  https://gitee.com/dromara/soul

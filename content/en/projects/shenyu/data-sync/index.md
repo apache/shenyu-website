@@ -162,7 +162,7 @@ When `shenyu-web` gateway layer receives the http response information,pull modi
 
 ## Storage Address
 
-github: https://github.com/dromara/shenyu
+github: https://github.com/apache/incubator-shenyu
 
 gitee: https://gitee.com/dromara/shenyu
 

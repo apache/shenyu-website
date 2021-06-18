@@ -12,13 +12,13 @@ cover: "/img/architecture/shenyu-framework.png"
 
 > soul is a High-Performance Java API Gateway
 > 
-> GitHub：https://github.com/dromara/soul
+> GitHub：https://github.com/apache/incubator-shenyu
 > 
 > 官方文档：https://dromara.org/zh-cn/docs/soul/soul.html
 
 ## 1. 源代码准备
 
-### 1.1. fork [dromara/soul](https://github.com/dromara/soul.git)源代码至自己的仓库[cchenxi/soul](https://github.com/cchenxi/soul.git)
+### 1.1. fork [dromara/soul](https://github.com/apache/incubator-shenyu.git)源代码至自己的仓库[cchenxi/soul](https://github.com/cchenxi/soul.git)
 
 ### 1.2. clone自己仓库中的soul源代码至本地
 

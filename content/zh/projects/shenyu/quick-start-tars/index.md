@@ -3,7 +3,7 @@ title: Tars快速开始
 description: Tars快速开始
 ---
 
-本文档将演示如何快速使用Tars接入ShenYu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-tars)。
+本文档将演示如何快速使用Tars接入ShenYu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars)。
 
 ## 环境准备
 
@@ -26,7 +26,7 @@ description: Tars快速开始
 
 ## 运行shenyu-examples-tars项目
 
-下载[shenyu-examples-tars](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
+下载[shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
 
 修改`application.yml`中的`host`为你本地ip
 

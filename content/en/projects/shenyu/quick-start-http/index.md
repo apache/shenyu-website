@@ -3,7 +3,7 @@ title: Quick start with http
 description: Quick start with http
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using Http. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-http).
+This document introduces how to quickly access the ShenYu Gateway using Http. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http).
 
 ## Environment to prepare
 
@@ -30,7 +30,7 @@ Introducing gateway to HTTP proxy plugin
 
 ## Run the shenyu-examples-http project
 
-Download[shenyu-examples-http](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-http)
+Download[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
 Execute the `org.dromara.shenyu.examples.http.ShenyuTestHttpApplication` main method to start project.
 

@@ -9,8 +9,8 @@ You can report a bug, submit a new function enhancement suggestion, or submit a 
 ## Submit an Issue
 
  - Before submitting an issue, please go through a comprehensive search to make sure the problem cannot be solved just by searching.
- - Check the [Issue List](https://github.com/dromara/shenyu/issues) to make sure the problem is not repeated.
- - [Create](https://github.com/dromara/shenyu/issues/new/choose) a new issue and choose the type of issue.
+ - Check the [Issue List](https://github.com/apache/incubator-shenyu/issues) to make sure the problem is not repeated.
+ - [Create](https://github.com/apache/incubator-shenyu/issues/new/choose) a new issue and choose the type of issue.
  - Define the issue with a clear and descriptive title.
  - Fill in necessary information according to the template.
  - Choose a label after the issue is created, for example: bug，enhancement，discussion.
@@ -23,7 +23,7 @@ You can report a bug, submit a new function enhancement suggestion, or submit a 
 - Fork a `ShenYu` repo to your own repo to work, then setting upstream.
 
 ```shell
-git remote add upstream https://github.com/dromara/shenyu.git
+git remote add upstream https://github.com/apache/incubator-shenyu.git
 ```
 
 **Choose Issue**

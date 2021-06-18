@@ -52,7 +52,7 @@ public class DubboTest implements Serializable {
 {"code":200, "message ": "成功!","data" :"helloWorld!"}
 ```
 
-但是，在运用 soul 网关对你的业务系统进行调用的时候，你的业务系统可能定义的结果并不是上述结构，可能你的 字段叫  msg,这样就会造成结构不一样，给前端处理带来了困扰。我们注意到了这个事情 ：https://github.com/Dromara/soul/issues/109 , 现在已经优化，用户可以定制化的来定义返回结果,具体的要看 soul 文档。
+但是，在运用 soul 网关对你的业务系统进行调用的时候，你的业务系统可能定义的结果并不是上述结构，可能你的 字段叫  msg,这样就会造成结构不一样，给前端处理带来了困扰。我们注意到了这个事情 ：https://github.com/apache/incubator-shenyu/issues/109 , 现在已经优化，用户可以定制化的来定义返回结果,具体的要看 soul 文档。
 
 **说了这么多，吹了这么多牛逼，那么我们来看看 soul网关到底可以在什么场景下能发挥大作用。**
 
@@ -90,7 +90,7 @@ public class DubboTest implements Serializable {
 
 ## 最后最后
 
-- github地址 ：https://github.com/Dromara/soul
+- github地址 ：https://github.com/apache/incubator-shenyu
 
 - gitee地址 ：https://gitee.com/dromara/soul
 

@@ -4,7 +4,7 @@
 	category = "Apache"
 	link_arr = [
 		["Foundation", "https://www.apache.org/"],
-		["GitHub Issue Tracker", "https://github.com/dromara/shenyu/issues"],
+		["GitHub Issue Tracker", "https://github.com/apache/incubator-shenyu/issues"],
 		["License", "https://www.apache.org/licenses/"],
 		["Security", "https://www.apache.org/security/"],
 		["Events", "http://www.apache.org/events/current-event"],
@@ -15,17 +15,17 @@
 [[links]]
 	category = "Resources"
 	link_arr = [
-		["Github", 'https://github.com/dromara'],
+		["Github", 'https://github.com/apache/incubator-shenyu'],
 		["Documentation", '/projects/shenyu/overview/'],
 		["Subscribe Mail", 'mailto://dev-subscribe@shenyu.apache.org'],
 		["Mail Archive", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
-		# ["Samples", 'https://github.com/dromara-guides'],
+		# ["Samples", 'https://github.com/apache/incubator-shenyu-guides'],
 	]
 
 [[links]]
 	category = "Get Involved"
 	link_arr = [
-		["Feedback", 'https://github.com/dromara/soul/issues/new'],
+		["Feedback", 'https://github.com/apache/incubator-shenyu/issues/new'],
 		["Community","/community"],
 		["Blog","/blog"],
 		# ["Email","mailto:sofa@alipay.cloud.com"]

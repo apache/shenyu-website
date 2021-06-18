@@ -161,7 +161,7 @@ class DataChangeTask implements Runnable {
 
 ## 仓库地址
 
-github: https://github.com/Dromara/shenyu
+github: https://github.com/apache/incubator-shenyu
 
 gitee: https://gitee.com/dromara/shenyu
 

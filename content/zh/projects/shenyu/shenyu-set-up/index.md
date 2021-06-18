@@ -13,7 +13,7 @@ description: 环境搭建
 
 ### 远程下载
 
-* [2.3.0](https://github.com/dromara/soul/releases/tag/2.3.0) 下载 `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`
+* [2.3.0](https://github.com/apache/incubator-shenyu/releases/tag/2.3.0) 下载 `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`
 
 * 解压缩 `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`。 进入 bin 目录。
 
@@ -69,7 +69,7 @@ docker run -v D:\tmp\conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu d
 
 * 下载代码
 ```
-> git clone https://github.com/dromara/shenyu.git
+> git clone https://github.com/apache/incubator-shenyu.git
 > cd shenyu
 ```
 
@@ -92,7 +92,7 @@ docker run -v D:\tmp\conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu d
 
 ### 远程下载
 
-* [2.3.0](https://github.com/dromara/soul/releases/tag/2.3.0) 下载 `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`
+* [2.3.0](https://github.com/apache/incubator-shenyu/releases/tag/2.3.0) 下载 `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`
 
 * 解压缩 `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`。 进入 bin 目录。
 
@@ -114,7 +114,7 @@ docker run -v D:\tmp\conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu d
 
 * 下载代码
 ```
-> git clone https://github.com/dromara/shenyu.git
+> git clone https://github.com/apache/incubator-shenyu.git
 > cd shenyu
 ```
 

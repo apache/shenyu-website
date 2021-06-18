@@ -3,7 +3,7 @@ title: Sofa快速开始
 description: Sofa快速开始
 ---
 
-本文档将演示了如何快速使用Sofa接入ShenYu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)。
+本文档将演示了如何快速使用Sofa接入ShenYu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)。
 
 ## 环境准备
 
@@ -44,7 +44,7 @@ description: Sofa快速开始
 ```
 ## 运行shenyu-examples-sofa项目
 
-下载[shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)，调整`application.yml`
+下载[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)，调整`application.yml`
 的zk注册地址为你本地，如：
 ```xml
 com:

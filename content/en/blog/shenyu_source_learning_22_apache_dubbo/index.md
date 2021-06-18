@@ -265,7 +265,7 @@ public Mono<Void> execute(final ServerWebExchange exchange) {
 #### ApacheDubboProxyService
 ```java
 public Mono<Object> genericInvoker(final String body, final MetaData metaData, final ServerWebExchange exchange) throws SoulException {
-    // issue(https://github.com/dromara/soul/issues/471), add dubbo tag route
+    // issue(https://github.com/apache/incubator-shenyu/issues/471), add dubbo tag route
     String dubboTagRouteFromHttpHeaders = exchange.getRequest().getHeaders().getFirst(Constants.DUBBO_TAG_ROUTE);
     if (StringUtils.isNotBlank(dubboTagRouteFromHttpHeaders)) {
         RpcContext.getContext().setAttachment(CommonConstants.TAG_KEY, dubboTagRouteFromHttpHeaders);

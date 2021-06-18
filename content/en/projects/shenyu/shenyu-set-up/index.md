@@ -15,7 +15,7 @@ description: Environment Setup
 
 ### remote download
 
-* [2.3.0](https://github.com/dromara/shenyu/releases/tag/2.3.0) download `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`
+* [2.3.0](https://github.com/apache/incubator-shenyu/releases/tag/2.3.0) download `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`
 
 * tar `shenyu-admin-bin-2.3.0-RELEASE.tar.gz`. cd `/bin`.
 
@@ -71,7 +71,7 @@ docker run -v D:\tmp\conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu d
 
 * download
 ```
-> git clone https://github.com/dromara/shenyu.git
+> git clone https://github.com/apache/incubator-shenyu.git
 > cd shenyu
 > mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
@@ -90,7 +90,7 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
 
 ### remote download
 
-* [2.3.0](https://github.com/dromara/shenyu/releases/tag/2.3.0) download `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`
+* [2.3.0](https://github.com/apache/incubator-shenyu/releases/tag/2.3.0) download `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`
 
 * tar `shenyu-bootstrap-bin-2.3.0-RELEASE.tar.gz`, ant then cd `/bin`.
 
@@ -111,7 +111,7 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
 ### local
 
 ```
-> git clone https://github.com/dromara/shenyu.git
+> git clone https://github.com/apache/incubator-shenyu.git
 > cd shenyu
 > mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```

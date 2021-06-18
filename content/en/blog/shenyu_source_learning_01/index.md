@@ -12,13 +12,13 @@ cover: "/img/architecture/shenyu-framework.png"
 
 > ShenYu is a High-Performance Java API Gateway
 >
-> GitHub：https://github.com/dromara/soul
+> GitHub：https://github.com/apache/incubator-shenyu
 >
 > document：https://dromara.org/zh-cn/docs/soul/soul.html
 
 ## 1. Prepare source code
 
-### 1.1. Fork [dromara/soul](https://github.com/dromara/soul.git) repository to my github [cchenxi/soul](https://github.com/cchenxi/soul.git)
+### 1.1. Fork [dromara/soul](https://github.com/apache/incubator-shenyu.git) repository to my github [cchenxi/soul](https://github.com/cchenxi/soul.git)
 
 ### 1.2. Clone the repository
 

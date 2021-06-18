@@ -1,6 +1,6 @@
 # ShenYu Official Website
 
-![Website Deploy](https://github.com/dromara/shenyu-website/workflows/Website%20Deploy/badge.svg)
+![Website Deploy](https://github.com/apache/incubator-shenyu-website/workflows/Website%20Deploy/badge.svg)
 
 This project keeps all sources used for building up ShenYu official website which's served at <https://shenyu.apache.org/>. 
 This site was compiled using [Hugo](https://gohugo.io/).

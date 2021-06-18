@@ -46,7 +46,7 @@ description: sofa 接入 shenyu 网关
 
 * 重启网关服务。
 
-## sofa服务接入网关，可以参考：[shenyu-examples-sofa](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
+## sofa服务接入网关，可以参考：[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
 
  * springboot
 
@@ -123,7 +123,7 @@ description: sofa 接入 shenyu 网关
 * 参数传递：
 
    * 通过 http post 方式访问网关，通过body，json类型传递。
-   * 更多参数类型传递，可以参考[shenyu-examples-sofa](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) 中的接口定义，以及参数传递方式。
+   * 更多参数类型传递，可以参考[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) 中的接口定义，以及参数传递方式。
 
 * 单个java bean参数类型 （默认）
 * 自定义实现多参数支持：

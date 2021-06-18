@@ -3,7 +3,7 @@ title: Quick start with grpc
 description: Quick start with grpc
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using Grpc. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-grpc).
+This document introduces how to quickly access the ShenYu Gateway using Grpc. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc).
 
 ## Environment to prepare
 
@@ -20,7 +20,7 @@ Note: `shenyu-bootstrap` need to import grpc dependencies
 
 ## Run the shenyu-examples-grpc project
 
-Download [shenyu-examples-grpc](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)
+Download [shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)
 
 Run the following command under `shenyu-examples-grpc` to generate Java code
 ```shell

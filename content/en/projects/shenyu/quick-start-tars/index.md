@@ -3,7 +3,7 @@ title: Quick start with Tars
 description: Quick start with Tars
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-tars).
+This document introduces how to quickly access the ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars).
 
 ## Environment to prepare
 
@@ -27,7 +27,7 @@ Note: `shenyu-bootstrap` need to import tars dependencies
 
 ## Run the shenyu-examples-tars project
 
-Download [shenyu-examples-tars](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
+Download [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
 
 Modify `host` in `application.yml` to be your local IP
 

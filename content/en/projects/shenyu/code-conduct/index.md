@@ -15,7 +15,7 @@ description: ShenYu Coding Guide
 
 - Make sure all the test cases are passed, Make sure `./mvnw clean install` can be compiled and tested successfully.
 - Make sure the test coverage rate is not lower than the master branch.
-- Make sure to check codes with Checkstyle. codes that violate check rules should have special reasons. Find checkstyle template from `https://github.com/dromara/shenyu/blob/master/script/shenyu_checkstyle.xml`, please use checkstyle `8.8` to run the rules.
+- Make sure to check codes with Checkstyle. codes that violate check rules should have special reasons. Find checkstyle template from `https://github.com/apache/incubator-shenyu/blob/master/script/shenyu_checkstyle.xml`, please use checkstyle `8.8` to run the rules.
 - Careful consideration for each `pull request`; Small and frequent `pull request` with complete unit function is welcomed.
 - Conform to `Contributor Covenant Code of Conduct` below.
 

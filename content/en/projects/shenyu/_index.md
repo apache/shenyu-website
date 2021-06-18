@@ -22,7 +22,7 @@ feature6Title: "High availability, high concurrency"
 feature6Desc: "Support cluster deployment"
 architectureImg: "/img/architecture/shenyu-framework.png"
 startUp: "Start up"
-github: "https://github.com/dromara/shenyu"
+github: "https://github.com/apache/incubator-shenyu"
 gitee: ""
 level: "main"
 weight: 1

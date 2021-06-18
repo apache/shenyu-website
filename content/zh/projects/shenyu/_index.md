@@ -22,7 +22,7 @@ feature6Title: "高可用,高性能,高并发"
 feature6Desc: "支持集群部署"
 architectureImg: "/img/architecture/shenyu-framework.png"
 startUp: "开始"
-github: "https://github.com/dromara/shenyu"
+github: "https://github.com/apache/incubator-shenyu"
 gitee: ""
 level: "main"
 weight: 1

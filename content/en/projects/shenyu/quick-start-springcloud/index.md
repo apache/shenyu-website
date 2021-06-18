@@ -3,7 +3,7 @@ title: Quick start with SpringCloud
 description: Quick start with SpringCloud
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using SpringCloud. You can get the code example of this document by clicking [here](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud).
+This document introduces how to quickly access the ShenYu Gateway using SpringCloud. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud).
 
 ## Environment to prepare
 
@@ -45,7 +45,7 @@ Startup the `shenyu-bootstrap` project
 
 In the example project we use `eureka` as the SpringCloud registry
 
-Download [shenyu-examples-eureka](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-eureka) and [shenyu-examples-springcloud](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
+Download [shenyu-examples-eureka](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-eureka) and [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
 
 1. Startup the Eureka service
 

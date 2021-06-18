@@ -97,7 +97,7 @@ description: dubbo 接入 ShenYu 网关
 
 * 重启网关服务。
 
-## dubbo 服务接入网关，可以参考：[shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
+## dubbo 服务接入网关，可以参考：[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
 
  * alibaba dubbo 用户
 
@@ -230,7 +230,7 @@ description: dubbo 接入 ShenYu 网关
 
    * 通过 http post 方式访问网关，通过body，json类型传递。
 
-   * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/dromara/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
+   * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
 
 * 单个 java bean参数类型（默认）
 

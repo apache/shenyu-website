@@ -54,7 +54,7 @@ If you use the ShenYu gateway to call this method, your Http parameter is to pas
 {"code":200, "message ": "成功!","data" :"helloWorld!"}
 ```
 
-However, when using the ShenYu gateway to call your business system, your business system may define the result that is not confirm the above structure. Maybe your field is called `msg`, which will cause a different structure and bring confusion to the front-end processing. We have noticed this thing: https://github.com/Dromara/soul/issues/109, now it has been optimized, users can customize the return results to define, the specifics depend on the ShenYu document.
+However, when using the ShenYu gateway to call your business system, your business system may define the result that is not confirm the above structure. Maybe your field is called `msg`, which will cause a different structure and bring confusion to the front-end processing. We have noticed this thing: https://github.com/apache/incubator-shenyu/issues/109, now it has been optimized, users can customize the return results to define, the specifics depend on the ShenYu document.
 
 ### What scenarios of ShenYu gateway are suitable, and what should you pay attention to?
 
@@ -104,7 +104,7 @@ First of all, I think we should follow pragmatism, when you need to use it , the
 
 ### At last
 
-- Github: https://github.com/Dromara/soul
+- Github: https://github.com/apache/incubator-shenyu
 - Gitee: https://gitee.com/dromara/soul
 - Document: https://dromara.org/zh-cn/docs/soul/soul.html
 - QQ group: 429951241

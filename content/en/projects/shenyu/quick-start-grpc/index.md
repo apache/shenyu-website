@@ -1,15 +1,15 @@
 ---
-title: Quick start with grpc
-description: Quick start with grpc
+title: Quick start with gRPC
+description: Quick start with gRPC
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using Grpc. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc).
+This document introduces how to quickly access the ShenYu Gateway using gRPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc).
 
-## Environment to prepare
+## 1. Prepare For Environment.
 
 Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `shenyu-bootstrap`.
 
-Note: `shenyu-bootstrap` need to import grpc dependencies
+Note: `shenyu-bootstrap` need to import gRPC dependencies
 ```xml
 <dependency>
     <groupId>org.apache.shenyu</groupId>
@@ -18,7 +18,7 @@ Note: `shenyu-bootstrap` need to import grpc dependencies
 </dependency>
 ```
 
-## Run the shenyu-examples-grpc project
+## 2. Run the shenyu-examples-grpc project.
 
 Download [shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)
 
@@ -32,22 +32,121 @@ Execute the `org.dromara.shenyu.examples.grpc.ShenyuTestGrpcApplication` main me
 
 The following log appears when the startup is successful:
 ```shell
-2021-02-10 01:57:02.154  INFO 76 --- [           main] o.d.s.e.grpc.ShenyuTestGrpcApplication     : Started ShenyuTestGrpcApplication in 2.088 seconds (JVM running for 3.232)
-2021-02-10 01:57:02.380  INFO 76 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/echo","pathDesc":"","rpcType":"grpc","serviceName":"echo.EchoService","methodName":"echo","ruleName":"/grpc/echo","parameterTypes":"echo.EchoRequest,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":-1}","enabled":true} 
+2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-19] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/clientStreamingFun","pathDesc":"clientStreamingFun","rpcType":"grpc","serviceName":"stream.StreamService","methodName":"clientStreamingFun","ruleName":"/grpc/clientStreamingFun","parameterTypes":"io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"CLIENT_STREAMING\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
+2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-17] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/echo","pathDesc":"echo","rpcType":"grpc","serviceName":"echo.EchoService","methodName":"echo","ruleName":"/grpc/echo","parameterTypes":"echo.EchoRequest,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"UNARY\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
+2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-20] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/bidiStreamingFun","pathDesc":"bidiStreamingFun","rpcType":"grpc","serviceName":"stream.StreamService","methodName":"bidiStreamingFun","ruleName":"/grpc/bidiStreamingFun","parameterTypes":"io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"BIDI_STREAMING\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
+2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-21] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/unaryFun","pathDesc":"unaryFun","rpcType":"grpc","serviceName":"stream.StreamService","methodName":"unaryFun","ruleName":"/grpc/unaryFun","parameterTypes":"stream.RequestData,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"UNARY\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
+2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-18] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/serverStreamingFun","pathDesc":"serverStreamingFun","rpcType":"grpc","serviceName":"stream.StreamService","methodName":"serverStreamingFun","ruleName":"/grpc/serverStreamingFun","parameterTypes":"stream.RequestData,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"SERVER_STREAMING\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
 ```
 
-## Grpc plugin settings
+## 3. gRPC plugin setting.
 
-* enabled the `grpc` plugin in the `shenyu-admin` plugin management.
+Enabled the `gRPC` plugin in the `shenyu-admin` plugin management.
 
-## Testing
+<img src="/img/shenyu/quick-start/grpc/grpc-on-en.png" width="80%" height="50%" />
+
+
+## 4. Testing.
 
 The `shenyu-examples-grpc` project will automatically register interface methods annotated with `@ShenyuGrpcClient` in the shenyu gateway after successful startup.
 
-Open Plugin Management -> grpc to see the list of plugin rule configurations
+Open Plugin Management -> gRPC to see the list of plugin rule configurations.
 
-![](/img/shenyu/quick-start/grpc/rule-list.png)
+![](/img/shenyu/quick-start/grpc/grpc-service-en.png)
 
-Use PostMan to simulate HTTP to request your Grpc service
+Use `postman` to simulate `http` to request your gRPC service. The following is the request body.
 
-![](/img/shenyu/quick-start/grpc/postman-test.png)
+```json
+{
+    "data": [
+        {
+            "message": "hello grpc"
+        }
+    ]
+}
+```
+
+![](/img/shenyu/quick-start/grpc/grpc-echo.png)
+
+The parameters are passed in json format. The name of the key is `data` by default, and you can reset it in `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME`. The input of value is based on the proto file defined by you.
+
+## 5. Streaming.
+The shenyu can support streaming of gRPC. The following shows the calls of the four method types of gRPC. In streaming, you can pass multiple parameters in the form of an array.
+
+
+- `UNARY`
+
+The request body like this.
+```json
+{
+    "data": [
+        {
+            "text": "hello grpc"
+        }
+    ]
+}
+```
+Then, call gRPC service by `UNARY` method type.
+
+![](/img/shenyu/quick-start/grpc/grpc-unary.png)
+
+- `CLIENT_STREAMING`
+
+The request body like this.
+```json
+{
+    "data": [
+        {
+            "text": "hello grpc"
+        }, 
+        {
+            "text": "hello grpc"
+        }, 
+        {
+            "text": "hello grpc"
+        }
+    ]
+}
+```
+Then, call gRPC service by `CLIENT_STREAMING` method type.
+
+![](/img/shenyu/quick-start/grpc/grpc-client-stream.png)
+
+- `SERVER_STREAMING`
+
+The request body like this.
+```json
+{
+    "data": [
+        {
+            "text": "hello grpc"
+        }
+    ]
+}
+```
+Then, call gRPC service by `SERVER_STREAMING` method type.
+
+![](/img/shenyu/quick-start/grpc/grpc-server-stream.png)
+
+- `BIDI_STREAMING`
+
+
+The request body like this.
+```json
+{
+    "data": [
+        {
+            "text": "hello grpc"
+        }, 
+        {
+            "text": "hello grpc"
+        }, 
+        {
+            "text": "hello grpc"
+        }
+    ]
+}
+```
+Then, call gRPC service by `BIDI_STREAMING` method type.
+
+![](/img/shenyu/quick-start/grpc/grpc-bidi-stream.png)

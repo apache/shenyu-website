@@ -38,6 +38,6 @@ publish:
   whoami: asf-site
 
 notifications:
-  commits:      notifications@shenyu.apache.org
-  issues:       notifications@shenyu.apache.org
+  commits: notifications@shenyu.apache.org
+  issues: notifications@shenyu.apache.org
   pullrequests: notifications@shenyu.apache.org

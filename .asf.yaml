@@ -36,3 +36,8 @@ github:
         required_approving_review_count: 1
 publish:
   whoami: asf-site
+
+notifications:
+  commits: notifications@shenyu.apache.org
+  issues: notifications@shenyu.apache.org
+  pullrequests: notifications@shenyu.apache.org

@@ -129,7 +129,7 @@ sidebar:
         link: 'icla'
   - title: 'Doc Download'  	
     link: 'download'
-draft: true
+# draft: true
 ---
 
 

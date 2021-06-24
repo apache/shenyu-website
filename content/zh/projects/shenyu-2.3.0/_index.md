@@ -131,6 +131,6 @@ sidebar:
         link: 'icla'
   - title: '文档下载'  	
     link: 'download'
-draft: true
+# draft: true
 ---
 

@@ -1,12 +1,5 @@
 name: Build Docs PDF
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'content/en/projects/**'
-      - 'content/zh/projects/**'
-      - '.github/**'
+on: [workflow_dispatch]
 
 jobs:
   build:
@@ -19,14 +12,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.7'
-      - name: Gnerate PDF
+      - name: Generate PDF
         run: |
           bash .github/scripts/generate-pdf.sh
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
+          publish_branch: asf-site
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           publish_dir: ./public/pdf

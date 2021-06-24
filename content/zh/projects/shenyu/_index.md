@@ -26,14 +26,12 @@ github: "https://github.com/apache/incubator-shenyu"
 gitee: ""
 level: "main"
 weight: 1
-# icon: "/img/logo/shenyu.png"
+# icon: "/img/logo/apache-shenyu.png"
 showIntroduce: true
 showFeature: true
 sidebar:
   - title: 'ShenYu 介绍'
     link: 'overview'
-  - title: '团队介绍'
-    link: 'team'
   - title: '设计文档'
     sub:
       - title: '数据库设计'

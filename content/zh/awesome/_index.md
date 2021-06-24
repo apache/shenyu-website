@@ -1,6 +1,6 @@
 ---
 layout: singlepage
-title: "Awesome ShenYu"
+title: "Awesome Apache ShenYu"
 ---
 
 ## 目录
@@ -231,10 +231,10 @@ title: "Awesome ShenYu"
 </tbody>
 </table>
 
-想要参与贡献，可以直接去[ShenYu](https://github.com/apache/incubator-shenyu/)，并fork。
+想要参与贡献，可以直接去[Apache ShenYu](https://github.com/apache/incubator-shenyu/)，并fork。
 
 ## 用户登记{#registration}
 
 请登记告诉我们，方便我们更好地为您服务。
 
-* [shenyu登记](https://github.com/apache/incubator-shenyu/issues/68)
+* [Apache ShenYu](https://github.com/apache/incubator-shenyu/issues/68)

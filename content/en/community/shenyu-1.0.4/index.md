@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway released version 1.0.4-RELEASE"
+title: "Apache ShenYu Gateway released version 1.0.4-RELEASE"
 author: "xiaoyu"
-description: "ShenYu Gateway released version 1.0.4-RELEASE"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway released version 1.0.4-RELEASE"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2019-04-09
 cover: "/img/architecture/shenyu-framework.png"
 ---

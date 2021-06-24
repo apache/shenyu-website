@@ -1,7 +1,11 @@
 ---
-title: ShenYu Committer
-keywords: shenyu-committer
-description: ShenYu Committer's Guide
+title: Apache ShenYu Committer
+description: Apache ShenYu Committer's Guide
+author: "xiaoyu"
+categories: "Apache ShenYu"
+tags: ["Committer"]
+date: 2019-04-09
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## Committer Promotion

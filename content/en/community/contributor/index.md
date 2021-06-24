@@ -1,8 +1,13 @@
 ---
-title: ShenYu Contributor
-keywords: shenyu-contributor
-description: ShenYu Contributor's Guide
+title: Apache ShenYu Contributor
+description: Apache ShenYu Contributor's Guide
+author: "xiaoyu"
+categories: "Apache ShenYu"
+tags: ["Contributor"]
+date: 2019-04-09
+cover: "/img/architecture/shenyu-framework.png"
 ---
+
 
 You can report a bug, submit a new function enhancement suggestion, or submit a pull request directly.
 

@@ -1,9 +1,9 @@
 ---
-title: "How convenient is the 2.1.X version of ShenYu Gateway?"
+title: "How convenient is the 2.1.X version of Apache ShenYu Gateway?"
 author: "xiaoyu"
 description: "How convenient is the 2.1.X version of ShenYu Gateway?"
-categories: "ShenYu"
-tags: ["ShenYu"]
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2019-12-12
 cover: "/img/architecture/shenyu-framework.png"
 ---

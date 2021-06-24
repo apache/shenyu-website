@@ -1,16 +1,21 @@
 ---
-title: Soul Contributor
-keywords: soul-contributor
-description: soul-contributor贡献者指南
+title: Apache ShenYu Contributor
+description: Apache shenyu-contributor贡献者指南
+author: "xiaoyu"
+categories: "ShenYu"
+tags: ["Contributor"]
+date: 2019-04-09
+cover: "/img/architecture/shenyu-framework.png"
 ---
+
 
 您可以报告bug，提交一个新的功能增强建议或者直接对以上内容提交改进补丁。
 
 ## 提交issue
 
  - 在提交issue之前，请经过充分的搜索，确定该issue不是通过简单的检索即可以解决的问题。
- - 查看[issue列表](https://github.com/dromara/soul/issues)，确定该issue不是一个重复的问题。
- - [新建](https://github.com/dromara/soul/issues/new/choose)一个issue并选择您的issue类型。
+ - 查看[issue列表](https://github.com/apache/incubator-shenyu/issues)，确定该issue不是一个重复的问题。
+ - [新建](https://github.com/apache/incubator-shenyu/issues/new/choose)一个issue并选择您的issue类型。
  - 使用一个清晰并有描述性的标题来定义issue。
  - 根据模板填写必要信息。
  - 在提交issue之后，对该issue分配合适的标签。如：bug，enhancement，discussion等。
@@ -20,10 +25,10 @@ description: soul-contributor贡献者指南
 
 **Fork分支到本地**
 
- - 从soul的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为soul的repo。
+ - 从 ShenYu 的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为 ShenYu 的repo。
 
 ```shell
-git remote add upstream https://github.com/dromara/soul.git
+git remote add upstream https://github.com/apache/incubator-shenyu.git
 ```
 
 **选择issue**
@@ -45,7 +50,7 @@ git checkout -b issueNo
 
 **编码**
 
- - 请您在开发过程中遵循soul的 [开发规范](../code-conduct)。并在准备提交pull request之前完成相应的检查。
+ - 请您在开发过程中遵循 ShenYu 的 [开发规范](../code-conduct)。并在准备提交pull request之前完成相应的检查。
  - 将修改的代码push到fork库的分支上。
 
 ```shell
@@ -56,14 +61,14 @@ git push origin issueNo
 
 **提交PR**
 
- - 发送一个pull request到soul的master分支。
+ - 发送一个pull request到 ShenYu 的master分支。
  - 接着导师做CodeReview，然后他会与您讨论一些细节（包括设计，实现，性能等）。当导师对本次修改满意后，会将提交合并到当前开发版本的分支中。
- - 最后，恭喜您已经成为了Soul的贡献者！
+ - 最后，恭喜您已经成为了ShenYu的贡献者！
 
 **删除分支**
 
- - 在导师将pull request合并到soul的master分支中之后，您就可以将远程的分支（origin/issueNo）及与远程分支（origin/issueNo）关联的本地分支（issueNo）删除。
- 
+ - 在导师将pull request合并到 ShenYu 的master分支中之后，您就可以将远程的分支（origin/issueNo）及与远程分支（origin/issueNo）关联的本地分支（issueNo）删除。
+
 ```shell
 git checkout master
 git branch -d issueNo

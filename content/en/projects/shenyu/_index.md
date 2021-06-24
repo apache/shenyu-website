@@ -1,5 +1,5 @@
 ---
-title: "ShenYu"
+title: "Apache ShenYu(current)"
 description: "This is an asynchronous, high-performance, cross-language, responsive API gateway."
 subDesc: "High-performance API Gateway"
 feature1Img: "/img/feature/feature_transpart.png"
@@ -31,8 +31,6 @@ showFeature: true
 sidebar:
   - title: 'Home'
     link: 'overview'
-  - title: 'Team'
-    link: 'team'
   - title: 'Design'
     sub:
       - title: 'Database Design'

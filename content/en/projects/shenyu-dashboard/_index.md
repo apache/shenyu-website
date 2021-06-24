@@ -1,7 +1,7 @@
 ---
 title: "Dashboard"
-description: "Dashboard for ShenYu"
-subDesc: "Dashboard for ShenYu"
+description: "Dashboard for Apache ShenYu"
+subDesc: "Dashboard for Apache ShenYu"
 feature1Img: ""
 feature1Title: ""
 feature1Desc: ""

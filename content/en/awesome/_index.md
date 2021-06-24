@@ -1,6 +1,6 @@
 ---
 layout: singlepage
-title: "Awesome ShenYu"
+title: "Awesome Apache ShenYu"
 ---
 
 ## Catalog
@@ -229,10 +229,10 @@ Hundreds of people have contributed articles and code to ShenYu so far, thank yo
 </tbody>
 </table>
 
-If you want to contribute, you can go to the [ShenYu](https://github.com/apache/incubator-shenyu/) and fork it.
+If you want to contribute, you can go to the [Apache ShenYu](https://github.com/apache/incubator-shenyu/) and fork it.
 
 ## Registration{#registration}
 
 Please register and let us know so that we can serve you better.
 
-* [ShenYu registration](https://github.com/apache/incubator-shenyu/issues/68)
+* [Apache ShenYu registration](https://github.com/apache/incubator-shenyu/issues/68)

@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关发布的2.1.X版本，到底有多方便？"
+title: "Apache ShenYu网关发布的2.1.X版本，到底有多方便？"
 author: "xiaoyu"
-description: "​ShenYu网关发布2.1.X之后，它到底有多方便？"
+description: "​Apache ShenYu网关发布2.1.X之后，它到底有多方便？"
 categories: "ShenYu"
-tags: ["ShenYu"]
+tags: ["Apache ShenYu"]
 date: 2019-12-12
 cover: "/img/architecture/shenyu-framework.png"
 ---

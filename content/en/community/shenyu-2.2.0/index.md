@@ -1,9 +1,9 @@
 ---
-title: "【ShenYu gateway version2.2.0 release】Make high-performance gateways so easy!"
+title: "【Apache ShenYu gateway version2.2.0 release】Make high-performance gateways so easy!"
 author: "xiaoyu"
-description: "ShenYu released version 2.2.0 with new architecture that makes gateways so easy. "
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu released version 2.2.0 with new architecture that makes gateways so easy. "
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2020-06-17
 cover: "/img/architecture/shenyu-framework.png"
 ---

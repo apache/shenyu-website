@@ -1,9 +1,9 @@
 ---
-title: "【ShenYu网关发布2.2.0】让高性能网关变得如此简单！"
+title: "【Apache ShenYu网关发布2.2.0】让高性能网关变得如此简单！"
 author: "xiaoyu"
-description: "Soul发布全新的架构2.2.0版本 让网关变得如此简单"
+description: "Apache ShenYu发布全新的架构2.2.0版本 让网关变得如此简单"
 categories: "ShenYu"
-tags: ["ShenYu"]
+tags: ["Apache ShenYu"]
 date: 2020-06-17
 cover: "/img/architecture/shenyu-framework.png"
 ---

@@ -1,7 +1,11 @@
 ---
-title: Soul Committer
-keywords: soul-committer
-description: soul-committer提交者指南
+title: Apache ShenYu Committer
+description: Apache shenyu-committer提交者指南
+author: "xiaoyu"
+categories: "Apache ShenYu"
+tags: ["Committer"]
+date: 2019-04-09
+cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## 提交者提名
@@ -9,7 +13,7 @@ description: soul-committer提交者指南
 当你做了很多贡献以后，社区会进行提名。
 成为committer你会拥有
 
-* soul仓库写的权限
+* shenyu仓库写的权限
 * idea 正版使用
 
 ## 提交者责任

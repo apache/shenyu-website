@@ -1,8 +1,13 @@
 ---
-title: ShenYu Code Conduct
-keywords: shenyu-code-conduct
-description: ShenYu 编码指南
+title: Apache ShenYu Code Conduct
+description: Apache ShenYu 编码指南
+author: "xiaoyu"
+categories: "Apache ShenYu"
+tags: ["Code Conduct"]
+date: 2019-04-09
+cover: "/img/architecture/shenyu-framework.png"
 ---
+
 
 ## 开发理念
 

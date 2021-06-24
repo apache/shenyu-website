@@ -1,9 +1,13 @@
 ---
 title: Sign ICLA Guide
-keywords: ICLA
 description: Sign ICLA Guide
+author: "xiaoyu"
+categories: "ShenYu"
+tags: ["ICLA"]
 date: 2021-05-18
+cover: "/img/architecture/shenyu-framework.png"
 ---
+
 ## Apache Sign ICLA Guide
 
 Apache CLA short for Apache Contributor License Agreement, the purpose of this agreement is to clearly define the terms under which intellectual property has been contributed to the ASF and thereby allow us to defend the project should there be a legal dispute regarding the software at some future time.

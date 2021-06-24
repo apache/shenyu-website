@@ -1,9 +1,13 @@
 ---
 title: ICLA 签署指南
-keywords: ICLA
 description: 签署ICLA指南
+author: "xiaoyu"
+categories: "Apache ShenYu"
+tags: ["ICLA"]
 date: 2021-05-18
+cover: "/img/architecture/shenyu-framework.png"
 ---
+
 ## Apache ICLA 签署流程指南
 
 Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是定义向ASF贡献的文档，保护知识产权，避免后续法律纠纷。ICLA在官方存档后生效，贡献者方可参与Apache项目。

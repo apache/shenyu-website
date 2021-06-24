@@ -1,6 +1,6 @@
 ---
-title: "ShenYu"
-description: "ShenYu是一个异步的，高性能的，跨语言的，响应式的API网关。"
+title: "Apache ShenYu"
+description: "Apache ShenYu是一个异步的，高性能的，跨语言的，响应式的API网关。"
 subDesc: "高性能微服务API网关"
 feature1Img: "/img/feature/feature_transpart.png"
 feature1Title: "跨语言支持"
@@ -30,7 +30,7 @@ weight: 1
 showIntroduce: true
 showFeature: true
 sidebar:
-  - title: 'ShenYu 介绍'
+  - title: '介绍'
     link: 'overview'
   - title: '设计文档'
     sub:

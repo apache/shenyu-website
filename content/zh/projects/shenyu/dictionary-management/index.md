@@ -11,6 +11,7 @@ description: 字典管理详解
 ## 表设计
 
 * sql
+
 ```sql
 CREATE TABLE IF NOT EXISTS `shenyu_dict` (
    `id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '主键id',
@@ -27,8 +28,8 @@ CREATE TABLE IF NOT EXISTS `shenyu_dict` (
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-* 目前使用场景是插件处理配置 data_type=3 下拉框时使用 
+* 目前使用场景是插件处理配置 `data_type=3` 下拉框时使用 
 
-假如 sentinel 插件处理字段中的 degradeRuleGrade， 那么新增规则时，编辑 degradeRuleGrade 字段时会自动从字典表查出 type=degradeRuleGrade 的所有字典作为下拉选项。
+例如 Sentinel 插件处理字段中的 `degradeRuleGrade`。当新增规则时，编辑 `degradeRuleGrade` 字段时，会自动从 `shenyu_dict` 查出 `type='degradeRuleGrade'` 的所有字典作为下拉选项。
 
 

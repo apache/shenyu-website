@@ -28,10 +28,8 @@ CREATE TABLE IF NOT EXISTS `shenyu_dict` (
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-* The current usage scenario is when the plugin `handle` configuring the `data_type=3` `(select box)`
+* The current usage scenario is when the plugin `handle` configuring the `data_type=3` (select box)
 
-eg. `degradeRuleGrade` is one of fields of sentinel's `handle` json
-
-When it adds rules, it automatically looks up all the general dictionaries of `type='degradeRuleGrade'` in the `shenyu_dict` table as a select-box when you edit the General rules field
+eg. `degradeRuleGrade` is one of fields of Sentinel's `handle` json. When it adds rules, it automatically looks up all the general dictionaries of `type='degradeRuleGrade'` in the `shenyu_dict` table as a select-box when you edit the General rules field.
 
 

@@ -60,7 +60,7 @@ Configure the corresponding entity class as follows:
 
 ![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
 
-_Note: If data_type is configured to be `3` `selection box`, the input field drop-down selection on the new rule page is displayed by going to the [shenyu_dict](../dictionary-management) table to find all the options available_
+*Note: If data_type is configured to be `3` `selection box`, the input field drop-down selection on the new rule page is displayed by going to the [shenyu_dict](../dictionary-management) table to find all the options available.*
 
 * The Sentinel plug-in, for example, is shown below:
 

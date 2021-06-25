@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `plugin_handle` (
 ```
 
 第一步、我们可以直接在插件管理界面 `http://localhost:9095/#/system/plugin` 点击编辑插件处理
+
 ![](https://yu199195.github.io/images/soul/plugin-manager.png)
 
 第二步、新增一个字符串类型字段path和一个数字类型的timeout
@@ -60,8 +61,7 @@ CREATE TABLE IF NOT EXISTS `plugin_handle` (
 
 ![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
 
-_注意：如果配置了data_type为3 选择框，则规则新增页面里输入框下拉选择是通过field字段去[字典表（shenyu_dict）](soul-dict.md)查出所有可选项出来展示选择_。
-_注意：如果配置了data_type为3 选择框，则规则新增页面里输入框下拉选择是通过field字段去[字典表（shenyu_dict）](shenyu-dict.md)查出所有可选项出来展示选择_。
+*注意：如果配置了data_type为3 选择框，则规则新增页面里输入框下拉选择是通过field字段去[字典表（shenyu_dict）](../dictionary-management)查出所有可选项出来展示选择。*
 
 * 比如sentinel插件包含多种数据类型的字段，如下图：
 

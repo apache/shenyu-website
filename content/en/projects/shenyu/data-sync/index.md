@@ -128,7 +128,6 @@ class LongPollingClient implements Runnable {
             List<ConfigGroupEnum> changedGroups = HttpLongPollingDataChangedListener.compareMD5((HttpServletRequest) asyncContext.getRequest());
             sendResponse(changedGroups);
         }, timeoutTime, TimeUnit.MILLISECONDS);
-        //
         clients.add(this);
     }
 }

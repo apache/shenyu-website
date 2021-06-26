@@ -6,7 +6,7 @@ description: Configuration Flow Introduction
 
 ## Description
 
-* This article introduces the flow of synchronizing to the gateway after the data operation of admin backend system.
+* This article introduces the flow of synchronizing to the gateway after the data operation of `shenyu-admin` backend system.
 
 ## Usage
 

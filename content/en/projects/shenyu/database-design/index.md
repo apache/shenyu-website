@@ -16,10 +16,10 @@ description: Database Design
   
   * One selector corresponds to multiple match conditions,one rule corresponds to multiple match conditions.
   
-  * Each rule handles differently in corresponding plugin according to field handler,field handler is a kind of data of JSON string type.You can view detail during the use of admin.
+  * Each rule handles differently in corresponding plugin according to field handler,field handler is a kind of data of JSON string type.You can view detail during the use of shenyu-admin.
   
 ## Resource Permission Desgin
-* The resource are the menus and buttons in the admin console.
+* The resource are the menus and buttons in the shenyu-admin console.
 
 * Resource Permission use database to store user name,role,resource data and relationship. 
 

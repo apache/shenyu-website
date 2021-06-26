@@ -20,7 +20,7 @@ description: 数据同步设计
 因此，我们对 `ShenYu` 进行了局部重构，历时两个月的版本迭代，我们发布了 `2.0` 版本
 
 - 数据同步方式移除了对 `zookeeper` 的强依赖，新增 `http 长轮询` 以及 `websocket`
-- 限流插件与监控插件实现真正的动态配置，由之前的 `yml` 配置，改为 `admin` 后台用户动态配置
+- 限流插件与监控插件实现真正的动态配置，由之前的 `yml` 配置，改为 `shenyu-admin` 后台用户动态配置
 
 *配置同步为什么不使用配置中心呢？*
 
@@ -39,7 +39,7 @@ description: 数据同步设计
 
 如下图所示，`shenyu-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(http、weboscket、zookeeper)，将配置发送给对应的事件处理器
 
-- 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketCacheHandler` 处理器来处理 `admin` 的数据推送
+- 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketCacheHandler` 处理器来处理 `shenyu-admin` 的数据推送
 - 如果是 `zookeeper` 同步策略，将变更数据更新到 `zookeeper`，而 `ZookeeperSyncCache` 会监听到 `zookeeper` 的数据变更，并予以处理
 - 如果是 `http` 同步策略，`shenyu-web` 主动发起长轮询请求，默认有 90s 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 http 请求，如果有数据发生变更则响应变更的数据信息，如果超过 60s 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 http 请求，反复同样的请求
   ![ShenYu配置同步策略流程图](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
@@ -54,7 +54,7 @@ description: 数据同步设计
 
 ## Websocket 同步
 
-`websocket` 和 `zookeeper` 机制有点类似，将网关与 `admin` 建立好 `websocket` 连接时，`admin` 会推送一次全量数据，后续如果配置数据发生变更，则将增量数据通过 `websocket` 主动推送给 `shenyu-web`
+`websocket` 和 `zookeeper` 机制有点类似，将网关与 `shenyu-admin` 建立好 `websocket` 连接时，`shenyu-admin` 会推送一次全量数据，后续如果配置数据发生变更，则将增量数据通过 `websocket` 主动推送给 `shenyu-web`
 
 使用websocket同步的时候，特别要注意断线重连，也叫保持心跳。`ShenYu`使用`java-websocket` 这个第三方库来进行`websocket`连接。
 
@@ -95,7 +95,7 @@ zookeeper、websocket 数据同步的机制比较简单，而 http ShenYu 借鉴
 
 ![http长轮询](https://bestkobe.gitee.io/images/soul/http-long-polling.png?_t=201908032339)
 
-http 长轮询机制如上所示，shenyu-web 网关请求 admin 的配置服务，读取超时时间为 90s，意味着网关层请求配置服务最多会等待 90s，这样便于 admin 配置服务及时响应变更数据，从而实现准实时推送。
+http 长轮询机制如上所示，shenyu-web 网关请求 shenyu-admin 的配置服务，读取超时时间为 90s，意味着网关层请求配置服务最多会等待 90s，这样便于 shenyu-admin 配置服务及时响应变更数据，从而实现准实时推送。
 
 http 请求到达 shenyu-admin 之后，并非立马响应数据，而是利用 Servlet3.0 的异步机制，异步响应数据。首先，将长轮询请求任务 `LongPollingClient` 扔到 `BlockingQueue` 中，并且开启调度任务，60s 后执行，这样做的目的是 60s 后将该长轮询请求移除队列，即便是这段时间内没有发生配置数据变更。因为即便是没有配置变更，也得让网关知道，总不能让其干等吧，而且网关请求配置服务时，也有 90s 的超时时间。
 

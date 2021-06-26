@@ -20,7 +20,7 @@ Anyone who has used `ShenYu` knows, `ShenYu` plugin are hot swap,and the selecto
 Therefore,we have done a partial reconstruction of `ShenYu`,after two months of version iteration,we released version `2.0`
 
 - Data Synchronization removes the strong dependence on `zookeeper`,and we add `http long polling` and `websocket`
-- Limiting plugin and monitoring plugin realize real dynamic configuration,we use `admin` backend for dynamic configuration instead of `yml` configuration before
+- Limiting plugin and monitoring plugin realize real dynamic configuration,we use `shenyu-admin` backend for dynamic configuration instead of `yml` configuration before
 
 *Q: Someone may ask me,why don't you use configuration center for synchronization?*
 
@@ -39,7 +39,7 @@ At version `1.x` ,configuration service depends on `zookeeper`,management backen
 
 As showing picture below,`shenyu-admin` will issue a configuration change notification through `EventPublisher` after users change configuration,`EventDispatcher` will handle this modification and send configuration to corresponding event handler according to configured synchronization strategy(http,websocket,zookeeper)
 
-- If it is a `websocket` synchronization strategy,it will push modified data to `shenyu-web`,and corresponding `WebsocketCacheHandler` handler will handle `admin` data push at the gateway layer
+- If it is a `websocket` synchronization strategy,it will push modified data to `shenyu-web`,and corresponding `WebsocketCacheHandler` handler will handle `shenyu-admin` data push at the gateway layer
 - If it is a  `zookeeper` synchronization strategy,it will push modified data to `zookeeper`,and the `ZookeeperSyncCache` will monitor the data changes of `zookeeper` and process them
 - If it is a  `http` synchronization strategy,`shenyu-web` proactively initiates long polling requests,90 seconds timeout by default,if there is no modified data in `shenyu-admin`,http request will be blocked,if there is a data change, it will respond to the changed data information,if there is no data change after 60 seconds,then respond with empty data,gateway continue to make http request after getting response,this kind of request will repeat
   ![ShenYu Configuration Synchronization Strategy Flow Chart](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
@@ -54,7 +54,7 @@ The zookeeper-based synchronization principle is very simple,it mainly depends o
 
 ## WebSocket Synchronization
 
-The mechanism of `websocket` and `zookeeper` is similar,when the gateway and the `admin` establish a `websocket` connection,`admin` will push all data at once,it will automatically push incremental data to `shenyu-web` through `websocket` when configured data changes
+The mechanism of `websocket` and `zookeeper` is similar,when the gateway and the `shenyu-admin` establish a `websocket` connection,`shenyu-admin` will push all data at once,it will automatically push incremental data to `shenyu-web` through `websocket` when configured data changes
 
 When we use websocket synchronization,pay attention to reconnect after disconnection,which also called keep heartbeat.`ShenYu` uses `java-websocket` ,a third-party library,to connect to `websocket`.
 
@@ -95,7 +95,7 @@ The mechanism of zookeeper and websocket data synchronization is relatively simp
 
 ![http long polling](https://bestkobe.gitee.io/images/soul/http-long-polling.png?_t=201908032339)
 
-http long polling mechanism as above,shenyu-web gateway requests admin configuration services,timeout is 90 seconds,it means gateway layer request configuration service will wait at most 90 seconds,this is convenient for admin configuration service to respond modified data in time,and therefore we realize near real-time push.
+http long polling mechanism as above,shenyu-web gateway requests shenyu-admin configuration services,timeout is 90 seconds,it means gateway layer request configuration service will wait at most 90 seconds,this is convenient for shenyu-admin configuration service to respond modified data in time,and therefore we realize near real-time push.
 
 After the http request reaches shenyu-admin, it does not respond immediately,but uses the asynchronous mechanism of Servlet3.0 to asynchronously respond to the data.First of all,put long polling request task `LongPollingClient` into `BlocingQueue`,and then start scheduling task,execute after 60 seconds,this aims to remove the long polling request from the queue after 60 seconds,even there is no configured data change.Because even if there is no configuration change,gateway also need to know,otherwise it will wait,and there is a 90 seconds timeout when the gateway requests configuration services.
 

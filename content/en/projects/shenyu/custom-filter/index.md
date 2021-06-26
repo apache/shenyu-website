@@ -11,7 +11,7 @@ description: filter extension
 
 ## CORS Support
 
-* `org.dromara.shenyu.bootstrap.cors.CrossFilter` is designed for WebFilter implementation.
+* `org.apache.shenyu.web.filter.CrossFilter` is designed for WebFilter implementation.
 
  ```java
  public class CrossFilter implements WebFilter {
@@ -78,9 +78,9 @@ public final class HealthFilter implements WebFilter {
 
 ```
 
-##  Extending `org.dromara.shenyu.web.filter.AbstractWebFilter`
+##  Extending `org.apache.shenyu.web.filter.AbstractWebFilter`
 
-* Add a new class and inherit from `org.dromara.shenyu.web.filter.AbstractWebFilter`.
+* Add a new class and inherit from `org.apache.shenyu.web.filter.AbstractWebFilter`.
 * Implement abstract methods of parent class.
 
 ```java

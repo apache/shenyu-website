@@ -12,7 +12,7 @@ description: customising response structure
 
 ## Default Implementation
 
-* The default implementation class is `org.dromara.shenyu.plugin.api.result.DefaultShenyuResult`.
+* The default implementation class is `org.apache.shenyu.plugin.api.result.DefaultShenyuResult`.
 * Following is the response structure.
 
 ```java
@@ -40,7 +40,7 @@ public class ShenyuDefaultEntity implements Serializable {
 
 ## Extensions
 
-*  Declare a new class named "A" and implements `org.dromara.shenyu.plugin.api.result.ShenyuResult`
+*  Declare a new class named "A" and implements `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
  public interface ShenyuResult<T> {

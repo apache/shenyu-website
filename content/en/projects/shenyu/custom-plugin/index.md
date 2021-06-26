@@ -24,7 +24,7 @@ description: plugins
   </dependency>
 ```
 
-* Declare a new class named "A" and implements `org.dromara.shenyu.plugin.api.ShenyuPlugin`
+* Declare a new class named "A" and implements `org.apache.shenyu.plugin.api.ShenyuPlugin`
 
 ```java
 public interface ShenyuPlugin {
@@ -97,7 +97,7 @@ Detailed instruction of interface methods:
         <version>${last.version}</version>
   </dependency>
 ```
-* Add a new class A, inherit from `org.dromara.shenyu.plugin.base.AbstractShenyuPlugin`
+* Add a new class A, inherit from `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
 
 * examples down below:
 
@@ -193,7 +193,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
 ## Subscribe your plugin data and do customized jobs
 
-* Declare a new class named "A" and implements `org.dromara.shenyu.plugin.base.handler.PluginDataHandler`
+* Declare a new class named "A" and implements `org.apache.shenyu.plugin.base.handler.PluginDataHandler`
 
 ```java
 public interface PluginDataHandler {

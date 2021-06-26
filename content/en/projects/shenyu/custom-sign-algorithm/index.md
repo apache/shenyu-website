@@ -11,8 +11,8 @@ description: specify sign plugins for examination
 
 ## Extension
 
-* The default implementation is `org.dromara.shenyu.plugin.sign.service.DefaultSignService`.
-* Declare a new class named "A" and implements  `org.dromara.shenyu.plugin.api.SignService`.
+* The default implementation is `org.apache.shenyu.plugin.sign.service.DefaultSignService`.
+* Declare a new class named "A" and implements  `org.apache.shenyu.plugin.api.SignService`.
 
 ```java
  public interface SignService {

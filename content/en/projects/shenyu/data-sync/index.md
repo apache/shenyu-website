@@ -163,7 +163,7 @@ When `shenyu-web` gateway layer receives the http response information,pull modi
 
 github: https://github.com/apache/incubator-shenyu
 
-gitee: https://gitee.com/dromara/shenyu
+gitee: https://gitee.com/Apache-ShenYu/incubator-shenyu
 
 There also have video tutorials on the project homepage,you can go to watch it if needed.
 

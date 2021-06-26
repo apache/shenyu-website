@@ -20,11 +20,11 @@ description: Doc Download
   - ShenYu-dashboard 二进制包 [tar](https://github-releases.githubusercontent.com/141903742/4fbdbd00-96d4-11eb-92f4-fead1958fd5c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210530%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210530T170738Z&X-Amz-Expires=300&X-Amz-Signature=60abef3f1ee0f4c7ad0311a2a5ce2acbd573cb4af5c522b79f8297ff29fcd631&X-Amz-SignedHeaders=host&actor_id=13451528&key_id=0&repo_id=141903742&response-content-disposition=attachment%3B%20filename%3Dsoul-dashboard-2.3.0-dist.zip&response-content-type=application%2Foctet-stream)
   
 
-  ## PDF
+* ## PDF
 
   Apache ShenYu 提供了博客打包下载的 PDF，供使用者、开发者查阅。
 
   * [中文](/pdf/dromara_soul_docs_zh.pdf)
 
-  /pdf/dromara_soul_docs_en.pdf)
+  * [English](/pdf/dromara_soul_docs_en.pdf)
 

@@ -162,7 +162,7 @@ class DataChangeTask implements Runnable {
 
 github: https://github.com/apache/incubator-shenyu
 
-gitee: https://gitee.com/dromara/shenyu
+gitee: https://gitee.com/Apache-ShenYu/incubator-shenyu
 
 项目主页上还有视频教程，有需要的朋友可以去观看。
 

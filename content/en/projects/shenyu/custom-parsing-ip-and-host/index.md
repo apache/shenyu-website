@@ -11,14 +11,14 @@ description: Fetching correct IP address and host
 
 ## Default Implementation
 
-*  The embedded implementation in ShenYu is :`org.dromara.shenyu.web.forwarde.ForwardedRemoteAddressResolver`。
+*  The embedded implementation in ShenYu is :`org.apache.shenyu.web.forward.ForwardedRemoteAddressResolver`。
 
 *  You need to config `X-Forwarded-For` in `nginx` first to get correct IP address and host.
 
 
 ## Implement through a Plugin
 
-* Declare a new class named "A" and implements `org.dromara.shenyu.plugin.api.RemoteAddressResolver`.
+* Declare a new class named "A" and implements `org.apache.shenyu.plugin.api.RemoteAddressResolver`.
 
 ```java
 public interface RemoteAddressResolver {

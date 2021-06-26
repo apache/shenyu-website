@@ -24,7 +24,7 @@ description: 插件扩展
   </dependency>
 ```
 
-* 用户新增一个类 A，直接实现 `org.dromara.shenyu.plugin.api.ShenyuPlugin`
+* 用户新增一个类 A，直接实现 `org.apache.shenyu.plugin.api.ShenyuPlugin`
 
 ```java
 public interface ShenyuPlugin {
@@ -102,7 +102,7 @@ public interface ShenyuPlugin {
         <version>${last.version}</version>
   </dependency>
 ```
-* 新增一个类A，继承 `org.dromara.shenyu.plugin.base.AbstractShenyuPlugin`
+* 新增一个类A，继承 `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
 
 * 以下是参考：
 
@@ -198,7 +198,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
 ## 订阅你的插件数据，进行自定义的处理
 
-* 新增一个类A，实现 `org.dromara.shenyu.plugin.base.handler.PluginDataHandler`
+* 新增一个类A，实现 `org.apache.shenyu.plugin.base.handler.PluginDataHandler`
 
 ```java
 public interface PluginDataHandler {

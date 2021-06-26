@@ -11,7 +11,7 @@ description: filter扩展
 
 ## 跨域支持
 
-* 新增 `org.dromara.shenyu.bootstrap.cors.CrossFilter` 实现 WebFilter。
+* 新增 `org.apache.shenyu.web.filter.CrossFilter` 实现 WebFilter。
 
  ```java
  public class CrossFilter implements WebFilter {
@@ -79,7 +79,7 @@ public final class HealthFilter implements WebFilter {
 
 ```
 
-## 继承 `org.dromara.shenyu.web.filter.AbstractWebFilter`
+## 继承 `org.apache.shenyu.web.filter.AbstractWebFilter`
 
 * 新增一个类，继承它。
 

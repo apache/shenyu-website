@@ -12,7 +12,7 @@ description: 自定义网关返回数据格式
 
 ## 默认实现
 
-* 默认的实现为 `org.dromara.shenyu.plugin.api.result.DefaultShenyuResult`
+* 默认的实现为 `org.apache.shenyu.plugin.api.result.DefaultShenyuResult`
 
 * 返回的数据格式如下：
 
@@ -41,7 +41,7 @@ public class ShenyuDefaultEntity implements Serializable {
 
 ## 扩展
 
-*  新增一个类 A 实现 `org.dromara.shenyu.plugin.api.result.ShenyuResult`
+*  新增一个类 A 实现 `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
  public interface ShenyuResult<T> {

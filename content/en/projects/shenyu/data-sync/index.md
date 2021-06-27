@@ -93,7 +93,7 @@ public class WebsocketSyncCache extends WebsocketCacheHandler {
 
 The mechanism of zookeeper and websocket data synchronization is relatively simple,but http synchronization will be relatively complicated.ShenYu borrows the design ideas of `Apollo` and `Nacos` and realizes `http` long polling data synchronization using their advantages.Note that this is not traditional ajax long polling.
 
-![http long polling](https://bestkobe.gitee.io/images/soul/http-long-polling.png?_t=201908032339)
+<img src="/img/shenyu/dataSync/http-long-polling-en.png" width="90%" height="80%" />
 
 http long polling mechanism as above,shenyu-web gateway requests shenyu-admin configuration services,timeout is 90 seconds,it means gateway layer request configuration service will wait at most 90 seconds,this is convenient for shenyu-admin configuration service to respond modified data in time,and therefore we realize near real-time push.
 

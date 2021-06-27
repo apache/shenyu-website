@@ -15,7 +15,7 @@ description:  配置流程介绍
 * 所有插件的选择器，规则都是动态配置，立即生效，不需要重启服务。
 
 * 下面是数据流程图：
- ![](https://yu199195.github.io/images/soul/plugin-data.png)
+ ![](/img/shenyu/dataSync/plugin-data.png)
 
 ## 作用
 

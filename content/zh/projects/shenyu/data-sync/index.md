@@ -33,7 +33,7 @@ description: 数据同步设计
 ## 原理分析
 
 先来张高清无码图，下图展示了 `ShenYu` 数据同步的流程，`ShenYu` 网关在启动时，会从配置服务同步配置数据，并且支持推拉模式获取配置变更信息，并且更新本地缓存。而管理员在管理后台，变更用户、规则、插件、流量配置，通过推拉模式将变更信息同步给 `ShenYu` 网关，具体是 `push` 模式，还是 `pull` 模式取决于配置。关于配置同步模块，其实是一个简版的配置中心。
-![ShenYu数据同步流程图](https://bestkobe.gitee.io/images/soul/soul-config-processor.png?_t=201908032316)
+<img src="/img/shenyu/dataSync/shenyu-config-processor-zh.png" width="90%" height="80%" />
 
 在 `1.x` 版本中，配置服务依赖 `zookeeper` 实现，管理后台将变更信息 `push` 给网关。而 `2.x` 版本支持 `webosocket`、`http`、`zookeeper`，通过 `shenyu.sync.strategy` 指定对应的同步策略，默认使用 `webosocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`shenyu-web` 和 `shenyu-admin` 必须使用相同的同步机制。
 
@@ -42,7 +42,8 @@ description: 数据同步设计
 - 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketCacheHandler` 处理器来处理 `shenyu-admin` 的数据推送
 - 如果是 `zookeeper` 同步策略，将变更数据更新到 `zookeeper`，而 `ZookeeperSyncCache` 会监听到 `zookeeper` 的数据变更，并予以处理
 - 如果是 `http` 同步策略，`shenyu-web` 主动发起长轮询请求，默认有 90s 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 http 请求，如果有数据发生变更则响应变更的数据信息，如果超过 60s 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 http 请求，反复同样的请求
-  ![ShenYu配置同步策略流程图](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
+
+<img src="/img/shenyu/dataSync/config-strategy-processor-zh.png" width="90%" height="80%" />
 
 ## Zookeeper 同步
 

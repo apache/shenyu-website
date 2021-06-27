@@ -28,7 +28,7 @@ mvn protobuf:compile
 mvn protobuf:compile-custom 
 ```
 
-Execute the `org.dromara.shenyu.examples.grpc.ShenyuTestGrpcApplication` main method to start project.
+Execute the `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` main method to start project.
 
 The following log appears when the startup is successful:
 ```shell

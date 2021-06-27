@@ -34,7 +34,7 @@ description: Http快速开始
 
 下载[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
-运行`org.dromara.shenyu.examples.http.ShenyuTestHttpApplication`main方法启动项目。
+运行`org.apache.shenyu.examples.http.ShenyuTestHttpApplication`main方法启动项目。
 
 成功启动会有如下日志：
 ```shell

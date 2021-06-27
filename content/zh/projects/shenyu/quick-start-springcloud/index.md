@@ -49,11 +49,11 @@ dependency>
 
 1、先启动eureka服务
 
-运行`org.dromara.shenyu.examples.eureka.EurekaServerApplication`main方法启动项目。
+运行`org.apache.shenyu.examples.eureka.EurekaServerApplication`main方法启动项目。
 
 2、先启动spring cloud服务
 
-运行`org.dromara.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication`main方法启动项目。
+运行`org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication`main方法启动项目。
 
 成功启动会有如下日志：
 ```shell

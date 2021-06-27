@@ -53,7 +53,7 @@ com:
         registry-address: zookeeper://127.0.0.1:2181
 ```
 
-Execute the `org.dromara.shenyu.examples.sofa.service.TestSofaApplication` main method to start sofa service.
+Execute the `org.apache.shenyu.examples.sofa.service.TestSofaApplication` main method to start sofa service.
 
 The following log appears when the startup is successful:
 ```shell
@@ -109,7 +109,7 @@ Open Plugin Management -> sofa to see the list of plugin rule configurations
 Use PostMan to simulate HTTP to request your Sofa service
 ![](/img/shenyu/quick-start/sofa/postman-findbyid.png)
 
-Complex multi-parameter example: The related interface implementation class is `org.dromara.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
+Complex multi-parameter example: The related interface implementation class is `org.apache.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
 ```java
 @Override
 @ShenyuSofaClient(path = "/batchSaveNameAndId")

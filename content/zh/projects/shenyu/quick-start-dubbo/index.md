@@ -49,7 +49,7 @@ description: Dubbo快速开始
 
 ![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 
-复杂多参数示例：对应接口实现类为`org.dromara.shenyu.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`
+复杂多参数示例：对应接口实现类为`org.apache.shenyu.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`
 ```java
 @Override
 @ShenyuDubboClient(path = "/batchSaveAndNameAndId")

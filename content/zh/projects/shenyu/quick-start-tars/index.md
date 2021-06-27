@@ -40,7 +40,7 @@ description: Tars快速开始
 
 更多config配置说明请参考[Tars官方文档](https://github.com/TarsCloud/TarsJava/blob/master/docs/tars_java_user_guide.md)
 
-运行`org.dromara.shenyu.examples.tars.ShenyuTestTarsApplication`main方法启动项目。
+运行`org.apache.shenyu.examples.tars.ShenyuTestTarsApplication`main方法启动项目。
 
 **注：** 服务启动时需要在启动命令中指定配置文件地址 **-Dconfig=xxx/ShenyuExampleServer.ShenyuExampleApp.config.conf**
 
@@ -64,7 +64,7 @@ com.qq.tars.server.config.ConfigurationException: error occurred on load server 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
-	at org.dromara.shenyu.examples.tars.ShenyuTestTarsApplication.main(ShenyuTestTarsApplication.java:38)
+	at org.apache.shenyu.examples.tars.ShenyuTestTarsApplication.main(ShenyuTestTarsApplication.java:38)
 Caused by: java.lang.NullPointerException
 	at java.io.FileInputStream.<init>(FileInputStream.java:130)
 	at java.io.FileInputStream.<init>(FileInputStream.java:93)

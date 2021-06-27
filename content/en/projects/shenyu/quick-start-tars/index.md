@@ -41,7 +41,7 @@ Modify config `src/main/resources/ShenyuExampleServer.ShenyuExampleApp.config.co
 
 More config configuration instructions, Please refer to[TARS Official Documentation](https://github.com/TarsCloud/TarsJava/blob/master/docs/tars_java_user_guide.md)
 
-Execute the `org.dromara.shenyu.examples.tars.ShenyuTestTarsApplication` main method to start project.
+Execute the `org.apache.shenyu.examples.tars.ShenyuTestTarsApplication` main method to start project.
 
 **Note:** The `configuration file address` needs to be specified in the startup command when the service starts **-Dconfig=xxx/ShenyuExampleServer.ShenyuExampleApp.config.conf**
 
@@ -65,7 +65,7 @@ com.qq.tars.server.config.ConfigurationException: error occurred on load server 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
-	at org.dromara.shenyu.examples.tars.ShenyuTestTarsApplication.main(ShenyuTestTarsApplication.java:38)
+	at org.apache.shenyu.examples.tars.ShenyuTestTarsApplication.main(ShenyuTestTarsApplication.java:38)
 Caused by: java.lang.NullPointerException
 	at java.io.FileInputStream.<init>(FileInputStream.java:130)
 	at java.io.FileInputStream.<init>(FileInputStream.java:93)

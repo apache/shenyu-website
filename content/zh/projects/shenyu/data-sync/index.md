@@ -93,7 +93,7 @@ public class WebsocketSyncCache extends WebsocketCacheHandler {
 
 zookeeper、websocket 数据同步的机制比较简单，而 http ShenYu 借鉴了 `Apollo`、`Nacos` 的设计思想，取其精华，自己实现了 `http` 长轮询数据同步功能。注意，这里并非传统的 ajax 长轮询！
 
-![http长轮询](https://bestkobe.gitee.io/images/soul/http-long-polling.png?_t=201908032339)
+<img src="/img/shenyu/dataSync/http-long-polling-zh.png" width="90%" height="80%" />
 
 http 长轮询机制如上所示，shenyu-web 网关请求 shenyu-admin 的配置服务，读取超时时间为 90s，意味着网关层请求配置服务最多会等待 90s，这样便于 shenyu-admin 配置服务及时响应变更数据，从而实现准实时推送。
 

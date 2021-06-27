@@ -32,7 +32,7 @@ Introducing gateway to HTTP proxy plugin
 
 Download[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
-Execute the `org.dromara.shenyu.examples.http.ShenyuTestHttpApplication` main method to start project.
+Execute the `org.apache.shenyu.examples.http.ShenyuTestHttpApplication` main method to start project.
 
 The following log appears when the startup is successful:
 ```shell

@@ -34,7 +34,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 <img src="/img/shenyu/quick-start/grpc/gen-proto.png" width="40%" height="50%" />
 
 
-运行 `org.dromara.shenyu.examples.grpc.ShenyuTestGrpcApplication` 中的 `main` 方法启动项目。
+运行 `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` 中的 `main` 方法启动项目。
 
 成功启动会有如下日志，表示将 `gRPC` 服务成功注册到 `shenyu-admin` 中。
 ```shell

@@ -49,11 +49,11 @@ Download [shenyu-examples-eureka](https://github.com/apache/incubator-shenyu/tre
 
 1. Startup the Eureka service
 
-Execute the `org.dromara.shenyu.examples.eureka.EurekaServerApplication` main method to start project.
+Execute the `org.apache.shenyu.examples.eureka.EurekaServerApplication` main method to start project.
 
 2. Startup the Spring Cloud service
 
-Execute the `org.dromara.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication` main method to start project.
+Execute the `org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication` main method to start project.
 
 The following log appears when the startup is successful:
 ```shell

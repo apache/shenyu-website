@@ -54,7 +54,7 @@ com:
         registry-address: zookeeper://127.0.0.1:2181
 ```
 
-运行`org.dromara.shenyu.examples.sofa.service.TestSofaApplication`main方法启动sofa服务。
+运行`org.apache.shenyu.examples.sofa.service.TestSofaApplication`main方法启动sofa服务。
 
 成功启动会有如下日志：
 ```shell
@@ -111,7 +111,7 @@ com:
 
 ![](/img/shenyu/quick-start/sofa/postman-findbyid.png)
 
-复杂多参数示例：对应接口实现类为`org.dromara.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
+复杂多参数示例：对应接口实现类为`org.apache.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
 ```java
 @Override
 @ShenyuSofaClient(path = "/batchSaveNameAndId")

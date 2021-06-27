@@ -49,7 +49,7 @@ Use PostMan to simulate HTTP to request your Dubbo service
 
 ![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 
-Complex multi-parameter example: The related interface implementation class is `org.dromara.shenyu.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`.
+Complex multi-parameter example: The related interface implementation class is `org.apache.shenyu.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`.
 ```java
 @Override
 @ShenyuDubboClient(path = "/batchSaveAndNameAndId")

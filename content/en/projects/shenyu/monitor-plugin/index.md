@@ -11,7 +11,7 @@ description: monitor plugin
 ## Technical Solutions
 
 * Flow Diagram
-    ![](https://yu199195.github.io/images/soul/soul-metrics.png)
+    ![](/img/shenyu/plugin/monitor/shenyu-metrics.png)
 * Make even tracking in ShenYu Gateway by asynchronous or synchronous mode.
 
 * The `prometheus` server pulls metrics' through http request, and then displays it by `Grafana`.

@@ -11,7 +11,7 @@ description: monitor插件
 ## 技术方案
 
 * 流程图
-    ![](https://yu199195.github.io/images/soul/soul-metrics.png)
+    ![](/img/shenyu/plugin/monitor/shenyu-metrics.png)
 
 * 异步或者同步的方式，在 ShenYu 网关里面进行 `metrics` 埋点。
 

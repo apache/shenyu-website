@@ -15,7 +15,7 @@ description: Configuration Flow Introduction
 * All the rules of plugin selectors are dynamically configured and take effect immediately without restarting the service.
 
 * Data Flow Chart:
- ![](https://yu199195.github.io/images/soul/plugin-data.png)
+ ![](/img/shenyu/dataSync/plugin-data.png)
 
 ## Feature
 

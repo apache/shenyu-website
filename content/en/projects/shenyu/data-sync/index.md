@@ -33,7 +33,8 @@ As a gateway, `ShenYu` cached all the configuration in the `HashMap` of JVM in o
 ## Principle Analysis
 
 This is a HD uncoded image, it shows the flow of `ShenYu` data synchronization, when `ShenYu` gateway starts, it will synchronize configuration data from the configuration service and support push-pull mode to obtain configuration change information, and update the local cache.When administrator changes user,rule,plugin,flow configuration in the backend, modified information will synchronize to the `ShenYu` gateway through the push-pull mode,whether it is the push mode or the pull mode depends on the configuration.About the configuration synchronization module, it is actually a simplified configuration center.
-![ShenYu Data Synchronization Flow Chart](https://bestkobe.gitee.io/images/soul/soul-config-processor.png?_t=201908032316)
+
+<img src="/img/shenyu/dataSync/shenyu-config-processor-en.png" width="90%" height="80%" />
 
 At version `1.x` ,configuration service depends on `zookeeper`,management backend `push` the modified information to gateway.But version `2.x` supports `webosocket`,`http`,`zookeeper`,it can specify the corresponding synchronization strategy through `shenyu.sync.strategy` and use `webosocket` synchronization strategy by default which can achieve second-level data synchronization.But,note that `shenyu-web` and `shenyu-admin` must use the same synchronization mechanism.
 
@@ -42,8 +43,8 @@ As showing picture below,`shenyu-admin` will issue a configuration change notifi
 - If it is a `websocket` synchronization strategy,it will push modified data to `shenyu-web`,and corresponding `WebsocketCacheHandler` handler will handle `shenyu-admin` data push at the gateway layer
 - If it is a  `zookeeper` synchronization strategy,it will push modified data to `zookeeper`,and the `ZookeeperSyncCache` will monitor the data changes of `zookeeper` and process them
 - If it is a  `http` synchronization strategy,`shenyu-web` proactively initiates long polling requests,90 seconds timeout by default,if there is no modified data in `shenyu-admin`,http request will be blocked,if there is a data change, it will respond to the changed data information,if there is no data change after 60 seconds,then respond with empty data,gateway continue to make http request after getting response,this kind of request will repeat
-  ![ShenYu Configuration Synchronization Strategy Flow Chart](https://bestkobe.gitee.io/images/soul/config-strage-processor.png?_t=201908032339)
 
+<img src="/img/shenyu/dataSync/config-strategy-processor-en.png" width="90%" height="80%" />
 ## Zookeeper Synchronization
 
 The zookeeper-based synchronization principle is very simple,it mainly depends on `zookeeper` watch mechanism,`shenyu-web` will monitor the configured node,when `shenyu-admin` starts,all the data will be written to `zookeeper`,it will incrementally update the nodes of `zookeeper` when data changes,at the same time, `shenyu-web` will monitor the node for configuration information, and update the local cache once the information changes

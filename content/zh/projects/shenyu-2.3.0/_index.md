@@ -1,10 +1,10 @@
 ---
-title: "2.3.0"
+title: "Apache ShenYu(2.3.0)"
 description: "异步的，高性能的，跨语言的，响应式的API网关。"
 subDesc: "高性能微服务API网关"
 architectureImg: "/img/architecture/soul-framework.png"
-level: "gateway"
-weight: 1
+level: "main"
+weight: 2
 icon: "/img/logo/soul.png"
 showIntroduce: true
 showFeature: true

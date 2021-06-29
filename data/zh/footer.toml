@@ -27,7 +27,7 @@
 	link_arr = [
 		["反馈", 'https://github.com/apache/incubator-shenyu/issues/new'],
 		["社区","/zh/community"],
-		["博客","/zh/blog"],
+		["新闻","/zh/news"],
 	]
 
 

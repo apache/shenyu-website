@@ -27,7 +27,7 @@
 	link_arr = [
 		["Feedback", 'https://github.com/apache/incubator-shenyu/issues/new'],
 		["Community","/community"],
-		["Blog","/blog"],
+		["News","/news"],
 		# ["Email","mailto:sofa@alipay.cloud.com"]
 	]
 

@@ -66,20 +66,20 @@ unsafe = true
 		url = "/zh/projects/shenyu/overview/"
 		weight = 2
 	[[languages.zh.menu.main]]
-		identifier = "blog"
-		name = "博客"
-		url = "/zh/blog/"
+		identifier = "community"
+		name = "社区"
+		url = "/zh/community/code-conduct/"
 		weight = 3
+	[[languages.zh.menu.main]]
+		identifier = "blog"
+		name = "新闻"
+		url = "/zh/news/"
+		weight = 4
 	# [[languages.zh.menu.main]]
 	# 	identifier = "activities"
 	# 	name = "活动"
 	# 	url = "/zh/activities/"
 	# 	weight = 4
-	[[languages.zh.menu.main]]
-		identifier = "community"
-		name = "社区"
-		url = "/zh/community/"
-		weight = 4
 	[[languages.zh.menu.main]]
 		identifier = "awesome"
 		name = "Awesome"
@@ -112,20 +112,20 @@ unsafe = true
 		url = "/projects/shenyu/overview/"
 		weight = 2
 	[[menu.main]]
-		identifier = "blog"
-		name = "Blog"
-		url = "/blog/"
+		identifier = "community"
+		name = "Community"
+		url = "/community/code-conduct/"
 		weight = 3
+	[[menu.main]]
+		identifier = "blog"
+		name = "News"
+		url = "/news/"
+		weight = 4
 	# [[menu.main]]
 	# 	identifier = "activities"
 	# 	name = "Activity"
 	# 	url = "/activities/"
 	# 	weight = 4
-	[[menu.main]]
-		identifier = "community"
-		name = "Community"
-		url = "/community/"
-		weight = 4
 	[[menu.main]]
 		identifier = "awesome"
 		name = "Awesome"

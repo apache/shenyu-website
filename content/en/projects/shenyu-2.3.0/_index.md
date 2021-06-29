@@ -1,9 +1,9 @@
 ---
-title: "2.3.0"
+title: "Apache ShenYu(2.3.0)"
 description: "This is an asynchronous, high-performance, cross-language, responsive API gateway."
 startUp: "Start up"
-level: "gateway"
-weight: 1
+level: "main"
+weight: 2
 showIntroduce: true
 showFeature: true
 sidebar:

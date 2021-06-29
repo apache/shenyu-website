@@ -137,16 +137,6 @@ sidebar:
         link: 'thread'
       - title: 'ShenYu Optimize'
         link: 'shenyu-optimize'
-  - title: 'Community'
-    sub:
-      - title: 'Contributor'
-        link: 'contributor'
-      - title: 'Committer'
-        link: 'committer'
-      - title: 'Code Conduct'
-        link: 'code-conduct'
-      - title: 'Sign ICLA Guide'
-        link: icla
   - title: 'Doc Download'
     link: 'download'
 # draft: true

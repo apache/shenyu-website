@@ -119,16 +119,6 @@ sidebar:
         link: 'thread'
       - title: 'soul调优'  	
         link: 'soul-optimize'
-  - title: '社区贡献'  	
-    sub:
-      - title: '贡献者指南'  	
-        link: 'contributor'
-      - title: '提交者指南'  	
-        link: 'committer'
-      - title: '编码规范'  	
-        link: 'code-conduct'
-      - title: '签署iCLA指南'
-        link: 'icla'
   - title: '文档下载'  	
     link: 'download'
 # draft: true

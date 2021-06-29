@@ -38,4 +38,3 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
           publish_branch: asf-site
           publish_dir: ./public
-          keep_files: false

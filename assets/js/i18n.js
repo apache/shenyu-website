@@ -8,7 +8,7 @@ export const en = {
   projects: 'Project',
   guides: 'Guide',
   document: "Document",
-  blog: 'Blog',
+  blog: 'News',
   activities: 'Activity',
 }
 
@@ -22,6 +22,6 @@ export const zh = {
   projects: '项目',
   guides: '指南',
   document: "文档",
-  blog: '博客',
+  blog: '新闻',
   activities: '活动',
 }

@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `plugin_handle` (
 
 第三步，在插件规则配置页面新增规则时就可以直接输入path、timeout然后提交保存到handle字段了
 
-![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
+![](/img/shenyu/basicConfig/pluginHandle/03.png)
 
 *注意：如果配置了data_type为3 选择框，则规则新增页面里输入框下拉选择是通过field字段去[字典表（shenyu_dict）](../dictionary-management)查出所有可选项出来展示选择。*
 

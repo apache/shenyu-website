@@ -59,7 +59,7 @@ Configure the corresponding entity class as follows:
 
 **step3.** Finally, you can enter path, timeout and commit to the handle field when you add a rule in the plugin rule configuration page
 
-![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
+![](/img/shenyu/basicConfig/pluginHandle/03.png)
 
 *Note: If data_type is configured to be `3` `selection box`, the input field drop-down selection on the new rule page is displayed by going to the [shenyu_dict](../dictionary-management) table to find all the options available.*
 

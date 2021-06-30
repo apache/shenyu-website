@@ -49,15 +49,15 @@ CREATE TABLE IF NOT EXISTS `plugin_handle` (
     }
 ```
 
-第一步、我们可以直接在插件管理界面 `http://localhost:9095/#/system/plugin` 点击编辑插件处理
+第一步，我们可以直接在 `PluginHandle` 界面 `http://localhost:9095/#/config/pluginhandle` 新增/编辑handle字段
 
-![](https://yu199195.github.io/images/soul/plugin-manager.png)
+![](/img/shenyu/basicConfig/pluginHandle/01.png)
 
-第二步、新增一个字符串类型字段path和一个数字类型的timeout
+第二步，例如给springCloud新增一个字符串类型字段path和一个数字类型字段timeout
 
-![](https://yu199195.github.io/images/soul/add-plugin-handle.png)
+![](/img/shenyu/basicConfig/pluginHandle/02.png)
 
-第三步、在插件规则配置页面新增规则时就可以直接输入path、timeout然后提交保存到handle字段了
+第三步，在插件规则配置页面新增规则时就可以直接输入path、timeout然后提交保存到handle字段了
 
 ![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
 

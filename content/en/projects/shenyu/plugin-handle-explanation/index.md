@@ -49,16 +49,17 @@ Configure the corresponding entity class as follows:
     }
 ```
 
-**step1.** We can go directly to the plug-in management link  `http://localhost:9095/#/system/plugin` Click Edit Plugin for processing
-![](https://yu199195.github.io/images/soul/plugin-manager.png)
+**step1.** We can go directly to `PluginHandle` page `http://localhost:9095/#/config/pluginhandle` add/edit handle fields
 
-**step2.** Add a string type field path and a numeric type TIMEOUT
+![](/img/shenyu/basicConfig/pluginHandle/01.png)
 
-![](https://yu199195.github.io/images/soul/add-plugin-handle.png)
+**step2.** For example, add a string type field path and a numeric type timeout to springCloud
 
-**step3.** Finally, you can enter path, TIMEOUT and commit to the handle field when you add a rule in the plugin rule configuration page
+![](/img/shenyu/basicConfig/pluginHandle/02.png)
 
-![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
+**step3.** Finally, you can enter path, timeout and commit to the handle field when you add a rule in the plugin rule configuration page
+
+![](/img/shenyu/basicConfig/pluginHandle/03.png)
 
 *Note: If data_type is configured to be `3` `selection box`, the input field drop-down selection on the new rule page is displayed by going to the [shenyu_dict](../dictionary-management) table to find all the options available.*
 

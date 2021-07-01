@@ -1,16 +1,25 @@
 ---
 title: "Community"
 description: "Apache ShenYu Community"
-subDesc: "高性能微服务API网关"
+subDesc: "API Gateway"
 sidebar:
-  - title: 'Code conduct'
+  - title: 'Subscribe Email'
+    link: 'subscribe-email'
+  - title: 'Code Conduct'
     link: 'code-conduct'
-  - title: 'Sign ICLA'
-    link: 'icla'
+  - title: 'Issue And Pull Request'
+    link: 'issue-pr'
   - title: 'Contributor'
     link: 'contributor'
   - title: 'Committer'
     link: 'committer'
+  - title: 'Vote Committer'
+    link: 'vote-committer'    
+  - title: 'Two-Factor Authentication'
+    link: '2fa'    
+  - title: 'Sign ICLA'
+    link: 'icla'
+        
 # draft: true
 ---
 

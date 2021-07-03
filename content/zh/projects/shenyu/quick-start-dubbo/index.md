@@ -11,12 +11,14 @@ description: Dubbo快速开始
 
 ## 运行shenyu-examples-dubbo项目
 
-下载[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)，调整`spring-dubbo.xml`
-的注册地址为你本地，如：
+下载[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
+
+修改 `shenyu-examples-alibaba-dubbo-service/src/main/resources/spring-dubbo.xml` 中的注册地址为你本地，如：
 ```xml
 <dubbo:registry address="zookeeper://localhost:2181"/>
 ```
-运行`TestApacheDubboApplication`main方法启动dubbo项目。
+运行 `org.apache.shenyu.examples.alibaba.dubbo.service.TestAlibabaDubboApplication` 中的main方法启动项目。
+
 成功启动会有如下日志：
 ```shell
 2021-02-06 20:58:01.807  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/insert","pathDesc":"Insert a row of data","rpcType":"dubbo","serviceName":"org.dromara.shenyu.examples.dubbo.api.service.DubboTestService","methodName":"insert","ruleName":"/dubbo/insert","parameterTypes":"org.dromara.shenyu.examples.dubbo.api.entity.DubboTest","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
@@ -37,6 +39,8 @@ description: Dubbo快速开始
 * 首先在 `shenyu-admin` 插件管理中，把`dubbo` 插件设置为开启。
 * 其次在 `dubbo ` 插件中配置你的注册地址，或者其他注册中心的地址。
 
+![](/img/shenyu/quick-start/dubbo/dubbo-enable-zh.jpg)
+
 ## 测试
 
 `shenyu-examples-dubbo`项目成功启动之后会自动把加 `@ShenyuDubboClient` 注解的接口方法注册到网关。
@@ -45,18 +49,18 @@ description: Dubbo快速开始
 
 ![](/img/shenyu/quick-start/dubbo/rule-list.jpg)
 
-下面使用postman模拟http的方式来请求你的dubbo服务
+下面使用`postman`模拟`http`的方式来请求你的`dubbo`服务
 
 ![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 
-复杂多参数示例：对应接口实现类为`org.apache.shenyu.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`
+复杂多参数示例：对应接口实现类为`org.apache.shenyu.examples.alibaba.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`
 ```java
 @Override
 @ShenyuDubboClient(path = "/batchSaveAndNameAndId")
 public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id, String name) {
     DubboTest test = new DubboTest();
     test.setId(id);
-    test.setName("hello world shenyu apache dubbo param batchSaveAndNameAndId :" + name + ":" + dubboTestList.stream().map(DubboTest::getName).collect(Collectors.joining("-")));
+    test.setName("hello world shenyu alibaba dubbo param batchSaveAndNameAndId :" + name + ":" + dubboTestList.stream().map(DubboTest::getName).collect(Collectors.joining("-")));
     return test;
 }
 ```

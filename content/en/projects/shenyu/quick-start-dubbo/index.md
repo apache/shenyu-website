@@ -11,11 +11,13 @@ Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `she
 
 ## Run the shenyu-examples-dubbo project
 
-Download[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+Download[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
+
+replace the register address in `shenyu-examples-alibaba-dubbo-service/src/main/resources/spring-dubbo.xml` with your local zk address, such as:
 ```xml
 <dubbo:registry address="zookeeper://localhost:2181"/>
 ```
-Execute the `TestApacheDubboApplication` main method to start dubbo project.
+Execute the `org.apache.shenyu.examples.alibaba.dubbo.service.TestAlibabaDubboApplication` main method to start dubbo project.
 
 The following log appears when the startup is successful:
 ```shell
@@ -37,6 +39,8 @@ The following log appears when the startup is successful:
 * first enabled the `dubbo` plugin in the `shenyu-admin` plugin management.
 * then configure your registry address in `dubbo `.
 
+![](/img/shenyu/quick-start/dubbo/dubbo-enable-en.jpg)
+
 ## Testing
 
 The `shenyu-examples-dubbo` project will automatically register interface methods annotated with `@ShenyuDubboClient` in the shenyu gateway after successful startup.
@@ -45,18 +49,18 @@ Open Plugin Management -> dubbo to see the list of plugin rule configurations
 
 ![](/img/shenyu/quick-start/dubbo/rule-list.jpg)
 
-Use PostMan to simulate HTTP to request your Dubbo service
+Use `PostMan` to simulate `HTTP` to request your `Dubbo` service
 
 ![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 
-Complex multi-parameter example: The related interface implementation class is `org.apache.shenyu.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`.
+Complex multi-parameter example: The related interface implementation class is `org.apache.shenyu.examples.alibaba.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`.
 ```java
 @Override
 @ShenyuDubboClient(path = "/batchSaveAndNameAndId")
 public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id, String name) {
     DubboTest test = new DubboTest();
     test.setId(id);
-    test.setName("hello world shenyu apache dubbo param batchSaveAndNameAndId :" + name + ":" + dubboTestList.stream().map(DubboTest::getName).collect(Collectors.joining("-")));
+    test.setName("hello world shenyu alibaba dubbo param batchSaveAndNameAndId :" + name + ":" + dubboTestList.stream().map(DubboTest::getName).collect(Collectors.joining("-")));
     return test;
 }
 ```

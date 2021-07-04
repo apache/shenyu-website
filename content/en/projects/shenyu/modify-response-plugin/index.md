@@ -1,7 +1,7 @@
 ---
-title: ModifyResponse插件
+title: ModifyResponse Plugin
 keywords: modifyResponse
-description: modifyResponse插件
+description: modifyResponse Plugin
 ---
 
 ## 说明

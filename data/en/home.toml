@@ -30,7 +30,7 @@
 
 [[soul_features_sub]]
 	title = "Rich protocols"
-	description = "Supports dubbo ，tars， springcloud grpc。"
+	description = "Supports Dubbo, Tars, Spring-Cloud, gRPC."
 	img = "img/home/cd-cloud-native-architecture.png"
 	position = "INIT"
 
@@ -60,5 +60,5 @@
 	position = "BR"
 
 [subscription]
-	title = "Interested in receiving the latest SOFA news?"
+	title = "Interested in receiving the latest ShenYu news?"
 	button = "Subscribe"

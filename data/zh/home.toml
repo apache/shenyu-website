@@ -1,13 +1,13 @@
 [slogan]
 	title = "Apache ShenYu (Incubating)"
-	description = "高性能，多协议，易扩展，响应式的API Gateway"
+	description = "高性能，多协议，易扩展，响应式的API网关"
 	quick_start_text = "快速开始"
 	quick_start_link = "/zh/projects/shenyu/overview"
 	github_link = "https://github.com/apache/incubator-shenyu"
 
 [[feature]]
 	title = "开放"
-	description = "技术栈全面开源共建、 保持社区中立、兼容社区 兼容开源生态，随时欢迎参与各种贡献"
+	description = "技术栈全面开源共建，保持社区中立，兼容社区，兼容开源生态，随时欢迎参与各种贡献"
 	img = "img/home/dromara_open.png"
 [[feature]]
 	title = "高性能"
@@ -15,7 +15,7 @@
 	img = "img/home/dromara_gateway.png"
 [[feature]]
 	title = "插件化"
-	description = "插件化设计思想，插件热插拔，易扩展。内置丰富的插件支持，鉴权，限流，熔断，防火墙等"
+	description = "插件化设计思想，插件热插拔，易扩展。内置丰富的插件，支持鉴权、限流、熔断、防火墙等"
 	img = "img/home/dromara_distributed_transaction.png"
 
 [[soul_description]]
@@ -30,7 +30,7 @@
 
 [[soul_features_sub]]
 	title = "丰富的协议"
-	description = "支持 dubbo ，tars， springcloud grpc。"
+	description = "支持 Dubbo，Tars，Spring-Cloud，gRPC。"
 	img = "img/home/cd-cloud-native-architecture.png"
 	position = "INIT"
 
@@ -60,5 +60,5 @@
 	position = "BR"
 
 [subscription]
-	title = "希望订阅最新的 Dromara 消息？"
+	title = "希望订阅最新的 ShenYu 消息？"
 	button = "订阅"

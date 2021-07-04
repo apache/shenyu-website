@@ -117,6 +117,8 @@ sidebar:
         link: 'redirect-plugin'
       - title: 'Logging Plugin'
         link: 'logging-plugin'
+      - title: 'ModifyResponse Plugin'
+        link: 'modify-response-plugin'
   - title: 'Developer Guide'
     sub:
       - title: 'Custom filter'

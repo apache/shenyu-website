@@ -118,6 +118,8 @@ sidebar:
         link: 'redirect-plugin'
       - title: 'Logging插件'
         link: 'logging-plugin'
+      - title: 'ModifyResponse插件'
+        link: 'modify-response-plugin'
   - title: '开发者文档'
     sub:
       - title: '自定义filter'

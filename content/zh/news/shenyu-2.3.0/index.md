@@ -57,7 +57,6 @@ cover: "/img/architecture/shenyu-framework.png"
 ## 鸣谢
 这是一次具有里程碑意义的发布，也是 shenyu 网关，正式正规的一次变革，我们的 dashboard, 代码，文档， issue， PR 全部英文国际化，整个项目的单元测试覆盖率达到了百分之70。再次感谢你们的辛苦付出。虽然我们完成了非常多的功能（在上面我没有完全列举），但是在接下来，我们会有更多的挑战，我相信有你们在，这并不是我们的终点，而是我们腾飞起点。
 
-![contributor](shenyu2.3.0-contributor.png)
 ## 加入我们
 目前 shenyu 处于高速发展阶段，如果你追求写高质量的代码，或者想深刻的理解API网关，或者享受开源的乐趣，结识很多优秀的朋友，欢迎大家加入我们的社区。
 - github : https://github.com/apache/incubator-shenyu

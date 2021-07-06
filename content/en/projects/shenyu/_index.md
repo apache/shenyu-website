@@ -117,6 +117,10 @@ sidebar:
         link: 'redirect-plugin'
       - title: 'Logging Plugin'
         link: 'logging-plugin'
+      - title: 'OAuth2 Plugin'
+        link: 'oauth2-plugin'
+      - title: 'JWT Plugin'
+        link: 'jwt-plugin'
   - title: 'Developer Guide'
     sub:
       - title: 'Custom filter'

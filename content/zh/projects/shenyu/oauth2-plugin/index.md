@@ -21,13 +21,13 @@ description:  OAuth 2插件
 - 在网关的pom文件中添加`oauth2`的支持
   
 ```xml
-  <!-- shenyu jwt plugin start-->
+  <!-- shenyu oauth2 plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-oauth2</artifactId>
       <version>${last.version}</version>
   </dependency>
-  <!-- shenyu jwt plugin end-->
+  <!-- shenyu oauth2 plugin end-->
   
 ``` 
 

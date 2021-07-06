@@ -21,13 +21,13 @@ description: oauth2 plugin
 - Add support for `oauth2` to the pom file of the gateway
 
 ```xml
-  <!-- shenyu jwt plugin start-->
+  <!-- shenyu oauth2 plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-oauth2</artifactId>
       <version>${last.version}</version>
   </dependency>
-  <!-- shenyu jwt plugin end-->
+  <!-- shenyu oauth2 plugin end-->
   
 ``` 
 

@@ -6,90 +6,89 @@ categories: "Apache ShenYu"
 tags: ["Issue-PR"]
 ---
 
-## Create Issues
+## 创建问题
 
-* If you have any problems, you can choose to create an issue to describe.
-  
-* It has 4 types which are: Bug Report, Feature Request, Question and Task.
-  
-* Please follow the template for each type, if the more detailed your information is, the more it will help to solve your problem.
-  
-## Commit Messages 
 
-Format is : `<type> (<module>) : <body>`.
+* 如果您有任何问题，您可以选择创建一个问题来描述。
 
-`<type>`: Define your modify type, Including but not limited to the following:
+* 它有 4 种类型：错误报告、功能请求、问题和任务。
 
-* refactor
-* fix
+* 请遵循每种类型的模板，如果您的信息越详细，就越有助于解决您的问题。
+
+## 提交代码 
+
+格式为 : `<type> (<module>) : <body>` 
+
+`<type>`： 定义您的修改类型，包括但不限于以下内容：
+
+* refactor 
+* fix 
 * docs
-* test
-* feature
+* test 
+* feature 
 ...
 
-`<module>`: Any of the modules belonging to the shenyu project,Please strictly follow the name of the project, Including but not limited to the following:
+`<module>`： 属于shenyu项目的任何模块，请严格按照项目名称，包括但不限于以下内容：
 
-* admin
-* client
-* common
-* metrics
-* spi
-* plugin-grpc
-* plugin-alibaba-dubbo
-* register-client-nacos
+* admin  
+* client 
+* common 
+* metrics 
+* spi 
+* plugin-grpc 
+* plugin-alibaba-dubbo 
+* register-client-nacos 
 ...
 
-`<body>`:Short description for commit messages. Please note the following rules:
+`<body>`：提交代码的描述尽量简短。有以下规则：
 
-* No need for any capitalized words
+* 不需要任何大写的单词
 
-* Please end with `.`
+* 以 `.` 结尾
 
-for example:
+举个例子：
 
 * refactor admin : modify some error log.
 * fix plugin-grpc : modify   result error.
 * feature plugin-alibaba-dubbo : add request for tag router.
 
 
-## Pull Request 
+## 拉取请求 
 
-First of all, before Pull Request, you have to create issueNo Format is : [ISSUE #{issue number}] `<body>`.
+首先，在 Pull Request 之前，你必须创建 issueNo 格式为： `[ISSUE #{issue number}] <body>`。
 
-Please note the following rules:
+请注意以下规则：
 
-* A space is required between ISSUE and issue number.
-* `<body>` : The first word needs to be capitalized, Other words no longer appear in capital letters.
+* ISSUE 和问题编号之间需要一个空格。
+* `<body>` : 第一个单词需要大写，其他单词不要再出现大写。
 
-for example:
+举个例子：
 
 * [ISSUE #123] Support spring cloud grayscale release.
 
 * [ISSUE #456] Fix dubbo plugin have some error.
 
 
-## Issue Label
+## 问题标签
 
-We need to Label to all issues. All of shenyu community's lists are here : https://github.com/dromara/shenyu/labels.
+我们需要标记所有问题。shenyu社区的所有列表都在这里 : https://github.com/dromara/shenyu/labels。
 
-In general, an issue should be marked with 2 Label. One is the type of issue, and the other is the project module to which the issue belongs.
+一般来说，一个问题应该用2个标签来标记。一个是问题的类型，另一个是问题所属的项目模块。
 
-Except for the following Labels:
+除了以下标签:
 
 * [type: build]
 * [type: community]
-* [type: discussion]
-* [type: duplicate]
-* [TODO-LIST]
+      @@ -84,12 +85,12 @@ Except for the following Labels:
 * [status: wontfix]
 ...
 
-## Merged Pull Request
+## 合并拉取请求
 
-* All pull request must be approve and review.
+* 所有的pull request都必须经过批准和审查。
 
-* Give appropriate advice whenever possible.
+* 尽可能提供适当的建议。
 
-* In general, pull request   should be marked with 2 Lable and must set milestone.
+* 一般来说，pull request 应该标有 2 个 Lable 并且必须设置进度表。
 
-* After the merge is completed, need to check if the associated issueNo is closed.  
+* 合并完成后，需要检查关联的 `issueNo` 是否关闭。  

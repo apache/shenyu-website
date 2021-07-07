@@ -35,9 +35,11 @@ description: modifyResponse插件
 ## 修改响应插件使用指南
 * 1.配置选择器
 * 2.配置规则
-* 3.修改响应请求头
+* 3.修改响应状态码
+![](/img/shenyu/plugin/modify-response/modifyStatus-cn.png)
+* 4.修改响应请求头
 ![](/img/shenyu/plugin/modify-response/modifyHeader-cn.png)
-* 4.修改响应内容
+* 5.修改响应内容
 ![](/img/shenyu/plugin/modify-response/modifyBody-cn.png)
 * 参数详情:
   * addHeaders: 添加请求头，键值对形式

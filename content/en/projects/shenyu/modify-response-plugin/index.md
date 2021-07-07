@@ -35,9 +35,11 @@ description: modifyResponse Plugin
 ## ModifyResponsePlugin Guide
 * 1.Configuration selector
 * 2.Configuration rule
-* 3.modify response header
+* 3.modify response statusCode
+  ![](/img/shenyu/plugin/modify-response/modifyStatus-en.png)
+* 4.modify response header
   ![](/img/shenyu/plugin/modify-response/modifyHeader-en.png)
-* 4.modify response body
+* 5.modify response body
   ![](/img/shenyu/plugin/modify-response/modifyBody-en.png)
 * param details:
   * addHeaders: add response header，key-value.

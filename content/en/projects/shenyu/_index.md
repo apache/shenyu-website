@@ -119,6 +119,10 @@ sidebar:
         link: 'logging-plugin'
       - title: 'ModifyResponse Plugin'
         link: 'modify-response-plugin'
+      - title: 'OAuth2 Plugin'
+        link: 'oauth2-plugin'
+      - title: 'JWT Plugin'
+        link: 'jwt-plugin'
   - title: 'Developer Guide'
     sub:
       - title: 'Custom filter'

@@ -1,14 +1,34 @@
 ---
-title: 数据同步设计
+title: 数据同步
 keywords: shenyu
-description: 数据同步设计
+description: 数据同步
 ---
 
-## 说明
 
-本篇主要讲解数据库同步的三种方式，以及原理。
+## 场景
 
-## 前言
+* 本篇是对 shenyu-admin 后台操作数据以后，同步到网关的流程介绍。
+
+#### 使用
+
+* 用户可以在 shenyu-admin 后台任意修改数据，并马上同步到网关的 jvm 内存中。
+* 同步 ShenYu 的插件数据，选择器，规则数据，元数据，签名数据等等。
+* 所有插件的选择器，规则都是动态配置，立即生效，不需要重启服务。
+
+* 下面是数据流程图：
+ ![](/img/shenyu/dataSync/plugin-data.png)
+
+#### 作用
+
+* 用户所有的配置都可以动态的更新，任何修改不需要重启服务。
+* 使用了本地缓存，在高并发的时候，提供高效的性能。
+
+
+## 数据同步原理
+
+本篇主要讲解数据库同步的四种方式，以及原理和使用。
+
+### 前言
 
 网关是流量请求的入口，在微服务架构中承担了非常重要的角色，网关高可用的重要性不言而喻。在使用网关的过程中，为了满足业务诉求，经常需要变更配置，比如流控规则、路由规则等等。因此，网关动态配置是保障网关高可用的重要因素。那么，`ShenYu` 网关又是如何支持动态配置的呢？
 
@@ -30,7 +50,7 @@ description: 数据同步设计
 
 `ShenYu` 作为网关，为了提供更高的响应速度，所有的配置都缓存在JVM的Hashmap中，每次请求都走的本地缓存，速度非常快。所以本文也可以理解为分布式环境中，内存同步的三种方式。
 
-## 原理分析
+### 原理分析
 
 先来张高清无码图，下图展示了 `ShenYu` 数据同步的流程，`ShenYu` 网关在启动时，会从配置服务同步配置数据，并且支持推拉模式获取配置变更信息，并且更新本地缓存。而管理员在管理后台，变更用户、规则、插件、流量配置，通过推拉模式将变更信息同步给 `ShenYu` 网关，具体是 `push` 模式，还是 `pull` 模式取决于配置。关于配置同步模块，其实是一个简版的配置中心。
 <img src="/img/shenyu/dataSync/shenyu-config-processor-zh.png" width="90%" height="80%" />
@@ -45,7 +65,7 @@ description: 数据同步设计
 
 <img src="/img/shenyu/dataSync/config-strategy-processor-zh.png" width="90%" height="80%" />
 
-## Zookeeper 同步
+### Zookeeper 同步
 
 基于 zookeeper 的同步原理很简单，主要是依赖 `zookeeper` 的 watch 机制，`shenyu-web` 会监听配置的节点，`shenyu-admin` 在启动的时候，会将数据全量写入 `zookeeper`，后续数据发生变更时，会增量更新 `zookeeper` 的节点，与此同时，`shenyu-web` 会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
@@ -53,7 +73,7 @@ description: 数据同步设计
 
 `ShenYu` 将配置信息写到zookeeper节点，是通过精细设计的。
 
-## Websocket 同步
+### Websocket 同步
 
 `websocket` 和 `zookeeper` 机制有点类似，将网关与 `shenyu-admin` 建立好 `websocket` 连接时，`shenyu-admin` 会推送一次全量数据，后续如果配置数据发生变更，则将增量数据通过 `websocket` 主动推送给 `shenyu-web`
 
@@ -90,7 +110,7 @@ public class WebsocketSyncCache extends WebsocketCacheHandler {
     }
 ```
 
-## Http长轮询
+### Http长轮询
 
 zookeeper、websocket 数据同步的机制比较简单，而 http ShenYu 借鉴了 `Apollo`、`Nacos` 的设计思想，取其精华，自己实现了 `http` 长轮询数据同步功能。注意，这里并非传统的 ajax 长轮询！
 
@@ -159,14 +179,172 @@ class DataChangeTask implements Runnable {
 
 当 `shenyu-web` 网关层接收到 http 响应信息之后，拉取变更信息（如果有变更的话），然后再次请求 `shenyu-admin` 的配置服务，如此反复循环。
 
-## 仓库地址
 
-github: https://github.com/apache/incubator-shenyu
+## 数据同步策略
 
-gitee: https://gitee.com/Apache-ShenYu/incubator-shenyu
+* 数据同步是指将 `shenyu-admin` 配置的数据，同步到 `ShenYu` 集群中的JVM内存里面，是网关高性能的关键。
 
-项目主页上还有视频教程，有需要的朋友可以去观看。
 
-## 最后
+* 文中所说的网关，是指你搭建的网关环境，请看：[搭建环境](../shenyu-set-up)。
 
-此文介绍了 `ShenYu` 作为一个高可用的微服务网关，为了优化响应速度，在对配置、规则、选择器数据进行本地缓存的三种方式，学了此文，我相信你对现在比较流行的配置中心有了一定的了解，看他们的代码也许会变得容易，我相信你也可以自己写一个分布式配置中心出来。3.0版本已经在规划中，肯定会给大家带来惊喜。
+### Websocket同步（默认方式，推荐）
+
+* 网关配置（记得重启）
+
+    * 首先在 `pom.xml` 文件中 引入以下依赖：
+
+    ```xml
+    <!--shenyu data sync start use websocket-->
+    <dependency>
+      <groupId>org.apache.shenyu</groupId>
+      <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
+      <version>${last.version}</version>
+    </dependency>
+    ```
+   * 在 springboot的 yml 文件中进行如下配置:
+
+  ```yaml
+  shenyu:
+      sync:
+          websocket :
+               urls: ws://localhost:9095/websocket
+  #urls:是指 shenyu-admin的地址，如果有多个，请使用（,）分割.
+   ```
+
+    * shenyu-admin 配置，或在 shenyu-admin 启动参数中设置 `--shenyu.sync.websocket='' `，然后重启服务。
+
+    ```yaml
+    shenyu:
+      sync:
+         websocket:
+    ```
+
+* 当建立连接以后会全量获取一次数据，以后的数据都是增量的更新与新增，性能好。
+
+* 支持断线重连 （默认30秒）。
+
+
+### Zookeeper同步
+
+* 网关配置（记得重启）
+
+    * 首先在 `pom.xml` 文件中 引入以下依赖：
+
+ ```xml
+    <!--shenyu data sync start use zookeeper-->
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
+        <version>${last.version}</version>
+    </dependency>
+ ```
+
+   * 在 springboot的 yml 文件中进行如下配置:
+
+    ```yaml
+    shenyu:
+      sync:
+        zookeeper:
+          url: localhost:2181
+          sessionTimeout: 5000
+          connectionTimeout: 2000
+          #url: 配置成你的zk地址，集群环境请使用（,）分隔
+    ```
+
+   * shenyu-admin 配置, 或在 shenyu-admin 启动参数中设置 `--shenyu.sync.zookeeper.url='你的地址' `,然后重启服务。
+
+```yaml
+shenyu:
+  sync:
+    zookeeper:
+        url: localhost:2181
+        sessionTimeout: 5000
+        connectionTimeout: 2000
+```
+* 使用zookeeper同步机制也是非常好的,时效性也高，我们生产环境使用的就是这个，但是也要处理zk环境不稳定，集群脑裂等问题.
+
+### Http长轮询同步
+
+* 网关配置（记得重启）
+
+    * 首先在 `pom.xml` 文件中 引入以下依赖：
+
+    ```xml
+    <!--shenyu data sync start use http-->
+    <dependency>
+       <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
+        <version>${last.version}</version>
+    </dependency>
+    ```
+
+   * 在 springboot的 yml 文件中进行如下配置:
+
+   ```yaml
+  shenyu:
+      sync:
+          http:
+               url: http://localhost:9095
+  #url: 配置成你的 shenyu-admin 的 ip 与端口地址，多个admin集群环境请使用（,）分隔。
+   ```
+    * shenyu-admin 配置, 或在 shenyu-admin 启动参数中设置 `--shenyu.sync.http='' `,然后重启服务。
+
+    ```yaml
+    shenyu:
+      sync:
+         http:
+    ```
+
+* http长轮询使得网关很轻量，时效性略低。
+
+* 其根据分组key来拉取，如果数据量过大，过多，会有一定的影响。 什么意思呢？就是一个组下面的一个小地方更改，会拉取整个的组数据。
+
+* 在shenyu-admin 集群时候，可能会有bug。
+
+### Nacos同步
+
+* 网关配置（记得重启）
+
+    * 首先在 `pom.xml` 文件中 引入以下依赖：
+
+    ```xml
+    <!--shenyu data sync start use nacos-->
+      <dependency>
+           <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
+            <version>${last.version}</version>
+      </dependency>
+    ```
+
+    * 在 springboot的 yml 文件中进行如下配置:
+
+    ```yaml
+    shenyu:
+      sync:
+         nacos:
+              url: localhost:8848
+              namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+              acm:
+                enabled: false
+                endpoint: acm.aliyun.com
+                namespace:
+                accessKey:
+                secretKey:
+    #url: 配置成你的nacos地址，集群环境请使用（,）分隔。
+    # 其他参数配置，请参考naocs官网。
+    ```
+* shenyu-admin 配置, 或在 shenyu-admin 启动参数中使用 `--` 的方式一个一个传值
+
+```yaml
+shenyu:
+  sync:
+    nacos:
+     url: localhost:8848
+     namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+     acm:
+       enabled: false
+       endpoint: acm.aliyun.com
+       namespace:
+       accessKey:
+       secretKey:
+```

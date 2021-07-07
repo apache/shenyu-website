@@ -34,7 +34,7 @@ sidebar:
     link: 'overview'
   - title: '设计文档'
     sub:
-      - title: 'Apache ShenYu Admin数据结构'
+      - title: 'ShenYu Admin数据结构'
         link: 'database-design'      
       - title: '数据同步'
         link: 'data-sync'

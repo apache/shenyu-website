@@ -139,7 +139,6 @@ sidebar:
             link: 'monitor-plugin' 
           - title: 'Logging插件'
             link: 'logging-plugin'
-            
   - title: '开发者文档'
     sub:
       - title: '自定义filter'

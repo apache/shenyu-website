@@ -55,10 +55,10 @@ description: modifyResponse插件
 
 上面的配置，插件开启前，响应内容为
 ```json
-"id":3,"name":"hello world findById"}
+{"id":3,"name":"hello world findById"}
 ```
 插件开启后，响应内容为
 ```json
-"id2":3,"add":"4"}
+{"id2":3,"add":"4"}
 ```
 

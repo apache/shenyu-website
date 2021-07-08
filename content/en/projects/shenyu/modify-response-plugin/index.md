@@ -55,10 +55,10 @@ modify response body is achieved through JSONPath,`$.` represents the root direc
 
 use the configuration，unopened the plugin，response body is
 ```json
-"id":3,"name":"hello world findById"}
+{"id":3,"name":"hello world findById"}
 ```
 open the plugin，response body is
 ```json
-"id2":3,"add":"4"}
+{"id2":3,"add":"4"}
 ```
 

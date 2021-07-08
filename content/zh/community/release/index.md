@@ -361,7 +361,7 @@ Hello ShenYu Community,
 This is a call for vote to release Apache ShenYu version ${RELEASE.VERSION}
 
 Release notes:
-https://github.com/apache/incubator/shenyu/blob/master/RELEASE-NOTES.md
+https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 The release candidates:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION}/
@@ -537,7 +537,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/projects/shenyu/download/
 
-Release Notes: https://github.com/apache/incubator/shenyu/blob/master/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 

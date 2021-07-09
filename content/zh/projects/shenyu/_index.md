@@ -97,6 +97,8 @@ sidebar:
             link: 'context-path-plugin'
           - title: 'Param-mapping插件'
             link: 'param-mapping-plugin'
+          - title: 'ModifyResponse插件'
+            link: 'modify-response-plugin'
       - title: 'RPC 代理'
         sub: 
           - title: 'Dubbo插件'
@@ -137,7 +139,6 @@ sidebar:
             link: 'monitor-plugin' 
           - title: 'Logging插件'
             link: 'logging-plugin'
-
   - title: '开发者文档'
     sub:
       - title: '自定义filter'

@@ -4,255 +4,175 @@ keywords: shenyu
 description: 数据同步
 ---
 
+本篇主要讲解在 `shenyu-admin` 后台操作数据以后，如何将数据同步到 `ShenYu` 网关，内容包括数据同步的背景、原理及使用。
 
-## 场景
-
-* 本篇是对 shenyu-admin 后台操作数据以后，同步到网关的流程介绍。
-
-#### 使用
-
-* 用户可以在 shenyu-admin 后台任意修改数据，并马上同步到网关的 jvm 内存中。
-* 同步 ShenYu 的插件数据，选择器，规则数据，元数据，签名数据等等。
-* 所有插件的选择器，规则都是动态配置，立即生效，不需要重启服务。
-
-* 下面是数据流程图：
- ![](/img/shenyu/dataSync/plugin-data.png)
-
-#### 作用
-
-* 用户所有的配置都可以动态的更新，任何修改不需要重启服务。
-* 使用了本地缓存，在高并发的时候，提供高效的性能。
+<img src="/img/shenyu/dataSync/shenyu-data-sync-content.png" width="60%" height="50%" />
 
 
-## 数据同步原理
+### 背景
 
-本篇主要讲解数据库同步的四种方式，以及原理和使用。
+网关是流量请求的入口，在微服务架构中承担了非常重要的角色，网关高可用的重要性不言而喻。在使用网关的过程中，为了满足业务诉求，经常需要变更配置，比如流控规则、路由规则等等。因此，网关动态配置是保障网关高可用的重要因素。
 
-### 前言
 
-网关是流量请求的入口，在微服务架构中承担了非常重要的角色，网关高可用的重要性不言而喻。在使用网关的过程中，为了满足业务诉求，经常需要变更配置，比如流控规则、路由规则等等。因此，网关动态配置是保障网关高可用的重要因素。那么，`ShenYu` 网关又是如何支持动态配置的呢？
+在实际使用 `ShenYu` 网关过程中，用户也反馈了一些问题：
 
-使用过 `ShenYu` 的同学都知道，`ShenYu` 的插件全都是热插拔的，并且所有插件的选择器、规则都是动态配置，立即生效，不需要重启服务。但是我们在使用 `ShenYu` 网关过程中，用户也反馈了不少问题
+ * 依赖 `Zookeeper`，怎么使用 `Etcd`、`Consul`、`Nacos`等其他注册中心？
+ * 依赖 `Redis`、`influxdb`，没有使用限流插件、监控插件，为什么需要这些？
+ * 配置同步为什么不使用配置中心？
+ * 为什么不能动态配置更新？
+ * 每次都要查询数据库，使用`Redis`不就行了吗？
 
-- 依赖 `zookeeper`，这让使用 `etcd`、`consul`、`nacos` 注册中心的用户很是困扰
-- 依赖 `redis`、`influxdb`，我还没有使用限流插件、监控插件，为什么需要这些
+根据用户的反馈信息，我们对 `ShenYu` 也进行了部分的重构，当前数据同步特性如下：
 
-因此，我们对 `ShenYu` 进行了局部重构，历时两个月的版本迭代，我们发布了 `2.0` 版本
-
-- 数据同步方式移除了对 `zookeeper` 的强依赖，新增 `http 长轮询` 以及 `websocket`
-- 限流插件与监控插件实现真正的动态配置，由之前的 `yml` 配置，改为 `shenyu-admin` 后台用户动态配置
-
-*配置同步为什么不使用配置中心呢？*
-
-首先，引入配置中心，会增加很多额外的成本，不光是运维，而且会让 `ShenYu` 变得很重；另外，使用配置中心，数据格式不可控，不便于 `shenyu-admin` 进行配置管理。
-
-*动态配置更新？每次我查数据库，或者redis不就行了吗？拿到的就是最新的，哪里那么多事情呢？*
-
-`ShenYu` 作为网关，为了提供更高的响应速度，所有的配置都缓存在JVM的Hashmap中，每次请求都走的本地缓存，速度非常快。所以本文也可以理解为分布式环境中，内存同步的三种方式。
+- 所有的配置都缓存在 `ShenYu` 网关内存中，每次请求都使用本地缓存，速度非常快。
+- 用户可以在 `shenyu-admin` 后台任意修改数据，并马上同步到网关内存。
+- 支持 `ShenYu` 的插件、选择器、规则数据、元数据、签名数据等数据同步。
+- 所有插件的选择器，规则都是动态配置，立即生效，不需要重启服务。
+- 数据同步方式支持 `Zookeeper`、`Http 长轮询`、`Websocket`、`Nacos`和`Etcd`。
 
 ### 原理分析
 
-先来张高清无码图，下图展示了 `ShenYu` 数据同步的流程，`ShenYu` 网关在启动时，会从配置服务同步配置数据，并且支持推拉模式获取配置变更信息，并且更新本地缓存。而管理员在管理后台，变更用户、规则、插件、流量配置，通过推拉模式将变更信息同步给 `ShenYu` 网关，具体是 `push` 模式，还是 `pull` 模式取决于配置。关于配置同步模块，其实是一个简版的配置中心。
-<img src="/img/shenyu/dataSync/shenyu-config-processor-zh.png" width="90%" height="80%" />
+下图展示了 `ShenYu` 数据同步的流程，`ShenYu` 网关在启动时，会从配置服务同步配置数据，并且支持推拉模式获取配置变更信息，然后更新本地缓存。管理员可以在管理后台（`shenyu-admin`），变更用户权限、规则、插件、流量配置，通过推拉模式将变更信息同步给 `ShenYu` 网关，具体是 `push` 模式，还是 `pull` 模式取决于使用哪种同步方式。
+ 
+ ![](/img/shenyu/dataSync/plugin-data.png)
 
-在 `1.x` 版本中，配置服务依赖 `zookeeper` 实现，管理后台将变更信息 `push` 给网关。而 `2.x` 版本支持 `webosocket`、`http`、`zookeeper`，通过 `shenyu.sync.strategy` 指定对应的同步策略，默认使用 `webosocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`shenyu-web` 和 `shenyu-admin` 必须使用相同的同步机制。
+在最初的版本中，配置服务依赖 `Zookeeper` 实现，管理后台将变更信息 `push` 给网关。而现在可以支持 `WebSocket`、`Http长轮询`、`Zookeeper`、`Nacos`和`Etcd`，通过在配置文件中设置 `shenyu.sync.${strategy}` 指定对应的同步策略，默认使用 `webosocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。
 
-如下图所示，`shenyu-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(http、weboscket、zookeeper)，将配置发送给对应的事件处理器
+如下图所示，`shenyu-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(`http、weboscket、zookeeper、naocs、etcd`)，将配置发送给对应的事件处理器。
 
-- 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketCacheHandler` 处理器来处理 `shenyu-admin` 的数据推送
-- 如果是 `zookeeper` 同步策略，将变更数据更新到 `zookeeper`，而 `ZookeeperSyncCache` 会监听到 `zookeeper` 的数据变更，并予以处理
-- 如果是 `http` 同步策略，`shenyu-web` 主动发起长轮询请求，默认有 90s 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 http 请求，如果有数据发生变更则响应变更的数据信息，如果超过 60s 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 http 请求，反复同样的请求
+- 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketCacheHandler` 处理器来处理 `shenyu-admin` 的数据推送。
+- 如果是 `zookeeper` 同步策略，将变更数据更新到 `zookeeper`，而 `ZookeeperSyncCache` 会监听到 `zookeeper` 的数据变更，并予以处理。
+- 如果是 `http` 同步策略，由网关主动发起长轮询请求，默认有 `90s` 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 `http` 请求，如果有数据发生变更则响应变更的数据信息，如果超过 `60s` 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 `http` 请求，反复同样的请求。
 
 <img src="/img/shenyu/dataSync/config-strategy-processor-zh.png" width="90%" height="80%" />
 
-### Zookeeper 同步
+### Zookeeper同步原理
 
-基于 zookeeper 的同步原理很简单，主要是依赖 `zookeeper` 的 watch 机制，`shenyu-web` 会监听配置的节点，`shenyu-admin` 在启动的时候，会将数据全量写入 `zookeeper`，后续数据发生变更时，会增量更新 `zookeeper` 的节点，与此同时，`shenyu-web` 会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
+基于 `zookeeper` 的同步原理很简单，主要是依赖 `zookeeper` 的 `watch` 机制。`ShenYu`网关会监听配置的节点，`shenyu-admin` 在启动的时候，会将数据全量写入 `zookeeper`，后续数据发生变更时，会增量更新 `zookeeper` 的节点，与此同时，`ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
 ![zookeeper节点设计](https://yu199195.github.io/images/soul/soul-zookeeper.png)
 
-`ShenYu` 将配置信息写到zookeeper节点，是通过精细设计的。
+`ShenYu` 将配置信息写到`zookeeper`节点，是通过精心设计的，如果您想深入了解代码实现，请参考源码 `ZookeeperSyncDataService`。
 
-### Websocket 同步
+### WebSocket同步原理
 
-`websocket` 和 `zookeeper` 机制有点类似，将网关与 `shenyu-admin` 建立好 `websocket` 连接时，`shenyu-admin` 会推送一次全量数据，后续如果配置数据发生变更，则将增量数据通过 `websocket` 主动推送给 `shenyu-web`
+`websocket` 和 `zookeeper` 机制有点类似，将网关与 `shenyu-admin` 建立好 `websocket` 连接时，`shenyu-admin` 会推送一次全量数据，后续如果配置数据发生变更，则以增量形式将变更数据通过 `websocket` 主动推送给 `ShenYu`网关。
 
-使用websocket同步的时候，特别要注意断线重连，也叫保持心跳。`ShenYu`使用`java-websocket` 这个第三方库来进行`websocket`连接。
+使用 `websocket` 同步的时候，特别要注意断线重连，也就是要保持心跳。`ShenYu`使用`java-websocket` 这个第三方库来进行`websocket`连接。
+如果您想深入了解代码实现，请参考源码 `WebsocketSyncDataService`。
 
-```java
-public class WebsocketSyncCache extends WebsocketCacheHandler {
-    /**
-     * The Client.
-     */
-    private WebSocketClient client;
 
-    public WebsocketSyncCache(final ShenyuConfig.WebsocketConfig websocketConfig) {
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1,
-                ShenyuThreadFactory.create("websocket-connect", true));
-         client = new WebSocketClient(new URI(websocketConfig.getUrl())) {
-                @Override
-                public void onOpen(final ServerHandshake serverHandshake) {
-                  //....
-                }
-                @Override
-                public void onMessage(final String result) {
-                  //....
-                }
-            };
-        //进行连接
-        client.connectBlocking();
-        //使用调度线程池进行断线重连，30秒进行一次
-        executor.scheduleAtFixedRate(() -> {
-            if (client != null && client.isClosed()) {
-                    client.reconnectBlocking();
-            }
-        }, 10, 30, TimeUnit.SECONDS);
-    }
-```
+### Http长轮询同步原理
 
-### Http长轮询
-
-zookeeper、websocket 数据同步的机制比较简单，而 http ShenYu 借鉴了 `Apollo`、`Nacos` 的设计思想，取其精华，自己实现了 `http` 长轮询数据同步功能。注意，这里并非传统的 ajax 长轮询！
+`Zookeeper`和`WebSocket` 数据同步的机制比较简单，而 `Http长轮询`则比较复杂。 `ShenYu` 借鉴了 `Apollo`、`Nacos` 的设计思想，取其精华，自己实现了 `Http长轮询`数据同步功能。注意，这里并非传统的 `ajax` 长轮询！
 
 <img src="/img/shenyu/dataSync/http-long-polling-zh.png" width="90%" height="80%" />
 
-http 长轮询机制如上所示，shenyu-web 网关请求 shenyu-admin 的配置服务，读取超时时间为 90s，意味着网关层请求配置服务最多会等待 90s，这样便于 shenyu-admin 配置服务及时响应变更数据，从而实现准实时推送。
+`Http长轮询` 机制如上所示，`ShenYu`网关主动请求 `shenyu-admin` 的配置服务，读取超时时间为 `90s`，意味着网关层请求配置服务最多会等待 `90s`，这样便于 `shenyu-admin` 配置服务及时响应变更数据，从而实现准实时推送。
 
-http 请求到达 shenyu-admin 之后，并非立马响应数据，而是利用 Servlet3.0 的异步机制，异步响应数据。首先，将长轮询请求任务 `LongPollingClient` 扔到 `BlockingQueue` 中，并且开启调度任务，60s 后执行，这样做的目的是 60s 后将该长轮询请求移除队列，即便是这段时间内没有发生配置数据变更。因为即便是没有配置变更，也得让网关知道，总不能让其干等吧，而且网关请求配置服务时，也有 90s 的超时时间。
-
-```java
-public void doLongPolling(final HttpServletRequest request, final HttpServletResponse response) {
-    // 因为shenyu-web可能未收到某个配置变更的通知，因此MD5值可能不一致，则立即响应
-    List<ConfigGroupEnum> changedGroup = compareMD5(request);
-    String clientIp = getRemoteIp(request);
-    if (CollectionUtils.isNotEmpty(changedGroup)) {
-        this.generateResponse(response, changedGroup);
-        return;
-    }
-
-    // Servlet3.0异步响应http请求
-    final AsyncContext asyncContext = request.startAsync();
-    asyncContext.setTimeout(0L);
-    scheduler.execute(new LongPollingClient(asyncContext, clientIp, 60));
-}
-
-class LongPollingClient implements Runnable {
-    LongPollingClient(final AsyncContext ac, final String ip, final long timeoutTime) {
-        // 省略......
-    }
-    @Override
-    public void run() {
-        // 加入定时任务，如果60s之内没有配置变更，则60s后执行，响应http请求
-        this.asyncTimeoutFuture = scheduler.schedule(() -> {
-            // clients是阻塞队列，保存了来自shenyu-web的请求信息
-            clients.remove(LongPollingClient.this);
-            List<ConfigGroupEnum> changedGroups = HttpLongPollingDataChangedListener.compareMD5((HttpServletRequest) asyncContext.getRequest());
-            sendResponse(changedGroups);
-        }, timeoutTime, TimeUnit.MILLISECONDS);
-        clients.add(this);
-    }
-}
-```
-
-如果这段时间内，管理员变更了配置数据，此时，会挨个移除队列中的长轮询请求，并响应数据，告知是哪个 Group 的数据发生了变更（我们将插件、规则、流量配置、用户配置数据分成不同的组）。网关收到响应信息之后，只知道是哪个 Group 发生了配置变更，还需要再次请求该 Group 的配置数据。有人会问，为什么不是直接将变更的数据写出？我们在开发的时候，也深入讨论过该问题，因为 http 长轮询机制只能保证准实时，如果在网关层处理不及时，或者管理员频繁更新配置，很有可能便错过了某个配置变更的推送，安全起见，我们只告知某个 Group 信息发生了变更。
-
-```java
-// shenyu-admin发生了配置变更，挨个将队列中的请求移除，并予以响应
-class DataChangeTask implements Runnable {
-    DataChangeTask(final ConfigGroupEnum groupKey) {
-        this.groupKey = groupKey;
-    }
-    @Override
-    public void run() {
-        try {
-            for (Iterator<LongPollingClient> iter = clients.iterator(); iter.hasNext(); ) {
-                LongPollingClient client = iter.next();
-                iter.remove();
-                client.sendResponse(Collections.singletonList(groupKey));
-            }
-        } catch (Throwable e) {
-            LOGGER.error("data change error.", e);
-        }
-    }
-}
-```
-
-当 `shenyu-web` 网关层接收到 http 响应信息之后，拉取变更信息（如果有变更的话），然后再次请求 `shenyu-admin` 的配置服务，如此反复循环。
+`http` 请求到达 `shenyu-admin` 之后，并非立马响应数据，而是利用 `Servlet3.0` 的异步机制，异步响应数据。首先，将长轮询请求任务 `LongPollingClient` 扔到 `BlockingQueue` 中，并且开启调度任务，`60s` 后执行，这样做的目的是 `60s` 后将该长轮询请求移除队列。因为即便是没有配置变更，也需要让网关知道，不能一直等待。而且网关请求配置服务时，也有 `90s` 的超时时间。
 
 
-## 数据同步策略
+如果这段时间内，管理员在 `shenyu-admin` 变更了配置数据，此时，会挨个移除队列中的长轮询请求，并响应数据，告知是哪个 `Group` 的数据发生了变更（我们将插件、规则、流量配置、用户配置数据分成不同的组）。网关收到响应信息之后，只知道是哪个 `Group` 发生了配置变更，还需要再次请求该 `Group` 的配置数据。这里可能会存在一个疑问：为什么不是直接将变更的数据写出？我们在开发的时候，也深入讨论过该问题，因为 `http 长轮询` 机制只能保证准实时，如果在网关层处理不及时，或者管理员频繁更新配置，很有可能便错过了某个配置变更的推送，安全起见，我们只告知某个 `Group` 信息发生了变更。
 
-* 数据同步是指将 `shenyu-admin` 配置的数据，同步到 `ShenYu` 集群中的JVM内存里面，是网关高性能的关键。
+当 `shenyu-web` 网关层接收到 `http` 响应信息之后，拉取变更信息（如果有变更的话），然后再次请求 `shenyu-admin` 的配置服务，如此反复循环。
+如果您想深入了解代码实现，请参考源码 `HttpSyncDataService`。
 
 
-* 文中所说的网关，是指你搭建的网关环境，请看：[搭建环境](../shenyu-set-up)。
+### Nacos同步原理
 
-### Websocket同步（默认方式，推荐）
+`Nacos`数据同步原理介绍。如果您想深入了解代码实现，请参考源码 `NacosSyncDataService`。
 
-* 网关配置（记得重启）
 
-    * 首先在 `pom.xml` 文件中 引入以下依赖：
+### Etcd同步原理
 
-    ```xml
+`Etcd` 数据同步原理介绍。如果您想深入了解代码实现，请参考源码 `EtcdSyncDataService`。
+
+
+## 配置使用
+
+### WebSocket同步配置（默认方式，推荐）
+
+* `ShenYu`网关配置
+
+    首先在 `pom.xml` 文件中引入以下依赖：
+
+```xml
     <!--shenyu data sync start use websocket-->
     <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-      <version>${last.version}</version>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
+        <version>${project.version}</version>
     </dependency>
-    ```
-   * 在 springboot的 yml 文件中进行如下配置:
+```
+  
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-pom.png" width="80%" height="70%" />
 
-  ```yaml
-  shenyu:
-      sync:
-          websocket :
-               urls: ws://localhost:9095/websocket
-  #urls:是指 shenyu-admin的地址，如果有多个，请使用（,）分割.
-   ```
+   然后在 `yml` 文件中进行如下配置:
 
-    * shenyu-admin 配置，或在 shenyu-admin 启动参数中设置 `--shenyu.sync.websocket='' `，然后重启服务。
-
-    ```yaml
+```yaml
     shenyu:
-      sync:
-         websocket:
-    ```
+        sync:
+            websocket :
+                 urls: ws://localhost:9095/websocket
+               #urls:是指 shenyu-admin的地址，如果有多个，请使用（,）分割。  
+```
+  
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-yml.png" width="80%" height="70%" />
 
-* 当建立连接以后会全量获取一次数据，以后的数据都是增量的更新与新增，性能好。
+* `shenyu-admin 配置`
 
-* 支持断线重连 （默认30秒）。
+   在 `yml` 文件中进行如下配置:
+   
+```yml
+shenyu:
+  sync:
+    websocket:
+      enabled: true
+```
+  
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-admin-yml.png" width="80%" height="70%" />
+
+当建立连接以后会全量获取一次数据，以后的数据都是增量的更新与新增，性能好。而且也支持断线重连 （默认`30`秒）。推荐使用此方式进行数据同步，也是`ShenYu`默认的数据同步策略。
 
 
-### Zookeeper同步
+### Zookeeper同步配置
 
-* 网关配置（记得重启）
+* `ShenYu`网关配置
 
-    * 首先在 `pom.xml` 文件中 引入以下依赖：
+    首先在 `pom.xml` 文件中引入以下依赖：
 
  ```xml
-    <!--shenyu data sync start use zookeeper-->
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
-        <version>${last.version}</version>
-    </dependency>
+        <!--shenyu data sync start use zookeeper-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
+            <version>${project.version}</version>
+        </dependency>
  ```
 
-   * 在 springboot的 yml 文件中进行如下配置:
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-pom.png" width="80%" height="70%" />
 
-    ```yaml
-    shenyu:
-      sync:
+
+   然后在 `yml` 文件中进行如下配置:
+    
+```yaml
+shenyu:
+    sync:
         zookeeper:
-          url: localhost:2181
-          sessionTimeout: 5000
-          connectionTimeout: 2000
-          #url: 配置成你的zk地址，集群环境请使用（,）分隔
-    ```
+             url: localhost:2181
+             sessionTimeout: 5000
+             connectionTimeout: 2000
+        #url: 配置成你的 zookeeper 地址，集群环境请使用（,）分隔
+```
 
-   * shenyu-admin 配置, 或在 shenyu-admin 启动参数中设置 `--shenyu.sync.zookeeper.url='你的地址' `,然后重启服务。
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-yml.png" width="80%" height="70%" />
 
+
+* `shenyu-admin` 配置
+
+ 在 `yml` 文件中进行如下配置:
+ 
 ```yaml
 shenyu:
   sync:
@@ -260,91 +180,186 @@ shenyu:
         url: localhost:2181
         sessionTimeout: 5000
         connectionTimeout: 2000
+    #url: 配置成你的 zookeeper 地址，集群环境请使用（,）分隔
 ```
-* 使用zookeeper同步机制也是非常好的,时效性也高，我们生产环境使用的就是这个，但是也要处理zk环境不稳定，集群脑裂等问题.
 
-### Http长轮询同步
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-zk-yml.png" width="80%" height="70%" />
 
-* 网关配置（记得重启）
 
-    * 首先在 `pom.xml` 文件中 引入以下依赖：
+ 使用`zookeeper`同步机制也是非常好的，时效性也高，但是要处理`zookeeper`环境不稳定，集群脑裂等问题。
 
-    ```xml
-    <!--shenyu data sync start use http-->
-    <dependency>
-       <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
-        <version>${last.version}</version>
-    </dependency>
-    ```
 
-   * 在 springboot的 yml 文件中进行如下配置:
 
-   ```yaml
-  shenyu:
-      sync:
-          http:
-               url: http://localhost:9095
-  #url: 配置成你的 shenyu-admin 的 ip 与端口地址，多个admin集群环境请使用（,）分隔。
-   ```
-    * shenyu-admin 配置, 或在 shenyu-admin 启动参数中设置 `--shenyu.sync.http='' `,然后重启服务。
+### Http长轮询同步配置
 
-    ```yaml
-    shenyu:
-      sync:
-         http:
-    ```
+* `ShenYu`网关配置
 
-* http长轮询使得网关很轻量，时效性略低。
+ 首先在 `pom.xml` 文件中引入以下依赖：
 
-* 其根据分组key来拉取，如果数据量过大，过多，会有一定的影响。 什么意思呢？就是一个组下面的一个小地方更改，会拉取整个的组数据。
+```xml
+        <!--shenyu data sync start use http-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
 
-* 在shenyu-admin 集群时候，可能会有bug。
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-http-pom.png" width="80%" height="70%" />
 
-### Nacos同步
 
-* 网关配置（记得重启）
-
-    * 首先在 `pom.xml` 文件中 引入以下依赖：
-
-    ```xml
-    <!--shenyu data sync start use nacos-->
-      <dependency>
-           <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
-            <version>${last.version}</version>
-      </dependency>
-    ```
-
-    * 在 springboot的 yml 文件中进行如下配置:
-
-    ```yaml
-    shenyu:
-      sync:
-         nacos:
-              url: localhost:8848
-              namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
-              acm:
-                enabled: false
-                endpoint: acm.aliyun.com
-                namespace:
-                accessKey:
-                secretKey:
-    #url: 配置成你的nacos地址，集群环境请使用（,）分隔。
-    # 其他参数配置，请参考naocs官网。
-    ```
-* shenyu-admin 配置, 或在 shenyu-admin 启动参数中使用 `--` 的方式一个一个传值
+ 然后在 `yml` 文件中进行如下配置:
 
 ```yaml
 shenyu:
-  sync:
-    nacos:
-     url: localhost:8848
-     namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
-     acm:
-       enabled: false
-       endpoint: acm.aliyun.com
-       namespace:
-       accessKey:
-       secretKey:
+    sync:
+        http:
+             url: http://localhost:9095
+        #url: 配置成你的 shenyu-admin 的 ip 与端口地址，多个admin集群环境请使用（,）分隔。
 ```
+ 
+   <img src="/img/shenyu/dataSync/shenyu-data-sync-http-yml.png" width="80%" height="70%" />
+ 
+  
+* `shenyu-admin` 配置
+
+ 在 `yml` 文件中进行如下配置:
+ 
+```yaml
+shenyu:
+  sync:
+      http:
+        enabled: true
+```
+
+   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-http-yml.png" width="80%" height="70%" />
+
+
+使用`Http长轮询`进行数据同步，会让网关很轻量，但时效性略低。它是根据分组`key`来拉取，如果数据量过大，过多，会有一定的影响。 原因是一个组下面的一个小地方更改，都会拉取整个组的数据。
+
+
+### Nacos同步配置
+
+* `ShenYu`网关配置
+
+ 首先在 `pom.xml` 文件中引入以下依赖：
+
+```xml
+        <!--shenyu data sync start use nacos-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-pom.png" width="80%" height="70%" />
+
+
+ 然后在 `yml` 文件中进行如下配置:
+
+```yaml
+shenyu:
+    sync:
+        nacos:
+          url: localhost:8848
+          namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+          username:
+          password:
+          acm:
+            enabled: false
+            endpoint: acm.aliyun.com
+            namespace:
+            accessKey:
+            secretKey:
+        # url: 配置成你的 nacos地址，集群环境请使用（,）分隔。
+        # 其他参数配置，请参考 naocs官网。
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
+
+  
+* `shenyu-admin` 配置
+
+ 在 `yml` 文件中进行如下配置:
+ 
+```yaml
+shenyu:
+  sync:
+      nacos:
+        url: localhost:8848
+        namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+        username:
+        password:
+        acm:
+          enabled: false
+          endpoint: acm.aliyun.com
+          namespace:
+          accessKey:
+          secretKey:
+      # url: 配置成你的 nacos地址，集群环境请使用（,）分隔。
+      # 其他参数配置，请参考 naocs官网。
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-nacos-yml.png" width="80%" height="70%" />
+
+
+### Etcd 同步配置
+
+* `ShenYu`网关配置
+
+ 首先在 `pom.xml` 文件中引入以下依赖：
+
+```xml
+        <!--shenyu data sync start use etcd-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-etcd</artifactId>
+            <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.grpc</groupId>
+                    <artifactId>grpc-grpclb</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.grpc</groupId>
+                    <artifactId>grpc-netty</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+```
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-pom.png" width="80%" height="70%" />
+
+
+ 然后在 `yml` 文件中进行如下配置:
+
+```yaml
+shenyu:
+    sync:
+       etcd:
+         url: http://localhost:2379
+       #url: 配置成你的 etcd，集群环境请使用（,）分隔。
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-yml.png" width="80%" height="70%" />
+
+  
+* `shenyu-admin` 配置
+
+ 在 `yml` 文件中进行如下配置:
+ 
+```yaml
+shenyu:
+  sync:
+    etcd:
+      url: http://localhost:2379
+      #url: 配置成你的 etcd，集群环境请使用（,）分隔。
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-etcd-yml.png" width="80%" height="70%" />
+
+
+总结，本篇文章介绍了`ShenYu`网关数据同步原理和使用配置，当前支持 `WebSocket`、`Http长轮询`、`Zookeeper`、`Nacos`和`Etcd`进行数据同步，推荐使用`WebSocket`（也是`ShenYu`默认的数据同步方式）。
+
+> 在`ShenYu`网关和`shenyu-admin` 重新配置数据同步策略后，需要重启服务。
+>
+> `ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。

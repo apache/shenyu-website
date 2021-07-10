@@ -4,43 +4,22 @@ keywords: ShenYu
 description:  介绍ShenYu网关如何对流量进行控制
 ---
 
+`ShenYu`网关通过插件、选择器和规则完成流量控制。相关数据结构可以参考之前的 [ShenYu Admin数据结构](../database-design)。
 
 ## 插件
 
-* 在shenyu-admin后台，每个插件都用handle（json格式）字段来表示不同的处理，而插件处理是就是用来管理编辑json里面的自定义处理字段。
-* 该功能主要是用来支持插件处理模板化配置的
-
-#### 表设计
-
-* sql
-```sql
-CREATE TABLE IF NOT EXISTS `plugin_handle` (
-  `id` varchar(128) NOT NULL,
-  `plugin_id` varchar(128) NOT NULL COMMENT '插件id',
-  `field` varchar(100) NOT NULL COMMENT '字段',
-  `label` varchar(100) DEFAULT NULL COMMENT '标签',
-  `data_type` smallint(6) NOT NULL DEFAULT '1' COMMENT '数据类型 1 数字 2 字符串 3 下拉框',
-  `type` smallint(6) NULL COMMENT '类型,1 表示选择器，2 表示规则',
-  `sort` int(4)  NULL COMMENT '排序',
-  `ext_obj` varchar(1024) DEFAULT NULL COMMENT '额外配置（json格式数据）',
-  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `date_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `plugin_id_field_type` (`plugin_id`,`field`,`type`)
-) ENGINE=InnoDB;
-```
-
+* 在`shenyu-admin`后台，每个插件都用`handle`（`json`格式）字段来表示不同的处理，而插件处理是就是用来管理编辑`json`里面的自定义处理字段。
+* 该功能主要是用来支持插件处理模板化配置的。
 
 
 ## 选择器和规则
 
-* 选择器和规则是 ShenYu 网关中最灵魂的东西。掌握好它，你可以对任何流量进行管理。
-* 本篇主要详解 ShenYu 网关中，选择器与规则的概念，以及如何使用。
+选择器和规则是 `ShenYu` 网关中最灵魂的东西。掌握好它，你可以对任何流量进行管理。
 
+ 一个插件有多个选择器，一个选择器对应多种规则。选择器相当于是对流量的一级筛选，规则就是最终的筛选。
+对一个插件而言，我们希望根据我们的配置，达到满足条件的流量，插件才会被执行。
+ 选择器和规则就是为了让流量在满足特定的条件下，才去执行我们想要的，这种规则首先要明白。
 
-#### 大体理解
+插件、选择器和规则执行逻辑如下，当流量进入到`ShenYu`网关之后，会先判断是否有对应的插件，该插件是否开启；然后判断流量是否匹配该插件的选择器；然后再判断流量是否匹配该选择器的规则。如果请求流量能满足匹配条件才会执行该插件，否则插件不会被执行，处理下一个。`ShenYu`网关就是这样通过层层筛选完成流量控制。
 
-* 一个插件有多个选择器，一个选择器对应多种规则。选择器相当于是对流量的一级筛选，规则就是最终的筛选。
-* 我们想象一下，在一个插件里面，我们是不是希望根据我们的配置，达到满足条件的流量，我们插件才去执行它？
-* 选择器和规则就是为了让流量在满足特定的条件下，才去执行我们想要的，这种规则我们首先要明白。
-* 数据结构可以参考之前的 [数据库设计](../database-design)。
+<img src="/img/shenyu/plugin/plugin-chain-execute.png" width="40%" height="30%" />

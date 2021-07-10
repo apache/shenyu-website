@@ -35,6 +35,7 @@ cover: "/img/architecture/shenyu-framework.png"
 - `Ratelimiter`插件：新增并发，漏桶等不同的限流算法，供用户选择。
 - `Sgin` 插件：修复必须设置 url 的 bug，新增是否验证 标记，可以用来做开放平台的URI认证。
 - `Dubbo`插件：新增 form 表单，URI 参数请求， 新增注册中心直连，参数校验等功能。
+
 ## Shenyu Client
 ##### shenyu-client只是提供一种快速接入网关的客户端，不是必须的。如果用户不使用，可以在shenyu-admin自行配置规则即可。
 - `spring-mvc`客户端的优化，支持`spring`， `spring-boot`所有版本。
@@ -50,10 +51,12 @@ cover: "/img/architecture/shenyu-framework.png"
 - 新增 `Consul` 作为注册中心的方式接入`shenyu`网关。
 - 新增 `Etcd` 作为注册中心的方式接入`shenyu`网关。
 - 使用方式请参考: https://shenyu.apache.org/zh/projects/shenyu/register-center-design/
-## Soul 数据同步
+
+## Shenyu 数据同步
 - 修复 `Nacos` 配置中心同步未设置 `NameSpace` 的Bug。
 - 优化 `Websocket` 同步方式。
-- 解决 `soul-admin` 集群部署时候，`Http` 长轮询方式同步数据 Bug。
+- 解决 `shenyu-admin` 集群部署时候，`Http` 长轮询方式同步数据 Bug。
+
 ## 鸣谢
 这是一次具有里程碑意义的发布，也是 shenyu 网关，正式正规的一次变革，我们的 dashboard, 代码，文档， issue， PR 全部英文国际化，整个项目的单元测试覆盖率达到了百分之70。再次感谢你们的辛苦付出。虽然我们完成了非常多的功能（在上面我没有完全列举），但是在接下来，我们会有更多的挑战，我相信有你们在，这并不是我们的终点，而是我们腾飞起点。
 

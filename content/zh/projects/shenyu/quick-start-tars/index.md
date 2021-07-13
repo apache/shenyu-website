@@ -3,13 +3,22 @@ title: Tars快速开始
 description: Tars快速开始
 ---
 
-本文档将演示如何快速使用Tars接入ShenYu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars)。
+本文档演示如何将`Tars`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars)。
 
 ## 环境准备
 
-请参考[配置网关环境](../shenyu-set-up)并启动`shenyu-admin`和`shenyu-bootstrap`。
+请参考[配置网关环境](../shenyu-set-up)并启动`shenyu-admin`。
 
-注：`shenyu-bootstrap`需要引入tars依赖
+启动成功后，需要在基础配置`->`插件管理中，把`tars` 插件设置为开启。
+
+<img src="/img/shenyu/quick-start/tars/tars-plugin-enable.png" width="60%" height="50%" />
+
+启动网关，如果是通过源码的方式，直接运行`shenyu-bootstrap`中的`ShenyuBootstrapApplication`。
+
+> 注意，在启动前，请确保网关已经引入相关依赖。
+
+引入网关对`tars`的依赖：
+
 ```xml
 <dependency>
     <groupId>org.apache.shenyu</groupId>
@@ -32,11 +41,11 @@ description: Tars快速开始
 
 修改配置`src/main/resources/ShenyuExampleServer.ShenyuExampleApp.config.conf`：
 
-* 建议弄清楚 config 的主要配置项含义, 参考开发指南
-* config 中的 ip 要注意提供成本机的
-* local=..., 表示开放的本机给 tarsnode 连接的端口, 如果没有 tarsnode, 可以掉这项配置
-* `locator`: registry服务的地址，必须是有ip port的，如果不需要registry来定位服务，则不需要配置；
-* `node=tars.tarsnode.ServerObj@xxxx`，表示连接的 tarsnode 的地址，如果本地没有 tarsnode， 这项配置可以去掉
+* 建议弄清楚 `config` 的主要配置项含义, 参考开发指南。
+* `config` 中的 `ip` 要注意提供成本机的。
+* `local=...`, 表示开放的本机给 `tarsnode` 连接的端口, 如果没有 `tarsnode`, 可以去掉这项配置。
+* `locator`: `registry`服务的地址，必须是有`ip`和 `port`的，如果不需要`registry`来定位服务，则不需要配置。
+* `node=tars.tarsnode.ServerObj@xxxx`，表示连接的 `tarsnode` 的地址，如果本地没有 `tarsnode`， 这项配置可以去掉。
 
 更多config配置说明请参考[Tars官方文档](https://github.com/TarsCloud/TarsJava/blob/master/docs/tars_java_user_guide.md)
 
@@ -89,18 +98,15 @@ The session manager service started...
 2021-02-09 13:28:24.837  INFO 16016 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : tars client register success: {"appName":"127.0.0.1:21715","contextPath":"/tars","path":"/tars/hello","pathDesc":"","rpcType":"tars","serviceName":"ShenyuExampleServer.ShenyuExampleApp.HelloObj","methodName":"hello","ruleName":"/tars/hello","parameterTypes":"int,java.lang.String","rpcExt":"{\"methodInfo\":[{\"methodName\":\"helloInt\",\"params\":[{},{}],\"returnType\":\"java.lang.Integer\"},{\"methodName\":\"hello\",\"params\":[{},{}],\"returnType\":\"java.lang.String\"}]}","enabled":true} 
 ```
 
-## tars 插件设置
-
-* 在 `shenyu-admin` 插件管理中，把`tars` 插件设置为开启。
 
 ## 测试
 `shenyu-examples-tars`项目成功启动之后会自动把加 `@ShenyuTarsClient` 注解的接口方法注册到网关。
 
-打开插件管理->tars可以看到插件规则配置列表
+打开`插件列表` `->` `tars` 可以看到插件规则配置列表：
 
 ![](/img/shenyu/quick-start/tars/rule-list.png)
 
-下面使用postman模拟http的方式来请求你的tars服务
+下面使用`postman`模拟`http`的方式来请求你的`tars`服务：
 
 ![](/img/shenyu/quick-start/tars/postman-test.png)
 

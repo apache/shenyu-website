@@ -1,11 +1,11 @@
 ---
-title: Aapche ShenYu Introduction
-keywords: Aapche shenyu
+title: Apache ShenYu Introduction
+keywords: Apache shenyu
 description: This is an asynchronous, high-performance, cross-language, responsive API gateway.
 aliases: "/shenyu/docs/Home"
 ---
 
-## What is the Aapche ShenYu?
+## What is the Apache ShenYu?
 
 This is an asynchronous, high-performance, cross-language, responsive API gateway.
 

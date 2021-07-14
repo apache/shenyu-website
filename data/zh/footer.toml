@@ -17,8 +17,6 @@
 	link_arr = [
 		["Github", 'https://github.com/apache/incubator-shenyu'],
 		["文档", '/zh/projects/shenyu/overview/'],
-		["订阅邮件", 'mailto://dev-subscribe@shenyu.apache.org'],
-		["邮件归档", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
 #		["示例", 'https://github.com/apache/incubator-shenyu-guides'],
 	]
 
@@ -29,12 +27,15 @@
 		["社区","/zh/community"],
 		["新闻","/zh/news"],
 	]
+[[links]]
+	category = "订阅邮件组"
+	link_arr = [
+		["订阅邮件", 'mailto://dev-subscribe@shenyu.apache.org'],
+		["邮件归档", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
+	]
 
 
 [[qrcode]]
-	img = "img/qrcode/qrcode_1.png"
+	img = "img/qrcode/WechatIMG127.jpeg"
 	description = "微信公众号"
 
-[[qrcode]]
-	img = "img/qrcode/qrcode_2.png"
-	description = "QQ群"

@@ -81,12 +81,22 @@ description: 数据同步
 
 ### Nacos同步原理
 
-`Nacos`数据同步原理介绍。如果您想深入了解代码实现，请参考源码 `NacosSyncDataService`。
+`Nacos`的同步原理与Zookeeper基本类似，主要依赖于`Nacos`的`配置管理`,各个配置节点的路径与Zookeeper类似。
+
+`ShenYu`网关会监听配置的节点，启动时，如果`Nacos`中不存在配置节点，将同步全量的数据写入`Nacos`中，后序数据发送变更时，全量更新`Nacos`中的配置节点，与此同时，`ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
+
+如果您想深入了解代码实现，请参考源码 `NacosSyncDataService`和`Nacos`的[官方文档](https://nacos.io/zh-cn/docs/sdk.html)。
 
 
 ### Etcd同步原理
 
-`Etcd` 数据同步原理介绍。如果您想深入了解代码实现，请参考源码 `EtcdSyncDataService`。
+`Etcd` 数据同步原理与Zookeeper类似，主要依赖于`Etcd`的`watch`机制，各个配置节点路径与`Zookeeper`相同。
+
+`Etcd`的原生API使用稍有点复杂，所有对其进行了一定的封装。
+
+`ShenYu`网关会监听配置的节点，启动时，如果`Etcd`中不存在配置节点，将同步全量的数据写入`Etcd`中，后序数据发送变更时，增量更新`Etcd`中的配置节点，与此同时，`ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
+
+如果您想深入了解代码实现，请参考源码 `EtcdSyncDataService`。
 
 
 ## 配置使用

@@ -3,21 +3,110 @@ title: Dubbo快速开始
 description: Dubbo快速开始
 ---
 
-本文档将演示了如何快速使用Dubbo接入ShenYu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)。
+本文档演示如何将`Dubbo`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)。
 
 ## 环境准备
 
-请参考[配置网关环境](../shenyu-set-up)并启动`shenyu-admin`和`shenyu-bootstrap`，另外如果你的dubbo如果使用zookeeper需提前下载启动。
+请参考[配置网关环境](../shenyu-set-up)，并启动`shenyu-admin`。
+
+启动成功后，需要在基础配置`->`插件管理中，把`dubbo` 插件设置为开启，并设置你的注册地址，请确保注册中心在你本地已经开启。
+
+![](/img/shenyu/quick-start/dubbo/dubbo-enable-zh.jpg)
+
+
+启动网关，如果是通过源码的方式，直接运行`shenyu-bootstrap`中的`ShenyuBootstrapApplication`。
+
+> 注意，在启动前，请确保网关已经引入相关依赖。
+
+如果客户端是`apache dubbo`，注册中心使用`zookeeper`，请参考如下配置：
+
+```java
+ <!--shenyu  apache dubbo plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+<!-- Dubbo zookeeper registry dependency start -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>4.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <!-- Dubbo zookeeper registry dependency end -->
+        <!-- shenyu  apache dubbo plugin end-->
+```
+
+如果客户端是`alibaba dubbo`，注册中心使用`zookeeper`，请参考如下配置：
+
+
+```java
+        <!--shenyu alibaba dubbo plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${alibaba.dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>${curator.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <!-- shenyu  alibaba dubbo plugin end-->
+```
 
 ## 运行shenyu-examples-dubbo项目
 
 下载[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
 
-修改 `shenyu-examples-alibaba-dubbo-service/src/main/resources/spring-dubbo.xml` 中的注册地址为你本地，如：
+修改 `spring-dubbo.xml` 中的注册地址为你本地（注意区分`dubbo`的版本是`apache dubbo`还是`alibaba dubbo`），如：
 ```xml
 <dubbo:registry address="zookeeper://localhost:2181"/>
 ```
-运行 `org.apache.shenyu.examples.alibaba.dubbo.service.TestAlibabaDubboApplication` 中的main方法启动项目。
+
+运行相应的`main`方法启动项目，（注意区分`dubbo`的版本是`apache dubbo`还是`alibaba dubbo`）。
 
 成功启动会有如下日志：
 ```shell
@@ -34,22 +123,19 @@ description: Dubbo快速开始
 2021-02-06 20:58:01.922  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/findByStringArray","pathDesc":"","rpcType":"dubbo","serviceName":"org.dromara.shenyu.examples.dubbo.api.service.DubboMultiParamService","methodName":"findByStringArray","ruleName":"/dubbo/findByStringArray","parameterTypes":"[Ljava.lang.String;","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
 ```
 
-## dubbo 插件设置
 
-* 首先在 `shenyu-admin` 插件管理中，把`dubbo` 插件设置为开启。
-* 其次在 `dubbo ` 插件中配置你的注册地址，或者其他注册中心的地址。
 
-![](/img/shenyu/quick-start/dubbo/dubbo-enable-zh.jpg)
+
 
 ## 测试
 
 `shenyu-examples-dubbo`项目成功启动之后会自动把加 `@ShenyuDubboClient` 注解的接口方法注册到网关。
 
-打开插件管理->dubbo可以看到插件规则配置列表
+打开`插件列表` `->` `dubbo`可以看到插件规则配置列表：
 
 ![](/img/shenyu/quick-start/dubbo/rule-list.jpg)
 
-下面使用`postman`模拟`http`的方式来请求你的`dubbo`服务
+下面使用`postman`模拟`http`的方式来请求你的`dubbo`服务：
 
 ![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 

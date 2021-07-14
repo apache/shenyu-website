@@ -1,59 +1,80 @@
 ---
-title: SpringCloud快速开始
-description: SpringCloud快速开始
+title: Spring Cloud快速开始
+description: Spring Cloud快速开始
 ---
 
-本文档将演示了如何快速使用SpringCloud方式接入ShenYu网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)。
+本文档演示如何将`Spring Cloud`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)。
 
 ## 环境准备
 
 请参考[配置网关环境](../shenyu-set-up)并启动`shenyu-admin`。
 
-* 在网关的 `pom.xml` 文件中增加如下依赖：
+启动成功后，需要在基础配置`->`插件管理中，把`springCloud` 插件设置为开启。
+
+<img src="/img/shenyu/quick-start/springcloud/springCloud-plugin-enable.png" width="60%" height="50%" />
+
+
+启动网关，如果是通过源码的方式，直接运行`shenyu-bootstrap`中的`ShenyuBootstrapApplication`。
+
+> 注意，在启动前，请确保网关已经引入相关依赖。
+
+引入网关对`Spring Cloud`的代理插件，并添加相关注册中心依赖：
 
 ```xml
 <!--shenyu springCloud plugin start-->
-dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
-    <version>${project.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-commons</artifactId>
-    <version>2.2.0.RELEASE</version>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-    <version>2.2.0.RELEASE</version>
-</dependency>
+               <dependency>
+                    <groupId>org.apache.shenyu</groupId>
+                    <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
 
-<!-- 如果使用eureka作为注册中心需要引入 -->
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    <version>2.2.0.RELEASE</version>
-</dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-commons</artifactId>
+                    <version>2.2.0.RELEASE</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                    <version>2.2.0.RELEASE</version>
+                </dependency>
 
-<!--shenyu springCloud plugin start end-->
+                <dependency>
+                    <groupId>org.apache.shenyu</groupId>
+                    <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+        <!-- springCloud if you config register center is eureka please dependency end-->
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                    <version>2.2.0.RELEASE</version>
+                </dependency>
+        <!--shenyu springCloud plugin end-->
+
+```
+
+`eureka`配置信息如下：
+```xml
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
 ```
 
 启动`shenyu-bootstrap`项目。
 
-## 运行shenyu-examples-springcloud、shenyu-examples-eureka项目
+## 运行shenyu-examples-springcloud
 
-示例项目中我们使用 `eureka` 作为 springCloud的注册中心
+示例项目中我们使用 `eureka` 作为 `Spring Cloud`的注册中心。你可以使用本地的`eureka`，也可以使用示例中提供的应用。
 
 下载[shenyu-examples-eureka](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-eureka)、[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
 
-1、先启动eureka服务
+启动`eureka`服务，运行`org.apache.shenyu.examples.eureka.EurekaServerApplication`main方法启动项目。
 
-运行`org.apache.shenyu.examples.eureka.EurekaServerApplication`main方法启动项目。
-
-2、先启动spring cloud服务
-
-运行`org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication`main方法启动项目。
+启动`spring cloud`服务，运行`org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication`main方法启动项目。
 
 成功启动会有如下日志：
 ```shell
@@ -92,17 +113,14 @@ dependency>
 2021-02-10 14:03:54.231  INFO 2860 --- [           main] o.d.s.e.s.ShenyuTestSpringCloudApplication : Started ShenyuTestSpringCloudApplication in 6.338 seconds (JVM running for 7.361) 
 ```
 
-## 开启springCloud 插件
-
-* 在 `shenyu-admin` 插件管理中，把`springCloud` 插件设置为开启。
 
 ## 测试Http请求
 `shenyu-examples-springcloud`项目成功启动之后会自动把加 `@ShenyuSpringCloudClient` 注解的接口方法注册到网关。
 
-打开插件管理->springCloud 可以看到插件规则配置列表
+打开`插件列表` `->` `springCloud` 可以看到插件规则配置列表：
 
 ![](/img/shenyu/quick-start/springcloud/rule-list.png)
 
-下面使用postman模拟http的方式来请求你的SpringCloud服务
+下面使用`postman`模拟`http`的方式来请求你的`SpringCloud`服务：
 
 ![](/img/shenyu/quick-start/springcloud/postman-test.png)

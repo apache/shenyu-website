@@ -32,8 +32,7 @@ description: sign plugin
 
 ## Add AK/SK
 
-* In shenyu-admin --> In authentication management, click `Add` to add a new AK/SK。
-
+* In shenyu-admin --> In authentication management, click `Add` to add a new AK/SK。please refer to: [Authentication](../authority-management).
 
 ## Implementation of Gateway Technology
 

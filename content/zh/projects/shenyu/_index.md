@@ -85,6 +85,8 @@ sidebar:
             link: 'dictionary-management'
           - title: '权限管理'
             link: 'authority-management'
+      - title: '数据同步配置'
+        link: 'use-data-sync'
       - title: '客户端接入配置'
         link: 'register-center-access'
       - title: 'Http服务接入'

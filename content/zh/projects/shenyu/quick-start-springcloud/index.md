@@ -117,7 +117,7 @@ eureka:
 ## 测试Http请求
 `shenyu-examples-springcloud`项目成功启动之后会自动把加 `@ShenyuSpringCloudClient` 注解的接口方法注册到网关。
 
-打开`插件列表` `->` `springCloud` 可以看到插件规则配置列表：
+打开`插件列表 -> rpc proxy -> springCloud` 可以看到插件规则配置列表：
 
 ![](/img/shenyu/quick-start/springcloud/rule-list.png)
 

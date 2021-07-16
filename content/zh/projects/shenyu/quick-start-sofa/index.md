@@ -107,7 +107,7 @@ com:
 ## 测试
 `shenyu-examples-sofa`项目成功启动之后会自动把加 `@ShenyuSofaClient` 注解的接口方法注册到网关。
 
-打开`插件列表` `->` `sofa`可以看到插件规则配置列表：
+打开`插件列表 -> rpc proxy -> sofa`可以看到插件规则配置列表：
 
 ![](/img/shenyu/quick-start/sofa/rule-list.png)
 

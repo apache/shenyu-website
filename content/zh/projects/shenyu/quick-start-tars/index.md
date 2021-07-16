@@ -102,7 +102,7 @@ The session manager service started...
 ## 测试
 `shenyu-examples-tars`项目成功启动之后会自动把加 `@ShenyuTarsClient` 注解的接口方法注册到网关。
 
-打开`插件列表` `->` `tars` 可以看到插件规则配置列表：
+打开`插件列表 -> rpc proxy -> tars` 可以看到插件规则配置列表：
 
 ![](/img/shenyu/quick-start/tars/rule-list.png)
 

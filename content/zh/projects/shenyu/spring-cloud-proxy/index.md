@@ -1,33 +1,35 @@
 ---
-title: SpringCloud接入ShenYu网关
+title: Spring Cloud服务接入
 keywords: shenyu
 description: SpringCloud接入ShenYu网关
 ---
 
-## 说明
+此篇文章是介绍 `springCloud` 服务接入到 `ShenYu` 网关，`ShenYu` 网关使用 `springCloud` 插件来接入`Spring Cloud`服务。
 
-* 此篇文章是教你如何将springCloud接口，快速接入到 ShenYu 网关。
+接入前，请正确启动 `shenyu-admin`，并开启`springCloud`插件，在网关端和`springCloud`服务端引入相关依赖。可以参考前面的 [环境搭建](../shenyu-set-up) 和 [Spring Cloud快速开始](../quick-start-springcloud)。
 
-* 请在 shenyu-admin 后台将 `springCloud` 插件设置为开启。
 
-* 接入前，请正确的启动 `shenyu-admin`以及[搭建环境](../shenyu-set-up) Ok。
 
-## 引入网关 springCloud的插件支持
+应用客户端接入配置请参考：[应用客户端接入](../register-center-design)。
 
-* 在网关的 pom.xml 文件中引入如下依赖。
+数据同步请参考：[数据同步](../data-sync)。
+
+## 在网关中引入 springCloud 插件
+
+* 在网关的 `pom.xml` 文件中引入如下依赖。
 
 ```xml
   <!--shenyu springCloud plugin start-->
   <dependency>
        <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
-        <version>${last.version}</version>
+        <version>${project.version}</version>
   </dependency>
 
   <dependency>
        <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-       <version>${last.version}</version>
+       <version>${project.version}</version>
    </dependency>
    <!--shenyu springCloud plugin end-->
 
@@ -43,9 +45,9 @@ description: SpringCloud接入ShenYu网关
    </dependency>
 ```
 
-* 如果你使用 `eureka` 作为 springCloud的注册中心
+* 如果你使用 `eureka` 作为 `springCloud`的注册中心
 
-  * 新增如下依赖：
+  * 在网关的`pom.xml`文件中，新增如下依赖：
 
  ```xml
    <dependency>
@@ -55,7 +57,7 @@ description: SpringCloud接入ShenYu网关
    </dependency>
    ```
 
-   * 在网关的yml文件中 新增如下配置：
+   * 在网关的`yml`文件中，新增如下配置：
 
  ```yaml
     eureka:
@@ -66,9 +68,9 @@ description: SpringCloud接入ShenYu网关
         prefer-ip-address: true
    ```
 
-* 如果你使用 `nacos` 作为 springCloud的注册中心
+* 如果你使用 `nacos` 作为 `springCloud`的注册中心
 
-  * 新增如下依赖：
+  * 在网关的`pom.xml`文件中，新增如下依赖：
 
  ```xml
   <dependency>
@@ -78,7 +80,7 @@ description: SpringCloud接入ShenYu网关
   </dependency>
    ```
 
-   * 在网关的yml文件中 新增如下配置：
+   * 在网关的`yml`文件中 新增如下配置：
 
  ```yaml
    spring:
@@ -92,24 +94,24 @@ description: SpringCloud接入ShenYu网关
 
 ## SpringCloud服务接入网关
 
-* 在你提供服务的项目中，引入如下依赖：
+可以参考：[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
+
+
+* 在由`SpringCloud`构建的微服务中，引入如下依赖：
 
 ```xml
  <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-client-springcloud</artifactId>
-      <version>${last.version}</version>
+      <version>${shenyu.version}</version>
  </dependency>
 ```
 
-* 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)
 
+* 在 `controller`接口上加上 `@ShenyuSpringCloudClient` 注解。 注解可以加到类或方法上面，`path`属性为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
 
-* 在你的 `controller`的接口上加上 `@ShenyuSpringCloudClient` 注解
-
- * 你可以把注解加到 `Controller` 类上面, 里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理
-
-   * 举列子 （1）： 代表 `/test/payment`, `/test/findByUserId` 都会被网关代理。
+* 示例一： 
+   代表 `/test/payment`, `/test/findByUserId` 都会被网关代理。
 
  ```java
   @RestController
@@ -132,7 +134,8 @@ description: SpringCloud接入ShenYu网关
    }
 ```
 
-   * 举列子 （2）： 代表 `/order/save`,会被网关代理,而`/order/findById` 则不会。
+   * 示例二：
+    代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
 
  ```java
   @RestController
@@ -158,7 +161,8 @@ description: SpringCloud接入ShenYu网关
 ```
 
 
-   * 举列子 （3）： isFull：`true`  代表 `/sb-demo7-api/**`，整个服务会被网关代理
+   * 示例三：
+    `isFull`：`true`  代表整个服务都会被网关代理。
 ```yaml
 shenyu:
   client:
@@ -168,11 +172,10 @@ shenyu:
       contextPath: /http
       appName: http
       isFull: true
-# registerType : 服务注册类型，支持 http/zookeeper
-# serverList: 为http注册类型时，填写Shenyu-Admin项目的地址，注意加上http://，多个地址用英文逗号分隔
-#             为zookeeper注册类型时，填写zookeeper地址，多个地址用英文分隔
-# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
-# appName：你的应用名称，不配置的话，会默认取 dubbo配置中application 中的名称
+# registerType : 服务注册类型，请参考应用客户端接入文档
+# serverList: 服务列表，请参考应用客户端接入文档
+# contextPath: 为你的项目在shenyu网关的路由前缀。 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由。
+# appName：你的应用名称，不配置的话，会默认取application 中的名称
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller
 ```
  ```java
@@ -198,31 +201,21 @@ shenyu:
 ```
 
 
-* 启动你的服务，如果输出以下日志：`http client register success`，证明你的接口已经被注册到shenyu网关。
+* 启动你的服务成功注册后，进入后台管理系统的`插件列表 -> rpc proxy -> springCloud`，会看到自动注册的选择器和规则信息。
 
-## 插件设置
-
-* 在 `shenyu-admin` 插件管理中，把 springCloud 插件设置为开启。
 
 ## 用户请求
 
-* 说白了，你之前怎么请求就怎么请求，没有很大的变动，变动的地方有2点。
+和之前的访问方式没有大的改变，需要注意的是：
 
-* 第一点，你之前请求的域名是你自己的服务，现在要换成网关的域名 （这个你听的懂？）
+* 你之前请求的域名是你自己的服务，现在要换成网关的域名。
 
-* 第二点，ShenYu 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以自由在 `shenyu-admin` 中的 springCloud插件进行自由更改。
+* 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，可以在 `shenyu-admin` 中的 `springCloud`插件进行更改。
 
-```yaml
+> 比如你有一个 order服务 它有一个接口，请求路径 http://localhost:8080/test/save
 
-# 比如你有一个 order服务 它有一个接口，请求路径 http://localhost:8080/test/save
+> 现在就需要换成：http://localhost:9195/order/test/save
 
-# 现在就需要换成：http://localhost:9195/order/test/save
+> 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你接入网关配置的 contextPath
 
-# 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你接入网关配置的 contextPath
-
-# 其他参数，请求方式不变。
-
-# 我讲到这里还不懂？ 请加群问吧
-
-```
-* 然后你就可以进行访问了，如此的方便与简单。
+> 其他参数，请求方式不变。然后你就可以进行访问了，如此的方便与简单。

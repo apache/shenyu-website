@@ -131,7 +131,7 @@ description: Dubbo快速开始
 
 `shenyu-examples-dubbo`项目成功启动之后会自动把加 `@ShenyuDubboClient` 注解的接口方法注册到网关。
 
-打开`插件列表` `->` `dubbo`可以看到插件规则配置列表：
+打开`插件列表 -> rpc proxy -> dubbo`可以看到插件规则配置列表：
 
 ![](/img/shenyu/quick-start/dubbo/rule-list.jpg)
 

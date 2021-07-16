@@ -17,8 +17,6 @@
 	link_arr = [
 		["Github", 'https://github.com/apache/incubator-shenyu'],
 		["Documentation", '/projects/shenyu/overview/'],
-		["Subscribe Mail", 'mailto://dev-subscribe@shenyu.apache.org'],
-		["Mail Archive", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
 		# ["Samples", 'https://github.com/apache/incubator-shenyu-guides'],
 	]
 
@@ -28,7 +26,14 @@
 		["Feedback", 'https://github.com/apache/incubator-shenyu/issues/new'],
 		["Community","/community"],
 		["News","/news"],
-		# ["Email","mailto:sofa@alipay.cloud.com"]
+		["Awesome","/awesome"],
+	]
+
+[[links]]
+	category = "Subscribe mailing list"
+	link_arr = [
+		["Subscribe Mail", 'mailto://dev-subscribe@shenyu.apache.org'],
+		["Mail Archive", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
 	]
 
 #[[links]]
@@ -42,10 +47,6 @@
 
 # qrcode
 [[qrcode]]
-	img = "img/qrcode/qrcode_1.png"
+	img = "img/qrcode/WechatIMG127.jpeg"
 	description = "Wechat Official Account"
-
-[[qrcode]]
-	img = "img/qrcode/qrcode_2.png"
-	description = "QQ Group"
 

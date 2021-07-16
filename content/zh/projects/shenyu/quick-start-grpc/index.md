@@ -3,11 +3,12 @@ title: gRPC快速开始
 description: gRPC快速开始
 ---
 
-本文档演示如何将`gRPC`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)。
+本文档演示如何将`gRPC`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) 。
 
 ## 1. 环境准备
 
-请参考 [配置网关环境](../shenyu-set-up) 并启动 `shenyu-admin`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+
 启动成功后，需要在基础配置`->`插件管理中，把`gRPC` 插件设置为开启。
 
 <img src="/img/shenyu/quick-start/grpc/grpc-plugin-enable.png" width="60%" height="50%" />
@@ -60,6 +61,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 `shenyu-examples-grpc`项目成功启动之后会自动把加 `@ShenyuGrpcClient` 注解的接口方法注册到网关。
 
 打开 `插件列表 -> rpc proxy -> grpc` 可以看到插件规则配置列表。
+
 
 <img src="/img/shenyu/quick-start/grpc/grpc-service.png" width="80%" height="50%" />
 

@@ -3,11 +3,11 @@ title: Sofa快速开始
 description: Sofa快速开始
 ---
 
-本文档演示如何将`Sofa`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)。
+本文档演示如何将`Sofa`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) 。
 
 ## 环境准备
 
-请参考[配置网关环境](../shenyu-set-up)并启动`shenyu-admin`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`sofa` 插件设置为开启，并设置你的注册地址，请确保注册中心在你本地已经开启。
 
@@ -53,8 +53,9 @@ description: Sofa快速开始
 
 ## 运行shenyu-examples-sofa项目
 
-下载[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)，调整`application.yml`
-的zk注册地址为你本地，如：
+下载[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
+
+设置`application.yml`的`zk`注册地址，如：
 ```xml
 com:
   alipay:
@@ -108,6 +109,7 @@ com:
 `shenyu-examples-sofa`项目成功启动之后会自动把加 `@ShenyuSofaClient` 注解的接口方法注册到网关。
 
 打开`插件列表 -> rpc proxy -> sofa`可以看到插件规则配置列表：
+
 
 ![](/img/shenyu/quick-start/sofa/rule-list.png)
 

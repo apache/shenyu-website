@@ -3,11 +3,11 @@ title: Http快速开始
 description: Http快速开始
 ---
 
-本文档演示如何将`Http`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)。
+本文档演示如何将`Http`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http) 。
 
 ## 环境准备
 
-请参考[配置网关环境](../shenyu-set-up)并启动`shenyu-admin`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`divide` 插件设置为开启。在`ShenYu`网关中，`Http`请求是由`divide`插件进行处理。
 
@@ -39,7 +39,7 @@ description: Http快速开始
 
 ## 运行shenyu-examples-http项目
 
-下载[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
+下载 [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
 运行`org.apache.shenyu.examples.http.ShenyuTestHttpApplication`main方法启动项目。
 
@@ -60,6 +60,7 @@ description: Http快速开始
 `shenyu-examples-http`项目成功启动之后会自动把加 `@ShenyuSpringMvcClient` 注解的接口方法注册到网关。
 
 打开`插件列表 -> http process -> divide`可以看到插件规则配置列表：
+
 
 ![](/img/shenyu/quick-start/http/rule-list.png)
 

@@ -10,7 +10,8 @@ description: 客户端接入配置
 将应用客户端接入到`ShenYu`网关是通过注册中心来实现的，涉及到客户端注册和服务端同步数据。注册中心支持`Http`、`Zookeeper`、`Etcd`、`Consul`和`Nacos`。
 
 
-本篇文章介绍将应用客户端接入到`ShenYu`网关，应该如何配置。
+本篇文章介绍将应用客户端接入到`ShenYu`网关，应该如何配置。相关原理请参考设计文档中的 [客户端接入原理](../register-center-design) 。
+
 
 <img src="/img/shenyu/register/register-center-2.png" width="70%" height="60%" />
 

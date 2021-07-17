@@ -6,7 +6,8 @@ description: 插件配置
 
 本文档将介绍`ShenYu`后台管理系统中插件的使用，包括插件管理和插件处理管理。
 
-请参考 [配置网关环境](../shenyu-set-up)，并启动`shenyu-admin`。如果是在本地启动，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
+
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
 
 ## 插件管理
 

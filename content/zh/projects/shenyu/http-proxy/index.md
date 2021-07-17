@@ -6,11 +6,11 @@ description: Http服务接入
 
 本文档旨在帮助 `http` 服务接入到 `ShenYu` 网关。`ShenYu` 网关使用 `divide` 插件来处理 `http` 请求。
 
-接入前，请正确启动 `shenyu-admin`，并开启`divide`插件，在网关端和`Http`服务端引入相关依赖。可以参考前面的 [环境搭建](../shenyu-set-up) 和 [Http快速开始](../quick-start-http)。
+接入前，请正确启动 `shenyu-admin`，并开启`divide`插件，在网关端和`Http`服务端引入相关依赖。可以参考前面的 [Http快速开始](../quick-start-http)。
 
-应用客户端接入配置请参考：[应用客户端接入](../register-center-design)。
+应用客户端接入的相关配置请参考：[客户端接入配置](../register-center-access)。
 
-数据同步请参考：[数据同步](../data-sync)。
+数据同步的相关配置请参考：[数据同步配置](../use-data-sync)。
 
 ## 在网关中引入 divide 插件
 

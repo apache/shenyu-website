@@ -12,6 +12,8 @@ description: 客户端接入原理
 
 <img src="/img/shenyu/register/register-center-1.png" width="70%" height="60%" />
 
+客户端接入的相关配置请参考用户文档中的 [客户端接入配置](../register-center-access) 。
+
 
 ## 设计原理
 

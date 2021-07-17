@@ -7,7 +7,7 @@ description: 选择器和规则管理
 
 本文档将介绍`ShenYu`后台管理系统中选择器和规则的使用，关于选择器和规则的概念及设计请参考 [流量控制](../flow-control)。
 
-请参考 [配置网关环境](../shenyu-set-up)，并启动`shenyu-admin`。如果是在本地启动，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
 
 
 ## 选择器

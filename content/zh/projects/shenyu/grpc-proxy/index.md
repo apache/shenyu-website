@@ -5,12 +5,12 @@ description: gRPC服务接入
 
 此篇文章是介绍 `gRPC` 服务接入到 `ShenYu` 网关，`ShenYu` 网关使用 `grpc` 插件来接入`gRPC`服务。
 
-接入前，请正确启动 `shenyu-admin`，并开启`grpc`插件，在网关端和`grpc`服务端引入相关依赖。可以参考前面的 [环境搭建](../shenyu-set-up) 和 [gRPC快速开始](../quick-start-grpc)。
+接入前，请正确启动 `shenyu-admin`，并开启`grpc`插件，在网关端和`grpc`服务端引入相关依赖。可以参考前面的 [gRPC快速开始](../quick-start-grpc)。
 
 
-应用客户端接入配置请参考：[应用客户端接入](../register-center-design)。
+应用客户端接入的相关配置请参考：[客户端接入配置](../register-center-access)。
 
-数据同步请参考：[数据同步](../data-sync)。
+数据同步的相关配置请参考：[数据同步配置](../use-data-sync)。
 
 ## 在网关中引入 grpc 插件
 

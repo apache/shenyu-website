@@ -3,11 +3,11 @@ title: Dubbo快速开始
 description: Dubbo快速开始
 ---
 
-本文档演示如何将`Dubbo`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)。
+本文档演示如何将`Dubbo`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 。
 
 ## 环境准备
 
-请参考[配置网关环境](../shenyu-set-up)，并启动`shenyu-admin`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`dubbo` 插件设置为开启，并设置你的注册地址，请确保注册中心在你本地已经开启。
 
@@ -131,7 +131,9 @@ description: Dubbo快速开始
 
 `shenyu-examples-dubbo`项目成功启动之后会自动把加 `@ShenyuDubboClient` 注解的接口方法注册到网关。
 
-打开`插件列表` `->` `dubbo`可以看到插件规则配置列表：
+
+打开`插件列表 -> rpc proxy -> dubbo`可以看到插件规则配置列表：
+
 
 ![](/img/shenyu/quick-start/dubbo/rule-list.jpg)
 
@@ -140,6 +142,7 @@ description: Dubbo快速开始
 ![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 
 复杂多参数示例：对应接口实现类为`org.apache.shenyu.examples.alibaba.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`
+
 ```java
 @Override
 @ShenyuDubboClient(path = "/batchSaveAndNameAndId")
@@ -153,6 +156,7 @@ public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id,
 ![](/img/shenyu/quick-start/dubbo/postman-multiparams.jpg)
 
 当你的参数不匹配时会报如下异常：
+
 ```java
 2021-02-07 22:24:04.015 ERROR 14860 --- [:20888-thread-3] o.d.shenyu.web.handler.GlobalErrorHandler  : [e47b2a2a] Resolved [ShenyuException: org.apache.dubbo.remoting.RemotingException: java.lang.IllegalArgumentException: args.length != types.length
 java.lang.IllegalArgumentException: args.length != types.length

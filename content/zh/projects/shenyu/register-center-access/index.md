@@ -1,18 +1,26 @@
 ---
-title: 注册中心接入配置
+title: 客户端接入配置
 keywords: shenyu
-description: 注册中心接入配置
+description: 客户端接入配置
 ---
 
-## 说明
+应用客户端接入是指将你的微服务接入到`ShenYu`网关，当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议的接入。 
 
-说明然后使用不同的注册方式，快速接入。
 
-## HTTP方式注册
+将应用客户端接入到`ShenYu`网关是通过注册中心来实现的，涉及到客户端注册和服务端同步数据。注册中心支持`Http`、`Zookeeper`、`Etcd`、`Consul`和`Nacos`。
 
-#### Shenyu-Admin配置
 
-在 application.yml 配置注册中心为HTTP即可，如下：
+本篇文章介绍将应用客户端接入到`ShenYu`网关，应该如何配置。相关原理请参考设计文档中的 [客户端接入原理](../register-center-design) 。
+
+
+<img src="/img/shenyu/register/register-center-2.png" width="70%" height="60%" />
+
+
+### Http方式注册配置
+
+#### shenyu-admin配置
+
+在 `yml`文件中配置注册类型为`http`，配置信息如下：
 
 ```yaml
 shenyu:
@@ -24,9 +32,14 @@ shenyu:
       scheduledTime: 10 #定时检测间隔时间 （秒）
 ```
 
-#### Shenyu-Client配置
+<img src="/img/shenyu/register/register-http-admin-yml.png" width="70%" height="60%" />
 
-在 application.yml 中配置注册方式为HTTP，并填写Shenyu-Admin服务地址列表，如下：
+
+#### shenyu-client配置
+
+下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Http`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+
+在微服务中的 `yml`文件配置注册方式设置为`http`，并填写`shenyu-admin`服务地址列表，配置信息如下：
 
 ```yaml
 shenyu:
@@ -41,16 +54,19 @@ shenyu:
 # registerType : 服务注册类型，填写 http
 # serverList: 为http注册类型时，填写Shenyu-Admin项目的地址，注意加上http://，多个地址用英文逗号分隔
 # port: 你本项目的启动端口，目前springmvc/tars/grpc需要进行填写
-# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
+# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
 ``` 
 
-## Zookeeper方式注册
 
-#### Shenyu-Admin配置
+<img src="/img/shenyu/register/register-http-client-yml.png" width="70%" height="60%" />
 
-* 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
+### Zookeeper方式注册配置
+
+#### shenyu-admin配置
+
+* 首先在 `pom` 文件中加入相关的依赖（默认已经引入）：
 
 ```xml
         <dependency>
@@ -60,31 +76,41 @@ shenyu:
         </dependency>
 ```
 
-* 在 application.yml 配置注册中心为Zookeeper，填写相关zookeeper服务地址和参数，如下：
+<img src="/img/shenyu/register/register-zk-admin-pom.png" width="70%" height="60%" />
+
+
+* 然后在`yml`文件中配置注册类型为`zookeeper`，填写`zookeeper`服务地址和参数，配置信息如下：
 
 ```yaml
 shenyu:
   register:
     registerType: zookeeper
-    serverLists : localhost:2181
+    serverLists: localhost:2181
     props:
       sessionTimeout: 5000
       connectionTimeout: 2000
 ```
 
-#### Shenyu-Client配置
+<img src="/img/shenyu/register/register-zk-admin-yml.png" width="70%" height="60%" />
 
-* 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
+
+#### shenyu-client配置
+
+下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Zookeeper`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+
+* 首先在 `pom`文件中加入相关的依赖：
 
 ```xml
+        <!--shenyu zookeeper register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-register-client-zookeeper</artifactId>
-            <version>${project.version}</version>
+            <artifactId>shenyu-register-server-zookeeper</artifactId>
+            <version>${shenyu.version}</version>
         </dependency>
 ```
+<img src="/img/shenyu/register/register-zk-client-pom.png" width="70%" height="60%" />
 
-* 在 application.yml 中配置注册方式为Zookeeper，并填写Zookeeper服务地址和相关参数，如下：
+* 然后在 `yml` 中配置注册类型为`zookeeper`，并填写`Zookeeper`服务地址和相关参数，如下：
 
 ```yaml
 shenyu:
@@ -94,21 +120,24 @@ shenyu:
     props:
       contextPath: /http
       appName: http
-      port: 8188  
+      port: 8189  
       isFull: false
 # registerType : 服务注册类型，填写 zookeeper
 # serverList: 为zookeeper注册类型时，填写zookeeper地址，多个地址用英文分隔
 # port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
-# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
+# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
 ``` 
 
-## Etcd方式注册
+<img src="/img/shenyu/register/register-zk-client-yml.png" width="70%" height="60%" />
 
-#### Shenyu-Admin配置
 
-* 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
+### Etcd方式注册配置
+
+#### shenyu-admin配置
+
+* 首先在 `pom` 文件中加入相关的依赖（默认已经引入）：
 
 ```xml
         <dependency>
@@ -118,7 +147,10 @@ shenyu:
         </dependency>
 ```
 
-* 在 application.yml 配置注册中心为etcd, 填写相关etcd服务地址和参数，如下：
+<img src="/img/shenyu/register/register-etcd-admin-pom.png" width="70%" height="60%" />
+
+
+* 然后在 `yml` 配置注册类型为`etcd`, 填写`etcd`服务地址和参数，配置信息如下：
 
 ```yaml
 shenyu:
@@ -130,19 +162,28 @@ shenyu:
       etcdTTL: 5
 ```
 
-#### Shenyu-Client配置
+<img src="/img/shenyu/register/register-etcd-admin-yml.png" width="70%" height="60%" />
 
-* 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
+#### shenyu-client配置
+
+下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Etcd`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+
+
+* 首先在 `pom` 文件中加入相关的依赖：
 
 ```xml
+        <!--shenyu etcd register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-register-client-etcd</artifactId>
-            <version>${project.version}</version>
+            <artifactId>shenyu-register-server-etcd</artifactId>
+            <version>${shenyu.version}</version>
         </dependency>
 ```
 
-* 在 application.yml 中配置注册方式为etcd, 并填写etcd服务地址和相关参数，如下：
+<img src="/img/shenyu/register/register-etcd-client-pom.png" width="70%" height="60%" />
+
+
+* 然后在 `yml` 中配置注册类型为`etcd`, 并填写`etcd`服务地址和相关参数，如下：
 
 ```yaml
 shenyu:
@@ -152,39 +193,46 @@ shenyu:
     props:
       contextPath: /http
       appName: http
-      port: 8188  
+      port: 8189  
       isFull: false
 # registerType : 服务注册类型，填写 etcd
 # serverList: 为etcd注册类型时，填写etcd地址，多个地址用英文分隔
 # port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
-# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
+# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
 ``` 
 
-## Consul方式注册
 
-#### Shenyu-Admin配置
+<img src="/img/shenyu/register/register-etcd-client-yml.png" width="70%" height="60%" />
+
+### Consul方式注册配置
+
+#### shenyu-admin配置
 
 * 首先在 pom.xml 文件中加入相关的依赖：
 
 ```xml
-               <!--shenyu-register-server-consul默认已经引入-->
-               <dependency>
-                   <groupId>org.apache.shenyu</groupId>
-                   <artifactId>shenyu-register-server-consul</artifactId>
-                   <version>${project.version}</version>
-               </dependency>
+        <!--shenyu consul register start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-register-server-consul</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-               <!--spring-cloud-starter-consul-discovery需要用户自行引入，建议选用2.2.6.RELEASE版本，其他版本不保证正常工作-->
-               <dependency>
-                   <groupId>org.springframework.cloud</groupId>
-                   <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-                   <version>2.2.6.RELEASE</version>
-               </dependency>
+        <!--spring-cloud-starter-consul-discovery需要用户自行引入，建议选用2.2.6.RELEASE版本，其他版本不保证正常工作-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
+        <!--shenyu consul register end-->
+
 ```
 
-* 在 application.yml 配置注册中心为consul, 额外还需要配置spring.cloud.consul, 如下：
+<img src="/img/shenyu/register/register-consul-admin-pom.png" width="70%" height="60%" />
+
+* 在 `yml`文件配置注册中心为`consul`, 额外还需要配置`spring.cloud.consul`, 配置信息如下：
 
 ```yaml
 shenyu:
@@ -215,11 +263,16 @@ spring:
 
 ```
 
-#### Shenyu-Client配置
+<img src="/img/shenyu/register/register-consul-admin-yml.png" width="70%" height="60%" />
 
-**注意，consul注册中心目前和SpringCloud服务不兼容，会和Eureka/Nacos注册中心冲突** 
 
-* 首先在 pom.xml 文件中加入相关的依赖（需要自行引入）：
+#### shenyu-client配置
+
+**注意，`consul`注册中心目前和`SpringCloud`服务不兼容，会和`Eureka/Nacos`注册中心冲突** 
+
+下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Consul`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+
+* 首先在 `pom` 文件中加入相关的依赖：
 
 ```xml
             <dependency>
@@ -229,7 +282,10 @@ spring:
            </dependency>
 ```
 
-* 在 application.yml 中配置注册方式为consul, 额外还需要配置spring.cloud.consul, 如下：
+<img src="/img/shenyu/register/register-consul-client-pom.png" width="70%" height="60%" />
+
+
+* 然后在 `yml`文件中配置注册方式为`consul`, 额外还需要配置`spring.cloud.consul`, 配置信息如下：
 
 ```yaml
 shenyu:
@@ -251,7 +307,7 @@ spring:
       port: 8500
 # registerType : 服务注册类型，填写 consul
 # shenyu.client.props.port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
-# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
+# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc
 # instance-id: consul服务必填，consul需要通过instance-id找到具体服务
@@ -260,11 +316,14 @@ spring:
 # spring.cloud.consul.port: 为 consul 注册类型时，填写 consul 端口， 默认是8500
 ``` 
 
-## Nacos方式注册
+<img src="/img/shenyu/register/register-consul-client-yml.png" width="70%" height="60%" />
 
-#### Shenyu-Admin配置
 
-* 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
+### Nacos方式注册配置
+
+#### shenyu-admin配置
+
+* 首先在 `pom` 文件中加入相关的依赖（默认已经引入）：
 
 ```xml
         <dependency>
@@ -274,7 +333,10 @@ spring:
         </dependency>
 ```
 
-* 在 application.yml 配置注册中心为nacos, 填写相关nacos服务地址和参数，还有Nacos的命名空间（需要和Shenyu-Client保持一致），如下：
+<img src="/img/shenyu/register/register-nacos-admin-pom.png" width="70%" height="60%" />
+
+
+* 然后在 `yml`文件中配置注册中心为`nacos`, 填写相关`nacos`服务地址和参数，还有`nacos`的命名空间（需要和`shenyu-client`保持一致），配置信息如下：
 
 ```yaml
 shenyu:
@@ -285,9 +347,15 @@ shenyu:
       nacosNameSpace: ShenyuRegisterCenter
 ```
 
-#### Shenyu-Client配置
+<img src="/img/shenyu/register/register-nacos-admin-yml.png" width="70%" height="60%" />
 
-* 首先在 pom.xml 文件中加入相关的依赖（默认已经引入）：
+
+#### shenyu-client配置
+
+下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Nacos`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+
+
+* 首先在 `pom`文件中加入相关的依赖：
 
 ```xml
         <dependency>
@@ -297,7 +365,10 @@ shenyu:
         </dependency>
 ```
 
-* 在 application.yml 中配置注册方式为nacos, 并填写nacos服务地址和相关参数，需要命名空间（需要和Shenyu-Admin端保持一致），IP（可不填，则自动获取本机ip）和端口，如下：
+<img src="/img/shenyu/register/register-nacos-client-pom.png" width="70%" height="60%" />
+
+
+* 然后在 `yml` 中配置注册方式为`nacos`, 并填写`nacos`服务地址和相关参数，还需要`Nacos`命名空间（需要和`shenyu-admin`端保持一致），IP（可不填，则自动获取本机ip）和端口，配置信息如下：
 
 ```yaml
 shenyu:
@@ -313,8 +384,11 @@ shenyu:
 # registerType : 服务注册类型，填写 etcd
 # serverList: 为etcd注册类型时，填写etcd地址，多个地址用英文分隔
 # port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
-# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀，这个你应该懂意思把？ 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
+# contextPath: 为你的这个mvc项目在shenyu网关的路由前缀，比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
 # nacosNameSpace: nacos的命名空间
 ``` 
+<img src="/img/shenyu/register/register-nacos-client-yml.png" width="70%" height="60%" />
+
+总结，本文主要介绍了如何将你的微服务（当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议）接入到`ShenYu`网关。介绍了注册中心的原理，`ShenYu`网关支持的注册中心有`Http`、`Zookeeper`、`Etcd`、`Consul`、`Nacos`等方式。介绍了以`http`服务作为客户端接入到`ShenYu`网关时，使用不同方式注册配置信息。

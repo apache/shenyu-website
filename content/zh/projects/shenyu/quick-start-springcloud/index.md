@@ -3,11 +3,11 @@ title: Spring Cloud快速开始
 description: Spring Cloud快速开始
 ---
 
-本文档演示如何将`Spring Cloud`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)。
+本文档演示如何将`Spring Cloud`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) 。
 
 ## 环境准备
 
-请参考[配置网关环境](../shenyu-set-up)并启动`shenyu-admin`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`springCloud` 插件设置为开启。
 
@@ -117,7 +117,8 @@ eureka:
 ## 测试Http请求
 `shenyu-examples-springcloud`项目成功启动之后会自动把加 `@ShenyuSpringCloudClient` 注解的接口方法注册到网关。
 
-打开`插件列表` `->` `springCloud` 可以看到插件规则配置列表：
+打开`插件列表 -> rpc proxy -> springCloud` 可以看到插件规则配置列表：
+
 
 ![](/img/shenyu/quick-start/springcloud/rule-list.png)
 

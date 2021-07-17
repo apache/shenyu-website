@@ -1,44 +1,51 @@
 ---
-title: 插件处理详解
+title: 插件配置
 keywords: plugin
-description: 插件处理详解
+description: 插件配置
 ---
 
+本文档将介绍`ShenYu`后台管理系统中插件的使用，包括插件管理和插件处理管理。
 
-### 使用教程
 
-比如开发springCloud插件时规则表需要存一些配置到handle字段，配置对应的实体类如下：
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
 
-```java
-    public class SpringCloudRuleHandle implements RuleHandle {
-    
-        /**
-         * this remote uri path.
-         */
-        private String path;
-    
-        /**
-         * timeout is required.
-         */
-        private long timeout = Constants.TIME_OUT;
-        
-    }
-```
+## 插件管理
 
-第一步，我们可以直接在 `PluginHandle` 界面 `http://localhost:9095/#/config/pluginhandle` 新增/编辑handle字段
+在插件管理中，你可以对所有插件进行统一管理，比如关闭或开启插件：
 
-![](/img/shenyu/basicConfig/pluginHandle/01.png)
+<img src="/img/shenyu/basicConfig/pluginHandle/04.png" width="80%" height="50%" />
 
-第二步，例如给springCloud新增一个字符串类型字段path和一个数字类型字段timeout
+也可以对某些插件设置配置信息，比如给`Dubbo`插件设置注册中心：
 
-![](/img/shenyu/basicConfig/pluginHandle/02.png)
+<img src="/img/shenyu/basicConfig/pluginHandle/05.png" width="80%" height="50%" />
 
-第三步，在插件规则配置页面新增规则时就可以直接输入path、timeout然后提交保存到handle字段了
+## 插件处理管理
 
-![](/img/shenyu/basicConfig/pluginHandle/03.png)
+在插件处理管理中，你可以对插件、选择器和规则添加`handle`字段。
 
-*注意：如果配置了data_type为3 选择框，则规则新增页面里输入框下拉选择是通过field字段去[字典表（shenyu_dict）](../dictionary-management)查出所有可选项出来展示选择。*
+比如给`springCloud`插件的规则列表新增一个字符串类型的字段`path`和一个数字类型的字段`timeout`。
 
-* 比如sentinel插件包含多种数据类型的字段，如下图：
 
-![](https://yu199195.github.io/images/soul/sentinel-rule-handle.png)
+第一步，在 `插件处理管理` 界面新增/编辑`handle`字段：
+
+![](/img/shenyu/basicConfig/pluginHandle/06.png)
+
+第二步，填写字段信息：
+
+![](/img/shenyu/basicConfig/pluginHandle/07.png)
+
+* 插件名：需要给哪个插件添加`handle`字段，下拉选择。
+* 字段：添加字段的名称。
+* 描述：字段描述信息。
+* 数据类型：数字、字符串、下拉框。如果选择了`下拉框`，则规则新增页面里输入框下拉选择是通过字段名称去字典表中查出所有可选项进行下来选择，所以需要提前在 [字典管理](../dictionary-management) 中录入信息。
+* 字段所属类型：插件、选择器、规则。
+* 排序：字段顺序。
+* 是否必填：是、否。
+* 默认值：为该字段指定一个默认值。
+* 输入提示：用户填写该字段时，出现的提示信息。
+* 校验规则(正则) ：用户填写该字段时，使用校验规则。
+
+第三步，在`插件列表 -> rpc proxy -> springCloud -> 添加规则`时，就可以输入`path`、`timeout`的信息：
+
+![](/img/shenyu/basicConfig/pluginHandle/08.png)
+

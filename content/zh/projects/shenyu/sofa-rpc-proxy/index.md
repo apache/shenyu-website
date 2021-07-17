@@ -1,25 +1,34 @@
 ---
-title: Sofa 接入网关
+title: Sofa服务接入
 keywords: sofa
 description: sofa 接入 shenyu 网关
 ---
 
-## 说明
+此篇文章是介绍 `sofa` 服务接入到 `ShenYu` 网关，`ShenYu` 网关使用 `sofa` 插件来接入`sofa`服务。
 
-* 此篇文章是 sofa 用户使用 sofa 插件支持，以及自己的 sofa 服务接入 shenyu 网关的教程。
-* 接入前，请正确的启动 `shenyu-admin` 以及[搭建环境](../shenyu-set-up) Ok。
+接入前，请正确启动 `shenyu-admin`，并开启`sofa`插件，在网关端和`sofa`服务端引入相关依赖。可以参考前面的 [Sofa快速开始](../quick-start-sofa)。
 
-## 引入网关对sofa支持的插件
+应用客户端接入的相关配置请参考：[客户端接入配置](../register-center-access)。
+
+数据同步的相关配置请参考：[数据同步配置](../use-data-sync)。
+
+## 在网关中引入 sofa 插件
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
-* sofa版本换成你的，注册中心的jar包换成你的，以下是参考。
+* `sofa`版本换成你的，引入你需要的注册中心依赖，以下是参考。
 
  ```xml
 
-	    <dependency>
+        <dependency>
             <groupId>com.alipay.sofa</groupId>
             <artifactId>sofa-rpc-all</artifactId>
             <version>5.7.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.jcip</groupId>
+                    <artifactId>jcip-annotations</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.curator</groupId>
@@ -39,18 +48,19 @@ description: sofa 接入 shenyu 网关
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${last.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
   ```
 
 * 重启网关服务。
 
-## sofa服务接入网关，可以参考：[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
+## sofa服务接入网关
 
- * springboot
+可以参考：[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
 
-    * 引入以下依赖
+如果是`springboot`构建，引入以下依赖：
+
  ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
@@ -59,20 +69,18 @@ description: sofa 接入 shenyu 网关
         </dependency>
  ```
 
-  * 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)
 
-* spring
 
-   * 引入以下依赖 ：
+如果是`spring`构建，引入以下依赖：
    
  ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-client-sofa</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu.version}</version>
         </dependency>
    ```
-   * 在你的 bean定义的xml文件中新增如下 ：
+并在你的 `bean`定义的`xml`文件中新增如下 ：
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor">
              <constructor-arg  ref="shenyuRegisterCenterConfig"/>
@@ -102,32 +110,29 @@ description: sofa 接入 shenyu 网关
 
 ## 接口注册到网关
 
-* 你sofa服务实现类的，方法上加上 @ShenyuSofaClient 注解，表示该接口方法注册到网关。
+* 在`sofa`服务的类或者方法上加上 `@ShenyuSofaClient` 注解，表示该类或接口方法注册到网关。
 
-* 启动你的提供者，输出日志 `sofa client register success` 大功告成，你的sofa接口已经发布到 shenyu 网关.如果还有不懂的，可以参考 `shenyu-test-sofa`项目。
+* 启动`sofa`服务提供者，成功注册后，进入后台管理系统的 `插件列表 -> rpc proxy -> sofa`，会看到自动注册的选择器和规则信息。
 
-## sofa用户请求以及参数说明
+## sofa用户请求及参数说明
 
-* 说白了，就是通过http的方式来请求你的sofa服务
+可以通过 `http` 的方式来请求你的`sofa`服务。`ShenYu`网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`。
 
-* shenyu网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`
+> 比如你有一个 order 服务 它有一个接口，它的注册路径 /order/test/save
 
-```yaml
-# 比如你有一个 order服务 它有一个接口，它的注册路径 /order/test/save
+> 现在就是通过 post方式请求网关：http://localhost:9195/order/test/save
 
-# 现在就是通过 post方式请求网关：http://localhost:9195/order/test/save
+> 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你sofa接入网关配置的 contextPath
 
-# 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你sofa接入网关配置的 contextPath
-```
 
 * 参数传递：
 
-   * 通过 http post 方式访问网关，通过body，json类型传递。
-   * 更多参数类型传递，可以参考[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) 中的接口定义，以及参数传递方式。
+   * 通过 `http`协议， `post` 方式访问网关，通过在`http body`中传入`json`类型参数。
+   * 更多参数类型传递，可以参考 [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) 中的接口定义，以及参数传递方式。
 
-* 单个java bean参数类型 （默认）
+* 单个`java bean`参数类型 （默认）
 * 自定义实现多参数支持：
-  * 在你搭建的网关项目中，新增一个类 A，实现 `org.apache.shenyu.plugin.api.sofa.SofaParamResolveService`。
+  * 在你搭建的网关项目中，新增一个类 `MySofaParamResolveService`，实现 `org.apache.shenyu.plugin.api.sofa.SofaParamResolveService`接口。
 
  ```java
     public interface SofaParamResolveService {
@@ -144,17 +149,17 @@ description: sofa 接入 shenyu 网关
     }
   ```
 
-  * `body`为http中body传的json字符串。
+  * `body`为`http`中`body`传的`json`字符串。
 
   *  `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用`,`分割。
 
-  *  Pair中，left为参数类型，right为参数值，这是sofa泛化调用的标准。
+  *  `Pair`中，`left`为参数类型，`right`为参数值，这是`sofa`泛化调用的标准。
 
-  * 把你的类注册成Spring的bean，覆盖默认的实现。
+  * 把你的类注册成`Spring`的`bean`，覆盖默认的实现。
 
  ```java
     @Bean
-     public SofaParamResolveService A() {
-             return new A();
+     public SofaParamResolveService mySofaParamResolveService() {
+             return new MySofaParamResolveService();
      }
   ```

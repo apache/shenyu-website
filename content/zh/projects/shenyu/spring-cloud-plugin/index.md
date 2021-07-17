@@ -1,52 +1,39 @@
 ---
-title: SpringCloud插件
+title: Spring Cloud插件
 keywords: SpringCloud
-description: SpringCloud插件
+description: Spring Cloud插件
 ---
 
 ## 说明
 
-* 该插件是用来将`http协议` 转成` springCloud协议` 的核心。
-
-## 引入网关 springCloud的插件支持
-
-* 在网关的 pom.xml 文件中引入如下依赖。
-
-```xml
-  <!--shenyu springCloud plugin start-->
-  <dependency>
-       <groupId>org.apache.shenyu</groupId>
-       <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
-        <version>${last.version}</version>
-  </dependency>
-
-  <dependency>
-       <groupId>org.apache.shenyu</groupId>
-       <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-       <version>${last.version}</version>
-   </dependency>
-   <!--shenyu springCloud plugin end-->
-
-   <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-commons</artifactId>
-        <version>2.2.0.RELEASE</version>
-   </dependency>
-   <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        <version>2.2.0.RELEASE</version>
-   </dependency>
-```
+* 该插件是用来将`http协议` 转成 `Spring Cloud协议`。
 
 ## 插件设置
 
-* 在 `shenyu-admin` --> 插件管理-> springCloud，设置为开启。
-* 插件需要配合依赖 `starter` 进行使用，具体请看：[springCloud用户](../spring-cloud-proxy)。
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 引入相关依赖，开启插件，请参考：[Spring Cloud快速开始](../quick-start-springcloud) 。
+ 
+* `Spring Cloud`应用客户端接入，请参考：[Spring Cloud服务接入](../spring-cloud-proxy) 。
 
-## 详解
+## 插件详解
 
-* 应用名称：就是你根据条件匹配以后，需要调用的你的具体的应用名称。
-* ShenYu 会从 springCloud 的注册中心上面，根据应用名称获取对应的服务真实ip地址，发起http代理调用。
+客户端接入`ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule) 。
 
+#### 选择器处理
+
+<img src="/img/shenyu/plugin/springcloud/springcloud-1.png" width="80%" height="80%" />
+
+选择器处理，即`handle`字段，是网关匹配到流量以后，可以进行处理的操作。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
+
+* 处理配置详解：
+
+     * `serviceId`：服务Id。
+     
+#### 规则处理
+<img src="/img/shenyu/plugin/springcloud/springcloud-1.png" width="80%" height="80%" />
+
+规则处理，即`handle`字段，是网关对流量完成最终匹配后，可以进行处理的操作。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
+
+* 处理配置详解：
+
+     * `path`：请求路径。
+     * `timeout`：设置请求超时时间。

@@ -81,7 +81,7 @@ description: Http服务接入
 ```
 
 
- 在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
+在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
 你可以把注解加到 `Controller` 类上面，里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
 
 示例一
@@ -161,7 +161,5 @@ description: Http服务接入
     * 其中 `localhost:9195` 为网关的`ip`端口，默认端口是`9195` ，`/order` 是你接入网关配置的 `contextPath`。
 
     * 其他参数，请求方式不变。
-
-
 
 然后你就可以进行访问了，如此的方便与简单。

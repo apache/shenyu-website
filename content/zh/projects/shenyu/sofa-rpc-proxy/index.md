@@ -116,7 +116,7 @@ description: sofa 接入 shenyu 网关
 
 ## sofa用户请求及参数说明
 
-可以通过 `http` 的方式来请求你的`sofa`服务。`ShenYu`网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`。
+可以通过 `http` 的方式来请求你的`sofa`服务。`ShenYu`网关需要有一个路由前缀，这个路由前缀就是接入网关配置的 `contextPath`。
 
 > 比如你有一个 order 服务 它有一个接口，它的注册路径 /order/test/save
 

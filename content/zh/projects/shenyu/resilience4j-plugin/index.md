@@ -47,6 +47,8 @@ description: resilience4j插件
 
 用于对流量最终筛选，有规则处理逻辑。 
 
+<img src="/img/shenyu/plugin/resilience4j/resilience4j-3.png" width="80%" height="80%" />
+
 
 * `resilience4j`处理详解：
 
@@ -68,9 +70,9 @@ description: resilience4j插件
    
     * minimumNumberOfCalls：开启熔断的最小请求数，超过这个请求数才开启熔断统计，默认值：100。
 
-    * waitIntervalFunctionInOpenState：熔断器开启持续时间，单位ms，默认值：10。
+    * waitIntervalInOpen：熔断器开启持续时间，单位ms，默认值：60000。
 
-    * permittedNumberOfCallsInHalfOpenState：半开状态下的环形缓冲区大小，必须达到此数量才会计算失败率，默认值：10。
+    * bufferSizeInHalfOpen：半开状态下的环形缓冲区大小，必须达到此数量才会计算失败率，默认值：10。
 
     * failureRateThreshold：错误率百分比，达到这个阈值，熔断器才会开启，默认值50。
 

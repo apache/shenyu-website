@@ -18,7 +18,7 @@ description: Tars服务接入
 引入网关对`Tars`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-  <!--shenyu debug plugin end-->
+        <!--shenyu tars plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-tars</artifactId>
@@ -50,7 +50,7 @@ description: Tars服务接入
 ```
 
 
-在`Tasr`服务接口实现类上加上 `@ShenyuTarsService` 注解，在方法上加上注解`ShenyuTarsClient`，启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> grpc`，会看到自动注册的选择器和规则信息。
+在`Tasr`服务接口实现类上加上 `@ShenyuTarsService` 注解，在方法上加上注解`@ShenyuTarsClient`，启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> tars`，会看到自动注册的选择器和规则信息。
 
 示例：
 

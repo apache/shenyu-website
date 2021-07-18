@@ -6,25 +6,25 @@ description: 插件扩展
 
 ## 说明
 
-* 插件是 ShenYu 网关的核心执行者，每个插件在开启的情况下，都会对匹配的流量，进行自己的处理。
-* 在 ShenYu 网关里面，插件其实分为2 类。
+* 插件是 `ShenYu` 网关的核心执行者，每个插件在开启的情况下，都会对匹配的流量，进行自己的处理。
+* 在 `ShenYu` 网关里面，插件分为两类。
   * 一类是单一职责的调用链，不能对流量进行自定义的筛选。
-  * 另一类，能对匹配的流量，执行自己的职责调用链。
-* 用户可以参考 shenyu-plugin 模块，新增自己的插件处理，如果有好的公用插件，请把代码提交上来。
+  * 一类是能对匹配的流量，执行自己的职责调用链。
+* 用户可以参考 [shenyu-plugin](https://github.com/apache/incubator-shenyu/tree/master/shenyu-plugin) 模块，新增自己的插件处理，如果有好的公用插件，可以向官网提交`pr`。
 
 ## 单一职责插件
 
 * 引入如下依赖：
 
 ```
- <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-plugin-api</artifactId>
-        <version>${last.version}</version>
-  </dependency>
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-plugin-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 ```
 
-* 用户新增一个类 A，直接实现 `org.apache.shenyu.plugin.api.ShenyuPlugin`
+* 用户新增一个类 `MyShenyuPlugin`，直接实现 `org.apache.shenyu.plugin.api.ShenyuPlugin`
 
 ```java
 public interface ShenyuPlugin {
@@ -82,12 +82,12 @@ public interface ShenyuPlugin {
    * `skip()` 在特定的条件下，该插件是否被跳过。
 
 
-* 注册成Spring的bean，参考如下，或者直接在实现类上加 `@Component` 注解。
+* 注册成`Spring`的`bean`，参考如下，或者直接在实现类上加 `@Component` 注解。
 
 ```java
     @Bean
-    public ShenyuPlugin a() {
-        return new A();
+    public ShenyuPlugin myShenyuPlugin() {
+        return new MyShenyuPlugin();
     }
 ```
 
@@ -96,13 +96,13 @@ public interface ShenyuPlugin {
 
 * 引入如下依赖：
 ```xml
- <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-plugin-base</artifactId>
-        <version>${last.version}</version>
-  </dependency>
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-plugin-base</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 ```
-* 新增一个类A，继承 `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
+* 新增一个类 `CustomPlugin`，继承 `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
 
 * 以下是参考：
 
@@ -179,26 +179,26 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
 * 详细讲解：
 
-   * 继承该类的插件，插件会进行选择器规则匹配，那如何来设置呢？
+   * 继承该类的插件，插件会进行选择器规则匹配。
 
-   * 首先在 `shenyu-admin` 后台 -->插件管理中，新增一个插件，注意 名称与 你自定义插件的 `named()` 方法要一致。
+   * 首先在 `shenyu-admin` 后台管理系统 --> 基础配置 --> 插件管理 中，新增一个插件，注意 名称与 你自定义插件的 `named()` 方法要一致。
 
-   * 重新登陆  `shenyu-admin` 后台 ，你会发现在插件列表就多了一个你刚新增的插件，你就可以进行选择器规则匹配
+   * 重新登陆  `shenyu-admin` 后台，可以看见刚新增的插件，然后就可以进行选择器规则匹配。
 
-   * 在规则中，有个 `handler` 字段，是你自定义处理数据，在 `doExecute()` 方法中，通过 ` final String ruleHandle = rule.getHandle();` 获取，然后进行你的操作。
+   * 在规则中，有个 `handler` 字段，是自定义处理数据，在 `doExecute()` 方法中，通过 ` final String ruleHandle = rule.getHandle();` 获取，然后进行你的操作。
 
-* 注册成Spring的bean，参考如下或者直接在实现类上加 `@Component` 注解。
+* 注册成`Spring`的`bean`，参考如下或者直接在实现类上加 `@Component` 注解。
 
 ```java
     @Bean
-    public ShenyuPlugin a() {
-        return new A();
+    public ShenyuPlugin customPlugin() {
+        return new CustomPlugin();
     }
 ```
 
 ## 订阅你的插件数据，进行自定义的处理
 
-* 新增一个类A，实现 `org.apache.shenyu.plugin.base.handler.PluginDataHandler`
+* 新增一个类 `PluginDataHandler`，实现 `org.apache.shenyu.plugin.base.handler.PluginDataHandler`
 
 ```java
 public interface PluginDataHandler {
@@ -263,10 +263,11 @@ public interface PluginDataHandler {
 
 * 注意 `pluginNamed()` 要和你自定义的插件名称相同。
 
-* 注册成Spring的bean，参考如下或者直接在实现类上加 `@Component` 注解。
+* 注册成`Spring`的`bean`，参考如下或者直接在实现类上加 `@Component` 注解。
+
 ```java
     @Bean
-    public PluginDataHandler a() {
-        return new A();
+    public PluginDataHandler pluginDataHandler() {
+        return new PluginDataHandler();
     }
 ```

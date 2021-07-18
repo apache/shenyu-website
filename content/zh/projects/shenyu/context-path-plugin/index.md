@@ -10,22 +10,24 @@ description: context_path插件
 
 ## 插件设置
 
-* 在 `shenyu-admin` --> 插件管理 --> `context_path` 设置为开启。
-* 在网关的 pom.xml 文件中添加 `context_path` 的支持。
-* 如果用户不需要，可以把插件禁用。
+-  在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `context_path` 设置为开启。
+-  如果用户不需要，可以把插件禁用。
+
+## 插件使用
+- 在网关的 `pom.xml` 文件中添加 `context_path` 的支持。
 
 ```xml
   <!-- shenyu context_path plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-context-path</artifactId>
-     <version>${last.version}</version>
+     <version>${project.version}</version>
   </dependency>
   <!-- shenyu context_path plugin end-->
 ```
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
-* 只有匹配的请求，并且配置规则才会进行重写contextPath。
+- 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+- 只有匹配的请求，并且配置规则才会进行重写contextPath。
 
 ## 场景
 

@@ -46,7 +46,7 @@ description: waf插件
 
 <img src="/img/shenyu/plugin/waf/waf_rule_zh.jpg" width="80%" height="80%" />
 
-注：被 `Waf` 拒绝访问的请求，响应头状态码为：`403` 。
+被 `Waf` 拒绝访问的请求，响应头状态码为：`403` 。
 
 #### 黑名单模式
 

@@ -11,7 +11,11 @@ description: sign插件
 
 ## 插件设置
 
-* 在 `shenyu-admin` -> 插件管理中 --> `sign`插件设置为开启。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](https://shenyu.apache.org/zh/projects/shenyu/deployment-local) 启动`ShenYu`后台管理系统。
+
+* 在 `shenyu-admin` 基础配置 --> 插件管理 --> `sign` ，设置为开启。如果用户不想使用此功能，请在admin后台停用此插件。
+
+  <img src="/img/shenyu/plugin/sign/sign_open_zh.jpg" width="80%" height="80%" />
 
 ## 插件使用
 
@@ -33,11 +37,11 @@ description: sign插件
 
 ## 新增 AK/SK
 
-* 在shenyu-admin --> 认证管理中，点击新增，新增一条 AK/SK。详情请看：[认证管理](../authority-management)
+* 在 `shenyu-admin` --> 认证管理中，点击新增，新增一条 AK/SK。详情请看：[认证管理](../authority-management)
 
 ## 网关技术实现
 
- * 采用Ak/SK鉴权技术方案。
+ * 采用AK/SK鉴权技术方案。
  * 采用鉴权插件，责任链的模式来完成。
  * 当鉴权插件开启，并配置所有接口鉴权时候生效。
 
@@ -56,13 +60,13 @@ description: sign插件
 | path       | /api/service/abc  | 就是你需要访问的接口路径(根据你访问网关接口自己变更) |
 | version       | 1.0.0  | 目前定位1.0.0 写死，String类型 |
 
- 对上述2个字段进行key的自然排序，然后进行字段与字段值拼接最后再拼接上SK，代码示例。
+ 对上述3个字段进行key的自然排序，然后进行字段与字段值拼接最后再拼接上SK，代码示例。
 
 
 第一步：首先构造一个Map。
 ```java
 
-   Map<String, String> map = Maps.newHashMapWithExpectedSize(2);
+   Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
    //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
    map.put("timestamp","1571711067186");  //值应该为毫秒数的字符串形式
    map.put("path", "/api/service/abc");
@@ -104,7 +108,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 | sign       | `A90E66763793BDBC817CF3B52AAAC041`  | 上述得到的签名值 |
 | version       | `1.0.0`  | 写死，就为这个值 |
 
-* 签名插件会默认过滤5分钟之后的请求
+* 签名插件会默认过滤5分钟之前的请求
 
 ## 如果认证不通过会返回 code 为401 message可能会有变动。
 

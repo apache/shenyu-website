@@ -45,6 +45,7 @@ description: sofa插件
     * 请求传参时需**严格按照参数类型顺序传参**，没有值的用 `null`占位 。请求体示例：`{"id":1,"name": null,"age":18}`
 
 
+
 * Rpc扩展参数：`sofa`接口的其他配置，支持`json`格式，字段如下：
 
 ```yaml

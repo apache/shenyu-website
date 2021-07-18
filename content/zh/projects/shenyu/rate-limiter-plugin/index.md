@@ -76,7 +76,7 @@ description: rateLimiter插件
 
 * 规则详细说明
 
-<img src="/img/shenyu/plugin/resilience4j/ratelimiter-rule.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/ratelimiter/ratelimiter-rule.png" width="80%" height="80%" />
 
 
 * 令牌桶算法/并发令牌桶算法
@@ -87,6 +87,7 @@ description: rateLimiter插件
 
   * `burstCapacity`（容量）：允许用户在一秒钟内执行的最大请求数。这是令牌桶可以保存的令牌数。
 
+  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流
 
 * 漏桶算法
 
@@ -96,6 +97,7 @@ description: rateLimiter插件
 
   * `burstCapacity`（容量）：允许用户在一秒钟内执行的最大请求数。这是桶中的水量。
 
+  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流
 
 * 滑动窗口算法
 
@@ -104,3 +106,5 @@ description: rateLimiter插件
   * `replenishRate`（速率）：单位时间内执行请求的速率，用于计算时间窗口大小。
 
   * `burstCapacity`（容量）：时间窗口内（单位时间内）最大的请求数量。
+
+  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流

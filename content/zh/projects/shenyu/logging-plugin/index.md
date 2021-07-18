@@ -6,25 +6,32 @@ description: logging插件
 
 ## 说明
 
-* ShenYu 网关在对目标服务调用的时候，还容许用户使用 `logging` 插件在日志中打印本次请求信息，包含请求路径、请求方法、请求参数和响应头、响应体等信息。
+* `ShenYu` 网关在对目标服务调用的时候，还容许用户使用 `logging` 插件在日志中打印本次请求信息，包含请求路径、请求方法、请求参数和响应头、响应体等信息。
 
 ## 插件设置
 
-* 在 `shenyu-admin` --> 插件管理 --> `logging` 设置为开启。
-* 在网关的 pom.xml 文件中添加 `logging` 的支持。
+* 在 `shenyu-admin`--> 基础配置 --> 插件管理-> `logging` ，设置为开启。
+
 * 如果用户不需要，可以把插件禁用。
 
+
+<img src="/img/shenyu/plugin/logging/logging-1.png" width="70%" height="60%" />
+
+
+* 在网关的 `pom.xml` 文件中添加 `logging` 的支持。
+
+
 ```xml
-  <!-- shenyu logging plugin start-->
-  <dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-logging</artifactId>
-    <version>${last.version}</version>
-  </dependency>
-  <!-- shenyu logging plugin end-->
+        <!--shenyu debug plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-logging</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--shenyu debug plugin end-->
 ```
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则配置，请参考: [选择器和规则管理](../selector-and-rule)。
 * 只有匹配的请求，并且配置规则才会打印本次请求相关信息。
 
 ## 场景

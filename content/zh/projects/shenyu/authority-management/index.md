@@ -6,16 +6,16 @@ description: 权限管理详解
 
 ## 说明
 
-- 管理和控制经过 ShenYu 网关的请求的权限。
-- 生成的 `AK/SK` ，配合 `sign` 插件使用，实现基于URI级别的精准权限管控。
+- 管理和控制经过 `ShenYu` 网关的请求的权限。
+- 生成的 `AK/SK` ，配合 `sign` 插件使用，实现基于`URI`级别的精准权限管控。
 
 ## 使用教程
 
-#### 第一步，我们可以直接在 `基础配置` -- `认证管理` 新增一条认证信息
+ 第一步，我们可以直接在 `基础配置` --> `认证管理` 新增一条认证信息
 
 <img src="/img/shenyu/basicConfig/authorityManagement/auth_manages_add_zh.jpg" width="100%" height="70%" />
 
-#### 第二步，配置这条认证信息
+ 第二步，配置这条认证信息
 
 <img src="/img/shenyu/basicConfig/authorityManagement/auth_param_zh.jpg" width="50%" height="40%"/>
 

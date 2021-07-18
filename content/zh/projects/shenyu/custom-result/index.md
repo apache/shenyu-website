@@ -1,13 +1,13 @@
 ---
-title: 自定义网关返回数据格式
+title: 自定义返回结果
 keywords: shenyu
 description: 自定义网关返回数据格式
 ---
 
 ## 说明
 
-* 本文是说明基于 ShenYu 网关返回自定义的数据个数。
-* 网关需要统一的返回格式，而每个公司都有自己定义的一套，所以需要对次进行扩展。
+* 本文介绍基于 `ShenYu` 网关返回自定义的数据格式。
+* 网关需要统一的返回格式，如果需要自己定义格式，可以进行扩展。
 
 
 ## 默认实现
@@ -30,7 +30,8 @@ public class ShenyuDefaultEntity implements Serializable {
 }
 ```
 
-* 返回的json 格式如下：
+* 返回的 `json` 格式如下：
+
 ```json
 {
     "code": -100, //返回码,
@@ -41,7 +42,7 @@ public class ShenyuDefaultEntity implements Serializable {
 
 ## 扩展
 
-*  新增一个类 A 实现 `org.apache.shenyu.plugin.api.result.ShenyuResult`
+*  新增一个类 `CustomShenyuResult` 实现 `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
  public interface ShenyuResult<T> {
@@ -69,14 +70,14 @@ public class ShenyuDefaultEntity implements Serializable {
 
 ```
 
-* 其他 泛型 T 为你自定义的数据格式，返回它就好
+* 其中泛型 `T` 为自定义的数据格式，返回它就好。
 
-* 把你新增的实现类注册成为spring的bean，如下
+* 把你新增的实现类注册成为`Spring`的`bean`，如下：
 
 ```java
     @Bean
-    public ShenyuResult a() {
-          return new A();
+    public ShenyuResult customShenyuResult() {
+          return new CustomShenyuResult();
     }
 ```
 

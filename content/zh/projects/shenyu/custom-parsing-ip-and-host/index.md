@@ -1,24 +1,24 @@
 ---
-title: 正确获取Ip与host
+title: 正确获取IP与Host
 keywords: ShenYu
 description: 正确获取Ip与host
 ---
 
 ## 说明
 
-* 本文是说明，如果网关前面有一层`nginx` 的时候，如何获取正确的ip与端口。
-* 获取正确的之后，在插件以及选择器中，可以根据 ip，与host来进行匹配。
+* 本文是说明，如果网关前面有一层`nginx` 的时候，如何获取正确的`ip`与端口。
+* 获取正确的之后，在插件以及选择器中，可以根据 `ip`，与`host`来进行匹配。
 
 ## 默认实现
 
-* 在 ShenYu 网关自带实现为：`org.apache.shenyu.web.forward.ForwardedRemoteAddressResolver`。
+* 在 `ShenYu` 网关自带实现为：`org.apache.shenyu.web.forward.ForwardedRemoteAddressResolver`。
 
-* 它需要你在 `nginx` 设置 `X-Forwarded-For`，以便来获取正确的 ip 与 host。
+* 它需要你在 `nginx` 设置 `X-Forwarded-For`，以便来获取正确的 `ip` 与 `host`。
 
 
 ## 扩展实现
 
-* 新增一个类A，实现`org.apache.shenyu.plugin.api.RemoteAddressResolver`
+* 新增一个类 `CustomRemoteAddressResolver`，实现`org.apache.shenyu.plugin.api.RemoteAddressResolver`
 
 ```java
 public interface RemoteAddressResolver {
@@ -40,8 +40,8 @@ public interface RemoteAddressResolver {
 
 ```java
    @Bean
-   public SignService a() {
-         return new A
+   public SignService customRemoteAddressResolver() {
+         return new CustomRemoteAddressResolver();
    }
 ```
 

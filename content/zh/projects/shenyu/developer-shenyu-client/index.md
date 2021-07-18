@@ -1,19 +1,22 @@
 ---
-title: 多语言http客户端
+title: 多语言Http客户端
 keywords: shenyu
 description: 多语言http客户端
 ---
 
 ## 说明
 
-* 本文主要讲解其他语言的http服务如何接入网关。
-* 如何自定义开发 shenyu-http-client。
+* 本文主要讲解其他语言的`http`服务如何接入网关。
+* 如何自定义开发`shenyu-http-client`。
 
 ## 自定义开发
 
 * 请求方式：`POST`
-* 请求路径：`http://shenyu-admin/shenyu-client/springmvc-register`  shenyu-admin，表示为 admin的 ip + port
-* 请求参数：shenyu网关默认的需要参数，通过body里面传，json类型。
+* 请求路径：`http://shenyu-admin/shenyu-client/springmvc-register` ，  其中 `shenyu-admin` 表示为 admin后台管理系统的 `ip + port` 。
+
+
+* 请求参数：`shenyu`网关默认的需要参数，通过`body`里面传入，`json`类型。
+
 ```json
 {
 	"appName": "xxx", //应用名称 必填

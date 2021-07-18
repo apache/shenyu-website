@@ -6,22 +6,22 @@ description: monitor插件
 
 ## 说明
 
-* monitor插件是网关用来监控自身运行状态（JVM相关），请求的响应迟延，QPS、TPS等相关metrics。
+* `monitor`插件是网关用来监控自身运行状态（`JVM`相关），请求的响应迟延，`QPS`、`TPS`等相关`metrics`。
 
 ## 技术方案
 
 * 流程图
     ![](/img/shenyu/plugin/monitor/shenyu-metrics.png)
 
-* 异步或者同步的方式，在 ShenYu 网关里面进行 `metrics` 埋点。
+* 异步或者同步的方式，在 `ShenYu` 网关里面进行 `metrics` 埋点。
 
-* `prometheus` 服务端通过 http 请求 来 拉取  `metrics`，再使用 `Grafana ` 展示。
+* `prometheus` 服务端通过 `http` 请求来拉取  `metrics`，再使用 `Grafana ` 展示。
 
 ## 插件设置
 
-* 在 `shenyu-admin`--> 插件管理-> monitor ,设置为开启。
+* 在 `shenyu-admin`--> 基础配置 --> 插件管理-> `monitor` ，设置为开启。
 
-* 在 monitor 插件中新增以下配置
+* 在 `monitor` 插件中新增以下配置：
 
 ```yaml
 {"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
@@ -33,26 +33,28 @@ description: monitor插件
 
 * 如果用户不使用，则在 `shenyu-admin` 后台把此插件停用。
 
+<img src="/img/shenyu/plugin/monitor/monitor-1.png" width="70%" height="60%" />
+
+
 ## 插件使用
 
-* 在网关的 pom.xml 文件中添加 `monitor` 的支持。
+* 在网关的 `pom.xml` 文件中添加 `monitor` 的依赖。
 
 ```xml
-  <!-- shenyu monitor plugin start-->
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-monitor</artifactId>
-      <version>${last.version}</version>
-  </dependency>
-  <!-- shenyu monitor plugin end-->
+        <!-- shenyu monitor plugin starter-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-monitor</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- shenyu monitor plugin end-->
 ```
-* 选择器和规则，请详细看 : [选择器规则](../selector-and-rule)。
-
-   * 只有当匹配的url，才会进行url请求埋点。
+* 选择器和规则配置，请参考: [选择器和规则管理](../selector-and-rule)。
+* 只有当匹配的`url`，才会进行`url`请求埋点。
 
 ## metrics信息
 
-* 所有的JVM，线程，内存，等相关信息都会埋点，可以在 `Granfana ` 面板中，新增一个 JVM 模块，则会完全展示 具体请看：https://github.com/prometheus/jmx_exporter
+* 所有的`JVM`，线程，内存，等相关信息都会埋点，可以在 `Granfana ` 面板中，新增一个 `JVM` 模块，则会完全展示 具体请看：https://github.com/prometheus/jmx_exporter
 
 * 另外还有如下自定义的 `metrics`
 
@@ -65,7 +67,7 @@ description: monitor插件
 
 用户需部署`Prometheus` 服务来采集
 
-* 选择对应环境的[下载地址](https://prometheus.io/download/)安装
+* 选择对应环境的 [下载地址](https://prometheus.io/download/)安装
 * 修改配置文件：`prometheus.yml`
 
  ```yaml

@@ -4,7 +4,7 @@ keywords: shenyu
 description: 数据同步
 ---
 
-本篇主要讲解数据同步原理，数据同步是指在 `shenyu-admin` 后台操作数据以后，使用何种策略将数据同步到 `ShenYu` 网关。`ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos`和`Etcd`进行数据同步。
+本篇主要讲解数据同步原理，数据同步是指在 `shenyu-admin` 后台操作数据以后，使用何种策略将数据同步到 `ShenYu` 网关。`ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos` 、`Etcd` 和 `Consul` 进行数据同步。
 
 <img src="/img/shenyu/dataSync/data-sync-1.png" width="60%" height="50%" />
 
@@ -29,17 +29,17 @@ description: 数据同步
 - 用户可以在 `shenyu-admin` 后台任意修改数据，并马上同步到网关内存。
 - 支持 `ShenYu` 的插件、选择器、规则数据、元数据、签名数据等数据同步。
 - 所有插件的选择器，规则都是动态配置，立即生效，不需要重启服务。
-- 数据同步方式支持 `Zookeeper`、`Http 长轮询`、`Websocket`、`Nacos`和`Etcd`。
+- 数据同步方式支持 `Zookeeper`、`Http 长轮询`、`Websocket`、`Nacos`、`Etcd` 和 `Consul`。
 
 ### 原理分析
 
 下图展示了 `ShenYu` 数据同步的流程，`ShenYu` 网关在启动时，会从配置服务同步配置数据，并且支持推拉模式获取配置变更信息，然后更新本地缓存。管理员可以在管理后台（`shenyu-admin`），变更用户权限、规则、插件、流量配置，通过推拉模式将变更信息同步给 `ShenYu` 网关，具体是 `push` 模式，还是 `pull` 模式取决于使用哪种同步方式。
- 
+
  ![](/img/shenyu/dataSync/plugin-data.png)
 
-在最初的版本中，配置服务依赖 `Zookeeper` 实现，管理后台将变更信息 `push` 给网关。而现在可以支持 `WebSocket`、`Http长轮询`、`Zookeeper`、`Nacos`和`Etcd`，通过在配置文件中设置 `shenyu.sync.${strategy}` 指定对应的同步策略，默认使用 `webosocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。
+在最初的版本中，配置服务依赖 `Zookeeper` 实现，管理后台将变更信息 `push` 给网关。而现在可以支持 `WebSocket`、`Http长轮询`、`Zookeeper`、`Nacos`、`Etcd` 和 `Consul`，通过在配置文件中设置 `shenyu.sync.${strategy}` 指定对应的同步策略，默认使用 `webosocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。
 
-如下图所示，`shenyu-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(`http、weboscket、zookeeper、naocs、etcd`)，将配置发送给对应的事件处理器。
+如下图所示，`shenyu-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(`http、weboscket、zookeeper、naocs、etcd、consul`)，将配置发送给对应的事件处理器。
 
 - 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketCacheHandler` 处理器来处理 `shenyu-admin` 的数据推送。
 - 如果是 `zookeeper` 同步策略，将变更数据更新到 `zookeeper`，而 `ZookeeperSyncCache` 会监听到 `zookeeper` 的数据变更，并予以处理。
@@ -98,4 +98,12 @@ description: 数据同步
 `ShenYu`网关会监听配置的节点，启动时，如果`Etcd`中不存在配置节点，将同步全量的数据写入`Etcd`中，后序数据发送变更时，增量更新`Etcd`中的配置节点，与此同时，`ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
 如果您想深入了解代码实现，请参考源码 `EtcdSyncDataService`。
+
+### Consul同步原理
+
+`Consul` 数据同步原理是网关定时轮询 `Consul` 的配置中心，获取配置版本号与本地进行比对。
+
+`ShenYu`网关会定时轮询配置的节点，默认间隔时间为1s。启动时，如果 `Consul` 中不存在配置节点，将同步全量的数据写入`Consul`中，后续数据发送变更时，增量更新 `Consul` 中的配置节点，与此同时，`ShenYu`网关会定时轮询配置信息的节点，拉取配置版本号与本地进行比对，若发现版本号变更时，会更新本地缓存。
+
+如果您想深入了解代码实现，请参考源码 `ConsulSyncDataService`。
 

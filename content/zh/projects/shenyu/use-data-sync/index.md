@@ -4,7 +4,7 @@ keywords: shenyu
 description: 使用不同的数据同步策略
 ---
 
-本篇主要讲解如何配置数据同步策略，数据同步是指在 `shenyu-admin` 后台操作数据以后，使用何种策略将数据同步到 `ShenYu` 网关。`ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos`和`Etcd`进行数据同步。
+本篇主要讲解如何配置数据同步策略，数据同步是指在 `shenyu-admin` 后台操作数据以后，使用何种策略将数据同步到 `ShenYu` 网关。`ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos`、`Etcd` 和 `Consul`进行数据同步。
 
 <img src="/img/shenyu/dataSync/data-sync-2.png" width="60%" height="50%" />
 
@@ -25,7 +25,7 @@ description: 使用不同的数据同步策略
         <version>${project.version}</version>
     </dependency>
 ```
-  
+
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-pom.png" width="80%" height="70%" />
 
    然后在 `yml` 文件中进行如下配置:
@@ -37,7 +37,7 @@ description: 使用不同的数据同步策略
                  urls: ws://localhost:9095/websocket
                #urls:是指 shenyu-admin的地址，如果有多个，请使用（,）分割。  
 ```
-  
+
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-yml.png" width="80%" height="70%" />
 
 * `shenyu-admin 配置`
@@ -50,7 +50,7 @@ shenyu:
     websocket:
       enabled: true
 ```
-  
+
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-admin-yml.png" width="80%" height="70%" />
 
 当建立连接以后会全量获取一次数据，以后的数据都是增量的更新与新增，性能好。而且也支持断线重连 （默认`30`秒）。推荐使用此方式进行数据同步，也是`ShenYu`默认的数据同步策略。
@@ -92,7 +92,7 @@ shenyu:
 * `shenyu-admin` 配置
 
  在 `yml` 文件中进行如下配置:
- 
+
 ```yaml
 shenyu:
   sync:
@@ -137,14 +137,14 @@ shenyu:
              url: http://localhost:9095
         #url: 配置成你的 shenyu-admin 的 ip 与端口地址，多个admin集群环境请使用（,）分隔。
 ```
- 
+
    <img src="/img/shenyu/dataSync/shenyu-data-sync-http-yml.png" width="80%" height="70%" />
- 
-  
+
+
 * `shenyu-admin` 配置
 
  在 `yml` 文件中进行如下配置:
- 
+
 ```yaml
 shenyu:
   sync:
@@ -197,11 +197,11 @@ shenyu:
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
 
-  
+
 * `shenyu-admin` 配置
 
  在 `yml` 文件中进行如下配置:
- 
+
 ```yaml
 shenyu:
   sync:
@@ -262,11 +262,11 @@ shenyu:
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-yml.png" width="80%" height="70%" />
 
-  
+
 * `shenyu-admin` 配置
 
  在 `yml` 文件中进行如下配置:
- 
+
 ```yaml
 shenyu:
   sync:
@@ -276,6 +276,51 @@ shenyu:
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-etcd-yml.png" width="80%" height="70%" />
+
+### Consul 同步配置
+
+* `ShenYu`网关配置
+
+ 首先在 `pom.xml` 文件中引入以下依赖：
+
+```xml
+<!--shenyu data sync start use consul-->
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
+  <version>${project.version}</version>
+</dependency>
+```
+
+  <img src="/img/shenyu/dataSync/shenyu_consul_sync_gateway.jpg" width="80%" height="70%" />
+
+
+ 然后在 `yml` 文件中进行如下配置:
+
+```yaml
+shenyu:
+    sync:
+      consul:
+				url: http://localhost:8500
+        waitTime: 1000	#查询等待时间
+        watchDelay: 1000	#数据同步间隔时间
+```
+
+  <img src="/img/shenyu/dataSync/shenyu_consul_gateway_sync_config.jpg" width="80%" height="70%" />
+
+
+* `shenyu-admin` 配置
+
+ 在 `yml` 文件中进行如下配置:
+
+```yaml
+shenyu:
+  sync:
+    consul:
+      url: http://localhost:8500
+```
+
+  <img src="/img/shenyu/dataSync/shenyu_consul_admin_sync_config.jpg" width="80%" height="70%" />
 
 
 

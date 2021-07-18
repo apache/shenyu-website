@@ -1,7 +1,7 @@
 ---
-title: changelog
-keywords: changelog
-description:  changelog
+title: release-notes
+keywords: release-notes
+description:  release-notes
 ---
 
 ### 2.3.0

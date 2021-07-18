@@ -101,6 +101,8 @@ sidebar:
         link: 'grpc-proxy'
       - title: 'Tars服务接入'
         link: 'tars-proxy'
+      - title: 'Motan服务接入'
+        link: 'motan-proxy'
   - title: '插件集合'
     sub:
       - title: 'Http 处理'

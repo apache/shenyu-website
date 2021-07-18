@@ -34,16 +34,8 @@ description: sofa插件
 
 * 路径描述：对该路径的说明，方便查看。
 
-
-* 参数类型：
-
-    ```yaml
-    java.lang.Integer,java.lang.String,java.lang.Integer
-    ```
-
-    * 按照接口的参数类型顺序，通过半角逗号分隔。
-    * 请求传参时需**严格按照参数类型顺序传参**，没有值的用 `null`占位 。请求体示例：`{"id":1,"name": null,"age":18}`
-
+* 参数类型：按照接口的参数类型顺序，通过半角逗号分隔。
+    
 
 
 * Rpc扩展参数：`sofa`接口的其他配置，支持`json`格式，字段如下：

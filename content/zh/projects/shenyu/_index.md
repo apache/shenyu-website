@@ -184,7 +184,7 @@ sidebar:
       - title: 'SPI'
         link: 'spi-design'
   - title: '版本发布'
-    link: 'change-log'
+    link: 'release-notes'
   - title: '文档下载'
     link: 'download'    
 # draft: true

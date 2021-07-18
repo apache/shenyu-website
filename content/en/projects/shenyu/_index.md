@@ -175,8 +175,8 @@ sidebar:
        link: 'shenyu-optimize'
      - title: 'SPI'
        link: 'spi-design'
-  - title: 'Change Log'
-    link: 'change-log'
+  - title: 'Release Notes'
+    link: 'release-notes'
   - title: 'Download'
     link: 'download'
 # draft: true

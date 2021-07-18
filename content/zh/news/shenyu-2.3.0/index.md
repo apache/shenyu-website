@@ -13,6 +13,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 ## soul-admin（dashboard）
 `admin`是整个网关的控制面板，掌管所有的流量，规则的匹配。
+
 - 整合`shiro`框架，完成了用户按钮级别的权限控制。
 - 模板化插件，让用户无需感知前端页面，只专注于数据的配置。
 - admin整个后端的国际化，支持中英文切换。
@@ -33,7 +34,7 @@ cover: "/img/architecture/shenyu-framework.png"
 ### 插件优化
 - `Divide` 插件：节点探活方式的优化，流量预热方式的优化。
 - `Ratelimiter`插件：新增并发，漏桶等不同的限流算法，供用户选择。
-- `Sgin` 插件：修复必须设置 url 的 bug，新增是否验证 标记，可以用来做开放平台的URI认证。
+- `Sign` 插件：修复必须设置 url 的 bug，新增是否验证 标记，可以用来做开放平台的URI认证。
 - `Dubbo`插件：新增 form 表单，URI 参数请求， 新增注册中心直连，参数校验等功能。
 
 ## Soul Client

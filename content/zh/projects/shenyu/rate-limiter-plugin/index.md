@@ -1,5 +1,5 @@
 ---
-title: 限流插件
+title: RateLimiter插件
 keywords: rateLimiter
 description: rateLimiter插件
 ---
@@ -8,17 +8,17 @@ description: rateLimiter插件
 
 * 限流插件，是网关对流量管控限制核心的实现。
 
-* ShenYu 网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
+* `ShenYu` 网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
 
-* ShenYu 网关的限流算法实现都是基于`redis`。
+* `ShenYu` 网关的限流算法实现都是基于`redis`。
 
-* 可以到接口级别，也可以到参数级别，具体怎么用，还得看你对流量配置。
+* 可以到接口级别，也可以到参数级别。
 
 
 
 ## 技术方案
 
-#### 采用redis令牌桶算法进行限流。
+#### 采用redis令牌桶算法进行限流
 
 - 系统以恒定的速率产⽣令牌，然后将令牌放⼊令牌桶中。
 - 令牌桶有⼀个容量，当令牌桶满了的时候，再向其中放⼊的令牌就会被丢弃。
@@ -49,7 +49,7 @@ description: rateLimiter插件
 
 ## 插件设置
 
-* 在 `shenyu-admin`--> 插件管理--> `rate_limiter` 将其设置为开启。
+* 在 基础配置 `-->`  插件管理 `-->` `resilience4j`，设置为开启。 如果用户不使用，可以将其关闭。
 
 * 在插件中，对redis进行配置。
 
@@ -57,49 +57,50 @@ description: rateLimiter插件
 
 * 如果是哨兵，集群等多节点的，在URL中的配置，请对每个实列使用 `;` 分割. 如 192.168.1.1:6379;192.168.1.2:6379。
 
-* 如果用户无需使用，在admin后台把插件禁用。
 
-## 插件使用
+## 在网关中引入 rateLimiter的支持 
 
-* 在网关的 pom.xml 文件中添加 rateLimiter的支持。
+* 在网关的 `pom.xml` 文件中添加 `rateLimiter` 的依赖。
 
 ```xml
-  <!-- shenyu ratelimiter plugin start-->
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-ratelimiter</artifactId>
-      <version>${last.version}</version>
-  </dependency>
-  <!-- shenyu ratelimiter plugin end-->
+        <!-- shenyu ratelimiter plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-ratelimiter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- shenyu ratelimiter plugin end-->
 ```
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../selector-and-rule)， 这里只对部分字段进行了介绍。
 
 * 规则详细说明
 
-* * 令牌桶算法/并发令牌桶算法
+<img src="/img/shenyu/plugin/resilience4j/ratelimiter-rule.png" width="80%" height="80%" />
 
 
-algorithmName（算法名）：tocketBucket/concurrent
+* 令牌桶算法/并发令牌桶算法
 
-replenishRate（速率）：是你允许用户每秒执行多少请求，而丢弃任何请求。这是令牌桶的填充速率。
+  * `algorithmName`（算法名）：tocketBucket/concurrent
 
-burstCapacity（容量）：是允许用户在一秒钟内执行的最大请求数。这是令牌桶可以保存的令牌数。
+  * `replenishRate`（速率）：允许用户每秒执行多少请求，而丢弃任何请求。这是令牌桶的填充速率。
 
-
-* * 漏桶算法
-
-algorithmName（算法名）：leakyBucket
-
-replenishRate（速率）：单位时间内执行请求的速率，漏桶中水滴漏出的速率。
-
-burstCapacity（容量）：是允许用户在一秒钟内执行的最大请求数。这是桶中的水量。
+  * `burstCapacity`（容量）：允许用户在一秒钟内执行的最大请求数。这是令牌桶可以保存的令牌数。
 
 
-* * 滑动窗口算法
+* 漏桶算法
 
-algorithmName（算法名）：sildingWindow
+  * `algorithmName`（算法名）：leakyBucket
 
-replenishRate（速率）：单位时间内执行请求的速率，用于计算时间窗口大小。
+  * `replenishRate`（速率）：单位时间内执行请求的速率，漏桶中水滴漏出的速率。
 
-burstCapacity（容量）：时间窗口内（单位时间内）最大的请求数量。
+  * `burstCapacity`（容量）：允许用户在一秒钟内执行的最大请求数。这是桶中的水量。
+
+
+* 滑动窗口算法
+
+  * `algorithmName`（算法名）：sildingWindow
+
+  * `replenishRate`（速率）：单位时间内执行请求的速率，用于计算时间窗口大小。
+
+  * `burstCapacity`（容量）：时间窗口内（单位时间内）最大的请求数量。

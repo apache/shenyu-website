@@ -4,44 +4,65 @@ keywords: shenyu
 description: hystrix插件
 ---
 
+
 ## 说明
 
-* hystrix插件是网关用来对流量进行熔断的核心实现。
-* 使用信号量的方式来处理请求。
+* `hystrix`插件是网关用来对流量进行熔断的核心实现。
+* 隔离模式支持 `thread` 和 `semaphore` 。 
+
 
 ## 插件设置
 
-* 在 `shenyu-admin` -->  插件管理 --> `hystrix`，设置为开启。
-* 如果用户不使用，则在 `shenyu-admin` 后台把此插件停用。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
 
-## 插件使用
+* 在 基础配置 `-->`  插件管理 `-->` `hystrix`，设置为开启。 如果用户不使用，可以将其关闭。
 
-* 在网关的 pom.xml 文件中添加 hystrix的支持。
+<img src="/img/shenyu/plugin/hystrix/hystrix-1.png" width="80%" height="80%" />
+
+
+## 在网关中引入 hystrix 插件
+
+* 在网关的 `pom.xml` 文件中添加 `hystrix`的依赖。
 
 ```xml
-  <!-- shenyu hystrix plugin start-->
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-hystrix</artifactId>
-       <version>${last.version}</version>
-  </dependency>
-  <!-- shenyu hystrix plugin end-->
+        <!-- shenyu hystrix plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-hystrix</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- shenyu hystrix plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)
+##  hystrix 插件配置
 
-* Hystrix处理详解：
+关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../selector-and-rule)， 这里只对部分字段进行了介绍。
 
-    * 跳闸最小请求数量：最小的请求量，至少要达到这个量才会触发熔断
+####  选择器配置
+
+用于对流量第一次筛选，不需要特殊处理字段。
+
+<img src="/img/shenyu/plugin/hystrix/hystrix-2.png" width="80%" height="80%" />
+
+####  规则配置
+
+用于对流量最终筛选，有规则处理逻辑，隔离模式支持 `thread` 和 `semaphore` 。 
+
+<img src="/img/shenyu/plugin/hystrix/hystrix-3.png" width="80%" height="80%" />
+
+
+* `hystrix`处理详解：
+
+    * 跳闸最小请求数量：最小的请求量，至少要达到这个量才会触发熔断。
     
     * 错误百分比阀值： 这段时间内，发生异常的百分比。
     
-    * 最大并发量： 最大的并发量
+    * 最大并发量： 最大的并发量。
     
-    * 跳闸休眠时间(ms)：熔断以后恢复的时间。
+    * 跳闸休眠时间`(ms)`：熔断以后恢复的时间。
     
-    * 分组Key： 一般设置为:contextPath
+    * 分组`Key`： 一般设置为:`contextPath` 。
     
-    * 命令Key: 一般设置为具体的 路径接口。
+    * 命令`Key`: 一般设置为具体的路径接口。
     
-    * 失败降级URL: 默认为 /fallback/hystrix。
+    * 失败降级`URL`: 默认为 `/fallback/hystrix`。

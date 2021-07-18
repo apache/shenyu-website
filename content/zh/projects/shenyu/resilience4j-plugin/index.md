@@ -6,31 +6,49 @@ description: resilience4j插件
 
 ## 说明
 
-* resilience4j插件是网关用来对流量进行限流与熔断的可选选择之一。
-* resilience4j为网关熔断限流提供能力。
+* `resilience4j`插件是网关用来对流量进行限流与熔断的可选选择之一。
+* `resilience4j`为网关熔断限流提供能力。
+
 
 ## 插件设置
 
-* 在 `shenyu-admin` -->  插件管理 --> `resilience4j`，设置为开启。
-* 如果用户不使用，则在 `shenyu-admin` 后台把此插件停用。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
 
-## 插件使用
+* 在 基础配置 `-->`  插件管理 `-->` `resilience4j`，设置为开启。 如果用户不使用，可以将其关闭。
 
-* 在网关的 pom.xml 文件中添加 resilience4j的支持。
+<img src="/img/shenyu/plugin/resilience4j/resilience4j-1.png" width="80%" height="80%" />
+
+
+## 在网关中引入 resilience4j 插件
+
+* 在网关的 `pom.xml` 文件中添加 `resilience4j`的依赖。
 
 ```xml
-  <!-- shenyu resilience4j plugin start-->
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-resilience4j</artifactId>
-       <version>${last.version}</version>
-  </dependency>
-  <!-- shenyu resilience4j plugin end-->
+       <!-- shenyu resilience4j plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-resilience4j</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- shenyu resilience4j plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)
+##  resilience4j 插件配置
 
-* Resilience4j处理详解：
+关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../selector-and-rule)， 这里只对部分字段进行了介绍。
+
+####  选择器配置
+
+用于对流量第一次筛选，不需要特殊处理字段。
+
+<img src="/img/shenyu/plugin/resilience4j/resilience4j-2.png" width="80%" height="80%" />
+
+####  规则配置
+
+用于对流量最终筛选，有规则处理逻辑。 
+
+
+* `resilience4j`处理详解：
 
     * timeoutDurationRate：等待获取令牌的超时时间，单位ms，默认值：5000。
     

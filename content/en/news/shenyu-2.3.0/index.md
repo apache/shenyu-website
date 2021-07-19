@@ -14,6 +14,7 @@ It's half a year since the last release. In this half a year, our community frie
 ## soul-admin（dashboard）
 
 Admin is the control panel of the whole gateway, which is in charge of all traffic and rules matching.
+
 - The Shiro framework is integrated into admin to complete the  permission control in user button level. 
 - Templated plug-ins allow users to focus on data configuration without perceiving front-end pages.
 - The internationalization of the whole backend of admin , supports switching between Chinese and English. 
@@ -36,7 +37,7 @@ Admin is the control panel of the whole gateway, which is in charge of all traff
 ###  plugins optimization
 - Divide plugin: optimization of node detection mode and flow preheating mode.
 - Ratelimit plugin: add some different current limiting algorithms  such as concurrent, leaky bucket and other for users to choose .
-- Sgin plugin: fix the bug that URL must be set; add whether to verify flag, which can be used for URI authentication of open platform.
+- Sign plugin: fix the bug that URL must be set; add whether to verify flag, which can be used for URI authentication of open platform.
 - Dubbo plugin: add form, URI parameter request, direct connection to registration center , parameter verification and other functions.
 
 ## Soul Client

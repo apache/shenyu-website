@@ -6,7 +6,7 @@ description: Jwt插件
 
 ## 说明
 
-* jwt 插件，是针对 http 请求头的 `token` 属性或者是 `authorization` 属性携带值进行鉴权判断，兼容 auth2.0 。
+* jwt 插件，是针对 http 请求头的 `token`属性或者是`authorization`属性携带值进行鉴权判断，兼容 OAuth2.0 。
 
 ## 插件设置
 

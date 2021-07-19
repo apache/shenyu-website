@@ -6,21 +6,25 @@ description: Jwt plugin
 
 ## Explanation
 
-* The jwt plug-in is for the ** token ** attribute or authorization ** of the http request header to carry the attribute value for authentication judgment and judge auth2.0 **.
+* The jwt plug-in is for the `token` attribute or `authorization` of the http request header to carry the attribute value for authentication judgment and judge auth2.0 .
 
 ## Plugin Setting
 
-* In `shenyu-admin` --> plugin management-> `jwt`, set to enable.
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local).
 
-* If the user don't use, please disable the plugin in the background.
+* In `shenyu-admin` BasicConfig --> plugin -> `jwt` set to enable.If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
-* Edit configuration properties in the plugin.
+  <img src="/img/shenyu/plugin/jwt/jwt_open_en.jpg" width="80%" height="80%" />
 
-```yaml
-# secretKey 
-If enabled, required
-{"secretKey":"","filterPath":[]} 
-```
+* Add configuration mode in plugin editing.
+
+  `{"secretKey":"","filterPath":[]} `
+
+  - secretKey: The private key when using jwt to generate token, it is required.
+
+  - filterPath：Authentication whitelist list, fill in the API path of the request interface.
+
+    e.g. http://127.0.0.1:8080/cloud/shenyu , filterPath just add `/cloud/shenyu`.
 
 ## Plugin Use
 
@@ -35,12 +39,9 @@ If enabled, required
   </dependency>
   <!-- shenyu jwt plugin end-->
   
-``` 
-* You need to configure the selector before you can use it.
+```
+* For more instructions on selector and rule configuration, please refer to: [Selector And Rule Configu](../selector-and-rule). 
 
-* **secretKey** The private key written when using jwt to generate token. Required field.
-
-* **filterPath** Authentication whitelist list, fill in the API path of the request interface. For example: http://127.0.0.1:8080/cloud/shenyu, add /cloud/shenyu to **filterPath**.
 
 ## Situation
 

@@ -10,9 +10,13 @@ description: sign plugin
 
 ## Plugin Setting
 
-* In `shenyu-admin` -> plugin management --> `sign` set to enable.
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local).
 
-## Plugin Usage
+* In `shenyu-admin` BasicConfig --> plugin -> `sign` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
+
+  <img src="/img/shenyu/plugin/sign/sign_open_en.jpg" width="80%" height="80%" />
+
+* ## Plugin Usage
 
 * Introducing `sign` dependency in the pom.xml file of the gateway
 
@@ -32,11 +36,11 @@ description: sign plugin
 
 ## Add AK/SK
 
-* In shenyu-admin --> In authentication management, click `Add` to add a new AK/SK。please refer to: [Authentication](../authority-management).
+* In `shenyu-admin` --> In authentication management, click `Add` to add a new AK/SK。please refer to: [Authentication](../authority-management).
 
 ## Implementation of Gateway Technology
 
- * Adopt Ak/SK authentication technical scheme.
+ * Adopt AK/SK authentication technical scheme.
  * Adopt authentication plug-in and Chain of Responsibility Pattern to realize.
  * Take effect when the authentication plugin is enabled and all interfaces are configured for authentication.
 
@@ -55,13 +59,13 @@ description: sign plugin
 | path       | /api/service/abc  | The path that you want to request(Modify by yourself according to your configuration of gateway) |
 | version       | 1.0.0  |  `1.0.0` is a fixed string value |
 
- Sort the above two field natually according to the key, then splice fields and fields, finally splice SK. The following is a code example.
+ Sort the above three field natually according to the key, then splice fields and fields, finally splice SK. The following is a code example.
 
 
 Step 1: First, construct a Map.
 ```java
 
-   Map<String, String> map = Maps.newHashMapWithExpectedSize(2);
+   Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
    //timestamp is string format of millisecond. String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
    map.put("timestamp","1571711067186");  // Value should be string format of milliseconds
    map.put("path", "/api/service/abc");
@@ -103,7 +107,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 | sign       | `A90E66763793BDBC817CF3B52AAAC041`  | The signature obtained above |
 | version       | `1.0.0`  | `1.0.0` is a fixed value. |
 
-* The signature plugin will filter requests after 5 minutes by default
+* The signature plugin will filter requests before 5 minutes by default
 
 * If the authentication fails, will return code 401, message may change.
 

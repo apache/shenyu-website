@@ -355,7 +355,7 @@ After at least 72 hours and with at least 3 `+1 PMC member` votes, it can come t
 Title:
 
 ```
-[VOTE] Release Apache ShenYu ${RELEASE.VERSION}
+[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
 
 ```
 
@@ -364,7 +364,7 @@ Body:
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu version ${RELEASE.VERSION}
+This is a call for vote to release Apache ShenYu (incubating) version ${RELEASE.VERSION}
 
 Release notes:
 https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
@@ -420,7 +420,7 @@ Checklist for reference:
 Title：
 
 ```
-[RESULT][VOTE] Release Apache ShenYu ${RELEASE.VERSION}
+[RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
 ```
 
 Body:
@@ -523,7 +523,7 @@ Announcement e-mail template:
 Title:
 
 ```
-[ANNOUNCE] Apache ShenYu ${RELEASE.VERSION} available
+[ANNOUNCE] Apache ShenYu (incubating) ${RELEASE.VERSION} available
 ```
 
 Body:
@@ -531,9 +531,9 @@ Body:
 ```
 Hi all,
 
-Apache ShenYu Team is glad to announce the new release of Apache ShenYu ${RELEASE.VERSION}.
+Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${RELEASE.VERSION}.
 
-Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
+Apache ShenYu (incubating) is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
 Plugin design idea, plugin hot swap, easy to expand.
 Flexible flow filtering to meet various flow control.
@@ -554,6 +554,6 @@ ShenYu Resources:
 
 
 
-- Apache ShenYu Team
+- Apache ShenYu (incubating) Team
 
 ```

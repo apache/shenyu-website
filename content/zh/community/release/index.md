@@ -353,7 +353,7 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" a
 标题：
 
 ```
-[VOTE] Release Apache ShenYu ${RELEASE.VERSION}
+[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
 ```
 
 正文：
@@ -361,7 +361,7 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" a
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu version ${RELEASE.VERSION}
+This is a call for vote to release Apache ShenYu (incubating) version ${RELEASE.VERSION}
 
 Release notes:
 https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
@@ -417,7 +417,7 @@ Checklist for reference:
 标题：
 
 ```
-[RESULT][VOTE] Release Apache ShenYu ${RELEASE.VERSION}
+[RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
 ```
 
 正文：
@@ -516,7 +516,7 @@ GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`h
 标题：
 
 ```
-[ANNOUNCE] Apache ShenYu ${RELEASE.VERSION} available
+[ANNOUNCE] Apache ShenYu (incubating) ${RELEASE.VERSION} available
 ```
 
 正文：
@@ -524,9 +524,9 @@ GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`h
 ```
 Hi all,
 
-Apache ShenYu Team is glad to announce the new release of Apache ShenYu ${RELEASE.VERSION}.
+Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${RELEASE.VERSION}.
 
-Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
+Apache ShenYu (incubating) is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
 Plugin design idea, plugin hot swap, easy to expand.
 Flexible flow filtering to meet various flow control.
@@ -547,6 +547,6 @@ ShenYu Resources:
 
 
 
-- Apache ShenYu Team
+- Apache ShenYu (incubating) Team
 
 ```

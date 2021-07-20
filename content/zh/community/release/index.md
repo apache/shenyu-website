@@ -123,23 +123,21 @@ gpg --keyserver hkp://pool.sks-keyservers.net --send-key 700E6065
 </settings>
 ```
 
-**2. 更新版本说明和示例版本**
+**2. 更新版本说明**
 
-在Github主干上更新如下文件，并提交PR到主干：
+更新如下文件，并提交PR到主干：
 
 ```
 https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 ```
 
-更新`shenyu-examples`和`shenyu-integrated-test`模块的pom，将版本由${CURRENT.VERSION}替换为${RELEASE.VERSION}。
-
 **3. 创建发布分支**
 
-假设从github下载的ShenYu源代码在`~/shenyu/`目录；假设即将发布的版本为`${RELEASE.VERSION}`。
+假设从GitHub下载的ShenYu源代码在`~/shenyu/`目录；假设即将发布的版本为`${RELEASE.VERSION}`。
 创建`${RELEASE.VERSION}-release`分支，接下来的操作都在该分支进行。
 
 ```shell
-## ${name}为源码所在分支，如：master，dev-4.x
+## ${name}为源码所在分支，如：master，main
 git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/shenyu
 cd ~/shenyu/
 git pull
@@ -231,25 +229,26 @@ cd ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
 将源码包、二进制包和ShenYu可执行二进制包添加至SVN工作目录。
 
 ```shell
-cp -f ~/shenyu/shenyu-distribution/shenyu-src-distribution/target/*.zip ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/shenyu/shenyu-distribution/shenyu-src-distribution/target/*.zip.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/shenyu/shenyu-distribution/shenyu-incubator-shenyu-distribution/target/*.jar ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/shenyu/shenyu-distribution/shenyu-bootstrap-distribution/target/*.jar.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/shenyu/shenyu-distribution/shenyu-admin-distribution/target/*.jar ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/shenyu/shenyu-distribution/shenyu-admin-distribution/target/*.jar.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
 ```
 
 **4. 生成文件签名**
 
 ```shell
-shasum -a 512 apache-incubator-shenyu-${RELEASE.VERSION}-src.zip > apache-incubator-shenyu-${RELEASE.VERSION}-src.zip.sha512
-shasum -b -a 512 apache-incubator-shenyu-${RELEASE.VERSION}-bootstrap.jar > apache-incubator-shenyu-${RELEASE.VERSION}-bootstrap.jar.sha512
-shasum -b -a 512 apache-incubator-shenyu-${RELEASE.VERSION}-admin.jar > apache-incubator-shenyu-${RELEASE.VERSION}-admin.jar.sha512
+shasum -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-src.zip > apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.sha512
+shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz > apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.sha512
+shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz > apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.sha512
 ```
 
 **5. 提交Apache SVN**
 
 ```shell
+cd ..
 svn add *
 svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
 ```
@@ -259,9 +258,9 @@ svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
 **检查sha512哈希**
 
 ```shell
-shasum -c apache-incubator-shenyu-${RELEASE.VERSION}-src.zip.sha512
-shasum -c apache-incubator-shenyu-${RELEASE.VERSION}-bootstrap.jar.sha512
-shasum -c apache-incubator-shenyu-${RELEASE.VERSION}-admin.jar.sha512
+shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.sha512
+shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.sha512
+shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.sha512
 ```
 
 **检查gpg签名**
@@ -292,9 +291,9 @@ Your decision? 5
 然后进行gpg签名检查。
 
 ```shell
-gpg --verify apache-incubator-shenyu-${RELEASE.VERSION}-src.zip.asc apache-incubator-shenyu-${RELEASE.VERSION}-src.zip
-gpg --verify apache-incubator-shenyu-${RELEASE.VERSION}-bootstrap.jar.asc apache-incubator-shenyu-${RELEASE.VERSION}-bootstrap.jar
-gpg --verify apache-incubator-shenyu-${RELEASE.VERSION}-admin.jar.asc apache-incubator-shenyu-${RELEASE.VERSION}-admin.jar
+gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.asc apache-shenyu-incubating-${RELEASE.VERSION}-src.zip
+gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.asc apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz
+gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.asc apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz
 ```
 
 **检查发布文件内容**
@@ -302,10 +301,10 @@ gpg --verify apache-incubator-shenyu-${RELEASE.VERSION}-admin.jar.asc apache-inc
 **对比源码包与Github上tag的内容差异**
 
 ```
-curl -Lo tag-${RELEASE.VERSION}.zip https://github.com/apache/incubator/shenyu/archive/${RELEASE.VERSION}.zip
+curl -Lo tag-${RELEASE.VERSION}.zip https://github.com/apache/incubator-shenyu/archive/v${RELEASE.VERSION}.zip
 unzip tag-${RELEASE.VERSION}.zip
-unzip apache-incubator-shenyu-${RELEASE.VERSION}-src.zip
-diff -r apache-incubator-shenyu-${RELEASE.VERSION}-src-release shenyu-${RELEASE.VERSION}
+unzip apache-shenyu-incubating-${RELEASE.VERSION}-src.zip
+diff -r apache-shenyu-incubating-${RELEASE.VERSION}-src incubator-shenyu-${RELEASE.VERSION}
 ```
 
 **检查源码包的文件内容**
@@ -315,14 +314,14 @@ diff -r apache-incubator-shenyu-${RELEASE.VERSION}-src-release shenyu-${RELEASE.
 - `NOTICE`文件中的年份正确
 - 只存在文本文件，不存在二进制文件
 - 所有文件的开头都有ASF许可证
-- 能够正确编译，单元测试可以通过 (./mvnw -T 1C install)
+- 能够正确编译，单元测试可以通过 (./mvnw install)
 - 检查是否有多余文件或文件夹，例如空文件夹等
 
 **检查二进制包的文件内容**
 
 解压缩
-`apache-incubator-shenyu-${RELEASE.VERSION}-bootstrap.jar`，
-`apache-incubator-shenyu-${RELEASE.VERSION}-admin.jar`
+`apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz`，
+`apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz`
 进行如下检查:
 
 - 存在`LICENSE`和`NOTICE`文件
@@ -367,13 +366,13 @@ The release candidates:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION}/
 
 Maven 2 staging repository:
-https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/incubator/shenyu
+https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator/shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
 
 Release Commit ID:
-https://github.com/apache/incubator/shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
+https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
@@ -393,8 +392,6 @@ Please vote accordingly:
 [ ] +0 no opinion
  
 [ ] -1 disapprove with the reason
-
-PMC vote is +1 binding, all others is +1 non-binding.
 
 Checklist for reference:
 
@@ -422,13 +419,11 @@ Checklist for reference:
 正文：
 
 ```
-We’ve received 3 +1 binding votes and one +1 non-binding vote:
+We’ve received 3 +1 votes:
 
-+1 binding, xxx
-+1 binding, xxx
-+1 binding, xxx
-
-+1 non-binding, xxx
++1, xxx (mentor)
++1, xxx
++1, xxx
 
 Thank you everyone for taking the time to review the release and help us. 
 I will process to publish the release and send ANNOUNCE.

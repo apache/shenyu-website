@@ -11,7 +11,7 @@ This is an asynchronous, high-performance, cross-language, responsive API gatewa
 
 ## Features
 
-* Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
+* Support various languages (http protocol), support Dubbo, Spring Cloud, gRPC, Motan, Sofa, Tars and other protocols.
 * Plugin design idea, plugin hot swap, easy to expand.
 * Flexible flow filtering to meet various flow control.
 * Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.

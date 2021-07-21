@@ -114,7 +114,7 @@ shenyu
 shenyu.register.service.${rpcType}
 ```
 
-初始监听所有的`RpcType`节点，其下的`{contextPath}`实例会对应注册到其下，根据`IP`和`Port`进行区分，并携带其对应的`contextPath`信息。`URI` 实例上下线之后，触发`selector`的`upstream`的更新和数据同步事件发布。
+初始监听所有的`RpcType`节点，其下的`${contextPath}`实例会对应注册到其下，根据`IP`和`Port`进行区分，并携带其对应的`contextPath`信息。`URI` 实例上下线之后，触发`selector`的`upstream`的更新和数据同步事件发布。
 
 `URI` 实例上线时，会发布对应的 `Metadata` 数据，其节点名称命令规则如下：
 

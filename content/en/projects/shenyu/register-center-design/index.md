@@ -1,45 +1,41 @@
 ---
-title: Register Center Design
+title: Application Client Access
 keywords: shenyu
-description: register center design
+description: Application Client Access
 ---
 
-## Description
+Application client access means to access your micro service to Shenyu Gateway, currently supports HTTP, Dubbo, Spring Cloud, gRPC, Motan, Sofa, Tars and other protocols access.
 
-* This article mainly explains three ways of register center and their principles.
+Connecting the application client to ShenYu gateway is realized through the registration center, which involves the registration of the client and the synchronization of the server data. The registry supports HTTP, ZooKeeper, Etcd, Consul, and Nacos.
+
+Refer to the client access configuration in the user documentation for Application Client Config.
+
+<img src="/img/shenyu/register/application-client-access-en-1.png" width="70%" height="60%" />
+
+
+## Design principle
 
 #### Client
 
 ![](/img/shenyu/register/client.png)
 
-When client server start, the register center client will be loaded by spi.
+Declare the registry client type, such as HTTP or ZooKeeper, in your microservice configuration. Use SPI to load and initialize the corresponding registry client when the application starts, implement the post-processor interface associated with the Spring Bean, get the service interface information to register in it, and place the obtained information into Disruptor.
 
-Put data to Disruptor when spring bean load.
-
-ShenYu register client get data from Disruptor, and it will send request to register server.
-
-Disruptor can decouple data from operation and facilitate expansion.
+The Registry client reads data from the Disruptor and registers the interface information with shenyu-admin, where the Disruptor decouples data from operations for scaling.
 
 #### Server 
 
 ![](/img/shenyu/register/server.png)
 
-When Shenyu-Admin server start, register center server will be loaded by spi. Meanwile Disruptor will be inited too.
+Declare the registry server type, such as HTTP or ZooKeeper, in the Shenyu-Admin configuration. When shenyu-admin is started, it will read the configuration type, load and initialize the corresponding registry server, and when the registry server receives the interface information registered by shenyu-client, it will put it into Disruptor, which will trigger the registration processing logic to update the interface information and publish a synchronous event.
 
-ShenYu register server get data from register client, and then put then to Disruptor.
-
-Shenyu-Admin Disruptor consumer get data from register server by Disruptor queue,  then save them to database and publish data synchronize event.
-
-Disruptor can decouple data from operation and buffering.
-
+Disruptor provides data and operations decoupling for expansion. If there are too many registration requests, resulting in abnormal registration, there is also a data buffer role.
 
 ## Http Registry
 
-Principle of http register center is simple
+The principle of HTTP service registration is relatively simple. After Shenyu-Client is started, the relevant service registration interface of Shenyu-Admin will be called to upload data for registration.
 
-Call interface of register server when Shenyu-Client start.
-
-Shenyu-Admin accept request, then save to database and publish data synchronize event.
+After receiving the request, shenyu-admin will update the data and publish the data synchronization event to synchronize the interface information to ShenYu Gateway.
 
 ## Zookeeper Registry
 
@@ -59,13 +55,9 @@ shenyu
    ├    ├     ├               ├──${ip:prot}
 ```
 
-Zookeeper register client will save data to zookeeper when shenyu client is started.
+shenyu-client starts up, the service interface information (MetaDataRegisterDTO/URIRegisterDTO) wrote above the Zookeeper nodes.
 
-Zookeeper register server will keep watching the change of data node.
-
-Trigger selector and rule data update and event will be published, when metadata data node update.
-
-Trigger selector and upstream update and event will be published, when uri data node update.
+shenyu-admin uses the Watch mechanism of Zookeeper to monitor events such as data update and deletion, and triggers the corresponding registration processing logic after data changes. Upon receipt of a change to the MetadataregisterDTO node, the data change and data synchronization event publication of the selector and rule is triggered. Upon receipt of a UriRegisterDTO node change, the upstream of the selector is triggered to publish an update and data synchronization event.
 
 ## Etcd Registry
 
@@ -85,13 +77,9 @@ shenyu
    ├    ├     ├               ├──${ip:prot}
 ```
 
-Etcd register client will save data to etcd when shenyu client is started.
+shenyu-client starts up, the service interface information (MetaDataRegisterDTO/URIRegisterDTO) wrote in Ephemeral way above Etcd of the node.
 
-Etcd register server will keep watching the change of data node.
-
-Trigger selector and rule data update and event will be published, when metadata data node update.
-
-Trigger selector and upstream update and event will be published, when uri data node update.
+shenyu-admin uses Etcd's Watch mechanism to monitor events such as data update and deletion, and triggers the corresponding registration processing logic after data changes. Upon receipt of a change to the MetadataregisterDTO node, the data change and data synchronization event publication of the selector and rule is triggered. Upon receipt of a UriRegisterDTO node change, the upstream of the selector is triggered to publish an update and data synchronization event.
 
 ## Consul Registry
 
@@ -111,35 +99,30 @@ shenyu
 
 ```
 
-Consul register client will save data to consul when shenyu client is started.
+When shenyu-client is started, The service interface information (MetaDataRegisterDTO/URIRegisterDTO) on the Metadata of the ServiceInstance (URIRegisterDTO) and Key-Value (MetaDataRegisterDTO), Store as described above.
 
-Consul register server will keep watching the change of data node.
-
-Trigger selector and rule data update and event will be published, when metadata data node update.
-
-Trigger selector and upstream update and event will be published, when uri data node update.
+shenyu-admin senses the update and deletion of data by monitoring the change of index of Catalog and KeyValue, and triggers the corresponding registration processing logic after the change of data. Upon receipt of a change to the MetadataregisterDTO node, the data change and data synchronization event publication of the selector and rule is triggered. Upon receipt of a UriRegisterDTO node change, the upstream of the selector is triggered to publish an update and data synchronization event.
 
 ## Nacos Register
 
-Nacos register have two parts：URI and Metadata。
+Nacos registration is divided into two parts: URI and Metadata. URI is registered by instance. In case of service exception, the relevant URI data node will be deleted automatically and send events to the subscriber, and the subscriber will carry out relevant offline processing. Metadata is registered by configuration without any related up-down operation. When a URI instance is registered, the Metadata configuration will be published accordingly. The subscriber monitors data changes and carries out update processing.
 
-URI is instance register. URI instance node will be deleted when server is down.
-
-URI service's instance name will be named like below. Every URI instance has ip, port and contextPath as identifiers.
+The URI instance registration command rules are as follows:
 
 ```
 shenyu.register.service.${rpcType}
 ```
 
-When URI instance up, it will publish metadata config. It's name like below.
+
+Listens on all RpcType nodes initially, and the `${contextPath}` instances registered under them are distinguished by IP and Port, and carry their corresponding contextPath information. After the URI instance is offline, it triggers the update and data synchronization event publication of the selector's upstream.
+
+When the URI instance goes online, the corresponding Metadata data will be published. The node name command rules are as follows:
 
 ```
 shenyu.register.service.${rpcType}.${contextPath}
 ```
 
-Trigger selector and upstream update and event will be published, when URI service up or down.
-
-Trigger selector and rule data update and event will be published, when metadata config update.
+The subscriber side continues to listen for all Metadata configurations, triggering selector and rule data changes and data synchronization events after the initial subscription and configuration update.
 
 ## SPI
 

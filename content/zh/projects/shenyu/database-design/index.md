@@ -49,17 +49,17 @@ description: ShenYu Admin数据结构
     
 ## 元数据
 
-* 元数据主要是用于网关对 `Dubbo` 的泛化调用。
-* 每个 `Dubbo` 接口方法，对应一条元数据。
+* 元数据主要是用于网关的泛化调用。
+* 每个接口方法，对应一条元数据。
 * 数据库 `UML` 类图：
 
 <img src="/img/shenyu/db/mata_data_table.png" width="30%" height="30%" />
 
 
 * 设计详解：
-   * `path` 字段，在请求网关的时候，会根据 `path` 来匹配到一条数据，然后进行后续的流程。
+   * `path`：在请求网关的时候，会根据 `path` 来匹配到一条数据，然后进行后续的流程。
 
-   * `rpc_ext`字段，用于保存 `Dubbo` 类型的服务接口中 `group` 和 `version` 信息。
+   * `rpc_ext`：用于保存`RPC`代理中的扩展信息。
    
 ## 字典管理
 

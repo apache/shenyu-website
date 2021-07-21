@@ -110,7 +110,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 * 签名插件会默认过滤5分钟之前的请求
 
-## 如果认证不通过会返回 code 为401 message可能会有变动。
+* 如果认证不通过会返回 code 为401 message可能会有变动。
 
 ```json
 "code":401,"message":"sign is not pass,Please check you sign algorithm!","data":null}

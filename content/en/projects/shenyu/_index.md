@@ -30,13 +30,13 @@ weight: 1
 showIntroduce: true
 showFeature: true
 sidebar:
-  - title: 'overview'
+  - title: 'Overview'
     link: 'overview'
   - title: 'Design'
     sub:
       - title: 'ShenYu Admin Database Design'
         link: 'database-design'
-      - title: 'Data Sync'
+      - title: 'Data Synchronization'
         link: 'data-sync'
       - title: 'Application Client Access'
         link: 'register-center-design'

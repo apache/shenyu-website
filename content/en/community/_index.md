@@ -13,6 +13,8 @@ sidebar:
     link: 'contributor'
   - title: 'Committer'
     link: 'committer'
+  - title: 'Release Guide'
+    link: 'release'
   - title: 'Vote Committer'
     link: 'vote-committer'    
   - title: 'Two-Factor Authentication'

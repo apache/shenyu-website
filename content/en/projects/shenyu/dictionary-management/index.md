@@ -6,30 +6,27 @@ description: dict management explanation
 
 ## Explanation
 
-* Dictionary management is primarily used to maintain and manage common data dictionaries.
+This document will introduce the use of dictionary management in the ShenYu background management system. Dictionary management is primarily used to maintain and manage common data dictionaries.
 
-### Table design
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local). After startup, visit `http://localhost:9095`, the default username and password are: `admin` and `123456` . 
 
-* sql
+The current usage scenario is in the [pluginHandle ](../plugin-handle-explanation), when the data type is selected as the `dropdown`:
 
-```sql
-CREATE TABLE IF NOT EXISTS `shenyu_dict` (
-   `id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'primary key id',
-   `type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'type',
-   `dict_code` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'dictionary encoding',
-   `dict_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'dictionary name',
-   `dict_value` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'dictionary value',
-   `desc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'dictionary description or remarks',
-   `sort` int(4) NOT NULL COMMENT 'sort',
-   `enabled` tinyint(4) DEFAULT NULL COMMENT 'whether it is enabled',
-   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'create time',
-   `date_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update time',
-   PRIMARY KEY (`id`)
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-```
+<img src="/img/shenyu/basicConfig/dictionaryManagement/dictionary_pluginhandle_config_en.jpg" width="80%" height="50%" />
 
-* The current usage scenario is when the plugin `handle` configuring the `data_type=3` (select box)
+In dictionary management, you can add dictionary types for other places:
 
-eg. `degradeRuleGrade` is one of fields of Sentinel's `handle` json. When it adds rules, it automatically looks up all the general dictionaries of `type='degradeRuleGrade'` in the `shenyu_dict` table as a select-box when you edit the General rules field.
+<img src="/img/shenyu/basicConfig/dictionaryManagement/dictionary_config_en.jpg" width="80%" height="50%" />
+
+- DictionaryType: The field name used in the `pluginHandle` .
+- DictionaryCode: Identify dictionary data.
+- DictionaryName: The name of the `handle` field when adding plugins, selectors or rules.
+- DictionaryValue: The actual value of the dictionary data.
+- DictionaryDescribe: Description.
+- Sort: Dictionary data order. 
+
+e.g. `degradeRuleGrade` is one of fields of Sentinel's `handle` json. When it adds rules, it automatically looks up all the general dictionaries of `type='degradeRuleGrade'` in the `shenyu_dict` table as a select-box when you edit the General rules field.
+
+<img src="/img/shenyu/basicConfig/dictionaryManagement/dictionary_add_rule_en.jpg" width="80%" height="50%" />
 
 

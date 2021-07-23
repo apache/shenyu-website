@@ -6,79 +6,101 @@ description: detailed explanation of selector and rule
 
 ## Features
 
-* Selector and rule are the key point of ShenYu Gateway, you can manage any request with it.
+This document will introduce the use of selectors and rules in the ShenYu background management system. For the concept and design of selectors and rules, please refer to [Flow Control](../flow-control).
 
-* This chapter is mainly focus on the concepts of selector and rule and how to use it.
-
-
-## Overview
-
-* One plugin has many selector and a selector has many rules, selector is the first filter of request, and the rule is the final filter.
-* Please consider this, it would be perfect when the plugin executes the request until it reached the config value.
-* Selector and rule are designed to execute only when the request meet the specific condition.
-* Please refer to the previous data structure [database design](../database-design).
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local). After startup, visit `http://localhost:9095`, the default username and password are: `admin` and `123456` . 
 
 ## Selector
 
-![](https://yu199195.github.io/images/soul/selector.png)
+All plugins are displayed in the PluginList, and selectors and rules can be added to each plugin:
+
+<img src="/img/shenyu/basicConfig/pluginHandle/selector_rule_page_en.jpg" width="80%" height="80%" />
+
+For example, add a selector to the `divide` plugin:
+
+<img src="/img/shenyu/basicConfig/pluginHandle/divide_selector_config_en.jpg" width="80%" height="80%" />
 
  * selector detailed explanation：
 
-     * name：create your selector with a distinguish name.
-     * type：custom flow is customized request, full flow is full request. customized request will be handled by the conditions as below, while  full request won't.
-     * match method: you can combine these conditions with 'and' , 'or' operators.
-     * condition：
-        * uri: filter request with uri method and support fuzzy matching (/**).
+     * Name: create your selector with a distinguish name.
+     * Type: Choose request matching strategy. 
+        * `custom`: Only handle requests that meet the following matching conditions.
+        * `full`: Handle all requests.
+     * MatchType: Condition combination type.
+        * `and`： Need to meet all conditions.
+        * `or`: Meet any of the conditions.
+     * Conditions：
+        * uri: filter request with uri.
         * header: filter request with request header.
         * query: filter request with query string.
         * ip: filter request with your real ip.
         * host: filter request with your real host.
         * post: not recommend to use.
+        * cookie: filter request with cookie.
+        * req_method: filter request with request method.
         * condition match:
-           * match : fuzzy string matching，recommend to combine with uri，support restful matching.（/test/**).
-           * = : if the values are the same, then they match.
+           * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
+           * = : matches only if they are equal.
            * regEx : regex matching，match characters in regex expression.
            * like : string fuzzy matching.
-     * open option：only work with enabled.
-     * print log：it will print the matching log with the open option enabled.
-     * execution order：the smaller will have high priorty to execute among multi-selectors.
+           * contains: when it contains the specified value, it matches.
+           * SpEl: SpEl expression matches.
+           * Groovy: match through Groovy.
+           * TimeBefore: before the specified time.
+           * TimeAfter: after the specified time.
+     * Continued: whether the subsequent selector is still executed.
+     * PrintLogs: it will print the matching log with the open option enabled.
+     * Enable: whether to enable the plugin.
+     * Order：the smaller will have high priorty to execute among multi-selectors.
+     * Handler: The operation when the request matches the selector.
 
- * the above picture means: when the prefix of the request uri is `/test` and the value of `module` in`header` is`test`, it will redirect to this service `1.1.1.1:8080`.
+ * the above picture means: when the prefix of the request uri is `/http`, it will redirect to this service `127.0.0.1:8080`.
 
  * selector advice : combine `uri` conditon and `match` prefix（/contextPath）as the first request filter.
 
 ## Rule
- ![](https://yu199195.github.io/images/soul/rule.png)
+
+<img src="/img/shenyu/basicConfig/pluginHandle/plugin_rule_config_en.jpg" width="80%" height="80%" />
 
  * when the request was passed by the seletor, then it will be processed by the rule, the final filter.
-
  * rule is the final confirmation about how to execute request logically.
-
  * rule detailed explanation：
-     * name：create your rule with a distinguish name.
-     * match method: you can combine these conditions with 'and' , 'or' operators.
-     * condition：
-        * uri: filter request with uri method and support fuzzy matching (/**).
+     * Name：create your rule with a distinguish name.
+
+     * MatchType: you can combine these conditions with 'and' , 'or' operators.
+
+     * Conditions：
+
+        * uri: filter request with uri.
         * header: filter request with request header.
         * query: filter request with query string.
         * ip: filter request with your real ip.
         * host: filter request with your real host.
         * post: not recommend to use.
+        * cookie: filter request with cookie.
+        * req_method: filter request with request method.
+
         * condition match:
-           * match : fuzzy string matching，recommend to combine with uri，support restful matching.（/test/**）
-           * = : if the values are the same, then they match.
+           * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
+           * = : matches only if they are equal.
            * regEx : regex matching，match characters in regex expression.
            * like : string fuzzy matching.
-     * open option：only work with enabled.
-     * print log：it will print the matching log with the open option enabled.
-     * execution order：the smaller will have high priorty to execute among multi-rules.
-     * handle: different plugin has different execution method, pls refer to the specific one.
+           * contains: when it contains the specified value, it matches.
+           * SpEl: SpEl expression matches.
+           * Groovy: match through Groovy.
+           * TimeBefore: before the specified time.
+           * TimeAfter: after the specified time.
 
+     * PrintLogs: it will print the matching log with the open option enabled.
+
+     * Enable: whether to enable the plugin.
+
+     * Order：the smaller will have high priorty to execute among multi-rules.
+
+     * handle: The operation when the request matches the rule.
 * above picture means: when the request `uri` equals to `/http/order/save`, it will execute based on this rule，load strategy is `random`.
-
-* combine selector means ：when the request `uri ` is `/http/order/save`, it will be redicted to `1.1.1.1:8080` by `random` method.
-
 * rule advice: combine `uri` condition with `match` the real `uri path` condition as the final filter.
+* combine selector means ：when the request `uri ` is `/http/order/save`, it will be redicted to `127.0.0.1:8080` by `random` method.
 
 ## Condition Explanation
 

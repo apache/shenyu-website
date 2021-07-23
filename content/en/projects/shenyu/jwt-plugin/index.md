@@ -6,11 +6,11 @@ description: Jwt plugin
 
 ## Explanation
 
-* The jwt plug-in is for the `token` attribute or `authorization` of the http request header to carry the attribute value for authentication judgment and judge auth2.0 .
+* The jwt plug-in is for the `token` attribute or `authorization` of the http request header to carry the attribute value for authentication judgment and judge OAuth2.0 .
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local).
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [local deployment](../deployment-local) to start the `ShenYu` management system .
 
 * In `shenyu-admin` BasicConfig --> plugin -> `jwt` set to enable.If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -28,7 +28,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 
 ## Plugin Use
 
-* Add support for `jwt` in the pom.xml file of the shenyu.
+* Add support for `jwt` in the pom.xml file of the gateway.
 
 ```xml
   <!-- shenyu jwt plugin start-->

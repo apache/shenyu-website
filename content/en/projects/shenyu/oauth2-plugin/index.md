@@ -1,7 +1,7 @@
 ---
 title: OAuth2 Plugin
-keywords: oauth2
-description: oauth2 plugin
+keywords: OAuth2
+description: OAuth2 plugin
 ---
 
 ## Explanation

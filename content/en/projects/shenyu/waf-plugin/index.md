@@ -10,7 +10,7 @@ description: waf plugin
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local).
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [local deployment](../deployment-local) to start the `ShenYu` management system.
 
 * In `shenyu-admin` BasicConfig --> plugin -> `waf` set to enable.If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -38,7 +38,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
   <!-- shenyu waf plugin end-->
 ```
 
-Waf Plugin Configuration
+## Waf Plugin Configuration
 
 For more instructions on selector and rule configuration, please refer to: [Selector And Rule Configu](../selector-and-rule), here only some fields are introduced.
 

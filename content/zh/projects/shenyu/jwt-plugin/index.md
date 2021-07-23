@@ -18,13 +18,15 @@ description: Jwt插件
 
 * 插件编辑里面新增配置。
 
-  `{"secretKey":"","filterPath":[]} `
+  `{"secretKey":"","filterPath":""} `
 
   - secretKey：使用 jwt 生成 token 的时候的私钥，必填项。
 
-  - filterPath：鉴权白名单列表，填请求接口的 API 路径。 
+  - filterPath：鉴权白名单列表，填请求接口的 API 路径，半角逗号 `,` 分隔。 
 
-    例如：http://127.0.0.1:8080/cloud/shenyu ，filterPath 添加 /cloud/shenyu 即可。
+    例如：白名单路径如下，则filterPath 设置为 `/cloud/shenyu/user,/cloud/shenyu/role`
+    - http://127.0.0.1:8080/cloud/shenyu/user
+    - http://127.0.0.1:8080/cloud/shenyu/role
 
 ## 插件使用
 

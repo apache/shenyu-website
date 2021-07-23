@@ -65,7 +65,7 @@ description: waf插件
 
     例如设置为：statusCode=10001，被拒绝的响应体如下：
 
-    ```
+    ```json
     {"code":10001,"message":"You are forbidden to visit"}
     ```
 

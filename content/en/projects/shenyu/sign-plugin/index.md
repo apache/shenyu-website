@@ -10,7 +10,7 @@ description: sign plugin
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local).
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [local deployment](../deployment-local) to start the `ShenYu` management system.
 
 * In `shenyu-admin` BasicConfig --> plugin -> `sign` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -49,7 +49,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 
  * Step 1: AK/SK is assigned by the gateway. For example, the AK assigned to you is: ` 1test123456781 ` SK is: ` 506eeb535cf740d7a755cb49f4a1536'
 
- * Step 2: Decide the gateway path you want to access, such as ` /api/service/abc'
+ * Step 2: Decide the gateway path you want to access, such as ` /api/service/abc`
 
  * Step 3: Construct parameters (the following are general parameters)
 
@@ -83,20 +83,20 @@ final String sign = storedKeys.stream()
                 .collect(Collectors.joining()).trim()
                 .concat("506EEB535CF740D7A755CB4B9F4A1536");
 ```
-* The returned sign value should be:path/api/service/abctimestamp1571711067186version1.0.0506EEB535CF740D7A755CB4B9F4A1536
+* The returned sign value should be:`path/api/service/abctimestamp1571711067186version1.0.0506EEB535CF740D7A755CB4B9F4A1536`
 
 Step 3: Md5 encryption and then capitalization.
 ```java
 DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```
 
-* The final returned value is:A021BF82BE342668B78CD9ADE593D683
+* The final returned value is:`A021BF82BE342668B78CD9ADE593D683`.
 
 ## Request GateWay
 
-* If your visited path is:/api/service/abc。
+* If your visited path is:`/api/service/abc`.
 
-* Address: http: domain name of gateway /api/service/abc.
+* Address: http: domain name of gateway `/api/service/abc`.
 
 * Set `header`，`header` Parameter：
 

@@ -3,13 +3,24 @@ title: Quick start with Tars
 description: Quick start with Tars
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars).
+This document introduces how to quickly access the ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars) .
 
 ## Environment to prepare
 
-Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `shenyu-bootstrap`.
 
-Note: `shenyu-bootstrap` need to import tars dependencies
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+
+After successful startup, you need to open the Sofa plugin on in the BasicConfig `->` Plugin.
+
+<img src="/img/shenyu/quick-start/tars/tars-en-1.png" width="60%" height="50%" />
+
+If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
+
+> Note: Before starting, make sure the gateway has added dependencies.
+
+
+
+ `shenyu-bootstrap` need to import tars dependencies:
 
 ```xml
 <dependency>
@@ -27,7 +38,7 @@ Note: `shenyu-bootstrap` need to import tars dependencies
 
 ## Run the shenyu-examples-tars project
 
-Download [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
+Download [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars) .
 
 Modify `host` in `application.yml` to be your local IP
 
@@ -39,7 +50,7 @@ Modify config `src/main/resources/ShenyuExampleServer.ShenyuExampleApp.config.co
 * `locator`: Indicates the address (frame address) of the main control center, which is used to obtain the IP list according to the service name, If Registry is not required to locate the service, this configuration can be dropped
 * `node=tars.tarsnode.ServerObj@xxxx`, Indicates the address of the connected tarsnode. If there is no tarsnode locally, this configuration can be removed
 
-More config configuration instructions, Please refer to[TARS Official Documentation](https://github.com/TarsCloud/TarsJava/blob/master/docs/tars_java_user_guide.md)
+More config configuration instructions, Please refer to [TARS Official Documentation](https://github.com/TarsCloud/TarsJava/blob/master/docs/tars_java_user_guide.md)
 
 Execute the `org.apache.shenyu.examples.tars.ShenyuTestTarsApplication` main method to start project.
 
@@ -90,19 +101,16 @@ The session manager service started...
 2021-02-09 13:28:24.837  INFO 16016 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : tars client register success: {"appName":"127.0.0.1:21715","contextPath":"/tars","path":"/tars/hello","pathDesc":"","rpcType":"tars","serviceName":"ShenyuExampleServer.ShenyuExampleApp.HelloObj","methodName":"hello","ruleName":"/tars/hello","parameterTypes":"int,java.lang.String","rpcExt":"{\"methodInfo\":[{\"methodName\":\"helloInt\",\"params\":[{},{}],\"returnType\":\"java.lang.Integer\"},{\"methodName\":\"hello\",\"params\":[{},{}],\"returnType\":\"java.lang.String\"}]}","enabled":true} 
 ```
 
-## Tars plugin settings
 
-* enabled the `tars` plugin in the `shenyu-admin` plugin management.
-
-## Testing
+## Test
 
 The `shenyu-examples-tars` project will automatically register interface methods annotated with `@ShenyuTarsClient` in the shenyu gateway after successful startup.
 
-Open Plugin Management -> tars to see the list of plugin rule configurations
+Open PluginList -> rpc proxy -> tars to see the list of plugin rule configurations:
 
 ![](/img/shenyu/quick-start/tars/rule-list.png)
 
-Use PostMan to simulate HTTP to request your tars service
+Use PostMan to simulate HTTP to request your tars service:
 
 ![](/img/shenyu/quick-start/tars/postman-test.png)
 

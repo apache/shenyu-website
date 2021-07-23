@@ -3,15 +3,105 @@ title: Quick start with Dubbo
 description: Quick start with Dubbo
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using Dubbo. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo).
+This document introduces how to quickly access the ShenYu gateway using Dubbo. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo).
 
 ## Environment to prepare
 
-Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `shenyu-bootstrap`, In addition, if you use ZooKeeper for Dubbo, you need to download it in advance.
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+
+After successful startup, you need to open the Dubbo plugin on in the BasicConfig `->` Plugin, and set your registry address. Please make sure the registry center is open locally.
+
+<img src="/img/shenyu/quick-start/dubbo/dubbo-en-1.png" width="60%" height="50%" />
+
+If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
+
+> Note: Before starting, make sure the gateway has added dependencies.
+
+
+If client is `apache dubbo`, registry center is `Zookeeper`, please refer to the following configuration:
+
+
+```xml
+ <!--shenyu  apache dubbo plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+<!-- Dubbo zookeeper registry dependency start -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>4.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <!-- Dubbo zookeeper registry dependency end -->
+        <!-- shenyu  apache dubbo plugin end-->
+```
+
+If client is `alibaba dubbo`, registry center is `Zookeeper`, please refer to the following configuration:
+
+
+```xml
+        <!--shenyu alibaba dubbo plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${alibaba.dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>${curator.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <!-- shenyu  alibaba dubbo plugin end-->
+```
+
 
 ## Run the shenyu-examples-dubbo project
 
-Download[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
+Download [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) .
 
 replace the register address in `shenyu-examples-alibaba-dubbo-service/src/main/resources/spring-dubbo.xml` with your local zk address, such as:
 ```xml
@@ -34,26 +124,20 @@ The following log appears when the startup is successful:
 2021-02-06 20:58:01.922  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/findByStringArray","pathDesc":"","rpcType":"dubbo","serviceName":"org.dromara.shenyu.examples.dubbo.api.service.DubboMultiParamService","methodName":"findByStringArray","ruleName":"/dubbo/findByStringArray","parameterTypes":"[Ljava.lang.String;","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
 ```
 
-## Dubbo plugin settings
+## Test
 
-* first enabled the `dubbo` plugin in the `shenyu-admin` plugin management.
-* then configure your registry address in `dubbo `.
+The `shenyu-examples-dubbo` project will automatically register interface methods annotated with `@ShenyuDubboClient` in the ShenYu gateway after successful startup.
 
-![](/img/shenyu/quick-start/dubbo/dubbo-enable-en.jpg)
-
-## Testing
-
-The `shenyu-examples-dubbo` project will automatically register interface methods annotated with `@ShenyuDubboClient` in the shenyu gateway after successful startup.
-
-Open Plugin Management -> dubbo to see the list of plugin rule configurations
+Open PluginList -> rpc proxy -> dubbo to see the list of plugin rule configurations:
 
 ![](/img/shenyu/quick-start/dubbo/rule-list.jpg)
 
-Use `PostMan` to simulate `HTTP` to request your `Dubbo` service
+Use `PostMan` to simulate `HTTP` to request your `Dubbo` service:
 
 ![](/img/shenyu/quick-start/dubbo/postman-findbyid.jpg)
 
 Complex multi-parameter example: The related interface implementation class is `org.apache.shenyu.examples.alibaba.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`.
+
 ```java
 @Override
 @ShenyuDubboClient(path = "/batchSaveAndNameAndId")
@@ -64,9 +148,11 @@ public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id,
     return test;
 }
 ```
+
 ![](/img/shenyu/quick-start/dubbo/postman-multiparams.jpg)
 
 When your arguments do not match, the following exception will occur:
+
 ```java
 2021-02-07 22:24:04.015 ERROR 14860 --- [:20888-thread-3] o.d.shenyu.web.handler.GlobalErrorHandler  : [e47b2a2a] Resolved [ShenyuException: org.apache.dubbo.remoting.RemotingException: java.lang.IllegalArgumentException: args.length != types.length
 java.lang.IllegalArgumentException: args.length != types.length

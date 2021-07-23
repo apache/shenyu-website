@@ -3,26 +3,39 @@ title: Quick start with gRPC
 description: Quick start with gRPC
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using gRPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc).
+This document introduces how to quickly access the ShenYu gateway using gRPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) .
 
-## 1. Prepare For Environment.
+## Prepare For Environment
 
-Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `shenyu-bootstrap`.
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
 
-Note: `shenyu-bootstrap` need to import gRPC dependencies
+After successful startup, you need to open the gRPC plugin on in the BasicConfig `->` Plugin.
+
+<img src="/img/shenyu/quick-start/grpc/grpc-en-1.png" width="60%" height="50%" />
+
+If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
+
+> Note: Before starting, make sure the gateway has added dependencies.
+
+
+Add the following dependencies to the gateway's `pom.xml` file:
+
 ```xml
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-grpc</artifactId>
-    <version>${project.version}</version>
-</dependency>
+        <!--shenyu grpc plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-grpc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--shenyu grpc plugin end-->
 ```
 
-## 2. Run the shenyu-examples-grpc project.
+## Run the shenyu-examples-grpc project
 
 Download [shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)
 
-Run the following command under `shenyu-examples-grpc` to generate Java code
+Run the following command under `shenyu-examples-grpc` to generate Java code:
+
 ```shell
 mvn protobuf:compile 
 mvn protobuf:compile-custom 
@@ -39,18 +52,12 @@ The following log appears when the startup is successful:
 2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-18] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/serverStreamingFun","pathDesc":"serverStreamingFun","rpcType":"grpc","serviceName":"stream.StreamService","methodName":"serverStreamingFun","ruleName":"/grpc/serverStreamingFun","parameterTypes":"stream.RequestData,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"SERVER_STREAMING\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
 ```
 
-## 3. gRPC plugin setting.
 
-Enabled the `gRPC` plugin in the `shenyu-admin` plugin management.
-
-<img src="/img/shenyu/quick-start/grpc/grpc-on-en.png" width="80%" height="50%" />
-
-
-## 4. Testing.
+## Test
 
 The `shenyu-examples-grpc` project will automatically register interface methods annotated with `@ShenyuGrpcClient` in the shenyu gateway after successful startup.
 
-Open Plugin Management -> gRPC to see the list of plugin rule configurations.
+Open PluginList -> rpc proxy -> gRPC to see the list of plugin rule configurations:
 
 ![](/img/shenyu/quick-start/grpc/grpc-service-en.png)
 
@@ -70,7 +77,7 @@ Use `postman` to simulate `http` to request your gRPC service. The following is 
 
 The parameters are passed in json format. The name of the key is `data` by default, and you can reset it in `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME`. The input of value is based on the proto file defined by you.
 
-## 5. Streaming.
+##  Streaming
 The shenyu can support streaming of gRPC. The following shows the calls of the four method types of gRPC. In streaming, you can pass multiple parameters in the form of an array.
 
 

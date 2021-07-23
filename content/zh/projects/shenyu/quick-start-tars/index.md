@@ -37,7 +37,7 @@ description: Tars快速开始
 
 下载[shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
 
-修改`application.yml`中的`host`为你本地ip
+修改`application.yml`中的`host`为你本地ip。
 
 修改配置`src/main/resources/ShenyuExampleServer.ShenyuExampleApp.config.conf`：
 
@@ -47,7 +47,7 @@ description: Tars快速开始
 * `locator`: `registry`服务的地址，必须是有`ip`和 `port`的，如果不需要`registry`来定位服务，则不需要配置。
 * `node=tars.tarsnode.ServerObj@xxxx`，表示连接的 `tarsnode` 的地址，如果本地没有 `tarsnode`， 这项配置可以去掉。
 
-更多config配置说明请参考[Tars官方文档](https://github.com/TarsCloud/TarsJava/blob/master/docs/tars_java_user_guide.md)
+更多config配置说明请参考 [Tars官方文档](https://github.com/TarsCloud/TarsJava/blob/master/docs/tars_java_user_guide.md)
 
 运行`org.apache.shenyu.examples.tars.ShenyuTestTarsApplication`main方法启动项目。
 

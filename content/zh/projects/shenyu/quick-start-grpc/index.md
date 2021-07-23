@@ -5,7 +5,7 @@ description: gRPC快速开始
 
 本文档演示如何将`gRPC`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) 。
 
-## 1. 环境准备
+## 环境准备
 
 请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
 
@@ -29,11 +29,12 @@ description: gRPC快速开始
         <!--shenyu grpc plugin end-->
 ```
 
-## 2. 运行 shenyu-examples-grpc 项目
+## 运行 shenyu-examples-grpc 项目
 
 下载 [shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)
 
-在 `shenyu-examples-grpc` 下执行以下命令生成 `java` 代码。
+在 `shenyu-examples-grpc` 下执行以下命令生成 `java` 代码:
+
 ```shell
 mvn protobuf:compile //编译消息对象
 mvn protobuf:compile-custom //依赖消息对象,生成接口服务
@@ -56,7 +57,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-18] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/serverStreamingFun","pathDesc":"serverStreamingFun","rpcType":"grpc","serviceName":"stream.StreamService","methodName":"serverStreamingFun","ruleName":"/grpc/serverStreamingFun","parameterTypes":"stream.RequestData,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"SERVER_STREAMING\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
 ```
 
-## 4. 简单测试
+## 简单测试
 
 `shenyu-examples-grpc`项目成功启动之后会自动把加 `@ShenyuGrpcClient` 注解的接口方法注册到网关。
 
@@ -80,7 +81,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 
 当前是以 `json` 的格式传递参数，`key`的名称默认是`data`，你可以在 `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME` 中进行重置；`value`的传入则根据你定义的 `proto` 文件。
 
-## 5. 流式调用
+##  流式调用
 `shenyu` 可以支持 `gRPC` 的流式调用，下面展示的是 `gRPC` 四种方法类型的调用。 在流式调用中，你可以通过数组的形式传递多个参数。
 
 - `UNARY`

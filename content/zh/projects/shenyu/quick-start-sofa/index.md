@@ -53,7 +53,7 @@ description: Sofa快速开始
 
 ## 运行shenyu-examples-sofa项目
 
-下载[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
+下载 [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
 
 设置`application.yml`的`zk`注册地址，如：
 ```xml

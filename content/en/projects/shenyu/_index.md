@@ -97,8 +97,6 @@ sidebar:
     sub:
       - title: 'Http Handle'
         sub:
-          - title: 'Divide Plugin'
-            link: 'divide-plugin'
           - title: 'Rewrite Plugin'
             link: 'rewrite-plugin'
           - title: 'Redirect Plugin'
@@ -113,6 +111,8 @@ sidebar:
             link: 'modify-response-plugin'
       - title: 'RPC Proxy'
         sub:
+          - title: 'Divide Plugin'
+            link: 'divide-plugin'
           - title: 'Dubbo Plugin'
             link: 'dubbo-plugin'
           - title: 'Spring Cloud Plugin'

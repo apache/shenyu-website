@@ -1,50 +1,63 @@
 ---
-title: Quick start with sofa
-description: Quick start with sofa
+title: Quick start with Sofa
+description: Quick start with Sofa
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa).
+This document introduces how to quickly access the ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa).
 
 ## Environment to prepare
 
-Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `shenyu-bootstrap`, In addition, if you use ZooKeeper for Sofa, you need to download it in advance.
 
-Note: `shenyu-bootstrap` need to import `sofa` dependencies
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+
+After successful startup, you need to open the Sofa plugin on in the BasicConfig `->` Plugin, and set your registry address. Please make sure the registry center is open locally.
+
+<img src="/img/shenyu/quick-start/sofa/sofa-en-1.png" width="60%" height="50%" />
+
+If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
+
+> Note: Before starting, make sure the gateway has added dependencies.
+
+
+If client is `sofa`, registry center is `Zookeeper`, please refer to the following configuration:
+
+
+
 ```xml
-<!-- shenyu sofa plugin starter-->
-<dependency>
-    <groupId>com.alipay.sofa</groupId>
-    <artifactId>sofa-rpc-all</artifactId>
-    <version>${sofa.rpc.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-    <version>${project.version}</version>
-</dependency>
+ <!--shenyu sofa plugin start-->
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>sofa-rpc-all</artifactId>
+            <version>5.7.6</version>
+        </dependency>
+        <dependency>
+               <groupId>org.apache.curator</groupId>
+               <artifactId>curator-client</artifactId>
+               <version>4.0.1</version>
+           </dependency>
+           <dependency>
+               <groupId>org.apache.curator</groupId>
+               <artifactId>curator-framework</artifactId>
+               <version>4.0.1</version>
+           </dependency>
+           <dependency>
+               <groupId>org.apache.curator</groupId>
+               <artifactId>curator-recipes</artifactId>
+               <version>4.0.1</version>
+           </dependency>
 
-<!-- zookeeper -->
-<dependency>
-    <groupId>org.apache.curator</groupId>
-    <artifactId>curator-client</artifactId>
-    <version>4.0.1</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.curator</groupId>
-    <artifactId>curator-framework</artifactId>
-    <version>4.0.1</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.curator</groupId>
-    <artifactId>curator-recipes</artifactId>
-    <version>4.0.1</version>
-</dependency>
-<!-- shenyu sofa plugin end-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--shenyu sofa plugin end-->
 
 ```
+
 ## Run the shenyu-examples-sofa project
 
-Download [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+Download [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
 ```xml
 com:
   alipay:
@@ -94,19 +107,17 @@ The following log appears when the startup is successful:
 2021-02-10 02:31:46.141  INFO 2156 --- [           main] o.d.s.e.s.service.TestSofaApplication    : Started TestSofaApplication in 3.41 seconds (JVM running for 4.423) 
 ```
 
-## Sofa plugin settings
 
-* first enabled the `sofa` plugin in the `shenyu-admin` plugin management.
-* then configure your registry address in `sofa`.
-
-## Testing
+## Test
 
 The `shenyu-examples-sofa` project will automatically register interface methods annotated with `@ShenyuSofaClient` in the shenyu gateway after successful startup.
 
-Open Plugin Management -> sofa to see the list of plugin rule configurations
+Open PluginList -> rpc proxy -> sofa to see the list of plugin rule configurations:
+
 ![](/img/shenyu/quick-start/sofa/rule-list.png)
 
-Use PostMan to simulate HTTP to request your Sofa service
+Use PostMan to simulate HTTP to request your Sofa service:
+
 ![](/img/shenyu/quick-start/sofa/postman-findbyid.png)
 
 Complex multi-parameter example: The related interface implementation class is `org.apache.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`

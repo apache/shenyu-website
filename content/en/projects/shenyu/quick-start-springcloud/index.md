@@ -1,58 +1,84 @@
 ---
-title: Quick start with SpringCloud
+title: Quick start with Spring Cloud
 description: Quick start with SpringCloud
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using SpringCloud. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud).
+This document introduces how to quickly access the ShenYu gateway using Spring Cloud. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
 
 ## Environment to prepare
 
-Please refer to the [setup](../shenyu-set-up) and launch `shenyu-admin` and `shenyu-bootstrap`.
 
-* Add the following dependencies to the `shenyu-bootstrap`'s `pom.xml` file:
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+
+After successful startup, you need to open the springCloud plugin on in the BasicConfig `->` Plugin.
+
+<img src="/img/shenyu/quick-start/springcloud/springCloud-en-1.png" width="60%" height="50%" />
+
+If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
+
+> Note: Before starting, make sure the gateway has added dependencies.
+
+Add the gateway proxy plugin for `Spring Cloud` and add the your registry center dependencies:
 
 ```xml
 <!--shenyu springCloud plugin start-->
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
-    <version>${project.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-commons</artifactId>
-    <version>2.2.0.RELEASE</version>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-    <version>2.2.0.RELEASE</version>
-</dependency>
+               <dependency>
+                    <groupId>org.apache.shenyu</groupId>
+                    <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
 
-<!-- If using Eureka as a registry needs to be introduced -->
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    <version>2.2.0.RELEASE</version>
-</dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-commons</artifactId>
+                    <version>2.2.0.RELEASE</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                    <version>2.2.0.RELEASE</version>
+                </dependency>
 
-<!--shenyu springCloud plugin start end-->
+                <dependency>
+                    <groupId>org.apache.shenyu</groupId>
+                    <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+        <!-- springCloud if you config register center is eureka please dependency end-->
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                    <version>2.2.0.RELEASE</version>
+                </dependency>
+        <!--shenyu springCloud plugin end-->
 ```
 
-Startup the `shenyu-bootstrap` project
 
-## Run the shenyu-examples-springcloud and shenyu-examples-eureka project
+`eureka` config information:
+```xml
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+```
 
-In the example project we use `eureka` as the SpringCloud registry
 
-Download [shenyu-examples-eureka](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-eureka) and [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
+Restart the `shenyu-bootstrap` project.
 
-1. Startup the Eureka service
+## Run the shenyu-examples-springcloud project
 
+In the example project we used `Eureka` as the registry for `Spring Cloud`. You can use the local `Eureka` or the application provided in the example.
+
+
+Download [shenyu-examples-eureka](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-eureka) 、[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
+
+
+Startup the Eureka service:
 Execute the `org.apache.shenyu.examples.eureka.EurekaServerApplication` main method to start project.
 
-2. Startup the Spring Cloud service
-
+Startup the Spring Cloud service:
 Execute the `org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication` main method to start project.
 
 The following log appears when the startup is successful:
@@ -92,18 +118,14 @@ The following log appears when the startup is successful:
 2021-02-10 14:03:54.231  INFO 2860 --- [           main] o.d.s.e.s.ShenyuTestSpringCloudApplication : Started ShenyuTestSpringCloudApplication in 6.338 seconds (JVM running for 7.361) 
 ```
 
-## Enable the springCloud plugin
-
-* enabled the `springCloud` plugin in the `shenyu-admin` plugin management.
-
-## Testing http request
+## Test
 
 The `shenyu-examples-springcloud` project will automatically register interface methods annotated with `@ShenyuSpringCloudClient` in the shenyu gateway after successful startup.
 
-Open Plugin Management -> springcloud to see the list of plugin rule configurations
+Open PluginList -> rpc proxy -> springCloud to see the list of plugin rule configurations:
 
 ![](/img/shenyu/quick-start/springcloud/rule-list.png)
 
-Use PostMan to simulate HTTP to request your SpringCloud service
+Use PostMan to simulate HTTP to request your SpringCloud service:
 
 ![](/img/shenyu/quick-start/springcloud/postman-test.png)

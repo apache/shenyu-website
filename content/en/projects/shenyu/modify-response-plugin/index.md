@@ -11,7 +11,7 @@ description: modifyResponse Plugin
 
 ## Plugin Setting
 
-* 在 `shenyu-admin` -> plugin management --> `modifyResponse`set to enable.
+* on `shenyu-admin` -> plugin management --> `modifyResponse`set to enable.
 
 ## Plugin Use
 

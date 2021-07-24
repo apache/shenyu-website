@@ -15,9 +15,9 @@
 # sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
-project = 'Dromara project document'
-copyright = '2021, Dromara'
-author = 'Dromara'
+project = 'Apache ShenYu document'
+copyright = '2021, Apache ShenYu'
+author = 'Apache ShenYu'
 
 
 # -- General configuration ---------------------------------------------------

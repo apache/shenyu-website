@@ -36,7 +36,7 @@ function generate_pdf {
         cp -r static/img/* $localDir/img
         cp .github/scripts/conf.py $localDir/
         cd $localDir
-        sed -i "s/Dromara project document/Dromara $1 document/g" conf.py
+        sed -i "s/Apache ShenYu document/Apache $1 document/g" conf.py
         if [[ "$lang" == "en" ]] ;then
             sed -i "s/language = 'zh_CN'/language = 'en_US'/" conf.py
             echo "printing English version PDF"
@@ -110,8 +110,8 @@ function generate_pdf {
         cd ..
         make latexpdf
         mkdir -p pdf
-        cp _build/latex/*.pdf ./public/pdf/dromara_$1_docs_$lang.pdf
-        echo "dromara_$1_docs_$lang.pdf"
+        cp _build/latex/*.pdf ./public/pdf/apache_$1_docs_$lang.pdf
+        echo "apache_$1_docs_$lang.pdf"
         make clean
         rm -rf {_build,source}
     done

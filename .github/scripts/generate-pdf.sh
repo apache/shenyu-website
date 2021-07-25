@@ -36,7 +36,6 @@ function generate_pdf {
         cp -r static/img/* $localDir/img
         cp .github/scripts/conf.py $localDir/
         cd $localDir
-        sed -i "s/Apache ShenYu document/Apache $1 document/g" conf.py
         if [[ "$lang" == "en" ]] ;then
             sed -i "s/language = 'zh_CN'/language = 'en_US'/" conf.py
             echo "printing English version PDF"

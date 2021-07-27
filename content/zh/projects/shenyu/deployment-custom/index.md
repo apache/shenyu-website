@@ -11,7 +11,7 @@ description: 自定义搭建网关
 
 * docker 用户参考 docker部署 Apache ShenYu Admin
 
-* liunx/windows 用户参考源码部署 Apache ShenYu Admin
+* liunx/windows 用户参考二进制包部署 Apache ShenYu Admin
 
 ### 搭建自己的网关（推荐）
 

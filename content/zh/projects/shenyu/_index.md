@@ -46,7 +46,7 @@ sidebar:
     sub:
       - title: '本地部署'
         link: 'deployment-local'
-      - title: '源码包部署'
+      - title: '二进制包部署'
         link: 'deployment-package'
       - title: 'Docker部署'
         link: 'deployment-docker'

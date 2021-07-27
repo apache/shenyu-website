@@ -11,7 +11,7 @@ This article describes how to build your own gateway based on `Apache ShenYu`.
 
 * docker reference docker deployment Apache ShenYu Admin 
 
-* liunx/windows reference source code deployment Apache ShenYu Admin
+* liunx/windows reference binary packages deployment Apache ShenYu Admin
 
 ### Build your own gateway (recommended)
 

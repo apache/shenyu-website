@@ -1,10 +1,10 @@
 ---
-title: Source Code Deployment
+title: Binary Packages Deployment
 keywords: Apache ShenYu Deployment
-description: Source Code Deployment
+description: Binary Packages Deployment
 ---
 
-This article introduces the deployment of the `Apache ShenYu` gateway using the source code.
+This article introduces the deployment of the `Apache ShenYu` gateway using the binary packages.
 
 
 ### Start Apache ShenYu Admin

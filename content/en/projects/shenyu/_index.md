@@ -46,7 +46,7 @@ sidebar:
     sub:
       - title: 'Local Deployment'
         link: 'deployment-local'
-      - title: 'Source Code Deployment'
+      - title: 'Binary Packages Deployment'
         link: 'deployment-package'
       - title: 'Docker Deployment'
         link: 'deployment-docker'

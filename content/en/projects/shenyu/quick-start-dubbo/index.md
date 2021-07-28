@@ -22,7 +22,7 @@ If client is `apache dubbo`, registry center is `Zookeeper`, please refer to the
 
 
 ```xml
- <!--shenyu  apache dubbo plugin start-->
+        <!--shenyu  apache dubbo plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
@@ -33,7 +33,7 @@ If client is `apache dubbo`, registry center is `Zookeeper`, please refer to the
             <artifactId>dubbo</artifactId>
             <version>2.7.5</version>
         </dependency>
-<!-- Dubbo zookeeper registry dependency start -->
+        <!-- Dubbo zookeeper registry dependency start -->
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-client</artifactId>

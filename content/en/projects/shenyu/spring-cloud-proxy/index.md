@@ -17,6 +17,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 * add these dependencies in gateway's pom.xml:
 
+
 ```xml
   <!--shenyu springCloud plugin start-->
   <dependency>

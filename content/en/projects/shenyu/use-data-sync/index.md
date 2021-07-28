@@ -28,14 +28,15 @@ For details about the data synchronization principles, see [Data Synchronization
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-pom.png" width="80%" height="70%" />
 
+
   Add these config values in  yaml file:
 
 ```yaml
-    shenyu:
-        sync:
-            websocket :
-                 urls: ws://localhost:9095/websocket
-                 #urls: address of shenyu-admin，multi-address will be separated with (,).
+shenyu:
+  sync:
+    websocket :
+      urls: ws://localhost:9095/websocket
+      #urls: address of shenyu-admin，multi-address will be separated with (,).
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-yml.png" width="80%" height="70%" />
@@ -53,8 +54,7 @@ shenyu:
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-admin-yml.png" width="80%" height="70%" />
 
-After the connection is established, the data will be fully obtained once, and the subsequent data will be updated and added increments, with good performance. It also supports disconnection (default: `30` seconds). This mode is recommended for data synchronization and is the default data synchronization strategy of `ShenYu.
-
+After the connection is established, the data will be fully obtained once, and the subsequent data will be updated and added increments, with good performance. It also supports disconnection (default: `30` seconds). This mode is recommended for data synchronization and is the default data synchronization strategy of ShenYu.
 
 
 ### Zookeeper Synchronization Config
@@ -77,14 +77,15 @@ After the connection is established, the data will be fully obtained once, and t
 
    Add these config values in  yaml file:
     
+    
 ```yaml
 shenyu:
-    sync:
-        zookeeper:
-             url: localhost:2181
-             sessionTimeout: 5000
-             connectionTimeout: 2000
+  sync:
+    zookeeper:
+      url: localhost:2181
        #url: config with your zk address, used by the cluster environment, separated with (,).
+      sessionTimeout: 5000
+      connectionTimeout: 2000
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-yml.png" width="80%" height="70%" />
@@ -94,15 +95,17 @@ shenyu:
 
  Add these config values in  yaml file:
 
+
 ```yaml
 shenyu:
   sync:
     zookeeper:
-        url: localhost:2181
-        sessionTimeout: 5000
-        connectionTimeout: 2000
+      url: localhost:2181
        #url: config with your zk address, used by the cluster environment, separated with (,).
+      sessionTimeout: 5000
+      connectionTimeout: 2000
 ```
+
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-zk-yml.png" width="80%" height="70%" />
 
@@ -149,11 +152,12 @@ shenyu:
 ```yaml
 shenyu:
   sync:
-      http:
-        enabled: true
+    http:
+      enabled: true
 ```
 
    <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-http-yml.png" width="80%" height="70%" />
+
 
 HTTP long-polling makes the gateway lightweight, but less time-sensitive. It pulls according to the group key, if the data is too large, it will have some influences, a small change under a group will pull the entire group.
 
@@ -162,6 +166,7 @@ HTTP long-polling makes the gateway lightweight, but less time-sensitive. It pul
 ### Nacos Synchronization Config
 
 * `ShenYu` gateway config
+
 
  Add these dependencies in `pom.xml`：
 
@@ -180,22 +185,21 @@ HTTP long-polling makes the gateway lightweight, but less time-sensitive. It pul
 
 ```yaml
 shenyu:
-    sync:
-        nacos:
-          url: localhost:8848
-          namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
-          username:
-          password:
-          acm:
-            enabled: false
-            endpoint: acm.aliyun.com
-            namespace:
-            accessKey:
-            secretKey:
-         # url: config with your nacos address, pls use (,) to split your cluster environment.
-         # other configure，pls refer to the naocs website.
+  sync:
+    nacos:
+      url: localhost:8848
+         # url: config with your nacos address, please use (,) to split your cluster environment.
+      namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+      username:
+      password:
+      acm:
+        enabled: false
+        endpoint: acm.aliyun.com
+        namespace:
+        accessKey:
+        secretKey:
+     # other configure，please refer to the naocs website.
 ```
-
   <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
 
 

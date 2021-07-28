@@ -24,7 +24,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
 
 
 ```xml
- <!--shenyu sofa plugin start-->
+        <!--shenyu sofa plugin start-->
         <dependency>
             <groupId>com.alipay.sofa</groupId>
             <artifactId>sofa-rpc-all</artifactId>

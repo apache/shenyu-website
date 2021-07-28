@@ -1,10 +1,10 @@
 ---
-title: 源码包部署
+title: 二进制包部署
 keywords: Apache ShenYu Deployment
-description: 源码包部署
+description: 二进制包部署
 ---
 
-本文介绍使用源码包部署 `Apache ShenYu` 网关。
+本文介绍使用二进制包部署 `Apache ShenYu` 网关。
 
 
 ### 启动 Apache ShenYu Admin

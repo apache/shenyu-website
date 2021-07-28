@@ -31,11 +31,11 @@ description: 使用不同的数据同步策略
    然后在 `yml` 文件中进行如下配置:
 
 ```yaml
-    shenyu:
-        sync:
-            websocket :
-                 urls: ws://localhost:9095/websocket
-               #urls:是指 shenyu-admin的地址，如果有多个，请使用（,）分割。  
+shenyu:
+  sync:
+    websocket :
+      urls: ws://localhost:9095/websocket
+      # urls:是指 shenyu-admin的地址，如果有多个，请使用（,）分割。  
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-yml.png" width="80%" height="70%" />
@@ -78,12 +78,12 @@ shenyu:
     
 ```yaml
 shenyu:
-    sync:
-        zookeeper:
-             url: localhost:2181
-             sessionTimeout: 5000
-             connectionTimeout: 2000
-        #url: 配置成你的 zookeeper 地址，集群环境请使用（,）分隔
+  sync:
+    zookeeper:
+      url: localhost:2181
+      # url: 配置成你的 zookeeper 地址，集群环境请使用（,）分隔
+      sessionTimeout: 5000
+      connectionTimeout: 2000
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-yml.png" width="80%" height="70%" />
@@ -97,10 +97,10 @@ shenyu:
 shenyu:
   sync:
     zookeeper:
-        url: localhost:2181
-        sessionTimeout: 5000
-        connectionTimeout: 2000
-    #url: 配置成你的 zookeeper 地址，集群环境请使用（,）分隔
+      url: localhost:2181
+      # url: 配置成你的 zookeeper 地址，集群环境请使用（,）分隔
+      sessionTimeout: 5000
+      connectionTimeout: 2000
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-zk-yml.png" width="80%" height="70%" />
@@ -132,10 +132,10 @@ shenyu:
 
 ```yaml
 shenyu:
-    sync:
-        http:
-             url: http://localhost:9095
-        #url: 配置成你的 shenyu-admin 的 ip 与端口地址，多个admin集群环境请使用（,）分隔。
+  sync:
+    http:
+      url: http://localhost:9095
+      # url: 配置成你的 shenyu-admin 的 ip 与端口地址，多个admin集群环境请使用（,）分隔。
 ```
 
    <img src="/img/shenyu/dataSync/shenyu-data-sync-http-yml.png" width="80%" height="70%" />
@@ -148,8 +148,8 @@ shenyu:
 ```yaml
 shenyu:
   sync:
-      http:
-        enabled: true
+    http:
+      enabled: true
 ```
 
    <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-http-yml.png" width="80%" height="70%" />
@@ -179,20 +179,20 @@ shenyu:
 
 ```yaml
 shenyu:
-    sync:
-        nacos:
-          url: localhost:8848
-          namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
-          username:
-          password:
-          acm:
-            enabled: false
-            endpoint: acm.aliyun.com
-            namespace:
-            accessKey:
-            secretKey:
-        # url: 配置成你的 nacos地址，集群环境请使用（,）分隔。
-        # 其他参数配置，请参考 naocs官网。
+  sync:
+    nacos:
+      url: localhost:8848
+      # url: 配置成你的 nacos地址，集群环境请使用（,）分隔。
+      namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+      username:
+      password:
+      acm:
+        enabled: false
+        endpoint: acm.aliyun.com
+        namespace:
+        accessKey:
+        secretKey:
+      # 其他参数配置，请参考 naocs官网。
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
@@ -205,18 +205,18 @@ shenyu:
 ```yaml
 shenyu:
   sync:
-      nacos:
-        url: localhost:8848
-        namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
-        username:
-        password:
-        acm:
-          enabled: false
-          endpoint: acm.aliyun.com
-          namespace:
-          accessKey:
-          secretKey:
+    nacos:
+      url: localhost:8848
       # url: 配置成你的 nacos地址，集群环境请使用（,）分隔。
+      namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+      username:
+      password:
+      acm:
+        enabled: false
+        endpoint: acm.aliyun.com
+        namespace:
+        accessKey:
+        secretKey:
       # 其他参数配置，请参考 naocs官网。
 ```
 
@@ -254,10 +254,10 @@ shenyu:
 
 ```yaml
 shenyu:
-    sync:
-       etcd:
-         url: http://localhost:2379
-       #url: 配置成你的 etcd，集群环境请使用（,）分隔。
+  sync:
+    etcd:
+      url: http://localhost:2379
+      # url: 配置成你的 etcd，集群环境请使用（,）分隔。
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-yml.png" width="80%" height="70%" />
@@ -272,7 +272,7 @@ shenyu:
   sync:
     etcd:
       url: http://localhost:2379
-      #url: 配置成你的 etcd，集群环境请使用（,）分隔。
+      # url: 配置成你的 etcd，集群环境请使用（,）分隔。
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-etcd-yml.png" width="80%" height="70%" />
@@ -284,12 +284,12 @@ shenyu:
  首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-<!--shenyu data sync start use consul-->
-<dependency>
-  <groupId>org.apache.shenyu</groupId>
-  <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
-  <version>${project.version}</version>
-</dependency>
+        <!--shenyu data sync start use consul-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 ```
 
   <img src="/img/shenyu/dataSync/shenyu_consul_sync_gateway.jpg" width="80%" height="70%" />
@@ -299,11 +299,11 @@ shenyu:
 
 ```yaml
 shenyu:
-    sync:
-      consul:
-				url: http://localhost:8500
-        waitTime: 1000	#查询等待时间
-        watchDelay: 1000	#数据同步间隔时间
+  sync:
+    consul:
+	  url: http://localhost:8500
+      waitTime: 1000	# 查询等待时间
+      watchDelay: 1000	# 数据同步间隔时间
 ```
 
   <img src="/img/shenyu/dataSync/shenyu_consul_gateway_sync_config.jpg" width="80%" height="70%" />

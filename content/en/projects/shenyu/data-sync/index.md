@@ -4,7 +4,7 @@ keywords: shenyu
 description: Data Synchronization Design
 ---
 
-This document explains the principle of data synchronization. Data synchronization refers to the strategy used to synchronize data to ShenYu Gateway after shenyu-admin background operation data. ShenYu Gateway currently supports ZooKeeper, WebSocket, HTTP Long Polling, Nacos, Etcd and Consul for data synchronization.
+This document explains the principle of data synchronization. Data synchronization refers to the strategy used to synchronize data to ShenYu gateway after shenyu-admin background operation data. ShenYu gateway currently supports ZooKeeper, WebSocket, HTTP Long Polling, Nacos, Etcd and Consul for data synchronization.
 
 See [Data Synchronization Configuration](../use-data-sync)  for configuration information about data synchronization.
 

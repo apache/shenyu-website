@@ -1,160 +1,173 @@
 ---
-title: Integrate Http with shenyu gateway
+title:  Http Proxy
 keywords: shenyu
 description: Integrate Http with shenyu gateway
 ---
 
-## Features
 
-* This chapter is a guide about integrating Http service with ShenYu Gateway.
-* ShenYu Gateway uses divide plugin handling http request, pls enable it in shenyu-admin background.
-* Please start `shenyu-admin` successfully before integrating and [Environment Setup](../shenyu-set-up) is Ok.
+This document is intended to help the `Http` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `Divide` plugin to handle `Http` requests.
 
-## Configure ShenYu Gateway as Http proxy.
+Before the connection, start `shenyu-admin` correctly, start `Divide` plugin, and add related dependencies on the gateway and `Http` application client. Refer to the previous [Quick start with Http](../quick-start-http) .
 
-* Add these dependencies in gateway's `pom.xml`:
+For details about client access configuration, see [Application Client Access Config](../register-center-access) .
+
+For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
+
+## Add divide plugin in gateway
+
+* Add the following dependencies to the gateway's `pom.xml` file:
+
 
 ```xml
-  <!--if you use http proxy start this-->
-   <dependency>
-       <groupId>org.apache.shenyu</groupId>
-       <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
-       <version>${last.version}</version>
-   </dependency>
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-   <dependency>
-       <groupId>org.apache.shenyu</groupId>
-       <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-       <version>${last.version}</version>
-   </dependency>
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 ```
 
-* pls restart the gateway.
 
-## Http request via ShenYu Gateway（springMVC user）
 
-* pls make sure divide plugin has enabled in `shenyu-admin` background.
+## Http request access gateway (for springMvc)
+   
 
-##### add Shenyu-Client methods（available for SpringMVC,SpringBoot user）
+Please refer this：[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
-* `SpringBoot User`
 
-   * Add these dependencies in your local maven repository `pom.xml`:
+* SpringBoot
 
-    ```xml
-         <dependency>
-             <groupId>org.apache.shenyu</groupId>
-             <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
-             <version>${last.version}</version>
-         </dependency>
-    ```
+  Add the following dependencies to the `pom.xml` file in your `Http` service:
 
-   * Backend server register center config, please look:[register center access](../register-center-access).
+```xml
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
+        <version>${shenyu.version}</version>
+    </dependency>
+ ```
 
-* `SpringMVC User`
 
-   * Add these dependencies in your local maven repository `pom.xml`:
+* SpringMvc
 
-    ```xml
-           <dependency>
-               <groupId>org.apache.shenyu</groupId>
-               <artifactId>shenyu-client-springmvc</artifactId>
-               <version>${last.version}</version>
-           </dependency>
-    ```
-  * Inject these properties into your Spring beans XML file:
+  Add the following dependencies to the `pom.xml` file in your `Http` service:
 
-    ```xml
-        <bean id ="springMvcClientBeanPostProcessor" class ="org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
-             <constructor-arg  ref="shenyuRegisterCenterConfig"/>
-        </bean>
+```xml
+       <dependency>
+           <groupId>org.apache.shenyu</groupId>
+           <artifactId>shenyu-client-springmvc</artifactId>
+           <version>${shenyu.version}</version>
+       </dependency>
+ ```
+ Add the following to the `XML` file defined by your `bean` :
 
-        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig;">
-             <property name="registerType" value="http"/>
-             <property name="serverList" value="http://localhost:9095"/>
-             <property name="props">
-                  <map>
-                    <entry key="contextPath" value="/your contextPath"/>
-                    <entry key="appName" value="your server name"/>
-                    <entry key="port" value="your server port"/>
-                    <entry key="isFull" value="false"/>
-                  </map>
-             </property>
-        </bean>
-    ```
 
-* Add this annotation `@ShenyuSpringMvcClient` in your `controller` interface.
+ ```xml
+    <bean id ="springMvcClientBeanPostProcessor" class ="org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
+         <constructor-arg  ref="shenyuRegisterCenterConfig"/>
+    </bean>
 
-   * You can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces.
+    <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+         <property name="registerType" value="http"/>
+         <property name="serverList" value="http://localhost:9095"/>
+         <property name="props">
+              <map>
+                <entry key="contextPath" value="/your contextPath"/>
+                <entry key="appName" value="your name"/>
+                <entry key="port" value="your port"/>
+                <entry key="isFull" value="false"/>
+              </map>
+         </property>
+    </bean>
+```
 
-   * Example1: both `/test/payment` and `/test/findByUserId` will be handled by proxy service.
 
-    ```java
-      @RestController
-      @RequestMapping("/test")
-      @ShenyuSpringMvcClient(path = "/test/**")
-      public class HttpTestController {
+Add this annotation `@ShenyuSpringMvcClient` in your `controller` interface.
+You can apply the annotation to class-level in a controller.the name of the path variable is prefix and `/**` will apply proxy for entire interfaces.
 
-          @PostMapping("/payment")
-          public UserDTO post(@RequestBody final UserDTO userDTO) {
-              return userDTO;
-          }
 
-          @GetMapping("/findByUserId")
-          public UserDTO findByUserId(@RequestParam("userId") final String userId) {
-              UserDTO userDTO = new UserDTO();
-              userDTO.setUserId(userId);
-              userDTO.setUserName("hello world");
-              return userDTO;
-          }
-       }
-    ```
-   * Example2: `/order/save` will be handled by proxy service, but `/order/findById` won't.
+Example(1)
+   
+The following indicates that `/test/payment`, `/test/findByUserId` will be proxy by the gateway.
 
-    ```java
-      @RestController
-      @RequestMapping("/order")
-      @ShenyuSpringMvcClient(path = "/order")
-      public class OrderController {
+```java
+  @RestController
+  @RequestMapping("/test")
+  @ShenyuSpringMvcClient(path = "/test/**")
+  public class HttpTestController {
 
-          @PostMapping("/save")
-          @ShenyuSpringMvcClient(path = "/save")
-          public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
-              orderDTO.setName("hello world save order");
-              return orderDTO;
-          }
-
-          @GetMapping("/findById")
-          public OrderDTO findById(@RequestParam("id") final String id) {
-              OrderDTO orderDTO = new OrderDTO();
-              orderDTO.setId(id);
-              orderDTO.setName("hello world findById");
-              return orderDTO;
-          }
+      @PostMapping("/payment")
+      public UserDTO post(@RequestBody final UserDTO userDTO) {
+          return userDTO;
       }
-    ```
 
-* Kick off your project with your interface, which is integrated with ShenYu Gateway.
+      @GetMapping("/findByUserId")
+      public UserDTO findByUserId(@RequestParam("userId") final String userId) {
+          UserDTO userDTO = new UserDTO();
+          userDTO.setUserId(userId);
+          userDTO.setUserName("hello world");
+          return userDTO;
+      }
+   }
+```
 
-## Configure ShenYu Gateway as an Http proxy（other framework）
 
-* first of all, enable the divide plugin in `shenyu-admin`, then add selector and rule which will filter the request.
-* if you don't know how to configure, pls refer to [selector guide](../selector-and-rule).
-* you can also develop your cutomized http-client，refer to [multi-language Http client development](../developer-shenyu-client)。
+
+Example(2)
+   
+
+The following indicates that `/order/save` is proxied by the gateway, while `/order/findById` is not.
+
+
+```java
+  @RestController
+  @RequestMapping("/order")
+  @ShenyuSpringMvcClient(path = "/order")
+  public class OrderController {
+
+      @PostMapping("/save")
+      @ShenyuSpringMvcClient(path = "/save")
+      public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
+          orderDTO.setName("hello world save order");
+          return orderDTO;
+      }
+
+      @GetMapping("/findById")
+      public OrderDTO findById(@RequestParam("id") final String id) {
+          OrderDTO orderDTO = new OrderDTO();
+          orderDTO.setId(id);
+          orderDTO.setName("hello world findById");
+          return orderDTO;
+      }
+  }
+```
+
+* Start your project, your service interface is connected to the gateway, go to the `shenyu-admin` management system plugin list `->` HTTP process `->` Divide, see automatically created selectors and rules.
+
+
+## Http request access gateway（other framework）
+
+* First of all, find divide plugin in `shenyu-admin`, add selector, and rules, and filter traffic matching.
+* If you don't know how to configure, please refer to [Selector Detailed Explanation](../selector-and-rule).
+* You can also develop your cutomized http-client，refer to [multi-language Http client development](../developer-shenyu-client)。
 
 ## User request
 
 * Send the request as before, only two points need to notice.
-* Firstly，the domain name that requested before in your service, now need to replace with gateway's domain name.
-* Secondly，ShenYu Gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if you are familiar with it.
+* Firstly, the domain name that requested before in your service, now need to replace with gateway's domain name.
+* Secondly, ShenYu Gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if you are familiar with it.
     * for example, if you have an order service and it has a interface, the request url: http://localhost:8080/test/save
 
     * Now need to change to:  http://localhost:9195/order/test/save
 
     * We can see localhost:9195 is your gateway's ip port，default port number is 9195 ，/order is your contextPath which you configured with gateway.
 
-    * other parameters doesn't change in request method.
+    * Other parameters doesn't change in request method.
 
-    * Any questions, pls join the group and we can talk about it.
 
 * Then you can visit, very easy and simple.

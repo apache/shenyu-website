@@ -1,123 +1,134 @@
 ---
-title: Integrate dubbo with ShenYu Gateway
+title:  Dubbo Proxy 
 keywords: ShenYu
-description: Integrate dubbo with ShenYu gateway
+description: Dubbo Client Access
 ---
 
-## Features
+This document is intended to help the `Dubbo` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `Dubbo` plugin to handle `dubbo` service.
 
-* This chapter is a guide about integrating dubbo service with ShenYu Gateway.
-* Support Alibaba Dubbo(< 2.7.x) and Apache Dubbo (>=2.7.x).
-* Please start `shenyu-admin` successfully before integrating, and [Environment Setup](../shenyu-set-up) is Ok.
+Support Alibaba Dubbo(< 2.7.x) and Apache Dubbo (>=2.7.x).
 
-## Configure shenyu gateway as Dubbo proxy
+Before the connection, start `shenyu-admin` correctly, start `Dubbo` plugin, and add related dependencies on the gateway and `Dubbo` application client. Refer to the previous [Quick start with Dubbo](../quick-start-dubbo) .
 
-* Add these dependencies in gateway's `pom.xml`.
-* Alibaba dubbo user, configure the dubbo version and registry center with yours.
-```xml
-<!--shenyu alibaba dubbo plugin start-->
-<dependency>
-  <groupId>org.apache.shenyu</groupId>
-  <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
-  <version>${last.version}</version>
-</dependency>
-<!-- shenyu alibaba dubbo plugin end-->
-<dependency>
-  <groupId>com.alibaba</groupId>
-  <artifactId>dubbo</artifactId>
-  <version>2.6.5</version>
-</dependency>
-<dependency>
-  <groupId>org.apache.curator</groupId>
-  <artifactId>curator-client</artifactId>
-  <version>4.0.1</version>
-</dependency>
-<dependency>
-  <groupId>org.apache.curator</groupId>
-  <artifactId>curator-framework</artifactId>
-  <version>4.0.1</version>
-</dependency>
-<dependency>
-  <groupId>org.apache.curator</groupId>
-  <artifactId>curator-recipes</artifactId>
-  <version>4.0.1</version>
-</dependency>
-```
-* Apache dubbo user, configure the dubbo version and registry center with yours.
+For details about client access configuration, see [Application Client Access Config](../register-center-access) .
 
-```xml
-<!--shenyu apache dubbo plugin start-->
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
-   <version>${last.version}</version>
-</dependency>
-<!--shenyu apache dubbo plugin end-->
+For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
 
-<dependency>
-   <groupId>org.apache.dubbo</groupId>
-   <artifactId>dubbo</artifactId>
-   <version>2.7.5</version>
-</dependency>
-<!-- Dubbo Nacos registry dependency start -->
-<dependency>
-   <groupId>org.apache.dubbo</groupId>
-   <artifactId>dubbo-registry-nacos</artifactId>
-   <version>2.7.5</version>
-</dependency>
-<dependency>
-   <groupId>com.alibaba.nacos</groupId>
-   <artifactId>nacos-client</artifactId>
-   <version>1.1.4</version>
-</dependency>
-<!-- Dubbo Nacos registry dependency  end-->
+## Add dubbo plugin in gateway
 
-<!-- Dubbo zookeeper registry dependency start-->
-<dependency>
-   <groupId>org.apache.curator</groupId>
-   <artifactId>curator-client</artifactId>
-   <version>4.0.1</version>
-</dependency>
-<dependency>
-   <groupId>org.apache.curator</groupId>
-   <artifactId>curator-framework</artifactId>
-   <version>4.0.1</version>
-</dependency>
-<dependency>
-   <groupId>org.apache.curator</groupId>
-   <artifactId>curator-recipes</artifactId>
-   <version>4.0.1</version>
-</dependency>
-<!-- Dubbo zookeeper registry dependency end -->
-```
+  Add these dependencies in gateway's `pom.xml`.
+ 
+  Alibaba dubbo user, configure the dubbo version and registry center with yours.
+
+    ```xml
+    <!--shenyu alibaba dubbo plugin start-->
+    <dependency>
+      <groupId>org.apache.shenyu</groupId>
+      <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+       <version>${project.version}</version>
+    </dependency>
+    <!-- shenyu  alibaba dubbo plugin end-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>dubbo</artifactId>
+      <version>2.6.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-client</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-framework</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-recipes</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    ```
+  
+ Apache dubbo user, configure the dubbo version and registry center with yours.
+    
+    ```xml
+    <!--shenyu apache dubbo plugin start-->
+    <dependency>
+       <groupId>org.apache.shenyu</groupId>
+       <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
+       <version>${project.version}</version>
+    </dependency>
+    <!--shenyu apache dubbo plugin end-->
+
+    <dependency>
+       <groupId>org.apache.dubbo</groupId>
+       <artifactId>dubbo</artifactId>
+       <version>2.7.5</version>
+    </dependency>
+    <!-- Dubbo Nacos registry dependency start -->
+    <dependency>
+       <groupId>org.apache.dubbo</groupId>
+       <artifactId>dubbo-registry-nacos</artifactId>
+       <version>2.7.5</version>
+    </dependency>
+    <dependency>
+       <groupId>com.alibaba.nacos</groupId>
+       <artifactId>nacos-client</artifactId>
+       <version>1.1.4</version>
+    </dependency>
+    <!-- Dubbo Nacos registry dependency  end-->
+
+    <!-- Dubbo zookeeper registry dependency start-->
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-client</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-framework</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-recipes</artifactId>
+       <version>4.0.1</version>
+    </dependency>
+    <!-- Dubbo zookeeper registry dependency end -->
+    ```
 
 * restart gateway service.
 
-  Dubbo integration with gateway,pls refer to : [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
+## Dubbo service access gateway
+
+  Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) .
 
  * Alibaba Dubbo User
     * SpringBoot
-       * Add these dependencies:
+       
+      Add these dependencies:
+       
         ```xml
         <dependency>
              <groupId>org.apache.shenyu</groupId>
              <artifactId>shenyu-spring-boot-starter-client-alibaba-dubbo</artifactId>
-             <version>${last.version}</version>
+             <version>${shenyu.version}</version>
         </dependency>
         ```
 
-        * backend server register center config, please look:[register center access](../register-center-access).
-
     * Spring
-       * Add these dependencies：
+      
+      Add these dependencies：
+      
        ```xml
           <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-client-alibaba-dubbo</artifactId>
-            <version>${last.version}</version>
-         </dependency>
+             <groupId>org.apache.shenyu</groupId>
+             <artifactId>shenyu-client-alibaba-dubbo</artifactId>
+             <version>${shenyu.version}</version>
+          </dependency>
        ```
-       * Inject these properties into your Sping beans XML file：
+       Inject these properties into your Spring beans XML file：
 
        ```xml
        <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
@@ -140,27 +151,30 @@ description: Integrate dubbo with ShenYu gateway
 
   * SpringBoot
 
-     * Add these dependencies:
-     ```xml
+    Add these dependencies:
+     
+    ```xml
      <dependency>
           <groupId>org.apache.shenyu</groupId>
           <artifactId>shenyu-spring-boot-starter-client-apache-dubbo</artifactId>
-          <version>${last.version}</version>
+          <version>${shenyu.version}</version>
      </dependency>
      ```
-     * backend server register center config, please look:[register center_access](../register-center-access)：
-
+    
   * Spring
-     * Add these dependencies:
-     ```xml
+     
+     Add these dependencies:
+     
+    ```xml
        <dependency>
            <groupId>org.apache.shenyu</groupId>
            <artifactId>shenyu-client-apache-dubbo</artifactId>
-           <version>${last.version}</version>
+           <version>${shenyu.version}</version>
         </dependency>
      ```
 
-     * Injecct these properties into your Spring beans XML file:
+    Injecct these properties into your Spring beans XML file:
+    
     ```xml
     <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
        <constructor-arg  ref="shenyuRegisterCenterConfig"/>
@@ -192,16 +206,15 @@ description: Integrate dubbo with ShenYu gateway
 
 * you can add the annotation `@ShenyuDubboClient` to your dubbo service implementation class, so that the interface method will be configured with gateway.
 
-* start your provider and get the log `dubbo client register success `，then your dubbo interface has been added with ShenYu Gateway successfully.Pls refer to `shenyu-test-dubbo`
-  project.
+* Start your provider. After successful startup, go to PluginList -> rpc Proxy -> dubbo in the backend management system. You will see auto-registered selectors and rules information.
 
 ### Dubbo user request and parameter explanation.
 
-* communicate with dubbo service through Http transport protocol.
-* ShenYu Gateway need a route prefix which configured when accessing the project.
+* Communicate with dubbo service through Http transport protocol.
+* ShenYu gateway need a route prefix which configured when accessing the project.
 
 ```yaml
-# for example: you have an order service and it has a interface, his registry address: /order/test/save
+# for example: you have an order service and it has a interface, registry address: /order/test/save
 
 # now we can communicate with gateway through POST request http://localhost:9195/order/test/save
 
@@ -210,7 +223,7 @@ description: Integrate dubbo with ShenYu gateway
 
 * parameter deliver:
    * communicate with gateway through body or json of http post request.
-   * more parameter types, pls refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) and parameter passing
+   * more parameter types, please refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) and parameter passing
      method.
 * Single java bean parameter type (`default`).
 * Multi-parameter type support, add this config value in gateway's yaml file:
@@ -222,7 +235,7 @@ shenyu:
 ```
 
 * Support for customized multi-parameter type
-* Create a new implementation class A in your gateway project of `org.apache.shenyu.web.dubbo.DubboParamResolveService`.
+* Create a new implementation class `MyDubboParamResolveService` in your gateway project of `org.apache.shenyu.web.dubbo.DubboParamResolveService`.
 
 ```java
 public interface DubboParamResolveService {
@@ -246,8 +259,8 @@ public interface DubboParamResolveService {
 
 ```java
 @Bean
-public DubboParamResolveService A() {
-      return new A();
+public DubboParamResolveService myDubboParamResolveService() {
+      return new MyDubboParamResolveService();
 }
 ```
 
@@ -334,13 +347,15 @@ public DubboParamResolveService A() {
         "data": "Param binding error."
     }
     ```
-## Let's break down this process: http --> gateway --> dubbo provider
+  
+  
+## Http --> Gateway --> Dubbo Provider
 
-* It basically switches from HTTP request to Dubbo protocol, then invoke Dubbo service and return to the result.
-* Two things need to notice after intgeration with gateway, one is the added annoation `@ShenyuDubboClient`, another is a path used to speicify the request path.
-* And you added a config value of `contextPath`.
-* If you still remember, then we can start.
-* If you have a function like this, the config value in contextPath is `/dubbo`
+It basically switches from HTTP request to Dubbo protocol, then invoke Dubbo service and return to the result.
+Two things need to notice after intgeration with gateway, one is the added annoation `@ShenyuDubboClient`, another is a path used to speicify the request path.
+And you added a config value of `contextPath`.
+
+If you have a function like this, the config value in contextPath is `/dubbo`
 
 ```java
     @Override
@@ -349,18 +364,19 @@ public DubboParamResolveService A() {
         return dubboTest;
     }
 ```
+
 So our request path is: http://localhost:9195/dubbo/insert, localhost:9195 is the gateway's domain name,if you changed before,so does with yours here..
 
-How about the request parameter? `DubboTest` is a java bean object，has 2 parameters, id and name, so we can transfer the value's json type through request body.
+ `DubboTest` is a java bean object，has 2 parameters, id and name, so we can transfer the value's json type through request body.
 
 ```
 {"id":"1234","name":"XIAO5y"}
 ```
 
-* If your interface has no parameter, then the value is:
+If your interface has no parameter, then the value is:
 
 ```
 {}
 ```
 
-* If your interface has multi-parameter, pls refer to the guide above.
+If the interface has multiple parameters, refer to the multi-parameter type support described above.

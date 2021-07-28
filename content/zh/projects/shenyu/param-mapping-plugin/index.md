@@ -18,13 +18,13 @@ description:  Param-mapping插件
 * 在网关的 pom.xml 文件中添加 `param_mapping` 的支持。
 
 ```xml
-  <!-- shenyu param_mapping plugin start-->
+<!-- shenyu param_mapping plugin start-->
 <dependency>
-  <groupId>org.apache.shenyu</groupId>
-  <artifactId>shenyu-spring-boot-starter-plugin-param-mapping</artifactId>
-  <version>${project.version}</version>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-param-mapping</artifactId>
+    <version>${project.version}</version>
 </dependency>
-        <!-- shenyu param_mapping plugin end-->
+<!-- shenyu param_mapping plugin end-->
 ```
 
 * 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。

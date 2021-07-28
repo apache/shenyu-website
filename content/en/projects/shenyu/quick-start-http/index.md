@@ -22,7 +22,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 
 ```xml
-<!--if you use http proxy start this-->
+        <!--if you use http proxy start this-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>

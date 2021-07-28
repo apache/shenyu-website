@@ -21,7 +21,7 @@ description: springCloud with shenyu gateway
     <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
     <version>${last.version}</version>
 </dependency>
- <!--shenyu springCloud plugin end-->
+<!--shenyu springCloud plugin end-->
 
 <dependency>
     <groupId>org.springframework.cloud</groupId>

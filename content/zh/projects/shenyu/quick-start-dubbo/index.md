@@ -21,7 +21,7 @@ description: Dubbo快速开始
 如果客户端是`apache dubbo`，注册中心使用`zookeeper`，请参考如下配置：
 
 ```java
- <!--shenyu  apache dubbo plugin start-->
+        <!--shenyu  apache dubbo plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
@@ -32,7 +32,7 @@ description: Dubbo快速开始
             <artifactId>dubbo</artifactId>
             <version>2.7.5</version>
         </dependency>
-<!-- Dubbo zookeeper registry dependency start -->
+        <!-- Dubbo zookeeper registry dependency start -->
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-client</artifactId>

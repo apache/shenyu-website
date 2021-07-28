@@ -20,7 +20,7 @@ description: Sofa快速开始
 如果客户端是`sofa`，注册中心使用`zookeeper`，请参考如下配置：
 
 ```xml
- <!--shenyu sofa plugin start-->
+        <!--shenyu sofa plugin start-->
         <dependency>
             <groupId>com.alipay.sofa</groupId>
             <artifactId>sofa-rpc-all</artifactId>

@@ -24,7 +24,7 @@ description: resilience4j插件
 * 在网关的 `pom.xml` 文件中添加 `resilience4j`的依赖。
 
 ```xml
-       <!-- shenyu resilience4j plugin start-->
+        <!-- shenyu resilience4j plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-resilience4j</artifactId>

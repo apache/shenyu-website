@@ -22,7 +22,7 @@ description: Http快速开始
 引入网关对`Http`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-<!--if you use http proxy start this-->
+        <!--if you use http proxy start this-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>

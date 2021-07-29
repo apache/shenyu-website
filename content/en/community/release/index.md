@@ -317,7 +317,7 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" a
 *   Correct year in `NOTICE` file
 *   There is only text files but no binary files
 *   All source files have ASF headers
-*   Codes can be compiled and pass the unit tests (./mvnw install)
+*   Codes can be compiled and pass the unit tests (./mvnw install) (compatible with JAVA 8 for now)
 *   Check if there is any extra files or folders, empty folders for example
 
 **Check binary packages**

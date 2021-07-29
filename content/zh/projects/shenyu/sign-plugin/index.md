@@ -6,12 +6,12 @@ description: sign插件
 
 ## 说明
 
-* sign插件是 ShenYu 网关自带的，用来对请求进行签名认证的插件。
+* sign插件是Apache ShenYu网关自带的，用来对请求进行签名认证的插件。
 
 
 ## 插件设置
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 * 在 `shenyu-admin` 基础配置 --> 插件管理 --> `sign` ，设置为开启。如果用户不想使用此功能，请在admin后台停用此插件。
 
@@ -22,13 +22,13 @@ description: sign插件
 * 在网关的 pom.xml 文件中添加 `sign` 的支持。
 
 ```xml
-  <!-- shenyu sign plugin start-->
+  <!-- apache shenyu sign plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-sign</artifactId>
      <version>${last.version}</version>
   </dependency>
-  <!-- shenyu sign plugin end-->
+  <!-- apache shenyu sign plugin end-->
 ```
 
 * 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。

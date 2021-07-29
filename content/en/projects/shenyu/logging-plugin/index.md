@@ -6,7 +6,7 @@ description: logging plugin
 
 ## Explanation
 
-* When making invokes to the target service, ShenYu gateway also allows users to print the request information in the log that includes the request path, request method, request parameters, response header, response body ...etc.
+* When making invokes to the target service, Apache ShenYu gateway also allows users to print the request information in the log that includes the request path, request method, request parameters, response header, response body ...etc.
 
 ## Plugin Setting
 
@@ -15,13 +15,13 @@ description: logging plugin
 * If the user don't use, please disable the plugin in the background.
 
 ```xml
-   <!-- shenyu logging plugin start-->
+   <!-- apache shenyu logging plugin start-->
     <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-logging</artifactId>
       <version>${last.version}</version>
     </dependency>
-   <!-- shenyu logging plugin end-->
+   <!-- apache shenyu logging plugin end-->
 ```
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule)。

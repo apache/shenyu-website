@@ -3,13 +3,13 @@ title:  Quick start with Motan
 description: Motan quick start
 ---
 
-This document introduces how to quickly access the ShenYu gateway using Motan RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-motan).
+This document introduces how to quickly access the Apache ShenYu gateway using Motan RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-motan).
 
 
 ## Environment to prepare
 
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
 
 After successful startup, you need to open the Sofa plugin on in the BasicConfig `->` Plugin.
 
@@ -25,7 +25,7 @@ Import the gateway proxy plugin for `Motan` and add the following dependencies t
 
 
 ```xml
-        <!--shenyu motan plugin -->
+        <!-- apache shenyu motan plugin -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>

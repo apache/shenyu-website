@@ -6,7 +6,7 @@ description: rewrite插件
 
 ## 说明
 
-* `ShenYu` 网关在对目标服务进行代理调用的时候，还容许用户使用 `rewrite` 插件来重写请求路径
+* `Apache ShenYu` 网关在对目标服务进行代理调用的时候，还容许用户使用 `rewrite` 插件来重写请求路径
 
 ## 插件设置
 
@@ -20,13 +20,13 @@ description: rewrite插件
 
 
 ```xml
-  <!-- shenyu rewrite plugin start-->
+  <!-- apache shenyu rewrite plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-rewrite</artifactId>
      <version>${project.version}</version>
   </dependency>
-  <!-- shenyu rewrite plugin end-->
+  <!-- apache shenyu rewrite plugin end-->
 ```
 
 * 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。

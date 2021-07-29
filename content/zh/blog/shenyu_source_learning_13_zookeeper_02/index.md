@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Zookeeper数据同步02"
+title: "Apache ShenYu网关学习Zookeeper数据同步02"
 author: "李权"
-description: "ShenYu网关学习Zookeeper数据同步"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Zookeeper数据同步"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-21
 cover: "/img/architecture/shenyu-framework.png"
 ---

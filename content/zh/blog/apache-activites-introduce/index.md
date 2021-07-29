@@ -2,15 +2,15 @@
 author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2020-12-27T15:00:00.000Z
-title: "ShenYu 梦码读书会介绍"	
+title: "Apache ShenYu 梦码读书会介绍"	
 tags: ["DreamCode", "ShenYu","GateWay"]
 cover: "/img/activities/apache-open-shenyu-01.jpg"
-descripton: "ShenYu 梦码读书会介绍"
+descripton: "Apache ShenYu 梦码读书会介绍"
 ---
 
 ![ShenYu 梦码读书会介绍](/img/shenyu/activite/shenyu-xmind.png)
 
-### ShenYu 梦码读书会（ShenYu 2020 活动介绍）
+### Apache ShenYu 梦码读书会（ShenYu 2020 活动介绍）
 
 - 日期：2020年12月27日，星期日
 

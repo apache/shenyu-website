@@ -3,12 +3,12 @@ title: Quick start with Sofa
 description: Quick start with Sofa
 ---
 
-This document introduces how to quickly access the ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa).
+This document introduces how to quickly access the Apache ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa).
 
 ## Environment to prepare
 
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
 
 After successful startup, you need to open the Sofa plugin on in the BasicConfig `->` Plugin, and set your registry address. Please make sure the registry center is open locally.
 
@@ -24,7 +24,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
 
 
 ```xml
-        <!--shenyu sofa plugin start-->
+        <!-- apache shenyu sofa plugin start-->
         <dependency>
             <groupId>com.alipay.sofa</groupId>
             <artifactId>sofa-rpc-all</artifactId>
@@ -51,7 +51,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
             <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--shenyu sofa plugin end-->
+        <!-- apache shenyu sofa plugin end-->
 
 ```
 
@@ -110,7 +110,7 @@ The following log appears when the startup is successful:
 
 ## Test
 
-The `shenyu-examples-sofa` project will automatically register interface methods annotated with `@ShenyuSofaClient` in the shenyu gateway after successful startup.
+The `shenyu-examples-sofa` project will automatically register interface methods annotated with `@ShenyuSofaClient` in the Apache ShenYu gateway after successful startup.
 
 Open PluginList -> rpc proxy -> sofa to see the list of plugin rule configurations:
 

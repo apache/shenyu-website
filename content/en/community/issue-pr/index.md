@@ -27,7 +27,7 @@ Format is : `<type> (<module>) : <body>`.
 * feature
 ...
 
-`<module>`: Any of the modules belonging to the shenyu project,Please strictly follow the name of the project, Including but not limited to the following:
+`<module>`: Any of the modules belonging to the Apache ShenYu project,Please strictly follow the name of the project, Including but not limited to the following:
 
 * admin
 * client
@@ -70,7 +70,7 @@ for example:
 
 ## Issue Label
 
-We need to Label to all issues. All of shenyu community's lists are here : https://github.com/dromara/shenyu/labels.
+We need to Label to all issues. All of Apache ShenYu community's lists are here : https://github.com/dromara/shenyu/labels.
 
 In general, an issue should be marked with 2 Label. One is the type of issue, and the other is the project module to which the issue belongs.
 

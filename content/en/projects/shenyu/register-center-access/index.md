@@ -1,6 +1,6 @@
 ---
 title: Application Client Access Config
-keywords: shenyu
+keywords: Apache ShenYu
 description: register center access
 ---
 
@@ -9,7 +9,7 @@ Application client access means to access your microservice to ShenYu gateway, c
 
 Connecting the application client to ShenYu gateway is realized through the registration center, which involves the registration of the client and the synchronization of the server data. The registry supports HTTP, ZooKeeper, Etcd, Consul, and Nacos.
 
-This article describes how to configure the application client to access the ShenYu gateway. For related principles, see [Application Client Access](../register-center-design) in the design document .
+This article describes how to configure the application client to access the Apache ShenYu gateway. For related principles, see [Application Client Access](../register-center-design) in the design document .
 
 <img src="/img/shenyu/register/app-client-access-config-en-1.png" width="70%" height="60%" />
 
@@ -35,7 +35,7 @@ shenyu:
 
 #### shenyu-client config
 
-The following shows the configuration information registered through `Http` when the `Http` service accesses the `ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+The following shows the configuration information registered through `Http` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
 
 ```yaml
 shenyu:
@@ -94,14 +94,14 @@ shenyu:
 
 #### shenyu-client config
 
-The following shows the configuration information registered by `zookeeper` when the `Http` service accesses the `ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+The following shows the configuration information registered by `zookeeper` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
 
 
 * First add dependencies to the `pom` file:
 
 
 ```xml
-        <!--shenyu zookeeper register center -->
+        <!-- apache shenyu zookeeper register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-zookeeper</artifactId>
@@ -168,14 +168,14 @@ shenyu:
 
 #### shenyu-client config
 
-The following shows the configuration information registered by `Etcd` when the `Http` service accesses the `ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+The following shows the configuration information registered by `Etcd` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
 
 
 * First add dependencies to the `pom` file:
 
 
 ```xml
-        <!--shenyu etcd register center -->
+        <!-- apache shenyu etcd register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-etcd</artifactId>
@@ -217,7 +217,7 @@ shenyu:
 First add the related dependencies to the `pom` file :
 
 ```xml
-        <!--shenyu consul register start-->
+        <!-- apache shenyu consul register start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-consul</artifactId>
@@ -230,7 +230,7 @@ First add the related dependencies to the `pom` file :
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
             <version>2.2.6.RELEASE</version>
         </dependency>
-        <!--shenyu consul register end-->
+        <!-- apache shenyu consul register end-->
 
 ```
 
@@ -276,7 +276,7 @@ spring:
 > Note that the `consul` registry is currently incompatible with the `Spring Cloud` service and will conflict with the `Eureka/Nacos` registry.
 
 
-The following shows the configuration information registered by `Consul` when the `Http` service accesses the `ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+The following shows the configuration information registered by `Consul` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
 
 
 * First add dependencies to the `pom` file:
@@ -362,7 +362,7 @@ shenyu:
 
 #### shenyu-client config
 
-The following shows the configuration information registered by `Nacos` when the `Http` service accesses the `ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+The following shows the configuration information registered by `Nacos` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
 
 
 * First add dependencies to the `pom` file:
@@ -402,5 +402,5 @@ shenyu:
 
 <img src="/img/shenyu/register/register-nacos-client-yml.png" width="70%" height="60%" />
 
-In conclusion, this paper mainly describes how to connect your microservices (currently supporting `Http`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa`, `Tars` and other protocols) to the `ShenYu` gateway. The ShenYu gateway support registry has `Http`, `Zookeeper`, `Etcd`, `Consul`, `Nacos` and so on. This paper introduces the different ways to register configuration information when `Http` service is used as the client to access `ShenYu` gateway.
+In conclusion, this paper mainly describes how to connect your microservices (currently supporting `Http`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa`, `Tars` and other protocols) to the `Apache ShenYu` gateway. the Apache ShenYu gateway support registry has `Http`, `Zookeeper`, `Etcd`, `Consul`, `Nacos` and so on. This paper introduces the different ways to register configuration information when `Http` service is used as the client to access `Apache ShenYu` gateway.
 

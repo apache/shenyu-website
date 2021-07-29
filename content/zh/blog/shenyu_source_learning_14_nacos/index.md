@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Nacos数据同步"
+title: "Apache ShenYu网关学习Nacos数据同步"
 author: "李权"
-description: "ShenYu网关学习Nacos数据同步"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Nacos数据同步"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-26
 cover: "/img/shenyu/blog5/ns15.png"
 ---

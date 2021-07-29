@@ -11,7 +11,7 @@ title: "Awesome Apache ShenYu"
 
 ## Known Users{#knownusers}
 
-Here is a list of companies or organizations that we know have used all or some of ShenYu's components in production.This list is in no particular order:
+Here is a list of companies or organizations that we know have used all or some of Apache ShenYu's components in production.This list is in no particular order:
 
 <img alt="yy" src="/img/users/yy_logo.png" width="150" height="60" />
 <img alt="mihoyo" src="/img/users/mihayo_logo.png" width="150" height="60" />
@@ -45,7 +45,7 @@ Here is a list of companies or organizations that we know have used all or some 
 <img alt="weimai" src="/img/users/weimai.png" height="60" />
 ## Contributors{#contributors}
 
-Hundreds of people have contributed articles and code to ShenYu so far, thank you very much!
+Hundreds of people have contributed articles and code to Apache ShenYu so far, thank you very much!
 
 > This list is updated at the beginning of each month and is in no particular order, in alphabetical order of the GitHub user ID.
 

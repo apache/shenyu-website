@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning Plugin Chain Implementation"
+title: "Apache ShenYu Gateway Learning Plugin Chain Implementation"
 author: "shenxiangjun"
-description: "ShenYu Gateway Learning Plugin Chain Implementation"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learning Plugin Chain Implementation"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-21
 cover: "/img/shenyu/blog6/mirco.png"
 ---

@@ -3,11 +3,11 @@ title: gRPC快速开始
 description: gRPC快速开始
 ---
 
-本文档演示如何将`gRPC`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) 。
+本文档演示如何将`gRPC`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) 。
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`gRPC` 插件设置为开启。
 
@@ -20,13 +20,13 @@ description: gRPC快速开始
 引入网关对`gRPC`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-        <!--shenyu grpc plugin start-->
+        <!-- apache shenyu grpc plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-grpc</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--shenyu grpc plugin end-->
+        <!-- apache shenyu grpc plugin end-->
 ```
 
 ## 运行 shenyu-examples-grpc 项目
@@ -40,7 +40,7 @@ mvn protobuf:compile //编译消息对象
 mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 ```
 
-或者，如果你是通过 `IntelliJ IDEA` 打开 `shenyu` 工程，你可以在 `Maven` 工具栏中选中 `protobuf:compile` 和 `protobuf:compile-custom`，然后右键 `Run Maven Build` 一键生成 `proto` 文件对应的 `java`代码。 
+或者，如果你是通过 `IntelliJ IDEA` 打开 `Apache ShenYu` 工程，你可以在 `Maven` 工具栏中选中 `protobuf:compile` 和 `protobuf:compile-custom`，然后右键 `Run Maven Build` 一键生成 `proto` 文件对应的 `java`代码。 
 
 
 <img src="/img/shenyu/quick-start/grpc/gen-proto.png" width="40%" height="50%" />
@@ -82,7 +82,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 当前是以 `json` 的格式传递参数，`key`的名称默认是`data`，你可以在 `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME` 中进行重置；`value`的传入则根据你定义的 `proto` 文件。
 
 ##  流式调用
-`shenyu` 可以支持 `gRPC` 的流式调用，下面展示的是 `gRPC` 四种方法类型的调用。 在流式调用中，你可以通过数组的形式传递多个参数。
+`Apache ShenYu` 可以支持 `gRPC` 的流式调用，下面展示的是 `gRPC` 四种方法类型的调用。 在流式调用中，你可以通过数组的形式传递多个参数。
 
 - `UNARY`
 

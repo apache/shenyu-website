@@ -1,6 +1,6 @@
 ---
 title: A multilingual HTTP client
-keywords: shenyu
+keywords: Apache ShenYu
 description: A multilingual HTTP client
 ---
 

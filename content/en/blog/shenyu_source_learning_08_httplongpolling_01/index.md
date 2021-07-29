@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learns Http Long Polling Analysis 01"
+title: "Apache ShenYu Gateway Learns Http Long Polling Analysis 01"
 author: "zhuming"
-description: "ShenYu Gateway Learns Http Long Polling Analysis"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learns Http Long Polling Analysis"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-25
 cover: "/img/architecture/shenyu-framework.png"
 ---

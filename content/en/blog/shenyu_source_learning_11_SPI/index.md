@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning SPI"
+title: "Apache ShenYu Gateway Learning SPI"
 author: "zhuming"
-description: "ShenYu Gateway Learning SPI"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learning SPI"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-30
 cover: "/img/architecture/shenyu-framework.png"
 ---

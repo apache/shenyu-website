@@ -1,10 +1,10 @@
 ---
 title: Spring Cloud Proxy
-keywords: shenyu
+keywords: Apache ShenYu
 description: springCloud with shenyu gateway
 ---
 
-This document is intended to help the `Spring Cloud` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `springCloud` plugin to handle `Spring Cloud` service.
+This document is intended to help the `Spring Cloud` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `springCloud` plugin to handle `Spring Cloud` service.
 
 Before the connection, start `shenyu-admin` correctly, start `springCloud` plugin, and add related dependencies on the gateway and `springCloud` application client. Refer to the previous [Quick start with Spring Cloud](../quick-start-springcloud) .
 
@@ -19,7 +19,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 
 ```xml
-  <!--shenyu springCloud plugin start-->
+  <!-- apache shenyu springCloud plugin start-->
   <dependency>
        <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
@@ -31,7 +31,7 @@ For details about data synchronization configurations, see [Data Synchronization
        <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
        <version>${project.version}</version>
    </dependency>
-   <!--shenyu springCloud plugin end-->
+   <!-- apache shenyu springCloud plugin end-->
 
    <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -204,7 +204,7 @@ shenyu:
 
 * firstly,the domain name that requested before in your service, now need to replace with gateway's domain name.
 
-* secondly, ShenYu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if your familiar with it.
+* secondly, Apache ShenYu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if your familiar with it.
 
 ```yaml
 

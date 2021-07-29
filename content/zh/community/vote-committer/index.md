@@ -116,7 +116,7 @@ http://incubator.apache.org/guides/committer.html
 Just as before you became a committer, participation in any ASF community requires adherence to the ASF Code of Conduct:
 https://www.apache.org/foundation/policies/conduct.html
 
-Here is the guideline for all of the shenyu committers:
+Here is the guideline for all of the Apache ShenYu committers:
 https://shenyu.apache.org/community/en/contribute/committer/
 ```
 **7、新Committer签署iCLA 具体步骤参考 [Sign ICLA Guide](https://shenyu.apache.org/community/icla/)**

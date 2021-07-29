@@ -10,7 +10,7 @@ description: waf插件
 
 ## 插件设置
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 * 在 `shenyu-admin` 基础配置 --> 插件管理 --> `waf` ，设置为开启。如果用户不想使用此功能，请在admin后台停用此插件。
 
@@ -29,13 +29,13 @@ description: waf插件
 * 在网关的 `pom.xml` 文件中添加 `waf` 的依赖。
 
 ```xml
-  <!-- shenyu waf plugin start-->
+  <!-- Apache ShenYu waf plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-waf</artifactId>
       <version>${last.version}</version>
   </dependency>
-  <!-- shenyu waf plugin end-->
+  <!-- Apache ShenYu  waf plugin end-->
 ```
 
 ## Waf 插件配置
@@ -73,6 +73,6 @@ description: waf插件
 
 ## 场景
 
-* waf插件也是 ShenYu 的前置插件，主要用来拦截非法请求，或者异常请求，并且给与相关的拒绝策略。
+* waf插件也是 Apache ShenYu 的前置插件，主要用来拦截非法请求，或者异常请求，并且给与相关的拒绝策略。
 * 当面对重放攻击时，你可以根据ip或者host来进行匹配，拦截掉非法的 ip 与 host，设置 reject 策略。
 * 关于如何确定 ip 与 host 值，请看 [parsing-ip-and-host](../custom-parsing-ip-and-host)

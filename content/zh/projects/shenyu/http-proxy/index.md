@@ -1,10 +1,10 @@
 ---
 title: Http服务接入
-keywords: shenyu
+keywords: Apache ShenYu
 description: Http服务接入
 ---
 
-本文档旨在帮助 `http` 服务接入到 `ShenYu` 网关。`ShenYu` 网关使用 `divide` 插件来处理 `http` 请求。
+本文档旨在帮助 `http` 服务接入到 `Apache ShenYu` 网关。`Apache ShenYu` 网关使用 `divide` 插件来处理 `http` 请求。
 
 接入前，请正确启动 `shenyu-admin`，并开启`divide`插件，在网关端和`Http`服务端引入相关依赖。可以参考前面的 [Http快速开始](../quick-start-http)。
 
@@ -149,11 +149,11 @@ description: Http服务接入
 
 ## 用户请求
 
-当你的`Http`服务接入到`ShenYu`网关后，请求方式没有很大的变动，小的改动有两点。
+当你的`Http`服务接入到`Apache ShenYu`网关后，请求方式没有很大的变动，小的改动有两点。
 
 * 第一点，你之前请求的域名是你自己的服务，现在要换成网关的域名。
 
-* 第二点，`ShenYu` 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以在 `shenyu-admin` 中的`divide`插件进行自由更改。
+* 第二点，`Apache ShenYu` 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以在 `shenyu-admin` 中的`divide`插件进行自由更改。
     * 比如你有一个 `order` 服务 它有一个接口，请求路径 `http://localhost:8080/test/save`。
 
     * 现在就需要换成：`http://localhost:9195/order/test/save`。

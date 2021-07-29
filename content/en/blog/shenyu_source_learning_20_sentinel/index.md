@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning Sentinel Plugin"
+title: "Apache ShenYu Gateway Learning Sentinel Plugin"
 author: "luoxiaolong"
-description: "ShenYu Gateway Learning Sentinel Plugin"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learning Sentinel Plugin"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-03-19
 cover: "/img/shenyu/blog6/02.jpg"
 ---

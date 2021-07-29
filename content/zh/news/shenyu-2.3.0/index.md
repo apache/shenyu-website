@@ -2,7 +2,7 @@
 title: "【Soul 网关发布里程碑的2.3.0版本】新增支持GRPC，Tars，Sofa协议" 
 author: "xiaoyu"
 description: "Soul 网关发布里程碑的2.3.0版本，新增支持GRPC，Tars，Sofa协议" 
-categories: "ShenYu"
+categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2020-07-05
 cover: "/img/architecture/shenyu-framework.png"

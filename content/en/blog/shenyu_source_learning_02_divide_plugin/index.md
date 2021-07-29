@@ -2,8 +2,8 @@
 title: "ShenYuLearning(2) Use Divide Plugin"
 author: "yuanjie"
 description: "ShenYuLearning(2) Use Divide Plugin"
-categories: "ShenYu"
-tags: ["ShenYu"]
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-16
 cover: "/img/architecture/shenyu-framework.png"
 ---

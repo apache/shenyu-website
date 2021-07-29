@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习插件链实现"
+title: "Apache ShenYu网关学习插件链实现"
 author: "沈祥俊"
-description: "ShenYu网关学习插件链实现"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习插件链实现"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-21
 cover: "/img/shenyu/blog6/mirco.png"
 ---
@@ -78,7 +78,7 @@ ShenYu 是如何实现插件化设计的呢？
 
 ### 四、ShenYu 的插件化实现
 
-ShenYu 网关中定义了一条插件链，所有的插件都在这条链上依次处理。
+Apache ShenYu 网关中定义了一条插件链，所有的插件都在这条链上依次处理。
 
 在探究插件链之前，我们先来看看插件实现。
 
@@ -90,7 +90,7 @@ ShenYu 中所有插件最终均继承自 SoulPlugin，其完整继承关系如�
 
 ![SoulPlugin](https://gitee.com/stephenshen/pic-bed/raw/master/img/20210122022709.jpg)
 
-可以看到，ShenYu 的插件生态极其丰富，正是如此丰富的插件支撑起了 ShenYu 网关强大的扩展能力。
+可以看到，ShenYu 的插件生态极其丰富，正是如此丰富的插件支撑起了 Apache ShenYu 网关强大的扩展能力。
 
 我们以常用的 DividePlugin 为例，分析插件内部所做工作。
 

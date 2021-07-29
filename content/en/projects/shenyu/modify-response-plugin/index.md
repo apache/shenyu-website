@@ -6,7 +6,7 @@ description: modifyResponse Plugin
 
 ## Description
 
-* `modifyResponse` is a native plugin of ShenYu gateway and is used to edit response header and body and statusCode.
+* `modifyResponse` is a native plugin of Apache ShenYu gateway and is used to edit response header and body and statusCode.
 
 
 ## Plugin Setting
@@ -18,13 +18,13 @@ description: modifyResponse Plugin
 * Introduce `modifyResponse` dependency in the pom.xml file of the gateway.
 
 ```xml
-  <!-- shenyu modify response plugin start-->
+  <!-- apache shenyu modify response plugin start-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-modify-response</artifactId>
   <version>${project.version}</version>
 </dependency>
-        <!-- shenyu modify response plugin end-->
+        <!-- apache shenyu modify response plugin end-->
 ```
 
 * Selectors and rules, please refer to:[Selector And Rule Config](../selector-and-rule)。

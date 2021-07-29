@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习(1)环境配置"
+title: "Apache ShenYu网关学习(1)环境配置"
 author: "陈曦"
-description: "ShenYu网关学习(1)环境配置"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习(1)环境配置"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-15
 cover: "/img/architecture/shenyu-framework.png"
 ---

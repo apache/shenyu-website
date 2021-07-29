@@ -1,19 +1,19 @@
 ---
-title: "ShenYu网关学习(2-3)Http客户端接入源码解析"
+title: "Apache ShenYu网关学习(2-3)Http客户端接入源码解析"
 author: "范金鹏"
-description: "ShenYu网关学习(2-3)Http客户端接入源码解析"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习(2-3)Http客户端接入源码解析"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-18
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-# HTTP 用户接入 ShenYu 网关注册逻辑分析
+# HTTP 用户接入 Apache ShenYu 网关注册逻辑分析
 
 
 ## 1. 注册入口
 
-HTTP 用户接入 ShenYu 网关时，会调用 soul-admin 一个接口，把需要 ShenYu 网关管理的接口注册，今天就具体看看到底干了点儿啥。
+HTTP 用户接入 Apache ShenYu 网关时，会调用 soul-admin 一个接口，把需要 Apache ShenYu 网关管理的接口注册，今天就具体看看到底干了点儿啥。
 
 先看下调用的接口信息如下：
 
@@ -122,7 +122,7 @@ private String handlerSpringMvcSelector(final SpringMvcRegisterDTO dto) {
 }
 ```
 
-#### 2.1.1 第一次接入 ShenYu 网关
+#### 2.1.1 第一次接入 Apache ShenYu 网关
 
 新接入的，到数据库里肯定查不到 selectorDO，进入 registerSelector 方法，仔细看看到底往哪些数据库表中插数据了。 
 
@@ -195,9 +195,9 @@ public String register(final SelectorDTO selectorDTO) {
 
 publishEvent 方法，涉及到 ApplicationEventPublisher 接口，是观察者模式的一个实现，发布事件后通过监听器完成后续操作，这里先按下不表，后续单写一篇文章分析。
 
-#### 2.1.2 已经接入 ShenYu 网关
+#### 2.1.2 已经接入 Apache ShenYu 网关
 
-就跟盗梦空间似的，我们回退2层梦境，回到插入数据的另一个分支，可以想见，就是，已经接入过 ShenYu 网关的系统重启，或新节点启动走的逻辑。
+就跟盗梦空间似的，我们回退2层梦境，回到插入数据的另一个分支，可以想见，就是，已经接入过 Apache ShenYu 网关的系统重启，或新节点启动走的逻辑。
 
 把前面的代码再贴过来：
 
@@ -271,7 +271,7 @@ private String handlerSpringMvcSelector(final SpringMvcRegisterDTO dto) {
 
 upstreamCheckService.submit(contextPath, addDivideUpstream); 把真实服务器节点信息缓存在一个 Map(UPSTREAM_MAP) 里，有定时任务定期探活，如果发现服务节点宕机了，就把他剔除出去，防止把请求发送到已经宕机的节点上。
 
-然后就是 eventPublisher.publishEvent()，跟前面的 publishEvent 方法一样，发布事件后通过监听器完成后续操作（简单介绍下，这里是通过与 ShenYu 网关建立的 websocket 长连接发送数据 SelectorData 修改的消息，ShenYu 网关根据消息修改数据，这个具体改的什么数据，怎么修改的，后面分析）。
+然后就是 eventPublisher.publishEvent()，跟前面的 publishEvent 方法一样，发布事件后通过监听器完成后续操作（简单介绍下，这里是通过与 Apache ShenYu 网关建立的 websocket 长连接发送数据 SelectorData 修改的消息，Apache ShenYu 网关根据消息修改数据，这个具体改的什么数据，怎么修改的，后面分析）。
 
 到这里终于把 handlerSpringMvcSelector 这个方法分析完了。
 
@@ -412,7 +412,7 @@ public String register(final RuleDTO ruleDTO) {
 
 分别向 rule 和 rule_condition 表中插入数据。
 
-publishEvent() 方法，通过 websocket 长连接，向 ShenYu 网关发送 RuleData 数据。
+publishEvent() 方法，通过 websocket 长连接，向 Apache ShenYu 网关发送 RuleData 数据。
 
 
 
@@ -422,15 +422,15 @@ publishEvent() 方法，通过 websocket 长连接，向 ShenYu 网关发送 Rul
 
 - 处理 selector
   - 新增或修改 selector、selector_condition 表数据，持久化到 MySQL。
-  - 通过 websocket 向 ShenYu 网关发送数据改动信息。
+  - 通过 websocket 向 Apache ShenYu 网关发送数据改动信息。
 - 处理 rule
   - 新增或修改 rule、rule_condition 表数据，持久化到 MySQL。
-  - 通过 websocket 向 ShenYu 网关发送数据改动信息。
+  - 通过 websocket 向 Apache ShenYu 网关发送数据改动信息。
 
-其中表结构及字段含义还需进一步学习和研究，websocket 发送给 ShenYu 网关后，网关做了什么处理也需要后续分析。
+其中表结构及字段含义还需进一步学习和研究，websocket 发送给 Apache ShenYu 网关后，网关做了什么处理也需要后续分析。
 
-到这里，HTTP 用户接入 ShenYu 网关注册逻辑就分析完了。
+到这里，HTTP 用户接入 Apache ShenYu 网关注册逻辑就分析完了。
 
-如果在工作中你有使用网关的需求，或是个人有学习网关的追求，欢迎来跟我一起分析和学习，ShenYu 网关，你值得拥有。
+如果在工作中你有使用网关的需求，或是个人有学习网关的追求，欢迎来跟我一起分析和学习，Apache ShenYu 网关，你值得拥有。
 
 

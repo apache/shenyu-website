@@ -1,10 +1,10 @@
 ---
 title: Sofa服务接入
 keywords: sofa
-description: sofa 接入 shenyu 网关
+description: sofa 接入 Apache ShenYu 网关
 ---
 
-此篇文章是介绍 `sofa` 服务接入到 `ShenYu` 网关，`ShenYu` 网关使用 `sofa` 插件来接入`sofa`服务。
+此篇文章是介绍 `sofa` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `sofa` 插件来接入`sofa`服务。
 
 接入前，请正确启动 `shenyu-admin`，并开启`sofa`插件，在网关端和`sofa`服务端引入相关依赖。可以参考前面的 [Sofa快速开始](../quick-start-sofa)。
 
@@ -116,7 +116,7 @@ description: sofa 接入 shenyu 网关
 
 ## sofa用户请求及参数说明
 
-可以通过 `http` 的方式来请求你的`sofa`服务。`ShenYu`网关需要有一个路由前缀，这个路由前缀就是接入网关配置的 `contextPath`。
+可以通过 `http` 的方式来请求你的`sofa`服务。`Apache ShenYu`网关需要有一个路由前缀，这个路由前缀就是接入网关配置的 `contextPath`。
 
 > 比如你有一个 order 服务 它有一个接口，它的注册路径 /order/test/save
 

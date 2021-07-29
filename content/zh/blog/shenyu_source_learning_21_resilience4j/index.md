@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Resilience4j插件原理解析"
+title: "Apache ShenYu网关学习Resilience4j插件原理解析"
 author: "闫兵"
-description: "ShenYu网关学习Resilience4j插件原理解析"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Resilience4j插件原理解析"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-03-22
 cover: "/img/shenyu/blog6/03.jpg"
 ---

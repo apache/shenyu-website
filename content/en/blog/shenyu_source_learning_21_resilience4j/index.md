@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning Resilience4j Plugin"
+title: "Apache ShenYu Gateway Learning Resilience4j Plugin"
 author: "yanbing"
-description: "ShenYu Gateway Learning Resilience4j Plugin"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learning Resilience4j Plugin"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-03-22
 cover: "/img/shenyu/blog6/03.jpg"
 

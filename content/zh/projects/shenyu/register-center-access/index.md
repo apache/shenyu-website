@@ -361,7 +361,7 @@ shenyu:
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-client-nacos</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu.version}</version>
         </dependency>
 ```
 
@@ -381,8 +381,8 @@ shenyu:
       port: 8188  
       isFull: false
       nacosNameSpace: ShenyuRegisterCenter
-# registerType : 服务注册类型，填写 etcd
-# serverList: 为etcd注册类型时，填写etcd地址，多个地址用英文分隔
+# registerType : 服务注册类型，填写 nacos
+# serverList: 为nacos注册类型时，填写nacos地址，多个地址用英文分隔
 # port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
 # contextPath: 为你的这个mvc项目在shenyu网关的路由前缀，比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值

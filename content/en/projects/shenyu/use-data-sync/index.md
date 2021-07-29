@@ -1,177 +1,335 @@
 ---
-title: Use Different Data-Sync Strategy
+title: Data Synchronization Config
 keywords: shenyu
 description: use different data-sync strategy
 ---
 
-## Features
+This document focuses on how to use different data synchronization strategies. Data synchronization refers to the strategy used to synchronize data to ShenYu gateway after shenyu-admin background operation data. ShenYu gateway currently supports ZooKeeper, WebSocket, HTTP Long Polling, Nacos, Etcd and Consul for data synchronization.
 
-* Data synchronization is the key of gateway high performance, which is to sync 'shenyu-admin' config data into the JVM memory of ShenYu cluster.
-* Implementation principles, pls refer to：[dataSync](../data-sync)。
-* In the article, the gateway is the environment you setup. please refer to：[Environment Setup](../shenyu-set-up).
+<img src="/img/shenyu/dataSync/data-sync-config-en-1.png" width="70%" height="60%" />
 
-## Websocket sync(default method，recommend)
 
-* gateway setting（note:restart）
+For details about the data synchronization principles, see [Data Synchronization Design](../data-sync) in the design document.
 
-    * Add these dependencies in `pom.xml`：
+### WebSocket Synchronization Config（default strategy, recommend）
 
-    ```xml
+* `ShenYu` gateway config
+
+   Add these dependencies in `pom.xml`：
+
+```xml
     <!--shenyu data sync start use websocket-->
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>${last.version}</version>
+        <version>${project.version}</version>
     </dependency>
-    ```
-   * add these config values in springboot yaml file:
+```
 
-    ```yaml
-    shenyu:
-      sync:
-        websocket :
-          urls: ws://localhost:9095/websocket
-          # urls: address of shenyu-admin，multi-address will be splitted with (,).
-    ```
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-pom.png" width="80%" height="70%" />
 
-    * shenyu-admin config, enable this parameter `--shenyu.sync.websocket='' ` in shenyu admin, then restart service.
 
-    ```yaml
-    shenyu:
-      sync:
-        websocket:
-          enabled: true
-    ```
+  Add these config values in  yaml file:
 
-* When the connection is established, getting the full data once,then adding and upating data subsequently, which is a good performance.
-* Support disconnection and reconnection (default 30 sec).
+```yaml
+shenyu:
+  sync:
+    websocket :
+      urls: ws://localhost:9095/websocket
+      #urls: address of shenyu-admin，multi-address will be separated with (,).
+```
 
-## Zookeeper Sync
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-yml.png" width="80%" height="70%" />
 
-* gateway setting（note: restart）
+* `shenyu-admin` config
 
-    * Add these dependencies in `pom.xml`:
+  Add these config values in  yaml file:
+   
+```yml
+shenyu:
+  sync:
+    websocket:
+      enabled: true
+```
 
-    ```xml
-    <!--shenyu data sync start use zookeeper-->
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
-        <version>${last.version}</version>
-    </dependency>
-    ```
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-admin-yml.png" width="80%" height="70%" />
 
-   * Add these dependencies in  springboot yaml file:
+After the connection is established, the data will be fully obtained once, and the subsequent data will be updated and added increments, with good performance. It also supports disconnection (default: `30` seconds). This mode is recommended for data synchronization and is the default data synchronization strategy of ShenYu.
 
-    ```yaml
-    shenyu:
-      sync:
-        zookeeper:
-          url: localhost:2181
-          # url: config with your zk address, used by the cluster environment, splitted with (,).
-          sessionTimeout: 5000
-          connectionTimeout: 2000
-    ```
 
-    * shenyu-admin config: configure the shenyu-admin's starting parameter with `--shenyu.sync.zookeeper.url='your address' `,then restart the service.
+### Zookeeper Synchronization Config
 
-    ```yaml
-    shenyu:
-      sync:
-        zookeeper:
-          url: localhost:2181
-          sessionTimeout: 5000
-          connectionTimeout: 2000
-    ```
-    * It is good to use ZooKeeper synchronization mechanism with high timeliness, but we also have to deal with the unstable environment of ZK, cluster brain splitting and other problems.
+* `ShenYu` gateway config
 
-## Http long-polling sync
+   Add these dependencies in `pom.xml`：
 
-* gateway setting（note:restart）
+ ```xml
+        <!--shenyu data sync start use zookeeper-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+ ```
 
-    * Add these dependencies in `pom.xml`：
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-pom.png" width="80%" height="70%" />
 
-    ```xml
-    <!--shenyu data sync start use http-->
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
-        <version>${last.version}</version>
-    </dependency>
-    ```
 
-   * add these config values in your springboot yaml file:
+   Add these config values in  yaml file:
+    
+    
+```yaml
+shenyu:
+  sync:
+    zookeeper:
+      url: localhost:2181
+       #url: config with your zk address, used by the cluster environment, separated with (,).
+      sessionTimeout: 5000
+      connectionTimeout: 2000
+```
 
-      ```yaml
-      shenyu:
-        sync:
-          http:
-            url: http://localhost:9095
-            # url: config with your shenyu-admin's ip and port url, pls use (,) to split multi-admin cluster environment.
-       ```
-   * shenyu-admin config, configure the shenyu-admin's starting parameter with `--shenyu.sync.http='' `, then restart service.
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-yml.png" width="80%" height="70%" />
 
-    ```yaml
-    shenyu:
-      sync:
+
+* `shenyu-admin` config
+
+ Add these config values in  yaml file:
+
+
+```yaml
+shenyu:
+  sync:
+    zookeeper:
+      url: localhost:2181
+       #url: config with your zk address, used by the cluster environment, separated with (,).
+      sessionTimeout: 5000
+      connectionTimeout: 2000
+```
+
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-zk-yml.png" width="80%" height="70%" />
+
+
+ It is a good idea to use ZooKeeper synchronization mechanism with high timeliness, but we also have to deal with the unstable environment of ZK, cluster brain splitting and other problems.
+
+
+
+### HTTP Long Polling Synchronization Config
+
+* `ShenYu` gateway config
+
+ Add these dependencies in `pom.xml`：
+
+```xml
+        <!--shenyu data sync start use http-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-http-pom.png" width="80%" height="70%" />
+
+
+  Add these config values in  yaml file:
+
+```yaml
+shenyu:
+    sync:
         http:
-          enabled: true
-    ```
+             url: http://localhost:9095
+        #url: config your shenyu-admin  ip and port，cluster IP by split by (,)
+```
 
-* HTTP long-polling makes the gateway lightweight, but less time-sensitive.
+   <img src="/img/shenyu/dataSync/shenyu-data-sync-http-yml.png" width="80%" height="70%" />
 
-* It pulls according to the group key, if the data is too large, it will have some influences, a small change under a group will pull the entire group.
 
-* it may hit bug in shenyu-admin cluster.
+* `shenyu-admin` config
 
-## Nacos sync
+  Add these config values in  yaml file:
 
-* gateway setting（note:restart）
+```yaml
+shenyu:
+  sync:
+    http:
+      enabled: true
+```
 
-    * Add these dependencies in your `pom.xml`：
+   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-http-yml.png" width="80%" height="70%" />
 
-    ```xml
-    <!--shenyu data sync start use nacos-->
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
-        <version>${last.version}</version>
-    </dependency>
-    ```
 
-  * add these config values in the springboot yaml file:
+HTTP long-polling makes the gateway lightweight, but less time-sensitive. It pulls according to the group key, if the data is too large, it will have some influences, a small change under a group will pull the entire group.
 
-     ```yaml
-     shenyu:
-       sync:
-         nacos:
-           url: localhost:8848
-           # url: config with your nacos address, pls use (,) to split your cluster environment.
-           namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
-           username:
-           password:
-           acm:
-             enabled: false
-             endpoint: acm.aliyun.com
-             namespace:
-             accessKey:
-             secretKey:
-           # other configure，pls refer to the naocs website.
-     ```
-    * shenyu-admin config: passing values one by one with '--' operator in the shenyu-admin startup parameter.
 
-    ```yaml
-    shenyu:
-      sync:
-        nacos:
-          url: localhost:8848
-          namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
-          username:
-          password:
-          acm:
-            enabled: false
-            endpoint: acm.aliyun.com
-            namespace:
-            accessKey:
-            secretKey:
-    ```
+
+### Nacos Synchronization Config
+
+* `ShenYu` gateway config
+
+
+ Add these dependencies in `pom.xml`：
+
+```xml
+        <!--shenyu data sync start use nacos-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-pom.png" width="80%" height="70%" />
+
+
+  Add these config values in  yaml file:
+
+```yaml
+shenyu:
+  sync:
+    nacos:
+      url: localhost:8848
+         # url: config with your nacos address, please use (,) to split your cluster environment.
+      namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+      username:
+      password:
+      acm:
+        enabled: false
+        endpoint: acm.aliyun.com
+        namespace:
+        accessKey:
+        secretKey:
+     # other configure，please refer to the naocs website.
+```
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
+
+
+* `shenyu-admin` config
+
+  Add these config values in  yaml file:
+
+```yaml
+shenyu:
+  sync:
+      nacos:
+        url: localhost:8848
+        namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+        username:
+        password:
+        acm:
+          enabled: false
+          endpoint: acm.aliyun.com
+          namespace:
+          accessKey:
+          secretKey:
+        # url: config with your nacos address, pls use (,) to split your cluster environment.
+        # other configure，pls refer to the naocs website.
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-nacos-yml.png" width="80%" height="70%" />
+
+
+### Etcd Synchronization Config
+
+* `ShenYu` gateway config
+
+  Add these dependencies in `pom.xml`：
+  
+```xml
+        <!--shenyu data sync start use etcd-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-etcd</artifactId>
+            <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.grpc</groupId>
+                    <artifactId>grpc-grpclb</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.grpc</groupId>
+                    <artifactId>grpc-netty</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+```
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-pom.png" width="80%" height="70%" />
+
+
+  Add these config values in  yaml file:
+
+```yaml
+shenyu:
+    sync:
+       etcd:
+         url: http://localhost:2379
+       #url: config with your etcd address, used by the cluster environment, separated with (,).
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-yml.png" width="80%" height="70%" />
+
+
+* `shenyu-admin` config
+
+  Add these config values in  yaml file:
+
+```yaml
+shenyu:
+  sync:
+    etcd:
+      url: http://localhost:2379
+       #url: config with your etcd address, used by the cluster environment, separated with (,).
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-etcd-yml.png" width="80%" height="70%" />
+
+
+### Consul Synchronization Config
+
+* `ShenYu` gateway config
+
+ Add these dependencies in `pom.xml`：
+
+```xml
+<!--shenyu data sync start use consul-->
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
+  <version>${project.version}</version>
+</dependency>
+```
+
+  <img src="/img/shenyu/dataSync/shenyu_consul_sync_gateway.jpg" width="80%" height="70%" />
+
+
+  Add these config values in  yaml file:
+
+```yaml
+shenyu:
+    sync:
+      consul:
+				url: http://localhost:8500
+        waitTime: 1000	# query wait time
+        watchDelay: 1000	# Data synchronization interval                             
+```
+
+  <img src="/img/shenyu/dataSync/shenyu_consul_gateway_sync_config.jpg" width="80%" height="70%" />
+
+
+* `shenyu-admin` config
+
+  Add these config values in  yaml file:
+
+```yaml
+shenyu:
+  sync:
+    consul:
+      url: http://localhost:8500
+```
+
+  <img src="/img/shenyu/dataSync/shenyu_consul_admin_sync_config.jpg" width="80%" height="70%" />
+
+
+
+> After the data synchronization strategy of ShenYu gateway and shenyu-admin is reconfigured, the microservice needs to be restarted.
+>
+> The ShenYu gateway and shenyu-admin must use the same synchronization strategy.

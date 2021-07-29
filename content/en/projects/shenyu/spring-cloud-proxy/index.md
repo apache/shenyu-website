@@ -1,43 +1,53 @@
 ---
-title: SpringCloud Proxy
+title: Spring Cloud Proxy
 keywords: shenyu
 description: springCloud with shenyu gateway
 ---
 
-## Features
+This document is intended to help the `Spring Cloud` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `springCloud` plugin to handle `Spring Cloud` service.
 
-* This article is a guide about how to integrate Spring Cloud with shenyu gateway quickly.
-* Please enable `springCloud` plugin in shenyu-admin background.
-* Please start `shenyu-admin` successfully before integrating and [Environment Setup](../soul-set-up) is Ok.
+Before the connection, start `shenyu-admin` correctly, start `springCloud` plugin, and add related dependencies on the gateway and `springCloud` application client. Refer to the previous [Quick start with Spring Cloud](../quick-start-springcloud) .
 
-## Configure shenyu gateway as Spring Cloud proxy
+For details about client access configuration, see [Application Client Access Config](../register-center-access) .
+
+For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
+
+
+## Add springcloud plugin in gateway 
 
 * add these dependencies in gateway's pom.xml:
 
-```xml
-<!--shenyu springCloud plugin start-->
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
-    <version>${last.version}</version>
-</dependency>
-<!--shenyu springCloud plugin end-->
 
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-commons</artifactId>
-    <version>2.2.0.RELEASE</version>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-    <version>2.2.0.RELEASE</version>
-</dependency>
+```xml
+  <!--shenyu springCloud plugin start-->
+  <dependency>
+       <groupId>org.apache.shenyu</groupId>
+       <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
+        <version>${project.version}</version>
+  </dependency>
+
+  <dependency>
+       <groupId>org.apache.shenyu</groupId>
+       <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+       <version>${project.version}</version>
+   </dependency>
+   <!--shenyu springCloud plugin end-->
+
+   <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-commons</artifactId>
+        <version>2.2.0.RELEASE</version>
+   </dependency>
+   <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        <version>2.2.0.RELEASE</version>
+   </dependency>
 ```
 
 * If you use `eureka` as SpringCloud registry center.
 
-  * add these dependencies:
+  add these dependencies:
 
  ```xml
    <dependency>
@@ -47,7 +57,7 @@ description: springCloud with shenyu gateway
    </dependency>
    ```
 
-   * add these config values in gateway's yaml file:
+   add these config values in gateway's yaml file:
 
  ```yaml
     eureka:
@@ -60,7 +70,7 @@ description: springCloud with shenyu gateway
 
 * if you use `nacos` as Spring Cloud registry center.
 
-  * add these dependencies:
+  add these dependencies:
 
  ```xml
   <dependency>
@@ -70,7 +80,7 @@ description: springCloud with shenyu gateway
   </dependency>
    ```
 
-   * add these config values in gateway's yaml file:
+   add these config values in gateway's yaml file:
 
  ```yaml
    spring:
@@ -82,26 +92,23 @@ description: springCloud with shenyu gateway
 
 * restart your gateway service.
 
-## SpringCloud integration with gateway
+## SpringCloud service access gateway
 
-* add these dependencies in your project：
+Please refer to [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
+
+* Add the following dependencies to your `Spring Cloud` microservice :
 
 ```xml
  <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-client-springcloud</artifactId>
-      <version>${last.version}</version>
+      <version>${shenyu.version}</version>
  </dependency>
 ```
 
-* backend server register center config, please look:[register center access](../register-center-access).
+* Add the annotation `@ShenyuSpringCloudClient` in your `controller` interface. you can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces.
 
-
-* add the annotation `@ShenyuSpringCloudClient` in your `controller` interface.
-
- * you can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces.
-
-   * example （1）：both `/test/payment` and `/test/findByUserId` will be handled by gateway.
+* example (1)：both `/test/payment` and `/test/findByUserId` will be handled by gateway.
 
  ```java
   @RestController
@@ -124,7 +131,7 @@ description: springCloud with shenyu gateway
    }
 ```
 
-   * example （2）：`/order/save` will be handled by gateway, and `/order/findById` won't.
+example (2)：`/order/save` will be handled by gateway, and `/order/findById` won't.
 
  ```java
   @RestController
@@ -149,32 +156,66 @@ description: springCloud with shenyu gateway
   }
 ```
 
+example (3)：  `isFull`：`true`  represents that all service will be represented by the gateway.
+```yaml
+shenyu:
+  client:
+    registerType: http
+    serverLists: http://localhost:9095
+    props:
+      contextPath: /http
+      appName: http
+      isFull: true
+# registerType : service registre type, see the application client access document
+# serverList: server list, see the application client access document
+# contextPath: route prefix for your project in ShenYu gateway.
+# appName：your application name
+# isFull: set true to proxy your all service and false to proxy some of your controllers
+```
+ ```java
+  @RestController
+  @RequestMapping("/order")
+  public class OrderController {
 
-* start your service, get the log `dubbo client register success `, then your interface has been added with ShenYu gateway successfully.
+      @PostMapping("/save")
+      @ShenyuSpringMvcClient(path = "/save")
+      public OrderDTO save(@RequestBody final OrderDTO orderDTO) {
+          orderDTO.setName("hello world save order");
+          return orderDTO;
+      }
 
-## Plugin Setting
+      @GetMapping("/findById")
+      public OrderDTO findById(@RequestParam("id") final String id) {
+          OrderDTO orderDTO = new OrderDTO();
+          orderDTO.setId(id);
+          orderDTO.setName("hello world findById");
+          return orderDTO;
+      }
+  }
+```
 
-* enable Spring Cloud plugin in `shenyu-admin`.
+* After successfully registering your service, go to the backend management system PluginList -> rpc proxy -> springCloud ', you will see the automatic registration of selectors and rules information.
+
+
 
 ## User Request
 
 * Send the request as before, only two points need to notice.
 
-* firstly，the domain name that requested before in your service, now need to replace with gateway's domain name.
+* firstly,the domain name that requested before in your service, now need to replace with gateway's domain name.
 
-* secondly，ShenYu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if your familiar with it.
+* secondly, ShenYu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if your familiar with it.
 
 ```yaml
 
-# for example, your have an order service and it has a interface, the request url: http://localhost:8080/test/save
+For example, your have an order service and it has a interface, the request url: http://localhost:8080/test/save .
 
-# now need to change to：http://localhost:9195/order/test/save
+Now need to change to：http://localhost:9195/order/test/save .
 
-# we can see localhost:9195 is the gateway's ip port, default port number is 9195 ，/order is the contextPath in your config yaml file.
+We can see localhost:9195 is the gateway's ip port, default port number is 9195 , /order is the contextPath in your config yaml file.
 
-# the request of other parameters don't change.
+The request of other parameters don't change. Then you can visit, very easy and simple.
 
-# Any questions, pls join the group and we can talk about it.
 
 ```
-* Then you can visit, very easy and simple.
+

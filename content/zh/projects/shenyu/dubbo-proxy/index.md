@@ -159,7 +159,7 @@ description: Dubbo服务接入
 <dependency>
      <groupId>org.apache.shenyu</groupId>
      <artifactId>shenyu-spring-boot-starter-client-apache-dubbo</artifactId>
-     <version>${last.version}</version>
+     <version>${shenyu.version}</version>
 </dependency>
 ```
 
@@ -171,7 +171,7 @@ description: Dubbo服务接入
 <dependency>
    <groupId>org.apache.shenyu</groupId>
    <artifactId>shenyu-client-apache-dubbo</artifactId>
-   <version>${last.version}</version>
+   <version>${shenyu.version}</version>
 </dependency>
 ```
 
@@ -209,7 +209,7 @@ description: Dubbo服务接入
 
 * 在 `dubbo` 服务实现类的方法上加上 `@ShenyuDubboClient` 注解，表示该接口方法注册到网关。
 
-* 启动你的提供者，成功启动后，进入后台管理系统的`插件列表 -> rpc proxy -> springCloud`，会看到自动注册的选择器和规则信息。
+* 启动你的提供者，成功启动后，进入后台管理系统的`插件列表 -> rpc proxy -> dubbo`，会看到自动注册的选择器和规则信息。
 
 
 ## dubbo用户请求及参数说明
@@ -358,7 +358,7 @@ shenyu:
     }
     ```
 
-## http --> 网关 --> dubbo provider
+## Http --> 网关 --> Dubbo Provider
 
 实际上就是把 `http` 请求，转成 `dubbo` 协议，内部使用 `dubbo 泛化`来进行调用。
 `dubbo` 服务在接入网关的时候，加上了 `@ShenyuDubboClient` 注解，并设置了 `path` 字段来指定请求路径。

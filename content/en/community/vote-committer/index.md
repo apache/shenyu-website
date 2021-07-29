@@ -7,7 +7,7 @@ tags: ["Vote-Committer"]
 ---
 
 
-# 1. Start the discussion and vote in private@shenyu.apache.org, Only current PPMC member could nominate.
+**1. Start the discussion and vote in private@shenyu.apache.org, Only current PPMC member could nominate.** 
 
 ```
 Example：
@@ -32,9 +32,9 @@ https://github.com/apache/incubator-shenyu/pull/4
 [^ means these words are subject to change in different case]
 ```
 
-# 2. Wait 72 hours to get vote result from community PPMC.
+**2. Wait 72 hours to get vote result from community PPMC.**
 
-# 3. PPMC sends vote result over email.
+**3. PPMC sends vote result over email.**
 
 ```
 Example：
@@ -53,7 +53,7 @@ I am glad to receive your votes, and the voting result is,
 Therefore, I will send the invitation to (nominee).
 ```
 
-# 4. If the vote passes, send an offer to become a committer with @private@shenyu.apache.org.
+**4. If the vote passes, send an offer to become a committer with @private@shenyu.apache.org.**
 
 ```
 To: (nominee email address)
@@ -86,9 +86,9 @@ Best wishes,
 (PPMC)
 
 ```
-# 5. Nominee replies the invitation, including content like accept the offer and give thanks.
+**5. Nominee replies the invitation, including content like accept the offer and give thanks.**
 
-# 6. PPMC replies the email.
+**6. PPMC replies the email.**
 ```
 Hi (nominee),
 
@@ -118,15 +118,15 @@ https://www.apache.org/foundation/policies/conduct.html
 Here is the guideline for all of the shenyu committers:
 https://shenyu.apache.org/community/en/contribute/committer/
 ```
-# 7. New committer signs iCLA, this step refers to [Sign ICLA Guide](https://shenyu.apache.org/community/icla/).
+**7. New committer signs iCLA, this step refers to [Sign ICLA Guide](https://shenyu.apache.org/community/icla/).**
 
-# 8. New committer waits for secretary to create a new account.
+**8. New committer waits for secretary to create a new account.**
 
-# 9. PPMC adds new committer in [roster](https://whimsy.apache.org/roster/ppmc/shenyu).
+**9. PPMC adds new committer in [roster](https://whimsy.apache.org/roster/ppmc/shenyu).**
 
-# 10. New committer could setup an account, refers to [apache setup](https://gitbox.apache.org/setup/).
+**10. New committer could setup an account, refers to [apache setup](https://gitbox.apache.org/setup/).**
 
-# 11. PPMC announces new committer in the community.
+**11. PPMC announces new committer in the community.**
 
 ```
 To: dev@shenyu.apache.org

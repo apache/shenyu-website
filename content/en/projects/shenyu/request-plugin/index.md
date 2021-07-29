@@ -6,11 +6,11 @@ description:  RequestPlugin
 
 ## Explanation
 
-* When Shenyu Gateway makes proxy call to target service, it also allows users to add, modify and remove request headers by using 'request' plugin to request parameters, request headers and cookies.
+* When ShenYu gateway makes proxy call to target service, it also allows users to add, modify and remove request headers by using 'request' plugin to request parameters, request headers and cookies.
 
 ## Plugin Setting
 
-* In `shenyu-admin` --> plugin management --> `request` ,set to enable.
+* In `shenyu-admin` --> BasicConfig --> Plugin --> `request` , set to enable.
 * Introduce `request` support in the pox.xml file of the gateway.
 * If the user don't use, please disable the plugin in the background.
 
@@ -19,11 +19,12 @@ description:  RequestPlugin
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-request</artifactId>
-     <version>${last.version}</version>
+     <version>${project.version}</version>
   </dependency>
   <!-- shenyu request plugin end-->
 ```
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+
+* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
 * The custom request parameter modification function is performed only for matching requests.
 
 ## Situation

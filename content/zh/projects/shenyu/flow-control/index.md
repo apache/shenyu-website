@@ -23,3 +23,13 @@ description:  介绍ShenYu网关如何对流量进行控制
 插件、选择器和规则执行逻辑如下，当流量进入到`ShenYu`网关之后，会先判断是否有对应的插件，该插件是否开启；然后判断流量是否匹配该插件的选择器；然后再判断流量是否匹配该选择器的规则。如果请求流量能满足匹配条件才会执行该插件，否则插件不会被执行，处理下一个。`ShenYu`网关就是这样通过层层筛选完成流量控制。
 
 <img src="/img/shenyu/plugin/plugin-chain-execute.png" width="40%" height="30%" />
+
+## 流量筛选
+
+<img src="/img/shenyu/design/flow-condition.png" width="30%" height="30%" />
+
+流量筛选，是选择器和规则的灵魂，对应为选择器与规则里面的匹配条件(conditions)，根据不同的流量筛选规则，我们可以处理各种复杂的场景。流量筛选可以从`Header`, `URI`,  `Query`, `Cookie` 等等Http请求获取数据，
+
+然后可以采用 `Match`，`=`，`SpEL`，`Regex`，`Groovy`等匹配方式，匹配出你所预想的数据。多组匹配添加可以使用And/Or的匹配策略。
+
+具体的介绍与使用请看: [选择器与规则管理](../selector-and-rule)

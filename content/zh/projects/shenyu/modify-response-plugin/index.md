@@ -6,12 +6,12 @@ description: modifyResponse插件
 
 ## 说明
 
-* modifyResponse插件是 ShenYu 网关自带的，用来对响应进行修改的插件。
+* `modifyResponse`插件是 ShenYu 网关自带的，用来对响应进行修改的插件。
 
 
 ## 插件设置
 
-* 在 `shenyu-admin` -> 插件管理中 --> `modifyResponse`插件设置为开启。
+-  在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `modifyResponse` 设置为开启。
 
 ## 插件使用
 
@@ -27,7 +27,7 @@ description: modifyResponse插件
         <!-- shenyu modify response plugin end-->
 ```
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。
 
   * 只有匹配的请求，才会修改响应。
 

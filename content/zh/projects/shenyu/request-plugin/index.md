@@ -1,5 +1,5 @@
 ---
-title: RequestPlugin
+title: Request插件
 keywords: RequestPlugin
 description:  RequestPlugin
 ---
@@ -10,9 +10,10 @@ description:  RequestPlugin
 
 ## 插件设置
 
-* 在 `shenyu-admin` --> 插件管理 --> `request`，设置为开启。
+* 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `request`，设置为开启。
 
-* 在网关的 pom.xml 文件中添加 `request` 的支持。
+
+* 在网关的 `pom.xml` 文件中添加 `request` 的支持。
 
 * 如果用户不需要，可以把插件禁用。
 
@@ -21,12 +22,12 @@ description:  RequestPlugin
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-request</artifactId>
-     <version>${last.version}</version>
+     <version>${project.version}</version>
   </dependency>
   <!-- shenyu request plugin end-->
 ```
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。
 
 * 只有匹配的请求，才会进行自定义请求参数修改功能。
 

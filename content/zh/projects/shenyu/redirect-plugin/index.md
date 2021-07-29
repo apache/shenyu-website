@@ -27,7 +27,7 @@ description: redirect插件
   <!-- shenyu redirect plugin end-->
 ```
 
-- 选择器和规则，只有匹配的请求，才会进行转发和重定向，请详细看：[选择器规则](../selector-and-rule)。
+- 选择器和规则，只有匹配的请求，才会进行转发和重定向，请参考：[选择器规则管理](../selector-and-rule)。
 
 ## 场景
 

@@ -1,5 +1,5 @@
 ---
-title: Plugin Context Path Mapping
+title: Context-Path Plugin
 keywords: context_path
 description: context_path plugin
 ---
@@ -10,8 +10,8 @@ description: context_path plugin
 
 ## Plugin Setting
 
-* In `shenyu-admin` --> plugin management --> `context_path`, set to enable.
-* Introduce `context_path` support in the pox.xml file of the gateway.
+* In `shenyu-admin` --> BasicConfig --> Plugin --> `context_path` , set to enable.
+* Introduce `context_path` support in the `pom.xml` file of the gateway.
 * If the user don't use, please disable the plugin in the background.
 
 ```xml
@@ -19,12 +19,12 @@ description: context_path plugin
    <dependency>
        <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-context-path</artifactId>
-      <version>${last.version}</version>
+      <version>${project.version}</version>
    </dependency>
    <!-- shenyu context_path plugin end-->
 ```
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule)。
+* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule)。
 
 ## Situation
 

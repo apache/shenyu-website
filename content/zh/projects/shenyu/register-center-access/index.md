@@ -1,16 +1,16 @@
 ---
 title: 客户端接入配置
-keywords: shenyu
+keywords: Apache ShenYu
 description: 客户端接入配置
 ---
 
-应用客户端接入是指将你的微服务接入到`ShenYu`网关，当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议的接入。 
+应用客户端接入是指将你的微服务接入到`Apache ShenYu`网关，当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议的接入。 
 
 
-将应用客户端接入到`ShenYu`网关是通过注册中心来实现的，涉及到客户端注册和服务端同步数据。注册中心支持`Http`、`Zookeeper`、`Etcd`、`Consul`和`Nacos`。
+将应用客户端接入到`Apache ShenYu`网关是通过注册中心来实现的，涉及到客户端注册和服务端同步数据。注册中心支持`Http`、`Zookeeper`、`Etcd`、`Consul`和`Nacos`。
 
 
-本篇文章介绍将应用客户端接入到`ShenYu`网关，应该如何配置。相关原理请参考设计文档中的 [客户端接入原理](../register-center-design) 。
+本篇文章介绍将应用客户端接入到`Apache ShenYu`网关，应该如何配置。相关原理请参考设计文档中的 [客户端接入原理](../register-center-design) 。
 
 
 <img src="/img/shenyu/register/register-center-2.png" width="70%" height="60%" />
@@ -37,7 +37,7 @@ shenyu:
 
 #### shenyu-client配置
 
-下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Http`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+下面展示的是`http`服务作为客户端接入到`Apache ShenYu`网关时，通过`Http`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
 
 在微服务中的 `yml`文件配置注册方式设置为`http`，并填写`shenyu-admin`服务地址列表，配置信息如下：
 
@@ -96,12 +96,12 @@ shenyu:
 
 #### shenyu-client配置
 
-下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Zookeeper`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+下面展示的是`http`服务作为客户端接入到`Apache ShenYu`网关时，通过`Zookeeper`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
 
 * 首先在 `pom`文件中加入相关的依赖：
 
 ```xml
-        <!--shenyu zookeeper register center -->
+        <!-- apache shenyu zookeeper register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-zookeeper</artifactId>
@@ -166,13 +166,13 @@ shenyu:
 
 #### shenyu-client配置
 
-下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Etcd`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+下面展示的是`http`服务作为客户端接入到`Apache ShenYu`网关时，通过`Etcd`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
 
 
 * 首先在 `pom` 文件中加入相关的依赖：
 
 ```xml
-        <!--shenyu etcd register center -->
+        <!-- apache shenyu etcd register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-etcd</artifactId>
@@ -213,7 +213,7 @@ shenyu:
 * 首先在 pom.xml 文件中加入相关的依赖：
 
 ```xml
-        <!--shenyu consul register start-->
+        <!-- apache shenyu consul register start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-server-consul</artifactId>
@@ -226,7 +226,7 @@ shenyu:
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
             <version>2.2.6.RELEASE</version>
         </dependency>
-        <!--shenyu consul register end-->
+        <!-- apache shenyu consul register end-->
 
 ```
 
@@ -270,7 +270,7 @@ spring:
 
 **注意，`consul`注册中心目前和`SpringCloud`服务不兼容，会和`Eureka/Nacos`注册中心冲突** 
 
-下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Consul`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+下面展示的是`http`服务作为客户端接入到`Apache ShenYu`网关时，通过`Consul`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
 
 * 首先在 `pom` 文件中加入相关的依赖：
 
@@ -352,7 +352,7 @@ shenyu:
 
 #### shenyu-client配置
 
-下面展示的是`http`服务作为客户端接入到`ShenYu`网关时，通过`Nacos`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
+下面展示的是`http`服务作为客户端接入到`Apache ShenYu`网关时，通过`Nacos`方式注册配置信息。其他客户端接入时（`Dubbo`、 `Spring Cloud`等），配置方式同理。
 
 
 * 首先在 `pom`文件中加入相关的依赖：
@@ -391,4 +391,4 @@ shenyu:
 ``` 
 <img src="/img/shenyu/register/register-nacos-client-yml.png" width="70%" height="60%" />
 
-总结，本文主要介绍了如何将你的微服务（当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议）接入到`ShenYu`网关。介绍了注册中心的原理，`ShenYu`网关支持的注册中心有`Http`、`Zookeeper`、`Etcd`、`Consul`、`Nacos`等方式。介绍了以`http`服务作为客户端接入到`ShenYu`网关时，使用不同方式注册配置信息。
+总结，本文主要介绍了如何将你的微服务（当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议）接入到`Apache ShenYu`网关。介绍了注册中心的原理，`Apache ShenYu`网关支持的注册中心有`Http`、`Zookeeper`、`Etcd`、`Consul`、`Nacos`等方式。介绍了以`http`服务作为客户端接入到`Apache ShenYu`网关时，使用不同方式注册配置信息。

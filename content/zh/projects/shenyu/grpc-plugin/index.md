@@ -19,7 +19,7 @@ description:  gRPC插件
 ## 插件讲解
 
 
-客户端接入`ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule)。
+客户端接入`Apache ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule)。
 
 
 #### 选择器处理
@@ -43,7 +43,7 @@ description:  gRPC插件
      
 ## 元数据
 
-每一个`grpc`接口方法，都会对应一条元数据，当`gRPC`应用客户端接入到`ShenYu`网关时，会字段注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
+每一个`grpc`接口方法，都会对应一条元数据，当`gRPC`应用客户端接入到`Apache ShenYu`网关时，会字段注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
 
 <img src="/img/shenyu/plugin/grpc/grpc-2.png" width="80%" height="80%" />
 

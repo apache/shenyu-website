@@ -20,7 +20,7 @@ The `divide` plugin is a plugin for forward proxying of `http`. All requests of 
 
 <img src="/img/shenyu/basicConfig/pluginHandle/selector1_en.png" width="80%" height="80%" />
 
-After the client connects to the `ShenYu` gateway, it will automatically register the selector and rule information. For the selector and rule configuration, please refer to:[Selector And Rule](../selector-and-rule)。
+After the client connects to the `Apache ShenYu` gateway, it will automatically register the selector and rule information. For the selector and rule configuration, please refer to:[Selector And Rule](../selector-and-rule)。
 
 
 #### selector setting
@@ -72,7 +72,7 @@ shenyu:
 rule setting，corresponding to the `handle` field of [selector and rule management] (../selector-and-rule)，It is the processing rule that the gateway adopts after the final matching of the traffic is completed. For more information, please refer to [Plugin Processing Management](../plugin-handle-explanation) in Plugin Managemen.
 
 * detailed processing setting：
-  * `loadStrategy`: if the `http` client is a cluster, which load balancing strategy is adopted when the `ShenYu` gateway is called, currently supports `roundRobin`, `random` and `hash`.
+  * `loadStrategy`: if the `http` client is a cluster, which load balancing strategy is adopted when the `Apache ShenYu` gateway is called, currently supports `roundRobin`, `random` and `hash`.
   * `retryCount`: number of retries for calling the `http` client.
   * `timeout`: timeout period for calling the `http` client.
   * `headerMaxSize`: maximum value of the requested `header`.

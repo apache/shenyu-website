@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Redirect插件原理解析"
+title: "Apache ShenYu网关学习Redirect插件原理解析"
 author: "阿行"
-description: "ShenYu网关学习Redirect插件原理解析"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Redirect插件原理解析"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-03-16
 cover: "/img/shenyu/blog6/01.jpg"
 ---
@@ -37,7 +37,7 @@ cover: "/img/shenyu/blog6/01.jpg"
 ### 重定向
 
 - 我们在 `Rule` 配置自定义路径时，应该为一个可达的服务路径。
-- 当匹配到请求后，根据自定义的路径，`ShenYu 网关`会进行 `308` 服务跳转。
+- 当匹配到请求后，根据自定义的路径，`Apache ShenYu 网关`会进行 `308` 服务跳转。
 
 ![重定向配置](https://dromara.org/img/shenyu/plugin/redirect/redirect-01.png)
 
@@ -50,7 +50,7 @@ cover: "/img/shenyu/blog6/01.jpg"
 
 ## 源码解析
 
-在解析 `redirect` 重定向源码之前，有必要说一些大前提，我们明白 ShenYu 网关基于 SpringBoot WebFlux 实现，其中对于 `WebFlux` 如果默认什么都不配置，请求会默认执行 `DispatcherHandler` 处理，这个是响应式 `MVC` 的处理核心，可以看一下初始化：
+在解析 `redirect` 重定向源码之前，有必要说一些大前提，我们明白 Apache ShenYu 网关基于 SpringBoot WebFlux 实现，其中对于 `WebFlux` 如果默认什么都不配置，请求会默认执行 `DispatcherHandler` 处理，这个是响应式 `MVC` 的处理核心，可以看一下初始化：
 
 ```java
 protected void initStrategies(ApplicationContext context) {
@@ -84,7 +84,7 @@ public Mono<Void> handle(ServerWebExchange exchange) {
 }
 ```
 
-搞清楚默认 `DispatcherHandler` 如何处理，我们再来说一下 ShenYu 网关，`SoulWebHandler` 实现了 `WebHandler` 接口，再把 `BeanName` 声明为 `webHandler` 替代了之前 `DispatcherHandler` 注册成默认处理 `handler`。
+搞清楚默认 `DispatcherHandler` 如何处理，我们再来说一下 Apache ShenYu 网关，`SoulWebHandler` 实现了 `WebHandler` 接口，再把 `BeanName` 声明为 `webHandler` 替代了之前 `DispatcherHandler` 注册成默认处理 `handler`。
 
 ```java
 @Bean("webHandler")

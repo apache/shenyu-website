@@ -1,6 +1,6 @@
 ---
 title: Data Synchronization Design
-keywords: shenyu
+keywords: Apache ShenYu
 description: Data Synchronization Design
 ---
 
@@ -16,11 +16,11 @@ See [Data Synchronization Configuration](../use-data-sync)  for configuration in
 
 Gateway is the entrance of request and it is a very important part in micro service architecture, therefore the importance of gateway high availability is self-evident. When we use gateway, we have to change configuration such as flow rule, route rule for satisfying business requirement. Therefore, the dynamic configuration of the gateway is an important factor to ensure the high availability of the gateway. 
 
-In the actual use of Shenyu Gateway, users also feedback some problems:
+In the actual use of Apache ShenYu Gateway, users also feedback some problems:
 
-* ShenYu depends on ZooKeeper, how to use Etcd, Consul, Nacos and other registry center?
+* Apache ShenYu depends on ZooKeeper, how to use Etcd, Consul, Nacos and other registry center?
 
-* ShenYu depends on Redis and InfluxDB, and do not use limiting plugins or monitoring plugins. Why need these?
+* Apache ShenYu depends on Redis and InfluxDB, and do not use limiting plugins or monitoring plugins. Why need these?
 
 * Why not use configuration center for configuration synchronization?
 
@@ -49,7 +49,7 @@ The following figure shows the process of data synchronization of ShenYu. ShenYu
 <img src="/img/shenyu/dataSync/shenyu-config-processor-en.png" width="90%" height="80%" />
 
 
-In the original version, the configuration service relied on the Zookeeper implementation to manage the back-end push of changes to the gateway. Now, WebSocket, HTTP long polling, ZooKeeper, Nacos, Etcd, and Consul can now be supported by specifying the corresponding synchronization policy by setting `shenyu.sync.${strategy}` in the configuration file. The default WeboSocket synchronization policy can be used to achieve second level data synchronization. However, it is important to note that ShenYu Gateway and shenyu-admin must use the same synchronization policy.
+In the original version, the configuration service relied on the Zookeeper implementation to manage the back-end push of changes to the gateway. Now, WebSocket, HTTP long polling, ZooKeeper, Nacos, Etcd, and Consul can now be supported by specifying the corresponding synchronization policy by setting `shenyu.sync.${strategy}` in the configuration file. The default WeboSocket synchronization policy can be used to achieve second level data synchronization. However, it is important to note that Apache ShenYu Gateway and shenyu-admin must use the same synchronization policy.
 
 
 
@@ -67,13 +67,13 @@ The zookeeper-based synchronization principle is very simple,it mainly depends o
 
 ![Zookeeper Node Design](https://yu199195.github.io/images/soul/soul-zookeeper.png)
 
-`ShenYu` writes the configuration information to the zookeeper node,and it is meticulously designed. If you want to learn more about the code implementation, refer to the source code `ZookeeperSyncDataService`.
+`Apache ShenYu` writes the configuration information to the zookeeper node,and it is meticulously designed. If you want to learn more about the code implementation, refer to the source code `ZookeeperSyncDataService`.
 
 ### WebSocket Synchronization
 
 The mechanism of `websocket` and `zookeeper` is similar,when the gateway and the `shenyu-admin` establish a `websocket` connection,`shenyu-admin` will push all data at once,it will automatically push incremental data to `shenyu-web` through `websocket` when configured data changes
 
-When we use websocket synchronization,pay attention to reconnect after disconnection,which also called keep heartbeat.`ShenYu` uses `java-websocket` ,a third-party library,to connect to `websocket`. If you want to learn more about the code implementation, refer to the source code `WebsocketSyncDataService`.
+When we use websocket synchronization,pay attention to reconnect after disconnection,which also called keep heartbeat.`Apache ShenYu` uses `java-websocket` ,a third-party library,to connect to `websocket`. If you want to learn more about the code implementation, refer to the source code `WebsocketSyncDataService`.
 
 ### Http Long Polling
 
@@ -115,6 +115,6 @@ If you want to learn more about the code implementation, refer to the source `Et
 
 Consul data synchronization principle is that the gateway regularly polls Consul's configuration center to get the configuration version number for local comparison.
 
-ShenYu gateway will poll the configured nodes regularly, and the default interval is 1s. When startup, if there is no configuration node in Consul, write the synchronous full amount of data into Consul, then incrementally update the configuration node in Consul when the subsequent data is sent to change. At the same time, Shenyu Gateway will regularly polls the node of configuration information and pull the configuration version number for comparison with the local one. The local cache is updated when the version number is changed.
+ShenYu gateway will poll the configured nodes regularly, and the default interval is 1s. When startup, if there is no configuration node in Consul, write the synchronous full amount of data into Consul, then incrementally update the configuration node in Consul when the subsequent data is sent to change. At the same time, Apache ShenYu Gateway will regularly polls the node of configuration information and pull the configuration version number for comparison with the local one. The local cache is updated when the version number is changed.
 
 If you want to learn more about the code implementation, refer to the source `ConsulsyncDataService`.

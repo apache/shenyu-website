@@ -1,6 +1,6 @@
 ---
 title: Data Synchronization Config
-keywords: shenyu
+keywords: Apache ShenYu
 description: use different data-sync strategy
 ---
 
@@ -13,12 +13,12 @@ For details about the data synchronization principles, see [Data Synchronization
 
 ### WebSocket Synchronization Config（default strategy, recommend）
 
-* `ShenYu` gateway config
+* `Apache ShenYu` gateway config
 
    Add these dependencies in `pom.xml`：
 
 ```xml
-    <!--shenyu data sync start use websocket-->
+    <!-- apache shenyu data sync start use websocket-->
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
@@ -59,12 +59,12 @@ After the connection is established, the data will be fully obtained once, and t
 
 ### Zookeeper Synchronization Config
 
-* `ShenYu` gateway config
+* `Apache ShenYu` gateway config
 
    Add these dependencies in `pom.xml`：
 
  ```xml
-        <!--shenyu data sync start use zookeeper-->
+        <!-- apache shenyu data sync start use zookeeper-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
@@ -116,12 +116,12 @@ shenyu:
 
 ### HTTP Long Polling Synchronization Config
 
-* `ShenYu` gateway config
+* `Apache ShenYu` gateway config
 
  Add these dependencies in `pom.xml`：
 
 ```xml
-        <!--shenyu data sync start use http-->
+        <!-- apache shenyu data sync start use http-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
@@ -165,13 +165,13 @@ HTTP long-polling makes the gateway lightweight, but less time-sensitive. It pul
 
 ### Nacos Synchronization Config
 
-* `ShenYu` gateway config
+* `Apache ShenYu` gateway config
 
 
  Add these dependencies in `pom.xml`：
 
 ```xml
-        <!--shenyu data sync start use nacos-->
+        <!-- apache shenyu data sync start use nacos-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
@@ -230,12 +230,12 @@ shenyu:
 
 ### Etcd Synchronization Config
 
-* `ShenYu` gateway config
+* `Apache ShenYu` gateway config
 
   Add these dependencies in `pom.xml`：
   
 ```xml
-        <!--shenyu data sync start use etcd-->
+        <!-- apache shenyu data sync start use etcd-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-etcd</artifactId>
@@ -285,12 +285,12 @@ shenyu:
 
 ### Consul Synchronization Config
 
-* `ShenYu` gateway config
+* `Apache ShenYu` gateway config
 
  Add these dependencies in `pom.xml`：
 
 ```xml
-<!--shenyu data sync start use consul-->
+<!-- apache shenyu data sync start use consul-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
@@ -330,6 +330,6 @@ shenyu:
 
 
 
-> After the data synchronization strategy of ShenYu gateway and shenyu-admin is reconfigured, the microservice needs to be restarted.
+> After the data synchronization strategy of Apache ShenYu gateway and shenyu-admin is reconfigured, the microservice needs to be restarted.
 >
-> The ShenYu gateway and shenyu-admin must use the same synchronization strategy.
+> the Apache ShenYu gateway and shenyu-admin must use the same synchronization strategy.

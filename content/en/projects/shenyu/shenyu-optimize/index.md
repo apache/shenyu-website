@@ -1,16 +1,16 @@
 ---
 title: ShenYu Optimize
-keywords: shenyu
-description: performance optimization for shenyu
+keywords: Apache ShenYu
+description: performance optimization for Apache ShenYu
 ---
 
 ## Description
 
-* This doc shows how to do performance optimization for shenyu.
+* This doc shows how to do performance optimization for Apache ShenYu.
 
 ## Time Consumption
 
-* ShenYu is JVM driven and processing time for a single request is nearly between `1-3` ms.
+* Apache ShenYu is JVM driven and processing time for a single request is nearly between `1-3` ms.
 
 ## Netty Optimization
 

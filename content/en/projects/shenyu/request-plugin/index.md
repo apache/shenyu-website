@@ -15,13 +15,13 @@ description:  RequestPlugin
 * If the user don't use, please disable the plugin in the background.
 
 ```xml
-  <!-- shenyu request plugin start-->
+  <!-- apache shenyu request plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-request</artifactId>
      <version>${project.version}</version>
   </dependency>
-  <!-- shenyu request plugin end-->
+  <!-- apache shenyu request plugin end-->
 ```
 
 * Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).

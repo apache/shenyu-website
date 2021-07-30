@@ -1,13 +1,13 @@
 ---
 title: Dubbo服务接入
-keywords: ShenYu
+keywords: Apache ShenYu
 description: Dubbo服务接入
 ---
 
 
 ## 说明
 
-* 此篇文章是介绍 `dubbo` 服务接入到 `ShenYu` 网关，`ShenYu` 网关使用 `dubbo` 插件来接入`Dubbo`服务。
+* 此篇文章是介绍 `dubbo` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `dubbo` 插件来接入`Dubbo`服务。
 * 当前支持 `alibaba dubbo（< 2.7.x）` 以及 `apache dubbo (>=2.7.x)`。
 * 接入前，请正确启动 `shenyu-admin`，并开启`dubbo`插件，在网关端和`Dubbo`服务端引入相关依赖。可以参考前面的 [Dubbo快速开始](../quick-start-http)。
 
@@ -23,13 +23,13 @@ description: Dubbo服务接入
   * `alibaba dubbo` 用户, `dubbo` 版本换成你的，引入你需要的注册中心依赖，以下是参考。
 
     ```xml
-    <!--shenyu alibaba dubbo plugin start-->
+    <!-- apache shenyu alibaba dubbo plugin start-->
     <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
        <version>${project.version}</version>
     </dependency>
-    <!-- shenyu  alibaba dubbo plugin end-->
+    <!-- apache shenyu  alibaba dubbo plugin end-->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>dubbo</artifactId>
@@ -55,13 +55,13 @@ description: Dubbo服务接入
   * `apache dubbo` 用户，`dubbo` 版本换成你的，引入你需要的注册中心依赖，如下是参考。
 
     ```xml
-    <!--shenyu apache dubbo plugin start-->
+    <!-- apache shenyu apache dubbo plugin start-->
     <dependency>
        <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
        <version>${project.version}</version>
     </dependency>
-    <!--shenyu apache dubbo plugin end-->
+    <!-- apache shenyu apache dubbo plugin end-->
 
     <dependency>
        <groupId>org.apache.dubbo</groupId>
@@ -214,7 +214,7 @@ description: Dubbo服务接入
 
 ## dubbo用户请求及参数说明
 
-可以通过 `http` 的方式来请求你的 `dubbo` 服务。`ShenYu` 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`
+可以通过 `http` 的方式来请求你的 `dubbo` 服务。`Apache ShenYu` 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`
 
 > 比如你有一个 order服务 它有一个接口，它的注册路径 /order/test/save
 

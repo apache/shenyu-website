@@ -8,9 +8,9 @@ description: rateLimiter plugin
 
 * rateLimiter is core implementation of gateway restrictions on network traffic.
 
-* The ShenYu gateway provides a variety of current limiting algorithms, including `token bucket algorithm`, `concurrent token bucket algorithm`, `leaky bucket algorithm` and `sliding time window algorithm`.
+* the Apache ShenYu gateway provides a variety of current limiting algorithms, including `token bucket algorithm`, `concurrent token bucket algorithm`, `leaky bucket algorithm` and `sliding time window algorithm`.
 
-* The implementation of current limiting algorithm of ShenYu gateway is based on `redis`.
+* The implementation of current limiting algorithm of Apache ShenYu gateway is based on `redis`.
 
 * You can set to the interface level or the parameter level. How to use it depends on your traffic configuration.
 
@@ -60,13 +60,13 @@ description: rateLimiter plugin
 * Introduce `rateLimiter` dependency in pom.xml file of the gateway.
 
 ```xml
-  <!-- shenyu ratelimiter plugin start-->
+  <!-- apache shenyu ratelimiter plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-ratelimiter</artifactId>
       <version>${last.version}</version>
   </dependency>
-  <!-- shenyu ratelimiter plugin end-->
+  <!-- apache shenyu ratelimiter plugin end-->
 ```
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule)。

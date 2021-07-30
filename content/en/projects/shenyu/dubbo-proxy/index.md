@@ -1,10 +1,10 @@
 ---
 title:  Dubbo Proxy 
-keywords: ShenYu
+keywords: Apache ShenYu
 description: Dubbo Client Access
 ---
 
-This document is intended to help the `Dubbo` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `Dubbo` plugin to handle `dubbo` service.
+This document is intended to help the `Dubbo` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Dubbo` plugin to handle `dubbo` service.
 
 Support Alibaba Dubbo(< 2.7.x) and Apache Dubbo (>=2.7.x).
 
@@ -21,13 +21,13 @@ For details about data synchronization configurations, see [Data Synchronization
   Alibaba dubbo user, configure the dubbo version and registry center with yours.
 
     ```xml
-    <!--shenyu alibaba dubbo plugin start-->
+    <!-- apache shenyu alibaba dubbo plugin start-->
     <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
        <version>${project.version}</version>
     </dependency>
-    <!-- shenyu  alibaba dubbo plugin end-->
+    <!-- apache shenyu  alibaba dubbo plugin end-->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>dubbo</artifactId>
@@ -53,13 +53,13 @@ For details about data synchronization configurations, see [Data Synchronization
  Apache dubbo user, configure the dubbo version and registry center with yours.
     
     ```xml
-    <!--shenyu apache dubbo plugin start-->
+    <!-- apache shenyu apache dubbo plugin start-->
     <dependency>
        <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
        <version>${project.version}</version>
     </dependency>
-    <!--shenyu apache dubbo plugin end-->
+    <!-- apache shenyu apache dubbo plugin end-->
 
     <dependency>
        <groupId>org.apache.dubbo</groupId>
@@ -211,7 +211,7 @@ For details about data synchronization configurations, see [Data Synchronization
 ### Dubbo user request and parameter explanation.
 
 * Communicate with dubbo service through Http transport protocol.
-* ShenYu gateway need a route prefix which configured when accessing the project.
+* Apache ShenYu gateway need a route prefix which configured when accessing the project.
 
 ```yaml
 # for example: you have an order service and it has a interface, registry address: /order/test/save

@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learns Http Long Polling Analysis 02"
+title: "Apache ShenYu Gateway Learns Http Long Polling Analysis 02"
 author: "zhuming"
-description: "ShenYu Gateway Learns Http Long Polling Analysis"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learns Http Long Polling Analysis"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-27
 cover: "/img/architecture/shenyu-framework.png"
 ---
@@ -46,7 +46,7 @@ public class HttpSyncDataService implements SyncDataService, AutoCloseable {
                                              SoulThreadFactory.create("http-long-polling", true));
       this.serverList.forEach(server -> this.executor.execute(new HttpLongPollingTask(server)));
     } else {
-      log.info("ShenYu http long polling was started, executor=[{}]", executor);
+      log.info("Apache ShenYu http long polling was started, executor=[{}]", executor);
     }
   }
 }

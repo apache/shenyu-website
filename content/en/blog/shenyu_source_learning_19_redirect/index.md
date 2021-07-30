@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning Redirect Plugin"
+title: "Apache ShenYu Gateway Learning Redirect Plugin"
 author: "axing"
-description: "ShenYu Gateway Learning Redirect Plugin"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learning Redirect Plugin"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-03-16
 cover: "/img/shenyu/blog6/01.jpg"
 ---

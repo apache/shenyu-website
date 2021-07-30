@@ -3,11 +3,11 @@ title: Sofa快速开始
 description: Sofa快速开始
 ---
 
-本文档演示如何将`Sofa`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) 。
+本文档演示如何将`Sofa`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) 。
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`sofa` 插件设置为开启，并设置你的注册地址，请确保注册中心在你本地已经开启。
 
@@ -20,7 +20,7 @@ description: Sofa快速开始
 如果客户端是`sofa`，注册中心使用`zookeeper`，请参考如下配置：
 
 ```xml
-        <!--shenyu sofa plugin start-->
+        <!-- apache shenyu sofa plugin start-->
         <dependency>
             <groupId>com.alipay.sofa</groupId>
             <artifactId>sofa-rpc-all</artifactId>
@@ -47,7 +47,7 @@ description: Sofa快速开始
             <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--shenyu sofa plugin end-->
+        <!-- apache shenyu sofa plugin end-->
 
 ```
 

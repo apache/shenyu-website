@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习(2-1)Http代理之divide插件使用"
+title: "Apache ShenYu网关学习(2-1)Http代理之divide插件使用"
 author: "袁杰"
-description: "ShenYu网关学习(2-1)divide插件使用"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习(2-1)divide插件使用"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-16
 cover: "/img/architecture/shenyu-framework.png"
 ---

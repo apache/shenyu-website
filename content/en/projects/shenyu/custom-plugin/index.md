@@ -1,13 +1,13 @@
 ---
 title: Custom Plugin
-keywords: shenyu
+keywords: Apache ShenYu
 description: plugins
 ---
 
 ## Description
 
-* Plugins are core executors of ShenYu gateway. Every plugin handles matched requests when enabled.
-* There are two kinds of plugins in the ShenYu gateway.
+* Plugins are core executors of Apache ShenYu gateway. Every plugin handles matched requests when enabled.
+* There are two kinds of plugins in the Apache ShenYu gateway.
 * The first type is a call chain with a single responsibility, and traffic cannot be customized.
 * The other one can do its own chain of responsibility for matched traffic.
 * You could reference from shenyu-plugin module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.

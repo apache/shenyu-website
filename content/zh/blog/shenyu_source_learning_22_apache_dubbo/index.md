@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Apache Dubbo插件原理解析"
+title: "Apache ShenYu网关学习Apache Dubbo插件原理解析"
 author: "nuo-promise"
-description: "ShenYu网关学习Apache Dubbo插件原理解析"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Apache Dubbo插件原理解析"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-03-23
 cover: "/img/shenyu/blog8/08.jpg"
 ---
@@ -198,7 +198,7 @@ public interface GenericService {
 
 }
 ```
-### ShenYu Dubbo 插件调用解析 
+### Apache ShenYu Dubbo 插件调用解析 
 当业务请求发起时候,首先进入 `SoulWebHandler` (至于为什么成为请求入口自行查询,本文不作解释) 类的 `Handle` 方法,下面就带了 `plugins` 从 `DefaultSoulPluginChain` 类开始进入插件链调用。
 ```java
 @Override

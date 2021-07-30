@@ -13,7 +13,7 @@ description: SpringCloud Plugin
 * Introducing those dependencies in the pom.xml file of the gateway. 
 
 ```xml
-<!--shenyu springCloud plugin start-->
+<!-- apache shenyu springCloud plugin start-->
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
@@ -25,7 +25,7 @@ description: SpringCloud Plugin
     <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
     <version>${last.version}</version>
 </dependency>
-<!--shenyu springCloud plugin end-->
+<!-- apache shenyu springCloud plugin end-->
 
 <dependency>
     <groupId>org.springframework.cloud</groupId>
@@ -48,5 +48,5 @@ description: SpringCloud Plugin
 ## Detail
 
 * Application name: it is your specific application name that needs to be invoked after the conditions are matched.
-* ShenYu will obtain the real IP of the corresponding service and initiate http proxy calls from registration center of springCloud.
+* Apache ShenYu will obtain the real IP of the corresponding service and initiate http proxy calls from registration center of springCloud.
    

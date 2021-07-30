@@ -1,12 +1,12 @@
 ---
 title: Selector Detailed Explanation
-keywords: ShenYu
+keywords: Apache ShenYu
 description: detailed explanation of selector and rule
 ---
 
 ## Features
 
-This document will introduce the use of selectors and rules in the ShenYu background management system. For the concept and design of selectors and rules, please refer to [Flow Control](../flow-control).
+This document will introduce the use of selectors and rules in the Apache ShenYu background management system. For the concept and design of selectors and rules, please refer to [Flow Control](../flow-control).
 
 Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local). After startup, visit `http://localhost:9095`, the default username and password are: `admin` and `123456` . 
 

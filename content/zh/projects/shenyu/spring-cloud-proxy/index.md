@@ -1,10 +1,10 @@
 ---
 title: Spring Cloud服务接入
-keywords: shenyu
+keywords: Apache ShenYu
 description: SpringCloud接入ShenYu网关
 ---
 
-此篇文章是介绍 `springCloud` 服务接入到 `ShenYu` 网关，`ShenYu` 网关使用 `springCloud` 插件来接入`Spring Cloud`服务。
+此篇文章是介绍 `springCloud` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `springCloud` 插件来接入`Spring Cloud`服务。
 
 接入前，请正确启动 `shenyu-admin`，并开启`springCloud`插件，在网关端和`springCloud`服务端引入相关依赖。可以参考前面的 [Spring Cloud快速开始](../quick-start-springcloud)。
 
@@ -17,7 +17,7 @@ description: SpringCloud接入ShenYu网关
 * 在网关的 `pom.xml` 文件中引入如下依赖。
 
 ```xml
-  <!--shenyu springCloud plugin start-->
+  <!-- apache shenyu springCloud plugin start-->
   <dependency>
        <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
@@ -29,7 +29,7 @@ description: SpringCloud接入ShenYu网关
        <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
        <version>${project.version}</version>
    </dependency>
-   <!--shenyu springCloud plugin end-->
+   <!-- apache shenyu springCloud plugin end-->
 
    <dependency>
         <groupId>org.springframework.cloud</groupId>

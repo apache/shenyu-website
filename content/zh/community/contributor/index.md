@@ -2,7 +2,7 @@
 title: Apache ShenYu Contributor
 description: Apache shenyu-contributor贡献者指南
 author: "xiaoyu"
-categories: "ShenYu"
+categories: "Apache ShenYu"
 tags: ["Contributor"]
 date: 2019-04-09
 cover: "/img/architecture/shenyu-framework.png"

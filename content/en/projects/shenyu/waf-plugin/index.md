@@ -10,7 +10,7 @@ description: waf plugin
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [local deployment](../deployment-local) to start the `ShenYu` management system.
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [local deployment](../deployment-local) to start the `Apache ShenYu` management system.
 
 * In `shenyu-admin` BasicConfig --> plugin -> `waf` set to enable.If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -29,13 +29,13 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 * Introducing `waf` dependency in the pom.xml of the gateway.
 
 ```xml
-  <!-- shenyu waf plugin start-->
+  <!-- apache shenyu waf plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-waf</artifactId>
       <version>${last.version}</version>
   </dependency>
-  <!-- shenyu waf plugin end-->
+  <!-- apache shenyu waf plugin end-->
 ```
 
 ## Waf Plugin Configuration

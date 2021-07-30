@@ -1,10 +1,10 @@
 ---
 title: 数据同步配置
-keywords: shenyu
+keywords: Apache ShenYu
 description: 使用不同的数据同步策略
 ---
 
-本篇主要讲解如何配置数据同步策略，数据同步是指在 `shenyu-admin` 后台操作数据以后，使用何种策略将数据同步到 `ShenYu` 网关。`ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos`、`Etcd` 和 `Consul`进行数据同步。
+本篇主要讲解如何配置数据同步策略，数据同步是指在 `shenyu-admin` 后台操作数据以后，使用何种策略将数据同步到 `Apache ShenYu` 网关。`Apache ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos`、`Etcd` 和 `Consul`进行数据同步。
 
 <img src="/img/shenyu/dataSync/data-sync-2.png" width="60%" height="50%" />
 
@@ -13,12 +13,12 @@ description: 使用不同的数据同步策略
 
 ### WebSocket同步配置（默认方式，推荐）
 
-* `ShenYu`网关配置
+* `Apache ShenYu`网关配置
 
     首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-    <!--shenyu data sync start use websocket-->
+    <!-- apache shenyu data sync start use websocket-->
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
@@ -53,17 +53,17 @@ shenyu:
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-admin-yml.png" width="80%" height="70%" />
 
-当建立连接以后会全量获取一次数据，以后的数据都是增量的更新与新增，性能好。而且也支持断线重连 （默认`30`秒）。推荐使用此方式进行数据同步，也是`ShenYu`默认的数据同步策略。
+当建立连接以后会全量获取一次数据，以后的数据都是增量的更新与新增，性能好。而且也支持断线重连 （默认`30`秒）。推荐使用此方式进行数据同步，也是`Apache ShenYu`默认的数据同步策略。
 
 
 ### Zookeeper同步配置
 
-* `ShenYu`网关配置
+* `Apache ShenYu`网关配置
 
     首先在 `pom.xml` 文件中引入以下依赖：
 
  ```xml
-        <!--shenyu data sync start use zookeeper-->
+        <!-- apache shenyu data sync start use zookeeper-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
@@ -112,12 +112,12 @@ shenyu:
 
 ### Http长轮询同步配置
 
-* `ShenYu`网关配置
+* `Apache ShenYu`网关配置
 
  首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-        <!--shenyu data sync start use http-->
+        <!-- apache shenyu data sync start use http-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
@@ -160,12 +160,12 @@ shenyu:
 
 ### Nacos同步配置
 
-* `ShenYu`网关配置
+* `Apache ShenYu`网关配置
 
  首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-        <!--shenyu data sync start use nacos-->
+        <!-- apache shenyu data sync start use nacos-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
@@ -225,12 +225,12 @@ shenyu:
 
 ### Etcd 同步配置
 
-* `ShenYu`网关配置
+* `Apache ShenYu`网关配置
 
  首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-        <!--shenyu data sync start use etcd-->
+        <!-- apache shenyu data sync start use etcd-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-etcd</artifactId>
@@ -279,12 +279,12 @@ shenyu:
 
 ### Consul 同步配置
 
-* `ShenYu`网关配置
+* `Apache ShenYu`网关配置
 
  首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-        <!--shenyu data sync start use consul-->
+        <!-- apache shenyu data sync start use consul-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
@@ -324,6 +324,6 @@ shenyu:
 
 
 
-> 在`ShenYu`网关和`shenyu-admin` 重新配置数据同步策略后，需要重启服务。
+> 在`Apache ShenYu`网关和`shenyu-admin` 重新配置数据同步策略后，需要重启服务。
 >
-> `ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。
+> `Apache ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。

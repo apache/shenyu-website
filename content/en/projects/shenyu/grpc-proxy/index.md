@@ -4,7 +4,7 @@ keywords: gRPC
 description: gRPC access shenyu gateway
 ---
 
-This document is intended to help the `gRPC` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `gRPC` plugin to handle `gRPC` service.
+This document is intended to help the `gRPC` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `gRPC` plugin to handle `gRPC` service.
 
 Before the connection, start `shenyu-admin` correctly, start `gRPC` plugin, and add related dependencies on the gateway and `gRPC` application client. Refer to the previous [Quick start with gRPC](../quick-start-grpc) .
 
@@ -17,13 +17,13 @@ For details about data synchronization configurations, see [Data Synchronization
 Add the following dependencies in the gateway's `pom.xml` file:
 
 ```xml
-        <!--shenyu grpc plugin start-->
+        <!-- apache shenyu grpc plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-grpc</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--shenyu grpc plugin end-->
+        <!-- apache shenyu grpc plugin end-->
 ```
 
 * Restart the gateway service.
@@ -77,7 +77,7 @@ Example:
 
 ## User Request
 
-You can request your gRPC service by Http. The `ShenYu` gateway needs to have a route prefix that you access to configure `contextPath`.
+You can request your gRPC service by Http. The `Apache ShenYu` gateway needs to have a route prefix that you access to configure `contextPath`.
 
 
 
@@ -104,7 +104,7 @@ So the request parameters look like this:
 The parameters are currently passed in `json` format, and the name of `key` defaults to `data`, which you can reset in `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME`; The `value` is passed in according to the `proto` file you define.
 
 
-The ShenYu can support streaming calls to `gRPC` service, passing multiple arguments in the form of an array.
+the Apache ShenYu can support streaming calls to `gRPC` service, passing multiple arguments in the form of an array.
 
 If your `proto` file is defined as follows:
 

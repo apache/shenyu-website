@@ -2,13 +2,13 @@
 title: "ShenYuLearning(1) Environment Configuration"
 author: "chenxi"
 description: "ShenYuLearning(1) Environment Configuration"
-categories: "ShenYu"
-tags: ["ShenYu"]
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-15
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-# Analysis of ShenYu (1) Set up ShenYu environment
+# Analysis of Apache ShenYu (1) Set up ShenYu environment
 
 > ShenYu is a High-Performance Java API Gateway
 >
@@ -28,7 +28,7 @@ git clone https://github.com/cchenxi/soul.git
 
 ### 1.3.Open the source code with idea
 
-### 1.4. Compile the ShenYu source code
+### 1.4. Compile the Apache ShenYu source code
 
 You can compile the project as follows.
 

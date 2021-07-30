@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning (2) HTTP Client Access Source Code Parsing"
+title: "Apache ShenYu Gateway Learning (2) HTTP Client Access Source Code Parsing"
 author: "fanjinpeng"
 description: "ShenYuLearning (2) HTTP Client Access Source Code Parsing"
-categories: "ShenYu"
-tags: ["ShenYu"]
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-18
 cover: "/img/architecture/shenyu-framework.png"
 ---
@@ -22,7 +22,7 @@ HTTP 用户接入 ShenYu网关时，会调用 soul-admin 一个接口，把需�
 /**
  * Instantiates a new ShenYuclient bean post processor.
  *
- * @param soulSpringMvcConfig the ShenYu spring mvc config
+ * @param soulSpringMvcConfig the Apache ShenYu spring mvc config
  */
 public SpringMvcClientBeanPostProcessor(final SoulSpringMvcConfig soulSpringMvcConfig) {
     ValidateUtils.validate(soulSpringMvcConfig);

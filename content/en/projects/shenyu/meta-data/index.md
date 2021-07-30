@@ -1,12 +1,12 @@
 ---
 title: MetaData Concept Design
-keywords: ShenYu
+keywords: Apache ShenYu
 description: MetaData Concept Design
 ---
 
 ## Description
 
-* This article mainly explains the concept,design of metadata and how to connect in the ShenYu Gateway.
+* This article mainly explains the concept,design of metadata and how to connect in the Apache ShenYu Gateway.
 
 ## Technical Solutions
 

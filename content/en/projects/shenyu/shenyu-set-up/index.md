@@ -1,12 +1,12 @@
 ---
 title: Environment Setup
-keywords: shenyu
+keywords: Apache ShenYu
 description: Environment Setup
 ---
 
 ## Features
 
-* ShenYu is an open source plugin framework, which is flexibility and extensibility since 2.2.0 version.
+* Apache ShenYu is an open source plugin framework, which is flexibility and extensibility since 2.2.0 version.
   With shenyu you can easily create application with your own gateway.
 * System Requirement: JDK 1.8+, Mysql 5.5.20 +.
 
@@ -137,14 +137,14 @@ Visit `http://localhost:9095/index.html ` default username：admin  password: 12
         <version>2.2.2.RELEASE</version>
   </dependency>
 
-  <!--shenyu gateway start-->
+  <!-- apache shenyu gateway start-->
   <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
         <version>${last.version}</version>
   </dependency>
   
-   <!--shenyu data sync start use websocket-->
+   <!-- apache shenyu data sync start use websocket-->
    <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>

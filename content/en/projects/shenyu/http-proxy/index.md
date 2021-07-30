@@ -1,11 +1,11 @@
 ---
 title:  Http Proxy
-keywords: shenyu
+keywords: Apache ShenYu
 description: Integrate Http with shenyu gateway
 ---
 
 
-This document is intended to help the `Http` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `Divide` plugin to handle `Http` requests.
+This document is intended to help the `Http` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Divide` plugin to handle `Http` requests.
 
 Before the connection, start `shenyu-admin` correctly, start `Divide` plugin, and add related dependencies on the gateway and `Http` application client. Refer to the previous [Quick start with Http](../quick-start-http) .
 
@@ -160,7 +160,7 @@ The following indicates that `/order/save` is proxied by the gateway, while `/or
 
 * Send the request as before, only two points need to notice.
 * Firstly, the domain name that requested before in your service, now need to replace with gateway's domain name.
-* Secondly, ShenYu Gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if you are familiar with it.
+* Secondly, Apache ShenYu Gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if you are familiar with it.
     * for example, if you have an order service and it has a interface, the request url: http://localhost:8080/test/save
 
     * Now need to change to:  http://localhost:9195/order/test/save

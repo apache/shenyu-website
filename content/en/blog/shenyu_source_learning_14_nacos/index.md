@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learns Nacos Data Synchronization"
+title: "Apache ShenYu Gateway Learns Nacos Data Synchronization"
 author: "liquan"
-description: "ShenYu Gateway Learns Nacos Data Synchronization"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learns Nacos Data Synchronization"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-26
 cover: "/img/shenyu/blog5/ns15.png"
 ---

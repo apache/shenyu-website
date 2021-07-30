@@ -4,7 +4,7 @@ keywords: sofa
 description: sofa access shenyu gateway
 ---
 
-This document is intended to help the `Sofa` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `Sofa` plugin to handle `sofa` service.
+This document is intended to help the `Sofa` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Sofa` plugin to handle `sofa` service.
 
 Before the connection, start `shenyu-admin` correctly, start `Sofa` plugin, and add related dependencies on the gateway and `Sofa` application client. Refer to the previous [Quick start with Sofa](../quick-start-sofa) .
 

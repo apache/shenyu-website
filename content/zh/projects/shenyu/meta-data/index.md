@@ -1,12 +1,12 @@
 ---
 title: 元数据概念设计
-keywords: shenyu
+keywords: Apache ShenYu
 description: 元数据概念设计
 ---
 
 ## 说明
 
-* 本篇主要讲解在 ShenYu 网关中元数据的概念，设计，以及如何对接。
+* 本篇主要讲解在 Apache ShenYu 网关中元数据的概念，设计，以及如何对接。
 
 ## 技术方案
 

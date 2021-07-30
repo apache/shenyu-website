@@ -4,7 +4,7 @@ description: Motan Proxy
 ---
 
 
-This document is intended to help the `Motan` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `Motan` plugin to handle `motan` service.
+This document is intended to help the `Motan` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Motan` plugin to handle `motan` service.
 
 Before the connection, start `shenyu-admin` correctly, start `Motan` plugin, and add related dependencies on the gateway and `Motan` application client. Refer to the previous [Quick start with Motan](../quick-start-motan) .
 
@@ -20,7 +20,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 
 ```xml
-  <!--shenyu motan plugin -->
+  <!-- apache shenyu motan plugin -->
           <dependency>
               <groupId>org.apache.shenyu</groupId>
               <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
@@ -87,4 +87,4 @@ Example:
 
 ## User Request
 
-You can request your `motan` service by Http. The `ShenYu` gateway needs to have a route prefix which is the `contextPath` configured by the access gateway. For example: `http://localhost:9195/motan/hello` .
+You can request your `motan` service by Http. The `Apache ShenYu` gateway needs to have a route prefix which is the `contextPath` configured by the access gateway. For example: `http://localhost:9195/motan/hello` .

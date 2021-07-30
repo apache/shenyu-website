@@ -8,9 +8,9 @@ description: rateLimiter插件
 
 * 限流插件，是网关对流量管控限制核心的实现。
 
-* `ShenYu` 网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
+* `Apache ShenYu` 网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
 
-* `ShenYu` 网关的限流算法实现都是基于`redis`。
+* `Apache ShenYu` 网关的限流算法实现都是基于`redis`。
 
 * 可以到接口级别，也可以到参数级别。
 
@@ -63,13 +63,13 @@ description: rateLimiter插件
 * 在网关的 `pom.xml` 文件中添加 `rateLimiter` 的依赖。
 
 ```xml
-        <!-- shenyu ratelimiter plugin start-->
+        <!-- apache shenyu ratelimiter plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-ratelimiter</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- shenyu ratelimiter plugin end-->
+        <!-- apache shenyu ratelimiter plugin end-->
 ```
 
 关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../selector-and-rule)， 这里只对部分字段进行了介绍。

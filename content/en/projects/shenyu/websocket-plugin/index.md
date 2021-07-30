@@ -1,12 +1,12 @@
 ---
 title: Websocket Plugin
-keywords: shenyu
+keywords: Apache ShenYu
 description: websocket plugin
 ---
 
 ## Explanation
 
-* ShenYu gateway also support proxy of websocket.
+* Apache ShenYu gateway also support proxy of websocket.
 * In websocket support, divide plugin is used in it.
 
 ## Plugin Setting
@@ -34,7 +34,7 @@ description: websocket plugin
 
 ```yaml
 Detail:
-1.localhost:8080 is the IP and port started by ShenYu.
+1.localhost:8080 is the IP and port started by Apache ShenYu.
 2.module(Required): Value is the key that matching selector.
 3.method(Parameter): Your websocket path is also used as a matching rule.
 4.rpcType ：websocket must be filled in，and must be websocket
@@ -52,7 +52,7 @@ Detail:
 
 * In summary, pay attention to your path at this time `ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket`.
 
-  It will be matched by your new selector rule, and then the real websocket address of the proxy is:`127.0.0.1:8080/websocket`,so that ShenYu can proxy websocket.
+  It will be matched by your new selector rule, and then the real websocket address of the proxy is:`127.0.0.1:8080/websocket`,so that Apache ShenYu can proxy websocket.
 
   You can communicate with websocket service, it is actually very simple.
 

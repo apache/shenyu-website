@@ -3,7 +3,7 @@ title: gRPC服务接入
 description: gRPC服务接入
 ---
 
-此篇文章是介绍 `gRPC` 服务接入到 `ShenYu` 网关，`ShenYu` 网关使用 `grpc` 插件来接入`gRPC`服务。
+此篇文章是介绍 `gRPC` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `grpc` 插件来接入`gRPC`服务。
 
 接入前，请正确启动 `shenyu-admin`，并开启`grpc`插件，在网关端和`grpc`服务端引入相关依赖。可以参考前面的 [gRPC快速开始](../quick-start-grpc)。
 
@@ -18,13 +18,13 @@ description: gRPC服务接入
 引入网关对`gRPC`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-        <!--shenyu grpc plugin start-->
+        <!-- apache shenyu grpc plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-grpc</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--shenyu grpc plugin end-->
+        <!-- apache shenyu grpc plugin end-->
 ```
 
 * 重启你的网关服务。
@@ -76,7 +76,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 
 ## 用户请求
 
-可以通过 `http` 的方式来请求你的`grpc`服务。`ShenYu`网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`。
+可以通过 `http` 的方式来请求你的`grpc`服务。`Apache ShenYu`网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`。
 
 如果你的`proto`文件定义如下：
 
@@ -99,7 +99,7 @@ message EchoRequest {
 
 当前是以 `json` 的格式传递参数，`key`的名称默认是`data`，你可以在 `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME` 中进行重置；`value`的传入则根据你定义的 `proto` 文件。
 
-`shenyu` 可以支持 `gRPC` 的流式调用，通过数组的形式传递多个参数。
+`Apache ShenYu` 可以支持 `gRPC` 的流式调用，通过数组的形式传递多个参数。
 
 
 如果你的`proto`文件定义如下：

@@ -6,7 +6,8 @@ description: modifyResponse插件
 
 ## 说明
 
-* `modifyResponse`插件是 ShenYu 网关自带的，用来对响应进行修改的插件。
+* `modifyResponse`插件是Apache ShenYu网关自带的，用来对响应进行修改的插件。
+
 
 
 ## 插件设置
@@ -18,13 +19,13 @@ description: modifyResponse插件
 * 在网关的 pom.xml 文件中添加 `modifyResponse` 的支持。
 
 ```xml
-  <!-- shenyu modify response plugin start-->
+  <!-- apache shenyu modify response plugin start-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-modify-response</artifactId>
   <version>${project.version}</version>
 </dependency>
-        <!-- shenyu modify response plugin end-->
+        <!-- apache shenyu modify response plugin end-->
 ```
 
 * 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。

@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway learning plugin chain and load balancing analysis"
+title: "Apache ShenYu Gateway learning plugin chain and load balancing analysis"
 author: "zhuming"
-description: "ShenYu Gateway learning plugin chain and load balancing analysis"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway learning plugin chain and load balancing analysis"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-15
 cover: "/img/architecture/shenyu-framework.png"
 ---

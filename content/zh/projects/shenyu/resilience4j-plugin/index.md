@@ -1,6 +1,6 @@
 ---
 title: Resilience4j插件
-keywords: shenyu
+keywords: Apache ShenYu
 description: resilience4j插件
 ---
 
@@ -12,7 +12,7 @@ description: resilience4j插件
 
 ## 插件设置
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 * 在 基础配置 `-->`  插件管理 `-->` `resilience4j`，设置为开启。 如果用户不使用，可以将其关闭。
 
@@ -24,13 +24,13 @@ description: resilience4j插件
 * 在网关的 `pom.xml` 文件中添加 `resilience4j`的依赖。
 
 ```xml
-        <!-- shenyu resilience4j plugin start-->
+        <!-- apache shenyu resilience4j plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-resilience4j</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- shenyu resilience4j plugin end-->
+        <!-- apache shenyu resilience4j plugin end-->
 ``` 
 
 ##  resilience4j 插件配置

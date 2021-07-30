@@ -1,6 +1,6 @@
 ---
 title: Thread Model
-keywords: shenyu
+keywords: Apache ShenYu
 description: thread model
 ---
 

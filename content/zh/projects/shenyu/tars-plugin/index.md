@@ -53,7 +53,7 @@ description:  Tars插件
 规则处理，即`handle`字段，是网关对流量完成最终匹配后，采取何种处理规则。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
 
 * 处理配置详解：
-    * `loadStrategy`：如果`http`客户端是一个集群，`ShenYu`网关调用时采取哪种负载均衡策略，当前支持 `roundRobin`、`random`和`hash`。
+    * `loadStrategy`：如果`http`客户端是一个集群，`Apache ShenYu`网关调用时采取哪种负载均衡策略，当前支持 `roundRobin`、`random`和`hash`。
     * `retryCount`：调用`http`客户端的重试次数。
     * `timeout`：调用`http`客户端的超时时间。
 
@@ -61,7 +61,7 @@ description:  Tars插件
 
 
 
-每一个`tars`接口方法，都会对应一条元数据，当`tars`应用客户端接入到`ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
+每一个`tars`接口方法，都会对应一条元数据，当`tars`应用客户端接入到`Apache ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
 
 <img src="/img/shenyu/plugin/tars/tars-3.png" width="80%" height="80%" />
 

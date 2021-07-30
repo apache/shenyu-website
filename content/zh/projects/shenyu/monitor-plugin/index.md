@@ -13,7 +13,7 @@ description: monitor插件
 * 流程图
     ![](/img/shenyu/plugin/monitor/shenyu-metrics.png)
 
-* 异步或者同步的方式，在 `ShenYu` 网关里面进行 `metrics` 埋点。
+* 异步或者同步的方式，在 `Apache ShenYu` 网关里面进行 `metrics` 埋点。
 
 * `prometheus` 服务端通过 `http` 请求来拉取  `metrics`，再使用 `Grafana ` 展示。
 
@@ -27,7 +27,7 @@ description: monitor插件
 {"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
 
 # port : 为暴露给 prometheus服务来拉取的端口
-# host : 不填写则为 ShenYu 网关的host.
+# host : 不填写则为 Apache ShenYu 网关的host.
 # async :"true" 为异步埋点， false 为同步埋点
 ```
 
@@ -41,13 +41,13 @@ description: monitor插件
 * 在网关的 `pom.xml` 文件中添加 `monitor` 的依赖。
 
 ```xml
-        <!-- shenyu monitor plugin starter-->
+        <!-- apache shenyu monitor plugin starter-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-monitor</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- shenyu monitor plugin end-->
+        <!-- apache shenyu monitor plugin end-->
 ```
 * 选择器和规则配置，请参考: [选择器和规则管理](../selector-and-rule)。
 * 只有当匹配的`url`，才会进行`url`请求埋点。

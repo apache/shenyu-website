@@ -1,12 +1,12 @@
 ---
 title: 自定义返回结果
-keywords: shenyu
+keywords: Apache ShenYu
 description: 自定义网关返回数据格式
 ---
 
 ## 说明
 
-* 本文介绍基于 `ShenYu` 网关返回自定义的数据格式。
+* 本文介绍基于 `Apache ShenYu` 网关返回自定义的数据格式。
 * 网关需要统一的返回格式，如果需要自己定义格式，可以进行扩展。
 
 

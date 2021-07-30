@@ -6,7 +6,9 @@ description:  param-mapping-plugin
 
 ## Description
 
-* `param_mapping` is a native plugin of ShenYu Gateway and is used to edit your request param.
+
+* `param_mapping` is a native plugin of Apache ShenYu Gateway and is used to edit your request param.
+
 
 
 ## Plugin Setting
@@ -18,13 +20,13 @@ description:  param-mapping-plugin
 * Introduce `param_mapping` dependency in the pom.xml file of the gateway.
 
 ```xml
-  <!-- shenyu param_mapping plugin start-->
+  <!-- apache shenyu param_mapping plugin start-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-param-mapping</artifactId>
   <version>${project.version}</version>
 </dependency>
-        <!-- shenyu param_mapping plugin end-->
+        <!-- apache shenyu param_mapping plugin end-->
 ```
 
 * Selectors and rules, please refer to:[Selector And Rule Config](../selector-and-rule)。

@@ -3,7 +3,7 @@ title: Tars Proxy
 description: Tars服务接入
 ---
 
-This document is intended to help the `Tars` service access the `ShenYu` gateway. The `ShenYu` gateway uses the `tars` plugin to handle `tars` service.
+This document is intended to help the `Tars` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `tars` plugin to handle `tars` service.
 
 Before the connection, start `shenyu-admin` correctly, start `tars` plugin, and add related dependencies on the gateway and `tars` application client. Refer to the previous [Quick start with Tars](../quick-start-tars) .
 
@@ -19,7 +19,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 
 ```xml
-        <!--shenyu tars plugin start-->
+        <!-- apache shenyu tars plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-tars</artifactId>
@@ -31,7 +31,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
             <artifactId>tars-client</artifactId>
             <version>1.7.2</version>
         </dependency>
-        <!--shenyu tars plugin end-->
+        <!-- apache shenyu tars plugin end-->
 ```
 
 * Restart your gateway service.
@@ -77,5 +77,5 @@ Example:
 
 ## User Request
 
-You can request your tars service by Http. The `ShenYu` gateway needs to have a route prefix which is the `contextPath` configured by the access gateway. For example: ` http://localhost:9195/tars/hello` .
+You can request your tars service by Http. The `Apache ShenYu` gateway needs to have a route prefix which is the `contextPath` configured by the access gateway. For example: ` http://localhost:9195/tars/hello` .
 

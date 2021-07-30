@@ -23,13 +23,13 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 - Add support for `oauth2` to the pom file of the gateway
 
 ```xml
-  <!-- shenyu oauth2 plugin start-->
+  <!-- apache shenyu oauth2 plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-oauth2</artifactId>
       <version>${last.version}</version>
   </dependency>
-  <!-- shenyu oauth2 plugin end-->
+  <!-- apache shenyu oauth2 plugin end-->
   
 ```
 

@@ -6,7 +6,8 @@ description:  Param-mapping插件
 
 ## 说明
 
-* `param_mapping`插件是 `ShenYu` 网关自带的，用来对你的请求参数进行修改的插件。
+* `param_mapping`插件是 `Apache ShenYu` 网关自带的，用来对你的请求参数进行修改的插件。
+
 
 
 ## 插件设置
@@ -18,13 +19,13 @@ description:  Param-mapping插件
 * 在网关的 `pom.xml` 文件中添加 `param_mapping` 的支持。
 
 ```xml
-<!-- shenyu param_mapping plugin start-->
+<!-- apache shenyu param_mapping plugin start-->
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-param-mapping</artifactId>
     <version>${project.version}</version>
 </dependency>
-<!-- shenyu param_mapping plugin end-->
+<!-- apache shenyu param_mapping plugin end-->
 ```
 
 * 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。

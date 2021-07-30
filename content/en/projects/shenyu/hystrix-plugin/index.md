@@ -1,6 +1,6 @@
 ---
 title: Hystrix Plugin
-keywords: shenyu
+keywords: Apache ShenYu
 description: hystrix plugin
 ---
 
@@ -19,13 +19,13 @@ description: hystrix plugin
 * Introduce `hystrix` dependency in the pom.xml file of the gateway.
 
 ```xml
-  <!-- shenyu hystrix plugin start-->
+  <!-- apache shenyu hystrix plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-hystrix</artifactId>
        <version>${last.version}</version>
   </dependency>
-  <!-- shenyu hystrix plugin end-->
+  <!-- apache shenyu hystrix plugin end-->
 ``` 
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule).

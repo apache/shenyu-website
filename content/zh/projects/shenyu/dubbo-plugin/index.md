@@ -21,7 +21,7 @@ description: dubbo插件
 
 ## 元数据
 
-每一个`dubbo`接口方法，都会对应一条元数据，当`dubbo`应用客户端接入到`ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
+每一个`dubbo`接口方法，都会对应一条元数据，当`dubbo`应用客户端接入到`Apache ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
 
 <img src="/img/shenyu/plugin/dubbo/dubbo-metadata-zh.jpg" width="50%"/>
 

@@ -6,7 +6,7 @@ description: context_path插件
 
 ## 说明
 
-* ShenYu 网关在对目标服务调用的时候，还容许用户使用 `context_path` 插件来重写请求路径的contextPath
+* Apache ShenYu 网关在对目标服务调用的时候，还容许用户使用 `context_path` 插件来重写请求路径的contextPath
 
 ## 插件设置
 
@@ -17,13 +17,13 @@ description: context_path插件
 - 在网关的 `pom.xml` 文件中添加 `context_path` 的支持。
 
 ```xml
-  <!-- shenyu context_path plugin start-->
+  <!-- apache shenyu context_path plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-context-path</artifactId>
      <version>${project.version}</version>
   </dependency>
-  <!-- shenyu context_path plugin end-->
+  <!-- apache shenyu context_path plugin end-->
 ```
 
 - 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。

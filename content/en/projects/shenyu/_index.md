@@ -34,7 +34,7 @@ sidebar:
     link: 'overview'
   - title: 'Design'
     sub:
-      - title: 'ShenYu Admin Database Design'
+      - title: 'Admin Database Design'
         link: 'database-design'
       - title: 'Data Synchronization'
         link: 'data-sync'

@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Http长轮询解析01"
+title: "Apache ShenYu网关学习Http长轮询解析01"
 author: "朱明"
-description: "ShenYu网关学习Http长轮询解析"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Http长轮询解析"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-25
 cover: "/img/architecture/shenyu-framework.png"
 ---

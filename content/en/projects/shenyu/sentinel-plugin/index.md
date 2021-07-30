@@ -1,6 +1,6 @@
 ---
 title: Sentinel Plugin
-keywords: shenyu
+keywords: Apache ShenYu
 description: sentinel plugin
 ---
 
@@ -17,16 +17,16 @@ description: sentinel plugin
 
 ## Plugin Usage
 
-* Introducing the follow supports to the pom.xml file of shenyu project.
+* Introducing the follow supports to the pom.xml file of Apache ShenYu project.
 
 ```xml
-  <!-- shenyu sentinel plugin start-->
+  <!-- apache shenyu sentinel plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-sentinel</artifactId>
        <version>${last.version}</version>
   </dependency>
-  <!-- shenyu sentinel plugin end-->
+  <!-- apache shenyu sentinel plugin end-->
 ``` 
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule)

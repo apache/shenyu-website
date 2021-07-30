@@ -6,7 +6,7 @@ description: dict management explanation
 
 ## Explanation
 
-This document will introduce the use of dictionary management in the ShenYu background management system. Dictionary management is primarily used to maintain and manage common data dictionaries.
+This document will introduce the use of dictionary management in the Apache ShenYu background management system. Dictionary management is primarily used to maintain and manage common data dictionaries.
 
 Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local). After startup, visit `http://localhost:9095`, the default username and password are: `admin` and `123456` . 
 

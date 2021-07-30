@@ -1,12 +1,12 @@
 ---
 title: 文件上传下载
-keywords: shenyu
+keywords: Apache ShenYu
 description: 文件上传下载
 ---
 
 ## 说明
 
-* 本文主要介绍 `ShenYu` 的文件上传下载的支持。
+* 本文主要介绍 `Apache ShenYu` 的文件上传下载的支持。
 
 ## 文件上传
 
@@ -16,4 +16,4 @@ description: 文件上传下载
 
 ## 文件下载
 
-* `ShenYu` 支持流的方式进行下载，之前的接口怎么写的，现在还是怎么写，根本不需要变。
+* `Apache ShenYu` 支持流的方式进行下载，之前的接口怎么写的，现在还是怎么写，根本不需要变。

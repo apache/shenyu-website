@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning Http Request Adventure"
+title: "Apache ShenYu Gateway Learning Http Request Adventure"
 author: "baiyu"
-description: "ShenYu Gateway Learning Http Request Adventure"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learning Http Request Adventure"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-26
 cover: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d89a3b45058846be94aa0b8935ec1868~tplv-k3u1fbpfcp-watermark.image"
 ---

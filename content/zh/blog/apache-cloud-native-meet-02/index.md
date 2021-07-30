@@ -2,7 +2,7 @@
 author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2021-02-06T15:00:00.000Z
-title: "ShenYu 源码01期阅读分享会02"	
+title: "Apache ShenYu 源码01期阅读分享会02"	
 tags: ["ShenYu","Reactor"]
 cover: "/img/activities/apache-open-shenyu-03.jpg"
 descripton: "ShenYu源码02期线上分享会，2 月 6 日 20 点至23 点。"
@@ -10,7 +10,7 @@ descripton: "ShenYu源码02期线上分享会，2 月 6 日 20 点至23 点。"
 
 ![ShenYu 线上活动](/img/shenyu/activite/shenyu-xmind.png)
 
-### ShenYu 源码阅读（ShenYu 2021 首次活动）
+### Apache ShenYu 源码阅读（ShenYu 2021 首次活动）
 
 - 日期：2021年2月6日，星期日
 - 时间：20:00 – 23:00

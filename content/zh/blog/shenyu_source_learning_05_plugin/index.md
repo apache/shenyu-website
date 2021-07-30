@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习插件链与负载均衡解析"
+title: "Apache ShenYu网关学习插件链与负载均衡解析"
 author: "朱明"
-description: "ShenYu网关学习插件链与负载均衡解析"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习插件链与负载均衡解析"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-15
 cover: "/img/architecture/shenyu-framework.png"
 ---

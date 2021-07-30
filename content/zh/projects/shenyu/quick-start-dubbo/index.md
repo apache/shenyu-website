@@ -3,11 +3,11 @@ title: Dubbo快速开始
 description: Dubbo快速开始
 ---
 
-本文档演示如何将`Dubbo`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 。
+本文档演示如何将`Dubbo`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 。
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`dubbo` 插件设置为开启，并设置你的注册地址，请确保注册中心在你本地已经开启。
 
@@ -21,7 +21,7 @@ description: Dubbo快速开始
 如果客户端是`apache dubbo`，注册中心使用`zookeeper`，请参考如下配置：
 
 ```java
-        <!--shenyu  apache dubbo plugin start-->
+        <!-- apache shenyu  apache dubbo plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
@@ -55,14 +55,14 @@ description: Dubbo快速开始
             <version>4.0.1</version>
         </dependency>
         <!-- Dubbo zookeeper registry dependency end -->
-        <!-- shenyu  apache dubbo plugin end-->
+        <!-- apache shenyu  apache dubbo plugin end-->
 ```
 
 如果客户端是`alibaba dubbo`，注册中心使用`zookeeper`，请参考如下配置：
 
 
 ```java
-        <!--shenyu alibaba dubbo plugin start-->
+        <!-- apache shenyu alibaba dubbo plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
@@ -94,7 +94,7 @@ description: Dubbo快速开始
             <artifactId>curator-recipes</artifactId>
             <version>${curator.version}</version>
         </dependency>
-        <!-- shenyu  alibaba dubbo plugin end-->
+        <!-- apache shenyu  alibaba dubbo plugin end-->
 ```
 
 ## 运行shenyu-examples-dubbo项目

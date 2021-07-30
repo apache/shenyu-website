@@ -2,15 +2,15 @@
 author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2021-02-06T15:00:00.000Z
-title: "ShenYu Source Code 01 Reading Sharing Session 02"	
+title: "Apache ShenYu Source Code 01 Reading Sharing Session 02"	
 tags: ["Apache","Reactor"]
 cover: "/img/activities/apache-open-shenyu-03.jpg"
-descripton: "ShenYu source code 02 online sharing session, February 6th from 20:00 to 23:00."
+descripton: "Apache ShenYu source code 02 online sharing session, February 6th from 20:00 to 23:00."
 ---
 
 ![ShenYu Online Activity](/img/shenyu/activite/shenyu-xmind.png)
 
-### ShenYu source code reading (ShenYu 2021 first activity)
+### Apache ShenYu source code reading (ShenYu 2021 first activity)
 
 - Date: Sunday, February 6, 2021
 - Time：20:00 – 23:00

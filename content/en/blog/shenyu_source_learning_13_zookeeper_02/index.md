@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learns Zookeeper Data Synchronization 02"
+title: "Apache ShenYu Gateway Learns Zookeeper Data Synchronization 02"
 author: "liquan"
-description: "ShenYu Gateway Learns Zookeeper Data Synchronization"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learns Zookeeper Data Synchronization"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-21
 cover: "/img/architecture/shenyu-framework.png"
 ---

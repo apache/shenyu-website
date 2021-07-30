@@ -1,6 +1,6 @@
 ---
 title: Resilience4j Plugin
-keywords: shenyu
+keywords: Apache ShenYu
 description: resilience4j plugin
 ---
 
@@ -16,16 +16,16 @@ description: resilience4j plugin
 
 ## Plugin Usage
 
-* Introducing the follow supports to the pom.xml file of shenyu project.
+* Introducing the follow supports to the pom.xml file of Apache ShenYu project.
 
 ```xml
-  <!-- shenyu resilience4j plugin start-->
+  <!-- apache shenyu resilience4j plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-resilience4j</artifactId>
        <version>${last.version}</version>
   </dependency>
-  <!-- shenyu resilience4j plugin end-->
+  <!-- apache shenyu resilience4j plugin end-->
 ``` 
 
 * Selectors and rules, please refer to: [selector](../selector-and-rule)

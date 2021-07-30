@@ -25,7 +25,7 @@ description: monitor plugin
 {"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
 
 # port : Pulled ports for exposing to prometheus service.
-# host : If not filled in, it is the host of ShenYu Gateway.
+# host : If not filled in, it is the host of Apache ShenYu Gateway.
 # async :"true" is asynchronous event tracking， false is synchronous event tracking.
 ```
 
@@ -33,13 +33,13 @@ description: monitor plugin
 * Introduce `monitor` dependency in the pom.xml file of the gateway.
 
 ```xml
-  <!-- shenyu monitor plugin start-->
+  <!-- apache shenyu monitor plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-monitor</artifactId>
       <version>${last.version}</version>
   </dependency>
-  <!-- shenyu monitor plugin end-->
+  <!-- apache shenyu monitor plugin end-->
 ```
 * Selectors and rules, please refer to: [selector](../selector-and-rule).
 * Only when the url is matched, the url will request event tracking.
@@ -52,7 +52,7 @@ description: monitor plugin
 
 | Name                      |type                  |target       | description                  |
 |:------------------------ |:--------------------- |:-------------|:-------------------- |
-|request_total             |Counter                | none           |collecting all requests of ShenYu Gateway |
+|request_total             |Counter                | none           |collecting all requests of Apache ShenYu Gateway |
 |http_request_total        |Counter                 | path,type    |collecting all matched requests of monitor|
 
 ## Collect metrics

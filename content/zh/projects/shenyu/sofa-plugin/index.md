@@ -20,7 +20,7 @@ description: sofa插件
 
 ## 元数据
 
-* 每一个`sofa`接口方法，都会对应一条元数据，当`sofa` 应用客户端接入到`ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
+* 每一个`sofa`接口方法，都会对应一条元数据，当`sofa` 应用客户端接入到`Apache ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
 
 
 <img src="/img/shenyu/plugin/sofa/sofa-1.png" width="80%"/>

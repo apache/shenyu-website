@@ -16,7 +16,7 @@ description: Spring Cloud插件
 
 ## 插件详解
 
-客户端接入`ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule) 。
+客户端接入`Apache ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule) 。
 
 #### 选择器处理
 

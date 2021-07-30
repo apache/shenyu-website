@@ -2,7 +2,7 @@
 title: Sign ICLA Guide
 description: Sign ICLA Guide
 author: "xiaoyu"
-categories: "ShenYu"
+categories: "Apache ShenYu"
 tags: ["ICLA"]
 date: 2021-05-18
 cover: "/img/architecture/shenyu-framework.png"

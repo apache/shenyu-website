@@ -1,13 +1,13 @@
 ---
 title: 客户端接入原理
-keywords: shenyu
+keywords: Apache ShenYu
 description: 客户端接入原理
 ---
 
-应用客户端接入是指将你的微服务接入到`ShenYu`网关，当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议的接入。 
+应用客户端接入是指将你的微服务接入到`Apache ShenYu`网关，当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议的接入。 
 
 
-将应用客户端接入到`ShenYu`网关是通过注册中心来实现的，涉及到客户端注册和服务端同步数据。注册中心支持`Http`、`Zookeeper`、`Etcd`、`Consul`和`Nacos`。
+将应用客户端接入到`Apache ShenYu`网关是通过注册中心来实现的，涉及到客户端注册和服务端同步数据。注册中心支持`Http`、`Zookeeper`、`Etcd`、`Consul`和`Nacos`。
 
 
 <img src="/img/shenyu/register/register-center-1.png" width="70%" height="60%" />
@@ -38,7 +38,7 @@ description: 客户端接入原理
 
 `Http`服务注册原理较为简单，在`shenyu-client`启动后，会调用`shenyu-admin`的相关服务注册接口，上传数据进行注册。
 
-`shenyu-admin` 收到请求后进行数据更新和数据同步事件发布，将接口信息同步到`ShenYu`网关。
+`shenyu-admin` 收到请求后进行数据更新和数据同步事件发布，将接口信息同步到`Apache ShenYu`网关。
 
 ### Zookeeper注册原理
 

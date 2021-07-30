@@ -6,7 +6,7 @@ description: context_path plugin
 
 ## Explanation
 
-* When making invokes to the target service, ShenYu Gateway also allows users to customize the context using the `context_path` plugin.
+* When making invokes to the target service, Apache ShenYu Gateway also allows users to customize the context using the `context_path` plugin.
 
 ## Plugin Setting
 
@@ -15,13 +15,13 @@ description: context_path plugin
 * If the user don't use, please disable the plugin in the background.
 
 ```xml
-   <!-- shenyu context_path plugin start-->
+   <!-- apache shenyu context_path plugin start-->
    <dependency>
        <groupId>org.apache.shenyu</groupId>
        <artifactId>shenyu-spring-boot-starter-plugin-context-path</artifactId>
       <version>${project.version}</version>
    </dependency>
-   <!-- shenyu context_path plugin end-->
+   <!-- apache shenyu context_path plugin end-->
 ```
 
 * Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule)。

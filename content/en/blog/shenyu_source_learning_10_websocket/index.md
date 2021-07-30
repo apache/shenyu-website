@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learns WebSocket Data Synchronization Analysis"
+title: "Apache ShenYu Gateway Learns WebSocket Data Synchronization Analysis"
 author: "fanjinpeng,zhuming"
-description: "ShenYu Gateway Learns WebSocket Data Synchronization Analysis"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learns WebSocket Data Synchronization Analysis"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-22
 cover: "/img/architecture/shenyu-framework.png"
 ---

@@ -1,5 +1,5 @@
 ---
-title: Selector Detailed Explanation
+title: Selector And Rule Config
 keywords: ShenYu
 description: detailed explanation of selector and rule
 ---

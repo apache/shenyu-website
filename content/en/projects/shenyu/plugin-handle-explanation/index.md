@@ -1,5 +1,5 @@
 ---
-title: Plugin Handle Explanation
+title: Plugin Config
 keywords: plugin
 description: plugin handle explanation
 ---

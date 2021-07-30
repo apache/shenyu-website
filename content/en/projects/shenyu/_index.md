@@ -135,7 +135,7 @@ sidebar:
             link: 'tars-plugin'
           - title: 'Motan Plugin'
             link: 'motan-plugin'
-      - title: 'Circuit Breaker And Current Limiting'
+      - title: 'Fault Tolerance'
         sub:
           - title: 'Hystrix Plugin'
             link: 'hystrix-plugin'

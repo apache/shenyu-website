@@ -18,11 +18,11 @@ description: 自定义匹配条件策略
 ```
 public class ${you class} implements MatchStrategy {
     
-    @Override
-    public Boolean match(final List<ConditionData> conditionDataList, final ServerWebExchange exchange) {
+      @Override
+      public Boolean match(final List<ConditionData> conditionDataList, final ServerWebExchange exchange) {
         //开发你的匹配逻辑，返回结果
         return true;
-    }
+      }
 }
 ```
 

@@ -1,9 +1,8 @@
 ---
-title: Filter Extension
+title: Custom Filter
 keywords: Apache ShenYu
-description: filter extension
+description: custom filter
 ---
-
 
 ## Description
 
@@ -11,7 +10,7 @@ description: filter extension
 
 ## CORS Support
 
-* `org.apache.shenyu.web.filter.CrossFilter` is designed for WebFilter implementation.
+* `org.apache.shenyu.web.filter.CrossFilter` is designed for `WebFilter` implementation.
 
  ```java
  public class CrossFilter implements WebFilter {
@@ -47,8 +46,8 @@ description: filter extension
          return chain.filter(exchange);
      }
  }
-```
-* Registering CrossFilter as a Spring Bean and you are ready to go.
+ ```
+* Registering `CrossFilter` as a `Spring Bean`.
 
 ## Filtering Spring Boot health check
 
@@ -101,7 +100,7 @@ public final class HealthFilter implements WebFilter {
      */
     protected abstract Mono<Void> doDenyResponse(ServerWebExchange exchange);
 ```
-* if method `doFilter` returns Mono<true>, this filter is passing, but not vice versa. While rejecting, it will call method `doDenyResponse` and sending infos in response body to frontend.
+* if method `doFilter` returns `Mono<true>`, this filter is passing, While rejecting, it will call method `doDenyResponse` and sending infos in response body to frontend.
 
 
 

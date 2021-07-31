@@ -9,6 +9,7 @@ description:  Param-mapping插件
 * `param_mapping`插件是 `Apache ShenYu` 网关自带的，用来对你的请求参数进行修改的插件。
 
 
+
 ## 插件设置
 
 -  在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `param_mapping` 设置为开启。

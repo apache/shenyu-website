@@ -8,27 +8,28 @@ description: divide plugin
 
 * `Divide` is the core processing plugin for gateway to process `http` requests.
 
-## Plug-in Setting
+## Plugin Setting
 
-* Introduce related dependencies and enable plug-ins, please refer to: [Quick start http](../quick-start-http)
+* Add related dependencies and enable plugin, please refer to: [Quick start http](../quick-start-http)
 
-* `Http` client，please refer to：[Http proxy](../http-proxy)。
+* `Http` client access, please refer to：[Http proxy](../http-proxy)。
 
-## Plug-in details
+## Plugin detail
 
 The `divide` plugin is a plugin for forward proxying of `http`. All requests of the `http` type are called by the plugin for load balancing.
 
 <img src="/img/shenyu/basicConfig/pluginHandle/selector1_en.png" width="80%" height="80%" />
 
+
 After the client connects to the `Apache ShenYu` gateway, it will automatically register the selector and rule information. For the selector and rule configuration, please refer to:[Selector And Rule](../selector-and-rule)。
 
 
-#### selector setting
+#### Selector Handler
 
 <img src="/img/shenyu/basicConfig/pluginHandle/selector2_en.png" width="80%" height="80%" />
 
 
-selector setting: corresponding to the `handle` field of [selector and rule management] (../selector-and-rule), it is the `http` configuration that is actually called after the gateway matches the traffic. You can configure multiple and set the load The balance weight, the specific load balancing strategy, is specified in the rules. For more information, please refer to [Plugin Handling Management](../plugin-handle-explanation) in Plugin Management.
+Selector Handler, corresponding to the `handle` field of [Selector And Rule Config](../selector-and-rule) , it is the `http` configuration that is actually called after the gateway matches the traffic. You can configure multiple and set the load The balance weight, the specific load balancing strategy, is specified in the rules. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
 * detailed processing setting：
 
   * `host`：input `localhost`，this field is ignored。
@@ -65,11 +66,11 @@ shenyu:
 
  ```  
 
-#### rule setting
+#### Rule Handler
 
  <img src="/img/shenyu/basicConfig/pluginHandle/rule1_en.png" width="80%" height="80%" />
 
-rule setting，corresponding to the `handle` field of [selector and rule management] (../selector-and-rule)，It is the processing rule that the gateway adopts after the final matching of the traffic is completed. For more information, please refer to [Plugin Processing Management](../plugin-handle-explanation) in Plugin Managemen.
+Rule Handler, corresponding to the `handle` field of [Selector And Rule Config](../selector-and-rule). It is the processing rule that the gateway adopts after the final matching of the traffic is completed. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
 
 * detailed processing setting：
   * `loadStrategy`: if the `http` client is a cluster, which load balancing strategy is adopted when the `Apache ShenYu` gateway is called, currently supports `roundRobin`, `random` and `hash`.

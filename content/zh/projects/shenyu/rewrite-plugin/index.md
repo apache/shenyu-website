@@ -6,7 +6,8 @@ description: rewrite插件
 
 ## 说明
 
-* `Apache ShenYu` 网关在对目标服务进行代理调用的时候，还容许用户使用 `rewrite` 插件来重写请求路径
+* `Apache ShenYu` 网关在对目标服务进行代理调用的时候，还容许用户使用 `rewrite` 插件来重写请求路径 。
+
 
 ## 插件设置
 

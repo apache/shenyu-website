@@ -44,6 +44,6 @@ description: sofa插件
 {"loadbalance":"hash","retries":3,"timeout":-1}
 ```
 
-* 服务接口：`sofa`接口的全限定类名
+* 服务接口：`sofa`接口的全限定类名。
 
-* `Rpc`类型：下来选择 `sofa`。
+* `Rpc`类型：下拉选择 `sofa`。

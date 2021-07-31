@@ -9,6 +9,7 @@ description: modifyResponse Plugin
 * `modifyResponse` is a native plugin of Apache ShenYu gateway and is used to edit response header and body and statusCode.
 
 
+
 ## Plugin Setting
 
 * In `shenyu-admin` --> BasicConfig --> Plugin --> `modifyResponse` , set to enable.

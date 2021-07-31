@@ -9,6 +9,7 @@ description: modifyResponse插件
 * `modifyResponse`插件是Apache ShenYu网关自带的，用来对响应进行修改的插件。
 
 
+
 ## 插件设置
 
 -  在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `modifyResponse` 设置为开启。

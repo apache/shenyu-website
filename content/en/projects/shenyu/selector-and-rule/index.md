@@ -1,6 +1,6 @@
 ---
-title: Selector Detailed Explanation
-keywords: Apache ShenYu
+title: Selector And Rule Config
+keywords: ShenYu
 description: detailed explanation of selector and rule
 ---
 

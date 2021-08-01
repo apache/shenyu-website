@@ -120,13 +120,11 @@ you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-sh
 
 ShenYu gateway needs to have a routing prefix, this routing prefix is for you to access the project for configuration `contextPath` .
 
-```yaml
-For example, if you have an order service, it has an interface and its registration path /order/test/save
-
-Now it's to request the gateway via post：http://localhost:9195/order/test/save
-
-Where localhost:9195 is the IP port of the gateway, default port is 9195, /order is the contextPath of your sofa access gateway configuration
-```
+> For example, if you have an `order` service, it has an interface and its registration path `/order/test/save`
+>
+> Now it's to request the gateway via post：`http://localhost:9195/order/test/save`
+>
+> Where `localhost:9195` is the IP port of the gateway, default port is `9195`, `/order` is the `contextPath` of your sofa access gateway configuration
 
 * Parameter passing：
 

@@ -25,8 +25,7 @@ description: rateLimiter插件
 - 每次⼀个请求过来，需要从令牌桶中获取⼀个令牌，如果有令牌，则提供服务；如果没有令牌，则拒绝服务。
 
 * 流程图：
-  ![](https://yu199195.github.io/images/soul/limiting.png)
-
+  ![](/img/shenyu/plugin/ratelimiter/tokenbucket.png)
 
 #### 采用redis漏桶算法进行限流。
 
@@ -81,7 +80,7 @@ description: rateLimiter插件
 
 * 令牌桶算法/并发令牌桶算法
 
-  * `algorithmName`（算法名）：tocketBucket/concurrent 。
+  * `algorithmName`（算法名）：`tokenBucket/concurrent`。
 
   * `replenishRate`（速率）：允许用户每秒执行多少请求，而丢弃任何请求。这是令牌桶的填充速率。
 
@@ -91,7 +90,7 @@ description: rateLimiter插件
 
 * 漏桶算法
 
-  * `algorithmName`（算法名）：leakyBucket 。
+  * `algorithmName`（算法名）：`leakyBucket`。
 
   * `replenishRate`（速率）：单位时间内执行请求的速率，漏桶中水滴漏出的速率。
 
@@ -101,7 +100,7 @@ description: rateLimiter插件
 
 * 滑动窗口算法
 
-  * `algorithmName`（算法名）：sildingWindow 。
+  * `algorithmName`（算法名）：`slidingWindow`。
 
   * `replenishRate`（速率）：单位时间内执行请求的速率，用于计算时间窗口大小。
 

@@ -6,7 +6,7 @@ description: waf plugin
 
 ## Description
 
-* Waf is the core implementation of gateway to realize firewall function for network traffic.
+* `Waf` is the core implementation of gateway to realize firewall function for network traffic.
 
 ## Plugin Setting
 
@@ -59,11 +59,11 @@ For requests that are denied access by `Waf` , the response header status code i
 
 * The `Handler` feild  in the rule configuration must be configured:
 
-  * permission: The handle logic that matches the rule. `reject` -- deny access, `allow` -- allow access.
+  * `permission`: The handle logic that matches the rule. `reject`: deny access, `allow`: allow access.
 
-  * statusCode: When access is denied, the value of the code field in the response body. Will not modify the status code of the response header. 
+  * `statusCode`: When access is denied, the value of the code field in the response body. <font color=red>Will not modify the status code of the response header</font>.
 
-    e.g.：statusCode=10001，The rejected response body is :
+    e.g.：`statusCode=10001`，The rejected response body is :
 
     ```json
     {"code":10001,"message":"You are forbidden to visit"}
@@ -71,6 +71,6 @@ For requests that are denied access by `Waf` , the response header status code i
 
 ## Situation
 
-* Waf is also the pre-plugin of ShenYu, which is mainly used to intercept illegal requests or exception requests and give relevant rejection policies.
-* When faced with replay attacks, you can intercept illegal ip and host, and set reject strategy according to matched ip or host.
-* How to determine ip and host, please refer to: [parsing-ip-and-host](../custom-parsing-ip-and-host)
+* `Waf` is also the pre-plugin of `ShenYu`, which is mainly used to intercept illegal requests or exception requests and give relevant rejection policies.
+* When faced with replay attacks, you can intercept illegal `ip` and `host`, and set reject strategy according to matched `ip` or `host`.
+* How to determine `ip` and `host`, please refer to: [parsing-ip-and-host](../custom-parsing-ip-and-host)

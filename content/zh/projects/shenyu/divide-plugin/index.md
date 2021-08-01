@@ -32,25 +32,25 @@ description: divide插件
 
 * 处理配置详解：
 
-     * `host`：填写 `localhost`，该字段暂时没使用。
-     
-     * `ip:port`：ip与端口，这里填写你真实服务的 `ip` + 端口。
+  * `host`：填写 `localhost`，该字段暂时没使用。
 
-     * `protocol`：：http协议，填写 `http://` 或者 `https://` ，不填写默认为:`http://`
-  
-     * `startupTime`： 启用时间。
-     
-     * `weight`：负载均衡权重。
-     
-     * `warmupTime`：预热时间。
-  
-     * `status`：开启或关闭。
-     
+  * `ip:port`：`ip` 与端口，这里填写你真实服务的 `ip` + 端口。
+
+  * `protocol`：：`http` 协议，填写 `http://` 或者 `https://` ，不填写默认为:`http://`
+
+  * `startupTime`： 启用时间。
+
+  * `weight`：负载均衡权重。
+
+  * `warmupTime`：预热时间。
+
+  * `status`：开启或关闭。
+
   * `ip + port` 检测
-  
-     * 在 `shenyu-admin` 会有一个定时任务来扫描 配置的`ip`端口，如果发现下线，则会删除该 `ip + port`  。
-     
-     * 可以进行如下配置 ：
+
+    * 在 `shenyu-admin` 会有一个定时任务来扫描 配置的`ip`端口，如果发现下线，则会删除该 `ip + port`
+
+    * 可以进行如下配置 ：
      
 ```yaml
 shenyu:

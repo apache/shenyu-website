@@ -16,12 +16,12 @@ description: 插件扩展
 
 * 引入如下依赖：
 
-```
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-plugin-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+```xml
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-plugin-api</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
 * 用户新增一个类 `MyShenyuPlugin`，直接实现 `org.apache.shenyu.plugin.api.ShenyuPlugin`
@@ -152,8 +152,17 @@ public class CustomPlugin extends AbstractShenyuPlugin {
         return false;
     }
 
+    /**
+     * this is Template Method child has Implement your own logic.
+     *
+     * @param exchange exchange the current server exchange
+     * @param chain    chain the current chain
+     * @param selector selector
+     * @param rule     rule
+     * @return {@code Mono<Void>} to indicate when request handling is complete
+     */
     @Override
-    protected Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorZkDTO selector, RuleZkDTO rule) {
+    protected abstract Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorData selector, RuleData rule) {
         LOGGER.debug(".......... function plugin start..............");
         /*
          * Processing after your selector matches the rule.

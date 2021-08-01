@@ -64,7 +64,7 @@ Selector Handler, the `handle` field, is an operation that can be processed by t
 
 * details：
 
-     * `serviceId`：service Id.
+     * `serviceId`：service id.
      
 #### Rule Handler
 

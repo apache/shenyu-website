@@ -88,7 +88,8 @@ Please refer this：[shenyu-examples-http](https://github.com/apache/incubator-s
 
 
 Add this annotation `@ShenyuSpringMvcClient` in your `controller` interface.
-You can apply the annotation to class-level in a controller.the name of the path variable is prefix and `/**` will apply proxy for entire interfaces.
+
+You can apply the annotation to class-level in a controller. The name of the `path` variable is prefix and `/**` will apply proxy for entire interfaces.
 
 
 Example(1)
@@ -150,22 +151,22 @@ The following indicates that `/order/save` is proxied by the gateway, while `/or
 * Start your project, your service interface is connected to the gateway, go to the `shenyu-admin` management system plugin list `->` HTTP process `->` Divide, see automatically created selectors and rules.
 
 
-## Http request access gateway（other framework）
+## Http request access gateway(other framework)
 
-* First of all, find divide plugin in `shenyu-admin`, add selector, and rules, and filter traffic matching.
+* First, find `divide` plugin in `shenyu-admin`, add selector, and rules, and filter traffic matching.
 * If you don't know how to configure, please refer to [Selector Detailed Explanation](../selector-and-rule).
-* You can also develop your cutomized http-client，refer to [multi-language Http client development](../developer-shenyu-client)。
+* You can also develop your customized http-client，refer to [multi-language Http client development](../developer-shenyu-client)。
 
 ## User request
 
 * Send the request as before, only two points need to notice.
 * Firstly, the domain name that requested before in your service, now need to replace with gateway's domain name.
-* Secondly, Apache ShenYu Gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if you are familiar with it.
-    * for example, if you have an order service and it has a interface, the request url: http://localhost:8080/test/save
+* Secondly, `Apache ShenYu` Gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in `divide` plugin of `shenyu-admin`, if you are familiar with it.
+    * for example, if you have an `order` service, and it has an interface, the request url: `http://localhost:8080/test/save`
 
-    * Now need to change to:  http://localhost:9195/order/test/save
+    * Now need to change to:  `http://localhost:9195/order/test/save`
 
-    * We can see localhost:9195 is your gateway's ip port，default port number is 9195 ，/order is your contextPath which you configured with gateway.
+    * We can see `localhost:9195` is your gateway's `ip` port，default port number is `9195` ，`/order` is your `contextPath` which you configured with gateway.
 
     * Other parameters doesn't change in request method.
 

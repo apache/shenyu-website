@@ -12,7 +12,7 @@ description: rateLimiter plugin
 
 * The implementation of current limiting algorithm of Apache ShenYu gateway is based on `redis`.
 
-* You can set to the interface level or the parameter level. How to use it depends on your traffic configuration.
+* You can set to the interface level, or the parameter level. How to use it depends on your traffic configuration.
 
 
 ## Technical Solution
@@ -24,7 +24,7 @@ description: rateLimiter plugin
 - Each time requests come, you need to obtain a token from the token bucket. If there are tokens, the service will be provided; if there are no tokens, the service will be rejected.
 
 * Flow Diagram：
-  ![](https://yu199195.github.io/images/soul/limiting.png)
+  ![](/img/shenyu/plugin/ratelimiter/tokenbucket.png)
 
 
 #### Using redis leaky bucket algorithm to limit traffic.
@@ -73,15 +73,14 @@ For more information on selectors and rules configuration, see [Selector And Rul
 
 
 
-
 * Rules Handler Details
 
 <img src="/img/shenyu/plugin/ratelimiter/ratelimiter-plugin-en-1.png" width="80%" height="80%" />
 
 
-* TocketBucket/Concurrent
+* TokenBucket/Concurrent
 
-  * `algorithmName`: tocketBucket/concurrent.
+  * `algorithmName`: `tokenBucket`/`concurrent`.
 
   * `replenishRate`: It is how many requests you allow users to execute per second, while not discarding any requests. This is the filling rate of token bucket.
 
@@ -91,7 +90,7 @@ For more information on selectors and rules configuration, see [Selector And Rul
 
 * LeakyBucket
 
-  * `algorithmName`: leakyBucket.
+  * `algorithmName`: `leakyBucket`.
 
   * `replenishRate`: The rate at which requests are executed per unit time, and the rate at which water droplets leak out of the leaky bucket.
 
@@ -99,9 +98,9 @@ For more information on selectors and rules configuration, see [Selector And Rul
 
   * `keyResolverName`: `whole` indicates that the traffic is limited by gateway per second, and `remoteAddress` indicates that the traffic is limited by IP per second.
 
-* SildingWindow
+* SlidingWindow
 
-  * `algorithmName`: sildingWindow.
+  * `algorithmName`: `slidingWindow`.
 
   * `replenishRate`: The rate of requests per unit time, used to calculate the size of the time window.
 

@@ -24,7 +24,7 @@ description: monitor插件
 * 在 `monitor` 插件中新增以下配置：
 
 ```yaml
-{"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
+{"metricsName":"prometheus","host":"localhost","port":"9190","async":"true"}
 
 # port : 为暴露给 prometheus服务来拉取的端口
 # host : 不填写则为 Apache ShenYu 网关的host.
@@ -54,7 +54,7 @@ description: monitor插件
 
 ## metrics信息
 
-* 所有的`JVM`，线程，内存，等相关信息都会埋点，可以在 `Granfana ` 面板中，新增一个 `JVM` 模块，则会完全展示 具体请看：https://github.com/prometheus/jmx_exporter
+* 所有的`JVM`，线程，内存，等相关信息都会埋点，可以在 `Grafana` 面板中，新增一个 `JVM` 模块，则会完全展示 具体请看：https://github.com/prometheus/jmx_exporter
 
 * 另外还有如下自定义的 `metrics`
 
@@ -81,37 +81,37 @@ description: monitor插件
  ```
 **注：** `job_name`跟`monitor`插件配置的`metricsName`相对应
 
-* 配置完成之后window下可以直接双击`prometheus.exe`启动即可，默认启动端口为9090，可通过http://localhost:9090/ 验证是否成功
+* 配置完成之后 `window` 下可以直接双击 `prometheus.exe` 启动即可，默认启动端口为 `9090` ，可通过http://localhost:9090/ 验证是否成功
 
 ## 面板展示
 
 推荐使用 `Grafana`，用户可以自定义查询来个性化显示面板盘。
 
-下面介绍Grafana部署（windows版）
+下面介绍 `Grafana` 部署（`windows`版）
 
-* 安装Grafana
+* 安装 `Grafana`
 
-[下载地址](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) 解压进入bin目录然后双击grafana-server.exe运行 访问http://localhost:3000/?orgId=1 admin/admin 验证是否成功
+[下载地址](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) 解压进入 `bin` 目录然后双击 `grafana-server.exe` 运行 访问 `http://localhost:3000/?orgId=1` admin/admin 验证是否成功
 
-* 配置Prometheus数据源
+* 配置 `Prometheus` 数据源
 
 ![](/img/shenyu/monitor/prometheus-datasource.png)
 
-* 配置JVM面板
+* 配置 `JVM` 面板
 
-点击`Create` - `Import`，输入dashboards的id（推荐8563）
+点击`Create` - `Import`，输入 `dashboards` 的 `id`（推荐`8563`）
 
 ![](/img/shenyu/monitor/jvm-import.png)
 
-最终JVM监控面板效果如下：
+最终`JVM`监控面板效果如下：
 
 ![](/img/shenyu/monitor/jvm.png)
 
 * 配置自定义metric面板`request_total`、`http_request_total`
 
-点击`Create` - `Import`，输入dashboards的[面板json配置](/img/shenyu/monitor/request_metric_dashboard.json)
+点击`Create` - `Import`，输入 `dashboards` 的[面板json配置](/img/shenyu/monitor/request_metric_dashboard.json)
 
-最终自定义Http请求监控面板效果如下：
+最终自定义 `Http` 请求监控面板效果如下：
 
 ![](/img/shenyu/monitor/request-metric.png)
 

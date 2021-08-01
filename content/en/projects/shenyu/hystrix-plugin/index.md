@@ -4,33 +4,57 @@ keywords: Apache ShenYu
 description: hystrix plugin
 ---
 
-## Explanation
+## Description
 
 * Hystrix plugin is the core implementation used by gateway to fuse traffic.
-* Use semaphores to process requests.
+* Support `thread` and `semaphore` .
 
 ## Plugin Setting
 
-* In `shenyu-admin` --> plugin management --> `hystrix`, set to enable.
+Select a mode to start shenyu-admin. For details, see  deployment. For example, with [Local Deployment](../deployment-local) starts the `Apache ShenYu` background management system.
+
+* In BasicConfig --> Plugin --> hystrix, set to enable.
 * If the user don't use, please disable the plugin in the background.
 
-## Plugin Instruction
+<img src="/img/shenyu/plugin/hystrix/hystrix-plugin-en-1.png" width="80%" height="80%" />
 
-* Introduce `hystrix` dependency in the pom.xml file of the gateway.
+
+## Add hystrix plugin dependency
+
+* Add `hystrix` dependency in the `pom.xml` file of the gateway.
 
 ```xml
-  <!-- apache shenyu hystrix plugin start-->
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-hystrix</artifactId>
-       <version>${last.version}</version>
-  </dependency>
-  <!-- apache shenyu hystrix plugin end-->
+        <!-- apache shenyu hystrix plugin start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-hystrix</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- apache shenyu hystrix plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
 
-* Hystrix processing details:
+
+##  Hystrix Config
+
+
+For more information on selectors and rules configuration, see [Selector And Rule Config](../selector-and-rule) , only some of the fields are covered here.
+
+####  Selector Config
+
+It is used to filter traffic for the first time and does not require handle fields.
+
+<img src="/img/shenyu/plugin/hystrix/hystrix-plugin-en-2.png" width="80%" height="80%" />
+
+#### Rule Config
+
+For the final filtering of traffic, there is a rule handler logic, isolation mode supports `thread` and `semaphore`.
+
+<img src="/img/shenyu/plugin/hystrix/hystrix-plugin-en-3.png" width="80%" height="80%" />
+
+
+
+* Hystrix handler details:
     
     * Trip minimum request quantity: the minimum request quantity, which must be reached at least before the fuse is triggered
     * Error half-score threshold: the percentage of exceptions in this period of time.
@@ -39,3 +63,18 @@ description: hystrix plugin
     * Grouping Key: generally set as: contextPath
     * Command Key: generally set to specific path interface.
     * CallBackUrl: default url: /fallback/hystrix.
+
+    * MinimumRequests: the minimum number of requests required to trigger a circuit breaker.
+                           
+    * ErrorThresholdPercentage: percentage of exception occurring during that time.
+                                    
+    * MaxConcurrentRequests: max concurrent requests.
+    
+    * Sleep`(ms)`: The recovery time after the circuit breaker.                   
+    
+    * GroupKey: It is generally set to: `contextPath`.
+                      
+    * CallBackUrl: default url `/fallback/hystrix`.
+    
+    * CommandKey: generally, it is set to a specific path interface.
+                  

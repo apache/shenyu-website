@@ -4,7 +4,7 @@ keywords: monitor
 description: monitor plugin
 ---
 
-## Explanation
+## Description
 
 * Monitor plugin is used to monitor its own running status(JVM-related) by gateway, include request response delay, QPS, TPS, and other related metrics.
 
@@ -18,7 +18,7 @@ description: monitor plugin
 
 ## Plugin Setting
 
-* In `shenyu-admin`--> plugin management-> monitor, set to enable.
+* In `shenyu-admin`--> BasicConfig --> Plugin --> monitor, set to enable.
 * Add the following configuration in the monitor plugin.
 
 ```yaml
@@ -37,11 +37,11 @@ description: monitor plugin
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-monitor</artifactId>
-      <version>${last.version}</version>
+      <version>${project.version}</version>
   </dependency>
   <!-- apache shenyu monitor plugin end-->
 ```
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
 * Only when the url is matched, the url will request event tracking.
 
 ## Metrics Detail

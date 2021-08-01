@@ -26,12 +26,12 @@ description: sign插件
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-sign</artifactId>
-     <version>${last.version}</version>
+     <version>${project.version}</version>
   </dependency>
   <!-- apache shenyu sign plugin end-->
 ```
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看：[选择器和规则管理](../selector-and-rule) 。
 
   * 只有匹配的请求，才会进行签名认证。
 

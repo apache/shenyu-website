@@ -36,7 +36,7 @@ Selector Handler, corresponding to the `handle` field of [Selector And Rule Conf
 
   * `ip:port`：IP and port, input your true service `ip` + port here。
 
-  * `protocol`：：HTTP protocol，input `http://` or `https://` ，default is:`http://`
+  * `protocol`：：`HTTP` protocol，input `http://` or `https://` ，default is:`http://`
 
   * `startupTime`： enabling the time。
 

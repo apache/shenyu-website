@@ -6,7 +6,7 @@ description:  RequestPlugin
 
 ## Explanation
 
-* When ShenYu gateway makes proxy call to target service, it also allows users to add, modify and remove request headers by using 'request' plugin to request parameters, request headers and cookies.
+* When `ShenYu` gateway makes proxy call to target service, it also allows users to add, modify and remove request headers by using 'request' plugin to request parameters, request headers and cookies.
 
 ## Plugin Setting
 
@@ -29,5 +29,5 @@ description:  RequestPlugin
 
 ## Situation
 
-* As the name implies, a request plugin is a custom modification of a URI request parameter.
+* As the name implies, a request plugin is a custom modification of a `URI` request parameter.
 * When a request is matched, the custom modification rule is set to change the parameters accepted by the downstream service.

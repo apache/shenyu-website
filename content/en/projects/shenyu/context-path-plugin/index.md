@@ -6,7 +6,7 @@ description: context_path plugin
 
 ## Explanation
 
-* When making invokes to the target service, Apache ShenYu Gateway also allows users to customize the context using the `context_path` plugin.
+* When making invokes to the target service, `Apache ShenYu` Gateway also allows users to customize the `contextPath` using the `context_path` plugin.
 
 ## Plugin Setting
 
@@ -30,4 +30,4 @@ description: context_path plugin
 
 * As the name suggests,the context_path plugin redefines the contextPath of URI.
 * When the request is matched, the custom `contextPath` is set, then the custom `contextPath` will be intercepted according to the requested Url to obtain the real Url, for example, the request path is `/shenyu/http/order`,
-  The configured contextPath is `/shenyu/http`, then the requested url is `/order`.
+  The configured contextPath is `/shenyu/http`, then the requested `url` is `/order`.

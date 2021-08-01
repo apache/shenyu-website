@@ -6,7 +6,7 @@ description: context_path插件
 
 ## 说明
 
-* Apache ShenYu 网关在对目标服务调用的时候，还容许用户使用 `context_path` 插件来重写请求路径的contextPath
+* `Apache ShenYu` 网关在对目标服务调用的时候，还容许用户使用 `context_path` 插件来重写请求路径的 `contextPath`
 
 ## 插件设置
 
@@ -32,5 +32,5 @@ description: context_path插件
 ## 场景
 
 * 顾名思义，`context_path`插件就是对uri的`contextPath`重新定义。
-* 当匹配到请求后，设置自定义的`contextPath`，那么就会根据请求的Url截取自定义的`contextPath`获取真正的Url，例如请求路径为`/shenyu/http/order`，
+* 当匹配到请求后，设置自定义的`contextPath`，那么就会根据请求的Url截取自定义的`contextPath`获取真正的 `url` ，例如请求路径为`/shenyu/http/order`，
   配置的contextPath为`/shenyu/http`，那么真正请求的url为`/order`。

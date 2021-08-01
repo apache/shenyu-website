@@ -44,7 +44,7 @@ description:  param-mapping-plugin
   * `replaceParameterKeys`: replace request body's `key` ，`key` is the value to be replaced，`value` is the value after replacement
   * `removeParameterKeys`: remove a body `key`
 
-param_mapping modify the request body is achieved through JSONPath, `$.` represents the root directory.
+param_mapping modify the request body is achieved through `JSONPath` , `$.` represents the root directory.
 
 use the configuration，unopened the plugin，request body is:
 ```json

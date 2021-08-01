@@ -26,7 +26,7 @@ description: Spring Cloud插件
 
 * 处理配置详解：
 
-     * `serviceId`：服务Id。
+     * `serviceId`：服务 `id` 。
      
 #### 规则处理
 

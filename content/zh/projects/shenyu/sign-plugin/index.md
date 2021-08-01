@@ -6,20 +6,20 @@ description: sign插件
 
 ## 说明
 
-* sign插件是Apache ShenYu网关自带的，用来对请求进行签名认证的插件。
+* `Sign`插件是`Apache ShenYu`网关自带的，用来对请求进行签名认证的插件。
 
 
 ## 插件设置
 
 请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
-* 在 `shenyu-admin` 基础配置 --> 插件管理 --> `sign` ，设置为开启。如果用户不想使用此功能，请在admin后台停用此插件。
+* 在 `shenyu-admin` 基础配置 --> 插件管理 --> `sign` ，设置为开启。如果用户不想使用此功能，请在 `admin` 后台停用此插件。
 
   <img src="/img/shenyu/plugin/sign/sign_open_zh.jpg" width="80%" height="80%" />
 
 ## 插件使用
 
-* 在网关的 pom.xml 文件中添加 `sign` 的支持。
+* 在网关的 `pom.xml` 文件中添加 `sign` 的支持。
 
 ```xml
   <!-- apache shenyu sign plugin start-->
@@ -37,11 +37,11 @@ description: sign插件
 
 ## 新增 AK/SK
 
-* 在 `shenyu-admin` --> 认证管理中，点击新增，新增一条 AK/SK。详情请看：[认证管理](../authority-management)
+* 在 `shenyu-admin` --> 认证管理中，点击新增，新增一条 `AK/SK` 。详情请看：[认证管理](../authority-management)
 
 ## 网关技术实现
 
- * 采用AK/SK鉴权技术方案。
+ * 采用 `AK/SK` 鉴权技术方案。
  * 采用鉴权插件，责任链的模式来完成。
  * 当鉴权插件开启，并配置所有接口鉴权时候生效。
 
@@ -58,22 +58,21 @@ description: sign插件
 | --------   | -----:  | :----: |
 | timestamp  |  当前时间戳(String类型)   |  当前时间的毫秒数（网关会过滤掉5分钟之前的请求）    |
 | path       | /api/service/abc  | 就是你需要访问的接口路径(根据你访问网关接口自己变更) |
-| version       | 1.0.0  | 目前定位1.0.0 写死，String类型 |
+| version       | 1.0.0  | 目前定为1.0.0 写死，String类型 |
 
- 对上述3个字段进行key的自然排序，然后进行字段与字段值拼接最后再拼接上SK，代码示例。
+ 对上述3个字段进行 `key` 的自然排序，然后进行字段与字段值拼接最后再拼接上 `SK` ，代码示例。
 
 
-第一步：首先构造一个Map。
+第一步：首先构造一个 `Map` 。
 ```java
-
-   Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
-   //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-   map.put("timestamp","1571711067186");  //值应该为毫秒数的字符串形式
-   map.put("path", "/api/service/abc");
-   map.put("version", "1.0.0");
+Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
+//timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
+map.put("timestamp","1571711067186");  //值应该为毫秒数的字符串形式
+map.put("path", "/api/service/abc");
+map.put("version", "1.0.0");
 ```
 
-第二步：进行Key的自然排序，然后Key，Value值拼接最后再拼接分配给你的Sk。
+第二步：进行 `Key` 的自然排序，然后 `Key`，`Value`值拼接最后再拼接分配给你的 `SK`。
 ```java
 List<String> storedKeys = Arrays.stream(map.keySet()
                 .toArray(new String[]{}))
@@ -84,9 +83,9 @@ final String sign = storedKeys.stream()
                 .collect(Collectors.joining()).trim()
                 .concat("506EEB535CF740D7A755CB4B9F4A1536");
 ```
-* 你得到的sign值应该为：`path/api/service/abctimestamp1571711067186version1.0.0506EEB535CF740D7A755CB4B9F4A1536`
+* 你得到的 `sign` 值应该为：`path/api/service/abctimestamp1571711067186version1.0.0506EEB535CF740D7A755CB4B9F4A1536`
 
-第三步：进行Md5加密后转成大写。
+第三步：进行 `MD5` 加密后转成大写。
 ```java
 DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```
@@ -104,16 +103,20 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 | 字段        | 值    |  描述  |
 | --------   | -----:  | :----: |
 | timestamp  |   `1571711067186`  |  上述你进行签名的时候使用的时间值   |
-| appKey     | `1TEST123456781`  | 分配给你的Ak值 |
+| appKey     | `1TEST123456781`  | 分配给你的AK值 |
 | sign       | `A90E66763793BDBC817CF3B52AAAC041`  | 上述得到的签名值 |
 | version       | `1.0.0`  | 写死，就为这个值 |
 
-* 签名插件会默认过滤5分钟之前的请求
+* 签名插件会默认过滤 `5` 分钟之前的请求
 
-* 如果认证不通过会返回 code 为401 message可能会有变动。
+* 如果认证不通过会返回 `code` 为 `401`， `message` 可能会有变动。
 
 ```json
-"code":401,"message":"sign is not pass,Please check you sign algorithm!","data":null}
+{
+  "code": 401,
+  "message": "sign is not pass,Please check you sign algorithm!",
+  "data": null
+}
 ```
 
 ## 签名认证算法扩展

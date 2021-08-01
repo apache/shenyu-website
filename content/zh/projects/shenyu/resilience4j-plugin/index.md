@@ -52,28 +52,28 @@ description: resilience4j插件
 
 * `resilience4j`处理详解：
 
-    * timeoutDurationRate：等待获取令牌的超时时间，单位ms，默认值：5000。
+    * `timeoutDurationRate`：等待获取令牌的超时时间，单位`ms`，默认值：`5000`。
     
-    * limitRefreshPeriod：刷新令牌的时间间隔，单位ms，默认值：500。
+    * `limitRefreshPeriod`：刷新令牌的时间间隔，单位`ms`，默认值：`500`。
     
-    * limitForPeriod：每次刷新令牌的数量，默认值：50。
+    * `limitForPeriod`：每次刷新令牌的数量，默认值：`50`。
     
-    * circuitEnable：是否开启熔断，0：关闭，1：开启，默认值：0。
+    * `circuitEnable`：是否开启熔断，`0`：关闭，`1`：开启，默认值：`0`。
     
-    * timeoutDuration：熔断超时时间，单位ms，默认值：30000。
+    * `timeoutDuration`：熔断超时时间，单位`ms`，默认值：`30000`。
     
-    * fallbackUri：降级处理的uri。
+    * `fallbackUri`：降级处理的`uri`。
     
-    * slidingWindowSize：滑动窗口大小，默认值：100。
+    * `slidingWindowSize`：滑动窗口大小，默认值：`100`。
     
-    * slidingWindowType：滑动窗口类型，0：基于计数，1：基于时间，默认值：0。
+    * `slidingWindowType`：滑动窗口类型，`0`：基于计数，`1`：基于时间，默认值：`0`。
    
-    * minimumNumberOfCalls：开启熔断的最小请求数，超过这个请求数才开启熔断统计，默认值：100。
+    * `minimumNumberOfCalls`：开启熔断的最小请求数，超过这个请求数才开启熔断统计，默认值：`100`。
 
-    * waitIntervalInOpen：熔断器开启持续时间，单位ms，默认值：60000。
+    * `waitIntervalInOpen`：熔断器开启持续时间，单位`ms`，默认值：`60000`。
 
-    * bufferSizeInHalfOpen：半开状态下的环形缓冲区大小，必须达到此数量才会计算失败率，默认值：10。
+    * `bufferSizeInHalfOpen`：半开状态下的环形缓冲区大小，必须达到此数量才会计算失败率，默认值：`10`。
 
-    * failureRateThreshold：错误率百分比，达到这个阈值，熔断器才会开启，默认值50。
+    * `failureRateThreshold`：错误率百分比，达到这个阈值，熔断器才会开启，默认值`50`。
 
-    * automaticTransitionFromOpenToHalfOpenEnabled：是否自动从open状态转换为half-open状态，,true：是，false：否，默认值：false。
+    * `automaticTransitionFromOpenToHalfOpenEnabled`：是否自动从`open`状态转换为`half-open`状态，,`true`：是，`false`：否，默认值：`false`。

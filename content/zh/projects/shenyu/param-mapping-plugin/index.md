@@ -38,11 +38,11 @@ description:  Param-mapping插件
 * 3.修改请求体
   ![](/img/shenyu/plugin/param-mapping/param-mapping.png)
 * 参数解析:
-  * addParameterKeys: 在请求体中增加一个key-value
-  * replaceParameterKeys: 替换请求体中的某一个key，key是要被替换的值，value是替换后的值
-  * removeParameterKeys: 移除请求体中的某一个key
+  * `addParameterKeys`: 在请求体中增加一个 `key-value`
+  * `replaceParameterKeys`: 替换请求体中的某一个 `key` ，`key` 是要被替换的值，`value` 是替换后的值
+  * `removeParameterKeys`: 移除请求体中的某一个 `key`
 
-修改响应体是通过JSONPath来实现的，`$.` 代表根目录
+修改响应体是通过 `JSONPath` 来实现的， `$.` 代表根目录
 
 上面的配置，插件开启前，请求内容为
 ```json

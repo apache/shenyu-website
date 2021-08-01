@@ -210,10 +210,10 @@ shenyu:
 
 * 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，可以在 `shenyu-admin` 中的 `springCloud`插件进行更改。
 
-> 比如你有一个 order服务 它有一个接口，请求路径 http://localhost:8080/test/save
-
-> 现在就需要换成：http://localhost:9195/order/test/save
-
-> 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你接入网关配置的 contextPath
-
+> 比如你有一个 `order` 服务 它有一个接口，请求路径 `http://localhost:8080/test/save`
+>
+> 现在就需要换成：`http://localhost:9195/order/test/save`
+>
+> 其中 `localhost:9195` 为网关的 `ip` 端口，默认端口是 `9195` ，`/order` 是你接入网关配置的 `contextPath`
+>
 > 其他参数，请求方式不变。然后你就可以进行访问了，如此的方便与简单。

@@ -206,16 +206,11 @@ shenyu:
 
 * secondly, Apache ShenYu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if your familiar with it.
 
-```yaml
-
-For example, your have an order service and it has a interface, the request url: http://localhost:8080/test/save .
-
-Now need to change to：http://localhost:9195/order/test/save .
-
-We can see localhost:9195 is the gateway's ip port, default port number is 9195 , /order is the contextPath in your config yaml file.
-
-The request of other parameters don't change. Then you can visit, very easy and simple.
-
-
-```
+> For example, your have an `order` service and it has a interface, the request url: `http://localhost:8080/test/save` .
+>
+> Now need to change to：`http://localhost:9195/order/test/save` .
+>
+> We can see `localhost:9195` is the gateway's ip port, default port number is `9195` , `/order` is the `contextPath` in your config yaml file.
+>
+> The request of other parameters doesn't change. Then you can visit, very easy and simple.
 

@@ -116,13 +116,13 @@ description: sofa 接入 Apache ShenYu 网关
 
 ## sofa用户请求及参数说明
 
-可以通过 `http` 的方式来请求你的`sofa`服务。`Apache ShenYu`网关需要有一个路由前缀，这个路由前缀就是接入网关配置的 `contextPath`。
+可以通过 `http` 的方式来请求你的 `sofa` 服务。`Apache ShenYu` 网关需要有一个路由前缀，这个路由前缀就是接入网关配置的 `contextPath`。
 
-> 比如你有一个 order 服务 它有一个接口，它的注册路径 /order/test/save
-
-> 现在就是通过 post方式请求网关：http://localhost:9195/order/test/save
-
-> 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你sofa接入网关配置的 contextPath
+> 比如你有一个 `order` 服务 它有一个接口，它的注册路径 `/order/test/save`
+>
+> 现在就是通过 `post` 方式请求网关：http://localhost:9195/order/test/save
+>
+> 其中 `localhost:9195` 为网关的 `ip` 端口，默认端口是 `9195` ，`/order` 是你`sofa`接入网关配置的 `contextPath`
 
 
 * 参数传递：

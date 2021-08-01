@@ -12,7 +12,7 @@ description: rateLimiter plugin
 
 * The implementation of current limiting algorithm of Apache ShenYu gateway is based on `redis`.
 
-* You can set to the interface level or the parameter level. How to use it depends on your traffic configuration.
+* You can set to the interface level, or the parameter level. How to use it depends on your traffic configuration.
 
 
 ## Technical Solution
@@ -24,7 +24,7 @@ description: rateLimiter plugin
 - Each time requests come, you need to obtain a token from the token bucket. If there are tokens, the service will be provided; if there are no tokens, the service will be rejected.
 
 * Flow Diagram：
-  ![](https://yu199195.github.io/images/soul/limiting.png)
+  ![](/img/shenyu/plugin/ratelimiter/tokenbucket.png)
 
 
 #### Using redis leaky bucket algorithm to limit traffic.
@@ -69,36 +69,31 @@ description: rateLimiter plugin
   <!-- apache shenyu ratelimiter plugin end-->
 ```
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule)。
+Selectors and rules, please refer to: [selector](../selector-and-rule)。
 
 * Detailed description of the rules
 
-* * Token bucket algorithm/Concurrent token bucket algorithm
+* Token bucket algorithm/Concurrent token bucket algorithm
+
+    * `algorithmName`：`tokenBucket/concurrent`
+
+    * `replenishRate`：It is how many requests you allow users to execute per second, while not discarding any requests. This is the filling rate of token bucket.
+
+    * `burstCapacity`：it is the maximum number of requests that users are allowed to execute in one second. This is token bucket can save the number of token.
+
+* Leaky bucket algorithm
+
+    * `algorithmName`：`leakyBucket`
+
+    * `replenishRate`：The rate at which requests are executed per unit time, and the rate at which water droplets leak out of the leaky bucket.
+
+    * `burstCapacity`：The maximum number of requests that users are allowed to execute in one second. This is the amount of water in the bucket.
 
 
-lgorithmName：tocketBucket/concurrent
+* Sliding time window algorithm
 
-replenishRate：It is how many requests you allow users to execute per second, while not discarding any requests. This is the filling rate of token bucket.
+    * `algorithmName`：`slidingWindow`
 
-burstCapacity：it is the maximum number of requests that users are allowed to execute in one second. This is token bucket can save the number of token.
+    * `replenishRate`：The rate of requests per unit time, used to calculate the size of the time window.
 
-
-* * Leaky bucket algorithm
-
-
-algorithmName：leakyBucket
-
-replenishRate：The rate at which requests are executed per unit time, and the rate at which water droplets leak out of the leaky bucket.
-
-burstCapacity：The maximum number of requests that users are allowed to execute in one second. This is the amount of water in the bucket.
-
-
-* * Sliding time window algorithm
-
-
-algorithmName：sildingWindow
-
-replenishRate：The rate of requests per unit time, used to calculate the size of the time window.
-
-burstCapacity：The maximum number of requests in the time window (per unit time).
-
+    * `burstCapacity`：The maximum number of requests in the time window (per unit time).

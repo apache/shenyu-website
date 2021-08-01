@@ -20,9 +20,9 @@ description:  motan-plugin
 
 ## Plugin Detail
 
+After the client accesses the `Apache ShenYu` gateway, it will automatically register the selector and rule information.
 
-After the client accesses the `Apache ShenYu` gateway, it will automatically register the selector and rule information. You can see it in PluginList -> rpc proxy -> motan. For details about the selector and rule configuration, see [Selector And Rule Config](../selector-and-rule) .
-
+You can see it in PluginList -> rpc proxy -> motan. For details about the selector and rule configuration, see [Selector And Rule Config](../selector-and-rule) .
 
 ## Metadata
 

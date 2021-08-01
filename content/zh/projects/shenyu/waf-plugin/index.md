@@ -6,13 +6,13 @@ description: waf插件
 
 ## 说明
 
-* waf插件，是网关的用来对流量实现防火墙功能的核心实现。
+* `Waf` 插件，是网关的用来对流量实现防火墙功能的核心实现。
 
 ## 插件设置
 
 请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
-* 在 `shenyu-admin` 基础配置 --> 插件管理 --> `waf` ，设置为开启。如果用户不想使用此功能，请在admin后台停用此插件。
+* 在 `shenyu-admin` 基础配置 --> 插件管理 --> `waf` ，设置为开启。如果用户不想使用此功能，请在 `admin` 后台停用此插件。
 
   <img src="/img/shenyu/plugin/waf/waf_open_zh.jpg" width="80%" height="80%" />
 
@@ -55,15 +55,15 @@ description: waf插件
 
 #### 混合模式
 
-* 当 `model` 设置为 `mixed` 混合模式的时候，所有的流量都会通过 waf插件，针对不同的匹配流量，用户可以设置是拒绝，还是通过。
+* 当 `model` 设置为 `mixed` 混合模式的时候，所有的流量都会通过 `waf` 插件，针对不同的匹配流量，用户可以设置是拒绝，还是通过。
 
 * 此时规则配置中的 `处理` 配置必选：
 
-  * permission：匹配到该规则的处理逻辑。reject--拒绝访问，allow--允许访问。
+  * `permission`：匹配到该规则的处理逻辑。`reject`: 拒绝访问，`allow`: 允许访问。
 
-  * statusCode：被拒绝访问时，响应体中code字段的值， <font color=red>不会修改响应头的状态码</font>。
+  * `statusCode`：被拒绝访问时，响应体中`code`字段的值， <font color=red>不会修改响应头的状态码</font>。
 
-    例如设置为：statusCode=10001，被拒绝的响应体如下：
+    例如设置为：`statusCode=10001`，被拒绝的响应体如下：
 
     ```json
     {"code":10001,"message":"You are forbidden to visit"}
@@ -73,6 +73,6 @@ description: waf插件
 
 ## 场景
 
-* waf插件也是 Apache ShenYu 的前置插件，主要用来拦截非法请求，或者异常请求，并且给与相关的拒绝策略。
-* 当面对重放攻击时，你可以根据ip或者host来进行匹配，拦截掉非法的 ip 与 host，设置 reject 策略。
-* 关于如何确定 ip 与 host 值，请看 [parsing-ip-and-host](../custom-parsing-ip-and-host)
+* `Waf`插件也是 `Apache ShenYu` 的前置插件，主要用来拦截非法请求，或者异常请求，并且给与相关的拒绝策略。
+* 当面对重放攻击时，你可以根据 `ip` 或者 `host` 来进行匹配，拦截掉非法的 `ip` 与 `host`，设置 `reject` 策略。
+* 关于如何确定 `ip` 与 `host` 值，请看 [parsing-ip-and-host](../custom-parsing-ip-and-host)

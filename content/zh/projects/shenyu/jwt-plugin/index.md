@@ -37,7 +37,7 @@ description: Jwt插件
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-jwt</artifactId>
-      <version>${last.version}</version>
+      <version>${project.version}</version>
   </dependency>
   <!-- apache shenyu jwt plugin end-->
   

@@ -4,13 +4,13 @@ keywords: sign
 description: sign plugin
 ---
 
-## Explanation
+## Description
 
 * Sign is a native plugin of Apache ShenYu Gateway and is used to process signature authentication of requests.
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [local deployment](../deployment-local) to start the `Apache ShenYu` management system.
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../deployment-local) to start the `Apache ShenYu` management system.
 
 * In `shenyu-admin` BasicConfig --> plugin -> `sign` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -25,12 +25,12 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-sign</artifactId>
-     <version>${last.version}</version>
+     <version>${project.version}</version>
   </dependency>
   <!-- apache shenyu sign plugin end-->
 ```
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
 * Only those matched requests can be authenticated by signature.
 
 

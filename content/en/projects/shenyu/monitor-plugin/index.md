@@ -22,7 +22,7 @@ description: monitor plugin
 * Add the following configuration in the monitor plugin.
 
 ```yaml
-{"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
+{"metricsName":"prometheus","host":"localhost","port":"9190","async":"true"}
 
 # port : Pulled ports for exposing to prometheus service.
 # host : If not filled in, it is the host of Apache ShenYu Gateway.
@@ -46,7 +46,7 @@ description: monitor plugin
 
 ## Metrics Detail
 
-* All JVM，thread，memory，and other related infomation will be made event tracking，you can add a JVM module in the Granfana' panel, and it will be fully displayed, please refer to： https://github.com/prometheus/jmx_exporter
+* All JVM，thread，memory，and other related information will be made event tracking，you can add a JVM module in the Grafana' panel, and it will be fully displayed, please refer to： https://github.com/prometheus/jmx_exporter
 
 * There are also the following custom `metrics`
 

@@ -4,7 +4,7 @@ keywords: OAuth 2
 description:  OAuth 2插件
 ---
 
-## **说明**
+## 说明
 
 - `OAuth2` 插件使用 `Webflux OAuth2` 实现，用于支持 `OAuth` 协议。
 
@@ -25,7 +25,7 @@ description:  OAuth 2插件
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-oauth2</artifactId>
-      <version>${last.version}</version>
+      <version>${project.version}</version>
   </dependency>
   <!-- apache shenyu oauth2 plugin end-->
   

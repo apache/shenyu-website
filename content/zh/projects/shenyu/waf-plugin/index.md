@@ -33,7 +33,7 @@ description: waf插件
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-waf</artifactId>
-      <version>${last.version}</version>
+      <version>${project.version}</version>
   </dependency>
   <!-- Apache ShenYu  waf plugin end-->
 ```

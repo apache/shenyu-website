@@ -62,7 +62,8 @@ description: hystrix插件
     * 跳闸休眠时间`(ms)`：熔断以后恢复的时间。
     
     * 分组`Key`： 一般设置为:`contextPath` 。
+      
+    * 失败降级`URL`： 默认为 `/fallback/hystrix`。  
     
-    * 命令`Key`: 一般设置为具体的路径接口。
-    
-    * 失败降级`URL`: 默认为 `/fallback/hystrix`。
+    * 命令`Key`： 一般设置为具体的路径接口。
+

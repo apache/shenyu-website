@@ -4,13 +4,13 @@ keywords: JWT
 description: JWT plugin
 ----------------------
 
-## Explanation
+## Description
 
 * The `jwt` plug-in is for the `token` attribute or `authorization` of the http request header to carry the attribute value for authentication judgment and judge `OAuth2.0` .
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [local deployment](../deployment-local) to start the `Apache ShenYu` management system .
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../deployment-local) to start the `Apache ShenYu` management system .
 
 * In `shenyu-admin` BasicConfig --> plugin -> `jwt` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -18,7 +18,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 
 * Add configuration mode in plugin editing.
 
-  * `{"secretKey":"","filterPath":[]} `
+  * `{"secretKey":"","filterPath":[]}`
 
   * `secretKey`: The private key when using `jwt` to generate `token`, it is required.
 
@@ -35,14 +35,13 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-jwt</artifactId>
-      <version>${last.version}</version>
+      <version>${project.version}</version>
   </dependency>
   <!-- apache shenyu jwt plugin end-->
   
 ```
 
 * For more instructions on selector and rule configuration, please refer to: [Selector And Rule Config](../selector-and-rule).
-
 
 ## Situation
 

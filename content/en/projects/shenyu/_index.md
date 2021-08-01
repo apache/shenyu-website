@@ -42,6 +42,8 @@ sidebar:
         link: 'register-center-design'
       - title: 'Flow Control'
         link: 'flow-control'
+      - title: 'SPI Design'
+        link: 'spi-design'
   - title: 'Deployment'
     sub:
       - title: 'Local Deployment'
@@ -181,8 +183,6 @@ sidebar:
        link: 'thread'
      - title: 'Shenyu Optimize'
        link: 'shenyu-optimize'
-     - title: 'SPI'
-       link: 'spi-design'
   - title: 'Release Notes'
     link: 'release-notes'
   - title: 'Download'

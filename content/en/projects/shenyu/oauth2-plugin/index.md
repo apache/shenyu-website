@@ -4,13 +4,13 @@ keywords: OAuth2
 description: OAuth2 plugin
 ---
 
-## Explanation
+## Description
 
 * The `OAuth2` plugin is implemented using `Webflux OAuth2`, used to support `OAuth` protocol.
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local).
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [Local Deployment](../deployment-local).
 
 * In `shenyu-admin` BasicConfig --> plugin -> `oauth2` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -27,7 +27,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-oauth2</artifactId>
-      <version>${last.version}</version>
+      <version>${project.version}</version>
   </dependency>
   <!-- apache shenyu oauth2 plugin end-->
   

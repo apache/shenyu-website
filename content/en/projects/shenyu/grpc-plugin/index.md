@@ -34,7 +34,6 @@ Selector Handler, the `handle` field, is the processing operation that the gatew
 
 * config details：
 
-     
      * `ip:port`：enter the ip:port of your real service .
                 
      * `protocol`：indicates the Http protocol. Generally, the value is `http://` or `https://`. If the value is not specified, the default value is `http://` .
@@ -63,8 +62,11 @@ Each `grpc` interface method, will correspond to a metadata, when the `grpc` app
 
 * RpcExpand: other configurations of the `grpc` interface, which support the `JSON` format, are as follows:
 
-```yaml
-{"timeout":5000,"methodType":"SERVER_STREAMING"}
+```json
+{
+  "timeout": 5000,
+  "methodType": "SERVER_STREAMING"
+}
 ```
 
 * Interface: The fully qualified class name of the `grpc` interface.

@@ -82,7 +82,8 @@ description: Http服务接入
 
 
 在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
-你可以把注解加到 `Controller` 类上面，里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
+
+你可以把注解加到 `Controller` 类上面，里面的`path`属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
 
 示例一
    
@@ -141,7 +142,7 @@ description: Http服务接入
 
 ## Http请求接入网关（其他语言，非springMvc体系）
 
-* 首先在 `shenyu-admin` 找到 divide 插件，进行选择器，和规则的添加，进行流量的匹配筛选。
+* 首先在 `shenyu-admin` 找到 `divide` 插件，进行选择器，和规则的添加，进行流量的匹配筛选。
 
 * 如果不懂怎么配置，请参考 [选择器和规则管理](../selector-and-rule)。
 

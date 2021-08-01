@@ -33,9 +33,9 @@ description:  Tars插件
 
      * `host`：一般填写 `localhost`。
      
-     * `ip:port`：ip与端口，这里填写你真实服务的 `ip` + 端口。
+     * `ip:port`：`ip` 与端口，这里填写你真实服务的 `ip` + 端口。
 
-     * `protocol`：：http协议，一般填写 `http://` 或者 `https://` ，不填写默认为:`http://`
+     * `protocol`：：`http` 协议，一般填写 `http://` 或者 `https://` ，不填写默认为:`http://`
   
      * `startupTime`： 启用时间。
      
@@ -58,8 +58,6 @@ description:  Tars插件
     * `timeout`：调用`http`客户端的超时时间。
 
 ## 元数据
-
-
 
 每一个`tars`接口方法，都会对应一条元数据，当`tars`应用客户端接入到`Apache ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
 

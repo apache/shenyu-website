@@ -20,4 +20,4 @@ tags: ["Subscribe-Email"]
 
 完成以上步骤后，您会收到一封主题为`WELCOME to dev@shenyu.apache.org`的欢迎邮件，至此您已成功订阅Apache ShenYu的邮件列表。
 
-至此，您可以通过订阅的邮箱接收及回复邮件，或通过查看[归档邮件](https://lists.apache.org/list.htche.org)来跟踪邮件对话。ml?dev@shenyu.apa
+至此，您可以通过`dev@shenyu.apache.org` 接收及回复邮件，或通过查看[归档邮件](https://lists.apache.org/list.html?dev@shenyu.apache.org)来跟踪邮件对话。

@@ -6,28 +6,29 @@ description:  Param-mapping插件
 
 ## 说明
 
-* param_mapping插件是 ShenYu 网关自带的，用来对你的请求参数进行修改的插件。
+* `param_mapping`插件是 `Apache ShenYu` 网关自带的，用来对你的请求参数进行修改的插件。
+
 
 
 ## 插件设置
 
-* 在 `shenyu-admin` -> 插件管理中 --> `param_mapping`插件设置为开启。
+-  在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `param_mapping` 设置为开启。
 
 ## 插件使用
 
-* 在网关的 pom.xml 文件中添加 `param_mapping` 的支持。
+* 在网关的 `pom.xml` 文件中添加 `param_mapping` 的支持。
 
 ```xml
-  <!-- shenyu param_mapping plugin start-->
+<!-- apache shenyu param_mapping plugin start-->
 <dependency>
-  <groupId>org.apache.shenyu</groupId>
-  <artifactId>shenyu-spring-boot-starter-plugin-param-mapping</artifactId>
-  <version>${project.version}</version>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-param-mapping</artifactId>
+    <version>${project.version}</version>
 </dependency>
-        <!-- shenyu param_mapping plugin end-->
+<!-- apache shenyu param_mapping plugin end-->
 ```
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。
 
   * 只有匹配的请求，才会修改响应。
 
@@ -37,11 +38,11 @@ description:  Param-mapping插件
 * 3.修改请求体
   ![](/img/shenyu/plugin/param-mapping/param-mapping.png)
 * 参数解析:
-  * addParameterKeys: 在请求体中增加一个key-value
-  * replaceParameterKeys: 替换请求体中的某一个key，key是要被替换的值，value是替换后的值
-  * removeParameterKeys: 移除请求体中的某一个key
+  * `addParameterKeys`: 在请求体中增加一个 `key-value`
+  * `replaceParameterKeys`: 替换请求体中的某一个 `key` ，`key` 是要被替换的值，`value` 是替换后的值
+  * `removeParameterKeys`: 移除请求体中的某一个 `key`
 
-修改响应体是通过JSONPath来实现的，`$.` 代表根目录
+修改响应体是通过 `JSONPath` 来实现的， `$.` 代表根目录
 
 上面的配置，插件开启前，请求内容为
 ```json
@@ -51,4 +52,4 @@ description:  Param-mapping插件
 ```json
 {"name":"shenyu","userId":3,"data":{"age":"36"}}
 ```
-上述操作，增加一个'name:shenyu'，把'id'替换为'userId'，移除'data'中的'value'
+上述操作，增加一个`name:shenyu`，把`id`替换为`userId`，移除`data`中的`value` 。

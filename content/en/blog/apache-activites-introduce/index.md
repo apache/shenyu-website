@@ -2,28 +2,28 @@
 author: "xiaoyu"
 authorlink: "https://github.com/yu199195"
 date: 2020-12-27T15:00:00.000Z
-title: "ShenYu Dream Code Book Club Introduction"	
+title: "Apache ShenYu Dream Code Book Club Introduction"	
 tags: ["DreamCode", "Apache","GateWay"]
 cover: "/img/activities/apache-open-shenyu-01.jpg"
-descripton: "ShenYu Dream Code Book Club Introduction"
+descripton: "Apache ShenYu Dream Code Book Club Introduction"
 ---
 
-![ShenYu Dream Code Book Club Introduction](/img/shenyu/activite/shenyu-xmind.png)
+![Apache ShenYu Dream Code Book Club Introduction](/img/shenyu/activite/shenyu-xmind.png)
 
-### ShenYu Dream Code Book Club（ShenYu 2020 event introduction）
+### Apache ShenYu Dream Code Book Club（Apache ShenYu 2020 event introduction）
 
 - Date: Sunday, December 27, 2020
 
 ### Activity background
 
-- In order to increase the enthusiasm of community participants, promote the construction of the ShenYu community, exercise everyone's expressive ability and improve the core strength of technology, the community organized this event in the form of source code reading.
+- In order to increase the enthusiasm of community participants, promote the construction of the Apache ShenYu community, exercise everyone's expressive ability and improve the core strength of technology, the community organized this event in the form of source code reading.
 
 ### Activity purpose, meaning and goal
 - Increase motivation
 - Improve technical strength and expand everyone's horizons
 - Exercise language skills
 - Promote the harmony, unity and progress of the community
-- Make the ShenYu community bigger and bigger
+- Make the Apache ShenYu community bigger and bigger
 
 ### Activity development
 - The activity is divided into multiple phases. First, twelve members are selected for a 12-day source code reading, and two online sharing is carried out during the period.
@@ -36,4 +36,4 @@ descripton: "ShenYu Dream Code Book Club Introduction"
 - Cui, Kimming, Xiaoyu 
 
 #### The main participants
-- ShenYu community member
+- Apache ShenYu community member

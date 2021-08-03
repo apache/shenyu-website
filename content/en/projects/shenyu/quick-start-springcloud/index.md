@@ -3,12 +3,12 @@ title: Quick start with Spring Cloud
 description: Quick start with SpringCloud
 ---
 
-This document introduces how to quickly access the ShenYu gateway using Spring Cloud. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
+This document introduces how to quickly access the Apache ShenYu gateway using Spring Cloud. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
 
 ## Environment to prepare
 
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
 
 After successful startup, you need to open the springCloud plugin on in the BasicConfig `->` Plugin.
 
@@ -21,7 +21,7 @@ If you are a startup gateway by means of source, can be directly run the ShenyuB
 Add the gateway proxy plugin for `Spring Cloud` and add the your registry center dependencies:
 
 ```xml
-<!--shenyu springCloud plugin start-->
+<!-- apache shenyu springCloud plugin start-->
                <dependency>
                     <groupId>org.apache.shenyu</groupId>
                     <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
@@ -50,7 +50,7 @@ Add the gateway proxy plugin for `Spring Cloud` and add the your registry center
                     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
                     <version>2.2.0.RELEASE</version>
                 </dependency>
-        <!--shenyu springCloud plugin end-->
+        <!-- apache shenyu springCloud plugin end-->
 ```
 
 
@@ -120,7 +120,7 @@ The following log appears when the startup is successful:
 
 ## Test
 
-The `shenyu-examples-springcloud` project will automatically register interface methods annotated with `@ShenyuSpringCloudClient` in the shenyu gateway after successful startup.
+The `shenyu-examples-springcloud` project will automatically register interface methods annotated with `@ShenyuSpringCloudClient` in the Apache ShenYu gateway after successful startup.
 
 Open PluginList -> rpc proxy -> springCloud to see the list of plugin rule configurations:
 

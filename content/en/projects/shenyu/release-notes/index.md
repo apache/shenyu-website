@@ -7,13 +7,16 @@ description:  release-notes
 ### 2.3.0
 
 ##### soul-admin
-- Add 'open' field to allow app path authentication or not in sign plugin. 
+
+- Add `open` field to allow app path authentication or not in sign plugin. 
 - Optimize divide plugin to use common plugin template in soul-dashboard. 
 - Add default values and rule checks in plugin handler. 
 - Add resource management to allow user to add plugin, adjust menu and button resource and so on in soul-dashboard and soul-admin.
 - Add menu and data permission in soul-admin. 
 - Add H2 stroe for soul-admin 
+
 ##### soul-bootstrap
+
 - Add tars plugin 
 - Add sentinel plugin
 -- Add sofa plugin 

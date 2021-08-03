@@ -4,7 +4,7 @@ keywords: Apache ShenYu Deployment
 description: docker部署
 ---
 
-本文介绍使用docker来部署Apache ShenYu网关。
+本文介绍使用 `docker` 来部署 `Apache ShenYu` 网关。
 
 ### 启动Apache ShenYu Admin
 

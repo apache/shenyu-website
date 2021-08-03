@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Sentinel插件原理解析"
+title: "Apache ShenYu网关学习Sentinel插件原理解析"
 author: "骆潇龙"
-description: "ShenYu网关学习Sentinel插件原理解析"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Sentinel插件原理解析"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-03-19
 cover: "/img/shenyu/blog6/02.jpg"
 ---

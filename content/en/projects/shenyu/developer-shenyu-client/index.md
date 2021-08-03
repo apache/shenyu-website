@@ -1,13 +1,13 @@
 ---
 title: A multilingual HTTP client
-keywords: shenyu
+keywords: Apache ShenYu
 description: A multilingual HTTP client
 ---
 
 ## Description
 
-* This document focuses on how to access gateways for HTTP services in other languages.
-* How to customize the development of shenyu-http-client.
+* This document focuses on how to access gateways for `HTTP` services in other languages.
+* How to customize the development of `shenyu-http-client`.
 
 ## Customize Http Client
 
@@ -17,16 +17,16 @@ description: A multilingual HTTP client
 
 ```json
 {
-	"appName": "xxx", //required
-	"context": "/xxx", //required
-	"path": "xxx", //required
-	"pathDesc": "xxx", 
-	"rpcType": "http", //required
-	"host": "xxx", //required
-	"port": xxx, //required
-	"ruleName": "xxx", //required
-	"enabled": "true", //required
-	"registerMetaData": "true" //required
+    "appName": "xxx", //required
+    "context": "/xxx", //required
+    "path": "xxx", //required
+    "pathDesc": "xxx", 
+    "rpcType": "http", //required
+    "host": "xxx", //required
+    "port": xxx, //required
+    "ruleName": "xxx", //required
+    "enabled": "true", //required
+    "registerMetaData": "true" //required
 }
 ```
 

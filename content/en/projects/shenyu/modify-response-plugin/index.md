@@ -6,31 +6,30 @@ description: modifyResponse Plugin
 
 ## Description
 
-* modifyResponse is a native plugin of ShenYu Gateway and is used to edit response header and body and statusCode.
+* `modifyResponse` is a native plugin of `Apache ShenYu` gateway and is used to edit response header and body and statusCode.
+
 
 
 ## Plugin Setting
 
-* on `shenyu-admin` -> plugin management --> `modifyResponse`set to enable.
+* In `shenyu-admin` --> BasicConfig --> Plugin --> `modifyResponse` , set to enable.
 
 ## Plugin Use
 
 * Introduce `modifyResponse` dependency in the pom.xml file of the gateway.
 
 ```xml
-  <!-- shenyu modify response plugin start-->
+  <!-- apache shenyu modify response plugin start-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-modify-response</artifactId>
   <version>${project.version}</version>
 </dependency>
-        <!-- shenyu modify response plugin end-->
+        <!-- apache shenyu modify response plugin end-->
 ```
 
-* Selectors and rules, please refer to:[selector](../selector-and-rule)。
-
-  * nly those matched requests can be modify response.
-
+* Selectors and rules, please refer to:[Selector And Rule Config](../selector-and-rule)。
+  * only those matched requests can be modified response.
 
 ## ModifyResponsePlugin Guide
 * 1.Configuration selector
@@ -42,16 +41,16 @@ description: modifyResponse Plugin
 * 5.modify response body
   ![](/img/shenyu/plugin/modify-response/modifyBody-en.png)
 * param details:
-  * addHeaders: add response header，key-value.
-  * setHeaders: set response header，key-value.
-  * replaceHeaderKeys: replace response header name，key is the value to be replaced，value is the value after replacement
-  * removeHeaderKeys: remove response header key
-  * statusCode: response status code
-  * addBodyKeys: add response body
-  * replaceBodyKeys: replace response body ，key is the value to be replaced，value is the value after replacement
-  * removeBodyKeys: remove response body key
+  * `addHeaders`: add response header，`key-value`.
+  * `setHeaders`: set response header，`key-value`.
+  * `replaceHeaderKeys`: replace response header name，`key` is the value to be replaced，`value` is the value after replacement
+  * `removeHeaderKeys`: remove response header `key`
+  * `statusCode`: response status code
+  * `addBodyKeys`: add response body
+  * `replaceBodyKeys`: replace response body ，`key` is the value to be replaced，`value` is the value after replacement
+  * `removeBodyKeys`: remove response body `key`
 
-modify response body is achieved through JSONPath,`$.` represents the root directory.
+modify response body is achieved through `JSONPath` , `$.` represents the root directory.
 
 use the configuration，unopened the plugin，response body is
 ```json

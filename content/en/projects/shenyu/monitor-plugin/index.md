@@ -4,7 +4,7 @@ keywords: monitor
 description: monitor plugin
 ---
 
-## Explanation
+## Description
 
 * Monitor plugin is used to monitor its own running status(JVM-related) by gateway, include request response delay, QPS, TPS, and other related metrics.
 
@@ -18,14 +18,14 @@ description: monitor plugin
 
 ## Plugin Setting
 
-* In `shenyu-admin`--> plugin management-> monitor, set to enable.
+* In `shenyu-admin`--> BasicConfig --> Plugin --> monitor, set to enable.
 * Add the following configuration in the monitor plugin.
 
 ```yaml
-{"metricsName":"prometheus","host":"localhost","port":"9191","async":"true"}
+{"metricsName":"prometheus","host":"localhost","port":"9190","async":"true"}
 
 # port : Pulled ports for exposing to prometheus service.
-# host : If not filled in, it is the host of ShenYu Gateway.
+# host : If not filled in, it is the host of Apache ShenYu Gateway.
 # async :"true" is asynchronous event tracking， false is synchronous event tracking.
 ```
 
@@ -33,26 +33,26 @@ description: monitor plugin
 * Introduce `monitor` dependency in the pom.xml file of the gateway.
 
 ```xml
-  <!-- shenyu monitor plugin start-->
+  <!-- apache shenyu monitor plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-monitor</artifactId>
-      <version>${last.version}</version>
+      <version>${project.version}</version>
   </dependency>
-  <!-- shenyu monitor plugin end-->
+  <!-- apache shenyu monitor plugin end-->
 ```
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
 * Only when the url is matched, the url will request event tracking.
 
 ## Metrics Detail
 
-* All JVM，thread，memory，and other related infomation will be made event tracking，you can add a JVM module in the Granfana' panel, and it will be fully displayed, please refer to： https://github.com/prometheus/jmx_exporter
+* All JVM，thread，memory，and other related information will be made event tracking，you can add a JVM module in the Grafana' panel, and it will be fully displayed, please refer to： https://github.com/prometheus/jmx_exporter
 
 * There are also the following custom `metrics`
 
 | Name                      |type                  |target       | description                  |
 |:------------------------ |:--------------------- |:-------------|:-------------------- |
-|request_total             |Counter                | none           |collecting all requests of ShenYu Gateway |
+|request_total             |Counter                | none           |collecting all requests of Apache ShenYu Gateway |
 |http_request_total        |Counter                 | path,type    |collecting all matched requests of monitor|
 
 ## Collect metrics

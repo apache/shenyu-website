@@ -1,16 +1,16 @@
 ---
 title: 线程模型
-keywords: shenyu
+keywords: Apache ShenYu
 description: 线程模型
 ---
 
 ## 说明
 
-* 本文主要介绍 `ShenYu` 的线程模型，以及各种场景的使用。
+* 本文主要介绍 `Apache ShenYu` 的线程模型，以及各种场景的使用。
 
 ## IO与Work线程
 
-* `ShenYu` 内置依赖 `spring-webflux`， 而其底层是使用的是 `netty`，这一块主要是使用的 `netty` 线程模型。
+* `Apache ShenYu` 内置依赖 `spring-webflux`， 而其底层是使用的是 `netty`，这一块主要是使用的 `netty` 线程模型。
 
 ## 业务线程
 

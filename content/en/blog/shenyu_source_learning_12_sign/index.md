@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning Sign Plugin"
+title: "Apache ShenYu Gateway Learning Sign Plugin"
 author: "tangtian"
-description: "ShenYu Gateway Learning Sign Plugin"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learning Sign Plugin"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-29
 cover: "/img/architecture/shenyu-framework.png"
 ---
@@ -16,13 +16,13 @@ AK/SK（Access Key ID/Secret Access Key）即访问密钥，包含访问密钥ID
 ## 插件使用-以（/dubbo/findAll）为例
 ### 在SoulBootstrap的 pom.xml 文件中添加 `sign` 的支持
 ```xml
-  <!-- ShenYu sign plugin start-->
+  <!-- apache shenyu sign plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>soul-spring-boot-starter-plugin-sign</artifactId>
      <version>${last.version}</version>
   </dependency>
-  <!-- ShenYu sign plugin end-->
+  <!-- apache shenyu sign plugin end-->
 ```
 ### 新增appKey，secretKey
 ![image.png](/img/shenyu/blog4/01.png)

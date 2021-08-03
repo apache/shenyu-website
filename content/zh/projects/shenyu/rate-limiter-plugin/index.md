@@ -8,9 +8,9 @@ description: rateLimiter插件
 
 * 限流插件，是网关对流量管控限制核心的实现。
 
-* `ShenYu` 网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
+* `Apache ShenYu` 网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
 
-* `ShenYu` 网关的限流算法实现都是基于`redis`。
+* `Apache ShenYu` 网关的限流算法实现都是基于`redis`。
 
 * 可以到接口级别，也可以到参数级别。
 
@@ -25,8 +25,7 @@ description: rateLimiter插件
 - 每次⼀个请求过来，需要从令牌桶中获取⼀个令牌，如果有令牌，则提供服务；如果没有令牌，则拒绝服务。
 
 * 流程图：
-  ![](https://yu199195.github.io/images/soul/limiting.png)
-
+  ![](/img/shenyu/plugin/ratelimiter/tokenbucket.png)
 
 #### 采用redis漏桶算法进行限流。
 
@@ -63,13 +62,13 @@ description: rateLimiter插件
 * 在网关的 `pom.xml` 文件中添加 `rateLimiter` 的依赖。
 
 ```xml
-        <!-- shenyu ratelimiter plugin start-->
+        <!-- apache shenyu ratelimiter plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-ratelimiter</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- shenyu ratelimiter plugin end-->
+        <!-- apache shenyu ratelimiter plugin end-->
 ```
 
 关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../selector-and-rule)， 这里只对部分字段进行了介绍。
@@ -81,30 +80,30 @@ description: rateLimiter插件
 
 * 令牌桶算法/并发令牌桶算法
 
-  * `algorithmName`（算法名）：tocketBucket/concurrent
+  * `algorithmName`（算法名）：`tokenBucket/concurrent`。
 
   * `replenishRate`（速率）：允许用户每秒执行多少请求，而丢弃任何请求。这是令牌桶的填充速率。
 
   * `burstCapacity`（容量）：允许用户在一秒钟内执行的最大请求数。这是令牌桶可以保存的令牌数。
 
-  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流
+  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流。
 
 * 漏桶算法
 
-  * `algorithmName`（算法名）：leakyBucket
+  * `algorithmName`（算法名）：`leakyBucket`。
 
   * `replenishRate`（速率）：单位时间内执行请求的速率，漏桶中水滴漏出的速率。
 
   * `burstCapacity`（容量）：允许用户在一秒钟内执行的最大请求数。这是桶中的水量。
 
-  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流
+  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流。
 
 * 滑动窗口算法
 
-  * `algorithmName`（算法名）：sildingWindow
+  * `algorithmName`（算法名）：`slidingWindow`。
 
   * `replenishRate`（速率）：单位时间内执行请求的速率，用于计算时间窗口大小。
 
   * `burstCapacity`（容量）：时间窗口内（单位时间内）最大的请求数量。
 
-  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流
+  * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流。

@@ -5,7 +5,7 @@ description: authority-management
 ---
 ## Explanation
 
-- Manage and control the permissions of requests passing through the ShenYu gateway.
+- Manage and control the permissions of requests passing through the Apache ShenYu gateway.
 - Generate `AK/SK` and use it with the `Sign` plugin to achieve precise authority control based on URI level.
 
 ## Tutorial

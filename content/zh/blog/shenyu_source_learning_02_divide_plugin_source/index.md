@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习(2-2)Http代理之divide插件源码解析"
+title: "Apache ShenYu网关学习(2-2)Http代理之divide插件源码解析"
 author: "季鹏"
-description: "ShenYu网关学习(2-2)divide插件源码解析"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习(2-2)divide插件源码解析"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-17
 cover: "/img/architecture/shenyu-framework.png"
 ---

@@ -4,9 +4,9 @@ keywords: dict
 description: 字典管理详解
 ---
 
-本文档将介绍`ShenYu`后台管理系统中字典管理的使用，字典管理主要用来维护和管理公用数据字典。
+本文档将介绍`Apache ShenYu`后台管理系统中字典管理的使用，字典管理主要用来维护和管理公用数据字典。
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
 
 
 目前使用场景是在 [插件处理管理](../plugin-handle-explanation) 时，选择数据类型是 `下拉框` 时使用： 

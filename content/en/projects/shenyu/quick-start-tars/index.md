@@ -3,12 +3,12 @@ title: Quick start with Tars
 description: Quick start with Tars
 ---
 
-This document introduces how to quickly access the ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars) .
+This document introduces how to quickly access the Apache ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars) .
 
 ## Environment to prepare
 
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
 
 After successful startup, you need to open the Sofa plugin on in the BasicConfig `->` Plugin.
 
@@ -104,7 +104,7 @@ The session manager service started...
 
 ## Test
 
-The `shenyu-examples-tars` project will automatically register interface methods annotated with `@ShenyuTarsClient` in the shenyu gateway after successful startup.
+The `shenyu-examples-tars` project will automatically register interface methods annotated with `@ShenyuTarsClient` in the Apache ShenYu gateway after successful startup.
 
 Open PluginList -> rpc proxy -> tars to see the list of plugin rule configurations:
 

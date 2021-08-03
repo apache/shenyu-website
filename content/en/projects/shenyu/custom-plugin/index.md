@@ -1,30 +1,30 @@
 ---
 title: Custom Plugin
-keywords: shenyu
+keywords: Apache ShenYu
 description: plugins
 ---
 
 ## Description
 
-* Plugins are core executors of ShenYu gateway. Every plugin handles matched requests when enabled.
-* There are two kinds of plugins in the ShenYu gateway.
-* The first type is a call chain with a single responsibility, and traffic cannot be customized.
-* The other one can do its own chain of responsibility for matched traffic.
-* You could reference from shenyu-plugin module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
+* Plugins are core executors of `Apache ShenYu` gateway. Every plugin handles matched requests when enabled.
+* There are two kinds of plugins in the `Apache ShenYu` gateway.
+  * The first type is a chain with single responsibility, and can not custom filtering of traffic.
+  * The other one can do its own chain of responsibility for matched traffic.
+* You could reference from [shenyu-plugin](https://github.com/apache/incubator-shenyu/tree/master/shenyu-plugin) module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
 
 ## Single Responsibility Plugins
 
 * Add following dependency:
 
-```
- <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-plugin-api</artifactId>
-        <version>${last.version}</version>
-  </dependency>
+```xml
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-plugin-api</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
-* Declare a new class named "A" and implements `org.apache.shenyu.plugin.api.ShenyuPlugin`
+* Declare a new class named `MyShenyuPlugin` and implements `org.apache.shenyu.plugin.api.ShenyuPlugin`
 
 ```java
 public interface ShenyuPlugin {
@@ -77,12 +77,12 @@ Detailed instruction of interface methods:
 * `getOrder()` get the order of current plugin.
 * `named()` acquire the name of specific plugin.
 * `skip()` determines whether this plugin should be skipped under certain conditions.
-* Register plugin in Spring as a Bean, or simply apply `@Component` in implementation class.
+* Register plugin in `Spring` as a `Bean`, or simply apply `@Component` in implementation class.
 
 ```java
     @Bean
-    public ShenyuPlugin a() {
-        return new A();
+    public ShenyuPlugin myShenyuPlugin() {
+        return new MyShenyuPlugin();
     }
 ```
 
@@ -94,10 +94,10 @@ Detailed instruction of interface methods:
  <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-plugin-base</artifactId>
-        <version>${last.version}</version>
+        <version>${project.version}</version>
   </dependency>
 ```
-* Add a new class A, inherit from `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
+* Add a new class `CustomPlugin`, inherit from `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
 
 * examples down below:
 
@@ -147,8 +147,17 @@ public class CustomPlugin extends AbstractShenyuPlugin {
         return false;
     }
 
+    /**
+     * this is Template Method child has Implement your own logic.
+     *
+     * @param exchange exchange the current server exchange
+     * @param chain    chain the current chain
+     * @param selector selector
+     * @param rule     rule
+     * @return {@code Mono<Void>} to indicate when request handling is complete
+     */
     @Override
-    protected Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorZkDTO selector, RuleZkDTO rule) {
+    protected abstract Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorData selector, RuleData rule) {
         LOGGER.debug(".......... function plugin start..............");
         /*
          * Processing after your selector matches the rule.
@@ -174,26 +183,26 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
 * Detailed explanation:
 
-   * Plugins will match the selector rule for customized plugins inherit from this abstract class. Following steps guide you to config your plugins.
+   * Plugins will match the selector rule for customized plugins inherit from this abstract class. 
 
-   * Firstly define a new plugin in `shenyu-admin`, please mind that your plugin name should match the named() method overridden in your class.
+   * Firstly define a new plugin in `shenyu-admin`  –> BasicConfig –> Plugin, please mind that your plugin name should match the `named()` method overridden in your class.
 
    * Re-login  `shenyu-admin`, the plugin you added now showing on plugin-list page, you can choose selectors for matching.
 
    * There is a field named `handler` in rules, it is customized json string to be processed. You can process data after acquiring a ruleHandle (` final String ruleHandle = rule.getHandle();`) in `doExecute()` method.
 
-* Register plugin in Spring as a Bean, or simply apply `@Component` in implementation class.
+* Register plugin in `Spring` as a `Bean`, or simply apply `@Component` in implementation class.
 
 ```java
     @Bean
-    public ShenyuPlugin a() {
-        return new A();
+    public ShenyuPlugin customPlugin() {
+        return new CustomPlugin();
     }
 ```
 
 ## Subscribe your plugin data and do customized jobs
 
-* Declare a new class named "A" and implements `org.apache.shenyu.plugin.base.handler.PluginDataHandler`
+* Declare a new class named `PluginDataHandler` and implements `org.apache.shenyu.plugin.base.handler.PluginDataHandler`
 
 ```java
 public interface PluginDataHandler {
@@ -257,10 +266,10 @@ public interface PluginDataHandler {
 ```
 
 * Ensure `pluginNamed()` is same as the plugin name you defined.
-* Register defined class as a Spring Bean, or simply apply `@Component` in implementation class.
+* Register defined class as a `Spring Bean`, or simply apply `@Component` in implementation class.
 ```java
     @Bean
-    public PluginDataHandler a() {
-        return new A();
+    public PluginDataHandler pluginDataHandler() {
+        return new PluginDataHandler();
     }
 ```

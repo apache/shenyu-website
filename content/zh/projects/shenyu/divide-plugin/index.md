@@ -20,7 +20,7 @@ description: divide插件
 
 <img src="/img/shenyu/basicConfig/pluginHandle/selector1.png" width="80%" height="80%" />
 
-客户端接入`ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule)。
+客户端接入`Apache ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule)。
 
 
 #### 选择器处理
@@ -32,25 +32,25 @@ description: divide插件
 
 * 处理配置详解：
 
-     * `host`：填写 `localhost`，该字段暂时没使用。
-     
-     * `ip:port`：ip与端口，这里填写你真实服务的 `ip` + 端口。
+  * `host`：填写 `localhost`，该字段暂时没使用。
 
-     * `protocol`：：http协议，填写 `http://` 或者 `https://` ，不填写默认为:`http://`
-  
-     * `startupTime`： 启用时间。
-     
-     * `weight`：负载均衡权重。
-     
-     * `warmupTime`：预热时间。
-  
-     * `status`：开启或关闭。
-     
+  * `ip:port`：`ip` 与端口，这里填写你真实服务的 `ip` + 端口。
+
+  * `protocol`：：`http` 协议，填写 `http://` 或者 `https://` ，不填写默认为:`http://`
+
+  * `startupTime`： 启用时间。
+
+  * `weight`：负载均衡权重。
+
+  * `warmupTime`：预热时间。
+
+  * `status`：开启或关闭。
+
   * `ip + port` 检测
-  
-     * 在 `shenyu-admin` 会有一个定时任务来扫描 配置的`ip`端口，如果发现下线，则会删除该 `ip + port`  。
-     
-     * 可以进行如下配置 ：
+
+    * 在 `shenyu-admin` 会有一个定时任务来扫描 配置的`ip`端口，如果发现下线，则会删除该 `ip + port`
+
+    * 可以进行如下配置 ：
      
 ```yaml
 shenyu:
@@ -73,7 +73,7 @@ shenyu:
 规则处理，即`handle`字段，是网关对流量完成最终匹配后，采取何种处理规则。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
 
 * 处理配置详解：
-    * `loadStrategy`：如果`http`客户端是一个集群，`ShenYu`网关调用时采取哪种负载均衡策略，当前支持 `roundRobin`、`random`和`hash`。
+    * `loadStrategy`：如果`http`客户端是一个集群，`Apache ShenYu`网关调用时采取哪种负载均衡策略，当前支持 `roundRobin`、`random`和`hash`。
     * `retryCount`：调用`http`客户端的重试次数。
     * `timeout`：调用`http`客户端的超时时间。
     * `headerMaxSize`：请求的`header`的最大值。

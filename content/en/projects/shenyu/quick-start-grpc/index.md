@@ -3,11 +3,11 @@ title: Quick start with gRPC
 description: Quick start with gRPC
 ---
 
-This document introduces how to quickly access the ShenYu gateway using gRPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) .
+This document introduces how to quickly access the Apache ShenYu gateway using gRPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) .
 
 ## Prepare For Environment
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
 
 After successful startup, you need to open the gRPC plugin on in the BasicConfig `->` Plugin.
 
@@ -21,13 +21,13 @@ If you are a startup gateway by means of source, can be directly run the ShenyuB
 Add the following dependencies to the gateway's `pom.xml` file:
 
 ```xml
-        <!--shenyu grpc plugin start-->
+        <!-- apache shenyu grpc plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-grpc</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--shenyu grpc plugin end-->
+        <!-- apache shenyu grpc plugin end-->
 ```
 
 ## Run the shenyu-examples-grpc project
@@ -55,7 +55,7 @@ The following log appears when the startup is successful:
 
 ## Test
 
-The `shenyu-examples-grpc` project will automatically register interface methods annotated with `@ShenyuGrpcClient` in the shenyu gateway after successful startup.
+The `shenyu-examples-grpc` project will automatically register interface methods annotated with `@ShenyuGrpcClient` in the Apache ShenYu gateway after successful startup.
 
 Open PluginList -> rpc proxy -> gRPC to see the list of plugin rule configurations:
 
@@ -78,7 +78,7 @@ Use `postman` to simulate `http` to request your gRPC service. The following is 
 The parameters are passed in json format. The name of the key is `data` by default, and you can reset it in `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME`. The input of value is based on the proto file defined by you.
 
 ##  Streaming
-The shenyu can support streaming of gRPC. The following shows the calls of the four method types of gRPC. In streaming, you can pass multiple parameters in the form of an array.
+the Apache ShenYu can support streaming of gRPC. The following shows the calls of the four method types of gRPC. In streaming, you can pass multiple parameters in the form of an array.
 
 
 - `UNARY`

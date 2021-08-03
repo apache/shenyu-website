@@ -1,6 +1,6 @@
 ---
 title: Custom Sign Algorithm
-keywords: shenyu
+keywords: Apache ShenYu
 description: specify sign plugins for examination
 ---
 
@@ -12,7 +12,7 @@ description: specify sign plugins for examination
 ## Extension
 
 * The default implementation is `org.apache.shenyu.plugin.sign.service.DefaultSignService`.
-* Declare a new class named "A" and implements  `org.apache.shenyu.plugin.api.SignService`.
+* Declare a new class named `CustomSignService` and implements  `org.apache.shenyu.plugin.api.SignService`.
 
 ```java
  public interface SignService {
@@ -33,8 +33,8 @@ description: specify sign plugins for examination
 
 ```java
    @Bean
-   public SignService a() {
-         return new A
+   public SignService customSignService() {
+         return new CustomSignService();
    }
 ```
 

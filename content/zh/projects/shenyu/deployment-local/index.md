@@ -18,7 +18,7 @@ description: 本地启动
 * 下载代码
 ```
 > git clone https://github.com/apache/incubator-shenyu.git
-> cd shenyu
+> cd incubator-shenyu
 > mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 

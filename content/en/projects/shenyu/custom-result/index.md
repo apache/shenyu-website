@@ -1,19 +1,19 @@
 ---
 title: Custom Response
-keywords: shenyu
+keywords: Apache ShenYu
 description: customising response structure
 ---
 
 ## Description
 
-* This doc offers examples for customising response structure.
+* This doc offers examples for customising response structure in `Apache ShenYu` gateway.
 * The response body structure in gateways should be unified, it is recommended for specify yours. 
 
 
 ## Default Implementation
 
 * The default implementation class is `org.apache.shenyu.plugin.api.result.DefaultShenyuResult`.
-* Following is the response structure.
+* Following is the response structure:
 
 ```java
 public class ShenyuDefaultEntity implements Serializable {
@@ -29,18 +29,18 @@ public class ShenyuDefaultEntity implements Serializable {
 }
 ```
 
-* The returned json as follows:
+* The returned `json` as follows:
 ```json
 {
     "code": -100, //response code,
-    "message": "您的参数错误,请检查相关文档!", //hint messages
+    "message": "Your parameter error, please check the relevant documentation!", //hint messages
     "data": null  // business data
 }
 ```
 
 ## Extensions
 
-*  Declare a new class named "A" and implements `org.apache.shenyu.plugin.api.result.ShenyuResult`
+*  Declare a new class named `CustomShenyuResult` and implements `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
  public interface ShenyuResult<T> {
@@ -69,12 +69,12 @@ public class ShenyuDefaultEntity implements Serializable {
 ```
 
 * `T` is a generic parameter for your response data.
-* Register defined class as a Spring Bean.
+* Register defined class as a `Spring Bean`.
 
 ```java
     @Bean
-    public ShenyuResult a() {
-          return new A();
+    public ShenyuResult customShenyuResult() {
+          return new CustomShenyuResult();
     }
 ```
 

@@ -29,6 +29,15 @@ jobs:
         env:
           HUGO_ENV: production
         run: hugo --minify
+      - name: Set up Python Env
+        uses: actions/setup-python@v2
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          python-version: '3.7'
+      - name: Generate PDF
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          bash .github/scripts/generate-pdf.sh
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

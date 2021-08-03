@@ -304,7 +304,7 @@ gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.asc ap
 curl -Lo tag-${RELEASE.VERSION}.zip https://github.com/apache/incubator-shenyu/archive/v${RELEASE.VERSION}.zip
 unzip tag-${RELEASE.VERSION}.zip
 unzip apache-shenyu-incubating-${RELEASE.VERSION}-src.zip
-diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" apache-shenyu-incubating-${RELEASE.VERSION}-src incubator-shenyu-${RELEASE.VERSION}
+diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" apache-shenyu-incubating-${RELEASE.VERSION}-src incubator-shenyu-${RELEASE.VERSION}
 ```
 
 **检查源码包的文件内容**
@@ -316,7 +316,7 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" a
 - `NOTICE`文件中的年份正确
 - 只存在文本文件，不存在二进制文件
 - 所有文件的开头都有ASF许可证
-- 能够正确编译，单元测试可以通过 (./mvnw install)
+- 能够正确编译，单元测试可以通过 (./mvnw install) (目前支持JAVA 8)
 - 检查是否有多余文件或文件夹，例如空文件夹等
 
 **检查二进制包的文件内容**

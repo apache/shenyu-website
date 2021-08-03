@@ -25,7 +25,7 @@ You can report a bug, submit a new function enhancement suggestion, or submit a 
 
 **Fork ShenYu repo**
 
-- Fork a `ShenYu` repo to your own repo to work, then setting upstream.
+- Fork a `Apache ShenYu` repo to your own repo to work, then setting upstream.
 
 ```shell
 git remote add upstream https://github.com/apache/incubator-shenyu.git

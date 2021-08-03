@@ -1,6 +1,6 @@
 ---
 title: Hystrix插件
-keywords: shenyu
+keywords: Apache ShenYu
 description: hystrix插件
 ---
 
@@ -13,7 +13,7 @@ description: hystrix插件
 
 ## 插件设置
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 * 在 基础配置 `-->`  插件管理 `-->` `hystrix`，设置为开启。 如果用户不使用，可以将其关闭。
 
@@ -25,13 +25,13 @@ description: hystrix插件
 * 在网关的 `pom.xml` 文件中添加 `hystrix`的依赖。
 
 ```xml
-        <!-- shenyu hystrix plugin start-->
+        <!-- apache shenyu hystrix plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-hystrix</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- shenyu hystrix plugin end-->
+        <!-- apache shenyu hystrix plugin end-->
 ``` 
 
 ##  hystrix 插件配置
@@ -62,7 +62,8 @@ description: hystrix插件
     * 跳闸休眠时间`(ms)`：熔断以后恢复的时间。
     
     * 分组`Key`： 一般设置为:`contextPath` 。
+      
+    * 失败降级`URL`： 默认为 `/fallback/hystrix`。  
     
-    * 命令`Key`: 一般设置为具体的路径接口。
-    
-    * 失败降级`URL`: 默认为 `/fallback/hystrix`。
+    * 命令`Key`： 一般设置为具体的路径接口。
+

@@ -6,27 +6,27 @@ description: redirect plugin
 
 ## Explanation
 
-When the ShenYu gateway makes proxy calls to the target service, it also allows users to use the `redirect` plugin to redirect requests.
+When the Apache ShenYu gateway makes proxy calls to the target service, it also allows users to use the `redirect` plugin to redirect requests.
 
 ## Plugin Setting
 
-* In `shenyu-admin` --> plugin management --> `redirect` ,set to enable。
+* In `shenyu-admin` --> BasicConfig --> Plugin --> `redirect` , set to enable.
 * Introduce `redirect` support in the pox.xml file of the gateway.
 * If the user don't use, please disable the plugin in the background.
-* Selectors and rules, only matching requests will be forwarded and redirected, please see: [Selector rules](../selector-and-rule)。
+* Selectors and rules, only matching requests will be forwarded and redirected, please see: [Selector And Rule Config](../selector-and-rule)。
 
 ## Maven Dependency
 
 Add the plugin dependency in the pom.xml file of the shenyu-bootstrap project.
 
 ```xml
-  <!-- shenyu redirect plugin start-->
+  <!-- apache shenyu redirect plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-redirect</artifactId>
-     <version>${last.version}</version>
+     <version>${project.version}</version>
   </dependency>
-  <!-- shenyu redirect plugin end-->
+  <!-- apache shenyu redirect plugin end-->
 ```
 
 ## Situation

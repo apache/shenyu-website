@@ -305,7 +305,7 @@ gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.asc ap
 curl -Lo tag-${RELEASE.VERSION}.zip https://github.com/apache/incubator-shenyu/archive/v${RELEASE.VERSION}.zip
 unzip tag-${RELEASE.VERSION}.zip
 unzip apache-shenyu-incubating-${RELEASE.VERSION}-src.zip
-diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" apache-shenyu-incubating-${RELEASE.VERSION}-src incubator-shenyu-${RELEASE.VERSION}
+diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" apache-shenyu-incubating-${RELEASE.VERSION}-src incubator-shenyu-${RELEASE.VERSION}
 ```
 
 **Check source package**
@@ -317,7 +317,7 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" a
 *   Correct year in `NOTICE` file
 *   There is only text files but no binary files
 *   All source files have ASF headers
-*   Codes can be compiled and pass the unit tests (./mvnw install)
+*   Codes can be compiled and pass the unit tests (./mvnw install) (compatible with JAVA 8 for now)
 *   Check if there is any extra files or folders, empty folders for example
 
 **Check binary packages**

@@ -1,12 +1,12 @@
 ---
 title: SPI
-keywords: ShenYu
+keywords: Apache ShenYu
 description:  对ShenYu网关中SPI的使用进行介绍
 ---
 
 `SPI` 全称为 `Service Provider Interface`, 是 `JDK` 内置的一种服务提供发现功能, 一种动态替换发现的机制。
 
-[shenyu-spi](../https://github.com/apache/incubator-shenyu/tree/master/shenyu-spi) 是`ShenYu`网关自定义的`SPI`扩展实现，设计和实现原理参考了`Dubbo`的 [SPI扩展实现](../https://dubbo.apache.org/zh/docs/v2.7/dev/impls/) 。
+[shenyu-spi](https://github.com/apache/incubator-shenyu/tree/master/shenyu-spi) 是`Apache ShenYu`网关自定义的`SPI`扩展实现，设计和实现原理参考了`Dubbo`的 [SPI扩展实现](https://dubbo.apache.org/zh/docs/v2.7/dev/impls/) 。
  
  
 ### 注册中心扩展

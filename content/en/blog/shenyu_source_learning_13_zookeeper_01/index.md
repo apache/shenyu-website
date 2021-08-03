@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learns Zookeeper Data Synchronization 01"
+title: "Apache ShenYu Gateway Learns Zookeeper Data Synchronization 01"
 author: "liquan"
-description: "ShenYu Gateway Learns Zookeeper Data Synchronization"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learns Zookeeper Data Synchronization"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-20
 cover: "/img/architecture/shenyu-framework.png"
 ---
@@ -26,7 +26,7 @@ soul:
 
 soul-bootstrap/pom.xml
 ```xml
-<!--ShenYu data sync start use zookeeper-->
+<!-- apache shenyu data sync start use zookeeper-->
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>soul-spring-boot-starter-sync-data-zookeeper</artifactId>

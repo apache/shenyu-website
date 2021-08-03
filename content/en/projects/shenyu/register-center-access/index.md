@@ -1,18 +1,24 @@
 ---
-title: Register Center Access
-keywords: shenyu
+title: Application Client Access Config
+keywords: Apache ShenYu
 description: register center access
 ---
 
-## Explain
 
-Explain register center access config
+Application client access means to access your microservice to ShenYu gateway, currently supports HTTP, Dubbo, Spring Cloud, gRPC, Motan, Sofa, Tars and other protocols access.
 
-## HTTP Registry
+Connecting the application client to ShenYu gateway is realized through the registration center, which involves the registration of the client and the synchronization of the server data. The registry supports HTTP, ZooKeeper, Etcd, Consul, and Nacos.
 
-#### Shenyu-Admin 
+This article describes how to configure the application client to access the Apache ShenYu gateway. For related principles, see [Application Client Access](../register-center-design) in the design document .
 
-* Set the config in application.yml
+<img src="/img/shenyu/register/app-client-access-config-en-1.png" width="70%" height="60%" />
+
+
+### Http Registry Config
+
+#### shenyu-admin config
+
+Set the register type to '`Http` in the `yml` file. The configuration information is as follows:
 
 ```yaml
 shenyu:
@@ -20,13 +26,16 @@ shenyu:
     registerType: http
     props:
       checked: true  # is checked
-      zombieCheckTimes: 5 # How many times does it fail to detect the service
-      scheduledTime: 10 # Timed detection interval time
+      zombieCheckTimes: 5 # how many times does it fail to detect the service
+      scheduledTime: 10 # timed detection interval time
 ```
 
-#### Shenyu-Client
+<img src="/img/shenyu/register/register-http-admin-yml.png" width="70%" height="60%" />
 
-* Set the config in application.yml
+
+#### shenyu-client config
+
+The following shows the configuration information registered through `Http` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
 
 ```yaml
 shenyu:
@@ -36,21 +45,26 @@ shenyu:
     props:
       contextPath: /http
       appName: http
-      port: 8188
+      port: 8188  
       isFull: false
 # registerType : register type, set http
-# serverList: when register type is http，set Shenyu-Admin address list，pls note 'http://' is necessary.
+# serverList: when register type is http，set shenyu-admin address list，pls note 'http://' is necessary.
 # port: your project port number; apply to springmvc/tars/grpc
 # contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
 
-## Zookeeper Registry
 
-#### Shenyu-Admin 
+<img src="/img/shenyu/register/register-http-client-yml.png" width="70%" height="60%" />
 
-* Add dependency in pom.xml (Default has been added):
+
+
+### Zookeeper Registry Config
+
+#### shenyu-admin config
+
+First add the related dependencies to the `pom` file (already added by default) :
 
 ```xml
         <dependency>
@@ -60,31 +74,44 @@ shenyu:
         </dependency>
 ```
 
-* Set the config in application.yml
+<img src="/img/shenyu/register/register-zk-admin-pom.png" width="70%" height="60%" />
+
+
+* In the `yml` file, set the register type to `zookeeper` and enter the service address and parameters of `zookeeper`. The configuration information is as follows:
 
 ```yaml
 shenyu:
   register:
     registerType: zookeeper
-    serverLists : localhost:2181
+    serverLists: localhost:2181
     props:
       sessionTimeout: 5000
       connectionTimeout: 2000
 ```
 
-#### Shenyu-Client
+<img src="/img/shenyu/register/register-zk-admin-yml.png" width="70%" height="60%" />
 
-* Add dependency in pom.xml (Default has been added):
+
+#### shenyu-client config
+
+The following shows the configuration information registered by `zookeeper` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+
+
+* First add dependencies to the `pom` file:
+
 
 ```xml
+        <!-- apache shenyu zookeeper register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-register-client-zookeeper</artifactId>
-            <version>${project.version}</version>
+            <artifactId>shenyu-register-server-zookeeper</artifactId>
+            <version>${shenyu.version}</version>
         </dependency>
 ```
 
-* Set the config in application.yml
+<img src="/img/shenyu/register/register-zk-client-pom.png" width="70%" height="60%" />
+
+* Then set the register type to `zookeeper` in `yml` and enter the service address and related parameters as follows:
 
 ```yaml
 shenyu:
@@ -94,7 +121,7 @@ shenyu:
     props:
       contextPath: /http
       appName: http
-      port: 8188  
+      port: 8189  
       isFull: false
 # registerType : register type, set zookeeper
 # serverList: when register type is zookeeper，set zookeeper address list
@@ -104,12 +131,14 @@ shenyu:
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
 
+<img src="/img/shenyu/register/register-zk-client-yml.png" width="70%" height="60%" />
 
-## Etcd Registry
 
-#### Shenyu-Admin
+### Etcd Registry Config
 
-* Add dependency in pom.xml (Default has been added):
+#### shenyu-admin config
+
+First add the related dependencies to the `pom` file (already added by default) :
 
 ```xml
         <dependency>
@@ -119,7 +148,11 @@ shenyu:
         </dependency>
 ```
 
-* Set the config in application.yml
+<img src="/img/shenyu/register/register-etcd-admin-pom.png" width="70%" height="60%" />
+
+
+* Then set register type to `etcd` in `yml` and enter `etcd` service address and parameters. The configuration information is as follows:
+
 
 ```yaml
 shenyu:
@@ -131,29 +164,39 @@ shenyu:
       etcdTTL: 5
 ```
 
-#### Shenyu-Client
+<img src="/img/shenyu/register/register-etcd-admin-yml.png" width="70%" height="60%" />
 
-* Add dependency in pom.xml (Default has been added):
+#### shenyu-client config
+
+The following shows the configuration information registered by `Etcd` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+
+
+* First add dependencies to the `pom` file:
+
 
 ```xml
+        <!-- apache shenyu etcd register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-register-client-etcd</artifactId>
-            <version>${project.version}</version>
+            <artifactId>shenyu-register-server-etcd</artifactId>
+            <version>${shenyu.version}</version>
         </dependency>
 ```
 
-* Set the config in application.yml
+<img src="/img/shenyu/register/register-etcd-client-pom.png" width="70%" height="60%" />
+
+
+* Then set the register type to `etcd` in `yml` and enter the `etcd` service address and related parameters as follows:
 
 ```yaml
 shenyu:
   client:
-    registerType: etcd
+    registerType: etcd 
     serverLists: http://localhost:2379
     props:
       contextPath: /http
       appName: http
-      port: 8188  
+      port: 8189  
       isFull: false
 # registerType : register type, set etcd 
 # serverList: when register type is etcd, add etcd address list
@@ -163,29 +206,38 @@ shenyu:
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
 
-## Consul Registry
 
-#### Shenyu-Admin 
+<img src="/img/shenyu/register/register-etcd-client-yml.png" width="70%" height="60%" />
 
-* Add dependency in pom.xml :
+
+### Consul Registry Config
+
+#### shenyu-admin config
+
+First add the related dependencies to the `pom` file :
 
 ```xml
-               <!--shenyu-register-server-consul (Default has been added)-->
-               <dependency>
-                   <groupId>org.apache.shenyu</groupId>
-                   <artifactId>shenyu-register-server-consul</artifactId>
-                   <version>${project.version}</version>
-               </dependency>
+        <!-- apache shenyu consul register start-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-register-server-consul</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-               <!--spring-cloud-starter-consul-discovery need add by yourself, suggest use 2.2.6.RELEASE version, other version maybe can't work-->
-               <dependency>
-                   <groupId>org.springframework.cloud</groupId>
-                   <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-                   <version>2.2.6.RELEASE</version>
-               </dependency>
+        <!--spring-cloud-starter-consul-discovery need add by yourself, suggest use 2.2.6.RELEASE version, other version maybe can't work-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
+        <!-- apache shenyu consul register end-->
+
 ```
 
-* Set the config in application.yml, additional need add spring.cloud.consul：
+<img src="/img/shenyu/register/register-consul-admin-pom.png" width="70%" height="60%" />
+
+* In the `yml` file to configure the registry as `consul`, you also need to configure `spring.cloud.consul`, the configuration information is as follows:
+
 
 ```yaml
 shenyu:
@@ -216,11 +268,18 @@ spring:
 
 ```
 
-#### Shenyu-Client
+<img src="/img/shenyu/register/register-consul-admin-yml.png" width="70%" height="60%" />
 
-**Note, consul registry is not compatible with current and SpringCloud will and Eureka / Nacos registry conflicts** 
 
-* Add dependency in pom.xml (need add by yourself, suggest use 2.2.6.RELEASE version, other version maybe can't work)：
+#### shenyu-client config
+
+> Note that the `consul` registry is currently incompatible with the `Spring Cloud` service and will conflict with the `Eureka/Nacos` registry.
+
+
+The following shows the configuration information registered by `Consul` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+
+
+* First add dependencies to the `pom` file:
 
 ```xml
             <dependency>
@@ -230,7 +289,10 @@ spring:
            </dependency>
 ```
 
-* Set the config in application.yml, additional need add spring.cloud.consul：
+<img src="/img/shenyu/register/register-consul-client-pom.png" width="70%" height="60%" />
+
+
+* Then set the register type to `consul` in `yml` and config `spring.cloud.consul`, and related parameters as follows:
 
 ```yaml
 shenyu:
@@ -250,7 +312,6 @@ spring:
         service-name: shenyu-http
       host: localhost
       port: 8500
-
 # registerType : register type, set consul.
 # port: your project port number; apply to springmvc/tars/grpc
 # contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
@@ -260,13 +321,18 @@ spring:
 # service-name: The name where the service is registered to consul. If not configured, the value of `spring.application.name` will be taken by default.
 # host: Consul server host, the default value is localhost.
 # port: Consul server port, the default value is 8500.
-``` 
+```
 
-## Nacos Registry
+<img src="/img/shenyu/register/register-consul-client-yml.png" width="70%" height="60%" />
 
-#### Shenyu-Admin
 
-* Add dependency in pom.xml (Default has been added):
+
+
+### Nacos Registry Config
+
+#### shenyu-admin config
+
+First add the related dependencies to the `pom` file (already added by default) :
 
 ```xml
         <dependency>
@@ -276,7 +342,11 @@ spring:
         </dependency>
 ```
 
-* Set the config in application.yml
+<img src="/img/shenyu/register/register-nacos-admin-pom.png" width="70%" height="60%" />
+
+
+* Then in the `yml` file, configure the registry as `nacos`, fill in the related `nacos` service address and parameters, and `nacos` namespace (need to be consistent with `shenyu-client`), the configuration information is as follows:
+
 
 ```yaml
 shenyu:
@@ -287,19 +357,28 @@ shenyu:
       nacosNameSpace: ShenyuRegisterCenter
 ```
 
-#### Shenyu-Client
+<img src="/img/shenyu/register/register-nacos-admin-yml.png" width="70%" height="60%" />
 
-* Add dependency in pom.xml (Default has been added):
+
+#### shenyu-client config
+
+The following shows the configuration information registered by `Nacos` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+
+
+* First add dependencies to the `pom` file:
 
 ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-register-client-nacos</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu.version}</version>
         </dependency>
 ```
 
-* Set the config in application.yml
+<img src="/img/shenyu/register/register-nacos-client-pom.png" width="70%" height="60%" />
+
+
+* Then in `yml` configure registration mode as `naco`, and fill in `nacos` service address and related parameters, also need `nacos` namespace (need to be consistent with `shenyu-admin`), IP (optional, then automatically obtain the local IP address) and port, configuration information is as follows:
 
 ```yaml
 shenyu:
@@ -312,11 +391,16 @@ shenyu:
       port: 8188  
       isFull: false
       nacosNameSpace: ShenyuRegisterCenter
-# registerType : register type, set etcd 
-# serverList: when register type is etcd, add etcd address list
+# registerType : register type, set nacos 
+# serverList: when register type is nacos, add nacos address list
 # port: your project port number; apply to springmvc/tars/grpc
 # contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 # nacosNameSpace: nacos namespace
 ``` 
+
+<img src="/img/shenyu/register/register-nacos-client-yml.png" width="70%" height="60%" />
+
+In conclusion, this paper mainly describes how to connect your microservices (currently supporting `Http`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa`, `Tars` and other protocols) to the `Apache ShenYu` gateway. the Apache ShenYu gateway support registry has `Http`, `Zookeeper`, `Etcd`, `Consul`, `Nacos` and so on. This paper introduces the different ways to register configuration information when `Http` service is used as the client to access `Apache ShenYu` gateway.
+

@@ -17,14 +17,11 @@ description:  Motan插件
 
 ## 插件讲解
 
-客户端接入`ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule)。
-
+客户端接入`Apache ShenYu`网关后，会自动注册选择器和规则信息，可以在插件列表 `->` rpc proxy `->` motan 中查看。 关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule)。
 
 #### 元数据
 
-
-
-每一个`motan`接口方法，都会对应一条元数据，当`motan`应用客户端接入到`ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
+每一个`motan`接口方法，都会对应一条元数据，当`motan`应用客户端接入到`Apache ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
 
 <img src="/img/shenyu/plugin/motan/motan-4.png" width="60%" height="50%" />
 

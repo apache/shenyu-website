@@ -3,7 +3,7 @@ title: Motan服务接入
 description: Motan服务接入
 ---
 
-此篇文介绍如何将 `Motan` 服务接入到 `ShenYu` 网关，`ShenYu` 网关使用 `motan` 插件来接入`Motan`服务。
+此篇文介绍如何将 `Motan` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `motan` 插件来接入`Motan`服务。
 
 接入前，请正确启动 `shenyu-admin`，并开启`motan`插件，在网关端和`motan`服务端引入相关依赖。可以参考前面的 [Motan快速开始](../quick-start-motan) 。
 
@@ -18,7 +18,7 @@ description: Motan服务接入
 引入网关对`Motan`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-  <!--shenyu motan plugin -->
+  <!-- apache shenyu motan plugin -->
           <dependency>
               <groupId>org.apache.shenyu</groupId>
               <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
@@ -84,4 +84,4 @@ description: Motan服务接入
 
 ## 用户请求
 
-可以通过 `http` 的方式来请求你的`motan`服务。`ShenYu`网关需要有一个路由前缀，这个路由前缀就是接入网关配置的 `contextPath`。比如： `http://localhost:9195/motan/hello` 。
+可以通过 `http` 的方式来请求你的`motan`服务。`Apache ShenYu`网关需要有一个路由前缀，这个路由前缀就是接入网关配置的 `contextPath`。比如： `http://localhost:9195/motan/hello` 。

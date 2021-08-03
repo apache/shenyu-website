@@ -1,13 +1,13 @@
 ---
 title: 插件扩展
-keywords: shenyu
+keywords: Apache ShenYu
 description: 插件扩展
 ---
 
 ## 说明
 
-* 插件是 `ShenYu` 网关的核心执行者，每个插件在开启的情况下，都会对匹配的流量，进行自己的处理。
-* 在 `ShenYu` 网关里面，插件分为两类。
+* 插件是 `Apache ShenYu` 网关的核心执行者，每个插件在开启的情况下，都会对匹配的流量，进行自己的处理。
+* 在 `Apache ShenYu` 网关里面，插件分为两类。
   * 一类是单一职责的调用链，不能对流量进行自定义的筛选。
   * 一类是能对匹配的流量，执行自己的职责调用链。
 * 用户可以参考 [shenyu-plugin](https://github.com/apache/incubator-shenyu/tree/master/shenyu-plugin) 模块，新增自己的插件处理，如果有好的公用插件，可以向官网提交`pr`。
@@ -16,12 +16,12 @@ description: 插件扩展
 
 * 引入如下依赖：
 
-```
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-plugin-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+```xml
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-plugin-api</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
 * 用户新增一个类 `MyShenyuPlugin`，直接实现 `org.apache.shenyu.plugin.api.ShenyuPlugin`
@@ -152,8 +152,17 @@ public class CustomPlugin extends AbstractShenyuPlugin {
         return false;
     }
 
+    /**
+     * this is Template Method child has Implement your own logic.
+     *
+     * @param exchange exchange the current server exchange
+     * @param chain    chain the current chain
+     * @param selector selector
+     * @param rule     rule
+     * @return {@code Mono<Void>} to indicate when request handling is complete
+     */
     @Override
-    protected Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorZkDTO selector, RuleZkDTO rule) {
+    protected abstract Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorData selector, RuleData rule) {
         LOGGER.debug(".......... function plugin start..............");
         /*
          * Processing after your selector matches the rule.

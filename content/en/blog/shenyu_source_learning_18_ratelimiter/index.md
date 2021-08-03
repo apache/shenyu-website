@@ -1,9 +1,9 @@
 ---
-title: "ShenYu Gateway Learning RateLimiter Plugin"
+title: "Apache ShenYu Gateway Learning RateLimiter Plugin"
 author: "baiyu"
-description: "ShenYu Gateway Learning RateLimiter Plugin"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu Gateway Learning RateLimiter Plugin"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-30
 cover: "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9434447ebc674f58b65c26b65f855181~tplv-k3u1fbpfcp-watermark.image"
 ---

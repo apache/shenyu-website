@@ -2,8 +2,8 @@
 title: "ShenYuLearning(2) How Does The Divide Plugin Forward Http Requests"
 author: "jipeng"
 description: "How Does The Divide Plugin Forward HTTP Requests"
-categories: "ShenYu"
-tags: ["ShenYu"]
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-17
 cover: "/img/architecture/shenyu-framework.png"
 ---

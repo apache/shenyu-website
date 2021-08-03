@@ -6,7 +6,7 @@ description: redirect插件
 
 ## 说明
 
-- ShenYu 网关在对目标服务进行代理调用的时候，还容许用户使用 `redirect` 插件来重定向请求。
+- Apache ShenYu 网关在对目标服务进行代理调用的时候，还容许用户使用 `redirect` 插件来重定向请求。
 
 ## 插件设置
 
@@ -18,16 +18,16 @@ description: redirect插件
 - 在网关的 `pom.xml` 文件中添加 `redirect` 的支持。
 
 ```xml
-  <!-- shenyu redirect plugin start-->
+  <!-- apache shenyu redirect plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-redirect</artifactId>
      <version>${project.version}</version>
   </dependency>
-  <!-- shenyu redirect plugin end-->
+  <!-- apache shenyu redirect plugin end-->
 ```
 
-- 选择器和规则，只有匹配的请求，才会进行转发和重定向，请详细看：[选择器规则](../selector-and-rule)。
+- 选择器和规则，只有匹配的请求，才会进行转发和重定向，请参考：[选择器规则管理](../selector-and-rule)。
 
 ## 场景
 
@@ -36,7 +36,7 @@ description: redirect插件
 #### 重定向
 
 * 我们在 `Rule` 配置自定义路径时，应该为一个可达的服务路径。
-* 当匹配到请求后，根据自定义的路径，`ShenYu 网关`会进行 `308` 服务跳转。
+* 当匹配到请求后，根据自定义的路径，`Apache ShenYu 网关`会进行 `308` 服务跳转。
 
 ![重定向配置](/img/shenyu/plugin/redirect/redirect-01.png)
 

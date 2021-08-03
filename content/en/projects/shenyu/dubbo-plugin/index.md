@@ -7,42 +7,23 @@ description: dubbo plugin
 ## Explanation
 
 * Dubbo is a plugin that converts `http protocol` into `Dubbo protocol` and it is also the key for gateway to realize dubbo generic service.
-* Dubbo plugin needs to cooperate with metadata to realize dubbo calls, please refer to: [metaData](../meta-data).
-* Apache dubbo and alibaba dubbo users both use the same plugin.
+* Dubbo plugin needs to cooperate with metadata to realize dubbo calls.
+* Apache Dubbo and Alibaba Dubbo users both use the same plugin.
 
-```xml
-  <!--if you use dubbo start this-->
-   <dependency>
-       <groupId>org.apache.shenyu</groupId>
-       <artifactId>shenyu-spring-boot-starter-plugin-alibab-dubbo</artifactId>
-       <version>${last.version}</version>
-   </dependency>
 
-   <dependency>
-       <groupId>org.apache.shenyu</groupId>
-       <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
-       <version>${last.version}</version>
-   </dependency>
-```
 
 ## Plugin Setting
 
-* In `shenyu-admin` --> plugin management-> `dubbo` setting enable.
+* Add related dependencies and enable plugin, please refer to: [Quick start with Dubbo](../quick-start-dubbo) .
+ 
+* `Dubbo` client access, please refer to: [Dubbo Proxy](../dubbo-proxy) .
 
-![](/img/shenyu/quick-start/dubbo/dubbo-enable-en.jpg)
+* Set selector and rule, please refer to: [Selector And Rule Config](../selector-and-rule) .
 
-* In the configuration of dubbo plugin, the configuration is as follows: Configure the registration center of dubbo.
-
-```yaml
-{"register":"zookeeper://localhost:2181"} or {"register":"nacos://localhost:8848"} 
-```
-* Plugin needs to cooperate with `starter` to take effect, please refer to: [user-dubbo](../dubbo-proxy).
-
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
 
 ## Metadata
 
-* Every dubbo interface method corresponds to a piece of metadata, which can be found in `shenyu-admin` --> metadata management.
+* Every dubbo interface method corresponds to a piece of metadata, which can be found in `shenyu-admin` --> BasicConfig -> Metadata .
 
 <img src="/img/shenyu/plugin/dubbo/dubbo-metadata-en.jpg" width="50%"/>
 
@@ -87,7 +68,7 @@ description: dubbo plugin
 {"timeout":10000,"group":"",version":"","loadbalance":"","retries":1}
 ```
 
-* Interface: The fully-qualified name for dubbo interface
+* Interface: The fully-qualified name for dubbo interface .
 
-* RpcType: Choose `dubbo`
+* RpcType: Choose `dubbo` .
 

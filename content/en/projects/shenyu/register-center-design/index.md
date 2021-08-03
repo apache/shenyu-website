@@ -1,14 +1,14 @@
 ---
 title: Application Client Access
-keywords: shenyu
+keywords: Apache ShenYu
 description: Application Client Access
 ---
 
-Application client access means to access your micro service to Shenyu Gateway, currently supports HTTP, Dubbo, Spring Cloud, gRPC, Motan, Sofa, Tars and other protocols access.
+Application client access means to access your microservice to ShenYu gateway, currently supports HTTP, Dubbo, Spring Cloud, gRPC, Motan, Sofa, Tars and other protocols access.
 
 Connecting the application client to ShenYu gateway is realized through the registration center, which involves the registration of the client and the synchronization of the server data. The registry supports HTTP, ZooKeeper, Etcd, Consul, and Nacos.
 
-Refer to the client access configuration in the user documentation for Application Client Config.
+Refer to the client access configuration in the user documentation for [Application Client Access Config](../register-center-access) .
 
 <img src="/img/shenyu/register/application-client-access-en-1.png" width="70%" height="60%" />
 

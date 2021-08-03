@@ -1,13 +1,13 @@
 ---
 title: 选择器和规则管理
-keywords: ShenYu
+keywords: Apache ShenYu
 description: 选择器和规则管理
 ---
 
 
-本文档将介绍`ShenYu`后台管理系统中选择器和规则的使用，关于选择器和规则的概念及设计请参考 [流量控制](../flow-control)。
+本文档将介绍`Apache ShenYu`后台管理系统中选择器和规则的使用，关于选择器和规则的概念及设计请参考 [流量控制](../flow-control)。
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
 
 
 ## 选择器
@@ -126,7 +126,7 @@ description: 选择器和规则管理
 
     * 尤其是在 `waf` 插件里面，如果发现一个 `ip`地址有攻击，可以新增一条匹配条件，填上该 `ip`，拒绝该 `ip` 的访问。
 
-    * 如果在 `ShenYu` 前面使用了 `nginx` 代理，为了获取正确的 `ip`，可以参考 [自定义解析IP与Host](../custom-parsing-ip-and-host)
+    * 如果在 `Apache ShenYu` 前面使用了 `nginx` 代理，为了获取正确的 `ip`，可以参考 [自定义解析IP与Host](../custom-parsing-ip-and-host)
 
 * `host` 匹配
 
@@ -134,7 +134,7 @@ description: 选择器和规则管理
 
   * 尤其是在 `waf` 插件里面，如果发现一个 `host` 地址有攻击，可以新增一条匹配条件，填上该 `host`，拒绝该 `host` 的访问。
 
-  * 如果在 `ShenYu` 前面使用了 `nginx` 代理，为了获取正确的 `host`，可以参考 [自定义解析IP与Host](../custom-parsing-ip-and-host)
+  * 如果在 `Apache ShenYu` 前面使用了 `nginx` 代理，为了获取正确的 `host`，可以参考 [自定义解析IP与Host](../custom-parsing-ip-and-host)
 
 *  `post` 匹配
 

@@ -1,23 +1,23 @@
 ---
 title: ShenYu 性能优化
-keywords: ShenYu
+keywords: Apache ShenYu
 description: ShenYu 性能优化
 ---
 
 ## 说明
 
-* 本文主要介绍如何对 `ShenYu` 进行优化。
+* 本文主要介绍如何对 `Apache ShenYu` 进行优化。
 
 
 ## 本身消耗
 
-* `ShenYu`本身所有的操作，都是基于 `JVM` 内存来匹配，本身消耗时间大概在 `1-3ms` 左右。
+* `Apache ShenYu`本身所有的操作，都是基于 `JVM` 内存来匹配，本身消耗时间大概在 `1-3ms` 左右。
 
 ## 底层Netty调优
 
-* `ShenYu`内置依赖 `spring-webflux` 而其底层是使用的 `netty` 。
+* `Apache ShenYu`内置依赖 `spring-webflux` 而其底层是使用的 `netty` 。
 
-* 我们可以自定义 `netty` 的相关参数来对 `ShenYu` 进行优化，以下是示例：
+* 我们可以自定义 `netty` 的相关参数来对 `Apache ShenYu` 进行优化，以下是示例：
 
 ```java
    @Bean

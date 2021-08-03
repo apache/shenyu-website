@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Sign插件"
+title: "Apache ShenYu网关学习Sign插件"
 author: "唐甜"
-description: "ShenYu网关学习Sign插件"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Sign插件"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-29
 cover: "/img/architecture/shenyu-framework.png"
 ---

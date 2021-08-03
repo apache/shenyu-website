@@ -13,7 +13,7 @@ cover: "/img/architecture/shenyu-framework.png"
 当你做了很多贡献以后，社区会进行提名。
 成为committer你会拥有
 
-* shenyu仓库写的权限
+* Apache ShenYu仓库写的权限
 * idea 正版使用
 
 ## 提交者责任

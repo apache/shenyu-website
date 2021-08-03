@@ -7,7 +7,7 @@ tags: ["Vote-Committer"]
 ---
 
 
-# 1. 在 private@shenyu.apache.org的邮件列表讨论并投票，投票由现有的PPMC成员发起，邮件内容主要陈述提名者的活动和社区贡献。
+**1、在 private@shenyu.apache.org的邮件列表讨论并投票，投票由现有的PPMC成员发起，邮件内容主要陈述提名者的活动和社区贡献。**
 
 ```
 Example：
@@ -32,9 +32,9 @@ https://github.com/apache/incubator-shenyu/pull/4
 [^ means these words are subject to change in different case]
 ```
 
-# 2.等待72小时社区PPMC投票
+**2、等待72小时社区PPMC投票**
 
-# 3. PPMC 成员总结社区投票结果并发布邮件
+**3、PPMC 成员总结社区投票结果并发布邮件**
 
 ```
 Example：
@@ -53,7 +53,7 @@ I am glad to receive your votes, and the voting result is,
 Therefore, I will send the invitation to (nominee).
 ```
 
-# 4. 如果投票通过，对提名者发布邀请函并抄送@private 邮件列表给发送邀请函。
+**4、如果投票通过，对提名者发布邀请函并抄送@private 邮件列表给发送邀请函。**
 
 ```
 To: (nominee email address)
@@ -86,9 +86,10 @@ Best wishes,
 (PPMC)
 
 ```
-# 5. 准Committer回复邀请函内容，回复表达同意与感谢。
 
-# 6. PPMC 做出回复
+**5、准Committer回复邀请函内容，回复表达同意与感谢。**
+
+**6、PPMC 做出回复**
 ```
 Hi (nominee),
 
@@ -115,18 +116,18 @@ http://incubator.apache.org/guides/committer.html
 Just as before you became a committer, participation in any ASF community requires adherence to the ASF Code of Conduct:
 https://www.apache.org/foundation/policies/conduct.html
 
-Here is the guideline for all of the shenyu committers:
+Here is the guideline for all of the Apache ShenYu committers:
 https://shenyu.apache.org/community/en/contribute/committer/
 ```
-# 7. 新Committer签署iCLA 具体步骤参考 [Sign ICLA Guide](https://shenyu.apache.org/community/icla/).
+**7、新Committer签署iCLA 具体步骤参考 [Sign ICLA Guide](https://shenyu.apache.org/community/icla/)**
 
-# 8. 新committer等待Secretary通知创建账户
+**8、新committer等待Secretary通知创建账户**
 
-# 9. PPMC添加新committer到[roster](https://whimsy.apache.org/roster/ppmc/shenyu).
+**9、PPMC添加新committer到[roster](https://whimsy.apache.org/roster/ppmc/shenyu)**
 
-# 10. 新Committer开通github权限，完成[apache setup](https://gitbox.apache.org/setup/).
+**10、新Committer开通github权限，完成[apache setup](https://gitbox.apache.org/setup/)**
 
-# 11. PPMC在社区宣布并欢迎新的Committer加入
+**11、PPMC在社区宣布并欢迎新的Committer加入**
 
 ```
 To: dev@shenyu.apache.org

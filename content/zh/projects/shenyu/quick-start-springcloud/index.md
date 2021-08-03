@@ -3,11 +3,11 @@ title: Spring Cloud快速开始
 description: Spring Cloud快速开始
 ---
 
-本文档演示如何将`Spring Cloud`服务接入到`ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) 。
+本文档演示如何将`Spring Cloud`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) 。
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`springCloud` 插件设置为开启。
 
@@ -21,7 +21,7 @@ description: Spring Cloud快速开始
 引入网关对`Spring Cloud`的代理插件，并添加相关注册中心依赖：
 
 ```xml
-<!--shenyu springCloud plugin start-->
+<!-- apache shenyu springCloud plugin start-->
                <dependency>
                     <groupId>org.apache.shenyu</groupId>
                     <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
@@ -50,7 +50,7 @@ description: Spring Cloud快速开始
                     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
                     <version>2.2.0.RELEASE</version>
                 </dependency>
-        <!--shenyu springCloud plugin end-->
+        <!-- apache shenyu springCloud plugin end-->
 
 ```
 

@@ -1,54 +1,66 @@
 ---
-title: Sofa RPC Proxy
+title: Sofa Proxy
 keywords: sofa
 description: sofa access shenyu gateway
 ---
 
-## Description
+This document is intended to help the `Sofa` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Sofa` plugin to handle `sofa` service.
 
-* This article is about sofa users using sofa plugin support,and the tutorial of connecting your own sofa service to the shenyu gateway.
-* Before connecting, please start `shenyu-admin` correctly and [Setup Environment](../shenyu-set-up) Ok。
+Before the connection, start `shenyu-admin` correctly, start `Sofa` plugin, and add related dependencies on the gateway and `Sofa` application client. Refer to the previous [Quick start with Sofa](../quick-start-sofa) .
 
-## Introduce the plugin that the gateway supports for sofa
+For details about client access configuration, see [Application Client Access Config](../register-center-access) .
+
+For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
+
+## Add sofa plugin in gateway
 
 * Add the following dependencies in the gateway's `pom.xml` file：
 * Replace the sofa version with yours, and replace the jar package in the registry with yours, The following is a reference。
 
  ```xml
-<dependency>
-    <groupId>com.alipay.sofa</groupId>
-    <artifactId>sofa-rpc-all</artifactId>
-    <version>5.7.6</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.curator</groupId>
-    <artifactId>curator-client</artifactId>
-    <version>4.0.1</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.curator</groupId>
-    <artifactId>curator-framework</artifactId>
-    <version>4.0.1</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.curator</groupId>
-    <artifactId>curator-recipes</artifactId>
-    <version>4.0.1</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-    <version>${last.version}</version>
-</dependency>
+
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>sofa-rpc-all</artifactId>
+            <version>5.7.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.jcip</groupId>
+                    <artifactId>jcip-annotations</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 ```
 
 * Restart the gateway service.
 
-## sofa service access gateway, you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
+## Sofa service access gateway
 
-* Springboot
+you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
 
-    * Introduce the following dependencies :
+* SpringBoot
+  
+  Add the following dependencies :
  ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
@@ -57,19 +69,18 @@ description: sofa access shenyu gateway
         </dependency>
  ```
 
-  * backend server register center config, please look:[register center access](../register-center-access).
 
 * Spring
-
-   * Introduce the following dependencies:
+  
+  Add the following dependencies:
  ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-client-sofa</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu.version}</version>
         </dependency>
    ```
-   * Add the following in the xml file of your bean definition:
+   Add the following in the xml file of your bean definition:
    
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor">
@@ -101,22 +112,19 @@ description: sofa access shenyu gateway
 
 ## Interface registered to the gateway
 
-* For your sofa service implementation class, add @ShenyuSofaClient annotation to the method，Indicates that the interface method is registered to the gateway.
+* For your sofa service implementation class, add `@ShenyuSofaClient` annotation to the method，Indicates that the interface method is registered to the gateway.
 
-* Start your provider and output the log `sofa client register success`. You’re done. Your sofa interface has been published to the shenyu gateway. If you still don’t understand, you can refer to the `shenyu-test-sofa` project.
+* Start the sofa service provider, after successful registration, enter the pluginList -> rpc proxy -> sofa in the background management system, you will see the automatic registration of selectors and rules information.
+ 
+## User request and parameter description
 
-## sofa user request and parameter description
+ShenYu gateway needs to have a routing prefix, this routing prefix is for you to access the project for configuration `contextPath` .
 
-* To put it bluntly, it is to request your sofa service through http
-* ShenYu gateway needs to have a routing prefix, this routing prefix is for you to access the project for configuration `contextPath`
-
-```yaml
-# For example, if you have an order service, it has an interface and its registration path /order/test/save
-
-# Now it's to request the gateway via post：http://localhost:9195/order/test/save
-
-# Where localhost:9195 is the IP port of the gateway，default port is 9195 ，/order is the contextPath of your sofa access gateway configuration
-```
+> For example, if you have an `order` service, it has an interface and its registration path `/order/test/save`
+>
+> Now it's to request the gateway via post：`http://localhost:9195/order/test/save`
+>
+> Where `localhost:9195` is the IP port of the gateway, default port is `9195`, `/order` is the `contextPath` of your sofa access gateway configuration
 
 * Parameter passing：
 
@@ -125,7 +133,7 @@ description: sofa access shenyu gateway
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:
-* In the gateway project you built，add a new class A，implements org.apache.shenyu.plugin.api.sofa.SofaParamResolveService。
+* In the gateway project you built, add a new class `MySofaParamResolveService`, implements `org.apache.shenyu.plugin.api.sofa.SofaParamResolveService` .
 
  ```java
     public interface SofaParamResolveService {
@@ -152,7 +160,7 @@ description: sofa access shenyu gateway
 
  ```java
 @Bean
-public SofaParamResolveService A() {
-    return new A();
+public SofaParamResolveService mySofaParamResolveService() {
+    return new MySofaParamResolveService();
 }
 ```

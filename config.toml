@@ -1,5 +1,5 @@
 baseURL = ""
-title = "ShenYu"
+title = "Apache ShenYu"
 
 languageCode = "zh-CN"
 defaultContentLanguage = "en"
@@ -68,7 +68,7 @@ unsafe = true
 	[[languages.zh.menu.main]]
 		identifier = "community"
 		name = "社区"
-		url = "/zh/community/code-conduct/"
+		url = "/zh/community/subscribe-email/"
 		weight = 3
 	[[languages.zh.menu.main]]
 		identifier = "blog"
@@ -114,7 +114,7 @@ unsafe = true
 	[[menu.main]]
 		identifier = "community"
 		name = "Community"
-		url = "/community/code-conduct/"
+		url = "/community/subscribe-email/"
 		weight = 3
 	[[menu.main]]
 		identifier = "blog"

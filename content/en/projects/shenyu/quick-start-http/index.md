@@ -3,13 +3,13 @@ title: Quick start with Http
 description: Quick start with http
 ---
 
-This document introduces how to quickly access the ShenYu gateway using Http. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http).
+This document introduces how to quickly access the Apache ShenYu gateway using Http. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http).
 
 ## Environment to prepare
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
 
-After successful startup, you need to open the Divide plugin on in the BasicConfig `->` Plugin. In the ShenYu gateway, the HTTP request is handled by the Divide plugin.
+After successful startup, you need to open the Divide plugin on in the BasicConfig `->` Plugin. In the Apache ShenYu gateway, the HTTP request is handled by the Divide plugin.
 
 <img src="/img/shenyu/quick-start/http/http-en-1.png" width="60%" height="50%" />
 
@@ -22,7 +22,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 
 ```xml
-<!--if you use http proxy start this-->
+        <!--if you use http proxy start this-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
@@ -58,7 +58,7 @@ The following log appears when the startup is successful:
 
 ## Test
 
-The `shenyu-examples-http` project will automatically register interface methods annotated with `@ShenyuSpringMvcClient` in the shenyu gateway after successful startup.
+The `shenyu-examples-http` project will automatically register interface methods annotated with `@ShenyuSpringMvcClient` in the Apache ShenYu gateway after successful startup.
 
 Open PluginList -> rpc proxy -> divide to see the list of plugin rule configurations:
 

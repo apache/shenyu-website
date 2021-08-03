@@ -1,9 +1,9 @@
 ---
-title: "ShenYu网关学习Zookeeper数据同步01"
+title: "Apache ShenYu网关学习Zookeeper数据同步01"
 author: "李权"
-description: "ShenYu网关学习Zookeeper数据同步"
-categories: "ShenYu"
-tags: ["ShenYu"]
+description: "Apache ShenYu网关学习Zookeeper数据同步"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
 date: 2021-01-20
 cover: "/img/architecture/shenyu-framework.png"
 ---
@@ -87,7 +87,7 @@ Starting zookeeper ... STARTED
 ![在这里插入图片描述](/img/shenyu/blog5/zk1.png)
 
 
-###### 三、ShenYu 网关 Zookeeper 数据同步原理解析
+###### 三、Apache ShenYu 网关 Zookeeper 数据同步原理解析
 在 soul-admin 启动后在控制台中看到了 org.I0Itec.zkclient.ZkClient，以此为入口进行跟踪调试。
 
 1、ZookeeperConfiguration 作用：注册 zkClient 到Spring容器。

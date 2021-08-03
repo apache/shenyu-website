@@ -4,13 +4,13 @@ keywords: sign
 description: sign plugin
 ---
 
-## Explanation
+## Description
 
-* Sign is a native plugin of ShenYu Gateway and is used to process signature authentication of requests.
+* `Sign` is a native plugin of `Apache ShenYu` Gateway and is used to process signature authentication of requests.
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [local deployment](../deployment-local) to start the `ShenYu` management system.
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../deployment-local) to start the `Apache ShenYu` management system.
 
 * In `shenyu-admin` BasicConfig --> plugin -> `sign` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -18,19 +18,19 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 
 * ## Plugin Usage
 
-* Introducing `sign` dependency in the pom.xml file of the gateway
+* Introducing `sign` dependency in the `pom.xml` file of the gateway
 
 ```xml
-  <!-- shenyu sign plugin start-->
+  <!-- apache shenyu sign plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-sign</artifactId>
-     <version>${last.version}</version>
+     <version>${project.version}</version>
   </dependency>
-  <!-- shenyu sign plugin end-->
+  <!-- apache shenyu sign plugin end-->
 ```
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
 * Only those matched requests can be authenticated by signature.
 
 
@@ -40,14 +40,14 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 
 ## Implementation of Gateway Technology
 
- * Adopt AK/SK authentication technical scheme.
+ * Adopt `AK/SK` authentication technical scheme.
  * Adopt authentication plug-in and Chain of Responsibility Pattern to realize.
  * Take effect when the authentication plugin is enabled and all interfaces are configured for authentication.
 
 
  ## Authentication Guide
 
- * Step 1: AK/SK is assigned by the gateway. For example, the AK assigned to you is: ` 1test123456781 ` SK is: ` 506eeb535cf740d7a755cb49f4a1536'
+ * Step 1: `AK/SK` is assigned by the gateway. For example, the `AK` assigned to you is: `1TEST123456781` SK is: ` 506eeb535cf740d7a755cb49f4a1536'
 
  * Step 2: Decide the gateway path you want to access, such as ` /api/service/abc`
 
@@ -72,7 +72,7 @@ Step 1: First, construct a Map.
    map.put("version", "1.0.0");
 ```
 
-Step 2: Sort the Keys naturally, then splice the key and values, and finally splice the SK assigned to you.
+Step 2: Sort the `Keys` naturally, then splice the key and values, and finally splice the `SK` assigned to you.
 ```java
 List<String> storedKeys = Arrays.stream(map.keySet()
                 .toArray(new String[]{}))
@@ -90,7 +90,7 @@ Step 3: Md5 encryption and then capitalization.
 DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```
 
-* The final returned value is:`A021BF82BE342668B78CD9ADE593D683`.
+* The final returned value is: `A021BF82BE342668B78CD9ADE593D683`.
 
 ## Request GateWay
 
@@ -107,12 +107,16 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 | sign       | `A90E66763793BDBC817CF3B52AAAC041`  | The signature obtained above |
 | version       | `1.0.0`  | `1.0.0` is a fixed value. |
 
-* The signature plugin will filter requests before 5 minutes by default
+* The signature plugin will filter requests before `5` minutes by default
 
-* If the authentication fails, will return code 401, message may change.
+* If the authentication fails, will return code `401`, message may change.
 
 ```json
-"code":401,"message":"sign is not pass,Please check you sign algorithm!","data":null}
+{
+  "code": 401,
+  "message": "sign is not pass,Please check you sign algorithm!",
+  "data": null
+}
 ```
 
 ## Extension

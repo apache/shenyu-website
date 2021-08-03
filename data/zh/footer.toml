@@ -30,6 +30,7 @@
 [[links]]
 	category = "订阅邮件组"
 	link_arr = [
+		["如何订阅", '/zh/community/subscribe-email/'],
 		["订阅邮件", 'mailto://dev-subscribe@shenyu.apache.org'],
 		["邮件归档", 'https://lists.apache.org/list.html?dev@shenyu.apache.org'],
 	]

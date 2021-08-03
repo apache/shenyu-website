@@ -6,25 +6,28 @@ description: rewrite plugin
 
 ## Explanation
 
-* When making proxy invokes to the target service, ShenYu Gateway also allows users to rewrite the request path using the `rewrite` plugin.
+* When making proxy invokes to the target service, Apache ShenYu gateway also allows users to rewrite the request path using the `rewrite` plugin.
 
 ## Plugin Setting
 
-* In `shenyu-admin` --> plugin management --> `rewrite` ,set to enable.
-* Introduce `rewrite` support in the pox.xml file of the gateway.
+* In `shenyu-admin` --> BasicConfig --> Plugin --> `rewrite` , set to enable.
+* Add `rewrite` support in the `pom.xml` file of the gateway.
 * If the user don't use, please disable the plugin in the background.
 
+<img src="/img/shenyu/plugin/rewrite/rewrite-enable-en-1.png" width="80%" height="80%" />
+
+
 ```xml
-  <!-- shenyu rewrite plugin start-->
+  <!-- apache shenyu rewrite plugin start-->
   <dependency>
       <groupId>org.apache.shenyu</groupId>
       <artifactId>shenyu-spring-boot-starter-plugin-rewrite</artifactId>
-     <version>${last.version}</version>
+     <version>${project.version}</version>
   </dependency>
-  <!-- shenyu rewrite plugin end-->
+  <!-- apache shenyu rewrite plugin end-->
 ```
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
 * Only those matched request will be rewritten.
 
 ## Situation

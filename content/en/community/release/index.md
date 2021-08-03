@@ -138,7 +138,7 @@ Suppose ShenYu source codes downloaded from github is under `~/shenyu/` director
 Create `${RELEASE.VERSION}-release` branch, where all the following operations are performed.
 
 ```shell
-## ${name} is the properly branch, e.g. master, main
+# ${name} is the properly branch, e.g. master, main
 git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/shenyu
 cd ~/shenyu/
 git pull
@@ -249,7 +249,7 @@ shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz > 
 **5. Commit to Apache SVN**
 
 ```shell
-cd ..
+cd ~/shenyu_svn/dev/shenyu
 svn add *
 svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
 ```
@@ -343,10 +343,16 @@ to check the following items:
 **Vote procedure**
 
 1. ShenYu community vote: send the vote e-mail to `dev@shenyu.apache.org`. 
-PMC needs to check the rightness of the version according to the document before they vote. 
-After at least 72 hours and with at least 3 `+1 PMC member` votes, it can come to the next stage of the vote.
+PPMC needs to check the rightness of the version according to the document before they vote. 
+After at least 72 hours and with at least 3 `+1 mentor` votes, it can come to the next stage of the vote.
 
 2. Announce the vote result: send the result vote e-mail to `dev@shenyu.apache.org`.
+
+3. Incubator community vote: send the vote e-mail to `general@incubator.apache.org`. 
+After at least 72 hours and with at least 3 `+1 binding` votes, it can come to announce the vote.
+
+4. Announce the vote result: send the result vote e-mail to `general@incubator.apache.org`.
+
 
 **Vote Templates**
 
@@ -415,9 +421,9 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-2. Announce the vote result:
+2. Announce the vote result
 
-Title：
+Title:
 
 ```
 [RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
@@ -426,11 +432,118 @@ Title：
 Body:
 
 ```
-We’ve received 3 +1 votes:
+We’ve received 7 +1 votes:
 
 +1, xxx (mentor)
-+1, xxx
-+1, xxx
++1, xxx (mentor)
++1, xxx (mentor)
++1, xxx (ppmc)
++1, xxx (ppmc)
++1, xxx (ppmc)
++1, xxx (ppmc)
+
+Thank you everyone for taking the time to review the release and help us. 
+```
+3. Incubator Community Vote Template
+
+Title:
+
+```
+[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+```
+
+Body:
+
+```
+Hello Incubator Community,
+
+This is a call for vote to release Apache ShenYu (incubating) version ${RELEASE.VERSION}
+
+The Apache ShenYu community has voted on and approved a proposal to release 
+Apache ShenYu (incubating) version ${RELEASE.VERSION}.
+
+We now kindly request the Incubator PMC members review and vote on this
+incubator release.
+
+ShenYu community vote thread:
+https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+
+Vote result thread:
+https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+
+Release notes:
+https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
+
+The release candidates:
+https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION}/
+
+Maven 2 staging repository:
+https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
+
+Git tag for the release:
+https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+
+Release Commit ID:
+https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
+
+Keys to verify the Release Candidate:
+https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
+
+Look at here for how to verify this release candidate:
+https://shenyu.apache.org/community/release/#check-release
+
+GPG user ID:
+${YOUR.GPG.USER.ID}
+
+The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+Please vote accordingly:
+
+[ ] +1 approve 
+
+[ ] +0 no opinion
+ 
+[ ] -1 disapprove with the reason
+
+Checklist for reference:
+
+[ ] Download links are valid.
+
+[ ] Checksums and PGP signatures are valid.
+
+[ ] Source code distributions have correct names matching the current release.
+
+[ ] LICENSE and NOTICE files are correct for each ShenYu repo.
+
+[ ] All files have license headers if necessary.
+
+[ ] No compiled archives bundled in source archive.
+```
+
+4. Announce the vote result
+
+Title:
+
+```
+[RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+```
+
+Body:
+
+```
+We’ve received 3 +1 binding and 5 + 1 non-binding votes, no +0 or -1 votes.
+
++1, xxx (+1 binding)
++1, xxx (+1 binding)
++1, xxx (+1 binding)
++1, xxx (+ 1 non-binding)
++1, xxx (+ 1 non-binding)
++1, xxx (+ 1 non-binding)
++1, xxx (+ 1 non-binding)
++1, xxx (+ 1 non-binding)
+
+The voting thread is:
+https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
 
 Thank you everyone for taking the time to review the release and help us. 
 I will process to publish the release and send ANNOUNCE.

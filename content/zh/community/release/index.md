@@ -137,7 +137,7 @@ https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 创建`${RELEASE.VERSION}-release`分支，接下来的操作都在该分支进行。
 
 ```shell
-## ${name}为源码所在分支，如：master，main
+# ${name}为源码所在分支，如：master，main
 git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/shenyu
 cd ~/shenyu/
 git pull
@@ -248,7 +248,7 @@ shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz > 
 **5. 提交Apache SVN**
 
 ```shell
-cd ..
+cd ~/shenyu_svn/dev/shenyu
 svn add *
 svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
 ```
@@ -341,10 +341,15 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 **投票阶段**
 
-1. ShenYu社区投票，发起投票邮件到`dev@shenyu.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。
-经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
+1. ShenYu社区投票，发起投票邮件到`dev@shenyu.apache.org`。PPMC成员需要先按照文档检查版本的正确性，然后再进行投票。
+经过至少72小时并统计到3个`+1 mentor`票后，即可进入下一阶段的投票。
 
-2. 宣布投票结果,发起投票结果邮件到`dev@shenyu.apache.org`。
+2. 宣布投票结果，发起投票结果邮件到`dev@shenyu.apache.org`。
+
+3. Incubator社区投票，发起投票邮件到`general@incubator.apache.org`。
+经过至少72小时并统计到3个`+1 binding`票后，即可宣布投票结果。
+
+4. 宣布投票结果，发起投票结果邮件到`general@incubator.apache.org`。
 
 **投票模板**
 
@@ -412,7 +417,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-2. 宣布投票结果模板：
+2. 宣布投票结果模板
 
 标题：
 
@@ -423,11 +428,119 @@ Checklist for reference:
 正文：
 
 ```
-We’ve received 3 +1 votes:
+We’ve received 7 +1 votes:
 
 +1, xxx (mentor)
-+1, xxx
-+1, xxx
++1, xxx (mentor)
++1, xxx (mentor)
++1, xxx (ppmc)
++1, xxx (ppmc)
++1, xxx (ppmc)
++1, xxx (ppmc)
+
+Thank you everyone for taking the time to review the release and help us. 
+```
+
+3. Incubator社区投票模板
+
+标题：
+
+```
+[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+```
+
+正文：
+
+```
+Hello Incubator Community,
+
+This is a call for vote to release Apache ShenYu (incubating) version ${RELEASE.VERSION}
+
+The Apache ShenYu community has voted on and approved a proposal to release 
+Apache ShenYu (incubating) version ${RELEASE.VERSION}.
+
+We now kindly request the Incubator PMC members review and vote on this
+incubator release.
+
+ShenYu community vote thread:
+https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+
+Vote result thread:
+https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+
+Release notes:
+https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
+
+The release candidates:
+https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION}/
+
+Maven 2 staging repository:
+https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
+
+Git tag for the release:
+https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+
+Release Commit ID:
+https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
+
+Keys to verify the Release Candidate:
+https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
+
+Look at here for how to verify this release candidate:
+https://shenyu.apache.org/community/release/#check-release
+
+GPG user ID:
+${YOUR.GPG.USER.ID}
+
+The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+Please vote accordingly:
+
+[ ] +1 approve 
+
+[ ] +0 no opinion
+ 
+[ ] -1 disapprove with the reason
+
+Checklist for reference:
+
+[ ] Download links are valid.
+
+[ ] Checksums and PGP signatures are valid.
+
+[ ] Source code distributions have correct names matching the current release.
+
+[ ] LICENSE and NOTICE files are correct for each ShenYu repo.
+
+[ ] All files have license headers if necessary.
+
+[ ] No compiled archives bundled in source archive.
+```
+
+4. 宣布投票结果模板
+
+标题：
+
+```
+[RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+```
+
+正文：
+
+```
+We’ve received 3 +1 binding and 5 + 1 non-binding votes, no +0 or -1 votes.
+
++1, xxx (+1 binding)
++1, xxx (+1 binding)
++1, xxx (+1 binding)
++1, xxx (+ 1 non-binding)
++1, xxx (+ 1 non-binding)
++1, xxx (+ 1 non-binding)
++1, xxx (+ 1 non-binding)
++1, xxx (+ 1 non-binding)
+
+The voting thread is:
+https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
 
 Thank you everyone for taking the time to review the release and help us. 
 I will process to publish the release and send ANNOUNCE.

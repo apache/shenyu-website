@@ -20,83 +20,83 @@ For details about data synchronization configurations, see [Data Synchronization
  
   Alibaba dubbo user, configure the dubbo version and registry center with yours.
 
-    ```xml
-    <!-- apache shenyu alibaba dubbo plugin start-->
-    <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
-       <version>${project.version}</version>
-    </dependency>
-    <!-- apache shenyu  alibaba dubbo plugin end-->
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>dubbo</artifactId>
-      <version>2.6.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.curator</groupId>
-      <artifactId>curator-client</artifactId>
-      <version>4.0.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.curator</groupId>
-      <artifactId>curator-framework</artifactId>
-      <version>4.0.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.curator</groupId>
-      <artifactId>curator-recipes</artifactId>
-      <version>4.0.1</version>
-    </dependency>
-    ```
+```xml
+<!-- apache shenyu alibaba dubbo plugin start-->
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+   <version>${project.version}</version>
+</dependency>
+<!-- apache shenyu  alibaba dubbo plugin end-->
+<dependency>
+  <groupId>com.alibaba</groupId>
+  <artifactId>dubbo</artifactId>
+  <version>2.6.5</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.curator</groupId>
+  <artifactId>curator-client</artifactId>
+  <version>4.0.1</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.curator</groupId>
+  <artifactId>curator-framework</artifactId>
+  <version>4.0.1</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.curator</groupId>
+  <artifactId>curator-recipes</artifactId>
+  <version>4.0.1</version>
+</dependency>
+```
   
  Apache dubbo user, configure the dubbo version and registry center with yours.
     
-    ```xml
-    <!-- apache shenyu apache dubbo plugin start-->
-    <dependency>
-       <groupId>org.apache.shenyu</groupId>
-       <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
-       <version>${project.version}</version>
-    </dependency>
-    <!-- apache shenyu apache dubbo plugin end-->
+```xml
+<!-- apache shenyu apache dubbo plugin start-->
+<dependency>
+   <groupId>org.apache.shenyu</groupId>
+   <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
+   <version>${project.version}</version>
+</dependency>
+<!-- apache shenyu apache dubbo plugin end-->
 
-    <dependency>
-       <groupId>org.apache.dubbo</groupId>
-       <artifactId>dubbo</artifactId>
-       <version>2.7.5</version>
-    </dependency>
-    <!-- Dubbo Nacos registry dependency start -->
-    <dependency>
-       <groupId>org.apache.dubbo</groupId>
-       <artifactId>dubbo-registry-nacos</artifactId>
-       <version>2.7.5</version>
-    </dependency>
-    <dependency>
-       <groupId>com.alibaba.nacos</groupId>
-       <artifactId>nacos-client</artifactId>
-       <version>1.1.4</version>
-    </dependency>
-    <!-- Dubbo Nacos registry dependency  end-->
+<dependency>
+   <groupId>org.apache.dubbo</groupId>
+   <artifactId>dubbo</artifactId>
+   <version>2.7.5</version>
+</dependency>
+<!-- Dubbo Nacos registry dependency start -->
+<dependency>
+   <groupId>org.apache.dubbo</groupId>
+   <artifactId>dubbo-registry-nacos</artifactId>
+   <version>2.7.5</version>
+</dependency>
+<dependency>
+   <groupId>com.alibaba.nacos</groupId>
+   <artifactId>nacos-client</artifactId>
+   <version>1.1.4</version>
+</dependency>
+<!-- Dubbo Nacos registry dependency  end-->
 
-    <!-- Dubbo zookeeper registry dependency start-->
-    <dependency>
-       <groupId>org.apache.curator</groupId>
-       <artifactId>curator-client</artifactId>
-       <version>4.0.1</version>
-    </dependency>
-    <dependency>
-       <groupId>org.apache.curator</groupId>
-       <artifactId>curator-framework</artifactId>
-       <version>4.0.1</version>
-    </dependency>
-    <dependency>
-       <groupId>org.apache.curator</groupId>
-       <artifactId>curator-recipes</artifactId>
-       <version>4.0.1</version>
-    </dependency>
-    <!-- Dubbo zookeeper registry dependency end -->
-    ```
+<!-- Dubbo zookeeper registry dependency start-->
+<dependency>
+   <groupId>org.apache.curator</groupId>
+   <artifactId>curator-client</artifactId>
+   <version>4.0.1</version>
+</dependency>
+<dependency>
+   <groupId>org.apache.curator</groupId>
+   <artifactId>curator-framework</artifactId>
+   <version>4.0.1</version>
+</dependency>
+<dependency>
+   <groupId>org.apache.curator</groupId>
+   <artifactId>curator-recipes</artifactId>
+   <version>4.0.1</version>
+</dependency>
+<!-- Dubbo zookeeper registry dependency end -->
+```
 
 * restart gateway service.
 
@@ -109,13 +109,13 @@ For details about data synchronization configurations, see [Data Synchronization
        
       Add these dependencies:
        
-        ```xml
-        <dependency>
-             <groupId>org.apache.shenyu</groupId>
-             <artifactId>shenyu-spring-boot-starter-client-alibaba-dubbo</artifactId>
-             <version>${shenyu.version}</version>
-        </dependency>
-        ```
+    ```xml
+    <dependency>
+         <groupId>org.apache.shenyu</groupId>
+         <artifactId>shenyu-spring-boot-starter-client-alibaba-dubbo</artifactId>
+         <version>${shenyu.version}</version>
+    </dependency>
+    ```
 
     * Spring
       

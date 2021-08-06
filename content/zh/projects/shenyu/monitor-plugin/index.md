@@ -33,7 +33,7 @@ description: monitor插件
 
 * 如果用户不使用，则在 `shenyu-admin` 后台把此插件停用。
 
-<img src="/img/shenyu/plugin/monitor/monitor-1.png" width="70%" height="60%" />
+<img src="/img/shenyu/plugin/monitor/monitor_open.png" width="70%" height="60%" />
 
 
 ## 插件使用

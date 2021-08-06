@@ -14,11 +14,11 @@ description: 选择器和规则管理
 
 在插件列表中展示了当前的所有插件，可以给每个插件添加选择器和规则：
 
-<img src="/img/shenyu/basicConfig/pluginHandle/selector1.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/pluginHandle/selector_example.png" width="80%" height="50%" />
 
 例如，给`divide`插件添加选择器：
 
-<img src="/img/shenyu/basicConfig/pluginHandle/selector2.png" width="80%" height="80%" />
+<img src="/img/shenyu/basicConfig/pluginHandle/selector_add.png" width="80%" height="80%" />
 
 
  * 选择器详解：
@@ -57,7 +57,7 @@ description: 选择器和规则管理
 
 ## 规则
 
-<img src="/img/shenyu/basicConfig/pluginHandle/rule1.png" width="80%" height="80%" />
+<img src="/img/shenyu/basicConfig/pluginHandle/rule_handle.png" width="80%" height="80%" />
 
  * 当流量经过选择器匹配成功之后，会进入规则来进行最终的流量匹配。
 

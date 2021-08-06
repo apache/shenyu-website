@@ -13,7 +13,7 @@ description: Motan快速开始
 启动成功后，需要在基础配置`->`插件管理中，把`motan` 插件设置为开启。
 
 
-<img src="/img/shenyu/plugin/motan/motan-1.png" width="60%" height="50%" />
+<img src="/img/shenyu/plugin/motan/motan_open.png" width="60%" height="50%" />
 
 
 启动网关，如果是通过源码的方式，直接运行`shenyu-bootstrap`中的`ShenyuBootstrapApplication`。
@@ -84,10 +84,10 @@ description: Motan快速开始
 打开`插件列表 -> rpc proxy -> motan`可以看到插件规则配置列表：
 
 
-<img src="/img/shenyu/plugin/motan/motan-2.png" width="60%" height="50%" />
+<img src="/img/shenyu/plugin/motan/selector_rule_list.png" width="60%" height="50%" />
 
 下面使用`postman`模拟`http`的方式来请求你的`motan`服务：
 
-<img src="/img/shenyu/plugin/motan/motan-3.png" width="60%" height="50%" />
+<img src="/img/shenyu/plugin/motan/motan_service.png" width="60%" height="50%" />
 
 

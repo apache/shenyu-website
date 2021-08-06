@@ -9,7 +9,7 @@ This document explains the principle of data synchronization. Data synchronizati
 See [Data Synchronization Configuration](../use-data-sync)  for configuration information about data synchronization.
 
 
-<img src="/img/shenyu/dataSync/data-sync-en-1.png" width="90%" height="80%" />
+<img src="/img/shenyu/dataSync/data-sync-dir-en.png" width="90%" height="80%" />
 
 
 ## Preface

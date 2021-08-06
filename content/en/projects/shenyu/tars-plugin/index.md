@@ -26,7 +26,7 @@ After the client accesses the `Apache ShenYu` gateway, it will automatically reg
 
 #### Selector Handler
 
-<img src="/img/shenyu/plugin/tars/tars-plugin-en-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/tars/selector_en.png" width="80%" height="80%" />
 
 
 Selector Handler, the `handle` field is the tars service that is actually invoked after the gateway matches the traffic. You can configure multiple load balancing weights and specify the specific load balancing policy in the rules. For more information, see [Plugin Handle Management](../plugin-handle-explanation) .
@@ -49,11 +49,11 @@ Selector Handler, the `handle` field is the tars service that is actually invoke
      * `status`：open or close.
   
  
-#### Rule Handel
+#### Rule Handle
 
-<img src="/img/shenyu/plugin/tars/tars-plugin-en-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/tars/rule_en.png" width="80%" height="80%" />
 
-Rule Handel, the `handle` field indicates the processing rule adopted by the gateway after the final matching of traffic. For more information, see [Plugin Handle Management](../plugin-handle-explanation) .
+Rule Handle, the `handle` field indicates the processing rule adopted by the gateway after the final matching of traffic. For more information, see [Plugin Handle Management](../plugin-handle-explanation) .
 
 * config details:
     * `loadStrategy`: if the `Http` client is a cluster, Apache ShenYu gateway uses the load balancing policy when calling, currently supporting `roundRobin`, `random`, and `hash`.
@@ -65,7 +65,7 @@ Rule Handel, the `handle` field indicates the processing rule adopted by the gat
 
 Each `tars` interface method, will correspond to a metadata, when the `tars` application client access to the `Apache ShenYu` gateway, will be automatically registered, can be viewed in the `shenyu-admin` background management system of the BasicConfig --> Metadata management.
 
-<img src="/img/shenyu/plugin/tars/tars-plugin-en-3.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/tars/metadata_en.png" width="80%" height="80%" />
 
 
 * AppName: specifies the name of the application to which the metadata belongs.

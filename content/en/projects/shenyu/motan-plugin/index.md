@@ -28,7 +28,7 @@ You can see it in PluginList -> rpc proxy -> motan. For details about the select
 
 Each `motan` interface method, will correspond to a metadata, when the `motan` application client access to the `Apache ShenYu` gateway, will be automatically registered, can be viewed in the `shenyu-admin` background management system of the BasicConfig --> Metadata management.
 
-<img src="/img/shenyu/plugin/motan/motan-plugin-en-1.png" width="60%" height="50%" />
+<img src="/img/shenyu/plugin/motan/metadata_en.png" width="60%" height="50%" />
 
 
 * AppName: specifies the name of the application to which the metadata belongs.

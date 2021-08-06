@@ -26,7 +26,7 @@ After the client accesses the `Apache ShenYu` gateway, it will automatically reg
 
 #### Selector Handler
 
-<img src="/img/shenyu/plugin/grpc/grpc-plugin-en-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/grpc/selector_en.png" width="80%" height="80%" />
 
 
 Selector Handler, the `handle` field, is the processing operation that the gateway can perform after matching the traffic.
@@ -47,7 +47,7 @@ Selector Handler, the `handle` field, is the processing operation that the gatew
 
 Each `grpc` interface method, will correspond to a metadata, when the `grpc` application client access to the `Apache ShenYu` gateway, will be automatically registered, can be viewed in the `shenyu-admin` background management system of the BasicConfig --> Metadata management.
 
-<img src="/img/shenyu/plugin/grpc/grpc-plugin-en-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/grpc/metadata_en.png" width="80%" height="80%" />
 
 
 * AppName: specifies the name of the application to which the metadata belongs.

@@ -11,7 +11,7 @@ Please refer to the deployment to select a way to start shenyu-admin. For exampl
 
 After successful startup, you need to open the Dubbo plugin on in the BasicConfig `->` Plugin, and set your registry address. Please make sure the registry center is open locally.
 
-<img src="/img/shenyu/quick-start/dubbo/dubbo-en-1.png" width="60%" height="50%" />
+<img src="/img/shenyu/quick-start/dubbo/dubbo_open_en.png" width="60%" height="50%" />
 
 If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
 

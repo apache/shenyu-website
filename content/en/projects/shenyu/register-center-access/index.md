@@ -11,7 +11,7 @@ Connecting the application client to ShenYu gateway is realized through the regi
 
 This article describes how to configure the application client to access the Apache ShenYu gateway. For related principles, see [Application Client Access](../register-center-design) in the design document .
 
-<img src="/img/shenyu/register/app-client-access-config-en-1.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/app-client-access-config-en.png" width="70%" height="60%" />
 
 
 ### Http Registry Config

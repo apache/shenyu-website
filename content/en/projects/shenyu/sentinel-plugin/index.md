@@ -18,7 +18,7 @@ Select a mode to start shenyu-admin. For details, see  deployment. For example, 
 * In BasicConfig --> Plugin --> sentinel, set to enable.
 * If the user don't use, please disable the plugin in the background.
 
-<img src="/img/shenyu/plugin/sentinel/sentinel-plugin-en-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/sentinel/sentinel_open_en.png" width="80%" height="80%" />
 
 
 ## Add sentinel plugin dependency 
@@ -45,14 +45,14 @@ For more information on selectors and rules configuration, see [Selector And Rul
 It is used to filter traffic for the first time and does not require `handle` fields.
 
 
-<img src="/img/shenyu/plugin/sentinel/sentinel-plugin-en-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/sentinel/selector_en.png" width="80%" height="80%" />
 
 ####  Rule Config
 
 For the final filtering of traffic, there is a rule handler logic.
 
 
-<img src="/img/shenyu/plugin/sentinel/sentinel-plugin-en-3.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/sentinel/rule_en.png" width="80%" height="80%" />
 
 
 

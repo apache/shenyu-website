@@ -12,7 +12,7 @@ Please refer to the deployment to select a way to start shenyu-admin. For exampl
 
 After successful startup, you need to open the Sofa plugin on in the BasicConfig `->` Plugin.
 
-<img src="/img/shenyu/quick-start/tars/tars-en-1.png" width="60%" height="50%" />
+<img src="/img/shenyu/quick-start/tars/tars_open_en.png" width="60%" height="50%" />
 
 If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
 

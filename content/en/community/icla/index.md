@@ -17,11 +17,11 @@ The process of submitting ICLA are:
 
 **1. First, click the link [Apache Licenses](https://www.apache.org/licenses/#clas) and find CLAs under the Contributor License Agreements section.**
 
-![](/img/shenyu/icla/1.png)
+![](/img/shenyu/icla/page_link.png)
 
 **2. At the top of the page, there are two download links choose ICLA(Individual Contributor License Agreement) and download it.**
 
-![](/img/shenyu/icla/2.png)
+![](/img/shenyu/icla/download.png)
 
 **3. Open the PDF, and fill in the following columns in English.**
 
@@ -30,12 +30,12 @@ The process of submitting ICLA are:
 > - Leave a space between family name and last name, remember capitalize the first letter, please write family name at first.
 > - Preferred Apache id(s) is a required field for committers.
 
-![](/img/shenyu/icla/icla-en3.png)
+![](/img/shenyu/icla/write_info.png)
 
 **4. The signature at the bottom of the document:**
 Apache only accept hand-written signature or [PDF signature software](https://pdf.yozocloud.cn/p/pdfaddsign)
 
-![](/img/shenyu/icla/icla-en4.png)
+![](/img/shenyu/icla/hand_write.png)
 
 **5.After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor**
 
@@ -53,9 +53,9 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Send to the specified mailbox
 > - [icla Sign status document](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla签署状态表》，可复制链接后用石墨文档 App 或小程序打开)
 
-![](/img/shenyu/icla/5.png)
+![](/img/shenyu/icla/example.png)
 
-![](/img/shenyu/icla/6.png)
+![](/img/shenyu/icla/pls_sign.png)
 
 > Handwritten signature
 
@@ -67,10 +67,10 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Send to the specified mailbox
 > - [icla Sign status document](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla签署状态表》，可复制链接后用石墨文档 App 或小程序打开)
 
-![](/img/shenyu/icla/7.png)
+![](/img/shenyu/icla/doc_example.png)
 
-![](/img/shenyu/icla/8.png)
+![](/img/shenyu/icla/doc_content.png)
 
 ## Email Template
-![](/img/shenyu/icla/11.png)
-![](/img/shenyu/icla/10.png)
+![](/img/shenyu/icla/email_template_file.png)
+![](/img/shenyu/icla/email_template.png)

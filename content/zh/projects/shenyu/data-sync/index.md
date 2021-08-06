@@ -6,7 +6,7 @@ description: 数据同步
 
 本篇主要讲解数据同步原理，数据同步是指在 `shenyu-admin` 后台操作数据以后，使用何种策略将数据同步到 `Apache ShenYu` 网关。`Apache ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos` 、`Etcd` 和 `Consul` 进行数据同步。
 
-<img src="/img/shenyu/dataSync/data-sync-1.png" width="60%" height="50%" />
+<img src="/img/shenyu/dataSync/data-sync-dir-zh.png" width="60%" height="50%" />
 
 数据同步的相关配置请参考用户文档中的 [数据同步配置](../use-data-sync) 。
 

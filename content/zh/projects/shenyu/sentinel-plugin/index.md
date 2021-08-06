@@ -15,7 +15,7 @@ description: sentinel插件
 
 * 在 基础配置 `-->`  插件管理 `-->` `sentinel`，设置为开启。 如果用户不使用，可以将其关闭。
 
-<img src="/img/shenyu/plugin/sentinel/sentinel-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/sentinel/sentinel_open_zh.png" width="80%" height="80%" />
 
 
 
@@ -42,13 +42,13 @@ description: sentinel插件
 
 用于对流量第一次筛选，不需要特殊处理字段。
 
-<img src="/img/shenyu/plugin/sentinel/sentinel-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/sentinel/selector_zh.png" width="80%" height="80%" />
 
 ####  规则配置
 
 用于对流量最终筛选，有规则处理逻辑。 
 
-<img src="/img/shenyu/plugin/sentinel/sentinel-3.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/sentinel/rule_zh.png" width="80%" height="80%" />
 
 
 

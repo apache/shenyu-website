@@ -5,10 +5,10 @@ description:  spi-design
 ---
 
 
-'SPI', called 'Service Provider Interface', is a built-in JDK Service that provides discovery function and a dynamic replacement discovery mechanism.
+SPI, called Service Provider Interface, is a built-in JDK Service that provides discovery function and a dynamic replacement discovery mechanism.
 
 
-[shenyu-spi](https://github.com/apache/incubator-shenyu/tree/master/shenyu-spi) 是`Apache ShenYu`网关自定义的`SPI`扩展实现，设计和实现原理参考了`Dubbo`的 [SPI扩展实现](https://dubbo.apache.org/zh/docs/v2.7/dev/impls/) 。
+[shenyu-spi](https://github.com/apache/incubator-shenyu/tree/master/shenyu-spi) is a custom SPI extension implementation for Apache Shenyu gateway. The design and implementation principles refer to [SPI Extension Implementations](https://dubbo.apache.org/en/docs/v2.7/dev/impls/) .
  
  
 ### Registry Center

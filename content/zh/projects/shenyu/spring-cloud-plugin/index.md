@@ -20,7 +20,7 @@ description: Spring Cloud插件
 
 #### 选择器处理
 
-<img src="/img/shenyu/plugin/springcloud/springcloud-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/springcloud/selector_zh.png" width="80%" height="80%" />
 
 选择器处理，即`handle`字段，是网关匹配到流量以后，可以进行处理的操作。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
 
@@ -30,7 +30,7 @@ description: Spring Cloud插件
      
 #### 规则处理
 
-<img src="/img/shenyu/plugin/springcloud/springcloud-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/springcloud/rule_zh.png" width="80%" height="80%" />
 
 规则处理，即`handle`字段，是网关对流量完成最终匹配后，可以进行处理的操作。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
 

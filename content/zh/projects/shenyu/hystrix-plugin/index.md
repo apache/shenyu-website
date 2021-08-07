@@ -17,7 +17,7 @@ description: hystrix插件
 
 * 在 基础配置 `-->`  插件管理 `-->` `hystrix`，设置为开启。 如果用户不使用，可以将其关闭。
 
-<img src="/img/shenyu/plugin/hystrix/hystrix-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/hystrix/hystrix_open.png" width="80%" height="80%" />
 
 
 ## 在网关中引入 hystrix 插件
@@ -42,13 +42,13 @@ description: hystrix插件
 
 用于对流量第一次筛选，不需要特殊处理字段。
 
-<img src="/img/shenyu/plugin/hystrix/hystrix-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/hystrix/selector.png" width="80%" height="80%" />
 
 ####  规则配置
 
 用于对流量最终筛选，有规则处理逻辑，隔离模式支持 `thread` 和 `semaphore` 。 
 
-<img src="/img/shenyu/plugin/hystrix/hystrix-3.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/hystrix/rule.png" width="80%" height="80%" />
 
 
 * `hystrix`处理详解：

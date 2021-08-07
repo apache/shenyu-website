@@ -15,7 +15,7 @@ description: logging插件
 * 如果用户不需要，可以把插件禁用。
 
 
-<img src="/img/shenyu/plugin/logging/logging-1.png" width="70%" height="60%" />
+<img src="/img/shenyu/plugin/logging/logging_open.png" width="70%" height="60%" />
 
 
 * 在网关的 `pom.xml` 文件中添加 `logging` 的支持。

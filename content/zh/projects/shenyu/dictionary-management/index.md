@@ -11,11 +11,11 @@ description: 字典管理详解
 
 目前使用场景是在 [插件处理管理](../plugin-handle-explanation) 时，选择数据类型是 `下拉框` 时使用： 
 
-<img src="/img/shenyu/basicConfig/pluginHandle/dict_box.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/pluginHandle/dict_box_add.png" width="80%" height="50%" />
 
 在字典管理中，你可以新增字典类型，供其他地方使用：
 
-<img src="/img/shenyu/basicConfig/pluginHandle/dict_box2.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/pluginHandle/dict_box_type.png" width="80%" height="50%" />
 
 * 字典类型：在插件处理管理时，使用的字段名称。
 * 字典编码：标识字典数据。
@@ -27,4 +27,4 @@ description: 字典管理详解
 例如， `sentinel` 插件处理字段中的 `degradeRuleGrade`。当新增规则时，编辑 `degradeRuleGrade` 字段时，会自动从字典管理中查出 `type='degradeRuleGrade'` 的所有字典数据作为下拉选项：
 
 
-<img src="/img/shenyu/basicConfig/pluginHandle/dict_box3.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/pluginHandle/dict_box_use.png" width="80%" height="50%" />

@@ -14,7 +14,7 @@ description: rewrite plugin
 * Add `rewrite` support in the `pom.xml` file of the gateway.
 * If the user don't use, please disable the plugin in the background.
 
-<img src="/img/shenyu/plugin/rewrite/rewrite-enable-en-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/rewrite/rewrite_open_en.png" width="80%" height="80%" />
 
 
 ```xml

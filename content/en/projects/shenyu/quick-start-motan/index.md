@@ -13,7 +13,7 @@ Please refer to the deployment to select a way to start shenyu-admin. For exampl
 
 After successful startup, you need to open the Sofa plugin on in the BasicConfig `->` Plugin.
 
-<img src="/img/shenyu/quick-start/motan/motan-en-1.png" width="60%" height="50%" />
+<img src="/img/shenyu/quick-start/motan/motan_open_en.png" width="60%" height="50%" />
 
 If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
 
@@ -89,10 +89,10 @@ The `shenyu-examples-motan` project will automatically register the `@ShenyuMota
 Open PluginList -> rpc proxy -> motan to see the list of plugin rule configurations:
 
 
-<img src="/img/shenyu/quick-start/motan/motan-en-2.png" width="60%" height="50%" />
+<img src="/img/shenyu/quick-start/motan/motan_service_en.png" width="60%" height="50%" />
 
 Use PostMan to simulate HTTP to request your Motan service:
 
-<img src="/img/shenyu/plugin/motan/motan-3.png" width="60%" height="50%" />
+<img src="/img/shenyu/plugin/motan/motan_service.png" width="60%" height="50%" />
 
 

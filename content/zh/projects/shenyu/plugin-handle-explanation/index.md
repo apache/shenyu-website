@@ -13,11 +13,11 @@ description: 插件配置
 
 在插件管理中，你可以对所有插件进行统一管理，比如关闭或开启插件：
 
-<img src="/img/shenyu/basicConfig/pluginHandle/04.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/pluginHandle/divide_plugin_open.png" width="80%" height="50%" />
 
 也可以对某些插件设置配置信息，比如给`Dubbo`插件设置注册中心：
 
-<img src="/img/shenyu/basicConfig/pluginHandle/05.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/pluginHandle/dubbo_plugin_registry.png" width="80%" height="50%" />
 
 ## 插件处理管理
 
@@ -28,11 +28,11 @@ description: 插件配置
 
 第一步，在 `插件处理管理` 界面新增/编辑`handle`字段：
 
-![](/img/shenyu/basicConfig/pluginHandle/06.png)
+![](/img/shenyu/basicConfig/pluginHandle/plugin_handle_edit.png)
 
 第二步，填写字段信息：
 
-![](/img/shenyu/basicConfig/pluginHandle/07.png)
+![](/img/shenyu/basicConfig/pluginHandle/plugin_handle_info.png)
 
 * 插件名：需要给哪个插件添加`handle`字段，下拉选择。
 * 字段：添加字段的名称。
@@ -47,5 +47,5 @@ description: 插件配置
 
 第三步，在`插件列表 -> rpc proxy -> springCloud -> 添加规则`时，就可以输入`path`、`timeout`的信息：
 
-![](/img/shenyu/basicConfig/pluginHandle/08.png)
+![](/img/shenyu/basicConfig/pluginHandle/springcloud_rule_handler.png)
 

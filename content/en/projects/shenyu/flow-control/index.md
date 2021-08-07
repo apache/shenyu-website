@@ -21,4 +21,4 @@ A plugin has multiple selectors, and one selector corresponds to multiple rules.
 
 The execution logic of plugin, selector and rule is as follows. When the traffic enters into ShenYu gateway, it will first judge whether there is a corresponding plugin and whether the plugin is turned on. Then determine whether the traffic matches the selector of the plugin. It then determines whether the traffic matches the rules of the selector. If the request traffic meets the matching criteria, the plugin will be executed. Otherwise, the plugin will not be executed. Process the next one. ShenYu gateway is so through layers of screening to complete the flow control.
 
-<img src="/img/shenyu/dataSync/flow-control-1.png" width="40%" height="30%" />
+<img src="/img/shenyu/dataSync/flow-control-en.png" width="40%" height="30%" />

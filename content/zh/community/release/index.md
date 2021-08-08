@@ -622,7 +622,7 @@ GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`h
 
 **8. 邮件通知版本发布完成**
 
-发送邮件到`dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
+发送邮件到`general@incubator.apache.org`， `dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
 
 通知邮件模板：
 
@@ -659,7 +659,15 @@ ShenYu Resources:
 - Documents: https://shenyu.apache.org/projects/shenyu/overview/
 
 
-
 - Apache ShenYu (incubating) Team
 
+--
+
+DISCLAIMER
+
+Apache ShenYu (incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator PMC.
+Incubation is required of all newly accepted projects until a further review indicates that the infrastructure,
+communications, and decision making process have stabilized in a manner consistent with other successful ASF projects.
+While incubation status is not necessarily a reflection of the completeness or stability of the code,
+it does indicate that the project has yet to be fully endorsed by the ASF.
 ```

@@ -629,7 +629,7 @@ GPG signatures and hashes (SHA* etc) should use URL start with `https://download
 
 **8. Announce release completed by email**
 
-Send e-mail to `dev@shenyu.apache.org` and `announce@apache.org` to announce the release is finished
+Send e-mail to `general@incubator.apache.org`, `dev@shenyu.apache.org` and `announce@apache.org` to announce the release is finished
 
 Announcement e-mail template:
 
@@ -666,7 +666,16 @@ ShenYu Resources:
 - Documents: https://shenyu.apache.org/projects/shenyu/overview/
 
 
-
 - Apache ShenYu (incubating) Team
+
+--
+
+DISCLAIMER
+
+Apache ShenYu (incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator PMC.
+Incubation is required of all newly accepted projects until a further review indicates that the infrastructure,
+communications, and decision making process have stabilized in a manner consistent with other successful ASF projects.
+While incubation status is not necessarily a reflection of the completeness or stability of the code,
+it does indicate that the project has yet to be fully endorsed by the ASF.
 
 ```

@@ -622,7 +622,7 @@ GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`h
 
 **8. 邮件通知版本发布完成**
 
-发送邮件到`dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
+发送邮件到`general@incubator.apache.org`， `dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
 
 通知邮件模板：
 

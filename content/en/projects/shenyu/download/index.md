@@ -18,10 +18,6 @@ The downloads are distributed via mirror sites and should be checked for tamperi
 
 - `ShenYu-Bootstrap` Binary Distribution [[tar]](https://www.apache.org/dyn/closer.cgi/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.sha512)
   
-## All Releases
-
-Find all releases in the [Archive repository](https://archive.apache.org/dist/incubator/shenyu/)
-
 ## Verify the Releases
 
 [PGP signatures KEYS](https://downloads.apache.org/incubator/shenyu/KEYS)

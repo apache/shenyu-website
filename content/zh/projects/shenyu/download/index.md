@@ -17,10 +17,6 @@ description: 下载
 - `ShenYu-Admin` 二进制包 [[tar]](https://www.apache.org/dyn/closer.cgi/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.sha512)
 
 - `ShenYu-Bootstrap` 二进制包 [[tar]](https://www.apache.org/dyn/closer.cgi/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.sha512)
-  
-## 全部版本
-
-全部版本请到 [Archive repository](https://archive.apache.org/dist/incubator/shenyu/) 查看。
 
 ## 校验版本
 

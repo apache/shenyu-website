@@ -1,45 +1,69 @@
 ---
-title: 文档下载
+title: 下载
 keywords: download
-description: Doc Download
+description: 下载
 ---
 
 ## 最新版本
 
-`Apache ShenYu` 的发布版包括源码包及其对应的二进制包。
+`Apache ShenYu (incubating)` 的发布版包括源码包及其对应的二进制包。
 
-`Apache ShenYu - 版本: 2.3.0 ( 发布日期: Apr 2, 2020 )`
+由于下载内容分布在镜像服务器上，所以下载后应该进行 GPG 或 SHA-512 校验，以此来保证内容没有被篡改。
 
-* 源码
+##### `Apache ShenYu (incubating) - 版本: 2.4.0 (发布日期: Aug 8, 2021)`
 
-  * [zip](https://codeload.github.com/dromara/shenyu/zip/refs/tags/2.3.0)
+- 源码 [[zip]](https://www.apache.org/dyn/closer.cgi/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.sha512)
 
-  * [tar](https://codeload.github.com/dromara/shenyu/tar.gz/refs/tags/2.3.0)
+- ShenYu-Admin 二进制包 [[tar]](https://www.apache.org/dyn/closer.cgi/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.sha512)
 
-* `shenyu-admin` 二进制包
+- ShenYu-Bootstrap 二进制包 [[tar]](https://www.apache.org/dyn/closer.cgi/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.sha512)
 
-  * [tar](https://github-releases.githubusercontent.com/140543886/f562c480-9cb0-11eb-9f97-e6827c849866?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210530%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210530T170904Z&X-Amz-Expires=300&X-Amz-Signature=596b480f34f09707d759f249c4e7d5d2816d4fc9eefbc5026061a8d84a4ecf52&X-Amz-SignedHeaders=host&actor_id=13451528&key_id=0&repo_id=140543886&response-content-disposition=attachment%3B%20filename%3Dsoul-admin-bin-2.3.0-RELEASE.tar.gz&response-content-type=application%2Foctet-stream)
+## 校验版本
 
-* `shenyu-bootstrap` 二进制包
+[PGP签名文件](https://downloads.apache.org/incubator/shenyu/KEYS)
 
-  * [tar](https://github-releases.githubusercontent.com/140543886/08759480-9cb1-11eb-9b09-974bc0c79c4c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210530%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210530T170847Z&X-Amz-Expires=300&X-Amz-Signature=77f7718e6e46a8561024e25dc2669ea30005aa89c878a9f665edbb922762d6a6&X-Amz-SignedHeaders=host&actor_id=13451528&key_id=0&repo_id=140543886&response-content-disposition=attachment%3B%20filename%3Dsoul-bootstrap-bin-2.3.0-RELEASE.tar.gz&response-content-type=application%2Foctet-stream)
+使用 PGP 或 SHA 签名验证下载文件的完整性至关重要。
+可以使用 GPG 或 PGP 验证 PGP 签名。
+请下载 KEYS 以及发布的 asc 签名文件。
+建议从主发布目录而不是镜像中获取这些文件。
 
-`Apache ShenYu Dashboard - 版本: 2.3.0 ( 发布日期: Apr 2, 2020 )`
+```shell
+gpg -i KEYS
+```
 
-* 源码
+或者
 
-  * [zip](https://codeload.github.com/dromara/shenyu-dashboard/zip/refs/tags/2.3.0)
+```shell
+pgpk -a KEYS
+```
 
-  * [tar](https://codeload.github.com/dromara/shenyu-dashboard/tar.gz/refs/tags/2.3.0)
+或者
 
-* `shenyu-dashboard` 二进制包
+```shell
+pgp -ka KEYS
+```
 
-  * [tar](https://github-releases.githubusercontent.com/141903742/4fbdbd00-96d4-11eb-92f4-fead1958fd5c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210530%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210530T170738Z&X-Amz-Expires=300&X-Amz-Signature=60abef3f1ee0f4c7ad0311a2a5ce2acbd573cb4af5c522b79f8297ff29fcd631&X-Amz-SignedHeaders=host&actor_id=13451528&key_id=0&repo_id=141903742&response-content-disposition=attachment%3B%20filename%3Dsoul-dashboard-2.3.0-dist.zip&response-content-type=application%2Foctet-stream)
-  
+要验证二进制文件或源代码，您可以从主发布目录下载相关的 asc 文件，并按照以下指南进行操作。
+
+```shell
+gpg --verify apache-shenyu-********.asc apache-shenyu-*********
+```
+
+或者
+
+```shell
+pgpv apache-shenyu-********.asc
+```
+
+或者
+
+```shell
+pgp apache-shenyu-********.asc
+```
 
 ## PDF
 
-`Apache ShenYu` 提供了博客打包下载的 `PDF` ，供使用者、开发者查阅。
+`Apache ShenYu` 提供了打包下载的文档 `PDF` ，供使用者、开发者查阅。
 
 * [中文](/pdf/apache_shenyu_docs_zh.pdf)
 

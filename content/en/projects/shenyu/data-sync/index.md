@@ -9,7 +9,7 @@ This document explains the principle of data synchronization. Data synchronizati
 See [Data Synchronization Configuration](../use-data-sync)  for configuration information about data synchronization.
 
 
-<img src="/img/shenyu/dataSync/data-sync-en-1.png" width="90%" height="80%" />
+<img src="/img/shenyu/dataSync/data-sync-dir-en.png" width="90%" height="80%" />
 
 
 ## Preface
@@ -55,7 +55,7 @@ In the original version, the configuration service relied on the Zookeeper imple
 
 As showing picture below,`shenyu-admin` will issue a configuration change notification through `EventPublisher` after users change configuration,`EventDispatcher` will handle this modification and send configuration to corresponding event handler according to configured synchronization strategy.
 
-- If it is a `websocket` synchronization strategy,it will push modified data to `shenyu-web`,and corresponding `WebsocketCacheHandler` handler will handle `shenyu-admin` data push at the gateway layer
+- If it is a `websocket` synchronization strategy,it will push modified data to `shenyu-web`,and corresponding `WebsocketDataHandler` handler will handle `shenyu-admin` data push at the gateway layer
 - If it is a  `zookeeper` synchronization strategy,it will push modified data to `zookeeper`,and the `ZookeeperSyncCache` will monitor the data changes of `zookeeper` and process them
 - If it is a  `http` synchronization strategy,`shenyu-web` proactively initiates long polling requests,90 seconds timeout by default,if there is no modified data in `shenyu-admin`,http request will be blocked,if there is a data change, it will respond to the changed data information,if there is no data change after 60 seconds,then respond with empty data,gateway continue to make http request after getting response,this kind of request will repeat.
 

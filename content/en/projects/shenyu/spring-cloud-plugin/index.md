@@ -55,7 +55,7 @@ After the client accesses the `ShenYu` gateway, it will automatically register t
 
 #### Selector Handler
 
-<img src="/img/shenyu/plugin/springcloud/spring-cloud-plugin-en-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/springcloud/selector_en.png" width="80%" height="80%" />
 
 
 Selector Handler, the `handle` field, is an operation that can be processed by the gateway after matching the traffic. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
@@ -68,7 +68,7 @@ Selector Handler, the `handle` field, is an operation that can be processed by t
      
 #### Rule Handler
 
-<img src="/img/shenyu/plugin/springcloud/spring-cloud-plugin-en-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/springcloud/rule_en.png" width="80%" height="80%" />
 
 Rule Handler, the `handle` field, can be performed by the gateway after the final matching of traffic. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
 

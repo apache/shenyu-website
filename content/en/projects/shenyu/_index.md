@@ -183,6 +183,10 @@ sidebar:
        link: 'thread'
      - title: 'Shenyu Optimize'
        link: 'shenyu-optimize'
+     - title: 'SPI'
+       sub:
+         - title: 'Custom Condition Match'
+           link: 'custom-condition-match'
   - title: 'Release Notes'
     link: 'release-notes'
   - title: 'Download'

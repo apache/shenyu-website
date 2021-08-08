@@ -24,7 +24,7 @@ description:  Tars插件
 
 #### 选择器处理
 
-<img src="/img/shenyu/plugin/tars/tars-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/tars/selector_zh.png" width="80%" height="80%" />
 
 
 选择器处理，即`handle`字段，是网关匹配到流量以后，实际调用的`tars`服务，可以配置多个，设置负载均衡权重，具体的负载均衡策略，在规则中指定。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
@@ -48,7 +48,7 @@ description:  Tars插件
  
 #### 规则处理
 
-<img src="/img/shenyu/plugin/tars/tars-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/tars/rule_zh.png" width="80%" height="80%" />
 
 规则处理，即`handle`字段，是网关对流量完成最终匹配后，采取何种处理规则。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
 
@@ -61,7 +61,7 @@ description:  Tars插件
 
 每一个`tars`接口方法，都会对应一条元数据，当`tars`应用客户端接入到`Apache ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
 
-<img src="/img/shenyu/plugin/tars/tars-3.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/tars/metadata_zh.png" width="80%" height="80%" />
 
 * 应用名称：该条元数据所属的应用名称。
 

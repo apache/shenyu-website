@@ -176,7 +176,7 @@ soul :
 ```
 * 你的项目环境搭建完成，启动你的项目。
 
-
+> 注意，这里只是完成了网关的搭建，但是没有引入功能插件。比如，接入http请求，需要引入divide插件，请参考 [Http 代理](https://shenyu.apache.org/zh/projects/shenyu-2.3.0/http-proxy/) 。接入dubbo服务，需要引入dubbo插件，请参考 [Dubbo 代理](https://shenyu.apache.org/zh/projects/shenyu-2.3.0/dubbo-proxy/) 。
 
 
 

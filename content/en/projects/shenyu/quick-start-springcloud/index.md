@@ -12,7 +12,7 @@ Please refer to the deployment to select a way to start shenyu-admin. For exampl
 
 After successful startup, you need to open the springCloud plugin on in the BasicConfig `->` Plugin.
 
-<img src="/img/shenyu/quick-start/springcloud/springCloud-en-1.png" width="60%" height="50%" />
+<img src="/img/shenyu/quick-start/springcloud/springcloud_open_en.png" width="60%" height="50%" />
 
 If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
 

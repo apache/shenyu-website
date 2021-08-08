@@ -25,7 +25,7 @@ description:  gRPC插件
 
 #### 选择器处理
 
-<img src="/img/shenyu/plugin/grpc/grpc-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/grpc/selector_handle.png" width="80%" height="80%" />
 
 
 选择器处理，即`handle`字段，是网关匹配到流量以后，可进行的处理操作。
@@ -46,7 +46,7 @@ description:  gRPC插件
 
 每一个`grpc`接口方法，都会对应一条元数据，当`gRPC`应用客户端接入到`Apache ShenYu`网关时，会自动注册，可以在 `shenyu-admin`后台管理系统的基础配置 `-->` 元数据管理中查看。
 
-<img src="/img/shenyu/plugin/grpc/grpc-2.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/grpc/metadata.png" width="80%" height="80%" />
 
 
 * 应用名称：该条元数据所属的应用名称。

@@ -6,7 +6,7 @@ description: 数据同步
 
 本篇主要讲解数据同步原理，数据同步是指在 `shenyu-admin` 后台操作数据以后，使用何种策略将数据同步到 `Apache ShenYu` 网关。`Apache ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos` 、`Etcd` 和 `Consul` 进行数据同步。
 
-<img src="/img/shenyu/dataSync/data-sync-1.png" width="60%" height="50%" />
+<img src="/img/shenyu/dataSync/data-sync-dir-zh.png" width="60%" height="50%" />
 
 数据同步的相关配置请参考用户文档中的 [数据同步配置](../use-data-sync) 。
 
@@ -41,7 +41,7 @@ description: 数据同步
 
 如下图所示，`shenyu-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(`http、weboscket、zookeeper、naocs、etcd、consul`)，将配置发送给对应的事件处理器。
 
-- 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketCacheHandler` 处理器来处理 `shenyu-admin` 的数据推送。
+- 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketDataHandler` 处理器来处理 `shenyu-admin` 的数据推送。
 - 如果是 `zookeeper` 同步策略，将变更数据更新到 `zookeeper`，而 `ZookeeperSyncCache` 会监听到 `zookeeper` 的数据变更，并予以处理。
 - 如果是 `http` 同步策略，由网关主动发起长轮询请求，默认有 `90s` 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 `http` 请求，如果有数据发生变更则响应变更的数据信息，如果超过 `60s` 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 `http` 请求，反复同样的请求。
 

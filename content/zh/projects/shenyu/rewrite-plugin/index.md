@@ -17,7 +17,7 @@ description: rewrite插件
 
 * 如果用户不需要，可以把插件禁用。
 
-<img src="/img/shenyu/plugin/rewrite/rewrite-enable-1.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/rewrite/rewrite_open.png" width="80%" height="80%" />
 
 
 ```xml

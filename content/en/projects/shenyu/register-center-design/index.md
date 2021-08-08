@@ -10,7 +10,7 @@ Connecting the application client to ShenYu gateway is realized through the regi
 
 Refer to the client access configuration in the user documentation for [Application Client Access Config](../register-center-access) .
 
-<img src="/img/shenyu/register/application-client-access-en-1.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/application-client-access-en.png" width="70%" height="60%" />
 
 
 ## Design principle

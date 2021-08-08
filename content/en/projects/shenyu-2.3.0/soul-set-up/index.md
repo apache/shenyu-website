@@ -166,10 +166,11 @@ management:
 soul :
   sync:
     websocket :
-      urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
+      urls: ws://localhost:9095/websocket  // set your soul-admin address
 ```
 * Environment Setup has finished, now your project is launched.
 
+> Note that only the gateway has been set up, but no plugins have been add. For example, to access HTTP requests, you need to add the Divide plugin, please refer to [Http Plugin](https://shenyu.apache.org/projects/shenyu-2.3.0/http-proxy/) . To access the Dubbo service, you need to add the Dubbo plugin, please refer to [Dubbo Plugin](https://shenyu.apache.org/projects/shenyu-2.3.0/dubbo-proxy/) .
 
 
 

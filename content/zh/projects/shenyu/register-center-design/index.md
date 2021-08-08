@@ -10,7 +10,7 @@ description: 客户端接入原理
 将应用客户端接入到`Apache ShenYu`网关是通过注册中心来实现的，涉及到客户端注册和服务端同步数据。注册中心支持`Http`、`Zookeeper`、`Etcd`、`Consul`和`Nacos`。
 
 
-<img src="/img/shenyu/register/register-center-1.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/register-center-dir-zh.png" width="70%" height="60%" />
 
 客户端接入的相关配置请参考用户文档中的 [客户端接入配置](../register-center-access) 。
 

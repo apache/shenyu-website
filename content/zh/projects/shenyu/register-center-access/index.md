@@ -13,7 +13,7 @@ description: 客户端接入配置
 本篇文章介绍将应用客户端接入到`Apache ShenYu`网关，应该如何配置。相关原理请参考设计文档中的 [客户端接入原理](../register-center-design) 。
 
 
-<img src="/img/shenyu/register/register-center-2.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/register-center-config-dir-zh.png" width="70%" height="60%" />
 
 
 ### Http方式注册配置

@@ -26,7 +26,7 @@ Each `sofa` interface method, will correspond to a metadata, when the `sofa` app
 
 
 
-<img src="/img/shenyu/plugin/sofa/sofa-plugin-en-1.png" width="80%"/>
+<img src="/img/shenyu/plugin/sofa/metadata_en.png" width="80%"/>
 
 
 * AppName: specifies the name of the application to which the metadata belongs.

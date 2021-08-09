@@ -5,6 +5,7 @@ import asideFunc from './modules/aside'
 import searchFunc from './modules/search'
 import paginationFunc from './modules/pagination'
 import animationFunc from './modules/animation'
+import contributerFunc from './modules/contributer'
 
 import zoom from 'zoom-image'
 import 'zoom-image/css/zoom-image.css'
@@ -33,6 +34,9 @@ const main = () => {
   
   // projects
   projectFunc()
+
+  // contributer list
+  contributerFunc();
 
   // image zoom
   $$('.typo img').forEach(imgElem => {

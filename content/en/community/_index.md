@@ -21,6 +21,10 @@ sidebar:
     link: '2fa'    
   - title: 'Sign ICLA'
     link: 'icla'
+  - title: 'Contributor List'
+    link: 'contributor-list'
+  - title: 'User Registration'
+    link: 'user-list'
         
 # draft: true
 ---

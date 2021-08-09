@@ -12,6 +12,9 @@
 	<main class="ss-layout-main -card">
 		{{ partial "post/meta/community_meta" . }}
 		{{ partial "post/article" . }}
+		{{ if eq .Params.loadContributorList true }}
+			{{ partial "card/contributor_card" . }}
+		{{ end }}
 	</main>
 </div>
 

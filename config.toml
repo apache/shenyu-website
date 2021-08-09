@@ -45,16 +45,6 @@ unsafe = true
 		languageName = "中文"
 		weight = 20
 
-	#[[languages.zh.menu.main]]
-	#	identifier = "projects"
-	#	name = "项目"
-	#	url = "/zh/projects/"
-	#	weight = 1
-	#[[languages.zh.menu.main]]
-	#	identifier = "guides"
-	#	name = "指南"
-	#	url = "/zh/guides/"
-	#	weight = 2
 	[[languages.zh.menu.main]]
 		identifier = "download"
 		name = "下载"
@@ -71,36 +61,17 @@ unsafe = true
 		url = "/zh/community/subscribe-email/"
 		weight = 3
 	[[languages.zh.menu.main]]
-		identifier = "blog"
+		identifier = "news"
 		name = "新闻"
 		url = "/zh/news/"
 		weight = 4
 	# [[languages.zh.menu.main]]
-	# 	identifier = "activities"
-	# 	name = "活动"
-	# 	url = "/zh/activities/"
-	# 	weight = 4
-	# [[languages.zh.menu.main]]
-	# 	identifier = "awesome"
-	# 	name = "Awesome"
-	# 	url = "/zh/awesome/"
-	# 	weight = 5
-	#[[languages.zh.menu.main]]
-	#	identifier = "Links"
-	#	name = "Links"
-	#	weight = 7
+		# identifier = "blog"
+		# name = "博客"
+		# url = "/zh/blog/"
+		# weight = 5
 
 [menu]
-	#[[menu.main]]
-	#	identifier = "projects"
-	#	name = "Projects"
-	#	url = "/projects/"
-	#	weight = 1
-	#[[menu.main]]
-	#	identifier = "guides"
-	#	name = "Guides"
-	#	url = "/guides/"
-	#	weight = 2
 	[[menu.main]]
 		identifier = "download"
 		name = "Download"
@@ -117,20 +88,15 @@ unsafe = true
 		url = "/community/subscribe-email/"
 		weight = 3
 	[[menu.main]]
-		identifier = "blog"
+		identifier = "news"
 		name = "News"
 		url = "/news/"
 		weight = 4
 	# [[menu.main]]
-	# 	identifier = "activities"
-	# 	name = "Activity"
-	# 	url = "/activities/"
-	# 	weight = 4
-	# [[menu.main]]
-	# 	identifier = "awesome"
-	# 	name = "Awesome"
-	# 	url = "/awesome/"
-	# 	weight = 5
+		# identifier = "blog"
+		# name = "Blog"
+		# url = "/blog/"
+		# weight = 5
 
 [sitemap]
   changefreq = "monthly"

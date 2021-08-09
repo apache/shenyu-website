@@ -21,7 +21,10 @@ sidebar:
     link: '2fa'
   - title: '签署ICLA'
     link: 'icla'
-    
+  - title: 'Contributor列表'
+    link: 'contributor-list'
+  - title: '用户登记'
+    link: 'user-list'
     
 # draft: true
 ---

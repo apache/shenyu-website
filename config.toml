@@ -80,11 +80,11 @@ unsafe = true
 	# 	name = "活动"
 	# 	url = "/zh/activities/"
 	# 	weight = 4
-	[[languages.zh.menu.main]]
-		identifier = "awesome"
-		name = "Awesome"
-		url = "/zh/awesome/"
-		weight = 5
+	# [[languages.zh.menu.main]]
+	# 	identifier = "awesome"
+	# 	name = "Awesome"
+	# 	url = "/zh/awesome/"
+	# 	weight = 5
 	#[[languages.zh.menu.main]]
 	#	identifier = "Links"
 	#	name = "Links"
@@ -126,11 +126,11 @@ unsafe = true
 	# 	name = "Activity"
 	# 	url = "/activities/"
 	# 	weight = 4
-	[[menu.main]]
-		identifier = "awesome"
-		name = "Awesome"
-		url = "/awesome/"
-		weight = 5
+	# [[menu.main]]
+	# 	identifier = "awesome"
+	# 	name = "Awesome"
+	# 	url = "/awesome/"
+	# 	weight = 5
 
 [sitemap]
   changefreq = "monthly"

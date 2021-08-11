@@ -4,7 +4,7 @@ author: "xiaoyu"
 description: "发布Apache首个版本-2.4.0，让API网关变得简单" 
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
-date: 2021-08-011
+date: 2021-08-01
 cover: "/img/architecture/shenyu-framework.png"
 ---  
 

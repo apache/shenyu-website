@@ -1,5 +1,6 @@
 ---
 title: "Apache ShenYu(current)"
+version: "current"
 description: "This is an asynchronous, high-performance, cross-language, responsive API gateway."
 subDesc: "High-performance API Gateway"
 feature1Img: "/img/feature/feature_transpart.png"
@@ -57,7 +58,7 @@ sidebar:
       - title: 'Helm Deployment'
         link: 'deployment-helm'
       - title: 'Custom Deployment'
-        link: 'deployment-custom'        
+        link: 'deployment-custom'
   - title: 'Quick Start'
     sub:
       - title: 'Http Proxy'
@@ -74,7 +75,7 @@ sidebar:
         link: 'quick-start-tars'
       - title: 'Motan Proxy'
         link: 'quick-start-motan'
-        
+
   - title: 'User Guide'
     sub:
       - title: 'Admin Usage'

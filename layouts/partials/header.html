@@ -52,7 +52,7 @@
 				{{ $currentPage := . }}
 				{{ range .Site.Menus.main }}
 					{{ if (eq .Identifier "document") }}
-					<span class="navbar-item nav-hover">
+					<span class="navbar-item nav-hover document-menu">
 						<a class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq .URL  $currentPage.URL) }} -active{{end}}"
 							>{{ .Name }}</a>
 						<div class="dropdown-menu">

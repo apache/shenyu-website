@@ -61,7 +61,7 @@
   }
 
   .nav-hover{
-    width: 100px;
+    //width: 100px;
     position: relative;
     .dropdown-menu {
       position: absolute;
@@ -93,9 +93,15 @@
         background: #f8f9fa -o-linear-gradient(top,#f9fafb,#f8f9fa)repeat-x;
         background: #f8f9fa linear-gradient(180deg,#f9fafb,#f8f9fa)repeat-x
       } 
-    } 
-    
+    }
   }
+  
+  .document-menu {
+    .dropdown-menu {
+      width: 150px!important;
+    }
+  }
+
   .nav-hover:hover .dropdown-menu {
     animation: animate 0.3s ease-in-out forwards;
     animation-delay: 0.2s;

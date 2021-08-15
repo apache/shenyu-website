@@ -1,5 +1,6 @@
 ---
 title: "Apache ShenYu(current)"
+version: "current"
 description: "Apache ShenYu是一个异步的，高性能的，跨语言的，响应式的API网关。"
 subDesc: "高性能微服务API网关"
 feature1Img: "/img/feature/feature_transpart.png"
@@ -35,7 +36,7 @@ sidebar:
   - title: '设计文档'
     sub:
       - title: 'Admin数据结构'
-        link: 'database-design'      
+        link: 'database-design'
       - title: '数据同步原理'
         link: 'data-sync'
       - title: '客户端接入原理'
@@ -43,7 +44,7 @@ sidebar:
       - title: '流量控制'
         link: 'flow-control'
       - title: 'SPI扩展设计'
-        link: 'spi-design'  
+        link: 'spi-design'
   - title: '运维部署'
     sub:
       - title: '本地部署'
@@ -74,9 +75,9 @@ sidebar:
         link: 'quick-start-tars'
       - title: 'Motan代理'
         link: 'quick-start-motan'
-  
+
   - title: '用户文档'
-    sub:                  
+    sub:
       - title: 'admin使用'
         sub:
           - title: '插件管理'
@@ -108,7 +109,7 @@ sidebar:
   - title: '插件集合'
     sub:
       - title: 'Http 处理'
-        sub: 
+        sub:
           - title: 'Rewrite插件'
             link: 'rewrite-plugin'
           - title: 'Redirect插件'
@@ -122,11 +123,11 @@ sidebar:
           - title: 'ModifyResponse插件'
             link: 'modify-response-plugin'
       - title: 'RPC 代理'
-        sub: 
+        sub:
           - title: 'Divide插件'
             link: 'divide-plugin'
           - title: 'Dubbo插件'
-            link: 'dubbo-plugin'      
+            link: 'dubbo-plugin'
           - title: 'Spring Cloud插件'
             link: 'spring-cloud-plugin'
           - title: 'Sofa插件'
@@ -136,21 +137,21 @@ sidebar:
           - title: 'Tars插件'
             link: 'tars-plugin'
           - title: 'Motan插件'
-            link: 'motan-plugin'            
+            link: 'motan-plugin'
       - title: '熔断和限流'
-        sub: 
+        sub:
           - title: 'Hystrix插件'
-            link: 'hystrix-plugin'  
+            link: 'hystrix-plugin'
           - title: 'Sentinel插件'
-            link: 'sentinel-plugin'    
+            link: 'sentinel-plugin'
           - title: 'Resilience4j插件'
             link: 'resilience4j-plugin'
           - title: 'RateLimiter插件'
             link: 'rate-limiter-plugin'
       - title: '权限认证'
-        sub: 
+        sub:
           - title: 'Waf插件'
-            link: 'waf-plugin' 
+            link: 'waf-plugin'
           - title: 'Sign插件'
             link: 'sign-plugin'
           - title: 'JWT插件'
@@ -158,9 +159,9 @@ sidebar:
           - title: 'OAuth 2插件'
             link: 'oauth2-plugin'
       - title: '可观测性'
-        sub: 
+        sub:
           - title: 'Monitor插件'
-            link: 'monitor-plugin' 
+            link: 'monitor-plugin'
           - title: 'Logging插件'
             link: 'logging-plugin'
   - title: '开发者文档'
@@ -176,9 +177,9 @@ sidebar:
       - title: '自定义返回结果'
         link: 'custom-result'
       - title: '自定义签名插件算法与验证'
-        link: 'custom-sign-algorithm' 
+        link: 'custom-sign-algorithm'
       - title: '自定义匹配条件策略'
-        link: 'custom-condition-match'   
+        link: 'custom-condition-match'
       - title: '多语言Http客户端接入'
         link: 'developer-shenyu-client'
       - title: '线程模型'
@@ -188,7 +189,7 @@ sidebar:
   - title: '版本发布'
     link: 'release-notes'
   - title: '文档下载'
-    link: 'download'    
+    link: 'download'
 # draft: true
 ---
 

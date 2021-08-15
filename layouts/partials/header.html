@@ -1,3 +1,11 @@
+{{ $allPages := (where .Site.Pages "Section" "projects").ByWeight }}
+{{ $parent := .GetPage "projects" }}
+
+{{ $pages := slice }}
+{{ range $allPages }}
+	{{ if eq .Parent $parent }}{{ $pages = $pages | append . }}{{ end }}
+{{ end }}
+{{ $main_projects := where $pages ".Params.level" "main" }}
 <header class="ss-header">
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
@@ -19,9 +27,8 @@
 						</div>
 					{{ $currentPage := . }}
           {{ range .Site.Menus.main }}
-            <a
-              class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} -active{{end}}"
-              href="{{ .URL }}">
+		  <a class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} -active{{end}}"
+		  href="{{ .URL }}">
               <span>
                 {{ .Name }}
               </span>
@@ -40,12 +47,36 @@
 			</div>
 		</div>
 
-		<div class="navbar-menu -hidden-mobile">
+		<div class="navbar-menu">
 			<div class="navbar-start">
 				{{ $currentPage := . }}
 				{{ range .Site.Menus.main }}
-					<a class="navbar-item {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq .URL  $currentPage.URL) }} -active{{end}}"
+					{{ if (eq .Identifier "document") }}
+					<span class="navbar-item nav-hover">
+						<a class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq .URL  $currentPage.URL) }} -active{{end}}"
+							>{{ .Name }}</a>
+						<div class="dropdown-menu">
+						{{ range $main_projects}}
+							{{ $link := "" }}
+							{{ if isset .Params "link" }}
+								{{ if hasPrefix .Params.link "/" }}
+									{{ $link = path.Join .RelPermalink .Params.link }}
+								{{ else }}
+									{{ $link = .Params.link }}
+								{{ end }}
+							{{ else }}
+								{{ $link = path.Join .RelPermalink "/overview" }}
+							{{ end }}
+							<a class="dropdown-item" href={{ $link }}>
+								{{ .Params.version }}
+							</a>
+						{{ end}}
+						</div>
+					</span>
+					{{ else }}
+						<a class="navbar-item {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) (eq .URL  $currentPage.URL) }} -active{{end}}"
 						href="{{ .URL }}">{{ .Name }}</a>
+					{{ end }}
 				{{ end }}
 				<span class="navbar-item nav-hover">
 					<a>Links</a>
@@ -57,7 +88,7 @@
 						<a class="dropdown-item"  href="https://www.apache.org/licenses/">Security</a>
 						<a class="dropdown-item"  href="http://www.apache.org/foundation/sponsorship.html">Sponsor and Donate</a>
 						<a class="dropdown-item"  href="http://www.apache.org/foundation/thanks.html">Thanks</a>
-					  </div> 
+					  </div>
 				</span>
 			</div>
 			<div class="navbar-end">

@@ -122,6 +122,8 @@ sidebar:
             link: 'param-mapping-plugin'
           - title: 'ModifyResponse插件'
             link: 'modify-response-plugin'
+          - title: 'WebSocket代理'
+            link: 'websocket-plugin'
       - title: 'RPC 代理'
         sub:
           - title: 'Divide插件'

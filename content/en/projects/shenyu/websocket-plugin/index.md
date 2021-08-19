@@ -1,59 +1,78 @@
 ---
-title: Websocket Plugin
+title: WebSocket Proxy
 keywords: Apache ShenYu
 description: websocket plugin
 ---
 
-## Explanation
 
-* Apache ShenYu gateway also support proxy of websocket.
-* In websocket support, divide plugin is used in it.
+The Apache ShenYu gateway implements support for the WebSocket proxy through the `Divide` plugin.
 
-## Plugin Setting
 
-* In `shenyu-admin` --> plugin management --> ` divide `, set to enable.
-* Introducing dependencies in the pom.xml file of the gateway
+## Environment to prepare
+
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
+
+After successful startup, you need to open the Divide plugin on in the BasicConfig `->` Plugin. For `Divide` plugin details, please refer to: [Divide Plugin](../divide-plugin) .
+
+<img src="/img/shenyu/quick-start/http/http_open_en.png" width="60%" height="50%" />
+
+
+Add the following dependencies to the gateway's `pom.xml` file:
 
 ```xml
-<!--if you use http proxy start this-->
+  <!--if you use http proxy start this-->
 <dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
-    <version>${last.version}</version>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
+  <version>${project.version}</version>
 </dependency>
 
 <dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-    <version>${last.version}</version>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+  <version>${project.version}</version>
 </dependency>
 ```
+
 ## Request Path
 
-* When using shenyu proxy websocket, its request path is (example):`ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket`.
+When using Apache ShenYu proxy websocket, assume that the request path is:
 
-```yaml
-Detail:
-1.localhost:8080 is the IP and port started by Apache ShenYu.
-2.module(Required): Value is the key that matching selector.
-3.method(Parameter): Your websocket path is also used as a matching rule.
-4.rpcType ：websocket must be filled in，and must be websocket
+
+```
+ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket
 ```
 
-* Add a new configuration to the selector in the `divide` plugin, as follows
+details：
 
-![](https://yu199195.github.io/images/soul/websocket-selector.png)
+- `localhost:9195`: `ip` and port of gateway.
+
+- `module`: filter conditions for selector.
+
+- `method`: websocket paths are also used for rule matching.
+
+- `rpcType` ：default is websocket.
 
 
-* Add a new rule in this selector:
 
-![](https://yu199195.github.io/images/soul/websocket-rule.png)
+## Selector And Rule
+
+Add a selector configuration to the `Divide` plugin:
+
+<img src="/img/shenyu/plugin/websocket/websocket_selector_en.png" width="80%"/>
+
+Select the type `query` in the condition, and fill in the matching field and value (`module`, `ws`). You can customize the fields and the values, as long as they match the request.
+
+For Handle, enter the address of the `webSocket` service.
+
+Add a new rule under this selector:
 
 
-* In summary, pay attention to your path at this time `ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket`.
+<img src="/img/shenyu/plugin/websocket/websocket_rule_en.png" width="80%"/>
 
-  It will be matched by your new selector rule, and then the real websocket address of the proxy is:`127.0.0.1:8080/websocket`,so that Apache ShenYu can proxy websocket.
 
-  You can communicate with websocket service, it is actually very simple.
+Select the type `query` in the condition, and fill in the matching field and value, which are `method` and `websocket` respectively. You can also customize the fields and the values, as long as they match the request.
 
-* I would like to add just one last word that you can decide the name and value of module and method by yourself as long as the selector and the rule can match, this is just an example,
+
+
+With the above selector and rule configuration, your request will be matched and then request the real `WebSocket` address of the proxy: `127.0.0.1:8080/websocket`, thus the Apache ShenYu gateway will complete the proxy for `websocket`.

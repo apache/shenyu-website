@@ -122,6 +122,8 @@ sidebar:
             link: 'param-mapping-plugin'
           - title: 'ModifyResponse Plugin'
             link: 'modify-response-plugin'
+          - title: 'WebSocket Proxy'
+            link: 'websocket-plugin'
       - title: 'RPC Proxy'
         sub:
           - title: 'Divide Plugin'

@@ -18,7 +18,7 @@ descripton: "ShenYu Context-Path插件源码分析"
 
    **在HttpTestController.java中，将类注解@RequestMapping的path值稍作修改**，改成`"/v1/test"`，如下图所示。
 
-   ![0](/img/activities/code-analysis-context-path-plugin/0.png)
+   ![context-path-RequestMapping](/img/activities/code-analysis-context-path-plugin/context-path-RequestMapping.png)
 
 4. 启动shenyu-examples-http
 
@@ -26,7 +26,7 @@ descripton: "ShenYu Context-Path插件源码分析"
 
 然后我们请求接口 `http://localhost:9195/http/test/findByUserId?userId=1001` ，结果返回404。
 
-![1](/img/activities/code-analysis-context-path-plugin/1.png)
+![context-path-404](/img/activities/code-analysis-context-path-plugin/context-path-404.png)
 
 我们分析一下网关处理这个请求的过程的流程：
 
@@ -38,13 +38,13 @@ descripton: "ShenYu Context-Path插件源码分析"
 
    我们可以在admin里面发现有这样一条规则，将contextPath设置为`/http`，addPrefix设置为空。实际上，这样的设置使得shenyu在向目标服务发送请求前，将请求路径中的`/http`替换成了`空`。(详细内容见后续的源码分析)
 
-   ![2](/img/activities/code-analysis-context-path-plugin/2.png)
+   ![context-path-rules-without-prefix](/img/activities/code-analysis-context-path-plugin/context-path-rules-without-prefix.png)
 
 那么你现在应该知道了，我们只需要在addPrefix的空格里填上`/v1`就能正确地请求到目标服务了！
 
-![3](/img/activities/code-analysis-context-path-plugin/3.png)
+![context-path-rules-with-prefix](/img/activities/code-analysis-context-path-plugin/context-path-rules-with-prefix.png)
 
-![4](/img/activities/code-analysis-context-path-plugin/4.png)
+![context-path-success](/img/activities/code-analysis-context-path-plugin/context-path-success.png)
 
 ## 分析源码
 

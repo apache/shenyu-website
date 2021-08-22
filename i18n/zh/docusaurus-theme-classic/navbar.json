@@ -1,0 +1,50 @@
+{
+  "item.label.Document": {
+    "message": "文档",
+    "description": "Navbar item with label Document"
+  },
+  "item.label.Community": {
+    "message": "社区",
+    "description": "Navbar item with label Community"
+  },
+  "item.label.News": {
+    "message": "新闻",
+    "description": "Navbar item with label News"
+  },
+  "item.label.Blog": {
+    "message": "博客",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.ASF": {
+    "message": "ASF",
+    "description": "Navbar item with label ASF"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.Foundation": {
+    "message": "Foundation",
+    "description": "Navbar item with label Foundation"
+  },
+  "item.label.License": {
+    "message": "License",
+    "description": "Navbar item with label License"
+  },
+  "item.label.Events": {
+    "message": "Events",
+    "description": "Navbar item with label Events"
+  },
+  "item.label.Security": {
+    "message": "Security",
+    "description": "Navbar item with label Security"
+  },
+  "item.label.Sponsorship": {
+    "message": "Sponsorship",
+    "description": "Navbar item with label Sponsorship"
+  },
+  "item.label.Thanks": {
+    "message": "Thanks",
+    "description": "Navbar item with label Thanks"
+  }
+}

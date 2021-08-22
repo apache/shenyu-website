@@ -1,0 +1,10 @@
+{
+  "version.label": {
+    "message": "当前版本",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Design": {
+    "message": "设计文档",
+    "description": "The label for category Design in sidebar tutorialSidebar"
+  }
+}

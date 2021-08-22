@@ -1,0 +1,58 @@
+{
+  "link.title.ShenYu": {
+    "message": "ShenYu",
+    "description": "The title of the footer links column with title=ShenYu in the footer"
+  },
+  "link.title.Community": {
+    "message": "社区",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.Subscribe mailing list": {
+    "message": "订阅邮件组",
+    "description": "The title of the footer links column with title=Subscribe mailing list in the footer"
+  },
+  "link.item.label.Document": {
+    "message": "文档",
+    "description": "The label of footer link with label=Document linking to /docs/intro"
+  },
+  "link.item.label.News": {
+    "message": "新闻",
+    "description": "The label of footer link with label=News linking to /docs/intro"
+  },
+  "link.item.label.Blog": {
+    "message": "博客",
+    "description": "The label of footer link with label=Blog linking to /docs/intro"
+  },
+  "link.item.label.Releases": {
+    "message": "版本",
+    "description": "The label of footer link with label=Releases linking to https://github.com/apache/incubator-shenyu/releases"
+  },
+  "link.item.label.Community": {
+    "message": "社区",
+    "description": "The label of footer link with label=Community linking to /community/subscribe-email"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/apache/incubator-shenyu"
+  },
+  "link.item.label.Issue Tracker": {
+    "message": "Issue Tracker",
+    "description": "The label of footer link with label=Issue Tracker linking to https://github.com/apache/incubator-shenyu/issues"
+  },
+  "link.item.label.How to subscribe": {
+    "message": "如何定阅",
+    "description": "The label of footer link with label=How to subscribe linking to /community/subscribe-email"
+  },
+  "link.item.label.Subscribe Mail": {
+    "message": "订阅邮件",
+    "description": "The label of footer link with label=Subscribe Mail linking to mailto://dev-subscribe@shenyu.apache.org"
+  },
+  "link.item.label.Mail Archive": {
+    "message": "邮件归档",
+    "description": "The label of footer link with label=Mail Archive linking to https://lists.apache.org/list.html?dev@shenyu.apache.org"
+  },
+  "copyright": {
+    "message": "<div><img style=\"height:50px\" alt=\"Apache Software Foundation\" src=\"img/incubator-logo.png\" /><p style=\"color:#ffffffcf;font-size:14px;text-align:left\">Apache ShenYu is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p>\n      <p style=\"color:white;font-size:14px;\"> Copyright © 2021 The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache ShenYu, Apache Incubator, Apache, the Apache feather logo, the Apache ShenYu logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.</p>\n      <div>",
+    "description": "The footer copyright"
+  }
+}

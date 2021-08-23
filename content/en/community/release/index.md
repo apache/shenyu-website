@@ -531,22 +531,28 @@ Title:
 Body:
 
 ```
-We’ve received 3 +1 binding and 5 + 1 non-binding votes, no +0 or -1 votes.
+Hi,
 
-+1, xxx (+1 binding)
-+1, xxx (+1 binding)
-+1, xxx (+1 binding)
-+1, xxx (+ 1 non-binding)
-+1, xxx (+ 1 non-binding)
-+1, xxx (+ 1 non-binding)
-+1, xxx (+ 1 non-binding)
-+1, xxx (+ 1 non-binding)
+The vote to release Apache ShenYu (incubating) ${RELEASE.VERSION} has passed with
+6 +1 binding and 1 +1 non-binding votes, no +0 or -1 votes.
 
-The voting thread is:
+Binding votes:
+xxx
+xxx
+xxx
+xxx
+xxx
+xxx
+
+Non-Binding votes:
+xxx
+
+Vote thread:
 https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
 
-Thank you everyone for taking the time to review the release and help us. 
-I will process to publish the release and send ANNOUNCE.
+Thanks a lot to everyone for taking your time to review our release candidate.
+We will proceed with publishing the approved artifacts and sending out the
+announcements in the coming days.
 ```
 
 ## Finish the Release

@@ -528,22 +528,28 @@ Checklist for reference:
 正文：
 
 ```
-We’ve received 3 +1 binding and 5 + 1 non-binding votes, no +0 or -1 votes.
+Hi,
 
-+1, xxx (+1 binding)
-+1, xxx (+1 binding)
-+1, xxx (+1 binding)
-+1, xxx (+ 1 non-binding)
-+1, xxx (+ 1 non-binding)
-+1, xxx (+ 1 non-binding)
-+1, xxx (+ 1 non-binding)
-+1, xxx (+ 1 non-binding)
+The vote to release Apache ShenYu (incubating) ${RELEASE.VERSION} has passed with
+6 +1 binding and 1 +1 non-binding votes, no +0 or -1 votes.
 
-The voting thread is:
+Binding votes:
+xxx
+xxx
+xxx
+xxx
+xxx
+xxx
+
+Non-Binding votes:
+xxx
+
+Vote thread:
 https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
 
-Thank you everyone for taking the time to review the release and help us. 
-I will process to publish the release and send ANNOUNCE.
+Thanks a lot to everyone for taking your time to review our release candidate.
+We will proceed with publishing the approved artifacts and sending out the
+announcements in the coming days.
 ```
 
 ## 完成发布
@@ -569,48 +575,52 @@ git push --delete origin ${RELEASE.VERSION}-release
 git branch -d ${RELEASE.VERSION}-release
 ```
 
-**5. 发布 Docker**
+**4. 发布 Docker**
 
-5.1 准备工作
+4.1 准备工作
 
 本地安装 Docker，并启动服务。
 
-5.2 编译 Docker 镜像
+4.2 编译 Docker 镜像
 
 ```shell
-git checkout ${RELEASE.VERSION}
-cd ~/shenyu/shenyu-distribution/shenyu-bootstrap-distribution/
+git checkout v${RELEASE.VERSION}
+cd ~/shenyu/shenyu-dist/
 mvn clean package -Prelease,docker
 ```
 
-5.3 给本地 Docker 镜像打标记
+4.3 给本地 Docker 镜像打标记
 
-通过`docker images`查看到 IMAGE ID，例如为：e9ea51023687
+通过`docker images`查看到 IMAGE ID，例如为：e9ea51023687和e9ea51023688
 
 ```shell
 docker tag e9ea51023687 apache/shenyu-bootstrap:latest
 docker tag e9ea51023687 apache/shenyu-bootstrap:${RELEASE.VERSION}
+docker tag e9ea51023688 apache/shenyu-admin:latest
+docker tag e9ea51023688 apache/shenyu-admin:${RELEASE.VERSION}
 ```
 
-5.4 发布 Docker 镜像
+4.4 发布 Docker 镜像
 
 ```shell
 docker login
 docker push apache/shenyu-bootstrap:latest
 docker push apache/shenyu-bootstrap:${RELEASE_VERSION}
+docker push apache/shenyu-admin:latest
+docker push apache/shenyu-admin:${RELEASE_VERSION}
 ```
 
-5.5 确认发布成功
+4.5 确认发布成功
 
-登录 [Docker Hub](https://hub.docker.com/r/apache/shenyu-bootstrap/) 查看是否有发布的镜像
+登录 Docker Hub 查看 [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) 和 [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 是否有发布的镜像
 
-**6. GitHub版本发布**
+**5. GitHub版本发布**
 
-在 [GitHub Releases](https://github.com/apache/incubator/shenyu/releases) 页面的 `${RELEASE_VERSION}` 版本上点击 `Edit`
+在 [GitHub Releases](https://github.com/apache/incubator-shenyu/releases) 页面的 `${RELEASE_VERSION}` 版本上点击 `Edit`
 
 编辑版本号及版本说明，并点击 `Publish release`
 
-**7. 更新下载页面**
+**6. 更新下载页面**
 
 等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：
 
@@ -618,11 +628,11 @@ https://shenyu.apache.org/projects/shenyu/download/
 
 https://shenyu.apache.org/zh/projects/shenyu/download/
 
-GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
+GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
 
-**8. 邮件通知版本发布完成**
+**7. 邮件通知版本发布完成**
 
-发送邮件到`general@incubator.apache.org`， `dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
+发送邮件到`general@incubator.apache.org`和`dev@shenyu.apache.org`通知完成版本发布
 
 通知邮件模板：
 
@@ -635,7 +645,7 @@ GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`h
 正文：
 
 ```
-Hi all,
+Hi,
 
 Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${RELEASE.VERSION}.
 

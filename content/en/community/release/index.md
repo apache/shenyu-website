@@ -619,7 +619,7 @@ Login Docker Hub to check whether there are published images in [shenyu-bootstra
 
 **6. Publish release in GitHub**
 
-Click `Edit` in [GitHub Releases](https://github.com/apache/incubator/shenyu/releases)'s `${RELEASE_VERSION}` version
+Click `Edit` in [GitHub Releases](https://github.com/apache/incubator-shenyu/releases)'s `${RELEASE_VERSION}` version
 
 Edit version number and release notes, click `Publish release`
 

@@ -610,7 +610,7 @@ docker push apache/shenyu-admin:${RELEASE_VERSION}
 
 **6. GitHub版本发布**
 
-在 [GitHub Releases](https://github.com/apache/incubator/shenyu/releases) 页面的 `${RELEASE_VERSION}` 版本上点击 `Edit`
+在 [GitHub Releases](https://github.com/apache/incubator-shenyu/releases) 页面的 `${RELEASE_VERSION}` 版本上点击 `Edit`
 
 编辑版本号及版本说明，并点击 `Publish release`
 

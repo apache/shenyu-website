@@ -622,7 +622,7 @@ https://shenyu.apache.org/projects/shenyu/download/
 
 https://shenyu.apache.org/zh/projects/shenyu/download/
 
-GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
+GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
 
 **8. 邮件通知版本发布完成**
 

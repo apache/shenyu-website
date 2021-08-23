@@ -629,7 +629,7 @@ https://shenyu.apache.org/projects/shenyu/download/
 
 https://shenyu.apache.org/zh/projects/shenyu/download/
 
-GPG signatures and hashes (SHA* etc) should use URL start with `https://downloads.apache.org/incubator/shenyu/`
+GPG signatures and hashes (SHA* etc) must use URL start with `https://downloads.apache.org/incubator/shenyu/`
 
 **8. Announce release completed by email**
 

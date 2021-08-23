@@ -629,7 +629,7 @@ GPG signatures and hashes (SHA* etc) should use URL start with `https://download
 
 **8. Announce release completed by email**
 
-Send e-mail to `general@incubator.apache.org`, `dev@shenyu.apache.org` and `announce@apache.org` to announce the release is finished
+Send e-mail to `general@incubator.apache.org` and `dev@shenyu.apache.org` to announce the release is complete
 
 Announcement e-mail template:
 
@@ -642,7 +642,7 @@ Title:
 Body:
 
 ```
-Hi all,
+Hi,
 
 Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${RELEASE.VERSION}.
 

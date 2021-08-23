@@ -572,19 +572,13 @@ git push --delete origin ${RELEASE.VERSION}-release
 git branch -d ${RELEASE.VERSION}-release
 ```
 
-**4. Update README files**
+**4. Docker Release**
 
-Update `${PREVIOUS.RELEASE.VERSION}` to `${RELEASE.VERSION}` in README.md and README_ZH.md
-
-Update `${RELEASE.VERSION}` to `${NEXT.RELEASE.VERSION}` for `SERVER_VERSION` in `MySQLServerInfo.java`
-
-**5. Docker Release**
-
-5.1 Preparation
+4.1 Preparation
 
 Install and start docker service
 
-5.2 Compile Docker Image
+4.2 Compile Docker Image
 
 ```shell
 git checkout v${RELEASE.VERSION}
@@ -592,7 +586,7 @@ cd ~/shenyu/shenyu-dist/
 mvn clean package -Prelease,docker
 ```
 
-5.3 Tag the local Docker Image
+4.3 Tag the local Docker Image
 
 Check the image ID through `docker images`, for example: e9ea51023687 and e9ea51023688
 
@@ -603,7 +597,7 @@ docker tag e9ea51023688 apache/shenyu-admin:latest
 docker tag e9ea51023688 apache/shenyu-admin:${RELEASE.VERSION}
 ```
 
-5.4 Publish Docker Image
+4.4 Publish Docker Image
 
 ```shell
 docker login
@@ -613,17 +607,17 @@ docker push apache/shenyu-admin:latest
 docker push apache/shenyu-admin:${RELEASE_VERSION}
 ```
 
-5.5 Confirm the successful release
+4.5 Confirm the successful release
 
 Login Docker Hub to check whether there are published images in [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) and [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 
 
-**6. Publish release in GitHub**
+**5. Publish release in GitHub**
 
 Click `Edit` in [GitHub Releases](https://github.com/apache/incubator-shenyu/releases)'s `${RELEASE_VERSION}` version
 
 Edit version number and release notes, click `Publish release`
 
-**7. Update the download page**
+**6. Update the download page**
 
 https://shenyu.apache.org/projects/shenyu/download/
 
@@ -631,7 +625,7 @@ https://shenyu.apache.org/zh/projects/shenyu/download/
 
 GPG signatures and hashes (SHA* etc) must use URL start with `https://downloads.apache.org/incubator/shenyu/`
 
-**8. Announce release completed by email**
+**7. Announce release completed by email**
 
 Send e-mail to `general@incubator.apache.org` and `dev@shenyu.apache.org` to announce the release is complete
 

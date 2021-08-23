@@ -569,13 +569,13 @@ git push --delete origin ${RELEASE.VERSION}-release
 git branch -d ${RELEASE.VERSION}-release
 ```
 
-**5. 发布 Docker**
+**4. 发布 Docker**
 
-5.1 准备工作
+4.1 准备工作
 
 本地安装 Docker，并启动服务。
 
-5.2 编译 Docker 镜像
+4.2 编译 Docker 镜像
 
 ```shell
 git checkout v${RELEASE.VERSION}
@@ -583,7 +583,7 @@ cd ~/shenyu/shenyu-dist/
 mvn clean package -Prelease,docker
 ```
 
-5.3 给本地 Docker 镜像打标记
+4.3 给本地 Docker 镜像打标记
 
 通过`docker images`查看到 IMAGE ID，例如为：e9ea51023687和e9ea51023688
 
@@ -594,7 +594,7 @@ docker tag e9ea51023688 apache/shenyu-admin:latest
 docker tag e9ea51023688 apache/shenyu-admin:${RELEASE.VERSION}
 ```
 
-5.4 发布 Docker 镜像
+4.4 发布 Docker 镜像
 
 ```shell
 docker login
@@ -604,17 +604,17 @@ docker push apache/shenyu-admin:latest
 docker push apache/shenyu-admin:${RELEASE_VERSION}
 ```
 
-5.5 确认发布成功
+4.5 确认发布成功
 
 登录 Docker Hub 查看 [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) 和 [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 是否有发布的镜像
 
-**6. GitHub版本发布**
+**5. GitHub版本发布**
 
 在 [GitHub Releases](https://github.com/apache/incubator-shenyu/releases) 页面的 `${RELEASE_VERSION}` 版本上点击 `Edit`
 
 编辑版本号及版本说明，并点击 `Publish release`
 
-**7. 更新下载页面**
+**6. 更新下载页面**
 
 等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：
 
@@ -624,7 +624,7 @@ https://shenyu.apache.org/zh/projects/shenyu/download/
 
 GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
 
-**8. 邮件通知版本发布完成**
+**7. 邮件通知版本发布完成**
 
 发送邮件到`general@incubator.apache.org`和`dev@shenyu.apache.org`通知完成版本发布
 

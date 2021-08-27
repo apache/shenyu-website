@@ -18,7 +18,7 @@ This article describes how to configure the application client to access the Apa
 
 #### shenyu-admin config
 
-Set the register type to '`Http` in the `yml` file. The configuration information is as follows:
+Set the register type to `http` in the `yml` file. The configuration information is as follows:
 
 ```yaml
 shenyu:

@@ -78,7 +78,7 @@ sidebar:
 
   - title: '用户文档'
     sub:
-      - title: 'admin使用'
+      - title: 'Admin使用'
         sub:
           - title: '插件管理'
             link: 'plugin-handle-explanation'
@@ -88,6 +88,10 @@ sidebar:
             link: 'dictionary-management'
           - title: '权限管理'
             link: 'authority-management'
+      - title: '属性配置'
+        sub:
+          - title: 'Admin属性配置'
+            link: 'admin-property-config'
       - title: '数据同步配置'
         link: 'use-data-sync'
       - title: '客户端接入配置'

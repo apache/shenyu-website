@@ -88,6 +88,10 @@ sidebar:
             link: 'dictionary-management'
           - title: 'Authority Management'
             link: 'authority-management'
+      - title: 'Property Config'
+        sub:
+          - title: 'Admin Property Config'
+            link: 'admin-property-config'
       - title: 'Data Synchronization Config'
         link: 'use-data-sync'
       - title: 'Application Client Access Config'

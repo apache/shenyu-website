@@ -6,7 +6,8 @@ description: Admin Property Config
 
 This paper mainly explains how to configure Apache ShenYu properties on the admin side.
 
-<img src="/img/shenyu/config/shenyu_admin_application_config.png" width="60%" height="50%" />
+<img src="/img/shenyu/config/shenyu_admin_application_config.png" width="80%" height="70%" />
+
 
 ### Property Config
 
@@ -93,14 +94,13 @@ shenyu:
 ##### shenyu.register config
 
 
-This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../register-center-design) , for client access configuration, see: [Application Client Access Config](../register-center-access).
+This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../register-center-design) , for client access configuration, see: [Application Client Access Config](../register-center-access) .
 
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-|registerType                   |String |  http      | Yes     | Which mode to use for registry. Currently, Http, Zookeeper, Etcd, Consul and Nacos are supported.|
+|registerType                   |String |  http      | Yes     | Which mode to use for registry. Currently, http, zookeeper, etcd, consul and nacos are supported.|
 |serverLists                |String |  null    |  No  |Configure the address of the registry. If `http` is used, you do not need to enter this parameter. In clustering, multiple addresses are separated by commas (,).|
-|props    | | |   | The value of the attribute varies according to the registerType.|
-
+|props    | | |   | The value of the property varies according to the registerType.|
 
 
 - `props` config

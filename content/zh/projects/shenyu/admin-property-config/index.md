@@ -7,7 +7,8 @@ description: Admin属性配置
 本篇主要讲解如何在 `admin`端配置 `ShenYu` 的相关属性。
 
 
-<img src="/img/shenyu/config/shenyu_admin_application_config.png" width="60%" height="50%" />
+<img src="/img/shenyu/config/shenyu_admin_application_config.png" width="80%" height="70%" />
+
 
 ### 属性配置
 
@@ -97,7 +98,7 @@ shenyu:
 
 |名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-|registerType                   |String |  http      | 必填     |使用哪种方式进行服务注册，当前支持 `Http`、`Zookeeper`、`Etcd`、`Consul`和`Nacos` 。|
+|registerType                   |String |  http      | 必填     |使用哪种方式进行服务注册，当前支持 `http`、`zookeeper`、`etcd`、`consul`和`nacos` 。|
 |serverLists                |String |  无    |  非必填  |配置中心的地址。使用`http`方式时，不需要填写，其他类型需要填写。集群时，多个地址用 `,` 分开 。|
 |props    | | |   | 使用不同注册类型时，属性取值不同。|
 

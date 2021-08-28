@@ -9,6 +9,7 @@ description: Admin属性配置
 
 <img src="/img/shenyu/config/shenyu_admin_application_config.png" width="80%" height="70%" />
 
+
 ### 属性配置
 
 ```yaml

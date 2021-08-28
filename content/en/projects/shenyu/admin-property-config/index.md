@@ -8,6 +8,7 @@ This paper mainly explains how to configure Apache ShenYu properties on the admi
 
 <img src="/img/shenyu/config/shenyu_admin_application_config.png" width="80%" height="70%" />
 
+
 ### Property Config
 
 ```yaml
@@ -100,7 +101,6 @@ This section describes configurations related to client access. For details abou
 |registerType                   |String |  http      | Yes     | Which mode to use for registry. Currently, http, zookeeper, etcd, consul and nacos are supported.|
 |serverLists                |String |  null    |  No  |Configure the address of the registry. If `http` is used, you do not need to enter this parameter. In clustering, multiple addresses are separated by commas (,).|
 |props    | | |   | The value of the property varies according to the registerType.|
-
 
 
 - `props` config

@@ -262,5 +262,23 @@
   "theme.SearchBar.label": {
     "message": "Search",
     "description": "The ARIA label and placeholder for search button"
+  },
+  "Open": {
+    "message": "开放"
+  },
+  "The technology stack is fully open source construction, maintain the community neutrality, compatible with the community open source ecology, welcome to participate in various contributions at any time.": {
+    "message": "技术栈全面开源共建，保持社区中立，兼容社区，兼容开源生态，随时欢迎参与各种贡献"
+  },
+  "High-Performance": {
+    "message": "高性能"
+  },
+  "High-performance micro-service API gateway, experienced the temper of large-scale scenes.Dynamic flow configuration, high performance, gateway consumption is 1~2ms.": {
+    "message": "高性能微服务API网关，经历过大规模场景的锤炼。流量配置动态化，性能极高，网关消耗在 1~2ms"
+  },
+  "Pluggable": {
+    "message": "插件化"
+  },
+  "Plug-in design idea, plug-in hot plug, easy to expand.Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.": {
+    "message": "插件化设计思想，插件热插拔，易扩展。内置丰富的插件，支持鉴权、限流、熔断、防火墙等"
   }
 }

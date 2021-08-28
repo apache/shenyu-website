@@ -85,18 +85,14 @@ function Home() {
                 <img
                   className={styles.featureImage}
                   alt="Powered by MDX"
-                  src={useBaseUrl('/img/undraw_typewriter.svg')}
+                  src={useBaseUrl('/img/home/open.svg')}
                 />
                 <h2 className={clsx(styles.featureHeading)}>
-                  <Translate>Powered by Markdown</Translate>
+                  <Translate>Open</Translate>
                 </h2>
                 <p className="padding-horiz--md">
                   <Translate>
-                    Save time and focus on your project's documentation. Simply
-                    write docs and blog posts with Markdown/MDX and Docusaurus
-                    will publish a set of static HTML files ready to serve. You
-                    can even embed JSX components into your Markdown thanks to
-                    MDX.
+                  The technology stack is fully open source construction, maintain the community neutrality, compatible with the community open source ecology, welcome to participate in various contributions at any time.
                   </Translate>
                 </p>
               </div>
@@ -104,16 +100,14 @@ function Home() {
                 <img
                   alt="Built Using React"
                   className={styles.featureImage}
-                  src={useBaseUrl('/img/undraw_react.svg')}
+                  src={useBaseUrl('/img/home/high-performance.svg')}
                 />
                 <h2 className={clsx(styles.featureHeading)}>
-                  <Translate>Built Using React</Translate>
+                  <Translate>High-Performance</Translate>
                 </h2>
                 <p className="padding-horiz--md">
                   <Translate>
-                    Extend or customize your project's layout by reusing React.
-                    Docusaurus can be extended while reusing the same header and
-                    footer.
+                  High-performance micro-service API gateway, experienced the temper of large-scale scenes.Dynamic flow configuration, high performance, gateway consumption is 1~2ms.
                   </Translate>
                 </p>
               </div>
@@ -121,21 +115,20 @@ function Home() {
                 <img
                   alt="Ready for Translations"
                   className={styles.featureImage}
-                  src={useBaseUrl('/img/undraw_around_the_world.svg')}
+                  src={useBaseUrl('/img/home/plugins.svg')}
                 />
                 <h2 className={clsx(styles.featureHeading)}>
-                  <Translate>Ready for Translations</Translate>
+                  <Translate>Pluggable</Translate>
                 </h2>
                 <p className="padding-horiz--md">
                   <Translate>
-                    Localization comes pre-configured. Use Crowdin to translate
-                    your docs into over 70 languages.
+                  Plug-in design idea, plug-in hot plug, easy to expand.Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.
                   </Translate>
                 </p>
               </div>
             </div>
           </div>
-          <div className="container text--center">
+          {/* <div className="container text--center">
             <div className="row">
               <div className="col col--4 col--offset-2">
                 <img
@@ -172,7 +165,7 @@ function Home() {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
     </Layout>

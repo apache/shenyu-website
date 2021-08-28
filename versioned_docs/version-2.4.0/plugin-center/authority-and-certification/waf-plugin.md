@@ -61,7 +61,7 @@ For requests that are denied access by `Waf` , the response header status code i
 
     * `permission`: The handle logic that matches the rule. `reject`: deny access, `allow`: allow access.
 
-    * `statusCode`: When access is denied, the value of the code field in the response body. <font color=red>Will not modify the status code of the response header</font>.
+    * `statusCode`: When access is denied, the value of the code field in the response body. `Will not modify the status code of the response header`.
 
       e.g.：`statusCode=10001`，The rejected response body is :
 

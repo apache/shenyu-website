@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Binary Packages Deployment
-keywords: ["Deployment] 
+keywords: ["Deployment"] 
 description: Binary Packages Deployment
 ---
 

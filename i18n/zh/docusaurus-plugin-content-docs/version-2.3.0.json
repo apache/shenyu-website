@@ -1,10 +1,34 @@
 {
   "version.label": {
     "message": "2.3.0",
-    "description": "The label for version current"
+    "description": "The label for version 2.3.0"
   },
   "sidebar.tutorialSidebar.category.Design": {
     "message": "设计文档",
     "description": "The label for category Design in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Admin": {
+    "message": "Admin使用",
+    "description": "The label for category Admin in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Users Guide": {
+    "message": "用户指南",
+    "description": "The label for category Users Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Register Center": {
+    "message": "注册中心",
+    "description": "The label for category Register Center in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Quick Start": {
+    "message": "快速开始",
+    "description": "The label for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Plugins": {
+    "message": "插件集合",
+    "description": "The label for category Plugins in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Developer Guide": {
+    "message": "开发指南",
+    "description": "The label for category Developer Guide in sidebar tutorialSidebar"
   }
 }

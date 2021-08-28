@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 title: Data Synchronization Design
 keywords: ["soul"]
 description: Data Synchronization Design

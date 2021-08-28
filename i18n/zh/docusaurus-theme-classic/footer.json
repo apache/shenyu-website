@@ -13,15 +13,15 @@
   },
   "link.item.label.Document": {
     "message": "文档",
-    "description": "The label of footer link with label=Document linking to /docs/intro"
+    "description": "The label of footer link with label=Document linking to /docs/index"
   },
   "link.item.label.News": {
     "message": "新闻",
-    "description": "The label of footer link with label=News linking to /docs/intro"
+    "description": "The label of footer link with label=News linking to /news/index"
   },
   "link.item.label.Blog": {
     "message": "博客",
-    "description": "The label of footer link with label=Blog linking to /docs/intro"
+    "description": "The label of footer link with label=Blog linking to /blog/index"
   },
   "link.item.label.Releases": {
     "message": "版本",

@@ -59,8 +59,8 @@ When microservices are built by different protocols, the property configuration 
 |ipAndPort    |String | null | No  | Service IP and port address, currently just applies to `gRPC` Proxy.|
 |shutdownWaitTime    |int | 3000 | No  | shutdown wait time(millisecond)|
 |delayOtherHooksExecTime    |int | 2000 | No  | `hook` execute time(millisecond)|
-|applicationShutdownHooksClassName    |int | `java.lang.ApplicationShutdownHooks` | No  | `hook` execute class name|
-|applicationShutdownHooksFieldName    |int | `hooks` | No  | `hook` execute field name |
+|applicationShutdownHooksClassName    |String | `java.lang.ApplicationShutdownHooks` | No  | `hook` execute class name|
+|applicationShutdownHooksFieldName    |String | `hooks` | No  | `hook` execute field name |
 
 
 The value of the property varies according to the `registerType`.

@@ -54,8 +54,8 @@ shenyu:
 |ipAndPort    |String | 无 | 否  | 服务的IP和端口地址，目前适用于`gRPC`。|
 |shutdownWaitTime    |int | 3000 | 否  | 服务停止等待时间（毫秒）|
 |delayOtherHooksExecTime    |int | 2000 | 否  | `hook`执行时间（毫秒）|
-|applicationShutdownHooksClassName    |int | `java.lang.ApplicationShutdownHooks` | 否  | `hook`执行类|
-|applicationShutdownHooksFieldName    |int | `hooks` | 否  | `hook`执行字段|
+|applicationShutdownHooksClassName    |String | `java.lang.ApplicationShutdownHooks` | 否  | `hook`执行类|
+|applicationShutdownHooksFieldName    |String | `hooks` | 否  | `hook`执行字段|
 
 
 使用不同的注册类型时，属性取值不同。

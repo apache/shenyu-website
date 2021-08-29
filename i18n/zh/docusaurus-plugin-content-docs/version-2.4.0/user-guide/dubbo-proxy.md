@@ -9,12 +9,12 @@ description: Dubbo服务接入
 
 * 此篇文章是介绍 `dubbo` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `dubbo` 插件来接入`Dubbo`服务。
 * 当前支持 `alibaba dubbo（< 2.7.x）` 以及 `apache dubbo (>=2.7.x)`。
-* 接入前，请正确启动 `shenyu-admin`，并开启`dubbo`插件，在网关端和`Dubbo`服务端引入相关依赖。可以参考前面的 [Dubbo快速开始](../quick-start-http)。
+* 接入前，请正确启动 `shenyu-admin`，并开启`dubbo`插件，在网关端和`Dubbo`服务端引入相关依赖。可以参考前面的 [Dubbo快速开始](../quick-start/quick-start-http)。
 
 
-应用客户端接入的相关配置请参考：[客户端接入配置](../register-center-access)。
+应用客户端接入的相关配置请参考：[客户端接入配置](./register-center-access)。
 
-数据同步的相关配置请参考：[数据同步配置](../use-data-sync)。
+数据同步的相关配置请参考：[数据同步配置](./use-data-sync)。
 
 ## 在网关中引入 dubbo 插件
 
@@ -105,7 +105,7 @@ description: Dubbo服务接入
 
 ## dubbo 服务接入网关
 
-可以参考：[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo)
+可以参考：[shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo)
 
 * alibaba dubbo 用户
 
@@ -227,7 +227,7 @@ description: Dubbo服务接入
 
     * 通过 `http`协议， `post` 方式访问网关，通过在`http body`中传入`json`类型参数。
 
-    * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
+    * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
 
 * 单个 `java bean`参数类型（默认）
 

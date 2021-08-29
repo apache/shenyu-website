@@ -69,7 +69,7 @@ description: rateLimiter plugin
   <!-- apache shenyu ratelimiter plugin end-->
 ```
 
-For more information on selectors and rules configuration, see [Selector And Rule Config](../selector-and-rule) , only some of the fields are covered here.
+For more information on selectors and rules configuration, see [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) , only some of the fields are covered here.
 
 
 

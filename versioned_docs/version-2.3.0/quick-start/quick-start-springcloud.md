@@ -3,11 +3,11 @@ title: Quick start with SpringCloud
 description: Quick start with SpringCloud
 ---
 
-This document introduces how to quickly access the Soul Gateway using SpringCloud. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-springcloud).
+This document introduces how to quickly access the Soul Gateway using SpringCloud. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-springcloud).
 
 ## Environment to prepare
 
-Please refer to the [setup](../soul-set-up) and launch `soul-admin` and `soul-bootstrap`.
+Please refer to the [setup](../users-guide/soul-set-up) and launch `soul-admin` and `soul-bootstrap`.
 
 * Add the following dependencies to the `soul-bootstrap`'s `pom.xml` file:
 
@@ -45,7 +45,7 @@ Startup the `soul-bootstrap` project
 
 In the example project we use `eureka` as the SpringCloud registry
 
-Download [soul-examples-eureka](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-eureka) and [soul-examples-springcloud](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-springcloud)
+Download [soul-examples-eureka](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-eureka) and [soul-examples-springcloud](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-springcloud)
 
 1. Startup the Eureka service
 

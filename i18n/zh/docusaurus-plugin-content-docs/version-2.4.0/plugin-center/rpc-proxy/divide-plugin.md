@@ -10,9 +10,9 @@ description: divide插件
 
 ## 插件设置
 
-* 引入相关依赖，开启插件，请参考：[Http快速开始](../quick-start-http) 。
+* 引入相关依赖，开启插件，请参考：[Http快速开始](../../quick-start/quick-start-http) 。
 
-* `Http`应用客户端接入，请参考：[Http服务接入](../http-proxy) 。
+* `Http`应用客户端接入，请参考：[Http服务接入](../../user-guide/http-proxy) 。
 
 ## 插件讲解
 
@@ -20,7 +20,7 @@ description: divide插件
 
 <img src="/img/shenyu/basicConfig/pluginHandle/selector_example.png" width="80%" height="80%" />
 
-客户端接入`Apache ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule)。
+客户端接入`Apache ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 
 
 #### 选择器处理
@@ -28,7 +28,7 @@ description: divide插件
 <img src="/img/shenyu/basicConfig/pluginHandle/selector_add.png" width="80%" height="80%" />
 
 
-选择器处理: 对应[选择器和规则管理](../selector-and-rule)的`handle`字段，是网关匹配到流量以后，真实调用的`http`配置，可以配置多个，设置负载均衡权重，具体的负载均衡策略，在规则中指定。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
+选择器处理: 对应[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)的`handle`字段，是网关匹配到流量以后，真实调用的`http`配置，可以配置多个，设置负载均衡权重，具体的负载均衡策略，在规则中指定。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
 
 * 处理配置详解：
 
@@ -70,7 +70,7 @@ shenyu:
 
  <img src="/img/shenyu/basicConfig/pluginHandle/rule_handle.png" width="80%" height="80%" />
 
-规则处理，即`handle`字段，是网关对流量完成最终匹配后，采取何种处理规则。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
+规则处理，即`handle`字段，是网关对流量完成最终匹配后，采取何种处理规则。更多信息请参考插件管理中的 [插件处理管理](../../user-guide/admin-usage/plugin-handle-explanation) 。
 
 * 处理配置详解：
   * `loadStrategy`：如果`http`客户端是一个集群，`Apache ShenYu`网关调用时采取哪种负载均衡策略，当前支持 `roundRobin`、`random`和`hash`。

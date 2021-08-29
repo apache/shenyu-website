@@ -42,7 +42,7 @@ description: monitor plugin
   </dependency>
   <!-- soul monitor plugin end-->
 ``` 
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [selector](../admin/selector-and-rule).
 * Only when the url is matched, the url will request event tracking.
 
 ## Metrics Detail

@@ -7,7 +7,7 @@ description: 选择器和规则管理
 
 本文档将介绍`Apache ShenYu`后台管理系统中选择器和规则的使用，关于选择器和规则的概念及设计请参考 [流量控制](../flow-control)。
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。 启动成功后，可以直接访问 http://localhost:9095 ，默认用户名和密码分别为: `admin` 和 `123456`。
 
 
 ## 选择器
@@ -49,7 +49,7 @@ description: 选择器和规则管理
     * 是否开启：打开才会生效。
     * 打印日志：打开时，当匹配上的时候，会打印匹配日志。
     * 执行顺序：当多个选择器的时候，执行顺序小的优先执行，值越小优先级越高。
-    * 处理：即`handle`字段，在 [插件处理管理](../plugin-handle-explanation) 中进行设置。作用是：当请求流量匹配上该选择器时，做什么样的处理操作。
+    * 处理：即`handle`字段，在 [插件处理管理](./plugin-handle-explanation) 中进行设置。作用是：当请求流量匹配上该选择器时，做什么样的处理操作。
 
 * 上述图片中表示: 当请求的 `uri` 前缀是 `/http`，会转发到 `127.0.0.1:8080` 这个服务上。
 
@@ -88,7 +88,7 @@ description: 选择器和规则管理
     * 是否开启：打开才会生效。
     * 打印日志：打开时，当匹配上的时候，才会打印匹配日志。
     * 执行顺序：当多个规则的时候，执行顺序小的优先执行。
-    * 处理：即`handle`字段，在 [插件处理管理](../plugin-handle-explanation) 中进行设置。每个插件的规则处理不一样，具体请查看每个对应插件的处理。
+    * 处理：即`handle`字段，在 [插件处理管理](./plugin-handle-explanation) 中进行设置。每个插件的规则处理不一样，具体请查看每个对应插件的处理。
 
 * 上图表示：当 `uri` 等于  `/http/order/save` 的时候能够匹配上该规则，就会执行该规则中，负载策略是 `random`，重试次数是 `3` 等处理操作。
 
@@ -126,7 +126,7 @@ description: 选择器和规则管理
 
     * 尤其是在 `waf` 插件里面，如果发现一个 `ip`地址有攻击，可以新增一条匹配条件，填上该 `ip`，拒绝该 `ip` 的访问。
 
-    * 如果在 `Apache ShenYu` 前面使用了 `nginx` 代理，为了获取正确的 `ip`，可以参考 [自定义解析IP与Host](../custom-parsing-ip-and-host)
+    * 如果在 `Apache ShenYu` 前面使用了 `nginx` 代理，为了获取正确的 `ip`，可以参考 [自定义解析IP与Host](../../developer/custom-parsing-ip-and-host)
 
 * `host` 匹配
 
@@ -134,7 +134,7 @@ description: 选择器和规则管理
 
     * 尤其是在 `waf` 插件里面，如果发现一个 `host` 地址有攻击，可以新增一条匹配条件，填上该 `host`，拒绝该 `host` 的访问。
 
-    * 如果在 `Apache ShenYu` 前面使用了 `nginx` 代理，为了获取正确的 `host`，可以参考 [自定义解析IP与Host](../custom-parsing-ip-and-host)
+    * 如果在 `Apache ShenYu` 前面使用了 `nginx` 代理，为了获取正确的 `host`，可以参考 [自定义解析IP与Host](../../developer/custom-parsing-ip-and-host)
 
 *  `post` 匹配
 

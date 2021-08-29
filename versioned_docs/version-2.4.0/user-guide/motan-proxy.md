@@ -6,11 +6,11 @@ description: Motan Proxy
 
 This document is intended to help the `Motan` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Motan` plugin to handle `motan` service.
 
-Before the connection, start `shenyu-admin` correctly, start `Motan` plugin, and add related dependencies on the gateway and `Motan` application client. Refer to the previous [Quick start with Motan](../quick-start-motan) .
+Before the connection, start `shenyu-admin` correctly, start `Motan` plugin, and add related dependencies on the gateway and `Motan` application client. Refer to the previous [Quick start with Motan](../quick-start/quick-start-motan) .
 
-For details about client access configuration, see [Application Client Access Config](../register-center-access) .
+For details about client access configuration, see [Application Client Access Config](./register-center-access) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
+For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
 
 ## Add motan plugin in gateway
 
@@ -56,7 +56,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Motan service access gateway
 
-Please refer to: [shenyu-examples-motan](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-motan)
+Please refer to: [shenyu-examples-motan](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-motan)
 
 * In the microservice built by `Motan`, add the following dependencies:
 

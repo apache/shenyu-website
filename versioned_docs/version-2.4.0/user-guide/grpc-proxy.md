@@ -6,11 +6,11 @@ description: gRPC access shenyu gateway
 
 This document is intended to help the `gRPC` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `gRPC` plugin to handle `gRPC` service.
 
-Before the connection, start `shenyu-admin` correctly, start `gRPC` plugin, and add related dependencies on the gateway and `gRPC` application client. Refer to the previous [Quick start with gRPC](../quick-start-grpc) .
+Before the connection, start `shenyu-admin` correctly, start `gRPC` plugin, and add related dependencies on the gateway and `gRPC` application client. Refer to the previous [Quick start with gRPC](../quick-start/quick-start-grpc) .
 
-For details about client access configuration, see [Application Client Access Config](../register-center-access) .
+For details about client access configuration, see [Application Client Access Config](./register-center-access) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
+For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
 
 ## Add gRPC plugin in gateway
 
@@ -30,7 +30,7 @@ Add the following dependencies in the gateway's `pom.xml` file:
 
 ## gRPC service access gateway
 
-You can refer to：[shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) .
+You can refer to：[shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-grpc) .
 
 * In the microservice built by `gRPC`, add the following dependencies:
 

@@ -8,7 +8,7 @@ description: dubbo plugin
 ## Explanation
 
 * Dubbo is a plugin that converts `http protocol` into `Dubbo protocol` and it is also the key for gateway to realize dubbo generic service.
-* Dubbo plugin needs to cooperate with metadata to realize dubbo calls, please refer to: [metaData](../meta-data).
+* Dubbo plugin needs to cooperate with metadata to realize dubbo calls, please refer to: [metaData](../design/meta-data).
 * Apache dubbo and alibaba dubbo users both use the same plugin.
 
 ```xml
@@ -35,9 +35,9 @@ description: dubbo plugin
 ```yaml
 {"register":"zookeeper://localhost:2181"} or {"register":"nacos://localhost:8848"} 
 ```
-* Plugin needs to cooperate with `starter` to take effect, please refer to: [user-dubbo](../dubbo-proxy).
+* Plugin needs to cooperate with `starter` to take effect, please refer to: [user-dubbo](../users-guide/dubbo-proxy).
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [selector](../admin/selector-and-rule).
 
 ## Metadata
 

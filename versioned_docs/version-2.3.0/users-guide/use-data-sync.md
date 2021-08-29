@@ -8,8 +8,8 @@ description: use different data-sync strategy
 ## Features
 
 * Data synchronization is the key of gateway high performance, which is to sync 'soul-admin' config data into the JVM memory of soul cluster.
-* Implementation principles, pls refer to：[dataSync](../data-sync)。
-* In the article, the gateway is the environment you setup. please refer to：[Environment Setup](../soul-set-up).
+* Implementation principles, pls refer to：[dataSync](../design/data-sync)。
+* In the article, the gateway is the environment you setup. please refer to：[Environment Setup](../users-guide/soul-set-up).
 
 ## Websocket sync（default method，recommend）
 

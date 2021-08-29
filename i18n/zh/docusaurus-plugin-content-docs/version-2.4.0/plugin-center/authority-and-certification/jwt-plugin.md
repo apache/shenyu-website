@@ -10,7 +10,7 @@ description: JWT插件
 
 ## 插件设置
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 * 在 `shenyu-admin` 基础配置 --> 插件管理 --> `jwt` ，设置为开启。如果用户不想使用此功能，请在 `admin` 后台停用此插件。
 
@@ -42,7 +42,7 @@ description: JWT插件
   <!-- apache shenyu jwt plugin end-->
   
 ```
-* 选择器和规则，只有匹配的请求，才会进行 `jwt` 鉴权判断，请详细看：[选择器和规则管理](../selector-and-rule)。
+* 选择器和规则，只有匹配的请求，才会进行 `jwt` 鉴权判断，请详细看：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 
 ## 场景
 

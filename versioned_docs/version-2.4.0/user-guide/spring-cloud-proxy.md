@@ -6,11 +6,11 @@ description: springCloud with shenyu gateway
 
 This document is intended to help the `Spring Cloud` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `springCloud` plugin to handle `Spring Cloud` service.
 
-Before the connection, start `shenyu-admin` correctly, start `springCloud` plugin, and add related dependencies on the gateway and `springCloud` application client. Refer to the previous [Quick start with Spring Cloud](../quick-start-springcloud) .
+Before the connection, start `shenyu-admin` correctly, start `springCloud` plugin, and add related dependencies on the gateway and `springCloud` application client. Refer to the previous [Quick start with Spring Cloud](../quick-start/quick-start-springcloud) .
 
-For details about client access configuration, see [Application Client Access Config](../register-center-access) .
+For details about client access configuration, see [Application Client Access Config](./register-center-access) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
+For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
 
 
 ## Add springcloud plugin in gateway
@@ -94,7 +94,7 @@ add these config values in gateway's yaml file:
 
 ## SpringCloud service access gateway
 
-Please refer to [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
+Please refer to [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-springcloud)
 
 * Add the following dependencies to your `Spring Cloud` microservice :
 

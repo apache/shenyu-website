@@ -9,7 +9,7 @@ description: springCloud with soul gateway
 
 * This article is a guide about how to integrate Spring Cloud with soul gateway quickly.
 * Please enable `springCloud` plug-in in soul-admin background.
-* Please start `soul-admin` successfully before integrating and [Environment Setup](../soul-set-up) is Ok.
+* Please start `soul-admin` successfully before integrating and [Environment Setup](./soul-set-up) is Ok.
 
 ## Configure soul gateway as Spring Cloud proxy
 
@@ -95,7 +95,7 @@ description: springCloud with soul gateway
  </dependency>
 ```
 
-* backend server register center config, please look:[register center access](../register-center-access).
+* backend server register center config, please look:[register center access](../register-center/register-center-access).
 
 
 * add the annotation `@SoulSpringCloudClient` in your `controller` interface.

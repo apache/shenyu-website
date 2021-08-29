@@ -41,15 +41,15 @@ description: SpringCloud Plugin
 
 ## Plugin Setting
 
-* Add related dependencies and enable plugin, please refer to: [Quick start with Spring Cloud](../quick-start-springcloud) .
+* Add related dependencies and enable plugin, please refer to: [Quick start with Spring Cloud](../../quick-start/quick-start-springcloud) .
 
-* `Spring Cloud` client access, please refer to: [Spring Cloud Proxy](../spring-cloud-proxy) .
+* `Spring Cloud` client access, please refer to: [Spring Cloud Proxy](../../user-guide/spring-cloud-proxy) .
 
 
 ## Plugin Detail
 
 
-After the client accesses the `ShenYu` gateway, it will automatically register the selector and rule information. For details about the selector and rule configuration, see [Selector and Rule Config](../selector-and-rule) .
+After the client accesses the `ShenYu` gateway, it will automatically register the selector and rule information. For details about the selector and rule configuration, see [Selector and Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 
 

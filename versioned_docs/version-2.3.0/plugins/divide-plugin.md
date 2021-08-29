@@ -13,7 +13,7 @@ description: divide plugin
 
 * Enable plugin, `soul-admin` --> plugin management--> `divide` set to enable.
 
-* Divide plugin，cooperate with `starter` to take effect，please refer to：[user-http](../http-proxy)。
+* Divide plugin，cooperate with `starter` to take effect，please refer to：[user-http](../users-guide/http-proxy)。
 
 ```xml
   <!--if you use http proxy start this-->
@@ -34,7 +34,7 @@ description: divide plugin
 ## Plugin Detail
 
 * Divide is a plugin for http forward proxy, and all http requests are called by this plugin in load balancing.
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [selector](../admin/selector-and-rule).
 * Http configuration is the real invoked configuration after the gateway matches the traffic; You can set multiple configurations and concrete load balancing weights in the rules.
   * Configuration Detail:
      * The first box: hostName, generally fill in `localhost`, which is temporarily unused.  

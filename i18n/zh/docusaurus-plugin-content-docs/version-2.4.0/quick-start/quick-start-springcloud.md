@@ -3,11 +3,11 @@ title: Spring Cloud快速开始
 description: Spring Cloud快速开始
 ---
 
-本文档演示如何将`Spring Cloud`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) 。
+本文档演示如何将`Spring Cloud`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-springcloud) 。
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`springCloud` 插件设置为开启。
 
@@ -70,7 +70,7 @@ eureka:
 
 示例项目中我们使用 `eureka` 作为 `Spring Cloud`的注册中心。你可以使用本地的`eureka`，也可以使用示例中提供的应用。
 
-下载 [shenyu-examples-eureka](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-eureka) 、[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
+下载 [shenyu-examples-eureka](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-eureka) 、[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
 
 启动`eureka`服务，运行`org.apache.shenyu.examples.eureka.EurekaServerApplication`main方法启动项目。
 

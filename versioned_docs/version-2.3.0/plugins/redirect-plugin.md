@@ -14,7 +14,7 @@ When the soul gateway makes proxy calls to the target service, it also allows us
 * In `soul-admin` --> plugin management --> `redirect` ,set to enable。
 * Introduce `redirect` support in the pox.xml file of the gateway.
 * If the user don't use, please disable the plugin in the background.
-* Selectors and rules, only matching requests will be forwarded and redirected, please see: [Selector rules](../selector-and-rule)。
+* Selectors and rules, only matching requests will be forwarded and redirected, please see: [Selector rules](../admin/selector-and-rule)。
 
 ## Maven Dependency
 

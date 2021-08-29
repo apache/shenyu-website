@@ -12,7 +12,7 @@ When the Apache ShenYu gateway makes proxy calls to the target service, it also 
 
 * In `shenyu-admin` --> BasicConfig --> Plugin --> `redirect` , set to enable.
 * If the user don't use, please disable the plugin in the background.
-* Selectors and rules, only matching requests will be forwarded and redirected, please see: [Selector And Rule Config](../selector-and-rule) .
+* Selectors and rules, only matching requests will be forwarded and redirected, please see: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 
 <img src="/img/shenyu/plugin/redirect/redirect-plugin-enable-en.png" width="70%" height="60%" />

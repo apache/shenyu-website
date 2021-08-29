@@ -12,16 +12,16 @@ description:  grpc-plugin
 
 ## Plugin Setting
 
-* Add related dependencies and enable plugin, please refer to: [Quick start with gRPC](../quick-start-grpc) .
+* Add related dependencies and enable plugin, please refer to: [Quick start with gRPC](../../quick-start/quick-start-grpc) .
 
-* `gRPC` client access, please refer to: [gRPC Proxy](../grpc-proxy) .
+* `gRPC` client access, please refer to: [gRPC Proxy](../../user-guide/grpc-proxy) .
 
 
 
 ## Plugin Detail
 
 
-After the client accesses the `Apache ShenYu` gateway, it will automatically register the selector and rule information. You can see it in PluginList -> rpc proxy -> grpc. For details about the selector and rule configuration, see [Selector And Rule Config](../selector-and-rule) .
+After the client accesses the `Apache ShenYu` gateway, it will automatically register the selector and rule information. You can see it in PluginList -> rpc proxy -> grpc. For details about the selector and rule configuration, see [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 
 #### Selector Handler

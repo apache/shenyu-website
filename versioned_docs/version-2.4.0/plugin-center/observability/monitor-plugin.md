@@ -41,7 +41,7 @@ description: monitor plugin
   </dependency>
   <!-- apache shenyu monitor plugin end-->
 ```
-* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
+* Selectors and rules, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule).
 * Only when the url is matched, the url will request event tracking.
 
 ## Metrics Detail

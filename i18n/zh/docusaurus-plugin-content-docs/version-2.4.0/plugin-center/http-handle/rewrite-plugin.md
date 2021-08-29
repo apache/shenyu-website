@@ -30,7 +30,7 @@ description: rewrite插件
   <!-- apache shenyu rewrite plugin end-->
 ```
 
-* 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。
+* 选择器和规则设置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 
     * 只有匹配的请求，才会进行重写。
 

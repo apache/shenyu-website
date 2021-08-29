@@ -5,11 +5,11 @@ description: Tars服务接入
 
 This document is intended to help the `Tars` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `tars` plugin to handle `tars` service.
 
-Before the connection, start `shenyu-admin` correctly, start `tars` plugin, and add related dependencies on the gateway and `tars` application client. Refer to the previous [Quick start with Tars](../quick-start-tars) .
+Before the connection, start `shenyu-admin` correctly, start `tars` plugin, and add related dependencies on the gateway and `tars` application client. Refer to the previous [Quick start with Tars](../quick-start/quick-start-tars) .
 
-For details about client access configuration, see [Application Client Access Config](../register-center-access) .
+For details about client access configuration, see [Application Client Access Config](./register-center-access) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync)).
+For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync)).
 
 
 ## Add tars plugin in gateway
@@ -38,7 +38,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Tars service access gateway
 
-Please refer to： [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
+Please refer to： [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-tars)
 
 * In the microservice built by `Tars`, add the following dependencies:
 

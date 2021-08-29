@@ -3,11 +3,11 @@ title: Dubbo快速开始
 description: Dubbo快速开始
 ---
 
-本文档演示如何将`Dubbo`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) 。
+本文档演示如何将`Dubbo`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) 。
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`dubbo` 插件设置为开启，并设置你的注册地址，请确保注册中心在你本地已经开启。
 
@@ -99,7 +99,7 @@ description: Dubbo快速开始
 
 ## 运行shenyu-examples-dubbo项目
 
-下载 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) .
+下载 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) .
 
 修改 `spring-dubbo.xml` 中的注册地址为你本地（注意区分`dubbo`的版本是`apache dubbo`还是`alibaba dubbo`），如：
 ```xml

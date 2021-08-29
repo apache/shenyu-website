@@ -3,11 +3,11 @@ title: Quick start with gRPC
 description: Quick start with gRPC
 ---
 
-This document introduces how to quickly access the Apache ShenYu gateway using gRPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) .
+This document introduces how to quickly access the Apache ShenYu gateway using gRPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-grpc) .
 
 ## Prepare For Environment
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment/deployment-local) .
 
 After successful startup, you need to open the gRPC plugin on in the BasicConfig `->` Plugin.
 
@@ -32,7 +32,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Run the shenyu-examples-grpc project
 
-Download [shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)
+Download [shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-grpc)
 
 Run the following command under `shenyu-examples-grpc` to generate Java code:
 

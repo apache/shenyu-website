@@ -30,7 +30,7 @@ description: sentinel插件
   <!-- soul sentinel plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)
 
 * Sentinel处理详解：
 

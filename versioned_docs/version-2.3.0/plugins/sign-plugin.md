@@ -27,7 +27,7 @@ description: sign plugin
   <!-- soul sign plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [selector](../admin/selector-and-rule).
 * Only those matched requests can be authenticated by signature.   
 
 
@@ -115,4 +115,4 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 ## Extension
 
-* Please refer to: [dev-sign](../custom-sign-algorithm).
+* Please refer to: [dev-sign](../developer-guide/custom-sign-algorithm).

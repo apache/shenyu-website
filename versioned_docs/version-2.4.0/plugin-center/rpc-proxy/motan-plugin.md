@@ -12,9 +12,9 @@ description:  motan-plugin
 
 ## Plugin Setting
 
-* Add related dependencies and enable plugin, please refer to: [Quick start with Motan](../quick-start-motan) .
+* Add related dependencies and enable plugin, please refer to: [Quick start with Motan](../../quick-start/quick-start-motan) .
 
-* `Motan` client access, please refer to: [Motan Proxy](../motan-proxy) .
+* `Motan` client access, please refer to: [Motan Proxy](../../user-guide/motan-proxy) .
 
 
 
@@ -22,7 +22,7 @@ description:  motan-plugin
 
 After the client accesses the `Apache ShenYu` gateway, it will automatically register the selector and rule information.
 
-You can see it in PluginList -> rpc proxy -> motan. For details about the selector and rule configuration, see [Selector And Rule Config](../selector-and-rule) .
+You can see it in PluginList -> rpc proxy -> motan. For details about the selector and rule configuration, see [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 ## Metadata
 

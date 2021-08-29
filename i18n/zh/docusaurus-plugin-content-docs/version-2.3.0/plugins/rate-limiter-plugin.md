@@ -74,7 +74,7 @@ description: rateLimiter插件
   <!-- soul ratelimiter plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。
   
 * 规则详细说明
 

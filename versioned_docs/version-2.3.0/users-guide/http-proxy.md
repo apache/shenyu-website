@@ -9,7 +9,7 @@ description: Integrate Http with soul gateway
 
 * This chapter is a guide about integrating Http service with soul gateway.
 * Soul gateway uses divide plugin handling http request, pls enable it in soul-admin background.
-* Please start `soul-admin` successfully before integrating and [Environment Setup](../soul-set-up) is Ok.
+* Please start `soul-admin` successfully before integrating and [Environment Setup](./soul-set-up) is Ok.
 
 ## Configure soul gateway as Http proxy.
 
@@ -50,7 +50,7 @@ description: Integrate Http with soul gateway
          </dependency>
     ```
   
-   * Backend server register center config, please look:[register center access](../register-center-access).  
+   * Backend server register center config, please look:[register center access](../register-center/register-center-access).  
 
 * `SpringMVC User`
 
@@ -140,8 +140,8 @@ description: Integrate Http with soul gateway
 ## Configure soul gateway as an Http proxy（other framework）
 
 * first of all, enable the divide plugin in `soul-admin`, then add selector and rule which will filter the request.
-* if you don't know how to configure, pls refer to [selector guide](../selector-and-rule).
-* you can also develop your cutomized http-client，refer to [multi-language Http client development](../developer-soul-client)。
+* if you don't know how to configure, pls refer to [selector guide](../admin/selector-and-rule).
+* you can also develop your cutomized http-client，refer to [multi-language Http client development](../developer-guide/developer-soul-client)。
 
 ## User request
 

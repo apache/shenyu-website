@@ -24,7 +24,7 @@ description: context_path plugin
    <!-- apache shenyu context_path plugin end-->
 ```
 
-* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule) .
+* Selectors and rules, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 ## Situation
 

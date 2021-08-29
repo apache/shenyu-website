@@ -3,11 +3,11 @@ title: Quick start with Tars
 description: Quick start with Tars
 ---
 
-This document introduces how to quickly access the Soul Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-tars).
+This document introduces how to quickly access the Soul Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-tars).
 
 ## Environment to prepare
 
-Please refer to the [setup](../soul-set-up) and launch `soul-admin` and `soul-bootstrap`.
+Please refer to the [setup](../users-guide/soul-set-up) and launch `soul-admin` and `soul-bootstrap`.
 
 Note: `soul-bootstrap` need to import tars dependencies
 
@@ -27,7 +27,7 @@ Note: `soul-bootstrap` need to import tars dependencies
 
 ## Run the soul-examples-tars project
 
-Download [soul-examples-tars](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-tars)
+Download [soul-examples-tars](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-tars)
 
 Modify `host` in `application.yml` to be your local IP
 

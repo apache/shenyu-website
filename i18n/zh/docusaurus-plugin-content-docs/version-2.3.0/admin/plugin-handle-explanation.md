@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `plugin_handle` (
 
 ![](https://yu199195.github.io/images/soul/springcloud-rule-handle.png)
 
-_注意：如果配置了data_type为3 选择框，则规则新增页面里输入框下拉选择是通过field字段去[字典表（soul_dict）](soul-dict.md)查出所有可选项出来展示选择_。
+_注意：如果配置了data_type为3 选择框，则规则新增页面里输入框下拉选择是通过field字段去[字典表（soul_dict）](dictionary-management.md)查出所有可选项出来展示选择_。
 
 * 比如sentinel插件包含多种数据类型的字段，如下图：
 

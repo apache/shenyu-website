@@ -8,7 +8,7 @@ description: sofa access soul gateway
 ## Description
 
 * This article is about sofa users using sofa plug-in support,and the tutorial of connecting your own sofa service to the soul gateway.
-* Before connecting, please start `soul-admin` correctly and [Setup Environment](../soul-set-up) Ok。
+* Before connecting, please start `soul-admin` correctly and [Setup Environment](./soul-set-up) Ok。
 
 ## Introduce the plug-in that the gateway supports for sofa
 
@@ -45,7 +45,7 @@ description: sofa access soul gateway
 
 * Restart the gateway service.
 
-## sofa service access gateway, you can refer to：[soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa)
+## sofa service access gateway, you can refer to：[soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa)
 
 * Springboot
 
@@ -58,7 +58,7 @@ description: sofa access soul gateway
         </dependency>
  ```
 
-  * backend server register center config, please look:[register center access](../register-center-access).
+  * backend server register center config, please look:[register center access](../register-center/register-center-access).
 
 * Spring
 
@@ -122,7 +122,7 @@ description: sofa access soul gateway
 * Parameter passing：
 
    * Access the gateway through http post，and pass through body and json.
-   * For more parameter type transfer, please refer to the interface definition in [soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa) and the parameter transfer method.
+   * For more parameter type transfer, please refer to the interface definition in [soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa) and the parameter transfer method.
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:

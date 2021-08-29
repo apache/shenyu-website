@@ -25,7 +25,7 @@ description: context_path插件
   <!-- soul context_path plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。
 * 只有匹配的请求，并且配置规则才会进行重写contextPath。
 
 ## 场景

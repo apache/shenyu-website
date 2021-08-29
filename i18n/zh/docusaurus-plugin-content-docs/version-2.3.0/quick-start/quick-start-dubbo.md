@@ -3,15 +3,15 @@ title: Dubbo快速开始
 description: Dubbo快速开始
 ---
 
-本文档将演示了如何快速使用Dubbo接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo)。
+本文档将演示了如何快速使用Dubbo接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo)。
 
 ## 环境准备
 
-请参考[配置网关环境](../soul-set-up)并启动`soul-admin`和`soul-bootstrap`，另外如果你的dubbo如果使用zookeeper需提前下载启动。
+请参考[配置网关环境](../users-guide/soul-set-up)并启动`soul-admin`和`soul-bootstrap`，另外如果你的dubbo如果使用zookeeper需提前下载启动。
 
 ## 运行soul-examples-dubbo项目
 
-下载[soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo)，调整`spring-dubbo.xml`
+下载[soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo)，调整`spring-dubbo.xml`
 的注册地址为你本地，如：
 ```xml
 <dubbo:registry address="zookeeper://localhost:2181"/>

@@ -10,7 +10,7 @@ description: waf plugin
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../deployment-local) to start the `Apache ShenYu` management system.
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../../deployment/deployment-local) to start the `Apache ShenYu` management system.
 
 * In `shenyu-admin` BasicConfig --> plugin -> `waf` set to enable.If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -40,7 +40,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 
 ## Waf Plugin Configuration
 
-For more instructions on selector and rule configuration, please refer to: [Selector And Rule Config](../selector-and-rule), here only some fields are introduced.
+For more instructions on selector and rule configuration, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule), here only some fields are introduced.
 
 `Waf` plugin rule configuration page:
 
@@ -73,4 +73,4 @@ For requests that are denied access by `Waf` , the response header status code i
 
 * `Waf` is also the pre-plugin of `ShenYu`, which is mainly used to intercept illegal requests or exception requests and give relevant rejection policies.
 * When faced with replay attacks, you can intercept illegal `ip` and `host`, and set reject strategy according to matched `ip` or `host`.
-* How to determine `ip` and `host`, please refer to: [parsing-ip-and-host](../custom-parsing-ip-and-host)
+* How to determine `ip` and `host`, please refer to: [parsing-ip-and-host](../../developer/custom-parsing-ip-and-host)

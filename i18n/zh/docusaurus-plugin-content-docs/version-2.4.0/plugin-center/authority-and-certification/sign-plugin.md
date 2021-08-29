@@ -11,7 +11,7 @@ description: sign插件
 
 ## 插件设置
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 * 在 `shenyu-admin` 基础配置 --> 插件管理 --> `sign` ，设置为开启。如果用户不想使用此功能，请在 `admin` 后台停用此插件。
 
@@ -31,13 +31,13 @@ description: sign插件
   <!-- apache shenyu sign plugin end-->
 ```
 
-* 选择器和规则，请详细看：[选择器和规则管理](../selector-and-rule) 。
+* 选择器和规则，请详细看：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule) 。
 
   * 只有匹配的请求，才会进行签名认证。
 
 ## 新增 AK/SK
 
-* 在 `shenyu-admin` --> 认证管理中，点击新增，新增一条 `AK/SK` 。详情请看：[认证管理](../authority-management)
+* 在 `shenyu-admin` --> 基础配置/认证管理中，点击新增，新增一条 `AK/SK` 。详情请看：[认证管理](../authority-management)
 
 ## 网关技术实现
 
@@ -121,4 +121,4 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 ## 签名认证算法扩展
 
-* 请参考开发者文档中的 [扩展签名算法](../custom-sign-algorithm)。
+* 请参考开发者文档中的 [扩展签名算法](../../developer/custom-sign-algorithm)。

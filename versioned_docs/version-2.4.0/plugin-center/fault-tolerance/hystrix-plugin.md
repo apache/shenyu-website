@@ -11,7 +11,7 @@ description: hystrix plugin
 
 ## Plugin Setting
 
-Select a mode to start shenyu-admin. For details, see  deployment. For example, with [Local Deployment](../deployment-local) starts the `Apache ShenYu` background management system.
+Select a mode to start shenyu-admin. For details, see  deployment. For example, with [Local Deployment](../../deployment/deployment-local) starts the `Apache ShenYu` background management system.
 
 * In BasicConfig --> Plugin --> hystrix, set to enable.
 * If the user don't use, please disable the plugin in the background.
@@ -38,7 +38,7 @@ Select a mode to start shenyu-admin. For details, see  deployment. For example, 
 ##  Hystrix Config
 
 
-For more information on selectors and rules configuration, see [Selector And Rule Config](../selector-and-rule) , only some of the fields are covered here.
+For more information on selectors and rules configuration, see [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) , only some of the fields are covered here.
 
 ####  Selector Config
 

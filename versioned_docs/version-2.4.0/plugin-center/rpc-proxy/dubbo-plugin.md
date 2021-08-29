@@ -12,11 +12,11 @@ description: dubbo plugin
 
 ## Plugin Setting
 
-* Add related dependencies and enable plugin, please refer to: [Quick start with Dubbo](../quick-start-dubbo) .
+* Add related dependencies and enable plugin, please refer to: [Quick start with Dubbo](../../quick-start/quick-start-dubbo) .
 
-* `Dubbo` client access, please refer to: [Dubbo Proxy](../dubbo-proxy) .
+* `Dubbo` client access, please refer to: [Dubbo Proxy](../../user-guide/dubbo-proxy) .
 
-* Set selector and rule, please refer to: [Selector And Rule Config](../selector-and-rule) .
+* Set selector and rule, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 
 ## Metadata

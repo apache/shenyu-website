@@ -10,7 +10,7 @@ description: JWT plugin
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../deployment-local) to start the `Apache ShenYu` management system .
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../../deployment/deployment-local) to start the `Apache ShenYu` management system .
 
 * In `shenyu-admin` BasicConfig --> plugin -> `jwt` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -41,7 +41,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
   
 ```
 
-* For more instructions on selector and rule configuration, please refer to: [Selector And Rule Config](../selector-and-rule).
+* For more instructions on selector and rule configuration, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule).
 
 ## Situation
 

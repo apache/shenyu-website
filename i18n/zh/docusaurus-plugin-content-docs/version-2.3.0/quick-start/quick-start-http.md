@@ -3,11 +3,11 @@ title: Http快速开始
 description: Http快速开始
 ---
 
-本文档将演示了如何快速使用Http请求接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-http)。
+本文档将演示了如何快速使用Http请求接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-http)。
 
 ## 环境准备
 
-请参考[配置网关环境](../soul-set-up)并启动`soul-admin`。
+请参考[配置网关环境](../users-guide/soul-set-up)并启动`soul-admin`。
 
 引入网关对http的代理插件
 
@@ -32,7 +32,7 @@ description: Http快速开始
 
 ## 运行soul-examples-http项目
 
-下载[soul-examples-http](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-http)
+下载[soul-examples-http](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-http)
 
 运行`org.dromara.soul.examples.http.SoulTestHttpApplication`main方法启动项目。
 

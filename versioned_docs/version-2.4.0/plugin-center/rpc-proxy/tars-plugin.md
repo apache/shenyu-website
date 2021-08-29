@@ -12,15 +12,15 @@ description:  tars-plugin
 
 ## Plugin Setting
 
-* Add related dependencies and enable plugin, please refer to: [Quick start with Tars](../quick-start-tars) .
+* Add related dependencies and enable plugin, please refer to: [Quick start with Tars](../../quick-start/quick-start-tars) .
 
-* `Tars` client access, please refer to: [Tars Proxy](../tars-proxy) .
+* `Tars` client access, please refer to: [Tars Proxy](../../user-guide/tars-proxy) .
 
 
 
 ## Plugin Detail
 
-After the client accesses the `Apache ShenYu` gateway, it will automatically register the selector and rule information. You can see it in PluginList -> rpc proxy -> tars. For details about the selector and rule configuration, see [Selector And Rule Config](../selector-and-rule) .
+After the client accesses the `Apache ShenYu` gateway, it will automatically register the selector and rule information. You can see it in PluginList -> rpc proxy -> tars. For details about the selector and rule configuration, see [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 
 
@@ -29,7 +29,7 @@ After the client accesses the `Apache ShenYu` gateway, it will automatically reg
 <img src="/img/shenyu/plugin/tars/selector_en.png" width="80%" height="80%" />
 
 
-Selector Handler, the `handle` field is the tars service that is actually invoked after the gateway matches the traffic. You can configure multiple load balancing weights and specify the specific load balancing policy in the rules. For more information, see [Plugin Handle Management](../plugin-handle-explanation) .
+Selector Handler, the `handle` field is the tars service that is actually invoked after the gateway matches the traffic. You can configure multiple load balancing weights and specify the specific load balancing policy in the rules. For more information, see [Plugin Handle Management](../../user-guide/admin-usage/plugin-handle-explanation) .
 
 
 * config details：
@@ -53,7 +53,7 @@ Selector Handler, the `handle` field is the tars service that is actually invoke
 
 <img src="/img/shenyu/plugin/tars/rule_en.png" width="80%" height="80%" />
 
-Rule Handle, the `handle` field indicates the processing rule adopted by the gateway after the final matching of traffic. For more information, see [Plugin Handle Management](../plugin-handle-explanation) .
+Rule Handle, the `handle` field indicates the processing rule adopted by the gateway after the final matching of traffic. For more information, see [Plugin Handle Management](../../user-guide/admin-usage/plugin-handle-explanation) .
 
 * config details:
     * `loadStrategy`: if the `Http` client is a cluster, Apache ShenYu gateway uses the load balancing policy when calling, currently supporting `roundRobin`, `random`, and `hash`.

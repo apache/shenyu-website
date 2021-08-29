@@ -3,11 +3,11 @@ title: Quick start with grpc
 description: Quick start with grpc
 ---
 
-This document introduces how to quickly access the Soul Gateway using Grpc. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-grpc).
+This document introduces how to quickly access the Soul Gateway using Grpc. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-grpc).
 
 ## Environment to prepare
 
-Please refer to the [setup](../soul-set-up) and launch `soul-admin` and `soul-bootstrap`.
+Please refer to the [setup](../users-guide/soul-set-up) and launch `soul-admin` and `soul-bootstrap`.
 
 Note: `soul-bootstrap` need to import grpc dependencies
 ```xml
@@ -20,7 +20,7 @@ Note: `soul-bootstrap` need to import grpc dependencies
 
 ## Run the soul-examples-grpc project
 
-Download [soul-examples-grpc](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-grpc)
+Download [soul-examples-grpc](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-grpc)
 
 Run the following command under `soul-examples-grpc` to generate Java code
 ```shell

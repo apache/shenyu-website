@@ -1,7 +1,7 @@
 ---
 title: 版本发布
 keywords: ["release-notes"]
-description:  release-notes
+description: release-notes
 ---
 
 ### 2.3.0

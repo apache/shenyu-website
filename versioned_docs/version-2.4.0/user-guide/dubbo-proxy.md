@@ -8,11 +8,11 @@ This document is intended to help the `Dubbo` service access the `Apache ShenYu`
 
 Support Alibaba Dubbo(< 2.7.x) and Apache Dubbo (>=2.7.x).
 
-Before the connection, start `shenyu-admin` correctly, start `Dubbo` plugin, and add related dependencies on the gateway and `Dubbo` application client. Refer to the previous [Quick start with Dubbo](../quick-start-dubbo) .
+Before the connection, start `shenyu-admin` correctly, start `Dubbo` plugin, and add related dependencies on the gateway and `Dubbo` application client. Refer to the previous [Quick start with Dubbo](../quick-start/quick-start-dubbo) .
 
-For details about client access configuration, see [Application Client Access Config](../register-center-access) .
+For details about client access configuration, see [Application Client Access Config](./register-center-access) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
+For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
 
 ## Add dubbo plugin in gateway
 
@@ -102,7 +102,7 @@ Apache dubbo user, configure the dubbo version and registry center with yours.
 
 ## Dubbo service access gateway
 
-Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) .
+Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) .
 
 * Alibaba Dubbo User
     * SpringBoot
@@ -223,7 +223,7 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
 
 * parameter deliver:
     * communicate with gateway through body or json of http post request.
-    * more parameter types, please refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) and parameter passing
+    * more parameter types, please refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) and parameter passing
       method.
 * Single java bean parameter type (`default`).
 * Multi-parameter type support, add this config value in gateway's yaml file:

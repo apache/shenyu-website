@@ -9,7 +9,7 @@ This document focuses on how to use different data synchronization strategies. D
 <img src="/img/shenyu/dataSync/data-sync-config-dir-en.png" width="70%" height="60%" />
 
 
-For details about the data synchronization principles, see [Data Synchronization Design](../data-sync) in the design document.
+For details about the data synchronization principles, see [Data Synchronization Design](../design/data-sync) in the design document.
 
 ### WebSocket Synchronization Config（default strategy, recommend）
 

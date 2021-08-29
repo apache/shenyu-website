@@ -5,12 +5,12 @@ description: Motan服务接入
 
 此篇文介绍如何将 `Motan` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `motan` 插件来接入`Motan`服务。
 
-接入前，请正确启动 `shenyu-admin`，并开启`motan`插件，在网关端和`motan`服务端引入相关依赖。可以参考前面的 [Motan快速开始](../quick-start-motan) 。
+接入前，请正确启动 `shenyu-admin`，并开启`motan`插件，在网关端和`motan`服务端引入相关依赖。可以参考前面的 [Motan快速开始](../quick-start/quick-start-motan) 。
 
 
-应用客户端接入的相关配置请参考：[客户端接入配置](../register-center-access)。
+应用客户端接入的相关配置请参考：[客户端接入配置](./register-center-access)。
 
-数据同步的相关配置请参考：[数据同步配置](../use-data-sync)。
+数据同步的相关配置请参考：[数据同步配置](./use-data-sync)。
 
 ## 在网关中引入 motan 插件
 
@@ -54,7 +54,7 @@ description: Motan服务接入
 
 ## Motan服务接入网关
 
-可以参考： [shenyu-examples-motan](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-motan)
+可以参考： [shenyu-examples-motan](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-motan)
 
 * 在由`Motan`构建的微服务中，引入如下依赖：
 

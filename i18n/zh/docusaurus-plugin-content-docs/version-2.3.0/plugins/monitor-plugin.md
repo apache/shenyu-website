@@ -47,7 +47,7 @@ description: monitor插件
   </dependency>
   <!-- soul monitor plugin end-->
 ``` 
-* 选择器和规则，请详细看 : [选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看 : [选择器规则](../admin/selector-and-rule)。
    
    * 只有当匹配的url，才会进行url请求埋点。
 
@@ -108,7 +108,7 @@ description: monitor插件
 
 * 配置自定义metric面板`request_total`、`http_request_total`
 
-点击`Create` - `Import`，输入dashboards的[面板json配置](https://shenyu.apache.org/img/soul/monitor/request_metric_dashboard.json)
+点击`Create` - `Import`，输入dashboards的[面板json配置](https://shenyu.apache.org/img/shenyu/monitor/request_metric_dashboard.json)
 
 最终自定义Http请求监控面板效果如下：
 

@@ -36,7 +36,7 @@ description: waf插件
   <!-- soul waf plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)
 
   * 当 `model` 设置为 `black` 模式的时候，只有匹配的流量才会执行拒绝策略，不匹配的，直接会跳过。
   
@@ -48,4 +48,4 @@ description: waf插件
 
 * 当面对重放攻击时，你可以根据ip或者host来进行匹配，拦截掉非法的ip与host，设置reject策略。
 
-* 关于如何确定 ip 与 host 值，请看 [parsing-ip-and-host](../custom-parsing-ip-and-host)
+* 关于如何确定 ip 与 host 值，请看 [parsing-ip-and-host](../developer-guide/custom-parsing-ip-and-host)

@@ -13,11 +13,11 @@ description: dubbo插件
 
 ## 插件设置
 
-* 引入相关依赖，开启插件，请参考：[Dubbo快速开始](../quick-start-dubbo) 。
+* 引入相关依赖，开启插件，请参考：[Dubbo快速开始](../../quick-start/quick-start-dubbo) 。
 
-* `Dubbo`应用客户端接入，请参考：[Dubbo服务接入](../dubbo-proxy) 。
+* `Dubbo`应用客户端接入，请参考：[Dubbo服务接入](../../user-guide/dubbo-proxy) 。
 
-* 选择器和规则配置，请参考：[选择器和规则管理](../selector-and-rule)。
+* 选择器和规则配置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 
 ## 元数据
 

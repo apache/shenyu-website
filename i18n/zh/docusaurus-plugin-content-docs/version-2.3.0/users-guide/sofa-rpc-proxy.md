@@ -8,7 +8,7 @@ description: sofa接入soul网关
 ## 说明
 
 * 此篇文章是sofa用户使用sofa插件支持，以及自己的sofa服务接入soul网关的教程。
-* 接入前，请正确的启动 `soul-admin`以及[搭建环境](../soul-set-up) Ok。
+* 接入前，请正确的启动 `soul-admin`以及[搭建环境](./soul-set-up) Ok。
 
 ## 引入网关对sofa支持的插件
 
@@ -47,7 +47,7 @@ description: sofa接入soul网关
 
 * 重启网关服务。
 
-## sofa服务接入网关，可以参考：[soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa)
+## sofa服务接入网关，可以参考：[soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa)
 
  * springboot
 
@@ -60,7 +60,7 @@ description: sofa接入soul网关
         </dependency>
  ```
 
-  * 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)
+  * 注册中心详细接入配置请参考：[注册中心接入](../register-center/register-center-access)
 
 * spring
 
@@ -124,7 +124,7 @@ description: sofa接入soul网关
 * 参数传递：
 
    * 通过 http post 方式访问网关，通过body，json类型传递。
-   * 更多参数类型传递，可以参考[soul-examples-sofa](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa) 中的接口定义，以及参数传递方式。
+   * 更多参数类型传递，可以参考[soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa) 中的接口定义，以及参数传递方式。
 
 * 单个java bean参数类型 （默认）
 * 自定义实现多参数支持：

@@ -30,9 +30,9 @@ description:  Param-mapping插件
 
 * 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。
 
-  * 只有匹配的请求，才会修改响应。
+  * 只有匹配的请求，才会修改请求体。
 
-## 修改响应插件使用指南
+## 修改请求插件使用指南
 * 1.配置选择器
 * 2.配置规则
 * 3.修改请求体
@@ -42,13 +42,13 @@ description:  Param-mapping插件
   * `replaceParameterKeys`: 替换请求体中的某一个 `key` ，`key` 是要被替换的值，`value` 是替换后的值
   * `removeParameterKeys`: 移除请求体中的某一个 `key`
 
-修改响应体是通过 `JSONPath` 来实现的， `$.` 代表根目录
+修改请求体是通过 `JSONPath` 来实现的， `$.` 代表根目录
 
 上面的配置，插件开启前，请求内容为
 ```json
 {"id":3,"data":{"value":"18","age":"36"}}
 ```
-插件开启后，响应内容为
+插件开启后，请求内容为
 ```json
 {"name":"shenyu","userId":3,"data":{"age":"36"}}
 ```

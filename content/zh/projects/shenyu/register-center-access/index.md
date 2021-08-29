@@ -104,11 +104,11 @@ shenyu:
         <!-- apache shenyu zookeeper register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-register-server-zookeeper</artifactId>
+            <artifactId>shenyu-register-client-zookeeper</artifactId>
             <version>${shenyu.version}</version>
         </dependency>
 ```
-<img src="/img/shenyu/register/register-zk-client-pom.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/client_register_zk_pom.png" width="70%" height="60%" />
 
 * 然后在 `yml` 中配置注册类型为`zookeeper`，并填写`Zookeeper`服务地址和相关参数，如下：
 
@@ -157,9 +157,6 @@ shenyu:
   register:
     registerType: etcd
     serverLists : http://localhost:2379
-    props:
-      etcdTimeout: 5000
-      etcdTTL: 5
 ```
 
 <img src="/img/shenyu/register/register-etcd-admin-yml.png" width="70%" height="60%" />
@@ -175,12 +172,12 @@ shenyu:
         <!-- apache shenyu etcd register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-register-server-etcd</artifactId>
+            <artifactId>shenyu-register-client-etcd</artifactId>
             <version>${shenyu.version}</version>
         </dependency>
 ```
 
-<img src="/img/shenyu/register/register-etcd-client-pom.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/client_register_etcd_pom.png" width="70%" height="60%" />
 
 
 * 然后在 `yml` 中配置注册类型为`etcd`, 并填写`etcd`服务地址和相关参数，如下：
@@ -275,14 +272,21 @@ spring:
 * 首先在 `pom` 文件中加入相关的依赖：
 
 ```xml
-            <dependency>
-               <groupId>org.springframework.cloud</groupId>
-               <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-               <version>2.2.6.RELEASE</version>
-           </dependency>
+        <!-- apache shenyu consul register center -->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-register-client-consul</artifactId>
+            <version>${shenyu.version}</version>
+        </dependency>
+
+        <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+           <version>2.2.6.RELEASE</version>
+       </dependency>
 ```
 
-<img src="/img/shenyu/register/register-consul-client-pom.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/client_register_consul_pom.png" width="70%" height="60%" />
 
 
 * 然后在 `yml`文件中配置注册方式为`consul`, 额外还需要配置`spring.cloud.consul`, 配置信息如下：
@@ -365,7 +369,7 @@ shenyu:
         </dependency>
 ```
 
-<img src="/img/shenyu/register/register-nacos-client-pom.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/client_register_nacos_pom.png" width="70%" height="60%" />
 
 
 * 然后在 `yml` 中配置注册方式为`nacos`, 并填写`nacos`服务地址和相关参数，还需要`Nacos`命名空间（需要和`shenyu-admin`端保持一致），IP（可不填，则自动获取本机ip）和端口，配置信息如下：

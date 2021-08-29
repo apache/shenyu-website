@@ -18,7 +18,7 @@ This article describes how to configure the application client to access the Apa
 
 #### shenyu-admin config
 
-Set the register type to '`Http` in the `yml` file. The configuration information is as follows:
+Set the register type to `http` in the `yml` file. The configuration information is as follows:
 
 ```yaml
 shenyu:
@@ -104,12 +104,12 @@ The following shows the configuration information registered by `zookeeper` when
         <!-- apache shenyu zookeeper register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-register-server-zookeeper</artifactId>
+            <artifactId>shenyu-register-client-zookeeper</artifactId>
             <version>${shenyu.version}</version>
         </dependency>
 ```
 
-<img src="/img/shenyu/register/register-zk-client-pom.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/client_register_zk_pom.png" width="70%" height="60%" />
 
 * Then set the register type to `zookeeper` in `yml` and enter the service address and related parameters as follows:
 
@@ -159,9 +159,6 @@ shenyu:
   register:
     registerType: etcd
     serverLists : http://localhost:2379
-    props:
-      etcdTimeout: 5000
-      etcdTTL: 5
 ```
 
 <img src="/img/shenyu/register/register-etcd-admin-yml.png" width="70%" height="60%" />
@@ -178,12 +175,12 @@ The following shows the configuration information registered by `Etcd` when the 
         <!-- apache shenyu etcd register center -->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-register-server-etcd</artifactId>
+            <artifactId>shenyu-register-client-etcd</artifactId>
             <version>${shenyu.version}</version>
         </dependency>
 ```
 
-<img src="/img/shenyu/register/register-etcd-client-pom.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/client_register_etcd_pom.png" width="70%" height="60%" />
 
 
 * Then set the register type to `etcd` in `yml` and enter the `etcd` service address and related parameters as follows:
@@ -282,14 +279,21 @@ The following shows the configuration information registered by `Consul` when th
 * First add dependencies to the `pom` file:
 
 ```xml
-            <dependency>
-               <groupId>org.springframework.cloud</groupId>
-               <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-               <version>2.2.6.RELEASE</version>
-           </dependency>
+        <!-- apache shenyu consul register center -->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-register-client-consul</artifactId>
+            <version>${shenyu.version}</version>
+        </dependency>
+
+        <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+           <version>2.2.6.RELEASE</version>
+        </dependency>
 ```
 
-<img src="/img/shenyu/register/register-consul-client-pom.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/client_register_consul_pom.png" width="70%" height="60%" />
 
 
 * Then set the register type to `consul` in `yml` and config `spring.cloud.consul`, and related parameters as follows:
@@ -375,10 +379,10 @@ The following shows the configuration information registered by `Nacos` when the
         </dependency>
 ```
 
-<img src="/img/shenyu/register/register-nacos-client-pom.png" width="70%" height="60%" />
+<img src="/img/shenyu/register/client_register_nacos_pom.png" width="70%" height="60%" />
 
 
-* Then in `yml` configure registration mode as `naco`, and fill in `nacos` service address and related parameters, also need `nacos` namespace (need to be consistent with `shenyu-admin`), IP (optional, then automatically obtain the local IP address) and port, configuration information is as follows:
+* Then in `yml` configure registration mode as `nacos`, and fill in `nacos` service address and related parameters, also need `nacos` namespace (need to be consistent with `shenyu-admin`), IP (optional, then automatically obtain the local IP address) and port, configuration information is as follows:
 
 ```yaml
 shenyu:

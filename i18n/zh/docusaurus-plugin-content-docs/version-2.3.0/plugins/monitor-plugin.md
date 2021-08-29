@@ -1,4 +1,5 @@
 ---
+sidebar_position: 9
 title: Monitor插件
 keywords: ["monitor"]
 description: monitor插件

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 5
 title: Sofa接入网关
 keywords: ["sofa"]
 description: sofa接入soul网关

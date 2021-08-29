@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 title: SpringCloud Proxy
 keywords: ["soul"]
 description: springCloud with soul gateway

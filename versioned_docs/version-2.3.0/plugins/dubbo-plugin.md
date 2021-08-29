@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: Dubbo Plugin
 keywords: ["dubbo"]
 description: dubbo plugin

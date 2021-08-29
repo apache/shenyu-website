@@ -1,4 +1,5 @@
 ---
+sidebar_position: 6
 title: Hystrix插件
 keywords: ["soul"]
 description: hystrix插件

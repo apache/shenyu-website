@@ -1,4 +1,5 @@
 ---
+sidebar_position: 12
 title: Rewrite插件
 keywords: ["rewrite"]
 description: rewrite插件

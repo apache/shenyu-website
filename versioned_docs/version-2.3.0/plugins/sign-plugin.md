@@ -1,4 +1,5 @@
 ---
+sidebar_position: 11
 title: Sign Plugin
 keywords: ["sign"]
 description: sign plugin

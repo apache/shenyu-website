@@ -1,4 +1,5 @@
 ---
+sidebar_position: 8
 title: Resilience4j Plugin
 keywords: ["soul"]
 description: resilience4j plugin

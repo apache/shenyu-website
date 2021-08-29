@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 title: SpringCloud接入Soul网关
 keywords: ["soul"]
 description: SpringCloud接入Soul网关

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 title: Selector Detailed Explanation
 keywords: ["soul"]
 description: detailed explanation of selector and rule

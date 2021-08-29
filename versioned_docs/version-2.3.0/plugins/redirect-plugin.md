@@ -1,4 +1,5 @@
 ---
+sidebar_position: 15
 title: Redirect Plugin
 keywords: ["redirect"]
 description: redirect plugin

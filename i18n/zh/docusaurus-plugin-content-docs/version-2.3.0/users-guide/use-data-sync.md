@@ -1,4 +1,5 @@
 ---
+sidebar_position: 6
 title: 使用不同的数据同步策略
 keywords: ["soul"]
 description: 使用不同的数据同步策略

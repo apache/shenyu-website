@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: Custom Plugin
 keywords: ["soul"]
 description: plugins

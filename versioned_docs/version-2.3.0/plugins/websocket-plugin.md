@@ -1,4 +1,5 @@
 ---
+sidebar_position: 13
 title: Websocket Plugin
 keywords: ["soul"]
 description: websocket plugin

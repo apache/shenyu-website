@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 title: Sofa Plugin
 keywords: ["sofa"]
 description: sofa access soul gateway

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 title: Filter Extension
 keywords: ["soul"]
 description: filter extension

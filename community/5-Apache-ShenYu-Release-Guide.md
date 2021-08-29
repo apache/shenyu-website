@@ -4,7 +4,7 @@ description: Apache ShenYu Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-## GPG Settings {#gpg-settings}
+## GPG Settings
 
 **1. Install GPG**
 
@@ -100,7 +100,7 @@ gpg --keyserver hkp://pool.sks-keyservers.net --send-key 700E6065
 `pool.sks-keyservers.net` is randomly chosen from [public key server](https://sks-keyservers.net/status/). 
 Each server will automatically synchronize with one another, so it would be okay to choose any one.
 
-## Apache Maven Central Repository Release {#apache-maven-central-repository-release}
+## Apache Maven Central Repository Release
 
 **1. Set settings.xml**
 
@@ -191,7 +191,7 @@ Visit [https://repository.apache.org/#stagingRepositories](https://repository.ap
 Click `Close` to tell Nexus that the construction is finished, because only in this way, this version can be usable. 
 If there is any problem in gpg signature, `Close` will fail, but you can see the failure information through `Activity`.
 
-## Apache SVN Repository Release {#apache-svn-repository-release}
+## Apache SVN Repository Release
 
 **1. Checkout ShenYu Release Directory**
 
@@ -254,7 +254,7 @@ svn add *
 svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
 ```
 
-## Check Release {#check-release}
+## Check Release
 
 **Check sha512 hash**
 
@@ -338,7 +338,7 @@ to check the following items:
     *   All the third party dependency licenses are under `licenses` folder
     *   If it depends on Apache license and has a `NOTICE` file, that `NOTICE` file need to be added to `NOTICE` file of the release
 
-## Call for a Vote {#call-for-a-vote}
+## Call for a Vote
 
 **Vote procedure**
 
@@ -549,7 +549,7 @@ Thank you everyone for taking the time to review the release and help us.
 I will process to publish the release and send ANNOUNCE.
 ```
 
-## Finish the Release {#finish-the-release}
+## Finish the Release
 
 **1. Move source packages, binary packages and KEYS from the `dev` directory to `release` directory**
 

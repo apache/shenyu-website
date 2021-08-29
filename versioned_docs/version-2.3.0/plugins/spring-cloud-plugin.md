@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 title: SpringCloud Plugin
 keywords: ["SpringCloud"]
 description: SpringCloud Plugin

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 title: Environment Setup
 keywords: ["soul"]
 description: Environment Setup

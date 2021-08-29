@@ -1,4 +1,5 @@
 ---
+sidebar_position: 12
 title: Rewrite Plugin
 keywords: ["rewrite"]
 description: rewrite plugin

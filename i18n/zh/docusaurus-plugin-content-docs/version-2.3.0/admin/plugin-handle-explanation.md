@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: 插件处理详解
 keywords: ["plugin"]
 description: 插件处理详解

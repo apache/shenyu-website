@@ -280,5 +280,38 @@
   },
   "Plug-in design idea, plug-in hot plug, easy to expand.Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.": {
     "message": "插件化设计思想，插件热插拔，易扩展。内置丰富的插件，支持鉴权、限流、熔断、防火墙等"
+  },
+  "Rich protocols": {
+    "message": "丰富的协议"
+  },
+  "Supports Dubbo, Tars, Spring-Cloud, gRPC.": {
+    "message": "支持 Dubbo，Tars，Spring-Cloud，gRPC。"
+  },
+  "Plug-in design idea, plug-in hot plug, easy to expand.": {
+    "message": "插件化设计思想，插件热插拔，易扩展。"
+  },
+  "Flow Control": {
+    "message": "流控"
+  },
+  "Flexible flow filtering to meet various flow control.": {
+    "message": "灵活的流量筛选，能满足各种流量控制。"
+  },
+  "Built-in Plug-ins": {
+    "message": "内置插件"
+  },
+  "Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.": {
+    "message": "内置丰富的插件支持，鉴权，限流，熔断，防火墙等。"
+  },
+  "High Performance": {
+    "message": "高性能"
+  },
+  "Dynamic flow configuration, high performance, gateway consumption is 1~2ms.": {
+    "message": "流量配置动态化，性能极高，网关消耗在 1~2ms。"
+  },
+  "Cluster Deployment": {
+    "message": "集群部署"
+  },
+  "Support cluster deployment, A/B Test, blue-green release.": {
+    "message": "支持集群部署，支持 A/B Test，蓝绿发布。"
   }
 }

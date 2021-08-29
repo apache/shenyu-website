@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 title: Dict Management
 keywords: ["dict"]
 description: dict management explanation

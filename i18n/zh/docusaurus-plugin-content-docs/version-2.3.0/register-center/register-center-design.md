@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 title: 注册中心设计
 keywords: ["soul"]
 description: 注册中心设计

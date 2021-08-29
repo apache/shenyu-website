@@ -1,4 +1,5 @@
 ---
+sidebar_position: 6
 title: Hystrix Plugin
 keywords: ["soul"]
 description: hystrix plugin

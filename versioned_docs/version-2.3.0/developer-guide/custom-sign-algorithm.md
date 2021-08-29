@@ -1,4 +1,5 @@
 ---
+sidebar_position: 6
 title: Custom Sign Algorithm
 keywords: ["soul"]
 description: specify sign plugins for examination

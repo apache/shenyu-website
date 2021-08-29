@@ -1,4 +1,5 @@
 ---
+sidebar_position: 11
 title: Sign插件
 keywords: ["sign"]
 description: sign插件

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: Plugin Handle Explanation
 keywords: ["plugin"]
 description: plugin handle explanation

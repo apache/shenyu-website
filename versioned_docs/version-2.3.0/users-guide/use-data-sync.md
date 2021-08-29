@@ -1,4 +1,5 @@
 ---
+sidebar_position: 6
 title: Use Different Data-Sync Strategy
 keywords: ["soul"]
 description: use different data-sync strategy

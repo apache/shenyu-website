@@ -1,4 +1,5 @@
 ---
+sidebar_position: 14
 title:  ContextPath Plugin
 keywords: ["context_path"]
 description: context_path plugin

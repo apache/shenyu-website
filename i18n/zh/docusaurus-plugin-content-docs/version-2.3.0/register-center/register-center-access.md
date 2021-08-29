@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: 注册中心接入配置
 keywords: ["soul"]
 description: 注册中心接入配置

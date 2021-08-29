@@ -1,4 +1,5 @@
 ---
+sidebar_position: 7
 title: Sentinel插件
 keywords: ["soul"]
 description: sentinel插件

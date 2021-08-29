@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: Integrate Http with soul gateway
 keywords: ["soul"]
 description: Integrate Http with soul gateway

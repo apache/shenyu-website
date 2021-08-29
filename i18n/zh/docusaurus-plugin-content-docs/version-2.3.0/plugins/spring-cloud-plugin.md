@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 title: SpringCloud插件
 keywords: ["SpringCloud"]
 description: SpringCloud插件

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 5
 title: RateLimiter Plugin
 keywords: ["rateLimiter"]
 description: rateLimiter plugin

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 title: Dubbo接入soul网关
 keywords: ["soul"]
 description: dubbo接入soul网关

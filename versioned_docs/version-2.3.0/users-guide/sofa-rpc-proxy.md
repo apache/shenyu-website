@@ -1,4 +1,5 @@
 ---
+sidebar_position: 5
 title: Sofa RPC Proxy
 keywords: ["sofa"]
 description: sofa access soul gateway

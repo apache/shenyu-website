@@ -1,4 +1,5 @@
 ---
+sidebar_position: 7
 title: A multilingual HTTP client
 keywords: ["soul"]
 description: A multilingual HTTP client

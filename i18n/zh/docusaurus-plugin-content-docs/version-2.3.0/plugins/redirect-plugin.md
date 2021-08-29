@@ -1,4 +1,5 @@
 ---
+sidebar_position: 15
 title: 重定向插件
 keywords: ["redirect"]
 description: redirect插件

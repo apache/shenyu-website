@@ -1,4 +1,5 @@
 ---
+sidebar_position: 7
 title: Sentinel Plugin
 keywords: ["soul"]
 description: sentinel plugin

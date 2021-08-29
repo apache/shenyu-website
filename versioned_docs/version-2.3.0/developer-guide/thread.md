@@ -1,4 +1,5 @@
 ---
+sidebar_position: 8
 title: Thread Model
 keywords: ["soul"]
 description: thread model

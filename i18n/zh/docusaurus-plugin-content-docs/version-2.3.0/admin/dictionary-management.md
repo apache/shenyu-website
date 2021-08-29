@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 title: 字典管理
 keywords: ["dict"]
 description: 字典管理详解

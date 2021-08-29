@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 title: 环境搭建
 keywords: ["soul"]
 description: 环境搭建

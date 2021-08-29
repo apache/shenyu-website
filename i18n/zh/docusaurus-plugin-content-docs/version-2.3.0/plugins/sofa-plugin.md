@@ -1,4 +1,5 @@
 ---
+sidebar_position: 4
 title: Sofa插件
 keywords: ["sofa"]
 description: sofa插件

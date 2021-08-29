@@ -1,4 +1,5 @@
 ---
+sidebar_position: 9
 title: Monitor Plugin
 keywords: ["monitor"]
 description: monitor plugin

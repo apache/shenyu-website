@@ -9,6 +9,7 @@ import Layout from '@theme/Layout';
 import clsx from 'clsx';
 
 import styles from './styles.module.css';
+import Features from '../components/Features';
 
 function Home() {
   const {
@@ -53,7 +54,7 @@ function Home() {
                   }}
                 />
               <div className={styles.indexCtas}>
-                <Link className="button button--primary" to="/docs/intro">
+                <Link className="button button--primary" to="/docs/index">
                   <Translate>Get Started</Translate>
                 </Link>
                 <Link className="button button--info" to="https://github.com/apache/incubator-shenyu/releases">
@@ -79,7 +80,7 @@ function Home() {
           </div>
         </div>
         <div className={styles.section}>
-          <div className="container text--center margin-bottom--xl">
+          <div className="container text--center">
             <div className="row">
               <div className="col">
                 <img
@@ -128,44 +129,25 @@ function Home() {
               </div>
             </div>
           </div>
-          {/* <div className="container text--center">
-            <div className="row">
-              <div className="col col--4 col--offset-2">
-                <img
-                  alt="Document Versioning"
-                  className={styles.featureImage}
-                  src={useBaseUrl('/img/undraw_version_control.svg')}
-                />
-                <h2 className={clsx(styles.featureHeading)}>
-                  <Translate>Document Versioning</Translate>
-                </h2>
-                <p className="padding-horiz--md">
-                  <Translate>
-                    Support users on all versions of your project. Document
-                    versioning helps you keep documentation in sync with project
-                    releases.
-                  </Translate>
-                </p>
+        </div>
+        <div className={clsx(styles.section, styles.sectionAlt)}>
+          <div className="container">
+            <Features />
+           {/*  <div className="row">
+              <div className="col  col--6" style={{background:"red",height:300}}>
+
               </div>
-              <div className="col col--4">
-                <img
-                  alt="Document Search"
-                  className={styles.featureImage}
-                  src={useBaseUrl('/img/undraw_algolia.svg')}
-                />
-                <h2 className={clsx(styles.featureHeading)}>
-                  <Translate>Content Search</Translate>
-                </h2>
-                <p className="padding-horiz--md">
-                  <Translate>
-                    Make it easy for your community to find what they need in
-                    your documentation. We proudly support Algolia documentation
-                    search.
-                  </Translate>
-                </p>
+              <div className="col  col--6" style={{background:"red",height:300}}>
+
               </div>
-            </div>
-          </div> */}
+              <div className="col  col--6" style={{background:"red",height:300}}>
+
+              </div>
+              <div className="col  col--6" style={{background:"red",height:300}}>
+
+              </div>
+            </div> */}
+          </div>
         </div>
       </main>
     </Layout>

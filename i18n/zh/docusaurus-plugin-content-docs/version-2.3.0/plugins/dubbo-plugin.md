@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 title: Dubbo插件
 keywords: ["dubbo"]
 description: dubbo插件

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 10
 title: Waf Plugin
 keywords: ["waf"]
 description: waf plugin

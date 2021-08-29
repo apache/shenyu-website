@@ -1,4 +1,5 @@
 ---
+sidebar_position: 3
 title: Integrate dubbo with soul gateway
 keywords: ["soul"]
 description: Integrate dubbo with soul gateway

@@ -46,17 +46,17 @@ Then determine whether the traffic matches the rule of the selector. If the requ
 
 This is how the Apache ShenYu gateway completes flow control through layers of filtering. The flow chart is as follows:
 
-![](https://shenyu.apache.org/img/shenyu/plugin/plugin-chain-execute.png)
+<img src="/img/shenyu/plugin/plugin-chain-execute-en.jpg" width="80%" height="70%"/>
 
 ## Traffic filtering
 
-Traffic filtering is the soul of `selectors` and `rules`, corresponding to the matching conditions in the selectors and rules. According to different traffic filtering rules, we can handle various complex scenarios.
+Traffic filtering is the soul of `selectors` and `rules`, corresponding to the matching `conditions` in the selectors and rules. According to different traffic filtering rules, we can handle various complex scenarios.
 
 Traffic filtering can obtain data from Http requests such as `Header`, `URI`, `Query`, `Cookie`, 
 
 Then you can use `Match`, `=`, `SpEL`, `Regex`, `Groovy` and other matching methods to match the data you expected.
 
-You can use the matching strategy of `And/Or` to add multiple sets of matching. The above are all using `SPI design ideas`, users can `self-expand`: For more, please see: https://shenyu.apache.org/zh/projects/shenyu/selector-and-rule/
+You can use the matching strategy of `And/Or` to add multiple sets of matching. The above are all using `SPI design ideas`, users can `self-expand`: For more, please see: https://shenyu.apache.org/projects/shenyu/selector-and-rule/
 
 The process diagram is as follows:
 
@@ -66,7 +66,7 @@ The process diagram is as follows:
 
 In order to improve the `performance` of the gateway, the `Apache ShenYu` gateway will cache all flow control rules in the `JVM` memory.
 
-In the `cluster deployment/distributed` scenario, `Apache ShenYu` independently developed a set of `Remote synchronization of Admin console data to the JVM memory of each Apache ShenYu gateway node`.
+In the `cluster deployment/distributed` scenario, `Apache ShenYu` independently developed a set of Remote synchronization of Admin console data to the JVM memory of each Apache ShenYu gateway node.
 
 Each scheme adopts the design idea of SPI, so that users can choose flexibly. Currently supported schemes are `HttpLongPull`, `Websocket`, `Zookeeper`, `Nacos`, `Consul`, `ETCD`.
 
@@ -77,21 +77,22 @@ The overall process is as follows:
 ## Admin console
 
 In order to facilitate the user to quickly and conveniently control the flow and all the functional characteristics of the gateway, `Apache ShenYu` provides a very beautiful `Admin console`, the user can `Chinese and English switch`, on this, you can freely `control the flow` , `Start-stop plug-in`, `Configure different parameters and strategies`, these operation changes are synchronized to the gateway's `JVM memory` through the aforementioned `data synchronization principle`. The background diagram is as follows:
-![](https://shenyu.apache.org/img/community/admin.png)
+
+<img src="/img/community/admin_homepage_en.jpg"/>
 
 ##### Menu/data permissions
 
-The background management of the gateway is agent. For enterprise-level users and cross-departmental applications, Apache Shenyu `designs a common `authorization control system`, including `level menu permissions`, and its row data level data Permissions. And these permissions are automatically configurable by the `administrator`.
+The background management of the gateway is agent. For enterprise-level users and cross-departmental applications, `Apache Shenyu` designs a common `authorization control system`, including `button level menu permissions`, and `row data level data Permissions`. And these permissions are automatically configurable by the `administrator`.
 
- ![](https://shenyu.apache.org/img/community/admin-permission.png)
+<img src="/img/community/admin-permission-en.jpg">
 
-## Agreement Agency
+## Protocol Proxy
 
-Protocol proxy is the core function of the gateway. Currently `Apache ShenYu` supports `http` to `http/https`, `Websocket`, `Dubbo`, `Spring Cloud`, `GRPC`, `Motan`, `Sofa` The conversion of protocols such as `Tars`, etc. will support `TCP`, `MQTT`, `MQTT` and other protocols in the future.
+Protocol proxy is the core function of the gateway. Currently `Apache ShenYu` supports `http` to `http/https`, `Websocket`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa` The conversion of protocols such as `Tars`, etc. will support `TCP`, `MQTT`, `MQTT` and other protocols in the future.
 
 #### Divide Plugin
 
- The `Divide` plug-in is a plug-in used to specifically proxy `http/https/websocket` and other methods to request the `Apache ShenYu` gateway. It has functions such as `load balancing`, `traffic preheating`, `node discovery`, `timeout retry`, `timeout control` and so on. If users want to use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Divide plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/http-proxy/
+ The `Divide` plug-in is a plug-in used to specifically proxy `http/https/websocket` and other methods to request the `Apache ShenYu` gateway. It has functions such as `load balancing`, `traffic preheating`, `node discovery`, `timeout retry`, `timeout control` and so on. If users want to use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Divide plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/http-proxy/
 
 ```xml
 <dependency>
@@ -108,7 +109,7 @@ Protocol proxy is the core function of the gateway. Currently `Apache ShenYu` su
 
 #### Dubbo Plugin
 
-`Dubbo` plug-in is a plug-in used by `Apache ShenYu` gateway to convert `http/https` requests into `dubbo` protocol. It adopts the mechanism of `Dubbo generalization` call, integrates `Dubbo client`, and has functions such as `service discovery`, `load balancing` and so on. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `dubbo plugin`, and configure the `Registry Center`, For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/dubbo-proxy/
+`Dubbo` plug-in is a plug-in used by `Apache ShenYu` gateway to convert `http/https` requests into `dubbo` protocol. It adopts the mechanism of `Dubbo generalization` call, integrates `Dubbo client`, and has functions such as `service discovery`, `load balancing` and so on. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `dubbo plugin`, and configure the `Registry Center`, For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/dubbo-proxy/
 
 ```xml
  <!-- apache shenyu alibaba dubbo plugin start-->
@@ -127,7 +128,7 @@ Protocol proxy is the core function of the gateway. Currently `Apache ShenYu` su
 
 #### SpringCloud Plugin
 
-The `SpringCloud` plugin is a plugin for `Apache ShenYu` gateway proxy `SpringCloud` microservice business. It integrates the registration center of `SpringCloud`, and load balancing service, and realizes the proxy of the service. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `SpringCloud plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/spring-cloud-proxy/
+The `SpringCloud` plugin is a plugin for `Apache ShenYu` gateway proxy `SpringCloud` microservice business. It integrates the registration center of `SpringCloud`, and load balancing service, and realizes the proxy of the service. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `SpringCloud plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/spring-cloud-proxy/
 
 ```xml
  <dependency>
@@ -139,7 +140,7 @@ The `SpringCloud` plugin is a plugin for `Apache ShenYu` gateway proxy `SpringCl
 
 #### gRPC Plugin
 
- The `GRPC` plug-in is a plug-in used by the `Apache ShenYu` gateway to convert the `http/https` request into the `GRPC` protocol. It integrates the `GRPC` client and implements the proxy of the `GRPC` service. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `GRPC plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/grpc-proxy/
+ The `gRPC` plug-in is a plug-in used by the `Apache ShenYu` gateway to convert the `http/https` request into the `GRPC` protocol. It integrates the `GRPC` client and implements the proxy of the `GRPC` service. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `GRPC plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/grpc-proxy/
 
 ```xml
  <dependency>
@@ -151,7 +152,7 @@ The `SpringCloud` plugin is a plugin for `Apache ShenYu` gateway proxy `SpringCl
 
 #### Tars Plugin
 
-`Tars` plug-in is a plug-in used by `Apache ShenYu` gateway to convert `http/https` requests into `Tars` protocol. `Tars` is Tencent's open source RPC framework. The plug-in integrates the `Tars-JAVA` client and implements the proxy of the `Tars` service. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Tars plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/tars-proxy/
+`Tars` plug-in is a plug-in used by `Apache ShenYu` gateway to convert `http/https` requests into `Tars` protocol. `Tars` is Tencent's open source RPC framework. The plug-in integrates the `Tars-JAVA` client and implements the proxy of the `Tars` service. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Tars plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/tars-proxy/
 
 ```xml
   <dependency>
@@ -163,7 +164,7 @@ The `SpringCloud` plugin is a plugin for `Apache ShenYu` gateway proxy `SpringCl
 
 #### Sofa Plugin
 
-The `Sofa` plug-in is a plug-in used by the `Apache ShenYu` gateway to convert the `http/https` request into the `Sofa-RPC` protocol. It uses the `Sofa generalization` call mechanism, integrates the `Sofa-RPC client', and has functions such as `service discovery`, `load balancing` and so on. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin Console` --> `Plugin Management` --> `Sofa Plugin`, and configure the `Registry Center`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/sofa-proxy/
+The `Sofa` plug-in is a plug-in used by the `Apache ShenYu` gateway to convert the `http/https` request into the `Sofa-RPC` protocol. It uses the `Sofa generalization` call mechanism, integrates the `Sofa-RPC client`, and has functions such as `service discovery`, `load balancing` and so on. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin Console` --> `Plugin Management` --> `Sofa Plugin`, and configure the `Registry Center`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/sofa-rpc-proxy/
 
 ```xml
   <dependency>
@@ -177,7 +178,7 @@ The `Sofa` plug-in is a plug-in used by the `Apache ShenYu` gateway to convert t
 
 #### Hystrix Plugin
 
-The `Hystrix` plug-in is the `Hystrix` framework integrated with the `Apache ShenYu` gateway, which provides the function of requesting fuse. The `Hystrix` fuse parameters can be dynamically configured. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Hystrix plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/hystrix-plugin/
+The `Hystrix` plug-in is the `Hystrix` framework integrated with the `Apache ShenYu` gateway, which provides the function of requesting fuse. The `Hystrix` fuse parameters can be dynamically configured. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Hystrix plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/hystrix-plugin/
 
 ```xml
 <dependency>
@@ -189,7 +190,7 @@ The `Hystrix` plug-in is the `Hystrix` framework integrated with the `Apache She
 
 #### Sentinel Plugin
 
-The `Sentinel` plug-in is the `Apache ShenYu` gateway integrated with the `Sentinel` framework, providing the function of requesting fuse current limiting. The `Sentinel` fuse current limiting parameters can be dynamically configured. If users want to use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin Console` --> `Plugin Management` --> `Sentinel Plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/sentinel-plugin/
+The `Sentinel` plug-in is the `Apache ShenYu` gateway integrated with the `Sentinel` framework, providing the function of requesting fuse current limiting. The `Sentinel` fuse current limiting parameters can be dynamically configured. If users want to use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin Console` --> `Plugin Management` --> `Sentinel Plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/sentinel-plugin/
 
 ```xml
 <dependency>
@@ -201,7 +202,7 @@ The `Sentinel` plug-in is the `Apache ShenYu` gateway integrated with the `Senti
 
 #### Resilience4j Plugin
 
-The `Resilience4j` plug-in is the `Apache ShenYu` gateway integrated with the `Resilience4j` framework, providing the function of requesting fuse current limiting. The `Resilience4j` fuse current limiting parameters can be dynamically configured. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Resilience4j plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/resilience4j-plugin/
+The `Resilience4j` plug-in is the `Apache ShenYu` gateway integrated with the `Resilience4j` framework, providing the function of requesting fuse current limiting. The `Resilience4j` fuse current limiting parameters can be dynamically configured. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Resilience4j plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/resilience4j-plugin/
 
 ```xml
 <dependency>
@@ -213,7 +214,7 @@ The `Resilience4j` plug-in is the `Apache ShenYu` gateway integrated with the `R
 
 #### RateLimiter Plugin
 
-The `RateLimiter` plug-in is the `Apache ShenYu` gateway using `redis` to provide the function of requesting cluster current limiting. The current limiting algorithm strategies include: `Token Bucket Algorithm`, `Concurrent Current Limiting`, `Leaky Bucket Algorithm`, ` Sliding window algorithm`. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `RateLimiter plugin`, and configure `redis`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/rate-limiter-plugin/
+The `RateLimiter` plug-in is the `Apache ShenYu` gateway using `redis` to provide the function of requesting cluster current limiting. The current limiting algorithm strategies include: `Token Bucket Algorithm`, `Concurrent Current Limiting`, `Leaky Bucket Algorithm`, ` Sliding window algorithm`. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `RateLimiter plugin`, and configure `redis`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/rate-limiter-plugin/
 
 ```xml
 <dependency>
@@ -227,7 +228,7 @@ The `RateLimiter` plug-in is the `Apache ShenYu` gateway using `redis` to provid
 
 #### Waf Plugin
 
-The `Waf` plug-in is an `Apache ShenYu` gateway, which is used to implement a firewall for traffic. It is mainly used to intercept illegal requests or abnormal requests, and to provide related denial policies. It provides the function of black and white list configuration. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Waf plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/waf-plugin/
+The `Waf` plug-in is an `Apache ShenYu` gateway, which is used to implement a firewall for traffic. It is mainly used to intercept illegal requests or abnormal requests, and to provide related denial policies. It provides the function of black and white list configuration. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Waf plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/waf-plugin/
 
 ```xml
 <dependency>
@@ -239,7 +240,7 @@ The `Waf` plug-in is an `Apache ShenYu` gateway, which is used to implement a fi
 
 #### Sign Plugin
 
-The `Sign` plug-in is the `Apache ShenYu` gateway, which is used to sign the request. If users want to use it, please add the following dependencies in the gateway, and then set it to `Enable` in `Admin Console` --> `Plugin Management` --> `Sign Plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/sign-plugin/
+The `Sign` plug-in is the `Apache ShenYu` gateway, which is used to sign the request. If users want to use it, please add the following dependencies in the gateway, and then set it to `Enable` in `Admin Console` --> `Plugin Management` --> `Sign Plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/sign-plugin/
 
 ```xml
 <dependency>
@@ -251,7 +252,7 @@ The `Sign` plug-in is the `Apache ShenYu` gateway, which is used to sign the req
 
 #### JWT Plugin
 
-The `JWT` plug-in is an `Apache ShenYu` gateway, which performs authentication judgments based on the `token` attribute of the `http` request header or the value carried by the `authorization` attribute, and is compatible with `OAuth2.0`. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `jwt plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/jwt-plugin/
+The `JWT` plug-in is an `Apache ShenYu` gateway, which performs authentication judgments based on the `token` attribute of the `http` request header or the value carried by the `authorization` attribute, and is compatible with `OAuth2.0`. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `jwt plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/jwt-plugin/
 
 ```xml
 <dependency>
@@ -263,7 +264,7 @@ The `JWT` plug-in is an `Apache ShenYu` gateway, which performs authentication j
 
 #### OAuth2 Plugin
 
-The `OAuth2` plug-in is the `Apache ShenYu` gateway, which is implemented using the `Webflux OAuth2` client to support the `OAuth2` protocol. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `oauth2 plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/oauth2-plugin/
+The `OAuth2` plug-in is the `Apache ShenYu` gateway, which is implemented using the `Webflux OAuth2` client to support the `OAuth2` protocol. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `oauth2 plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/oauth2-plugin/
 
 ```xml
 <dependency>
@@ -277,7 +278,7 @@ The `OAuth2` plug-in is the `Apache ShenYu` gateway, which is implemented using 
 
 #### Rewrite Plugin
 
-The `Rewrite` plug-in is the `Apache ShenYu` gateway, which supports the use of regular expressions to rewrite the `URI`. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `rewrite plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/rewrite-plugin/
+The `Rewrite` plug-in is the `Apache ShenYu` gateway, which supports the use of regular expressions to rewrite the `URI`. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `rewrite plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/rewrite-plugin/
 
 ```xml
 <dependency>
@@ -289,7 +290,7 @@ The `Rewrite` plug-in is the `Apache ShenYu` gateway, which supports the use of 
 
 #### Redirect Plugin
 
-The `Redirect` plug-in is a plug-in for the `Apache ShenYu` gateway to redirect requests. It supports the internal interface and external address of the gateway. To use it, please add the following dependencies to the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `redirect plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/redirect-plugin/
+The `Redirect` plug-in is a plug-in for the `Apache ShenYu` gateway to redirect requests. It supports the internal interface and external address of the gateway. To use it, please add the following dependencies to the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `redirect plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/redirect-plugin/
 
 ```xml
 <dependency>
@@ -301,7 +302,7 @@ The `Redirect` plug-in is a plug-in for the `Apache ShenYu` gateway to redirect 
 
 #### Request Plugin
 
-The `Request` plug-in is the `Apache ShenYu` gateway that allows users to perform functions such as `add`, `modify`, and `delete` to `request parameters`, `request headers` and `Cookies. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `request plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/request-plugin/
+The `Request` plug-in is the `Apache ShenYu` gateway that allows users to perform functions such as `add`, `modify`, and `delete` to `request parameters`, `request headers` and `Cookies`. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `request plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/request-plugin/
 
 ```xml
 <dependency>
@@ -313,7 +314,7 @@ The `Request` plug-in is the `Apache ShenYu` gateway that allows users to perfor
 
 #### Context-Path Plugin
 
-The `Context-Path` plug-in is an `Apache ShenYu` gateway, which allows users to perform `add`, `modify`, and `delete` functions on the `Context-Path` on the request path. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `plugin management` --> `context_path plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/context-path-plugin/
+The `Context-Path` plug-in is an `Apache ShenYu` gateway, which allows users to perform `add`, `modify`, and `delete` functions on the `Context-Path` on the request path. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `plugin management` --> `context_path plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/context-path-plugin/
 
 ```xml
 <dependency>
@@ -325,7 +326,7 @@ The `Context-Path` plug-in is an `Apache ShenYu` gateway, which allows users to 
 
 #### Param-Mapping Plugin
 
-The `Param-Mapping` plug-in is an `Apache ShenYu` gateway, allowing users to perform functions such as `add`, `modify`, and `delete` fields in the `Body` in the request body. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `param_mapping plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/param-mapping-plugin/
+The `Param-Mapping` plug-in is an `Apache ShenYu` gateway, allowing users to perform functions such as `add`, `modify`, and `delete` fields in the `Body` in the request body. To use it, please add the following dependency in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `param_mapping plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/param-mapping-plugin/
 
 ```xml
 <dependency>
@@ -337,7 +338,7 @@ The `Param-Mapping` plug-in is an `Apache ShenYu` gateway, allowing users to per
 
 #### ModifyResponse Plugin
 
-The `ModifyResponse` plug-in is an `Apache ShenYu` gateway, which is used to perform functions such as `add`, `modify`, and `delete` on the `response header`, `status code`, and `response content` in the request response body. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin Console` --> `Plugin Management` --> `modifyResponse Plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/modify-response-plugin/
+The `ModifyResponse` plug-in is an `Apache ShenYu` gateway, which is used to perform functions such as `add`, `modify`, and `delete` on the `response header`, `status code`, and `response content` in the request response body. If users want to use it, please add the following dependency in the gateway, and then set it to `on` in `Admin Console` --> `Plugin Management` --> `modifyResponse Plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/modify-response-plugin/
 
 ```xml
 <dependency>
@@ -351,7 +352,7 @@ The `ModifyResponse` plug-in is an `Apache ShenYu` gateway, which is used to per
 
 #### Monitor Plugin
 
-The `Monitor` plug-in is a `Apache ShenYu` gateway. It uses `prometheus` to complete the plug-in for monitoring `requests`, `QPS`, `JVM` and other related `metrics`. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `monitor plugin`, and configure the relevant parameters of `prometheus`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/monitor-plugin/
+The `Monitor` plug-in is a `Apache ShenYu` gateway. It uses `prometheus` to complete the plug-in for monitoring `requests`, `QPS`, `JVM` and other related `metrics`. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `monitor plugin`, and configure the relevant parameters of `prometheus`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/monitor-plugin/
 
 ```xml
 <dependency>
@@ -363,7 +364,7 @@ The `Monitor` plug-in is a `Apache ShenYu` gateway. It uses `prometheus` to comp
 
 #### Logging Plugin
 
-The `Logging` plug-in is the `Apache ShenYu` gateway, which allows the user log to print this `request information`, including `request path`, `request method`, `request parameters`, `response header`, `response body`, etc. Information. To use it, please add the following dependencies to the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Logging plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/zh/projects/shenyu/logging-plugin/
+The `Logging` plug-in is the `Apache ShenYu` gateway, which allows the user log to print this `request information`, including `request path`, `request method`, `request parameters`, `response header`, `response body`, etc. Information. To use it, please add the following dependencies to the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `Logging plugin`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/logging-plugin/
 
 ```xml
 <dependency>
@@ -384,7 +385,7 @@ The `Logging` plug-in is the `Apache ShenYu` gateway, which allows the user log 
 ## Community
 
 `Apache ShenYu` is an autonomous community open source project completely dominated by Chinese people. It is currently in a period of rapid development.
-`Function development`, `Complete documentation`, `BUG repair` and many other things need to be completed.
+`Function development`, `Complete documentation`, `fix BUG` and many other things need to be completed.
 The `Apache ShenYu` community follows the community philosophy of `Apache Way` and creates a `completely open` and `government` community. Every half month, a full community meeting will be held, and the community’s committers, contributors, and users will participate in it ,
 At the meeting, everyone can speak freely and put forward their own views and opinions, such as discussing different functions and different codes, and it is best to reach a consistent point of view.
 In the Apache ShenYu community, we respect the principle of communication priority of mailing list> Github Issue> WeChat group.

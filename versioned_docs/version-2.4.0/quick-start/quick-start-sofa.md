@@ -3,12 +3,12 @@ title: Quick start with Sofa
 description: Quick start with Sofa
 ---
 
-This document introduces how to quickly access the Apache ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa).
+This document introduces how to quickly access the Apache ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa).
 
 ## Environment to prepare
 
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment/deployment-local) .
 
 After successful startup, you need to open the Sofa plugin on in the BasicConfig `->` Plugin, and set your registry address. Please make sure the registry center is open locally.
 
@@ -57,7 +57,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
 
 ## Run the shenyu-examples-sofa project
 
-Download [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+Download [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
 ```xml
 com:
   alipay:

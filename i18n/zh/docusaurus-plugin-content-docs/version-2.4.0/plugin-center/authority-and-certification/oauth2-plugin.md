@@ -32,5 +32,5 @@ description:  OAuth 2插件
 ```
 
 - 在网关的配置文件中配置 `spring.security.oauth2` 的相关配置，详细配置说明可参考 [Spring Webflux OAuth2](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-oauth2)
-- 配置选择器和规则作为您需要 `OAuth2` 授权的请求地址，默认放行所有请求。关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../selector-and-rule)
+- 配置选择器和规则作为您需要 `OAuth2` 授权的请求地址，默认放行所有请求。关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)
 

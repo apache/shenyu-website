@@ -28,7 +28,7 @@ description: authority-management
 
 After submit, a piece of authentication information is generated, which contains `AppKey` and `AppSecret`, which is the `AK/SK` in the `Sign` plugin.
 
-Please refer to the detailed instructions of the `Sign` plugin： [Sign Plugin](../sign-plugin).
+Please refer to the detailed instructions of the `Sign` plugin： [Sign Plugin](../../plugin-center/authority-and-certification/sign-plugin).
 
 #### PathOperation
 

@@ -9,7 +9,7 @@ description: 数据同步
 
 <img src="/img/shenyu/dataSync/data-sync-dir-zh.png" width="60%" height="50%" />
 
-数据同步的相关配置请参考用户文档中的 [数据同步配置](../use-data-sync) 。
+数据同步的相关配置请参考用户文档中的 [数据同步配置](../user-guide/use-data-sync) 。
 
 ### 背景
 

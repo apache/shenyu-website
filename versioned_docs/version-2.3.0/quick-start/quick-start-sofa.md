@@ -3,11 +3,11 @@ title: Quick start with sofa
 description: Quick start with sofa
 ---
 
-This document introduces how to quickly access the Soul Gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa).
+This document introduces how to quickly access the Soul Gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa).
 
 ## Environment to prepare
 
-Please refer to the [setup](../soul-set-up) and launch `soul-admin` and `soul-bootstrap`, In addition, if you use ZooKeeper for Sofa, you need to download it in advance.
+Please refer to the [setup](../users-guide/soul-set-up) and launch `soul-admin` and `soul-bootstrap`, In addition, if you use ZooKeeper for Sofa, you need to download it in advance.
 
 Note: `soul-bootstrap` need to import `sofa` dependencies
 ```xml
@@ -44,7 +44,7 @@ Note: `soul-bootstrap` need to import `sofa` dependencies
 ```
 ## Run the soul-examples-sofa project
 
-Download [soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+Download [soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
 ```xml
 com:
   alipay:

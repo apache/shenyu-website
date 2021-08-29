@@ -16,7 +16,7 @@ description: detailed explanation of selector and rule
 * One plugin has many selector and a selector has many rules, selector is the first filter of request, and the rule is the final filter.
 * Please consider this, it would be perfect when the plugin executes the request until it reached the config value.
 * Selector and rule are designed to execute only when the request meet the specific condition.
-* Please refer to the previous data structure [database design](../database-design).
+* Please refer to the previous data structure [database design](../design/database-design).
 
 ## Selector
 
@@ -108,7 +108,7 @@ description: detailed explanation of selector and rule
   
     * especially in the waf plugin, if you find some ip is unsafe, you can add a match condition with this ip, then it can't access any more.
   
-    * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../custom-parsing-ip-and-host)
+    * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../developer-guide/custom-parsing-ip-and-host)
  
 * host matching
 
@@ -116,7 +116,7 @@ description: detailed explanation of selector and rule
     
   * especially in waf plugin, if you find some host is unsafe, you can add a match condition with this host, then it can't access any more.
     
-  * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../custom-parsing-ip-and-host)
+  * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../developer-guide/custom-parsing-ip-and-host)
     
 * post matching
 

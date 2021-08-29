@@ -10,7 +10,7 @@ description: plugins
 * There are two kinds of plugins in the `Apache ShenYu` gateway.
     * The first type is a chain with single responsibility, and can not custom filtering of traffic.
     * The other one can do its own chain of responsibility for matched traffic.
-* You could reference from [shenyu-plugin](https://github.com/apache/incubator-shenyu/tree/master/shenyu-plugin) module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
+* You could reference from [shenyu-plugin](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-plugin) module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
 
 ## Single Responsibility Plugins
 

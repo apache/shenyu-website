@@ -3,11 +3,11 @@ title: Quick start with Dubbo
 description: Quick start with Dubbo
 ---
 
-This document introduces how to quickly access the Apache ShenYu gateway using Dubbo. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo).
+This document introduces how to quickly access the Apache ShenYu gateway using Dubbo. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo).
 
 ## Environment to prepare
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment/deployment-local) .
 
 After successful startup, you need to open the Dubbo plugin on in the BasicConfig `->` Plugin, and set your registry address. Please make sure the registry center is open locally.
 
@@ -101,7 +101,7 @@ If client is `alibaba dubbo`, registry center is `Zookeeper`, please refer to th
 
 ## Run the shenyu-examples-dubbo project
 
-Download [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo) .
+Download [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) .
 
 replace the register address in `shenyu-examples-alibaba-dubbo-service/src/main/resources/spring-dubbo.xml` with your local zk address, such as:
 ```xml

@@ -24,7 +24,7 @@ description:  RequestPlugin
   <!-- apache shenyu request plugin end-->
 ```
 
-* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
+* Selectors and rules, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule).
 * The custom request parameter modification function is performed only for matching requests.
 
 ## Situation

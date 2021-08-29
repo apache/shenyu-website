@@ -7,7 +7,7 @@ description: sofa插件
 ## 说明
 
 * sofa插件是将`http协议` 转换成`sofa协议` 的插件，也是网关实现sofa泛化调用的关键。
-* sofa插件需要配合元数据才能实现dubbo的调用，具体请看：[元数据](../meta-data)。
+* sofa插件需要配合元数据才能实现dubbo的调用，具体请看：[元数据](../design/meta-data)。
 
 ```xml
 <dependency>
@@ -25,9 +25,9 @@ description: sofa插件
 ```yaml
 {"protocol":"zookeeper","register":"127.0.0.1:2181"}
 ```
-* 插件需要配合依赖 `starter` 进行使用，具体请看：[sofa用户](../sofa-rpc-proxy)。
+* 插件需要配合依赖 `starter` 进行使用，具体请看：[sofa用户](../users-guide/sofa-rpc-proxy)。
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。
 
 ## 元数据
 

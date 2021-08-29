@@ -8,7 +8,7 @@ description: Integrate dubbo with soul gateway
 
 * This chapter is a guide about integrating dubbo service with soul gateway.
 * Support Alibaba Dubbo(< 2.7.x) and Apache Dubbo (>=2.7.x).
-* Please start `soul-admin` successfully before integrating, and [Environment Setup](../soul-set-up) is Ok.
+* Please start `soul-admin` successfully before integrating, and [Environment Setup](./soul-set-up) is Ok.
 
 ## Configure soul gateway as Dubbo proxy
 
@@ -93,7 +93,7 @@ description: Integrate dubbo with soul gateway
 
 * restart gateway service.
 
-  Dubbo integration with gateway,pls refer to : [soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo)
+  Dubbo integration with gateway,pls refer to : [soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo)
 
  * Alibaba Dubbo User
     * SpringBoot
@@ -106,7 +106,7 @@ description: Integrate dubbo with soul gateway
         </dependency>
         ```
       
-        * backend server register center config, please look:[register center access](../register-center-access).
+        * backend server register center config, please look:[register center access](../register-center/register-center-access).
         
     * Spring
        * Add these dependencies：
@@ -148,7 +148,7 @@ description: Integrate dubbo with soul gateway
           <version>${last.version}</version>
      </dependency>
      ```
-     * backend server register center config, please look:[register center_access](../register-center-access)：
+     * backend server register center config, please look:[register center_access](../register-center/register-center-access)：
 
   * Spring  
      * Add these dependencies:
@@ -210,7 +210,7 @@ description: Integrate dubbo with soul gateway
 
 * parameter deliver:
    * communicate with gateway through body or json of http post request.
-   * more parameter types, pls refer to the interface definition in  [soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo) and parameter passing
+   * more parameter types, pls refer to the interface definition in  [soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo) and parameter passing
      method.
 * Single java bean parameter type (`default`).
 * Multi-parameter type support, add this config value in gateway's yaml file:

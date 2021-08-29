@@ -12,11 +12,11 @@ description: sofa access shenyu gateway
 
 ## Plugin Setting
 
-* Add related dependencies and enable plugin, please refer to: [Quick start with Sofa](../quick-start-sofa) .
+* Add related dependencies and enable plugin, please refer to: [Quick start with Sofa](../../quick-start/quick-start-sofa) .
 
-* `Sofa` client access, please refer to: [Sofa Proxy](../sofa-proxy) .
+* `Sofa` client access, please refer to: [Sofa Proxy](../../user-guide/sofa-proxy) .
 
-* Set selector and rule, please refer to: [Selector And Rule Config](../selector-and-rule) .
+* Set selector and rule, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 
 ## Metadata

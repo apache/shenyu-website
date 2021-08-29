@@ -3,11 +3,11 @@ title: SpringCloud快速开始
 description: SpringCloud快速开始
 ---
 
-本文档将演示了如何快速使用SpringCloud方式接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-springcloud)。
+本文档将演示了如何快速使用SpringCloud方式接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-springcloud)。
 
 ## 环境准备
 
-请参考[配置网关环境](../soul-set-up)并启动`soul-admin`。
+请参考[配置网关环境](../users-guide/soul-set-up)并启动`soul-admin`。
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
 
@@ -45,7 +45,7 @@ dependency>
 
 示例项目中我们使用 `eureka` 作为 springCloud的注册中心
 
-下载[soul-examples-eureka](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-eureka)、[soul-examples-springcloud](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-springcloud)
+下载[soul-examples-eureka](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-eureka)、[soul-examples-springcloud](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-springcloud)
 
 1、先启动eureka服务
 

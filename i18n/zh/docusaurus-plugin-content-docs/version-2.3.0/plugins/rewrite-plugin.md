@@ -26,7 +26,7 @@ description: rewrite插件
   <!-- soul rewrite plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。
 
   * 只有匹配的请求，才会进行重写。
 

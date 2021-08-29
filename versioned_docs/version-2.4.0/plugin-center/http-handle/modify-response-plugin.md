@@ -28,7 +28,7 @@ description: modifyResponse Plugin
         <!-- apache shenyu modify response plugin end-->
 ```
 
-* Selectors and rules, please refer to:[Selector And Rule Config](../selector-and-rule)。
+* Selectors and rules, please refer to:[Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule)。
     * only those matched requests can be modified response.
 
 ## ModifyResponsePlugin Guide

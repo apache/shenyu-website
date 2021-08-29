@@ -7,7 +7,7 @@ description: dubbo插件
 ## 说明
 
 * dubbo插件是将`http协议` 转换成`dubbo协议` 的插件，也是网关实现dubbo泛化调用的关键。
-* dubbo插件需要配合元数据才能实现dubbo的调用，具体请看: [元数据](../meta-data)。
+* dubbo插件需要配合元数据才能实现dubbo的调用，具体请看: [元数据](../design/meta-data)。
 * apache dubbo 和 alibaba dubbo用户，都是使用该同一插件。
 
 ```xml
@@ -33,9 +33,9 @@ description: dubbo插件
 ```yaml
 {"register":"zookeeper://localhost:2181"} or {"register":"nacos://localhost:8848"} 
 ```
-* 插件需要配合依赖 `starter` 进行使用,具体请看：[dubbo用户](../dubbo-proxy)。
+* 插件需要配合依赖 `starter` 进行使用,具体请看：[dubbo用户](../users-guide/dubbo-proxy)。
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。
 
 ## 元数据
 

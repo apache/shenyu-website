@@ -94,7 +94,7 @@ shenyu:
 ##### shenyu.register config
 
 
-This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../register-center-design) , for client access configuration, see: [Application Client Access Config](../register-center-access) .
+This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../../design/register-center-design) , for client access configuration, see: [Application Client Access Config](../register-center-access) .
 
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|

@@ -13,7 +13,7 @@ description: redirect插件
 * 在 `soul-admin` --> 插件管理 --> `redirect`，设置为开启。
 * 在网关的 `pom.xml` 文件中添加 `redirect` 的支持。
 * 如果用户不需要，可以把插件禁用。
-* 选择器和规则，只有匹配的请求，才会进行转发和重定向，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，只有匹配的请求，才会进行转发和重定向，请详细看：[选择器规则](../admin/selector-and-rule)。
 
 ## Maven 依赖
 

@@ -4,11 +4,11 @@ description: Motan快速开始
 ---
 
 
-本文档演示如何将`Motan`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-motan) 。
+本文档演示如何将`Motan`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-motan) 。
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 启动成功后，需要在基础配置`->`插件管理中，把`motan` 插件设置为开启。
 
@@ -59,7 +59,7 @@ description: Motan快速开始
 
 ## 运行shenyu-examples-motan项目
 
-下载 [shenyu-examples-motan](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-motan) 。
+下载 [shenyu-examples-motan](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-motan) 。
 
 运行`org.apache.shenyu.examples.motan.service.TestMotanApplication`main方法启动项目。
 

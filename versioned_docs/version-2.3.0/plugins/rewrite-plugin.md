@@ -24,7 +24,7 @@ description: rewrite plugin
   <!-- soul rewrite plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule).
+* Selectors and rules, please refer to: [selector](../admin/selector-and-rule).
 * Only those matched request will be rewritten.
 
 ## Situation

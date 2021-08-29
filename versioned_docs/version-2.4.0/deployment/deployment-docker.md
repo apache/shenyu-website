@@ -20,7 +20,7 @@ This article introduces the use of `docker` to deploy the `Apache ShenYu` gatewa
 > docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
 ```
 
-* use `MySQL` to store data, copy `mysql-connector.jar` to /$(your_work_dir)/ext-lib：
+* use `MySQL` to store data, copy `mysql-connector.jar` to `/$(your_work_dir)/ext-lib`：
 
 ```
 docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.user=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin

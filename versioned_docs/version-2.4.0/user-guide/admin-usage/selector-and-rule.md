@@ -8,7 +8,7 @@ description: detailed explanation of selector and rule
 
 This document will introduce the use of selectors and rules in the Apache ShenYu background management system. For the concept and design of selectors and rules, please refer to [Flow Control](../flow-control).
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local). After startup, visit `http://localhost:9095`, the default username and password are: `admin` and `123456` .
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../../deployment/deployment-local). After startup, visit `http://localhost:9095`, the default username and password are: `admin` and `123456` .
 
 ## Selector
 
@@ -130,7 +130,7 @@ For example, add a selector to the `divide` plugin:
 
     * especially in the waf plugin, if you find some ip is unsafe, you can add a match condition with this ip, then it can't access any more.
 
-    * if you use nginx proxy before ShenYu, you can get the right ip with refering to [parsing-ip-and-host](../custom-parsing-ip-and-host)
+    * if you use nginx proxy before ShenYu, you can get the right ip with refering to [parsing-ip-and-host](../../developer/custom-parsing-ip-and-host)
 
 * host matching
 
@@ -138,7 +138,7 @@ For example, add a selector to the `divide` plugin:
 
     * especially in waf plugin, if you find some host is unsafe, you can add a match condition with this host, then it can't access any more.
 
-    * if you use nginx proxy before ShenYu, you can get the right ip with refering to [parsing-ip-and-host](../custom-parsing-ip-and-host)
+    * if you use nginx proxy before ShenYu, you can get the right ip with refering to [parsing-ip-and-host](../../developer/custom-parsing-ip-and-host)
 
 * post matching
 

@@ -3,15 +3,15 @@ title: Quick start with Dubbo
 description: Quick start with Dubbo
 ---
 
-This document introduces how to quickly access the Soul Gateway using Dubbo. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo).
+This document introduces how to quickly access the Soul Gateway using Dubbo. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo).
 
 ## Environment to prepare
 
-Please refer to the [setup](../soul-set-up) and launch `soul-admin` and `soul-bootstrap`, In addition, if you use ZooKeeper for Dubbo, you need to download it in advance.
+Please refer to the [setup](../users-guide/soul-set-up) and launch `soul-admin` and `soul-bootstrap`, In addition, if you use ZooKeeper for Dubbo, you need to download it in advance.
 
 ## Run the soul-examples-dubbo project
 
-Download[soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-dubbo), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+Download[soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
 ```xml
 <dubbo:registry address="zookeeper://localhost:2181"/>
 ```

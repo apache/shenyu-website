@@ -6,7 +6,7 @@ description: 自定义匹配条件策略
 
 ## 说明
 
-* 在自定义开发前，请先自定义搭建好网关环境，请参考: [自定义部署](../deployment-custom)
+* 在自定义开发前，请先自定义搭建好网关环境，请参考: [自定义部署](../../deployment/deployment-custom)
 
 * 本文介绍如何对 `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy` 进行自定义扩展。
 

@@ -11,7 +11,7 @@ description: sentinel插件
 
 ## 插件设置
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
 * 在 基础配置 `-->`  插件管理 `-->` `sentinel`，设置为开启。 如果用户不使用，可以将其关闭。
 
@@ -36,7 +36,7 @@ description: sentinel插件
 
 ##  sentinel 插件配置
 
-关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../selector-and-rule)， 这里只对部分字段进行了介绍。
+关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)， 这里只对部分字段进行了介绍。
 
 ####  选择器配置
 

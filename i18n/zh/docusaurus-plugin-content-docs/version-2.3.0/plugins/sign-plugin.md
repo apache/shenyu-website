@@ -27,7 +27,7 @@ description: sign插件
   <!-- soul sign plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。
 
   * 只有匹配的请求，才会进行签名认证。
 
@@ -115,4 +115,4 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 ## 签名认证算法扩展
 
-* 请参考开发者文档中的 [扩展签名算法](../custom-sign-algorithm)。
+* 请参考开发者文档中的 [扩展签名算法](../developer-guide/custom-sign-algorithm)。

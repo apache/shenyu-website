@@ -10,7 +10,7 @@ description: sign plugin
 
 ## Plugin Setting
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../deployment-local) to start the `Apache ShenYu` management system.
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../../deployment/deployment-local) to start the `Apache ShenYu` management system.
 
 * In `shenyu-admin` BasicConfig --> plugin -> `sign` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
 
@@ -30,7 +30,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
   <!-- apache shenyu sign plugin end-->
 ```
 
-* Selectors and rules, please refer to: [Selector And Rule Config](../selector-and-rule).
+* Selectors and rules, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule).
 * Only those matched requests can be authenticated by signature.
 
 
@@ -121,4 +121,4 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 ## Extension
 
-* Please refer to: [dev-sign](../custom-sign-algorithm).
+* Please refer to: [dev-sign](../../developer/custom-sign-algorithm).

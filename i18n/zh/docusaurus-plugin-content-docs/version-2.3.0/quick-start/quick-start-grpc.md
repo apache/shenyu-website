@@ -3,11 +3,11 @@ title: Grpc快速开始
 description: Grpc快速开始
 ---
 
-本文档将演示了如何快速使用Grpc接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-grpc)。
+本文档将演示了如何快速使用Grpc接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-grpc)。
 
 ## 环境准备
 
-请参考[配置网关环境](../soul-set-up)并启动`soul-admin`和`soul-bootstrap`。
+请参考[配置网关环境](../users-guide/soul-set-up)并启动`soul-admin`和`soul-bootstrap`。
 
 注：`soul-bootstrap`需要引入grpc依赖
 ```xml
@@ -20,7 +20,7 @@ description: Grpc快速开始
 
 ## 运行soul-examples-grpc项目
 
-下载[soul-examples-grpc](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-grpc)
+下载[soul-examples-grpc](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-grpc)
 
 在`soul-examples-grpc`下执行以下命令生成java代码
 ```shell

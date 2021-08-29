@@ -69,7 +69,7 @@ description: rateLimiter plugin
   <!-- soul ratelimiter plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule)。
+* Selectors and rules, please refer to: [selector](../admin/selector-and-rule)。
 
 * Detailed description of the rules
 

@@ -8,7 +8,7 @@ description: plugin handle explanation
 
 This document will introduce the use of plugins in the `shenyu-admin` , including plugin management and plugin handle management.
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../deployment-local). After startup, visit `http://localhost:9095`, the default username and password are: `admin` and `123456` .
+Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, [local deployment](../../deployment/deployment-local). After startup, visit `http://localhost:9095`, the default username and password are: `admin` and `123456` .
 
 ## Plugin management
 

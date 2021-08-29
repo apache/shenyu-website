@@ -11,7 +11,7 @@ description: divide插件
 ## 插件设置
 
 * 开启插件，`soul-admin` --> 插件管理--> `divide` 设置为启用。
-* divide插件，配合如下 starter一起才能生效，具体请看：[http用户](../http-proxy)。
+* divide插件，配合如下 starter一起才能生效，具体请看：[http用户](../users-guide/http-proxy)。
 
 ```xml
   <!--if you use http proxy start this-->
@@ -33,7 +33,7 @@ description: divide插件
 
 * divide插件是进行http正向代理的插件，所有http类型的请求，都是由该插件进行负载均衡的调用。
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)。
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。
 
 * http配置，是网关匹配到流量以后，真实调用的http配置，可以配置多个，设置负载均衡权重，具体的负载均衡策略，在规则中指定。
   * 配置详解：

@@ -6,8 +6,8 @@ description: 环境搭建
 
 ## 说明
 
-* soul 2.2.0以后都是基于插件化可插拔的思想，本文是说明如何基于soul搭建属于你自己网关。
-* 请确保你的机器安装了JDK 1.8+，Mysql 5.5.20 + 。
+* `soul 2.2.0`以后都是基于插件化可插拔的思想，本文是说明如何基于soul搭建属于你自己网关。
+* 请确保你的机器安装了`JDK 1.8+`，`Mysql 5.5.20 + `。
 
 ## 启动 Soul-Admin
 
@@ -127,7 +127,7 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 
 ## 搭建自己的网关（推荐）
 
-* 首先你新建一个空的springboot项目，可以参考 soul-bootstrap. 也可以在spring官网:[https://spring.io/quickstart]
+* 首先你新建一个空的springboot项目，可以参考`soul-bootstrap`. 也可以在spring官网:[https://spring.io/quickstart](https://spring.io/quickstart)
 
 * 引入如下jar包：
 
@@ -176,7 +176,7 @@ soul :
 ```
 * 你的项目环境搭建完成，启动你的项目。
 
-> 注意，这里只是完成了网关的搭建，但是没有引入功能插件。比如，接入http请求，需要引入divide插件，请参考 [Http 代理](https://shenyu.apache.org/zh/projects/shenyu-2.3.0/http-proxy/) 。接入dubbo服务，需要引入dubbo插件，请参考 [Dubbo 代理](https://shenyu.apache.org/zh/projects/shenyu-2.3.0/dubbo-proxy/) 。
+> 注意，这里只是完成了网关的搭建，但是没有引入功能插件。比如，接入http请求，需要引入divide插件，请参考 [Http 代理](./http-proxy/) 。接入dubbo服务，需要引入dubbo插件，请参考 [Dubbo 代理](./dubbo-proxy/) 。
 
 
 

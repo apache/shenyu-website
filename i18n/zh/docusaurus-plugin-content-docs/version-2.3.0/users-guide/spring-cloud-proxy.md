@@ -10,7 +10,7 @@ description: SpringCloud接入Soul网关
 
 * 请在 soul-admin 后台将 `springCloud` 插件设置为开启。
 
-* 接入前，请正确的启动 `soul-admin`以及[搭建环境](../soul-set-up) Ok。
+* 接入前，请正确的启动 `soul-admin`以及[搭建环境](./soul-set-up) Ok。
 
 ## 引入网关 springCloud的插件支持
 
@@ -102,7 +102,7 @@ description: SpringCloud接入Soul网关
  </dependency>
 ```
 
-* 注册中心详细接入配置请参考：[注册中心接入](../register-center-access)
+* 注册中心详细接入配置请参考：[注册中心接入](../register-center/register-center-access)
 
 
 * 在你的 `controller`的接口上加上 `@SoulSpringCloudClient` 注解

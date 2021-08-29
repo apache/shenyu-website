@@ -3,11 +3,11 @@ title: Sofa快速开始
 description: Sofa快速开始
 ---
 
-本文档将演示了如何快速使用Sofa接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa)。
+本文档将演示了如何快速使用Sofa接入Soul网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa)。
 
 ## 环境准备
 
-请参考[配置网关环境](../soul-set-up)并启动`soul-admin`和`soul-bootstrap`，另外使用zookeeper需提前下载启动。
+请参考[配置网关环境](../users-guide/soul-set-up)并启动`soul-admin`和`soul-bootstrap`，另外使用zookeeper需提前下载启动。
 
 注：启动`soul-bootstrap`之前需要引入sofa依赖
 ```xml
@@ -44,7 +44,7 @@ description: Sofa快速开始
 ```
 ## 运行soul-examples-sofa项目
 
-下载[soul-examples-dubbo](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-sofa)，调整`application.yml`
+下载[soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa)，调整`application.yml`
 的zk注册地址为你本地，如：
 ```xml
 com:

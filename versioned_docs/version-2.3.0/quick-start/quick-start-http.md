@@ -3,11 +3,11 @@ title: Quick start with http
 description: Quick start with http
 ---
 
-This document introduces how to quickly access the Soul Gateway using Http. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-http).
+This document introduces how to quickly access the Soul Gateway using Http. You can get the code example of this document by clicking [here](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-http).
 
 ## Environment to prepare
 
-Please refer to the [setup](../soul-set-up) and launch `soul-admin` and `soul-bootstrap`.
+Please refer to the [setup](../users-guide/soul-set-up) and launch `soul-admin` and `soul-bootstrap`.
 
 Introducing gateway to HTTP proxy plugin
 
@@ -30,7 +30,7 @@ Introducing gateway to HTTP proxy plugin
 
 ## Run the soul-examples-http project
 
-Download[soul-examples-http](https://github.com/dromara/soul/tree/master/soul-examples/soul-examples-http)
+Download[soul-examples-http](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-http)
 
 Execute the `org.dromara.soul.examples.http.SoulTestHttpApplication` main method to start project.
 

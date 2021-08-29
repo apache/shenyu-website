@@ -33,7 +33,7 @@ description: waf plugin
   <!-- soul waf plugin end-->
 ``` 
 
-* Selectors and rules, please refer to : [selector](../selector-and-rule)
+* Selectors and rules, please refer to : [selector](../admin/selector-and-rule)
 * When `model` is set to `black` mode, only the matched traffic will execute the rejection policy, and the unmatched traffic will be skipped directly.
 * When `model` is set to `mixed` mode, all traffic will pass through waf plugin. For different matching traffic, users can set whether to reject or pass.
 
@@ -41,4 +41,4 @@ description: waf plugin
 
 * Waf is also the pre-plugin of soul, which is mainly used to intercept illegal requests or exception requests and give relevant rejection policies.
 * When faced with replay attacks, you can intercept illegal ip and host, and set reject strategy according to matched ip or host.
-* How to determine ip and host, please refer to: [parsing-ip-and-host](../custom-parsing-ip-and-host)
+* How to determine ip and host, please refer to: [parsing-ip-and-host](../developer-guide/custom-parsing-ip-and-host)

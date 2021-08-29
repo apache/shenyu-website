@@ -41,4 +41,4 @@ private static class EventLoopNettyCustomizer implements NettyServerCustomizer {
 ```
 
 * Soul-bootstrap offers this class, you may modify it when benchmarking your app if necessary.
-* You can get references of business thread model from [thread model](../thread)
+* You can get references of business thread model from [thread model](./thread)

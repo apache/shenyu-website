@@ -15,7 +15,7 @@ description: 选择器规则详解
 * 一个插件有多个选择器，一个选择器对应多种规则。选择器相当于是对流量的一级筛选，规则就是最终的筛选。
 * 我们想象一下，在一个插件里面，我们是不是希望根据我们的配置，达到满足条件的流量，我们插件才去执行它？
 * 选择器和规则就是为了让流量在满足特定的条件下，才去执行我们想要的，这种规则我们首先要明白。
-* 数据结构可以参考之前的 [数据库设计](../database-design)
+* 数据结构可以参考之前的 [数据库设计](../design/database-design.md)
 
 ## 选择器 
 
@@ -108,7 +108,7 @@ description: 选择器规则详解
   
     * 尤其是在waf插件里面，如果发现一个ip地址有攻击，可以新增一条匹配条件，填上该ip，拒绝该ip的访问。
   
-    * 如果在soul前面使用了nginx代理，为了获取正确的ip，你可能要参考 [parsing-ip-and-host](../custom-parsing-ip-and-host)
+    * 如果在soul前面使用了nginx代理，为了获取正确的ip，你可能要参考 [parsing-ip-and-host](../developer-guide/custom-parsing-ip-and-host)
  
 * host匹配
 
@@ -116,7 +116,7 @@ description: 选择器规则详解
     
   * 尤其是在waf插件里面，如果发现一个host地址有攻击，可以新增一条匹配条件，填上该host，拒绝该host的访问。
     
-  * 如果在soul前面使用了nginx代理，为了获取正确的host，你可能要参考 [parsing-ip-and-host](../custom-parsing-ip-and-host)
+  * 如果在soul前面使用了nginx代理，为了获取正确的host，你可能要参考 [parsing-ip-and-host](../developer-guide/custom-parsing-ip-and-host)
     
 *  post匹配
 

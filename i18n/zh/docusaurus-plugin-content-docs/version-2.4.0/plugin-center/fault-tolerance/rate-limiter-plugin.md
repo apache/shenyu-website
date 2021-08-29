@@ -71,7 +71,7 @@ description: rateLimiter插件
         <!-- apache shenyu ratelimiter plugin end-->
 ```
 
-关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../selector-and-rule)， 这里只对部分字段进行了介绍。
+关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)， 这里只对部分字段进行了介绍。
 
 * 规则详细说明
 

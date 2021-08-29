@@ -28,7 +28,7 @@ description: resilience4j plugin
   <!-- soul resilience4j plugin end-->
 ``` 
 
-* Selectors and rules, please refer to: [selector](../selector-and-rule)
+* Selectors and rules, please refer to: [selector](../admin/selector-and-rule)
 
 * Resilience4j Processing Details
 

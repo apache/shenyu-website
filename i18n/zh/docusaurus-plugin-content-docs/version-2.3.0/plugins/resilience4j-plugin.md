@@ -28,7 +28,7 @@ description: resilience4j插件
   <!-- soul resilience4j plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)
 
 * Resilience4j处理详解：
 

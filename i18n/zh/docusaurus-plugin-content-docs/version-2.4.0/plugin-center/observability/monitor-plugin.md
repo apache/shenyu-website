@@ -49,7 +49,7 @@ description: monitor插件
         </dependency>
         <!-- apache shenyu monitor plugin end-->
 ```
-* 选择器和规则配置，请参考: [选择器和规则管理](../selector-and-rule)。
+* 选择器和规则配置，请参考: [选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 * 只有当匹配的`url`，才会进行`url`请求埋点。
 
 ## metrics信息

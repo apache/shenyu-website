@@ -28,7 +28,7 @@ description: hystrix插件
   <!-- soul hystrix plugin end-->
 ``` 
 
-* 选择器和规则，请详细看：[选择器规则](../selector-and-rule)
+* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)
 
 * Hystrix处理详解：
 

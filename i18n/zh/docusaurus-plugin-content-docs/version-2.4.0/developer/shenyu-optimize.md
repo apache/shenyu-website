@@ -44,7 +44,7 @@ description: ShenYu 性能优化
 
 * 这个类在 `shenyu-bootstrap` 中已经内置，在压测的时候，可以根据自己的需求来进行优化设置。
 
-* 业务线程模型，请参考：[线程模型](../thread) 。
+* 业务线程模型，请参考：[线程模型](./thread-model) 。
 
 
 

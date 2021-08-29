@@ -26,7 +26,7 @@ description: context_path插件
   <!-- apache shenyu context_path plugin end-->
 ```
 
-- 选择器和规则设置，请参考：[选择器和规则管理](../selector-and-rule)。
+- 选择器和规则设置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 - 只有匹配的请求，并且配置规则才会进行重写`contextPath`。
 
 ## 场景

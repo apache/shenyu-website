@@ -3,7 +3,6 @@ sidebar_position: 1
 title: Soul Introduction
 keywords: ["soul"]
 description: This is an asynchronous, high-performance, cross-language, responsive API gateway.
-aliases: "/soul/docs/Home"
 ---
 
 ## What is the Soul?

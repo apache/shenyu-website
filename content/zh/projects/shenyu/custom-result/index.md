@@ -17,7 +17,7 @@ description: 自定义网关返回数据格式
 * 返回的数据格式如下：
 
 ```java
-public class ShenyuDefaultEntity implements Serializable {
+public class DefaultShenyuEntity implements Serializable {
 
     private static final long serialVersionUID = -2792556188993845048L;
 

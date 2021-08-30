@@ -196,6 +196,10 @@ sidebar:
        sub:
          - title: 'Custom Condition Match'
            link: 'custom-condition-match'
+         - title: 'Custom Load Balance'
+           link: 'custom-load-balance'
+         - title: 'Custom RateLimiter'
+           link: 'custom-rate-limiter'
   - title: 'Release Notes'
     link: 'release-notes'
   - title: 'Download'

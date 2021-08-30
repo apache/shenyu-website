@@ -11,39 +11,39 @@
     "message": "运维部署",
     "description": "The label for category Deployment in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Quick-Start": {
+  "sidebar.tutorialSidebar.category.Quick Start": {
     "message": "快速开始",
     "description": "The label for category Quick-Start in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.User-Guide": {
+  "sidebar.tutorialSidebar.category.User Guide": {
     "message": "用户指南",
     "description": "The label for category User-Guide in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Admin-Usage": {
+  "sidebar.tutorialSidebar.category.Admin Usage": {
     "message": "Admin使用",
     "description": "The label for category Admin-Usage in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Property-Config": {
+  "sidebar.tutorialSidebar.category.Property Config": {
     "message": "属性配置",
     "description": "The label for category Property-Config in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Plugin-Center": {
+  "sidebar.tutorialSidebar.category.Plugin Center": {
     "message": "插件集合",
     "description": "The label for category Plugin-Center in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Http-Handle": {
+  "sidebar.tutorialSidebar.category.Http Handle": {
     "message": "Http处理",
     "description": "The label for category Http-Handle in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.RPC-Proxy": {
+  "sidebar.tutorialSidebar.category.RPC Proxy": {
     "message": "RPC代理",
     "description": "The label for category RPC-Proxy in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Fault-Tolerance": {
+  "sidebar.tutorialSidebar.category.Fault Tolerance": {
     "message": "熔断限流",
     "description": "The label for category Fault-Tolerance in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Authority-And-Certification": {
+  "sidebar.tutorialSidebar.category.Authority And Certification": {
     "message": "权限认证",
     "description": "The label for category Authority-And-Certification in sidebar tutorialSidebar"
   },
@@ -51,7 +51,7 @@
     "message": "可观测性",
     "description": "The label for category Observability in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Developer-Documentation": {
+  "sidebar.tutorialSidebar.category.Developer Documentation": {
     "message": "开发者文档",
     "description": "The label for category Developer-Documentation in sidebar tutorialSidebar"
   },

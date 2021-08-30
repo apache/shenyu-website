@@ -13,7 +13,7 @@ description: release-notes
 - Add default values and rule checks in plugin handler.
 - Add resource management to allow user to add plugin, adjust menu and button resource and so on in soul-dashboard and soul-admin.
 - Add menu and data permission in soul-admin.
-- Add H2 stroe for soul-admin
+- Add H2 store for soul-admin.
 
 ##### soul-bootstrap
 

@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 title: Apache ShenYu Admin Database Design
 keywords: ["db"]
 description: Database Design

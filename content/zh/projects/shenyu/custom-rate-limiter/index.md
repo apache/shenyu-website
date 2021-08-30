@@ -23,7 +23,9 @@ public class ${you class} implements RateLimiterAlgorithm<T> {
      *
      * @return the script
      */
-    RedisScript<T> getScript();
+    public RedisScript<T> getScript() {
+        //你的开发逻辑
+    }
     
     /**
      * Gets keys.
@@ -31,8 +33,10 @@ public class ${you class} implements RateLimiterAlgorithm<T> {
      * @param id the id
      * @return the keys
      */
-    List<String> getKeys(String id);
-    
+    public List<String> getKeys(String id) {
+        //你的开发逻辑
+    }
+
     /**
      * Callback string.
      *
@@ -41,7 +45,8 @@ public class ${you class} implements RateLimiterAlgorithm<T> {
      * @param scriptArgs the script args
      */
     default void callback(final RedisScript<?> script, final List<String> keys, final List<String> scriptArgs) {
-    }
+        //你的开发逻辑
+    }       
 }
 ```
 

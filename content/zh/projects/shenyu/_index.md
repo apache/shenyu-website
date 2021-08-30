@@ -92,6 +92,10 @@ sidebar:
         sub:
           - title: 'Admin属性配置'
             link: 'admin-property-config'
+          - title: '客户端属性配置'
+            link: 'client-property-config'
+          - title: '网关属性配置'
+            link: 'gateway-property-config'
       - title: '数据同步配置'
         link: 'use-data-sync'
       - title: '客户端接入配置'

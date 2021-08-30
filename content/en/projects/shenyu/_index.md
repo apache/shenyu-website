@@ -94,6 +94,8 @@ sidebar:
             link: 'admin-property-config'
           - title: 'Client Property Config'
             link: 'client-property-config'
+          - title: 'Gateway Property Config'
+            link: 'gateway-property-config'
       - title: 'Data Synchronization Config'
         link: 'use-data-sync'
       - title: 'Application Client Access Config'

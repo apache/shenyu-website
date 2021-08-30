@@ -19,7 +19,7 @@ description: release-notes
 
 - Add tars plugin
 - Add sentinel plugin
-  -- Add sofa plugin
+- Add sofa plugin
 - Add Resilience4j plugin for soul-plugin.
 - Add Context path mapping plugin for soul-plugin.
 - Add Grpc plugin supports grpc protocol.

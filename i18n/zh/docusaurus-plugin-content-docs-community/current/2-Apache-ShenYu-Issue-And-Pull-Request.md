@@ -71,7 +71,7 @@ tags: ["Issue-PR"]
 
 ## 问题标签
 
-我们需要标记所有问题。shenyu社区的所有列表都在这里 : https://github.com/dromara/shenyu/labels。
+我们需要标记所有问题。shenyu社区的所有列表都在这里 : https://github.com/dromara/shenyu/labels 。
 
 一般来说，一个问题应该用2个标签来标记。一个是问题的类型，另一个是问题所属的项目模块。
 

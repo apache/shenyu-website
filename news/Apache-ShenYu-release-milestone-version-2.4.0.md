@@ -1,7 +1,7 @@
 ---
-title: "【Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy" 
+title: "【Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy"
 author: "xiaoyu"
-description: "【Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy" 
+description: "【Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2021-08-01
@@ -25,7 +25,7 @@ In terms of flow control, there is an exquisite Admin console, which can `precis
 In terms of functions, it uses plug-in design ideas and supports many common protocols: such as `http/https`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa`, `Tars`, etc.
 And built-in very rich function plug-ins, such as `circuit breaking`, `current limit`, `authentication`, `access control`, `firewall`, `monitoring`, `parameter change` and so on. Its architecture diagram is as follows:
 
-![](https://shenyu.apache.org/img/architecture/shenyu-framework.png)
+![](/img/architecture/shenyu-framework.png)
 
 ## Flow Control
 
@@ -59,7 +59,7 @@ You can use the matching strategy of `And/Or` to add multiple sets of matching. 
 
 The process diagram is as follows:
 
-![](https://shenyu.apache.org/img/shenyu/design/flow-condition.png)
+![](/img/shenyu/design/flow-condition.png)
 
 ## Data synchronization and caching
 
@@ -71,7 +71,7 @@ Each scheme adopts the design idea of SPI, so that users can choose flexibly. Cu
 
 The overall process is as follows:
 
-![](https://shenyu.apache.org/img/shenyu/dataSync/config-strategy-processor-zh.png)
+![](/img/shenyu/dataSync/config-strategy-processor-zh.png)
 
 ## Admin console
 
@@ -83,7 +83,7 @@ In order to facilitate the user to quickly and conveniently control the flow and
 
 The background management of the gateway is agent. For enterprise-level users and cross-departmental applications, `Apache Shenyu` designs a common `authorization control system`, including `button level menu permissions`, and `row data level data Permissions`. And these permissions are automatically configurable by the `administrator`.
 
-<img src="/img/community/admin-permission-en.jpg">
+<img src="/img/community/admin-permission-en.jpg"/>
 
 ## Protocol Proxy
 
@@ -387,3 +387,4 @@ The `Logging` plug-in is the `Apache ShenYu` gateway, which allows the user log 
 The `Apache ShenYu` community follows the community philosophy of `Apache Way` and creates a `completely open` and `government` community. Every half month, a full community meeting will be held, and the community’s committers, contributors, and users will participate in it,
 At the meeting, everyone can speak freely and put forward their own views and opinions, such as discussing different functions and different codes, and it is best to reach a consistent point of view.
 In the Apache ShenYu community, we respect the principle of communication priority of mailing list `>` GitHub Issue `>` WeChat group. The main purpose is to keep a record of every problem, no point of view, to better help others, to promote the sustainable development of the community.
+

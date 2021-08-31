@@ -16,7 +16,7 @@ description: customising response structure
 * Following is the response structure:
 
 ```java
-public class ShenyuDefaultEntity implements Serializable {
+public class DefaultShenyuEntity implements Serializable {
 
     private static final long serialVersionUID = -2792556188993845048L;
 

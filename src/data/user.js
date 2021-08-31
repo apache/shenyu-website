@@ -6,7 +6,7 @@ export default [
     {name:"北京车易拍",src:"/img/users/cheyipai_logo.jpg",link:"http://www.cheyipai.com"},
     {name:"caibeike",src:"/img/users/caibeike_logo.png",link:"https://www.caibeike.com/"},
     {name:"fangfutong",src:"https://yu199195.github.io/images/soul/users/fangfutong.png",link:"https://www.f-road.com.cn/"},
-    {name:"chinaTelecom",src:"/img/users/china_telecom_logo.png",link:"http://www.chinaunicom.com.cn/"},
+    {name:"chinaTelecom",src:"/img/users/china_telecom_logo.png",link:"http://www.chinatelecom.com.cn/"},
     {name:"开普云",src:"https://yu199195.github.io/images/soul/users/kaipuyun.png",link:"https://www.kaipuyun.cn/"},
     {name:"songda",src:"https://yu199195.github.io/images/soul/users/songda.png",link:"http://www.whsundata.com"},
     {name:"caomao",src:"https://yu199195.github.io/images/soul/users/caomao.jpg",link:""},

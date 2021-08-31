@@ -78,7 +78,7 @@ module.exports = {
             },
           ],
         },
-        
+
         {
           type: 'docsVersionDropdown',
           position: 'right',
@@ -193,13 +193,13 @@ module.exports = {
           editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-shenyu-website/edit/main/website/',
+            'https://github.com/apache/incubator-shenyu-website/edit/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-shenyu-website/edit/main/website/blog/',
+            'https://github.com/apache/incubator-shenyu-website/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

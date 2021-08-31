@@ -41,7 +41,7 @@ public class DefaultShenyuEntity implements Serializable {
 
 ## 扩展
 
-*  新增一个类 `CustomShenyuResult` 实现 `org.apache.shenyu.plugin.api.result.ShenyuResult`
+* 新增一个类 `CustomShenyuResult` 实现 `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
  public interface ShenyuResult<T> {

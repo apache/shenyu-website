@@ -59,9 +59,9 @@ For requests that are denied access by `Waf` , the response header status code i
 
 * The `Handler` feild  in the rule configuration must be configured:
 
-    * `permission`: The handle logic that matches the rule. `reject`: deny access, `allow`: allow access.
+  * `permission`: The handle logic that matches the rule. `reject`: deny access, `allow`: allow access.
 
-    * `statusCode`: When access is denied, the value of the code field in the response body. `Will not modify the status code of the response header`.
+  * `statusCode`: When access is denied, the value of the code field in the response body. `Will not modify the status code of the response header`.
 
       e.g.：`statusCode=10001`，The rejected response body is :
 

@@ -64,7 +64,7 @@ Selector Handler, the `handle` field, is an operation that can be processed by t
 
 * details：
 
-    * `serviceId`：service id.
+  * `serviceId`：service id.
 
 #### Rule Handler
 
@@ -75,8 +75,8 @@ Rule Handler, the `handle` field, can be performed by the gateway after the fina
 * details：
 
 
-     * `path`：request path.
-     * `timeout`：set time out.
+  * `path`：request path.
+  * `timeout`：set time out.
 
 * Application name: it is your specific application name that needs to be invoked after the conditions are matched.
 * Apache ShenYu will obtain the real IP of the corresponding service and initiate http proxy calls from registration center of springCloud.

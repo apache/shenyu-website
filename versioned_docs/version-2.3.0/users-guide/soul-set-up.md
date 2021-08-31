@@ -44,6 +44,7 @@ description: Environment Setup
 ```
 
 * use `h2` store
+
 ```
 > docker run -d -p 9095:9095 --net soul dromara/soul-admin
 ```
@@ -71,6 +72,7 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 ### local
 
 * download
+
 ```
 > git clone https://github.com/dromara/soul.git
 > cd soul
@@ -84,7 +86,7 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
   * if use mysql store, please modify `mysql` config in  `application.yaml`.
 
 
-Visit `http://localhost:9095/index.html ` default username：admin  password: 123456.
+Visit `http://localhost:9095/index.html` default username：admin  password: 123456.
 
 
 ## Soul-Bootstrap
@@ -169,6 +171,7 @@ soul :
     websocket :
       urls: ws://localhost:9095/websocket  // set your soul-admin address
 ```
+
 * Environment Setup has finished, now your project is launched.
 
 > Note that only the gateway has been set up, but no plugins have been add. For example, to access HTTP requests, you need to add the Divide plugin, please refer to [Http Plugin](https://shenyu.apache.org/projects/shenyu-2.3.0/http-proxy/) . To access the Dubbo service, you need to add the Dubbo plugin, please refer to [Dubbo Plugin](https://shenyu.apache.org/projects/shenyu-2.3.0/dubbo-proxy/) .

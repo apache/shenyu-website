@@ -213,7 +213,7 @@ The `Resilience4j` plug-in is the `Apache ShenYu` gateway integrated with the `R
 
 #### RateLimiter Plugin
 
-The `RateLimiter` plug-in is the `Apache ShenYu` gateway using `redis` to provide the function of requesting cluster current limiting. The current limiting algorithm strategies include: `Token Bucket Algorithm`, `Concurrent Current Limiting`, `Leaky Bucket Algorithm`, ` Sliding window algorithm`. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `RateLimiter plugin`, and configure `redis`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/rate-limiter-plugin/
+The `RateLimiter` plug-in is the `Apache ShenYu` gateway using `redis` to provide the function of requesting cluster current limiting. The current limiting algorithm strategies include: `Token Bucket Algorithm`, `Concurrent Current Limiting`, `Leaky Bucket Algorithm`, `Sliding window algorithm`. To use it, please add the following dependencies in the gateway, and then set it to `on` in `Admin console` --> `Plugin management` --> `RateLimiter plugin`, and configure `redis`. For a more detailed introduction, please see: https://shenyu.apache.org/projects/shenyu/rate-limiter-plugin/
 
 ```xml
 <dependency>

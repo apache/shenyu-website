@@ -48,6 +48,7 @@ description: filter extension
      }
  }
 ```
+
 * Registering CrossFilter as a Spring Bean and you are ready to go.
 
 ## Filtering Spring Boot health check
@@ -78,7 +79,7 @@ public final class HealthFilter implements WebFilter {
 
 ```
 
-##  Extending `org.dromara.soul.web.filter.AbstractWebFilter`
+## Extending `org.dromara.soul.web.filter.AbstractWebFilter`
 
 * Add a new class and inherit from `org.dromara.soul.web.filter.AbstractWebFilter`.
 * Implement abstract methods of parent class.
@@ -101,6 +102,7 @@ public final class HealthFilter implements WebFilter {
      */
     protected abstract Mono<Void> doDenyResponse(ServerWebExchange exchange);
 ```
+
 * if method `doFilter` returns Mono `true`, this filter is passing, but not vice versa. While rejecting, it will call method `doDenyResponse` and sending infos in response body to frontend.
 
 

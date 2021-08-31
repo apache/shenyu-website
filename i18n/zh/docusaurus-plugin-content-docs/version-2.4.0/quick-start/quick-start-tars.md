@@ -54,6 +54,7 @@ description: Tars快速开始
 **注：** 服务启动时需要在启动命令中指定配置文件地址 **-Dconfig=xxx/ShenyuExampleServer.ShenyuExampleApp.config.conf**
 
 如果不加`-Dconfig`参数配置会可能会如下抛异常：
+
 ```xml
 com.qq.tars.server.config.ConfigurationException: error occurred on load server config
 	at com.qq.tars.server.config.ConfigurationManager.loadServerConfig(ConfigurationManager.java:113)
@@ -84,6 +85,7 @@ The exception occurred at load server config
 ```
 
 成功启动会有如下日志：
+
 ```shell
 [SERVER] server starting at tcp -h 127.0.0.1 -p 21715 -t 60000...
 [SERVER] server started at tcp -h 127.0.0.1 -p 21715 -t 60000...
@@ -100,6 +102,7 @@ The session manager service started...
 
 
 ## 测试
+
 `shenyu-examples-tars`项目成功启动之后会自动把加 `@ShenyuTarsClient` 注解的接口方法注册到网关。
 
 打开`插件列表 -> rpc proxy -> tars` 可以看到插件规则配置列表：

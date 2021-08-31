@@ -12,7 +12,7 @@ description:  Param-mapping插件
 
 ## 插件设置
 
--  在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `param_mapping` 设置为开启。
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `param_mapping` 设置为开启。
 
 ## 插件使用
 
@@ -33,6 +33,7 @@ description:  Param-mapping插件
   * 只有匹配的请求，才会修改请求体。
 
 ## 修改请求插件使用指南
+
 * 1.配置选择器
 * 2.配置规则
 * 3.修改请求体
@@ -45,11 +46,15 @@ description:  Param-mapping插件
 修改请求体是通过 `JSONPath` 来实现的， `$.` 代表根目录
 
 上面的配置，插件开启前，请求内容为
+
 ```json
 {"id":3,"data":{"value":"18","age":"36"}}
 ```
+
 插件开启后，请求内容为
+
 ```json
 {"name":"shenyu","userId":3,"data":{"age":"36"}}
 ```
+
 上述操作，增加一个`name:shenyu`，把`id`替换为`userId`，移除`data`中的`value` 。

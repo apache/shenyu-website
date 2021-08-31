@@ -51,22 +51,22 @@ cover: "/img/architecture/shenyu-framework.png"
 
 ## Contributor Covenant Unit Test of Conduct {#contributor-covenant-unit-test-of-conduct}
 
- - Test codes and production codes should follow the same kind of code of conduct.
- - Unit test should follow AIR (Automatic, Independent, Repeatable) principle.
-   - Automatic: Unit test should run automatically, not interactively. Check test result manually and `System.out`, `log` are prohibited, use assert to check test results.
-   - Independent: Call each other and sequence dependency during unit test cases are prohibited. Every test case should run independent.
-   - Repeatable: Unit test case should not dependency external environment, they can run repeatable.
- - Unit test should follow BCDE (Border, Correct, Design, Error) design principle.
-   - Border: Border value test, test for loop border, special value and value sequence to get expect result.
-   - Correct: Correct value test, test for correct value to get expect result.
-   - Design: Design with production codes.
-   - Error: Error value test, test for error input, exception to get expect result.
- - Without particular reasons, test cases should be fully covered.
- - Every test case need precised assertion.
- - Environment preparation codes should be separate from test codes.
- - Only those that relate to junit `Assert`, hamcrest `CoreMatchers` and `Mockito` can use static import.
- - For single parameter asserts, `assertTrue`, `assertFalse`, `assertNull` and `assertNotNull` should be used.
- - For multiple parameter asserts, `assertThat` should be used.
- - For accurate asserts, try not to use `not`, `containsString` to make assertions.
- - Actual values of test cases should be named `actualXXX`, expected values `expectedXXX`.
- - Class for test case and `@Test` annotation do not need javadoc.
+- Test codes and production codes should follow the same kind of code of conduct.
+- Unit test should follow AIR (Automatic, Independent, Repeatable) principle.
+  - Automatic: Unit test should run automatically, not interactively. Check test result manually and `System.out`, `log` are prohibited, use assert to check test results.
+  - Independent: Call each other and sequence dependency during unit test cases are prohibited. Every test case should run independent.
+  - Repeatable: Unit test case should not dependency external environment, they can run repeatable.
+- Unit test should follow BCDE (Border, Correct, Design, Error) design principle.
+  - Border: Border value test, test for loop border, special value and value sequence to get expect result.
+  - Correct: Correct value test, test for correct value to get expect result.
+  - Design: Design with production codes.
+  - Error: Error value test, test for error input, exception to get expect result.
+- Without particular reasons, test cases should be fully covered.
+- Every test case need precised assertion.
+- Environment preparation codes should be separate from test codes.
+- Only those that relate to junit `Assert`, hamcrest `CoreMatchers` and `Mockito` can use static import.
+- For single parameter asserts, `assertTrue`, `assertFalse`, `assertNull` and `assertNotNull` should be used.
+- For multiple parameter asserts, `assertThat` should be used.
+- For accurate asserts, try not to use `not`, `containsString` to make assertions.
+- Actual values of test cases should be named `actualXXX`, expected values `expectedXXX`.
+- Class for test case and `@Test` annotation do not need javadoc.

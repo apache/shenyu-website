@@ -49,6 +49,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 运行 `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` 中的 `main` 方法启动项目。
 
 成功启动会有如下日志，表示将 `gRPC` 服务成功注册到 `shenyu-admin` 中。
+
 ```shell
 2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-19] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/clientStreamingFun","pathDesc":"clientStreamingFun","rpcType":"grpc","serviceName":"stream.StreamService","methodName":"clientStreamingFun","ruleName":"/grpc/clientStreamingFun","parameterTypes":"io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"CLIENT_STREAMING\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
 2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-17] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/echo","pathDesc":"echo","rpcType":"grpc","serviceName":"echo.EchoService","methodName":"echo","ruleName":"/grpc/echo","parameterTypes":"echo.EchoRequest,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"UNARY\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
@@ -68,6 +69,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 
 下面使用 `postman` 模拟 `http` 的方式来请求你的 `gRPC` 服务。
 请求参数如下：
+
 ```json
 {
     "data": [
@@ -77,16 +79,19 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
     ]
 }
 ```
+
 <img src="/img/shenyu/quick-start/grpc/grpc-echo.png" width="80%" height="50%" />
 
 当前是以 `json` 的格式传递参数，`key`的名称默认是`data`，你可以在 `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME` 中进行重置；`value`的传入则根据你定义的 `proto` 文件。
 
-##  流式调用
+## 流式调用
+
 `Apache ShenYu` 可以支持 `gRPC` 的流式调用，下面展示的是 `gRPC` 四种方法类型的调用。 在流式调用中，你可以通过数组的形式传递多个参数。
 
 - `UNARY`
 
 请求参数如下：
+
 ```json
 {
     "data": [
@@ -104,6 +109,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 - `CLIENT_STREAMING`
 
 请求参数如下：
+
 ```json
 {
     "data": [
@@ -145,6 +151,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 - `BIDI_STREAMING`
 
 请求参数如下：
+
 ```json
 {
     "data": [

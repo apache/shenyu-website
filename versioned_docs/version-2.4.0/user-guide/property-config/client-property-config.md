@@ -29,11 +29,9 @@ shenyu:
 
 ### Property Detail
 
-##### shenyu.client config
+#### shenyu.client config
 
 This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../../design/register-center-design) , for client access configuration, see: [Application Client Access Config](../register-center-access) .
-
-
 
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
@@ -92,6 +90,5 @@ When the registerType is `nacos`, the supported properties are as follows.
 |password                | String |  ""    |  No  |password|
 |accessKey                | String |  ""    |  No  |accessKey|
 |secretKey                | String |  ""    |  No  |secretKey|
-
 
 When the registerType is `consul`, no other property configuration is provided. please set `spring.cloud.consul` for the configuration.

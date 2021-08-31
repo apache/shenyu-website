@@ -11,9 +11,9 @@ description: Fetching correct IP address and host
 
 ## Default Implementation
 
-*  The embedded implementation in `Apache ShenYu` is :`org.apache.shenyu.web.forward.ForwardedRemoteAddressResolver`.
+* The embedded implementation in `Apache ShenYu` is :`org.apache.shenyu.web.forward.ForwardedRemoteAddressResolver`.
 
-*  You need to config `X-Forwarded-For` in `nginx` first to get correct `IP address` and `host`.
+* You need to config `X-Forwarded-For` in `nginx` first to get correct `IP address` and `host`.
 
 
 ## Implement through a Plugin

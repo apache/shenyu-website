@@ -7,6 +7,7 @@ This project keeps all sources used for building up Apache ShenYu official websi
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 ## Requirements
+
 - Node.js version >= 12.13.0 or above (which can be checked by running node -v).
 - Yarn version >= 1.5 (which can be checked by running yarn --version).
 
@@ -19,11 +20,13 @@ yarn install
 ## Local Development
 
 - Start your localized site using the default locale. Then Your site is accessible at http://localhost:3000/.
+
 ```console
 yarn start
 ```
 
--  Start your localized site in dev mode, using the locale of your choice.Then Your site is accessible at http://localhost:3000/zh/.
+- Start your localized site in dev mode, using the locale of your choice.Then Your site is accessible at http://localhost:3000/zh/.
+
 ```console
 yarn start -- --locale zh
 ```

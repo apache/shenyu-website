@@ -17,7 +17,7 @@ description: 使用不同的数据同步策略
 
 * 网关配置（记得重启）
 
-    * 首先在 `pom.xml` 文件中 引入以下依赖：
+  * 首先在 `pom.xml` 文件中 引入以下依赖：
     
     ```xml
     <!--soul data sync start use websocket-->
@@ -27,7 +27,8 @@ description: 使用不同的数据同步策略
       <version>${last.version}</version>
     </dependency>
     ```
-   * 在 springboot的 yml 文件中进行如下配置:
+    
+  * 在 springboot的 yml 文件中进行如下配置:
    
   ```yaml
   soul :
@@ -37,7 +38,7 @@ description: 使用不同的数据同步策略
   #urls:是指 soul-admin的地址，如果有多个，请使用（,）分割.
    ```
 
-    * soul-admin 配置，或在 soul-admin 启动参数中设置 `--soul.sync.websocket='' `，然后重启服务。
+  * soul-admin 配置，或在 soul-admin 启动参数中设置 `--soul.sync.websocket=''`，然后重启服务。
    
     ```yaml
     soul:
@@ -54,7 +55,7 @@ description: 使用不同的数据同步策略
 
 * 网关配置（记得重启）
 
-    * 首先在 `pom.xml` 文件中 引入以下依赖：
+  * 首先在 `pom.xml` 文件中 引入以下依赖：
 
  ```xml
     <!--soul data sync start use zookeeper-->
@@ -65,7 +66,7 @@ description: 使用不同的数据同步策略
     </dependency>
  ```
 
-   * 在 springboot的 yml 文件中进行如下配置:
+* 在 springboot的 yml 文件中进行如下配置:
    
     ```yaml
     soul :
@@ -77,7 +78,7 @@ description: 使用不同的数据同步策略
           #url: 配置成你的zk地址，集群环境请使用（,）分隔
     ```
 
-   * soul-admin 配置, 或在 soul-admin 启动参数中设置 `--soul.sync.zookeeper.url='你的地址' `,然后重启服务。
+* soul-admin 配置, 或在 soul-admin 启动参数中设置 `--soul.sync.zookeeper.url='你的地址'`,然后重启服务。
 
 ```yaml
 soul:
@@ -87,13 +88,14 @@ soul:
         sessionTimeout: 5000
         connectionTimeout: 2000
 ```
+
 * 使用zookeeper同步机制也是非常好的,时效性也高，我们生产环境使用的就是这个，但是也要处理zk环境不稳定，集群脑裂等问题.
 
 ## http长轮询同步
 
 * 网关配置（记得重启）
 
-    * 首先在 `pom.xml` 文件中 引入以下依赖：
+  * 首先在 `pom.xml` 文件中 引入以下依赖：
 
     ```xml
     <!--soul data sync start use http-->
@@ -104,7 +106,7 @@ soul:
     </dependency>
     ```
 
-   * 在 springboot的 yml 文件中进行如下配置:
+  * 在 springboot的 yml 文件中进行如下配置:
    
    ```yaml
   soul :
@@ -113,7 +115,8 @@ soul:
                url: http://localhost:9095
   #url: 配置成你的 soul-admin的 ip与端口地址，多个admin集群环境请使用（,）分隔。
    ```
-    * soul-admin 配置, 或在 soul-admin 启动参数中设置 `--soul.sync.http='' `,然后重启服务。
+  
+  * soul-admin 配置, 或在 soul-admin 启动参数中设置 `--soul.sync.http=''`,然后重启服务。
 
     ```yaml
     soul:
@@ -131,7 +134,7 @@ soul:
 
 * 网关配置（记得重启）
 
-    * 首先在 `pom.xml` 文件中 引入以下依赖：
+  * 首先在 `pom.xml` 文件中 引入以下依赖：
     
     ```xml
     <!--soul data sync start use nacos-->
@@ -142,7 +145,7 @@ soul:
       </dependency>
     ```
 
-    * 在 springboot的 yml 文件中进行如下配置:
+  * 在 springboot的 yml 文件中进行如下配置:
    
     ```yaml
     soul :
@@ -159,6 +162,7 @@ soul:
     #url: 配置成你的nacos地址，集群环境请使用（,）分隔。
     # 其他参数配置，请参考naocs官网。
     ```
+
 * soul-admin 配置, 或在 soul-admin 启动参数中使用 `--` 的方式一个一个传值
 
 ```yaml

@@ -12,7 +12,7 @@ description: modifyResponse插件
 
 ## 插件设置
 
--  在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `modifyResponse` 设置为开启。
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `modifyResponse` 设置为开启。
 
 ## 插件使用
 
@@ -32,6 +32,7 @@ description: modifyResponse插件
   * 只有匹配的请求，才会修改响应。
 
 ## 修改响应插件使用指南
+
 * 1.配置选择器
 * 2.配置规则
 * 3.修改响应状态码
@@ -53,10 +54,13 @@ description: modifyResponse插件
 修改响应体是通过 `JSONPath` 来实现的，`$.` 代表根目录
 
 上面的配置，插件开启前，响应内容为
+
 ```json
 {"id":3,"name":"hello world findById"}
 ```
+
 插件开启后，响应内容为
+
 ```json
 {"id2":3,"add":"4"}
 ```

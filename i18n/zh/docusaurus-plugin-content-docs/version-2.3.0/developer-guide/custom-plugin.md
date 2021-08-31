@@ -71,15 +71,16 @@ public interface SoulPlugin {
 }
 
 ```
+
 * 接口方法详细说明
 
-   * `execute()` 方法为核心的执行方法，用户可以在里面自由的实现自己想要的功能。
+  * `execute()` 方法为核心的执行方法，用户可以在里面自由的实现自己想要的功能。
 
-   * `getOrder()` 指定插件的排序。
+  * `getOrder()` 指定插件的排序。
 
-   * `named()` 指定插件的名称。
+  * `named()` 指定插件的名称。
 
-   * `skip()` 在特定的条件下，该插件是否被跳过。
+  * `skip()` 在特定的条件下，该插件是否被跳过。
 
 
 * 注册成Spring的bean，参考如下，或者直接在实现类上加 `@Component` 注解。
@@ -95,6 +96,7 @@ public interface SoulPlugin {
 ## 匹配流量处理插件
 
 * 引入如下依赖：
+
 ```xml
  <dependency>
         <groupId>org.dromara</groupId>
@@ -102,6 +104,7 @@ public interface SoulPlugin {
         <version>${last.version}</version>
   </dependency>
 ```
+
 * 新增一个类A，继承 `org.dromara.soul.plugin.base.AbstractSoulPlugin`
 
 * 以下是参考：
@@ -179,13 +182,13 @@ public class CustomPlugin extends AbstractSoulPlugin {
 
 * 详细讲解：
 
-   * 继承该类的插件，插件会进行选择器规则匹配，那如何来设置呢？
+  * 继承该类的插件，插件会进行选择器规则匹配，那如何来设置呢？
 
-   * 首先在 `soul-admin` 后台 -->插件管理中，新增一个插件，注意 名称与 你自定义插件的 `named()` 方法要一致。
+  * 首先在 `soul-admin` 后台 -->插件管理中，新增一个插件，注意 名称与 你自定义插件的 `named()` 方法要一致。
 
-   * 重新登陆  `soul-admin` 后台 ，你会发现在插件列表就多了一个你刚新增的插件，你就可以进行选择器规则匹配
+  * 重新登陆  `soul-admin` 后台 ，你会发现在插件列表就多了一个你刚新增的插件，你就可以进行选择器规则匹配
 
-   * 在规则中，有个 `handler` 字段，是你自定义处理数据，在 `doExecute()` 方法中，通过 ` final String ruleHandle = rule.getHandle();` 获取，然后进行你的操作。
+  * 在规则中，有个 `handler` 字段，是你自定义处理数据，在 `doExecute()` 方法中，通过 `final String ruleHandle = rule.getHandle();` 获取，然后进行你的操作。
 
 * 注册成Spring的bean，参考如下或者直接在实现类上加 `@Component` 注解。
 
@@ -264,6 +267,7 @@ public interface PluginDataHandler {
 * 注意 `pluginNamed()` 要和你自定义的插件名称相同。
 
 * 注册成Spring的bean，参考如下或者直接在实现类上加 `@Component` 注解。
+
 ```java
     @Bean
     public PluginDataHandler a() {
@@ -272,6 +276,7 @@ public interface PluginDataHandler {
 ```
 
 ## 不使用 SelectorList 以及 RulesList
+
 不是所有的插件都需要这两者。
 
 因此我们提供以下两个方法，写在 **CustomPlugin** 中。
@@ -291,6 +296,7 @@ public interface PluginDataHandler {
         return doExecute(exchange, chain, null, null);
     }
 ```
+
 * 注意，当如果没有重写的时候，由于没有 **SelectorList** 以及 **RulesList** 会导致你的插件无效。
 
 

@@ -8,6 +8,7 @@ description: Database Design
 Apache Shenyu Admin is the management system of the gateway, which can manage all plugins, selectors and rules visually, set users, roles and resources.
 
 ## Plugin, Selector And Rule {#plugin-selector-and-rule}
+
 * Plugin: ShenYu uses the plugin design idea to realize the hot plug of the plugin, which is easy to expand. Built-in rich plugins, including RPC proxy, circuit breaker and current limiting, authority and certification, monitoring, and more.
 * Selector: Each plugin can set multiple selectors to carry out preliminary filtering of traffic.
 * Rule: Multiple rules can be set per selector for more fine-grained control of flow.
@@ -25,6 +26,7 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
   * Each rule handles differently in corresponding plugin according to field handler,field handler is a kind of data of JSON string type.You can view detail during the use of shenyu-admin.
   
 ## Resource Permission {#resource-permission}
+
 * The resource are the menus and buttons in the shenyu-admin console.
 
 * Resource Permission use database to store user name,role,resource data and relationship. 
@@ -36,6 +38,7 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
   - one user corresponds to multiple role,one role corresponds to multiple resources.
 
 ## Data Permissin {#data-permissin}
+
 * Data Permission use database to store the relationship between users, selectors and rules.
 
 * The Data Permission Table UML Diagram:
@@ -57,9 +60,9 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
 
 
 * Detailed design：
-   * `path`: When the gateway is requested, a piece of data will be matched according to `path`, and then the subsequent process will be carried out.
+  * `path`: When the gateway is requested, a piece of data will be matched according to `path`, and then the subsequent process will be carried out.
 
-   * `rpc_ext`: Used to hold extended information for the RPC proxy.。
+  * `rpc_ext`: Used to hold extended information for the RPC proxy.。
    
 ## Dictionary Management {#dictionary-management}
 

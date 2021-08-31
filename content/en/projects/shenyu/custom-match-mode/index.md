@@ -54,7 +54,6 @@ custom = org.apache.shenyu.examples.http.strategy.CustomMatchStrategy
  > DictionaryName: `${spi name}`, input your custom spi name;
 >
  > DictionaryValue: When used, the value of the drop-down box, do not repeat with the existing;
- 
 > DictionaryDescribe: desc your custom match strategy;
 >
  > Sort: to sort;

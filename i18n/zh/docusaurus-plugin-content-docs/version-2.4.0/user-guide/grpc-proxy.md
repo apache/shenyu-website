@@ -50,6 +50,7 @@ description: gRPC服务接入
 ```
 
 在 `shenyu-examples-grpc` 下执行以下命令生成 `java` 代码。
+
 ```shell
 mvn protobuf:compile //编译消息对象
 mvn protobuf:compile-custom //依赖消息对象,生成接口服务
@@ -87,6 +88,7 @@ message EchoRequest {
 ```
 
 那么请求参数如下所示：
+
 ```json
 {
     "data": [
@@ -103,6 +105,7 @@ message EchoRequest {
 
 
 如果你的`proto`文件定义如下：
+
 ```protobuf
 message RequestData {
   string text = 1;

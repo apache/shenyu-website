@@ -32,15 +32,15 @@ In the actual use of Apache ShenYu Gateway, users also feedback some problems:
 According to the feedback of users, we have also partially reconstructed ShenYu. The current data synchronization features are as follows:
 
 
-- All configuration is cached in ShenYu gateway memory, each request uses local cache, which is very fast.
+* All configuration is cached in ShenYu gateway memory, each request uses local cache, which is very fast.
 
-- Users can modify any data in the background of shenyu-admin, and immediately synchronize to the gateway memory.
+* Users can modify any data in the background of shenyu-admin, and immediately synchronize to the gateway memory.
 
-- Support ShenYu plugin, selector, rule data, metadata, signature data and other data synchronization.
+* Support ShenYu plugin, selector, rule data, metadata, signature data and other data synchronization.
 
-- All plugin selectors and rules are configured dynamically and take effect immediately, no service restart required.
+* All plugin selectors and rules are configured dynamically and take effect immediately, no service restart required.
 
-- Data synchronization mode supports Zookeeper, HTTP long polling, Websocket, Nacos, Etcd and Consul.
+* Data synchronization mode supports Zookeeper, HTTP long polling, Websocket, Nacos, Etcd and Consul.
 
 
 ## Principle Analysis {#principle-analysis}

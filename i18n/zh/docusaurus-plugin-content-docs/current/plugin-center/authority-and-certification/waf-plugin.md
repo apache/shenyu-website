@@ -59,10 +59,11 @@ description: waf插件
 
 * 此时规则配置中的 `处理` 配置必选：
 
-    * `permission`：匹配到该规则的处理逻辑。`reject`: 拒绝访问，`allow`: 允许访问。
+  * `permission`：匹配到该规则的处理逻辑。`reject`: 拒绝访问，`allow`: 允许访问。
 
-    * `statusCode`：被拒绝访问时，响应体中`code`字段的值， `不会修改响应头的状态码`。
+  * `statusCode`：被拒绝访问时，响应体中`code`字段的值， `不会修改响应头的状态码`。
       例如设置为：`statusCode=10001`，被拒绝的响应体如下：
+
       ```json
       {"code":10001,"message":"You are forbidden to visit"}
       ```

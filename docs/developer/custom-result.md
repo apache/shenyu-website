@@ -30,6 +30,7 @@ public class ShenyuDefaultEntity implements Serializable {
 ```
 
 * The returned `json` as follows:
+
 ```json
 {
     "code": -100, //response code,
@@ -40,7 +41,7 @@ public class ShenyuDefaultEntity implements Serializable {
 
 ## Extensions
 
-*  Declare a new class named `CustomShenyuResult` and implements `org.apache.shenyu.plugin.api.result.ShenyuResult`
+* Declare a new class named `CustomShenyuResult` and implements `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
  public interface ShenyuResult<T> {

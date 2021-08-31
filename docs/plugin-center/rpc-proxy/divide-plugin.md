@@ -30,27 +30,28 @@ After the client connects to the `Apache ShenYu` gateway, it will automatically 
 
 
 Selector Handler, corresponding to the `handle` field of [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) , it is the `http` configuration that is actually called after the gateway matches the traffic. You can configure multiple and set the load The balance weight, the specific load balancing strategy, is specified in the rules. For more information, please refer to [Plugin handle management](../../user-guide/admin-usage/plugin-handle-explanation) in Plugin Config.
+
 * detailed processing setting：
 
-    * `host`: input `localhost`,this field is ignored.
+  * `host`: input `localhost`,this field is ignored.
 
-    * `ip:port`: ip and port, input your true service `ip` + port here.
+  * `ip:port`: ip and port, input your true service `ip` + port here.
 
-    * `protocol`: `HTTP` protocol, input `http://` or `https://`, default is:`http://` .
+  * `protocol`: `HTTP` protocol, input `http://` or `https://`, default is:`http://` .
 
-    * `startupTime`: enabling the time.
+  * `startupTime`: enabling the time.
 
-    * `weight`: load balancing weight.
+  * `weight`: load balancing weight.
 
-    * `warmupTime`: warm-up time.
+  * `warmupTime`: warm-up time.
 
-    * `status`: open or closed.
+  * `status`: open or closed.
 
-    * `ip + port` check
+  * `ip + port` check
 
-        * there will be a scheduled task in `shenyu-admin` to scan the configured `ip` port, if it is found offline, choose to delete the `ip + port`.
+    * there will be a scheduled task in `shenyu-admin` to scan the configured `ip` port, if it is found offline, choose to delete the `ip + port`.
 
-        * can be configured as follows:
+    * can be configured as follows:
 
 ```yaml
 shenyu:
@@ -73,10 +74,10 @@ shenyu:
 Rule Handler, corresponding to the `handle` field of [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule). It is the processing rule that the gateway adopts after the final matching of the traffic is completed. For more information, please refer to [Plugin handle management](../../user-guide/admin-usage/plugin-handle-explanation) in Plugin Config.
 
 * detailed processing setting：
-    * `loadStrategy`: if the `http` client is a cluster, which load balancing strategy is adopted when the `Apache ShenYu` gateway is called, currently supports `roundRobin`, `random` and `hash`.
-    * `retryCount`: number of retries for calling the `http` client.
-    * `timeout`: timeout period for calling the `http` client.
-    * `headerMaxSize`: maximum value of the requested `header`.
-    * `requestMaxSize`: maximum size of the request body.
+  * `loadStrategy`: if the `http` client is a cluster, which load balancing strategy is adopted when the `Apache ShenYu` gateway is called, currently supports `roundRobin`, `random` and `hash`.
+  * `retryCount`: number of retries for calling the `http` client.
+  * `timeout`: timeout period for calling the `http` client.
+  * `headerMaxSize`: maximum value of the requested `header`.
+  * `requestMaxSize`: maximum size of the request body.
 
  

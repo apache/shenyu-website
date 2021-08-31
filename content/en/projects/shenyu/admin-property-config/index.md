@@ -258,7 +258,7 @@ Spring ldap properties:
 
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-| expired-seconds | long |  24 * 60 * 60 * 1000L    |  No  |expiration time(millisecond)|
+| expired-seconds | long |  24 *60* 60 * 1000L    |  No  |expiration time(millisecond)|
 
 
 ##### shenyu.shiro config

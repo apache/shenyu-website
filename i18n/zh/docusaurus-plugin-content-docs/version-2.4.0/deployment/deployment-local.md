@@ -17,6 +17,7 @@ description: 本地部署
 ### 下载编译代码
 
 * 下载代码
+
 ```
 > git clone https://github.com/apache/incubator-shenyu.git
 > cd incubator-shenyu
@@ -25,9 +26,9 @@ description: 本地部署
 
 * 使用开发工具启动 `org.apache.shenyu.admin.ShenyuAdminBootstrap`，访问 http://localhost:9095 ， 默认用户名和密码分别为: `admin` 和 `123456`。
 
-    * 如果使用`h2`来存储，设置变量 `--spring.profiles.active = h2`
+  * 如果使用`h2`来存储，设置变量 `--spring.profiles.active = h2`
 
-    * 如果使用`MySQL`来存储，修改 `application.yaml` 中的 `mysql` 配置。
+  * 如果使用`MySQL`来存储，修改 `application.yaml` 中的 `mysql` 配置。
 
 * 使用开发工具启动 `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`。
 

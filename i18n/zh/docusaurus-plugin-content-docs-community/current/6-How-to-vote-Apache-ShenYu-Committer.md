@@ -90,6 +90,7 @@ Best wishes,
 **5、准Committer回复邀请函内容，回复表达同意与感谢。**
 
 **6、PPMC 做出回复**
+
 ```
 Hi (nominee),
 
@@ -119,6 +120,7 @@ https://www.apache.org/foundation/policies/conduct.html
 Here is the guideline for all of the Apache ShenYu committers:
 https://shenyu.apache.org/community/en/contribute/committer/
 ```
+
 **7、新Committer签署iCLA 具体步骤参考 [Sign ICLA Guide](https://shenyu.apache.org/community/icla/)**
 
 **8、新committer等待Secretary通知创建账户**

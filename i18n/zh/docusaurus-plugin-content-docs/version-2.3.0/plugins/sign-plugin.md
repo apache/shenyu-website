@@ -39,18 +39,18 @@ description: sign插件
 
 ## 网关技术实现
  
- * 采用Ak/SK鉴权技术方案。
- * 采用鉴权插件，责任链的模式来完成。
- * 当鉴权插件开启，并配置所有接口鉴权时候生效。
+* 采用Ak/SK鉴权技术方案。
+* 采用鉴权插件，责任链的模式来完成。
+* 当鉴权插件开启，并配置所有接口鉴权时候生效。
  
  
 ## 鉴权使用指南
  
- * 第一步：AK/SK由网关来进行分配，比如分配给你的AK为: `1TEST123456781`  	SK为：`506EEB535CF740D7A755CB4B9F4A1536` 
+* 第一步：AK/SK由网关来进行分配，比如分配给你的AK为: `1TEST123456781`  	SK为：`506EEB535CF740D7A755CB4B9F4A1536` 
  
- * 第二步：确定好你要访问的网关路径 比如 `/api/service/abc`
+* 第二步：确定好你要访问的网关路径 比如 `/api/service/abc`
  
- * 第三步：构造参数（以下是通用参数）
+* 第三步：构造参数（以下是通用参数）
  
 | 字段        | 值    |  描述  |
 | --------   | -----:  | :----: |
@@ -62,6 +62,7 @@ description: sign插件
  
 
 第一步：首先构造一个Map。
+
 ```java
 
    Map<String, String> map = Maps.newHashMapWithExpectedSize(2);
@@ -72,6 +73,7 @@ description: sign插件
 ```
 
 第二步：进行Key的自然排序，然后Key，Value值拼接最后再拼接分配给你的Sk。
+
 ```java
 List<String> storedKeys = Arrays.stream(map.keySet()
                 .toArray(new String[]{}))
@@ -82,9 +84,11 @@ final String sign = storedKeys.stream()
                 .collect(Collectors.joining()).trim()
                 .concat("506EEB535CF740D7A755CB4B9F4A1536");
 ```
+
 * 你得到的sign值应该为：`path/api/service/abctimestamp1571711067186version1.0.0506EEB535CF740D7A755CB4B9F4A1536`
 
 第三步：进行Md5加密后转成大写。
+
 ```java
 DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```

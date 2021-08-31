@@ -180,6 +180,7 @@ After making sure there is no mistake in local files, submit them to GitHub.
 git push origin ${RELEASE.VERSION}-release
 git push origin --tags
 ```
+
 **6. Deploy the Release**
 
 ```shell
@@ -310,15 +311,15 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 **Check source package**
 
-*   Check whether source tarball is oversized for including nonessential files
-*   The release files have the word `incubating` in their names
-*   `LICENSE` and `NOTICE` files exist
-*   `DISCLAIMER` file exists
-*   Correct year in `NOTICE` file
-*   There is only text files but no binary files
-*   All source files have ASF headers
-*   Codes can be compiled and pass the unit tests (./mvnw install) (compatible with JAVA 8 for now)
-*   Check if there is any extra files or folders, empty folders for example
+* Check whether source tarball is oversized for including nonessential files
+* The release files have the word `incubating` in their names
+* `LICENSE` and `NOTICE` files exist
+* `DISCLAIMER` file exists
+* Correct year in `NOTICE` file
+* There is only text files but no binary files
+* All source files have ASF headers
+* Codes can be compiled and pass the unit tests (./mvnw install) (compatible with JAVA 8 for now)
+* Check if there is any extra files or folders, empty folders for example
 
 **Check binary packages**
 
@@ -327,16 +328,16 @@ Decompress
 `apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz`
 to check the following items:
 
-*   The release files have the word `incubating` in their name
-*   `LICENSE` and `NOTICE` files exist
-*   `DISCLAIMER` file exists
-*   Correct year in `NOTICE` file
-*   All text files have ASF headers
-*   Check the third party dependency license:
-    *   The software has a compatible license
-    *   All software licenses mentioned in `LICENSE`
-    *   All the third party dependency licenses are under `licenses` folder
-    *   If it depends on Apache license and has a `NOTICE` file, that `NOTICE` file need to be added to `NOTICE` file of the release
+* The release files have the word `incubating` in their name
+* `LICENSE` and `NOTICE` files exist
+* `DISCLAIMER` file exists
+* Correct year in `NOTICE` file
+* All text files have ASF headers
+* Check the third party dependency license:
+  * The software has a compatible license
+  * All software licenses mentioned in `LICENSE`
+  * All the third party dependency licenses are under `licenses` folder
+  * If it depends on Apache license and has a `NOTICE` file, that `NOTICE` file need to be added to `NOTICE` file of the release
 
 ## Call for a Vote
 
@@ -444,6 +445,7 @@ We’ve received 7 +1 votes:
 
 Thank you everyone for taking the time to review the release and help us. 
 ```
+
 3. Incubator Community Vote Template
 
 Title:

@@ -13,6 +13,7 @@ description: 元数据概念设计
 * 在数据库中，新增了一张表，然后通过数据同步的方案，会把这张表的数据同步到网关JVM内存。
 
 * 表结构如下：
+
 ```sql
 CREATE TABLE  IF NOT EXISTS `meta_data` (
   `id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'id',

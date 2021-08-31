@@ -56,6 +56,7 @@ description: Sofa快速开始
 下载 [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa)
 
 设置`application.yml`的`zk`注册地址，如：
+
 ```xml
 com:
   alipay:
@@ -67,6 +68,7 @@ com:
 运行`org.apache.shenyu.examples.sofa.service.TestSofaApplication`main方法启动sofa服务。
 
 成功启动会有如下日志：
+
 ```shell
 2021-02-10 02:31:45.599  INFO 2156 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : sofa client register success: {"appName":"sofa","contextPath":"/sofa","path":"/sofa/insert","pathDesc":"Insert a row of data","rpcType":"sofa","serviceName":"org.dromara.shenyu.examples.sofa.api.service.SofaSingleParamService","methodName":"insert","ruleName":"/sofa/insert","parameterTypes":"org.dromara.shenyu.examples.sofa.api.entity.SofaSimpleTypeBean","rpcExt":"{\"loadbalance\":\"hash\",\"retries\":3,\"timeout\":-1}","enabled":true} 
 2021-02-10 02:31:45.605  INFO 2156 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : sofa client register success: {"appName":"sofa","contextPath":"/sofa","path":"/sofa/findById","pathDesc":"Find by Id","rpcType":"sofa","serviceName":"org.dromara.shenyu.examples.sofa.api.service.SofaSingleParamService","methodName":"findById","ruleName":"/sofa/findById","parameterTypes":"java.lang.String","rpcExt":"{\"loadbalance\":\"hash\",\"retries\":3,\"timeout\":-1}","enabled":true} 
@@ -106,6 +108,7 @@ com:
 ```
 
 ## 测试
+
 `shenyu-examples-sofa`项目成功启动之后会自动把加 `@ShenyuSofaClient` 注解的接口方法注册到网关。
 
 打开`插件列表 -> rpc proxy -> sofa`可以看到插件规则配置列表：
@@ -118,6 +121,7 @@ com:
 ![](/img/shenyu/quick-start/sofa/postman-findbyid.png)
 
 复杂多参数示例：对应接口实现类为`org.apache.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
+
 ```java
 @Override
 @ShenyuSofaClient(path = "/batchSaveNameAndId")
@@ -128,4 +132,5 @@ public SofaSimpleTypeBean batchSaveNameAndId(final List<SofaSimpleTypeBean> sofa
         return simpleTypeBean;
         }
 ```
+
 ![](/img/shenyu/quick-start/sofa/postman-multiparams.png)

@@ -105,7 +105,7 @@ Apache dubbo user, configure the dubbo version and registry center with yours.
 Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) .
 
 * Alibaba Dubbo User
-    * SpringBoot
+  * SpringBoot
 
       Add these dependencies:
 
@@ -117,7 +117,7 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
    </dependency>
    ```
 
-    * Spring
+  * Spring
 
       Add these dependencies：
 
@@ -128,6 +128,7 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
              <version>${shenyu.version}</version>
           </dependency>
        ```
+
       Inject these properties into your Spring beans XML file：
 
        ```xml
@@ -147,9 +148,10 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
            </property>
         </bean>
        ```
+
 * Apache Dubbo User
 
-    * SpringBoot
+  * SpringBoot
 
       Add these dependencies:
 
@@ -161,7 +163,7 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
        </dependency>
        ```
 
-    * Spring
+  * Spring
 
       Add these dependencies:
 
@@ -222,8 +224,8 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
 ```
 
 * parameter deliver:
-    * communicate with gateway through body or json of http post request.
-    * more parameter types, please refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) and parameter passing
+  * communicate with gateway through body or json of http post request.
+  * more parameter types, please refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) and parameter passing
       method.
 * Single java bean parameter type (`default`).
 * Multi-parameter type support, add this config value in gateway's yaml file:
@@ -254,8 +256,8 @@ public interface DubboParamResolveService {
 
 * `body` is the json string in http request.
 * `parameterTypes`: the list of method parameter types that are matched，split with `,`.
-*  in Pair，left is parmeter type，right is parameter value, it's the standard of dubbo generalization calls.
-*  Inject your class into Spring bean, cover the default implementation.
+* in Pair，left is parmeter type，right is parameter value, it's the standard of dubbo generalization calls.
+* Inject your class into Spring bean, cover the default implementation.
 
 ```java
 @Bean
@@ -265,15 +267,17 @@ public DubboParamResolveService myDubboParamResolveService() {
 ```
 
 ## Service governance
+
 * Tag route
-    * Add `Dubbo_Tag_Route` when send request, the current request will be routed to the provider of the specified tag, which is only valid for the current request.
+  * Add `Dubbo_Tag_Route` when send request, the current request will be routed to the provider of the specified tag, which is only valid for the current request.
 * Explicit Target
-    * Set the `url` property in the annotation `@ShenyuDubboClient`.
-    * Update the configuration in Admin.
-    * It's valid for all request.
+  * Set the `url` property in the annotation `@ShenyuDubboClient`.
+  * Update the configuration in Admin.
+  * It's valid for all request.
 * Param valid and ShenyuException
-    * Set `validation="shenyuValidation"`.
-    * When `ShenyuException` is thrown in the interface, exception information will be returned. It should be noted that `ShenyuException` is thrown explicitly.
+  * Set `validation="shenyuValidation"`.
+  * When `ShenyuException` is thrown in the interface, exception information will be returned. It should be noted that `ShenyuException` is thrown explicitly.
+
     ```java
     @Service(validation = "shenyuValidation")
     public class TestServiceImpl implements TestService {
@@ -289,7 +293,7 @@ public DubboParamResolveService myDubboParamResolveService() {
     }
     ```
 
-    * Request param
+  * Request param
 
     ```java
         public class HelloServiceRequest implements Serializable {
@@ -320,7 +324,7 @@ public DubboParamResolveService myDubboParamResolveService() {
         }
     ```
 
-    * Send request
+  * Send request
 
     ```json
     {
@@ -328,7 +332,7 @@ public DubboParamResolveService myDubboParamResolveService() {
     }
     ```
 
-    * Response
+  * Response
 
     ```json
     {
@@ -338,7 +342,7 @@ public DubboParamResolveService myDubboParamResolveService() {
     }
     ```
 
-    * Error message
+  * Error message
 
     ```json
     {

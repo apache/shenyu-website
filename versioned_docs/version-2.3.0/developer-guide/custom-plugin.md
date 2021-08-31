@@ -72,6 +72,7 @@ public interface SoulPlugin {
 }
 
 ```
+
 Detailed instruction of interface methods:
 
 * `execute()` core method, you can do any task here freely.
@@ -91,6 +92,7 @@ Detailed instruction of interface methods:
 ## Matching Traffic Processing Plugin
 
 * Introduce the following dependency:
+
 ```xml
  <dependency>
         <groupId>org.dromara</groupId>
@@ -98,6 +100,7 @@ Detailed instruction of interface methods:
         <version>${last.version}</version>
   </dependency>
 ```
+
 * Add a new class A, inherit from `org.dromara.soul.plugin.base.AbstractSoulPlugin`
 
 * examples down below:
@@ -175,13 +178,13 @@ public class CustomPlugin extends AbstractSoulPlugin {
 
 * Detailed explanation:
 
-   * Plugins will match the selector rule for customized plugins inherit from this abstract class. Following steps guide you to config your plugins.
+  * Plugins will match the selector rule for customized plugins inherit from this abstract class. Following steps guide you to config your plugins.
 
-   * Firstly define a new plugin in `soul-admin`, please mind that your plugin name should match the named() method overridden in your class.
+  * Firstly define a new plugin in `soul-admin`, please mind that your plugin name should match the named() method overridden in your class.
 
-   * Re-login  `soul-admin`, the plugin you added now showing on plugin-list page, you can choose selectors for matching.
+  * Re-login  `soul-admin`, the plugin you added now showing on plugin-list page, you can choose selectors for matching.
 
-   * There is a field named `handler` in rules, it is customized json string to be processed. You can process data after acquiring a ruleHandle (` final String ruleHandle = rule.getHandle();`) in `doExecute()` method. 
+  * There is a field named `handler` in rules, it is customized json string to be processed. You can process data after acquiring a ruleHandle (`final String ruleHandle = rule.getHandle();`) in `doExecute()` method. 
 
 * Register plugin in Spring as a Bean, or simply apply `@Component` in implementation class.
 
@@ -259,6 +262,7 @@ public interface PluginDataHandler {
 
 * Ensure `pluginNamed()` is same as the plugin name you defined.
 * Register defined class as a Spring Bean, or simply apply `@Component` in implementation class.
+
 ```java
     @Bean
     public PluginDataHandler a() {
@@ -287,5 +291,6 @@ Therefore, we provide the following two methods, written in **CustomPlugin**.
         return doExecute(exchange, chain, null, null);
     }
 ```
+
 * Note that if there is no rewriting, your plug-in will be invalid due to the absence of **SelectorList** and **RulesList**.
 

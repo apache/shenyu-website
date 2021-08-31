@@ -32,6 +32,7 @@ description: websocket支持
        <version>${last.version}</version>
    </dependency>
 ```
+
 ## 请求路径
 
 * 使用soul代理websocket的时候，其请求路径为（例子）：`ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket`。

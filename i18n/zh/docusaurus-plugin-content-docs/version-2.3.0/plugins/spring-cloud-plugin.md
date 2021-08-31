@@ -7,7 +7,7 @@ description: SpringCloud插件
 
 ## 说明
 
-* 该插件是用来将`http协议` 转成` springCloud协议` 的核心。
+* 该插件是用来将`http协议` 转成`springCloud协议` 的核心。
 
 ## 引入网关 springCloud的插件支持
 

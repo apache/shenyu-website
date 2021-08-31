@@ -107,6 +107,7 @@ shenyu:
             <version>${shenyu.version}</version>
         </dependency>
 ```
+
 <img src="/img/shenyu/register/register-zk-client-pom.png" width="70%" height="60%" />
 
 * 然后在 `yml` 中配置注册类型为`zookeeper`，并填写`Zookeeper`服务地址和相关参数，如下：
@@ -388,6 +389,7 @@ shenyu:
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
 # nacosNameSpace: nacos的命名空间
 ``` 
+
 <img src="/img/shenyu/register/register-nacos-client-yml.png" width="70%" height="60%" />
 
 总结，本文主要介绍了如何将你的微服务（当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议）接入到`Apache ShenYu`网关。介绍了注册中心的原理，`Apache ShenYu`网关支持的注册中心有`Http`、`Zookeeper`、`Etcd`、`Consul`、`Nacos`等方式。介绍了以`http`服务作为客户端接入到`Apache ShenYu`网关时，使用不同方式注册配置信息。

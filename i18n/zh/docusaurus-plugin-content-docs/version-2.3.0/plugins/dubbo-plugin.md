@@ -31,9 +31,11 @@ description: dubbo插件
 * 在 `soul-admin` --> 插件管理-> `dubbo` 设置为开启。
 
 * 在dubbo插件的配置中，配置如下：配置dubbo的注册中心。
+
 ```yaml
 {"register":"zookeeper://localhost:2181"} or {"register":"nacos://localhost:8848"} 
 ```
+
 * 插件需要配合依赖 `starter` 进行使用,具体请看：[dubbo用户](../users-guide/dubbo-proxy)。
 
 * 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。

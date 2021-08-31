@@ -53,12 +53,9 @@ shenyu:
 # contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
-``` 
-
+```
 
 <img src="/img/shenyu/register/register-http-client-yml.png" width="70%" height="60%" />
-
-
 
 ### Zookeeper Registry Config
 
@@ -96,9 +93,7 @@ shenyu:
 
 The following shows the configuration information registered by `zookeeper` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
 
-
 * First add dependencies to the `pom` file:
-
 
 ```xml
         <!-- apache shenyu zookeeper register center -->
@@ -167,9 +162,7 @@ shenyu:
 
 The following shows the configuration information registered by `Etcd` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
 
-
 * First add dependencies to the `pom` file:
-
 
 ```xml
         <!-- apache shenyu etcd register center -->
@@ -203,9 +196,7 @@ shenyu:
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ``` 
 
-
 <img src="/img/shenyu/register/register-etcd-client-yml.png" width="70%" height="60%" />
-
 
 ### Consul Registry Config
 
@@ -234,7 +225,6 @@ First add the related dependencies to the `pom` file :
 <img src="/img/shenyu/register/register-consul-admin-pom.png" width="70%" height="60%" />
 
 * In the `yml` file to configure the registry as `consul`, you also need to configure `spring.cloud.consul`, the configuration information is as follows:
-
 
 ```yaml
 shenyu:
@@ -267,14 +257,11 @@ spring:
 
 <img src="/img/shenyu/register/register-consul-admin-yml.png" width="70%" height="60%" />
 
-
 #### shenyu-client config
 
 > Note that the `consul` registry is currently incompatible with the `Spring Cloud` service and will conflict with the `Eureka/Nacos` registry.
 
-
 The following shows the configuration information registered by `Consul` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
-
 
 * First add dependencies to the `pom` file:
 
@@ -294,7 +281,6 @@ The following shows the configuration information registered by `Consul` when th
 ```
 
 <img src="/img/shenyu/register/client_register_consul_pom.png" width="70%" height="60%" />
-
 
 * Then set the register type to `consul` in `yml` and config `spring.cloud.consul`, and related parameters as follows:
 
@@ -329,9 +315,6 @@ spring:
 
 <img src="/img/shenyu/register/register-consul-client-yml.png" width="70%" height="60%" />
 
-
-
-
 ### Nacos Registry Config
 
 #### shenyu-admin config
@@ -348,9 +331,7 @@ First add the related dependencies to the `pom` file (already added by default) 
 
 <img src="/img/shenyu/register/register-nacos-admin-pom.png" width="70%" height="60%" />
 
-
 * Then in the `yml` file, configure the registry as `nacos`, fill in the related `nacos` service address and parameters, and `nacos` namespace (need to be consistent with `shenyu-client`), the configuration information is as follows:
-
 
 ```yaml
 shenyu:
@@ -363,11 +344,9 @@ shenyu:
 
 <img src="/img/shenyu/register/register-nacos-admin-yml.png" width="70%" height="60%" />
 
-
 #### shenyu-client config
 
 The following shows the configuration information registered by `Nacos` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
-
 
 * First add dependencies to the `pom` file:
 
@@ -380,7 +359,6 @@ The following shows the configuration information registered by `Nacos` when the
 ```
 
 <img src="/img/shenyu/register/client_register_nacos_pom.png" width="70%" height="60%" />
-
 
 * Then in `yml` configure registration mode as `nacos`, and fill in `nacos` service address and related parameters, also need `nacos` namespace (need to be consistent with `shenyu-admin`), IP (optional, then automatically obtain the local IP address) and port, configuration information is as follows:
 
@@ -402,9 +380,8 @@ shenyu:
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 # nacosNameSpace: nacos namespace
-``` 
+```
 
 <img src="/img/shenyu/register/register-nacos-client-yml.png" width="70%" height="60%" />
 
 In conclusion, this paper mainly describes how to connect your microservices (currently supporting `Http`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa`, `Tars` and other protocols) to the `Apache ShenYu` gateway. the Apache ShenYu gateway support registry has `Http`, `Zookeeper`, `Etcd`, `Consul`, `Nacos` and so on. This paper introduces the different ways to register configuration information when `Http` service is used as the client to access `Apache ShenYu` gateway.
-

@@ -1,4 +1,5 @@
 ---
+
 title: JWT plugin
 keywords: ["JWT"]
 description: JWT plugin
@@ -18,13 +19,13 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 
 * Add configuration mode in plugin editing.
 
-    * `{"secretKey":"","filterPath":[]}`
+  * `{"secretKey":"","filterPath":[]}`
 
-    * `secretKey`: The private key when using `jwt` to generate `token`, it is required.
+  * `secretKey`: The private key when using `jwt` to generate `token`, it is required.
 
-    * `filterPath`：Authentication whitelist list, fill in the API path of the request interface.
+  * `filterPath`：Authentication whitelist list, fill in the API path of the request interface.
 
-    * e.g. `http://127.0.0.1:8080/cloud/shenyu` , filterPath just add `/cloud/shenyu`.
+  * e.g. `http://127.0.0.1:8080/cloud/shenyu` , filterPath just add `/cloud/shenyu`.
 
 ## Plugin Use
 

@@ -12,12 +12,15 @@ Please refer to the [setup](../users-guide/soul-set-up) and launch `soul-admin` 
 ## Run the soul-examples-dubbo project
 
 Download[soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+
 ```xml
 <dubbo:registry address="zookeeper://localhost:2181"/>
 ```
+
 Execute the `TestApacheDubboApplication` main method to start dubbo project.
 
 The following log appears when the startup is successful:
+
 ```shell
 2021-02-06 20:58:01.807  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/insert","pathDesc":"Insert a row of data","rpcType":"dubbo","serviceName":"org.dromara.soul.examples.dubbo.api.service.DubboTestService","methodName":"insert","ruleName":"/dubbo/insert","parameterTypes":"org.dromara.soul.examples.dubbo.api.entity.DubboTest","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
 2021-02-06 20:58:01.821  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/findAll","pathDesc":"Get all data","rpcType":"dubbo","serviceName":"org.dromara.soul.examples.dubbo.api.service.DubboTestService","methodName":"findAll","ruleName":"/dubbo/findAll","parameterTypes":"","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
@@ -35,7 +38,7 @@ The following log appears when the startup is successful:
 ## Dubbo plugin settings
 
 * first enabled the `dubbo` plugin in the `soul-admin` plugin management.
-* then configure your registry address in `dubbo `.
+* then configure your registry address in `dubbo`.
 
 ## Testing
 
@@ -50,6 +53,7 @@ Use PostMan to simulate HTTP to request your Dubbo service
 ![](/img/soul/quick-start/dubbo/postman-findbyid.jpg)
 
 Complex multi-parameter example: The related interface implementation class is `org.dromara.soul.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`.
+
 ```java
 @Override
 @SoulDubboClient(path = "/batchSaveAndNameAndId")
@@ -60,9 +64,11 @@ public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id,
     return test;
 }
 ```
+
 ![](/img/soul/quick-start/dubbo/postman-multiparams.jpg)
 
 When your arguments do not match, the following exception will occur:
+
 ```java
 2021-02-07 22:24:04.015 ERROR 14860 --- [:20888-thread-3] o.d.soul.web.handler.GlobalErrorHandler  : [e47b2a2a] Resolved [SoulException: org.apache.dubbo.remoting.RemotingException: java.lang.IllegalArgumentException: args.length != types.length
 java.lang.IllegalArgumentException: args.length != types.length

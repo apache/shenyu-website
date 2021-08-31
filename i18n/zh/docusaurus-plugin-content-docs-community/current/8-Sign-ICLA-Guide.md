@@ -25,7 +25,6 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 **3. 打开PDF，ICLA需要填写的是两个部分，均需要全英文填写。**
 
 > 注意事项:
-
 > - 姓名需要填写拼音，姓与名之间空一格，首字母均为大写，名在前姓氏在后。
 > - Committer相关的签署，则preferred Apache id(s)是必填项。
 
@@ -42,7 +41,6 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 ## 手动签名和PDF软件签名DEMO
 
 > PDF在线签名
-
 > - 下载PDF源文件
 > - 填写项目与个人信息
 > - 打开PDF在线签署网址
@@ -56,7 +54,6 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 ![](/img/shenyu/icla/pls_sign.png)
 
 > 手写签名
-
 > - 下载PDF源文件
 > - 填写项目与个人信息n
 > - 打印文件

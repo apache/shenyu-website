@@ -18,6 +18,6 @@ This is an asynchronous, high-performance, cross-language, responsive API gatewa
 * Dynamic flow configuration, high performance.
 * Support cluster deployment, A/B Test, blue-green release.
 
-# Architecture Diagram
+## Architecture Diagram
 
 ![](/img/architecture/soul-framework-2.3.0.png)

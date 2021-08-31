@@ -23,61 +23,62 @@ description: detailed explanation of selector and rule
 
 ![](https://yu199195.github.io/images/soul/selector.png)
 
- * selector detailed explanation：
+* selector detailed explanation：
  
-     * name：create your selector with a distinguish name.
-     * type：custom flow is customized request, full flow is full request. customized request will be handled by the conditions as below, while  full request won't. 
-     * match method: you can combine these conditions with 'and' , 'or' operators.
-     * condition：
-        * uri: filter request with uri method and support fuzzy matching (/**).
-        * header: filter request with request header.
-        * query: filter request with query string.
-        * ip: filter request with your real ip.
-        * host: filter request with your real host.
-        * post: not recommend to use.
-        * condition match:
-           * match : fuzzy string matching，recommend to combine with uri，support restful matching.（/test/**).
-           * = : if the values are the same, then they match.
-           * regEx : regex matching，match characters in regex expression.
-           * like : string fuzzy matching.
-     * open option：only work with enabled.
-     * print log：it will print the matching log with the open option enabled.
-     * execution order：the smaller will have high priorty to execute among multi-selectors.
+  * name：create your selector with a distinguish name.
+  * type：custom flow is customized request, full flow is full request. customized request will be handled by the conditions as below, while  full request won't. 
+  * match method: you can combine these conditions with 'and' , 'or' operators.
+  * condition：
+    * uri: filter request with uri method and support fuzzy matching (/**).
+    * header: filter request with request header.
+    * query: filter request with query string.
+    * ip: filter request with your real ip.
+    * host: filter request with your real host.
+    * post: not recommend to use.
+    * condition match:
+      * match : fuzzy string matching，recommend to combine with uri，support restful matching.（/test/**).
+      * = : if the values are the same, then they match.
+      * regEx : regex matching，match characters in regex expression.
+      * like : string fuzzy matching.
+  * open option：only work with enabled.
+  * print log：it will print the matching log with the open option enabled.
+  * execution order：the smaller will have high priorty to execute among multi-selectors.
   
- * the above picture means: when the prefix of the request uri is `/test` and the value of `module` in`header` is`test`, it will redirect to this service `1.1.1.1:8080`.   
+* the above picture means: when the prefix of the request uri is `/test` and the value of `module` in`header` is`test`, it will redirect to this service `1.1.1.1:8080`.   
 
- * selector advice : combine `uri` conditon and `match` prefix（/contextPath）as the first request filter.
+* selector advice : combine `uri` conditon and `match` prefix（/contextPath）as the first request filter.
  
 ## Rule
+
  ![](https://yu199195.github.io/images/soul/rule.png)
  
- * when the request was passed by the seletor, then it will be processed by the rule, the final filter.
+* when the request was passed by the seletor, then it will be processed by the rule, the final filter.
  
- * rule is the final confirmation about how to execute request logically.
+* rule is the final confirmation about how to execute request logically.
  
- * rule detailed explanation：
-     * name：create your rule with a distinguish name.
-     * match method: you can combine these conditions with 'and' , 'or' operators.
-     * condition：
-        * uri: filter request with uri method and support fuzzy matching (/**).
-        * header: filter request with request header.
-        * query: filter request with query string.
-        * ip: filter request with your real ip.
-        * host: filter request with your real host.
-        * post: not recommend to use.
-        * condition match:
-           * match : fuzzy string matching，recommend to combine with uri，support restful matching.（/test/**）
-           * = : if the values are the same, then they match.
-           * regEx : regex matching，match characters in regex expression.
-           * like : string fuzzy matching.
-     * open option：only work with enabled.
-     * print log：it will print the matching log with the open option enabled.
-     * execution order：the smaller will have high priorty to execute among multi-rules.
-     * handle: different plugin has different execution method, pls refer to the specific one.
+* rule detailed explanation：
+  * name：create your rule with a distinguish name.
+  * match method: you can combine these conditions with 'and' , 'or' operators.
+  * condition：
+    * uri: filter request with uri method and support fuzzy matching (/**).
+    * header: filter request with request header.
+    * query: filter request with query string.
+    * ip: filter request with your real ip.
+    * host: filter request with your real host.
+    * post: not recommend to use.
+    * condition match:
+      * match : fuzzy string matching，recommend to combine with uri，support restful matching.（/test/**）
+      * = : if the values are the same, then they match.
+      * regEx : regex matching，match characters in regex expression.
+      * like : string fuzzy matching.
+  * open option：only work with enabled.
+  * print log：it will print the matching log with the open option enabled.
+  * execution order：the smaller will have high priorty to execute among multi-rules.
+  * handle: different plugin has different execution method, pls refer to the specific one.
 
 * above picture means: when the request `uri` equals to `/http/order/save`, it will execute based on this rule，load strategy is `random`.
 
-* combine selector means ：when the request `uri ` is `/http/order/save`, it will be redicted to `1.1.1.1:8080` by `random` method.
+* combine selector means ：when the request `uri` is `/http/order/save`, it will be redicted to `1.1.1.1:8080` by `random` method.
 
 * rule advice: combine `uri` condition with `match` the real `uri path` condition as the final filter.
     
@@ -95,21 +96,21 @@ description: detailed explanation of selector and rule
   
 * header matching
 
-   * header matches with your `http` request header value.
+  * header matches with your `http` request header value.
   
-*  query matching
+* query matching
 
-   * it matches the query string in your uri, such as: /test?a=1&&b=2.
+  * it matches the query string in your uri, such as: /test?a=1&&b=2.
    
-   * so you can add a new condition, choose query method: a   =  1.
+  * so you can add a new condition, choose query method: a   =  1.
    
-*  ip matching
+* ip matching
 
-    * it matches the ip of the http caller.
+  * it matches the ip of the http caller.
   
-    * especially in the waf plugin, if you find some ip is unsafe, you can add a match condition with this ip, then it can't access any more.
+  * especially in the waf plugin, if you find some ip is unsafe, you can add a match condition with this ip, then it can't access any more.
   
-    * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../developer-guide/custom-parsing-ip-and-host)
+  * if you use nginx proxy before soul, you can get the right ip with refering to [parsing-ip-and-host](../developer-guide/custom-parsing-ip-and-host)
  
 * host matching
 
@@ -121,6 +122,6 @@ description: detailed explanation of selector and rule
     
 * post matching
 
-    * not recommend to use.
+  * not recommend to use.
 
           

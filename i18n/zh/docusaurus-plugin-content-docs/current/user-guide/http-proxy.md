@@ -59,6 +59,7 @@ description: Http服务接入
            <version>${shenyu.version}</version>
        </dependency>
  ```
+
 并在你的 `bean` 定义的 `xml` 文件中新增如下：
 
  ```xml
@@ -79,7 +80,6 @@ description: Http服务接入
          </property>
     </bean>
 ```
-
 
 在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
 

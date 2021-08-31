@@ -157,6 +157,7 @@ example (2)：`/order/save` will be handled by gateway, and `/order/findById` wo
 ```
 
 example (3)：  `isFull`：`true`  represents that all service will be represented by the gateway.
+
 ```yaml
 shenyu:
   client:
@@ -172,6 +173,7 @@ shenyu:
 # appName：your application name
 # isFull: set true to proxy your all service and false to proxy some of your controllers
 ```
+
  ```java
   @RestController
   @RequestMapping("/order")

@@ -10,6 +10,7 @@ description: Tars快速开始
 请参考[配置网关环境](../users-guide/soul-set-up)并启动`soul-admin`和`soul-bootstrap`。
 
 注：`soul-bootstrap`需要引入tars依赖
+
 ```xml
 <dependency>
     <groupId>org.dromara</groupId>
@@ -45,6 +46,7 @@ description: Tars快速开始
 **注：** 服务启动时需要在启动命令中指定配置文件地址 **-Dconfig=xxx/SoulExampleServer.SoulExampleApp.config.conf**
 
 如果不加`-Dconfig`参数配置会可能会如下抛异常：
+
 ```xml
 com.qq.tars.server.config.ConfigurationException: error occurred on load server config
 	at com.qq.tars.server.config.ConfigurationManager.loadServerConfig(ConfigurationManager.java:113)
@@ -75,6 +77,7 @@ The exception occurred at load server config
 ```
 
 成功启动会有如下日志：
+
 ```shell
 [SERVER] server starting at tcp -h 127.0.0.1 -p 21715 -t 60000...
 [SERVER] server started at tcp -h 127.0.0.1 -p 21715 -t 60000...
@@ -94,6 +97,7 @@ The session manager service started...
 * 在 `soul-admin` 插件管理中，把`tars` 插件设置为开启。
 
 ## 测试
+
 `soul-examples-tars`项目成功启动之后会自动把加 `@SoulTarsClient` 注解的接口方法注册到网关。
 
 打开插件管理->tars可以看到插件规则配置列表

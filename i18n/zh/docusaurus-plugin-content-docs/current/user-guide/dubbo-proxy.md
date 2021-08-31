@@ -20,7 +20,7 @@ description: Dubbo服务接入
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
 
-    * `alibaba dubbo` 用户, `dubbo` 版本换成你的，引入你需要的注册中心依赖，以下是参考。
+  * `alibaba dubbo` 用户, `dubbo` 版本换成你的，引入你需要的注册中心依赖，以下是参考。
 
       ```xml
       <!-- apache shenyu alibaba dubbo plugin start-->
@@ -52,7 +52,7 @@ description: Dubbo服务接入
       </dependency>
       ```
 
-    * `apache dubbo` 用户，`dubbo` 版本换成你的，引入你需要的注册中心依赖，如下是参考。
+  * `apache dubbo` 用户，`dubbo` 版本换成你的，引入你需要的注册中心依赖，如下是参考。
 
       ```xml
       <!-- apache shenyu apache dubbo plugin start-->
@@ -199,7 +199,7 @@ description: Dubbo服务接入
 
 * 首先在 `shenyu-admin` 插件管理中，把`dubbo` 插件设置为开启。
 
-* 其次在 `dubbo ` 插件中配置你的注册地址，或者其他注册中心的地址。
+* 其次在 `dubbo` 插件中配置你的注册地址，或者其他注册中心的地址。
 
 ```yaml
 {"register":"zookeeper://localhost:2181"}   or {"register":"nacos://localhost:8848"}
@@ -217,17 +217,15 @@ description: Dubbo服务接入
 可以通过 `http` 的方式来请求你的 `dubbo` 服务。`Apache ShenYu` 网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`
 
 > 比如你有一个 order服务 它有一个接口，它的注册路径 /order/test/save
-
 > 现在就是通过 post 方式请求网关：http://localhost:9195/order/test/save
-
 > 其中 localhost:9195 为网关的 ip 端口，默认端口是 9195 ，/order 是你 dubbo 接入网关配置的 contextPath
 
 
 * 参数传递：
 
-    * 通过 `http`协议， `post` 方式访问网关，通过在`http body`中传入`json`类型参数。
+  * 通过 `http`协议， `post` 方式访问网关，通过在`http body`中传入`json`类型参数。
 
-    * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
+  * 更多参数类型传递，可以参考 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) 中的接口定义，以及参数传递方式。
 
 * 单个 `java bean`参数类型（默认）
 
@@ -241,7 +239,7 @@ shenyu:
 
 * 自定义实现多参数支持:
 
-    * 在你搭建的网关项目中，新增一个类 `MyDubboParamResolveService`，实现 `org.apache.shenyu.web.dubbo.DubboParamResolveService`接口。
+  * 在你搭建的网关项目中，新增一个类 `MyDubboParamResolveService`，实现 `org.apache.shenyu.web.dubbo.DubboParamResolveService`接口。
 
       ```java
       public interface DubboParamResolveService {
@@ -258,13 +256,13 @@ shenyu:
       }
       ```
 
-    * `body` 为 `http` 中 `body` 传的 `json` 字符串。
+  * `body` 为 `http` 中 `body` 传的 `json` 字符串。
 
-    *  `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用 `,` 分割。
+  * `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用 `,` 分割。
 
-    *  `Pair` 中，`left` 为参数类型，`right` 为参数值，这是 `dubbo` 泛化调用的标准
+  * `Pair` 中，`left` 为参数类型，`right` 为参数值，这是 `dubbo` 泛化调用的标准
 
-    * 把你的类注册成 `Spring` 的 `bean`，覆盖默认的实现。
+  * 把你的类注册成 `Spring` 的 `bean`，覆盖默认的实现。
 
  ```java
   @Bean
@@ -274,15 +272,16 @@ shenyu:
   ```
 
 ## 服务治理
+
 * 标签路由
-    * 请求时在 `header` 中添加 `Dubbo_Tag_Route`，并设置对应的值，之后当前请求就会路由到指定 `tag` 的 `provider`，只对当前请求有效。
+  * 请求时在 `header` 中添加 `Dubbo_Tag_Route`，并设置对应的值，之后当前请求就会路由到指定 `tag` 的 `provider`，只对当前请求有效。
 * 服务提供者直连
-    * 设置 `@ShenyuDubboClient` 注解中的 `url` 属性。
-    * 修改 `Admin` 控制台修改元数据内的 `url` 属性。
-    * 对所有请求有效。
+  * 设置 `@ShenyuDubboClient` 注解中的 `url` 属性。
+  * 修改 `Admin` 控制台修改元数据内的 `url` 属性。
+  * 对所有请求有效。
 * 参数验证和自定义异常
-    * 指定 `validation = "shenyuValidation"`。
-    * 在接口中抛出 `ShenyuException` 时，异常信息会返回，需要注意的是显式抛出 `ShenyuException`。
+  * 指定 `validation = "shenyuValidation"`。
+  * 在接口中抛出 `ShenyuException` 时，异常信息会返回，需要注意的是显式抛出 `ShenyuException`。
 
     ```java
     @Service(validation = "shenyuValidation")
@@ -299,7 +298,7 @@ shenyu:
     }
     ```
 
-    * 请求参数
+  * 请求参数
 
     ```java
     public class HelloServiceRequest implements Serializable {
@@ -330,7 +329,7 @@ shenyu:
     }
     ```
 
-    * 发送请求
+  * 发送请求
 
     ```json
     {
@@ -338,7 +337,7 @@ shenyu:
     }
     ```
 
-    * 返回
+  * 返回
 
     ```json
     {
@@ -348,7 +347,7 @@ shenyu:
     }
     ```
 
-    * 当按照要求传递请求参数时，会返回自定义异常的信息
+  * 当按照要求传递请求参数时，会返回自定义异常的信息
 
     ```json
     {
@@ -382,8 +381,10 @@ public DubboTest insert(final DubboTest dubboTest) {
 {"id": "1234", "name": "XIAO5y"}
 ```
 
-如果接口中，没有参数，那么` body` 传值为：
+如果接口中，没有参数，那么`body` 传值为：
+
 ```
 {}
 ```
+
 如果接口有很多个参数，请参考上面介绍过的多参数类型支持。

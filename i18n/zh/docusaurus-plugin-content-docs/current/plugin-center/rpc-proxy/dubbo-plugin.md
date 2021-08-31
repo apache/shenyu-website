@@ -41,8 +41,8 @@ description: dubbo插件
     java.lang.Integer,java.lang.String,java.lang.Integer
     ```
 
-    * 按照接口的参数类型顺序，通过半角逗号分隔。
-    * 请求传参时需**严格按照参数类型顺序传参**，没有值的用 `null`占位 。请求体示例：`{"id":1,"name": null,"age":18}`
+  * 按照接口的参数类型顺序，通过半角逗号分隔。
+  * 请求传参时需**严格按照参数类型顺序传参**，没有值的用 `null`占位 。请求体示例：`{"id":1,"name": null,"age":18}`
 
   方式二、名称映射
 
@@ -50,8 +50,8 @@ description: dubbo插件
     {"id":"java.lang.Integer","name":"java.lang.String","age":"java.lang.Integer"}
     ```
 
-    * 使用 `"参数名":"参数类型"`表示一个参数，按接口参数类型顺序设置，半角逗号分隔。
-    * 请求时无需关注顺序，也无需使用null占位。请求体示例: `{"name":"Mike","id":1}`
+  * 使用 `"参数名":"参数类型"`表示一个参数，按接口参数类型顺序设置，半角逗号分隔。
+  * 请求时无需关注顺序，也无需使用null占位。请求体示例: `{"name":"Mike","id":1}`
 
 * Rpc扩展参数：`dubbo`接口的其他配置，支持`json`格式，字段如下：
 

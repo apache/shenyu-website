@@ -40,7 +40,7 @@ description: Integrate Http with soul gateway
 
 * `SpringBoot User`
   
-   * Add these dependencies in your local maven repository `pom.xml`:
+  * Add these dependencies in your local maven repository `pom.xml`:
     
     ```xml
          <dependency>
@@ -50,11 +50,11 @@ description: Integrate Http with soul gateway
          </dependency>
     ```
   
-   * Backend server register center config, please look:[register center access](../register-center/register-center-access).  
+  * Backend server register center config, please look:[register center access](../register-center/register-center-access).  
 
 * `SpringMVC User`
 
-   * Add these dependencies in your local maven repository `pom.xml`: 
+  * Add these dependencies in your local maven repository `pom.xml`: 
     
     ```xml
            <dependency>
@@ -63,6 +63,7 @@ description: Integrate Http with soul gateway
                <version>${last.version}</version>
            </dependency>
     ```     
+
   * Inject these properties into your Spring beans XML file:   
 
     ```xml
@@ -86,9 +87,9 @@ description: Integrate Http with soul gateway
     
 * Add this annotation `@SoulSpringMvcClient` in your `controller` interface.
   
-   * You can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces. 
+  * You can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces. 
   
-   * Example1: both `/test/payment` and `/test/findByUserId` will be handled by proxy service.
+  * Example1: both `/test/payment` and `/test/findByUserId` will be handled by proxy service.
    
     ```java
       @RestController
@@ -110,7 +111,8 @@ description: Integrate Http with soul gateway
           }      
        }
     ```
-   * Example2: `/order/save` will be handled by proxy service, but `/order/findById` won't.
+    
+  * Example2: `/order/save` will be handled by proxy service, but `/order/findById` won't.
    
     ```java
       @RestController
@@ -148,14 +150,14 @@ description: Integrate Http with soul gateway
 * Send the request as before, only two points need to notice.
 * Firstly，the domain name that requested before in your service, now need to replace with gateway's domain name.
 * Secondly，soul gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `soul-admin`, if you are familiar with it.
-    * for example, if you have an order service and it has a interface, the request url: http://localhost:8080/test/save
+  * for example, if you have an order service and it has a interface, the request url: http://localhost:8080/test/save
     
-    * Now need to change to:  http://localhost:9195/order/test/save
+  * Now need to change to:  http://localhost:9195/order/test/save
     
-    * We can see localhost:9195 is your gateway's ip port，default port number is 9195 ，/order is your contextPath which you configured with gateway.
+  * We can see localhost:9195 is your gateway's ip port，default port number is 9195 ，/order is your contextPath which you configured with gateway.
     
-    * other parameters doesn't change in request method.
+  * other parameters doesn't change in request method.
     
-    * Any questions, pls join the group and we can talk about it.
+  * Any questions, pls join the group and we can talk about it.
 
 * Then you can visit, very easy and simple.

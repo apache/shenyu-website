@@ -91,7 +91,7 @@ shenyu:
 
 ### Property Detail
 
-##### shenyu.register config
+#### shenyu.register config
 
 
 This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../../design/register-center-design) , for client access configuration, see: [Application Client Access Config](../register-center-access) .
@@ -258,7 +258,7 @@ Spring ldap properties:
 
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-| expired-seconds | long |  24 * 60 * 60 * 1000L    |  No  |expiration time(millisecond)|
+| expired-seconds | long |  24 *60* 60 * 1000L    |  No  |expiration time(millisecond)|
 
 
 ##### shenyu.shiro config

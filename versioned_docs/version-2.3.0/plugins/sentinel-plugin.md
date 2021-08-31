@@ -33,19 +33,19 @@ description: sentinel plugin
 * Selectors and rules, please refer to: [selector](../admin/selector-and-rule)
 * Sentinel Processing Details
     
-    * `flowRuleEnable (1 or 0)`: whether enable sentinel flow control function.
+  * `flowRuleEnable (1 or 0)`: whether enable sentinel flow control function.
     
-    * `flowRuleControlBehavior`: effect(reject directly/ queue/ slow start up), it do not support flow control by invocation relation. 
+  * `flowRuleControlBehavior`: effect(reject directly/ queue/ slow start up), it do not support flow control by invocation relation. 
     
-    * `flowRuleGrade`: type of current limit threshold(QPS or Thread Count)。
+  * `flowRuleGrade`: type of current limit threshold(QPS or Thread Count)。
         
-    * `degradeRuleEnable (1 or 0)`: whether enable circuit breaking function of `sentinel`.
+  * `degradeRuleEnable (1 or 0)`: whether enable circuit breaking function of `sentinel`.
         
-    * `degradeRuleGrade`: circuit breaker strategy, support RT of seconds level/ Error Ratio of seconds level/ Error Count of minutes level strategy.
+  * `degradeRuleGrade`: circuit breaker strategy, support RT of seconds level/ Error Ratio of seconds level/ Error Count of minutes level strategy.
         
-    * `degradeRuleCount`: threshold.
+  * `degradeRuleCount`: threshold.
       
-    * `degradeRuleTimeWindow`: time of degrading(unit: second).
+  * `degradeRuleTimeWindow`: time of degrading(unit: second).
         
-    * `fallbackUri`: degraded uri after circuit breaking.
+  * `fallbackUri`: degraded uri after circuit breaking.
 

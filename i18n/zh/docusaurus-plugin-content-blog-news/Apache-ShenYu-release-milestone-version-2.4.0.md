@@ -23,7 +23,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 `Apache ShenYu`是使用`Java reactor`编程方式开发的，具有`异步`，`高性能`，`跨语言`等特性的 `API 网关`。
 在流量控制方面，有精美的Admin控制台，能够`精准`，`动态`控制流量，满足复杂的业务场景。
-在功能方面，它使用插件化的设计思想，支持许多常见的协议：如 `http/https`， `Dubbo`、 `Spring Cloud`、 `GRPC`、 `Motan`、` Sofa`、 `Tars` 等。
+在功能方面，它使用插件化的设计思想，支持许多常见的协议：如 `http/https`， `Dubbo`、 `Spring Cloud`、 `GRPC`、 `Motan`、`Sofa`、 `Tars` 等。
 同时内置十分丰富的功能插件，如 `熔断`，`限流`，`鉴权`，`黑白名单`，`防火墙`，`监控`，`参数更改`等等插件。其架构图如下:
 
  ![](https://shenyu.apache.org/img/architecture/shenyu-framework.png)
@@ -88,7 +88,7 @@ Apache ShenYu网关就是这样通过层层筛选完成流量控制。其流程�
 
 ## 协议代理
 
-协议代理是网关最核心的功能，目前 `Apache ShenYu` 支持 `http` 转成 `http/https`， `Websocket`,`Dubbo`、 `Spring Cloud`、 `GRPC`、 `Motan`、` Sofa`、 `Tars` 等协议的转换，未来将支持 `TCP`, `MQTT`,`MQTT` 等协议。
+协议代理是网关最核心的功能，目前 `Apache ShenYu` 支持 `http` 转成 `http/https`， `Websocket`,`Dubbo`、 `Spring Cloud`、 `GRPC`、 `Motan`、`Sofa`、 `Tars` 等协议的转换，未来将支持 `TCP`, `MQTT`,`MQTT` 等协议。
 
 #### Divide插件
 
@@ -387,6 +387,7 @@ Apache ShenYu网关就是这样通过层层筛选完成流量控制。其流程�
 
 
 ## 社区
+
 `Apache ShenYu` 是完全由国人主导的自主性社区开源项目，目前处在高速发展时期，
 `功能开发`，`文档完善`，`BUG修复` 等大量的事情需要完成。
 `Apache ShenYu` 社区遵循 `Apache Way`的社区理念，打造一个`完全开放`，`治理`的社区。

@@ -60,7 +60,8 @@ you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-sh
 
 * SpringBoot
 
-  Add the following dependencies :
+Add the following dependencies:
+
  ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
@@ -69,20 +70,21 @@ you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-sh
         </dependency>
  ```
 
-
 * Spring
 
-  Add the following dependencies:
- ```xml
+Add the following dependencies:
+
+```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-client-sofa</artifactId>
             <version>${shenyu.version}</version>
         </dependency>
-   ```
+```
+
 Add the following in the xml file of your bean definition:
 
-  ```xml
+```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor">
              <constructor-arg  ref="shenyuRegisterCenterConfig"/>
         </bean>
@@ -98,7 +100,7 @@ Add the following in the xml file of your bean definition:
             </map>
        </property>
     </bean>
-   ```
+```
 
 ## Plugin Settings
 
@@ -127,9 +129,8 @@ ShenYu gateway needs to have a routing prefix, this routing prefix is for you to
 > Where `localhost:9195` is the IP port of the gateway, default port is `9195`, `/order` is the `contextPath` of your sofa access gateway configuration
 
 * Parameter passing：
-
-    * Access the gateway through http post，and pass through body and json.
-    * For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
+  * Access the gateway through http post，and pass through body and json.
+  * For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:
@@ -137,7 +138,7 @@ ShenYu gateway needs to have a routing prefix, this routing prefix is for you to
 
  ```java
     public interface SofaParamResolveService {
-    
+
         /**
          * Build parameter pair.
          * this is Resolve http body to get sofa param.

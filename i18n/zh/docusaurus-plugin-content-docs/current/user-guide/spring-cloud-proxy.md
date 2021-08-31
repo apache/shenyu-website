@@ -161,6 +161,7 @@ description: SpringCloud接入ShenYu网关
 
 * 示例三：
   `isFull`：`true`  代表整个服务都会被网关代理。
+
 ```yaml
 shenyu:
   client:
@@ -176,6 +177,7 @@ shenyu:
 # appName：你的应用名称，不配置的话，会默认取application 中的名称
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller
 ```
+
  ```java
   @RestController
   @RequestMapping("/order")

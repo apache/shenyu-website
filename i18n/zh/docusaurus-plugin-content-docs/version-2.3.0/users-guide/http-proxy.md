@@ -41,7 +41,7 @@ description: http用户
 
 * `SpringBoot用户`
   
-   * 在你的真实服务的 `pom.xml` 新增如下依赖: 
+  * 在你的真实服务的 `pom.xml` 新增如下依赖: 
    
     ```xml
          <dependency>
@@ -51,11 +51,11 @@ description: http用户
          </dependency>
      ```
   
-   * 注册中心详细接入配置请参考：[注册中心接入](../register-center/register-center-access).
+  * 注册中心详细接入配置请参考：[注册中心接入](../register-center/register-center-access).
 
 * `SpringMvc用户` 
 
-   * 在你的真实服务的 `pom.xml` 新增如下依赖：
+  * 在你的真实服务的 `pom.xml` 新增如下依赖：
    
     ```xml
            <dependency>
@@ -64,6 +64,7 @@ description: http用户
                <version>${last.version}</version>
            </dependency>
      ```     
+
   * 在你的 bean定义的xml文件中新增如下：  
   
      ```xml
@@ -84,13 +85,14 @@ description: http用户
              </property>
         </bean>
     ``` 
+
 * 在你的 `controller` 的接口上加上 `@SoulSpringMvcClient` 注解。
   
-   * 你可以把注解加到 `Controller` 类上面，里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
+  * 你可以把注解加到 `Controller` 类上面，里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
   
-   * 举例子 （1）： 代表 `/test/payment`，`/test/findByUserId` 都会被网关代理。
+  * 举例子 （1）： 代表 `/test/payment`，`/test/findByUserId` 都会被网关代理。
    
-    ```java
+  ```java
       @RestController
       @RequestMapping("/test")
       @SoulSpringMvcClient(path = "/test/**")
@@ -109,8 +111,9 @@ description: http用户
               return userDTO;
           }      
        }
-    ```
-   * 举例子 （2）：代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
+  ```
+  
+  * 举例子 （2）：代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
    
     ```java
       @RestController
@@ -152,13 +155,13 @@ description: http用户
 * 第一点，你之前请求的域名是你自己的服务，现在要换成网关的域名 （这个你听的懂？）
 
 * 第二点，soul网关需要有一个路由前缀，这个路由前缀就是你接入项目进行配置 `contextPath`，如果熟的话，可以自由在 `soul-admin` 中的divide插件进行自由更改。
-    * 比如你有一个 order服务 它有一个接口，请求路径 http://localhost:8080/test/save
+  * 比如你有一个 order服务 它有一个接口，请求路径 http://localhost:8080/test/save
     
-    * 现在就需要换成：http://localhost:9195/order/test/save
+  * 现在就需要换成：http://localhost:9195/order/test/save
     
-    * 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你接入网关配置的 contextPath
+  * 其中 localhost:9195 为网关的ip端口，默认端口是9195 ，/order 是你接入网关配置的 contextPath
     
-    * 其他参数，请求方式不变。
+  * 其他参数，请求方式不变。
     
-    * 我讲到这里还不懂？ 请加群问吧
+  * 我讲到这里还不懂？ 请加群问吧
 * 然后你就可以进行访问了，如此的方便与简单。

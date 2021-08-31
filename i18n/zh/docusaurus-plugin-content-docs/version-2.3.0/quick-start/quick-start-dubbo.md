@@ -13,11 +13,14 @@ description: Dubbo快速开始
 
 下载[soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo)，调整`spring-dubbo.xml`
 的注册地址为你本地，如：
+
 ```xml
 <dubbo:registry address="zookeeper://localhost:2181"/>
 ```
+
 运行`TestApacheDubboApplication`main方法启动dubbo项目。
 成功启动会有如下日志：
+
 ```shell
 2021-02-06 20:58:01.807  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/insert","pathDesc":"Insert a row of data","rpcType":"dubbo","serviceName":"org.dromara.soul.examples.dubbo.api.service.DubboTestService","methodName":"insert","ruleName":"/dubbo/insert","parameterTypes":"org.dromara.soul.examples.dubbo.api.entity.DubboTest","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
 2021-02-06 20:58:01.821  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/findAll","pathDesc":"Get all data","rpcType":"dubbo","serviceName":"org.dromara.soul.examples.dubbo.api.service.DubboTestService","methodName":"findAll","ruleName":"/dubbo/findAll","parameterTypes":"","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
@@ -35,7 +38,7 @@ description: Dubbo快速开始
 ## dubbo 插件设置
 
 * 首先在 `soul-admin` 插件管理中，把`dubbo` 插件设置为开启。
-* 其次在 `dubbo ` 插件中配置你的注册地址，或者其他注册中心的地址。
+* 其次在 `dubbo` 插件中配置你的注册地址，或者其他注册中心的地址。
 
 ## 测试
 
@@ -50,6 +53,7 @@ description: Dubbo快速开始
 ![](/img/soul/quick-start/dubbo/postman-findbyid.jpg)
 
 复杂多参数示例：对应接口实现类为`org.dromara.soul.examples.apache.dubbo.service.impl.DubboMultiParamServiceImpl#batchSaveAndNameAndId`
+
 ```java
 @Override
 @SoulDubboClient(path = "/batchSaveAndNameAndId")
@@ -60,9 +64,11 @@ public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id,
     return test;
 }
 ```
+
 ![](/img/soul/quick-start/dubbo/postman-multiparams.jpg)
 
 当你的参数不匹配时会报如下异常：
+
 ```java
 2021-02-07 22:24:04.015 ERROR 14860 --- [:20888-thread-3] o.d.soul.web.handler.GlobalErrorHandler  : [e47b2a2a] Resolved [SoulException: org.apache.dubbo.remoting.RemotingException: java.lang.IllegalArgumentException: args.length != types.length
 java.lang.IllegalArgumentException: args.length != types.length

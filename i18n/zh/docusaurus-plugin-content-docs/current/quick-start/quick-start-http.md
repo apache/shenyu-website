@@ -44,6 +44,7 @@ description: Http快速开始
 运行`org.apache.shenyu.examples.http.ShenyuTestHttpApplication`main方法启动项目。
 
 成功启动会有如下日志：
+
 ```shell
 2021-02-10 00:57:07.561  INFO 3700 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : http client register success: {"appName":"http","context":"/http","path":"/http/test/**","pathDesc":"","rpcType":"http","host":"192.168.50.13","port":8188,"ruleName":"/http/test/**","enabled":true,"registerMetaData":false} 
 2021-02-10 00:57:07.577  INFO 3700 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : http client register success: {"appName":"http","context":"/http","path":"/http/order/save","pathDesc":"Save order","rpcType":"http","host":"192.168.50.13","port":8188,"ruleName":"/http/order/save","enabled":true,"registerMetaData":false} 
@@ -57,6 +58,7 @@ description: Http快速开始
 
 
 ## 测试Http请求
+
 `shenyu-examples-http`项目成功启动之后会自动把加 `@ShenyuSpringMvcClient` 注解的接口方法注册到网关。
 
 打开`插件列表 -> http process -> divide`可以看到插件规则配置列表：

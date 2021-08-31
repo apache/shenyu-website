@@ -7,6 +7,7 @@ description: release-notes
 ### 2.3.0
 
 ##### soul-admin
+
 - Sign 插件新增是否开启APP 认证的字段。
 - 优化Divide 插件，使用通用的插件模板。
 - 插件处理管理中添加默认值和规则检查。
@@ -15,6 +16,7 @@ description: release-notes
 - 新增支持H2来存储数据。
 
 ##### soul-bootstrap
+
 - 新增 Tars 插件，支持 tars RPC 协议。
 - 新增 Sofa 插件 ，支持 sofa RPC 协议。
 - 新增 GRPC 插件，全面支持 GRPC 协议。
@@ -31,6 +33,7 @@ description: release-notes
 - 新增 Etcd 作为注册中心的方式接入soul网关。
 
 ### 2.2.0
+
 - 完全的插件化架构设计，插件热插拔。
 - 完整支持dubbo所有版本，alibaba-dubbo ，apache-dubbo。
 - 支持dubbo泛化调用，多参数，复杂参数接口。

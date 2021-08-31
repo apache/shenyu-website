@@ -10,11 +10,11 @@ description: authority-management
 
 ## Tutorial
 
-#### First, we can add a piece of authentication information in `BasicConfig` - `Authentication`
+### First, we can add a piece of authentication information in `BasicConfig` - `Authentication`
 
 <img src="/img/shenyu/basicConfig/authorityManagement/auth_manages_add_en.jpg" width="100%" height="70%" />
 
-#### Then configure this authentication information
+### Then configure this authentication information
 
 <img src="/img/shenyu/basicConfig/authorityManagement/auth_param_en.jpg" width="50%" height="40%"/>
 
@@ -30,7 +30,7 @@ After submit, a piece of authentication information is generated, which contains
 
 Please refer to the detailed instructions of the `Sign` plugin： [Sign Plugin](../../plugin-center/authority-and-certification/sign-plugin).
 
-#### PathOperation
+### PathOperation
 
 For the created authentication information, you can click `PathOperation` at the end of a piece of authentication information.
 

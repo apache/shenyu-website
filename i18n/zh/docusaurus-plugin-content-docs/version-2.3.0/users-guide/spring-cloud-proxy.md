@@ -56,7 +56,7 @@ description: SpringCloud接入Soul网关
    </dependency>
    ```
 
-   * 在网关的yml文件中 新增如下配置：
+* 在网关的yml文件中 新增如下配置：
 
  ```yaml
     eureka:
@@ -79,7 +79,7 @@ description: SpringCloud接入Soul网关
   </dependency>
    ```
 
-   * 在网关的yml文件中 新增如下配置：
+* 在网关的yml文件中 新增如下配置：
 
  ```yaml
    spring:
@@ -108,9 +108,9 @@ description: SpringCloud接入Soul网关
 
 * 在你的 `controller`的接口上加上 `@SoulSpringCloudClient` 注解
 
- * 你可以把注解加到 `Controller` 类上面, 里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理
+* 你可以把注解加到 `Controller` 类上面, 里面的path属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理
 
-   * 举列子 （1）： 代表 `/test/payment`, `/test/findByUserId` 都会被网关代理。
+  * 举列子 （1）： 代表 `/test/payment`, `/test/findByUserId` 都会被网关代理。
 
  ```java
   @RestController
@@ -133,7 +133,7 @@ description: SpringCloud接入Soul网关
    }
 ```
 
-   * 举列子 （2）： 代表 `/order/save`,会被网关代理,而`/order/findById` 则不会。
+* 举列子 （2）： 代表 `/order/save`,会被网关代理,而`/order/findById` 则不会。
 
  ```java
   @RestController
@@ -159,7 +159,8 @@ description: SpringCloud接入Soul网关
 ```
 
 
-   * 举列子 （3）： isFull：`true`  代表 `/sb-demo7-api/**`，整个服务会被网关代理 
+* 举列子 （3）： isFull：`true`  代表 `/sb-demo7-api/**`，整个服务会被网关代理 
+
 ```yaml
 soul:
   client:
@@ -176,6 +177,7 @@ soul:
 # appName：你的应用名称，不配置的话，会默认取 dubbo配置中application 中的名称
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller
 ```
+
  ```java
   @RestController
   @RequestMapping("/order")
@@ -226,4 +228,5 @@ soul:
 # 我讲到这里还不懂？ 请加群问吧
 
 ```
+
 * 然后你就可以进行访问了，如此的方便与简单。

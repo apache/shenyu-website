@@ -71,6 +71,7 @@ public interface ShenyuPlugin {
 }
 
 ```
+
 * 接口方法详细说明
 
   * `execute()` 方法为核心的执行方法，用户可以在里面自由的实现自己想要的功能。
@@ -95,6 +96,7 @@ public interface ShenyuPlugin {
 ## 匹配流量处理插件
 
 * 引入如下依赖：
+
 ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
@@ -102,6 +104,7 @@ public interface ShenyuPlugin {
             <version>${project.version}</version>
         </dependency>
 ```
+
 * 新增一个类 `CustomPlugin`，继承 `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
 
 * 以下是参考：
@@ -194,7 +197,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
   * 重新登陆  `shenyu-admin` 后台，可以看见刚新增的插件，然后就可以进行选择器规则匹配。
 
-  * 在规则中，有个 `handler` 字段，是自定义处理数据，在 `doExecute()` 方法中，通过 ` final String ruleHandle = rule.getHandle();` 获取，然后进行你的操作。
+  * 在规则中，有个 `handler` 字段，是自定义处理数据，在 `doExecute()` 方法中，通过 `final String ruleHandle = rule.getHandle();` 获取，然后进行你的操作。
 
 * 注册成`Spring`的`bean`，参考如下或者直接在实现类上加 `@Component` 注解。
 

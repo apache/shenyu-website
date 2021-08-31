@@ -10,9 +10,9 @@ description: 自定义sign插件检验
 
 ## 扩展
 
-*  默认的实现为 `org.apache.shenyu.plugin.sign.service.DefaultSignService`。
+* 默认的实现为 `org.apache.shenyu.plugin.sign.service.DefaultSignService`。
 
-*  新增一个类 `CustomSignService` 实现  `org.apache.shenyu.plugin.api.SignService`。
+* 新增一个类 `CustomSignService` 实现  `org.apache.shenyu.plugin.api.SignService`。
 
 ```java
  public interface SignService {

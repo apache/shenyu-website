@@ -56,6 +56,7 @@ dependency>
 运行`org.dromara.soul.examples.springcloud.SoulTestSpringCloudApplication`main方法启动项目。
 
 成功启动会有如下日志：
+
 ```shell
 2021-02-10 14:03:51.301  INFO 2860 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2021-02-10 14:03:51.669  INFO 2860 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : springCloud client register success: {"appName":"springCloud-test","context":"/springcloud","path":"/springcloud/order/save","pathDesc":"","rpcType":"springCloud","ruleName":"/springcloud/order/save","enabled":true} 
@@ -97,6 +98,7 @@ dependency>
 * 在 `soul-admin` 插件管理中，把`springCloud` 插件设置为开启。
 
 ## 测试Http请求
+
 `soul-examples-springcloud`项目成功启动之后会自动把加 `@SoulSpringCloudClient` 注解的接口方法注册到网关。
 
 打开插件管理->springCloud 可以看到插件规则配置列表

@@ -1,4 +1,5 @@
 ---
+
 title: JWT插件
 keywords: ["JWT"]
 description: JWT插件
@@ -42,6 +43,7 @@ description: JWT插件
   <!-- apache shenyu jwt plugin end-->
   
 ```
+
 * 选择器和规则，只有匹配的请求，才会进行 `jwt` 鉴权判断，请详细看：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 
 ## 场景

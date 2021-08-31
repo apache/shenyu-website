@@ -24,23 +24,21 @@ description:  grpc-plugin
 After the client accesses the `Apache ShenYu` gateway, it will automatically register the selector and rule information. You can see it in PluginList -> rpc proxy -> grpc. For details about the selector and rule configuration, see [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
 
-#### Selector Handler
+### Selector Handler
 
 <img src="/img/shenyu/plugin/grpc/selector_en.png" width="80%" height="80%" />
 
-
 Selector Handler, the `handle` field, is the processing operation that the gateway can perform after matching the traffic.
-
 
 * config details：
 
-    * `ip:port`：enter the ip:port of your real service .
+  * `ip:port`：enter the ip:port of your real service .
 
-    * `protocol`：indicates the Http protocol. Generally, the value is `http://` or `https://`. If the value is not specified, the default value is `http://` .
+  * `protocol`：indicates the Http protocol. Generally, the value is `http://` or `https://`. If the value is not specified, the default value is `http://` .
 
-    * `weight`：service weight.
+  * `weight`：service weight.
 
-    * `status`：open or close.
+  * `status`：open or close.
 
 
 ## Metadata

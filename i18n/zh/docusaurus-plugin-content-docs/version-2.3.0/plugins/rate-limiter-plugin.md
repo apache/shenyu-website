@@ -78,8 +78,7 @@ description: rateLimiter插件
   
 * 规则详细说明
 
-* * 令牌桶算法/并发令牌桶算法
-
+  *令牌桶算法/并发令牌桶算法
 
 algorithmName（算法名）：tocketBucket/concurrent
 
@@ -88,7 +87,7 @@ replenishRate（速率）：是你允许用户每秒执行多少请求，而丢�
 burstCapacity（容量）：是允许用户在一秒钟内执行的最大请求数。这是令牌桶可以保存的令牌数。
 
 
-* * 漏桶算法 
+  * 漏桶算法 
 
 algorithmName（算法名）：leakyBucket
 
@@ -97,7 +96,7 @@ replenishRate（速率）：单位时间内执行请求的速率，漏桶中水�
 burstCapacity（容量）：是允许用户在一秒钟内执行的最大请求数。这是桶中的水量。
 
 
-* * 滑动窗口算法
+  * * 滑动窗口算法
 
 algorithmName（算法名）：sildingWindow
 

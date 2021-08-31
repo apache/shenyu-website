@@ -198,6 +198,8 @@ sidebar:
             link: 'custom-load-balance'
           - title: '自定义限流策略'
             link: 'custom-rate-limiter'
+          - title: '自定义指标监控'
+            link: 'custom-metrics-monitor'
   - title: '版本发布'
     link: 'release-notes'
   - title: '文档下载'

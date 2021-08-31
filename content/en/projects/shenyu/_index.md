@@ -200,6 +200,8 @@ sidebar:
            link: 'custom-load-balance'
          - title: 'Custom RateLimiter'
            link: 'custom-rate-limiter'
+         - title: 'Custom Metrics Monitor'
+           link: 'custom-metrics-monitor'
   - title: 'Release Notes'
     link: 'release-notes'
   - title: 'Download'

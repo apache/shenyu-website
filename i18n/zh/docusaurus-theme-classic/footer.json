@@ -17,11 +17,11 @@
   },
   "link.item.label.News": {
     "message": "新闻",
-    "description": "The label of footer link with label=News linking to /news/index"
+    "description": "The label of footer link with label=News linking to /news"
   },
   "link.item.label.Blog": {
     "message": "博客",
-    "description": "The label of footer link with label=Blog linking to /blog/index"
+    "description": "The label of footer link with label=Blog linking to /blog"
   },
   "link.item.label.Releases": {
     "message": "版本",

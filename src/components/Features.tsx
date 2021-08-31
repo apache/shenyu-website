@@ -1,7 +1,6 @@
 import React from 'react';
 import Translate, { translate } from '@docusaurus/Translate';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Link } from '@docusaurus/router';
 import FeatureCard from './FeatureCard';
 
 import styles from './Features.module.css';
@@ -59,6 +58,7 @@ const FEATURES = [
 
 const Features = (): React.ReactElement => (
   <section className={styles.features}>
+    <h1 className={styles.blockTitle}><Translate>Feature List</Translate></h1>
     <div className={styles['features--wrap']}>
       {FEATURES.map(({ image, title, subtitle }) => (
         <FeatureCard key={title} image={useBaseUrl(image)} title={title} subtitle={subtitle} />

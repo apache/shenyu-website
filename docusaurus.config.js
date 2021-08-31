@@ -113,11 +113,11 @@ module.exports = {
             },
             {
               label: 'News',
-              to: '/news/index',
+              to: '/news',
             },
             {
               label: 'Blog',
-              to: '/blog/index',
+              to: '/blog',
             },
             {
               label: 'Releases',
@@ -193,13 +193,13 @@ module.exports = {
           editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-shenyu-website/edit/master/website/',
+            'https://github.com/apache/incubator-shenyu-website/edit/main/website/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-shenyu-website/edit/master/website/blog/',
+            'https://github.com/apache/incubator-shenyu-website/edit/main/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -216,9 +216,9 @@ module.exports = {
         routeBasePath: 'community',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-shenyu-website/${locale}`;
+            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-shenyu-website/edit/master/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
         },
         editCurrentVersion: true,
         editLocalizedFiles: true,

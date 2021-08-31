@@ -313,5 +313,20 @@
   },
   "Support cluster deployment, A/B Test, blue-green release.": {
     "message": "支持集群部署，支持 A/B Test，蓝绿发布。"
+  },
+  "Feature List": {
+    "message": "特性一览"
+  },
+  "Our Users": {
+    "message": "我们的用户"
+  },
+  "Here is a list of companies or organizations that we know have used all or some of Apache ShenYu’s components in production.This list is in no particular order.": {
+    "message": "此处会列出我们已知的在生产环境使用了Apache ShenYu 全部或者部分组件的公司或组织。以下排名不分先后:"
+  },
+  "To better serve you, please register": {
+    "message": "为了更好地为您提供服务,请在此登记"
+  },
+  "[Here].": {
+    "message": "[这里]。"
   }
 }

@@ -1,0 +1,232 @@
+.primaryColor {
+  color:  var(--ifm-color-primary);
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.sectionAlt {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.sectionInner {
+  margin: 0 auto;
+}
+
+.featureImage {
+  max-width: 60%;
+  max-height: 128px;
+  margin: 0 auto;
+}
+
+.featureHeading {
+  font-size: var(--ifm-h3-font-size);
+  padding-top: 1rem;
+}
+
+.announcement {
+  font-weight: bold;
+  font-size: 24px;
+  padding: 48px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.announcementDark {
+  background-color: #20232a;
+  color: #fff;
+}
+
+.announcementInner {
+  margin: 0 auto;
+  max-width: 768px;
+}
+
+.hero {
+  background-color: #2b3137;
+  padding: 48px;
+}
+
+.heroInner {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+
+.heroProjectTitle {
+  color: #fff;
+  font-size: 60px;
+  margin: 0;
+}
+
+
+.heroProjectSubTitle {
+  color: #fff;
+  font-size: 40px;
+  margin: 0;
+}
+
+.heroProjectTagline {
+  color: #fff;
+  font-size: 25px;
+  margin: 0;
+}
+
+.heroTitleTextHtml b {
+  color: var(--ifm-color-primary);
+}
+
+.heroDesc{
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+}
+
+@keyframes jackInTheBox {
+  from {
+    opacity: 0;
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: center bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    transform: rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.heroLogo {
+  animation-duration: 2s;
+  animation-name: jackInTheBox;
+  float: right;
+  padding: 0 20px 20px;
+  width: 600px;
+  height: 400px;
+}
+
+.indexCtas {
+  --ifm-button-size-multiplier: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.indexCtas a:last-of-type {
+  margin: 20px 36px;
+}
+
+.indexCtasGitHubButtonWrapper {
+  display: flex;
+}
+
+.indexCtasGitHubButton {
+  overflow: hidden;
+  border: none;
+}
+
+.indexCtaTryNowButton:hover {
+  color: var(--ifm-color-primary);
+}
+
+.userSwiperContainer {
+  position: relative;
+  text-align: center;
+}
+
+
+.blockTitle:before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--ifm-color-primary);
+  margin: 0 auto 8px;
+}
+
+.blockTitle {
+  text-shadow: 4px 6px 0 rgb(0 0 0 / 7%);
+}
+
+.userSwiperContent {
+  height: 360px;
+}
+
+
+.swiper-slide {
+  width: 160px;
+  height: 65px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border: 1px solid #eaecef;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: #f8f9fa 0px 1px 2px 0px; 
+}
+
+.swiper-slide a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide  img {
+  max-height: 90%;
+  max-width: 90%;
+  opacity: 0.4;
+  transition: opacity 0.5s;
+}
+
+.swiper-slide  img:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .heroInner {
+    padding: 0;
+  }
+
+  .heroProjectTagline {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .heroLogo {
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+
+  .indexCtas {
+    justify-content: center;
+  }
+
+  .indexCtas a {
+    margin: 20px 36px;
+  }
+
+  .indexCtasGitHubButton {
+    display: none;
+  }
+}

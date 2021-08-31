@@ -92,6 +92,8 @@ sidebar:
         sub:
           - title: 'Admin属性配置'
             link: 'admin-property-config'
+          - title: '客户端属性配置'
+            link: 'client-property-config'
       - title: '数据同步配置'
         link: 'use-data-sync'
       - title: '客户端接入配置'
@@ -192,6 +194,14 @@ sidebar:
         link: 'thread'
       - title: 'ShenYu调优'
         link: 'shenyu-optimize'
+      - title: '自定义SPI'
+        sub:
+          - title: '自定义匹配方式'
+            link: 'custom-match-mode'
+          - title: '自定义条件参数'
+            link: 'custom-parameter-data'
+          - title: '自定义条件策略'
+            link: 'custom-predicate-judge'
   - title: '版本发布'
     link: 'release-notes'
   - title: '文档下载'

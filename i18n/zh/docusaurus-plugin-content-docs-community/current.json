@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.community.category.2fa": {
+    "message": "2fa",
+    "description": "The label for category 2fa in sidebar community"
+  },
+  "sidebar.community.category.code-conduct": {
+    "message": "code-conduct",
+    "description": "The label for category code-conduct in sidebar community"
+  },
+  "sidebar.community.category.committer": {
+    "message": "committer",
+    "description": "The label for category committer in sidebar community"
+  },
+  "sidebar.community.category.contributor-list": {
+    "message": "contributor-list",
+    "description": "The label for category contributor-list in sidebar community"
+  },
+  "sidebar.community.category.contributor": {
+    "message": "contributor",
+    "description": "The label for category contributor in sidebar community"
+  },
+  "sidebar.community.category.icla": {
+    "message": "icla",
+    "description": "The label for category icla in sidebar community"
+  },
+  "sidebar.community.category.issue-pr": {
+    "message": "issue-pr",
+    "description": "The label for category issue-pr in sidebar community"
+  },
+  "sidebar.community.category.release": {
+    "message": "release",
+    "description": "The label for category release in sidebar community"
+  },
+  "sidebar.community.category.user-list": {
+    "message": "user-list",
+    "description": "The label for category user-list in sidebar community"
+  },
+  "sidebar.community.category.vote-committer": {
+    "message": "vote-committer",
+    "description": "The label for category vote-committer in sidebar community"
+  }
+}

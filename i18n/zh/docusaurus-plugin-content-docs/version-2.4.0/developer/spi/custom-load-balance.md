@@ -41,7 +41,7 @@ ${you spi name} = ${you class path}
 
 * 在 `Admin` 后台 ---> 基础管理 ---> 字典管理 ,  找到字典编码为 `LOAD_BALANCE`，新增一条数据，注意字典名称要为: `${you spi name}`。
 
-<img src="/img/shenyu/custom/custom-load-balance-zh.jpg" width="40%" height="30%" />
+<img src="/static/img/shenyu/custom/custom-load-balance-zh.jpg" width="40%" height="30%" />
 
 * 或者执行以下自定义`SQL`语句：
 

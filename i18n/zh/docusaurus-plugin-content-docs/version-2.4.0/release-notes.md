@@ -11,10 +11,10 @@ description: release-notes
 - 支持读取 resource/directory 路径底下的 init_script 文件。
 - 按类别显示插件菜单。
 - 支持 admin 模块执行不同路径 sql 脚本。
-- ipUtils 添加参数选择网络 ip。
+- ipUtils 添加参数选择网络 ip 。
 - 添加 parameter-mapping 映射插件。
-- 支持 Consul 作为 shenyu-register-center。
-- 支持 Etcd 作为 shenyu-sync-data-center。
+- 支持 Consul 作为 shenyu-register-center 。
+- 支持 Etcd 作为 shenyu-sync-data-center 。
 - 添加 sentinel 自定义回退处理程序。
 - 添加 response 插件。
 - 添加 JWT 插件。
@@ -28,12 +28,12 @@ description: release-notes
 
 ##### API 更改
 
-- 将项目名称从 soul 更改为 shenyu。
-- 将组 id 从 org.dromara更改为 org.apache.shenyu。
+- 将项目名称从 soul 更改为 shenyu 。
+- 将组 id 从 org.dromara 更改为 org.apache.shenyu 。
 
 ##### 增强
 
-- H2 支持在 Mysql 模型中使用 insert ingore。
+- H2 支持在 Mysql 模型中使用 insert ingore 。
 - 增强 Dubbo 插件。
 - GRPC 插件优化。
 
@@ -51,7 +51,7 @@ description: release-notes
 - 修复 shenyu-spring-boot-starter 错误。
 - 编码后的 urlPath 将在 WebClientPlugin 中重新编码。
 - 替换风险密码算法 “AES/ECB/NoPadding”。
-- 修复 ReadTimeoutHandler 在 PooledConnectionProvider 中会导致意外的 ReadTimeoutException 的错误。
+- 修复 ReadTimeoutHandler 在 PooledConnectionProvider 中会意外导致 ReadTimeoutException 的错误。
 - 修复 2.4.8 版本的 spring boot 启动 shenyu 时会抛出 ClassNotFoundException 错误。
 
 ### 2.3.0

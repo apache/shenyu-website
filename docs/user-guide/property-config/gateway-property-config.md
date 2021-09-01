@@ -97,7 +97,7 @@ HttpClient connection pool configuration:
 | :------------- | :----: | :-------------------------------: | :------: | :----------------------------------------------------------- |
 | type           | String |              ELASTIC              |    No    | Type of pool for HttpClient to use, defaults to ELASTIC.<br /> - ELASTIC: The connection pool can be cached and grown on demand<br />- FIXED: The connection pool cache and reuse a fixed maximum The number of connections.<br />- DISABLED: The connection pool will always create a new connection. |
 | name           | String |               proxy               |    No    | The channel pool map name, defaults to proxy.                |
-| maxConnections |  int   | the maximum value of 2*CPU and 16 |    No    | Only for type FIXED, the maximum number of connections before starting pending acquisition on existing ones.<br />the default value is available number of processors * 2. <br /> (but with a minimum value of 16) |
+| maxConnections |  int   | the maximum value of 2*CPU and 16 |    No    | Only for type FIXED, the maximum number of connections before starting pending acquisition on existing ones.<br />the default value is available number of processors*2. <br /> (but with a minimum value of 16) |
 | acquireTimeout |  int   |               45000               |    No    | Only for type FIXED, the maximum time in millis to wait for aquiring. the default value is 45000 |
 
 - `proxy` config
@@ -231,3 +231,4 @@ The following properties are configured for data synchronization using `consul` 
 |url                | String |  null    | Yes |`consul` server url|
 | waitTime   | int    |  null   |   Yes    | the timeout period for requesting consul service to pull configuration information (milliseconds) |
 |watchDelay | int | null | Yes |Synchronization interval (milliseconds)|
+

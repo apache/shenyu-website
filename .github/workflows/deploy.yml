@@ -15,29 +15,13 @@ jobs:
         with:
           submodules: recursive
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.4.0
         with:
-          node-version: '10.x'
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.55.5'
-          extended: true
+          node-version: "14"
       - name: Setup Dependencies
-        run: npm install && npm run build
+        run: yarn install
       - name: Build Site
-        env:
-          HUGO_ENV: production
-        run: hugo --minify
-      - name: Set up Python Env
-        uses: actions/setup-python@v2
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        with:
-          python-version: '3.7'
-      - name: Generate PDF
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          bash .github/scripts/generate-pdf.sh
+        run: yarn build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -46,4 +30,4 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           publish_branch: asf-site
-          publish_dir: ./public
+          publish_dir: ./build

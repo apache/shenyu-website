@@ -73,3 +73,5 @@ cover: "/img/architecture/shenyu-framework.png"
 - 精确断言，尽量不使用`not`，`containsString`断言。
 - 测试用例的真实值应名为为actualXXX，期望值应命名为expectedXXX。
 - 测试类和`@Test`标注的方法无需javadoc。
+
+**以上内容参考了Apache ShardingSphere的编码指南，并做了适当调整。**

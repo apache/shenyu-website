@@ -1,6 +1,6 @@
 ---
-title: How to vote Apache ShenYu Committer
-description: How to vote Apache ShenYu Committer
+title: How to vote Committer
+description: How to vote Committer
 author: "xiaoyu"
 categories: "Apache ShenYu"
 tags: ["Vote-Committer"]

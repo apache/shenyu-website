@@ -229,4 +229,23 @@
   .indexCtasGitHubButton {
     display: none;
   }
+
+  .userSwiperContent {
+    height: 250px;
+  }
+
+  .swiper-slide {
+    width: 45px;
+    height: 35px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: 1px solid #eaecef;
+    border-radius: 2px;
+    padding: 10px;
+    box-shadow: #f8f9fa 0px 1px 2px 0px; 
+  }
 }

@@ -1,7 +1,7 @@
 ---
 id: subscribe-email
 sidebar_position: 1
-title: Apache ShenYu Subscribe Email
+title: Subscribe Email
 description: Apache ShenYu Subscribe Email
 author: "xiaoyu"
 categories: "Apache ShenYu"

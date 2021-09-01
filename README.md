@@ -38,6 +38,7 @@ This command starts a local development server and opens up a browser window. Mo
 * Create new branch
 * Commit and push changes to content (e.g. The `.md` file in `/docs`).
 * Translate the markdown file, commit  and push changes to content (e.g. The `.md` file in `/i18n/zh/docusaurus-plugin-content-docs/current`).
+* Check the format by `yarn lint`.
 * Submit pull request to `main` branch
 
 ## License

@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu Committer
+title: Committer
 description: Apache ShenYu Committer's Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"

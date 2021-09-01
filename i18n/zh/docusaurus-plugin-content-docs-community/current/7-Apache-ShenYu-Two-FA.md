@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu 双因素认证 (By Apache ShenYu Committers) 
+title: 双因素认证
 description: Apache ShenYu Two FA
 author: "xiaoyu"
 categories: "Apache ShenYu"

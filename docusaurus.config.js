@@ -27,6 +27,10 @@ module.exports = {
     },
   },
   themeConfig: {
+    announcementBar: {
+      id: 'announcementBar-2', // Increment on change
+      content: `⭐️ &nbsp; If you like Apache ShenYu (Incubating), give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-shenyu">GitHub</a>`,
+    },
     navbar: {
      // title: 'Apache ShenYu (Incubating)',
       logo: {

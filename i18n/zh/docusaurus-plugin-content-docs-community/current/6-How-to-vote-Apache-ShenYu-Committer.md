@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu提名新的Committer
+title: 提名新的Committer
 description: Apache ShenYu提名新的Committer
 author: "xiaoyu"
 categories: "Apache ShenYu"

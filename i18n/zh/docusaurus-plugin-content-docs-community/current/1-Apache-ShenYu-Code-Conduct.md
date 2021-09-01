@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu 编码指南
+title: 编码指南
 description: Apache ShenYu 编码指南
 author: "xiaoyu"
 categories: "Apache ShenYu"

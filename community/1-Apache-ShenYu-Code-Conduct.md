@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu Code Conduct
+title: Code Conduct
 description: Apache ShenYu Coding Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"

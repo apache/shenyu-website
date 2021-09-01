@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu Issue And Pull Request
+title: Issue And Pull Request
 description: Apache ShenYu Issue And Pull Request
 author: "xiaoyu"
 categories: "Apache ShenYu"

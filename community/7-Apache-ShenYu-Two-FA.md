@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu Two FA (By Apache ShenYu Committers) 
+title: Two FA
 description: Apache ShenYu Two FA
 author: "xiaoyu"
 categories: "Apache ShenYu"

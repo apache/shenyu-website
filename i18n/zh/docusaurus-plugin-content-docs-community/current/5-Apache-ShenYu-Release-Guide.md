@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu发布指南
+title: 发布指南
 description: Apache ShenYu发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---

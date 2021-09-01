@@ -7,6 +7,7 @@ description: release-notes
 ### 2.4.0
 
 ##### 新功能
+
 - 支持读取 resource/directory 路径底下的 init_script 文件
 - 按类别显示插件菜单
 - 支持 admin 模块执行不同路径 sql 脚本

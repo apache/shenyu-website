@@ -74,10 +74,10 @@ public class DefaultShenyuEntity implements Serializable {
 * 把你新增的实现类注册成为`Spring`的`bean`，如下：
 
 ```java
-    @Bean
-public ShenyuResult customShenyuResult() {
-        return new CustomShenyuResult();
-        }
+  @Bean
+  public ShenyuResult customShenyuResult() {
+      return new CustomShenyuResult();
+  }
 ```
 
 

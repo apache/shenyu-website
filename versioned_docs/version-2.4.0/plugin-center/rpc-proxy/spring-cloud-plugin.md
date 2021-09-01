@@ -45,18 +45,13 @@ description: SpringCloud Plugin
 
 * `Spring Cloud` client access, please refer to: [Spring Cloud Proxy](../../user-guide/spring-cloud-proxy) .
 
-
 ## Plugin Detail
-
 
 After the client accesses the `ShenYu` gateway, it will automatically register the selector and rule information. For details about the selector and rule configuration, see [Selector and Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
-
-
-#### Selector Handler
+### Selector Handler
 
 <img src="/img/shenyu/plugin/springcloud/selector_en.png" width="80%" height="80%" />
-
 
 Selector Handler, the `handle` field, is an operation that can be processed by the gateway after matching the traffic. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
 
@@ -64,7 +59,7 @@ Selector Handler, the `handle` field, is an operation that can be processed by t
 
 * details：
 
-    * `serviceId`：service id.
+  * `serviceId`：service id.
 
 #### Rule Handler
 
@@ -75,8 +70,8 @@ Rule Handler, the `handle` field, can be performed by the gateway after the fina
 * details：
 
 
-     * `path`：request path.
-     * `timeout`：set time out.
+  * `path`：request path.
+  * `timeout`：set time out.
 
 * Application name: it is your specific application name that needs to be invoked after the conditions are matched.
 * Apache ShenYu will obtain the real IP of the corresponding service and initiate http proxy calls from registration center of springCloud.

@@ -44,6 +44,7 @@ mvn protobuf:compile-custom
 Execute the `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` main method to start project.
 
 The following log appears when the startup is successful:
+
 ```shell
 2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-19] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/clientStreamingFun","pathDesc":"clientStreamingFun","rpcType":"grpc","serviceName":"stream.StreamService","methodName":"clientStreamingFun","ruleName":"/grpc/clientStreamingFun","parameterTypes":"io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"CLIENT_STREAMING\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
 2021-06-18 19:33:32.866  INFO 11004 --- [or_consumer_-17] o.a.s.r.client.http.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/echo","pathDesc":"echo","rpcType":"grpc","serviceName":"echo.EchoService","methodName":"echo","ruleName":"/grpc/echo","parameterTypes":"echo.EchoRequest,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":5000,\"methodType\":\"UNARY\"}","enabled":true,"host":"172.20.10.6","port":8080,"registerMetaData":false} 
@@ -77,13 +78,15 @@ Use `postman` to simulate `http` to request your gRPC service. The following is 
 
 The parameters are passed in json format. The name of the key is `data` by default, and you can reset it in `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME`. The input of value is based on the proto file defined by you.
 
-##  Streaming
+## Streaming
+
 the Apache ShenYu can support streaming of gRPC. The following shows the calls of the four method types of gRPC. In streaming, you can pass multiple parameters in the form of an array.
 
 
 - `UNARY`
 
 The request body like this.
+
 ```json
 {
     "data": [
@@ -93,6 +96,7 @@ The request body like this.
     ]
 }
 ```
+
 Then, call gRPC service by `UNARY` method type.
 
 ![](/img/shenyu/quick-start/grpc/grpc-unary.png)
@@ -100,6 +104,7 @@ Then, call gRPC service by `UNARY` method type.
 - `CLIENT_STREAMING`
 
 The request body like this.
+
 ```json
 {
     "data": [
@@ -115,6 +120,7 @@ The request body like this.
     ]
 }
 ```
+
 Then, call gRPC service by `CLIENT_STREAMING` method type.
 
 ![](/img/shenyu/quick-start/grpc/grpc-client-stream.png)
@@ -122,6 +128,7 @@ Then, call gRPC service by `CLIENT_STREAMING` method type.
 - `SERVER_STREAMING`
 
 The request body like this.
+
 ```json
 {
     "data": [
@@ -131,6 +138,7 @@ The request body like this.
     ]
 }
 ```
+
 Then, call gRPC service by `SERVER_STREAMING` method type.
 
 ![](/img/shenyu/quick-start/grpc/grpc-server-stream.png)
@@ -139,6 +147,7 @@ Then, call gRPC service by `SERVER_STREAMING` method type.
 
 
 The request body like this.
+
 ```json
 {
     "data": [
@@ -154,6 +163,7 @@ The request body like this.
     ]
 }
 ```
+
 Then, call gRPC service by `BIDI_STREAMING` method type.
 
 ![](/img/shenyu/quick-start/grpc/grpc-bidi-stream.png)

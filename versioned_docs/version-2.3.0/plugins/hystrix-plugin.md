@@ -33,10 +33,10 @@ description: hystrix plugin
 
 * Hystrix processing details:
     
-    * Trip minimum request quantity: the minimum request quantity, which must be reached at least before the fuse is triggered
-    * Error half-score threshold: the percentage of exceptions in this period of time.
-    * Maximum concurrency: the maximum concurrency
-    * Trip sleep time (ms): the recovery time after fusing.
-    * Grouping Key: generally set as: contextPath
-    * Command Key: generally set to specific path interface.
-    * CallBackUrl: default url: /fallback/hystrix.
+  * Trip minimum request quantity: the minimum request quantity, which must be reached at least before the fuse is triggered
+  * Error half-score threshold: the percentage of exceptions in this period of time.
+  * Maximum concurrency: the maximum concurrency
+  * Trip sleep time (ms): the recovery time after fusing.
+  * Grouping Key: generally set as: contextPath
+  * Command Key: generally set to specific path interface.
+  * CallBackUrl: default url: /fallback/hystrix.

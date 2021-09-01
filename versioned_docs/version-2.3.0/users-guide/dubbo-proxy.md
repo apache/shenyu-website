@@ -15,6 +15,7 @@ description: Integrate dubbo with soul gateway
 
 * Add these dependencies in gateway's `pom.xml`.
 * Alibaba dubbo user, configure the dubbo version and registry center with yours.
+
 ```xml
 <!--soul alibaba dubbo plugin start-->
 <dependency>
@@ -44,6 +45,7 @@ description: Integrate dubbo with soul gateway
   <version>4.0.1</version>
 </dependency>   
 ```
+
 * Apache dubbo user, configure the dubbo version and registry center with yours.
   
 ```xml
@@ -96,9 +98,10 @@ description: Integrate dubbo with soul gateway
 
   Dubbo integration with gateway,pls refer to : [soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo)
 
- * Alibaba Dubbo User
-    * SpringBoot
-       * Add these dependencies:
+* Alibaba Dubbo User
+  * SpringBoot
+    * Add these dependencies:
+
         ```xml
         <dependency>
              <groupId>org.dromara</groupId>
@@ -107,10 +110,11 @@ description: Integrate dubbo with soul gateway
         </dependency>
         ```
       
-        * backend server register center config, please look:[register center access](../register-center/register-center-access).
+    * backend server register center config, please look:[register center access](../register-center/register-center-access).
         
-    * Spring
-       * Add these dependencies：
+  * Spring
+    * Add these dependencies：
+
        ```xml
           <dependency>
             <groupId>org.dromara</groupId>
@@ -118,7 +122,8 @@ description: Integrate dubbo with soul gateway
             <version>${last.version}</version>
          </dependency>
        ```
-       * Inject these properties into your Sping beans XML file：      
+      
+    * Inject these properties into your Sping beans XML file：      
     
        ```xml
        <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
@@ -137,11 +142,13 @@ description: Integrate dubbo with soul gateway
            </property>
         </bean>
        ``` 
+
 * Apache Dubbo User
    
   * SpringBoot
       
-     * Add these dependencies:
+    * Add these dependencies:
+
      ```xml
      <dependency>
           <groupId>org.dromara</groupId>
@@ -149,10 +156,12 @@ description: Integrate dubbo with soul gateway
           <version>${last.version}</version>
      </dependency>
      ```
-     * backend server register center config, please look:[register center_access](../register-center/register-center-access)：
+    
+    * backend server register center config, please look:[register center_access](../register-center/register-center-access)：
 
   * Spring  
-     * Add these dependencies:
+    * Add these dependencies:
+
      ```xml
        <dependency>
            <groupId>org.dromara</groupId>
@@ -161,7 +170,8 @@ description: Integrate dubbo with soul gateway
         </dependency>
      ```
 
-     * Injecct these properties into your Spring beans XML file:
+    * Injecct these properties into your Spring beans XML file:
+
     ```xml
     <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
        <constructor-arg  ref="soulRegisterCenterConfig"/>
@@ -193,7 +203,7 @@ description: Integrate dubbo with soul gateway
 
 * you can add the annotation `@SoulDubboClient` to your dubbo service implementation class, so that the interface method will be configured with gateway.
 
-* start your provider and get the log `dubbo client register success `，then your dubbo interface has been added with soul gateway successfully.Pls refer to `soul-test-dubbo`
+* start your provider and get the log `dubbo client register success`，then your dubbo interface has been added with soul gateway successfully.Pls refer to `soul-test-dubbo`
   project.
 
 ### Dubbo user request and parameter explanation.
@@ -210,8 +220,8 @@ description: Integrate dubbo with soul gateway
 ```
 
 * parameter deliver:
-   * communicate with gateway through body or json of http post request.
-   * more parameter types, pls refer to the interface definition in  [soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo) and parameter passing
+  * communicate with gateway through body or json of http post request.
+  * more parameter types, pls refer to the interface definition in  [soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo) and parameter passing
      method.
 * Single java bean parameter type (`default`).
 * Multi-parameter type support, add this config value in gateway's yaml file:
@@ -242,8 +252,8 @@ public interface DubboParamResolveService {
   
 * `body` is the json string in http request.
 * `parameterTypes`: the list of method parameter types that are matched，split with `,`.
-*  in Pair，left is parmeter type，right is parameter value, it's the standard of dubbo generalization calls.
-*  Inject your class into Spring bean, cover the default implementation.
+* in Pair，left is parmeter type，right is parameter value, it's the standard of dubbo generalization calls.
+* Inject your class into Spring bean, cover the default implementation.
   
 ```java
 @Bean
@@ -253,15 +263,17 @@ public DubboParamResolveService A() {
 ```
 
 ## Service governance
+
 * Tag route
-    * Add `Dubbo_Tag_Route` when send request, the current request will be routed to the provider of the specified tag, which is only valid for the current request.
+  * Add `Dubbo_Tag_Route` when send request, the current request will be routed to the provider of the specified tag, which is only valid for the current request.
 * Explicit Target
-    * Set the `url` property in the annotation `@SoulDubboClient`.
-    * Update the configuration in Admin.
-    * It's valid for all request.
+  * Set the `url` property in the annotation `@SoulDubboClient`.
+  * Update the configuration in Admin.
+  * It's valid for all request.
 * Param valid and SoulException
-    * Set `validation="soulValidation"`.
-    * When `SoulException` is thrown in the interface, exception information will be returned. It should be noted that `SoulException` is thrown explicitly.
+  * Set `validation="soulValidation"`.
+  * When `SoulException` is thrown in the interface, exception information will be returned. It should be noted that `SoulException` is thrown explicitly.
+
     ```java
     @Service(validation = "soulValidation")
     public class TestServiceImpl implements TestService {
@@ -277,7 +289,7 @@ public DubboParamResolveService A() {
     }
     ```
   
-    * Request param
+  * Request param
   
     ```java
         public class HelloServiceRequest implements Serializable {
@@ -308,7 +320,7 @@ public DubboParamResolveService A() {
         }
     ```
   
-    * Send request
+  * Send request
   
     ```json
     {
@@ -316,7 +328,7 @@ public DubboParamResolveService A() {
     }
     ```
   
-    * Response
+  * Response
     
     ```json
     {
@@ -326,7 +338,7 @@ public DubboParamResolveService A() {
     }
     ```
   
-    * Error message
+  * Error message
     
     ```json
     {
@@ -335,6 +347,7 @@ public DubboParamResolveService A() {
         "data": "Param binding error."
     }
     ```
+
 ## Let's break down this process: http --> gateway --> dubbo provider
 
 * It basically switches from HTTP request to Dubbo protocol, then invoke Dubbo service and return to the result.
@@ -350,6 +363,7 @@ public DubboParamResolveService A() {
         return dubboTest;
     }
 ```
+
 So our request path is: http://localhost:9195/dubbo/insert, localhost:9195 is the gateway's domain name,if you changed before,so does with yours here..
 
 How about the request parameter? `DubboTest` is a java bean object，has 2 parameters, id and name, so we can transfer the value's json type through request body.

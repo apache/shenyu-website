@@ -8,8 +8,8 @@ description: plugins
 
 * Plugins are core executors of `Apache ShenYu` gateway. Every plugin handles matched requests when enabled.
 * There are two kinds of plugins in the `Apache ShenYu` gateway.
-    * The first type is a chain with single responsibility, and can not custom filtering of traffic.
-    * The other one can do its own chain of responsibility for matched traffic.
+  * The first type is a chain with single responsibility, and can not custom filtering of traffic.
+  * The other one can do its own chain of responsibility for matched traffic.
 * You could reference from [shenyu-plugin](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-plugin) module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
 
 ## Single Responsibility Plugins
@@ -71,6 +71,7 @@ public interface ShenyuPlugin {
 }
 
 ```
+
 Detailed instruction of interface methods:
 
 * `execute()` core method, you can do any task here freely.
@@ -90,6 +91,7 @@ Detailed instruction of interface methods:
 ## Matching Traffic Processing Plugin
 
 * Introduce the following dependency:
+
 ```xml
  <dependency>
         <groupId>org.apache.shenyu</groupId>
@@ -97,6 +99,7 @@ Detailed instruction of interface methods:
         <version>${project.version}</version>
   </dependency>
 ```
+
 * Add a new class `CustomPlugin`, inherit from `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
 
 * examples down below:
@@ -183,13 +186,13 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
 * Detailed explanation:
 
-    * Plugins will match the selector rule for customized plugins inherit from this abstract class.
+  * Plugins will match the selector rule for customized plugins inherit from this abstract class.
 
-    * Firstly define a new plugin in `shenyu-admin`  –> BasicConfig –> Plugin, please mind that your plugin name should match the `named()` method overridden in your class.
+  * Firstly define a new plugin in `shenyu-admin`  –> BasicConfig –> Plugin, please mind that your plugin name should match the `named()` method overridden in your class.
 
-    * Re-login  `shenyu-admin`, the plugin you added now showing on plugin-list page, you can choose selectors for matching.
+  * Re-login  `shenyu-admin`, the plugin you added now showing on plugin-list page, you can choose selectors for matching.
 
-    * There is a field named `handler` in rules, it is customized json string to be processed. You can process data after acquiring a ruleHandle (` final String ruleHandle = rule.getHandle();`) in `doExecute()` method.
+  * There is a field named `handler` in rules, it is customized json string to be processed. You can process data after acquiring a ruleHandle (`final String ruleHandle = rule.getHandle();`) in `doExecute()` method.
 
 * Register plugin in `Spring` as a `Bean`, or simply apply `@Component` in implementation class.
 
@@ -267,6 +270,7 @@ public interface PluginDataHandler {
 
 * Ensure `pluginNamed()` is same as the plugin name you defined.
 * Register defined class as a `Spring Bean`, or simply apply `@Component` in implementation class.
+
 ```java
     @Bean
     public PluginDataHandler pluginDataHandler() {

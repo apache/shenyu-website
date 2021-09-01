@@ -55,6 +55,7 @@ description: Spring Cloud快速开始
 ```
 
 `eureka`配置信息如下：
+
 ```xml
 eureka:
   client:
@@ -77,6 +78,7 @@ eureka:
 启动`spring cloud`服务，运行`org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication`main方法启动项目。
 
 成功启动会有如下日志：
+
 ```shell
 2021-02-10 14:03:51.301  INFO 2860 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2021-02-10 14:03:51.669  INFO 2860 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : springCloud client register success: {"appName":"springCloud-test","context":"/springcloud","path":"/springcloud/order/save","pathDesc":"","rpcType":"springCloud","ruleName":"/springcloud/order/save","enabled":true} 
@@ -115,6 +117,7 @@ eureka:
 
 
 ## 测试Http请求
+
 `shenyu-examples-springcloud`项目成功启动之后会自动把加 `@ShenyuSpringCloudClient` 注解的接口方法注册到网关。
 
 打开`插件列表 -> rpc proxy -> springCloud` 可以看到插件规则配置列表：

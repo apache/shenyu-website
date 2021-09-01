@@ -31,6 +31,7 @@ public class SoulDefaultEntity implements Serializable {
 ```
 
 * 返回的json 格式如下：
+
 ```json
 {
     "code": -100, //返回码,
@@ -41,7 +42,7 @@ public class SoulDefaultEntity implements Serializable {
 
 ## 扩展
 
-*  新增一个类 A 实现 `org.dromara.soul.plugin.api.result.SoulResult`
+* 新增一个类 A 实现 `org.dromara.soul.plugin.api.result.SoulResult`
 
 ```java
  public interface SoulResult<T> {

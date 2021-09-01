@@ -12,11 +12,9 @@ For details about client access configuration, see [Application Client Access Co
 
 For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
 
-
 ## Add springcloud plugin in gateway
 
 * add these dependencies in gateway's pom.xml:
-
 
 ```xml
   <!-- apache shenyu springCloud plugin start-->
@@ -157,6 +155,7 @@ example (2)：`/order/save` will be handled by gateway, and `/order/findById` wo
 ```
 
 example (3)：  `isFull`：`true`  represents that all service will be represented by the gateway.
+
 ```yaml
 shenyu:
   client:
@@ -172,7 +171,8 @@ shenyu:
 # appName：your application name
 # isFull: set true to proxy your all service and false to proxy some of your controllers
 ```
- ```java
+
+```java
   @RestController
   @RequestMapping("/order")
   public class OrderController {
@@ -196,8 +196,6 @@ shenyu:
 
 * After successfully registering your service, go to the backend management system PluginList -> rpc proxy -> springCloud ', you will see the automatic registration of selectors and rules information.
 
-
-
 ## User Request
 
 * Send the request as before, only two points need to notice.
@@ -213,4 +211,3 @@ shenyu:
 > We can see `localhost:9195` is the gateway's ip port, default port number is `9195` , `/order` is the `contextPath` in your config yaml file.
 >
 > The request of other parameters doesn't change. Then you can visit, very easy and simple.
-

@@ -26,7 +26,6 @@ The process of submitting ICLA are:
 **3. Open the PDF, and fill in the following columns in English.**
 
 > To be noticed:
-
 > - Leave a space between family name and last name, remember capitalize the first letter, please write family name at first.
 > - Preferred Apache id(s) is a required field for committers.
 
@@ -44,7 +43,6 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 ## Manual signature and PDF software signature Demo {#manual-signature-and-pdf-software-signature-demo}
 
 > PDF online signature
-
 > - Download the PDF source file
 > - Fill in items and personal information
 > - Open PDF and sign URL online
@@ -58,7 +56,6 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 ![](/img/shenyu/icla/pls_sign.png)
 
 > Handwritten signature
-
 > - Download the PDF source file
 > - Fill in items and personal information
 > - Print documents
@@ -72,5 +69,6 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 ![](/img/shenyu/icla/doc_content.png)
 
 ## Email Template {#email-template}
+
 ![](/img/shenyu/icla/email_template_file.png)
 ![](/img/shenyu/icla/email_template.png)

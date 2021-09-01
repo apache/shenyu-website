@@ -13,13 +13,13 @@ You can report a bug, submit a new function enhancement suggestion, or submit a 
 
 ## Submit an Issue {#submit-an-issue}
 
- - Before submitting an issue, please go through a comprehensive search to make sure the problem cannot be solved just by searching.
- - Check the [Issue List](https://github.com/apache/incubator-shenyu/issues) to make sure the problem is not repeated.
- - [Create](https://github.com/apache/incubator-shenyu/issues/new/choose) a new issue and choose the type of issue.
- - Define the issue with a clear and descriptive title.
- - Fill in necessary information according to the template.
- - Choose a label after the issue is created, for example: bug，enhancement，discussion.
- - Please pay attention to your issue, you may need to provide more information during discussion.
+- Before submitting an issue, please go through a comprehensive search to make sure the problem cannot be solved just by searching.
+- Check the [Issue List](https://github.com/apache/incubator-shenyu/issues) to make sure the problem is not repeated.
+- [Create](https://github.com/apache/incubator-shenyu/issues/new/choose) a new issue and choose the type of issue.
+- Define the issue with a clear and descriptive title.
+- Fill in necessary information according to the template.
+- Choose a label after the issue is created, for example: bug，enhancement，discussion.
+- Please pay attention to your issue, you may need to provide more information during discussion.
 
 ## Developer Flow {#developer-flow}
 
@@ -33,12 +33,12 @@ git remote add upstream https://github.com/apache/incubator-shenyu.git
 
 **Choose Issue**
 
- - Please choose the issue to be edited. If it is a new issue discovered or a new function enhancement to offer, please create an issue and set the right label for it.
- - After choosing the relevant issue, please reply with a deadline to indicate that you are working on it.
+- Please choose the issue to be edited. If it is a new issue discovered or a new function enhancement to offer, please create an issue and set the right label for it.
+- After choosing the relevant issue, please reply with a deadline to indicate that you are working on it.
 
 **Create Branch**
 
- - Switch to forked master branch, pull codes from upstream, then create a new branch.
+- Switch to forked master branch, pull codes from upstream, then create a new branch.
 
 ```shell
 git checkout master
@@ -61,19 +61,20 @@ git push origin issueNo
 
 **Submit Pull Request**
 
- - Send a pull request to the master branch.
- - The mentor will do code review before discussing some details (including the design, the implementation and the performance) with you. The request will be merged into the branch of current development version after the edit is well enough.
- - At last, congratulate to be an official contributor of ShenYu.
+- Send a pull request to the master branch.
+- The mentor will do code review before discussing some details (including the design, the implementation and the performance) with you. The request will be merged into the branch of current development version after the edit is well enough.
+- At last, congratulate to be an official contributor of ShenYu.
 
 **Delete Branch**
 
- - You can delete the remote branch (origin/issueNo) and the local branch (issueNo) associated with the remote branch (origin/issueNo) after the mentor merged the pull request into the master branch of ShenYu.
+- You can delete the remote branch (origin/issueNo) and the local branch (issueNo) associated with the remote branch (origin/issueNo) after the mentor merged the pull request into the master branch of ShenYu.
 
 ```shell
 git checkout master
 git branch -d issueNo
 git push origin --delete issueNo
 ```
+
 **Notice**:  Please note that in order to show your id in the contributor list, don't forget the configurations below:
 
 ```shell

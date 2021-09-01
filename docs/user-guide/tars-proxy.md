@@ -77,5 +77,5 @@ Example:
 
 ## User Request
 
-You can request your tars service by Http. The `Apache ShenYu` gateway needs to have a route prefix which is the `contextPath` configured by the access gateway. For example: ` http://localhost:9195/tars/hello` .
+You can request your tars service by Http. The `Apache ShenYu` gateway needs to have a route prefix which is the `contextPath` configured by the access gateway. For example: `http://localhost:9195/tars/hello` .
 

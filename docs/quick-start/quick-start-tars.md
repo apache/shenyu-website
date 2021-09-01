@@ -57,6 +57,7 @@ Execute the `org.apache.shenyu.examples.tars.ShenyuTestTarsApplication` main met
 **Note:** The `configuration file address` needs to be specified in the startup command when the service starts **-Dconfig=xxx/ShenyuExampleServer.ShenyuExampleApp.config.conf**
 
 If the `-Dconfig` parameter is not added, the configuration may throw the following exceptions:
+
 ```xml
 com.qq.tars.server.config.ConfigurationException: error occurred on load server config
 	at com.qq.tars.server.config.ConfigurationManager.loadServerConfig(ConfigurationManager.java:113)
@@ -87,6 +88,7 @@ The exception occurred at load server config
 ```
 
 The following log appears when the startup is successful:
+
 ```shell
 [SERVER] server starting at tcp -h 127.0.0.1 -p 21715 -t 60000...
 [SERVER] server started at tcp -h 127.0.0.1 -p 21715 -t 60000...

@@ -80,7 +80,9 @@ description: sofa 接入 Apache ShenYu 网关
             <version>${shenyu.version}</version>
         </dependency>
    ```
+
 并在你的 `bean`定义的`xml`文件中新增如下 ：
+
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor">
              <constructor-arg  ref="shenyuRegisterCenterConfig"/>
@@ -151,9 +153,9 @@ description: sofa 接入 Apache ShenYu 网关
 
 * `body`为`http`中`body`传的`json`字符串。
 
-*  `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用`,`分割。
+* `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用`,`分割。
 
-*  `Pair`中，`left`为参数类型，`right`为参数值，这是`sofa`泛化调用的标准。
+* `Pair`中，`left`为参数类型，`right`为参数值，这是`sofa`泛化调用的标准。
 
 * 把你的类注册成`Spring`的`bean`，覆盖默认的实现。
 

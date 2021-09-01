@@ -41,6 +41,7 @@ description: monitor plugin
   </dependency>
   <!-- apache shenyu monitor plugin end-->
 ```
+
 * Selectors and rules, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule).
 * Only when the url is matched, the url will request event tracking.
 
@@ -71,6 +72,7 @@ Users need to install `Prometheus` service to collect
      static_configs:
      - targets: ['localhost:9190']
  ```
+
 **Note:** The `job_name` corresponds to the `metricsName` of the `monitor` plug-in configuration
 
 * After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`, Success can be verified at http://localhost:9090/

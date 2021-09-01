@@ -38,7 +38,7 @@ For example, add a string type field `path` and a digital type field `timeout` t
 - Field: Add the name of the field.
 - Describe: Field description.
 - DataType: Field data type.
-    - If the `DropDown` is selected, the drop-down selection of the input box on the rule addition page is to go to the dictionary table to find all the available options through the field name to select, so you need to config the selection in [Dictionary Management](../dictionary-management).
+  - If the `DropDown` is selected, the drop-down selection of the input box on the rule addition page is to go to the dictionary table to find all the available options through the field name to select, so you need to config the selection in [Dictionary Management](../dictionary-management).
 - FieldType: This field belongs to selector, rule or plugin.
 - Sort: Sequence number.
 - Required: Is this field required.

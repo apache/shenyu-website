@@ -49,9 +49,10 @@ description: sofa接入soul网关
 
 ## sofa服务接入网关，可以参考：[soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa)
 
- * springboot
+* springboot
 
-    * 引入以下依赖
+  * 引入以下依赖
+
  ```xml
         <dependency>
             <groupId>org.dromara</groupId>
@@ -60,11 +61,11 @@ description: sofa接入soul网关
         </dependency>
  ```
 
-  * 注册中心详细接入配置请参考：[注册中心接入](../register-center/register-center-access)
+* 注册中心详细接入配置请参考：[注册中心接入](../register-center/register-center-access)
 
 * spring
 
-   * 引入以下依赖 ：
+  * 引入以下依赖 ：
    
  ```xml
         <dependency>
@@ -73,7 +74,9 @@ description: sofa接入soul网关
             <version>${project.version}</version>
         </dependency>
    ```
-   * 在你的 bean定义的xml文件中新增如下 ：
+
+* 在你的 bean定义的xml文件中新增如下 ：
+
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.dromara.soul.client.sofa.SofaServiceBeanPostProcessor">
              <constructor-arg  ref="soulRegisterCenterConfig"/>
@@ -95,7 +98,7 @@ description: sofa接入soul网关
 
 * 首先在 `soul-admin` 插件管理中，把`sofa` 插件设置为开启。
 
-* 其次在 `sofa ` 插件中配置你的注册地址或者其他注册中心的地址.
+* 其次在 `sofa` 插件中配置你的注册地址或者其他注册中心的地址.
 
 ```yaml
 {"protocol":"zookeeper","register":"127.0.0.1:2181"}
@@ -105,7 +108,7 @@ description: sofa接入soul网关
 
 * 你sofa服务实现类的，方法上加上 @SoulSofaClient 注解，表示该接口方法注册到网关。
 
-* 启动你的提供者，输出日志 `sofa client register success ` 大功告成，你的sofa接口已经发布到 soul网关.如果还有不懂的，可以参考 `soul-test-sofa`项目。
+* 启动你的提供者，输出日志 `sofa client register success` 大功告成，你的sofa接口已经发布到 soul网关.如果还有不懂的，可以参考 `soul-test-sofa`项目。
 
 ## sofa用户请求以及参数说明
 
@@ -123,8 +126,8 @@ description: sofa接入soul网关
 
 * 参数传递：
 
-   * 通过 http post 方式访问网关，通过body，json类型传递。
-   * 更多参数类型传递，可以参考[soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa) 中的接口定义，以及参数传递方式。
+  * 通过 http post 方式访问网关，通过body，json类型传递。
+  * 更多参数类型传递，可以参考[soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa) 中的接口定义，以及参数传递方式。
 
 * 单个java bean参数类型 （默认）
 * 自定义实现多参数支持：
@@ -145,13 +148,13 @@ description: sofa接入soul网关
     }
   ```
 
-  * `body`为http中body传的json字符串。
+* `body`为http中body传的json字符串。
 
-  *  `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用`,`分割。
+* `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用`,`分割。
 
-  *  Pair中，left为参数类型，right为参数值，这是sofa泛化调用的标准。
+* Pair中，left为参数类型，right为参数值，这是sofa泛化调用的标准。
 
-  * 把你的类注册成Spring的bean，覆盖默认的实现。
+* 把你的类注册成Spring的bean，覆盖默认的实现。
 
  ```java
     @Bean

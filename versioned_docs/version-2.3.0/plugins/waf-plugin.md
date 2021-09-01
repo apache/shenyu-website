@@ -20,7 +20,7 @@ description: waf plugin
 # The default mode is blacklist mode; If setting is mixed, it will be mixed mode. We will explain it specifically below.
 ```
 
-## Plugin Setting
+## Plugin Detail
 
 * Introducing `waf` dependency in the pom.xml of the gateway.
 

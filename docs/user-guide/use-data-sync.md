@@ -178,6 +178,7 @@ Add these dependencies in `pom.xml`：
             <version>${project.version}</version>
         </dependency>
 ```
+
   <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-pom.png" width="80%" height="70%" />
 
 
@@ -200,6 +201,7 @@ shenyu:
         secretKey:
      # other configure，please refer to the naocs website.
 ```
+
   <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
 
 
@@ -252,8 +254,8 @@ shenyu:
             </exclusions>
         </dependency>
 ```
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-pom.png" width="80%" height="70%" />
 
+<img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-pom.png" width="80%" height="70%" />
 
 Add these config values in  yaml file:
 

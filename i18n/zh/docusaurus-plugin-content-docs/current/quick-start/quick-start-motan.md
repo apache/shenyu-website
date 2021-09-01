@@ -64,6 +64,7 @@ description: Motan快速开始
 运行`org.apache.shenyu.examples.motan.service.TestMotanApplication`main方法启动项目。
 
 成功启动会有如下日志：
+
 ```shell
 2021-07-18 16:46:25.388  INFO 96 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
 2021-07-18 16:46:25.393  INFO 96 --- [           main] o.a.s.e.m.service.TestMotanApplication   : Started TestMotanApplication in 3.89 seconds (JVM running for 4.514)
@@ -79,6 +80,7 @@ description: Motan快速开始
 
 
 ## 测试Http请求
+
 `shenyu-examples-motan`项目成功启动之后会自动把加 `@ShenyuMotanClient` 注解的接口方法注册到网关，并添加选择器和规则，如果没有，可以手动添加。
 
 打开`插件列表 -> rpc proxy -> motan`可以看到插件规则配置列表：

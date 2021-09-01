@@ -23,9 +23,11 @@ description: sofa插件
 * 在 `soul-admin` --> 插件管理-> `sofa` 设置为开启。
 
 * 在sofa插件的配置中，配置如下：配置sofa的注册中心。
+
 ```yaml
 {"protocol":"zookeeper","register":"127.0.0.1:2181"}
 ```
+
 * 插件需要配合依赖 `starter` 进行使用，具体请看：[sofa用户](../users-guide/sofa-rpc-proxy)。
 
 * 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。

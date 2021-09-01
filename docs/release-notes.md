@@ -34,6 +34,7 @@ description: release-notes
 
 
 ### 2.2.0
+
 - Complete plug-in architecture design, plug-in hot-swappable.
 - Fully supports all versions of dubbo, alibaba-dubbo, apache-dubbo.
 - Support dubbo generalization call, multi-parameter, complex parameter interface.

@@ -15,7 +15,7 @@ description: monitor插件
 
 * 异步或者同步的方式，在 `Apache ShenYu` 网关里面进行 `metrics` 埋点。
 
-* `prometheus` 服务端通过 `http` 请求来拉取  `metrics`，再使用 `Grafana ` 展示。
+* `prometheus` 服务端通过 `http` 请求来拉取  `metrics`，再使用 `Grafana` 展示。
 
 ## 插件设置
 
@@ -49,6 +49,7 @@ description: monitor插件
         </dependency>
         <!-- apache shenyu monitor plugin end-->
 ```
+
 * 选择器和规则配置，请参考: [选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 * 只有当匹配的`url`，才会进行`url`请求埋点。
 
@@ -79,6 +80,7 @@ description: monitor插件
      static_configs:
      - targets: ['localhost:9190']
  ```
+
 **注：** `job_name`跟`monitor`插件配置的`metricsName`相对应
 
 * 配置完成之后 `window` 下可以直接双击 `prometheus.exe` 启动即可，默认启动端口为 `9090` ，可通过http://localhost:9090/ 验证是否成功

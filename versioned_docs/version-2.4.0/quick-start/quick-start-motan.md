@@ -18,7 +18,6 @@ After successful startup, you need to open the Sofa plugin on in the BasicConfig
 If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
 
 > Note: Before starting, make sure the gateway has added dependencies.
-
 > Start up zookeeper in local.
 
 Import the gateway proxy plugin for `Motan` and add the following dependencies to the gateway's `pom.xml` file:

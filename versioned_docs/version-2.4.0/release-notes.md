@@ -6,7 +6,7 @@ description: release-notes
 
 ### 2.3.0
 
-##### soul-admin
+#### soul-admin
 
 - Add `open` field to allow app path authentication or not in sign plugin.
 - Optimize divide plugin to use common plugin template in soul-dashboard.
@@ -15,7 +15,7 @@ description: release-notes
 - Add menu and data permission in soul-admin.
 - Add H2 store for soul-admin.
 
-##### soul-bootstrap
+#### soul-bootstrap
 
 - Add tars plugin
 - Add sentinel plugin
@@ -34,6 +34,7 @@ description: release-notes
 
 
 ### 2.2.0
+
 - Complete plug-in architecture design, plug-in hot-swappable.
 - Fully supports all versions of dubbo, alibaba-dubbo, apache-dubbo.
 - Support dubbo generalization call, multi-parameter, complex parameter interface.

@@ -10,10 +10,11 @@ description: context_path插件
 
 ## 插件设置
 
--  在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `context_path` 设置为开启。
--  如果用户不需要，可以把插件禁用。
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `context_path` 设置为开启。
+- 如果用户不需要，可以把插件禁用。
 
 ## 插件使用
+
 - 在网关的 `pom.xml` 文件中添加 `context_path` 的支持。
 
 ```xml

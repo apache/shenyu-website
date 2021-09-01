@@ -29,6 +29,7 @@ description: websocket plugin
     <version>${last.version}</version>
 </dependency>
 ```
+
 ## Request Path
 
 * When using soul proxy websocket, its request path is (example):`ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket`.

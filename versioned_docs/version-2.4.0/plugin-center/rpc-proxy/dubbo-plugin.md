@@ -36,34 +36,34 @@ description: dubbo plugin
 * ParamsType: List of parameter types of dubbo interface, there are two declaration methods here:
   e.g. we have an interface `update(Integer id, String name, Integer age)`
 
-    * Type list
+  * Type list
 
         ```yaml
         java.lang.Integer,java.lang.String,java.lang.Integer
         ```
 
-        * According to the order of the parameter types of the interface, separated by `,`
+    * According to the order of the parameter types of the interface, separated by `,`
 
-        * When requesting to pass parameters, **the parameters must be passed in strictly in accordance with the order of the parameter types**, if a parameter without value use `null` as a placeholder.
+    * When requesting to pass parameters, **the parameters must be passed in strictly in accordance with the order of the parameter types**, if a parameter without value use `null` as a placeholder.
 
           Request body example: `{"id":1,"name": null,"age":18}`
 
-    * Name mapping
+  * Name mapping
 
       ```yaml
       {"id":"java.lang.Integer","name":"java.lang.String","age":"java.lang.Integer"}      
       ```
 
-        * Use `"parameter name":"parameter type"` to represent a parameter, set in order of interface parameter type, separated by `,`
+    * Use `"parameter name":"parameter type"` to represent a parameter, set in order of interface parameter type, separated by `,`
 
-        * No need to pay attention to the order when requesting, and no need to use null placeholders.
+    * No need to pay attention to the order when requesting, and no need to use null placeholders.
 
           Request body example: `{"name":"Mike","id":1}`
 
 * RpcExpand: corresponding to some configurations of dubbo interface; If you want to adjust, please modify here, which support json format like the following fields:
 
 ```yaml
-{"timeout":10000,"group":"",version":"","loadbalance":"","retries":1}
+{ "timeout": 10000,"group": "",version":"","loadbalance": "","retries": 1 }
 ```
 
 * Interface: The fully-qualified name for dubbo interface .

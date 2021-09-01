@@ -48,20 +48,20 @@ For more instructions on selector and rule configuration, please refer to: [Sele
 
 For requests that are denied access by `Waf` , the response header status code is: `403`.
 
-#### Black Model
+### Black Model
 
 * When `model` is set to `black` mode, only the matched traffic will execute the rejection policy, and the unmatched traffic will be skipped directly.
 * The `Handler` feild in the rule configuration is invalid and can be configured to be empty.
 
-#### Mixed Model
+### Mixed Model
 
 * When `model` is set to `mixed` mode, all traffic will pass through waf plugin. For different matching traffic, users can set whether to reject or pass.
 
 * The `Handler` feild  in the rule configuration must be configured:
 
-    * `permission`: The handle logic that matches the rule. `reject`: deny access, `allow`: allow access.
+  * `permission`: The handle logic that matches the rule. `reject`: deny access, `allow`: allow access.
 
-    * `statusCode`: When access is denied, the value of the code field in the response body. `Will not modify the status code of the response header`.
+  * `statusCode`: When access is denied, the value of the code field in the response body. `Will not modify the status code of the response header`.
 
       e.g.：`statusCode=10001`，The rejected response body is :
 

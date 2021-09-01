@@ -49,7 +49,8 @@ description: sofa access soul gateway
 
 * Springboot
 
-    * Introduce the following dependencies :
+  * Introduce the following dependencies :
+
  ```xml
         <dependency>
             <groupId>org.dromara</groupId>
@@ -58,11 +59,12 @@ description: sofa access soul gateway
         </dependency>
  ```
 
-  * backend server register center config, please look:[register center access](../register-center/register-center-access).
+* backend server register center config, please look:[register center access](../register-center/register-center-access).
 
 * Spring
 
-   * Introduce the following dependencies:
+  * Introduce the following dependencies:
+
  ```xml
         <dependency>
             <groupId>org.dromara</groupId>
@@ -70,7 +72,8 @@ description: sofa access soul gateway
             <version>${project.version}</version>
         </dependency>
    ```
-   * Add the following in the xml file of your bean definition:
+
+* Add the following in the xml file of your bean definition:
    
   ```xml
         <bean id ="sofaServiceBeanPostProcessor" class ="org.dromara.soul.client.sofa.SofaServiceBeanPostProcessor">
@@ -121,8 +124,8 @@ description: sofa access soul gateway
 
 * Parameter passing：
 
-   * Access the gateway through http post，and pass through body and json.
-   * For more parameter type transfer, please refer to the interface definition in [soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa) and the parameter transfer method.
+  * Access the gateway through http post，and pass through body and json.
+  * For more parameter type transfer, please refer to the interface definition in [soul-examples-sofa](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa) and the parameter transfer method.
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:
@@ -143,13 +146,13 @@ description: sofa access soul gateway
     }
   ```
 
-  * `body` is the json string passed by body in http. 
+* `body` is the json string passed by body in http. 
 
-  * `parameterTypes`: list of matched method parameter types, If there are multiple, use `,` to separate.
+* `parameterTypes`: list of matched method parameter types, If there are multiple, use `,` to separate.
 
-  * In Pair，left is the parameter type，and right is the parameter value. This is the standard for sofa generalization calls.
+* In Pair，left is the parameter type，and right is the parameter value. This is the standard for sofa generalization calls.
 
-  * Register your class as a String bean and override the default implementation.
+* Register your class as a String bean and override the default implementation.
 
  ```java
 @Bean

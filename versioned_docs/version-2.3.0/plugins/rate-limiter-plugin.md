@@ -74,18 +74,15 @@ description: rateLimiter plugin
 
 * Detailed description of the rules
 
-* * Token bucket algorithm/Concurrent token bucket algorithm
-
-
+  * Token bucket algorithm/Concurrent token bucket algorithm
+  
 lgorithmName：tocketBucket/concurrent
 
 replenishRate：It is how many requests you allow users to execute per second, while not discarding any requests. This is the filling rate of token bucket.
 
 burstCapacity：it is the maximum number of requests that users are allowed to execute in one second. This is token bucket can save the number of token.
 
-
-* * Leaky bucket algorithm
-
+  * Leaky bucket algorithm
 
 algorithmName：leakyBucket
 
@@ -94,7 +91,7 @@ replenishRate：The rate at which requests are executed per unit time, and the r
 burstCapacity：The maximum number of requests that users are allowed to execute in one second. This is the amount of water in the bucket.
 
   
-* * Sliding time window algorithm
+  * Sliding time window algorithm
 
 
 algorithmName：sildingWindow

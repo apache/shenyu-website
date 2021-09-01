@@ -80,30 +80,30 @@ For more information on selectors and rules configuration, see [Selector And Rul
 
 * TokenBucket/Concurrent
 
-    * `algorithmName`: `tokenBucket`/`concurrent`.
+  * `algorithmName`: `tokenBucket`/`concurrent`.
 
-    * `replenishRate`: It is how many requests you allow users to execute per second, while not discarding any requests. This is the filling rate of token bucket.
+  * `replenishRate`: It is how many requests you allow users to execute per second, while not discarding any requests. This is the filling rate of token bucket.
 
-    * `burstCapacity`: it is the maximum number of requests that users are allowed to execute in one second. This is token bucket can save the number of token.
+  * `burstCapacity`: it is the maximum number of requests that users are allowed to execute in one second. This is token bucket can save the number of token.
 
-    * `keyResolverName`: `whole` indicates that the traffic is limited by gateway per second, and `remoteAddress` indicates that the traffic is limited by IP per second.
+  * `keyResolverName`: `whole` indicates that the traffic is limited by gateway per second, and `remoteAddress` indicates that the traffic is limited by IP per second.
 
 * LeakyBucket
 
-    * `algorithmName`: `leakyBucket`.
+  * `algorithmName`: `leakyBucket`.
 
-    * `replenishRate`: The rate at which requests are executed per unit time, and the rate at which water droplets leak out of the leaky bucket.
+  * `replenishRate`: The rate at which requests are executed per unit time, and the rate at which water droplets leak out of the leaky bucket.
 
-    * `burstCapacity`: The maximum number of requests that users are allowed to execute in one second. This is the amount of water in the bucket.
+  * `burstCapacity`: The maximum number of requests that users are allowed to execute in one second. This is the amount of water in the bucket.
 
-    * `keyResolverName`: `whole` indicates that the traffic is limited by gateway per second, and `remoteAddress` indicates that the traffic is limited by IP per second.
+  * `keyResolverName`: `whole` indicates that the traffic is limited by gateway per second, and `remoteAddress` indicates that the traffic is limited by IP per second.
 
 * SlidingWindow
 
-    * `algorithmName`: `slidingWindow`.
+  * `algorithmName`: `slidingWindow`.
 
-    * `replenishRate`: The rate of requests per unit time, used to calculate the size of the time window.
+  * `replenishRate`: The rate of requests per unit time, used to calculate the size of the time window.
 
-    * `burstCapacity`: The maximum number of requests in the time window (per unit time).
+  * `burstCapacity`: The maximum number of requests in the time window (per unit time).
 
-    * `keyResolverName`: `whole` indicates that the traffic is limited by gateway per second, and `remoteAddress` indicates that the traffic is limited by IP per second.
+  * `keyResolverName`: `whole` indicates that the traffic is limited by gateway per second, and `remoteAddress` indicates that the traffic is limited by IP per second.

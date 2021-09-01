@@ -17,14 +17,14 @@ After you have made a lot of contributions, the community will nominate. Become 
 
 ## Committer Responsibilities {#committer-responsibilities}
 
-- Develop new features;
-- Refactor codes;
-- Review pull requests reliably and in time;
-- Consider and accept feature requests;
-- Answer questions;
-- Update documentation and example;
-- Improve processes and tools;
-- Guide new contributors join community.
+* Develop new features;
+* Refactor codes;
+* Review pull requests reliably and in time;
+* Consider and accept feature requests;
+* Answer questions;
+* Update documentation and example;
+* Improve processes and tools;
+* Guide new contributors join community.
 
 ## Committer Routine {#committer-routine}
 
@@ -32,9 +32,9 @@ After you have made a lot of contributions, the community will nominate. Become 
 
 2. After a committer is assigned with an issue, the following work is required:
 
-- Estimate whether it is a long-term issue. If it is, please label it as pending;
-- Add issue labels, such as bug, enhancement, discussion, etc;
-- Add milestone.
+* Estimate whether it is a long-term issue. If it is, please label it as pending;
+* Add issue labels, such as bug, enhancement, discussion, etc;
+* Add milestone.
 
 **Notice**:  Whether it is a community issue or not, there must be Assignee until the issue is completed.
 

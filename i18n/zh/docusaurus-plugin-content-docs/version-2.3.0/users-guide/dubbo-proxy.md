@@ -100,11 +100,11 @@ description: dubbo接入soul网关
 
 ## dubbo服务接入网关，可以参考：[soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo)
 
- * alibaba dubbo 用户
+* alibaba dubbo 用户
 
-    * springboot
+  * springboot
 
-       * 引入以下依赖
+    * 引入以下依赖
         
         ```xml
         <dependency>
@@ -114,11 +114,11 @@ description: dubbo接入soul网关
         </dependency>
         ```
 
-        * 注册中心详细接入配置请参考：[注册中心接入](../register-center/register-center-access)。
+    * 注册中心详细接入配置请参考：[注册中心接入](../register-center/register-center-access)。
 
-    * spring
+  * spring
 
-        * 引入以下依赖 ：
+    * 引入以下依赖 ：
         
         ```xml
         <dependency>
@@ -127,7 +127,8 @@ description: dubbo接入soul网关
            <version>${last.version}</version>
         </dependency>
         ```
-        * 在你的 bean定义的xml文件中新增如下 ：
+      
+    * 在你的 bean定义的xml文件中新增如下 ：
         
         ```xml
         <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
@@ -148,11 +149,11 @@ description: dubbo接入soul网关
         ```
 
 
- * apache dubbo 用户
+* apache dubbo 用户
 
-    * springboot
+  * springboot
 
-        * 引入以下依赖
+    * 引入以下依赖
 
          ```xml
         <dependency>
@@ -162,11 +163,11 @@ description: dubbo接入soul网关
         </dependency>
         ```
 
-        * 注册中心详细接入配置请参考：[注册中心配置](../register-center/register-center-access).
+    * 注册中心详细接入配置请参考：[注册中心配置](../register-center/register-center-access).
 
-   * spring
+  * spring
 
-     * 引入以下依赖 ：
+    * 引入以下依赖 ：
 
         ```xml
         <dependency>
@@ -176,7 +177,7 @@ description: dubbo接入soul网关
         </dependency>
         ```
 
-     * 在你的 bean定义的xml文件中新增如下 ：
+    * 在你的 bean定义的xml文件中新增如下 ：
 
         ```xml
           <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.dromara.soul.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
@@ -200,7 +201,7 @@ description: dubbo接入soul网关
 
 * 首先在 `soul-admin` 插件管理中，把`dubbo` 插件设置为开启。
 
-* 其次在 `dubbo ` 插件中配置你的注册地址，或者其他注册中心的地址。
+* 其次在 `dubbo` 插件中配置你的注册地址，或者其他注册中心的地址。
 
 ```yaml
 {"register":"zookeeper://localhost:2181"}   or {"register":"nacos://localhost:8848"}
@@ -210,7 +211,7 @@ description: dubbo接入soul网关
 
 * 你dubbo服务实现类的，方法上加上 `@SoulDubboClient` 注解，表示该接口方法注册到网关。
 
-* 启动你的提供者，输出日志 `dubbo client register success ` 大功告成，你的dubbo接口已经发布到 soul网关.如果还有不懂的，可以参考 `soul-test-dubbo`项目。
+* 启动你的提供者，输出日志 `dubbo client register success` 大功告成，你的dubbo接口已经发布到 soul网关.如果还有不懂的，可以参考 `soul-test-dubbo`项目。
 
 ## dubbo用户请求以及参数说明
 
@@ -229,9 +230,9 @@ description: dubbo接入soul网关
 
 * 参数传递：
 
-   * 通过 http post 方式访问网关，通过body，json类型传递。
+  * 通过 http post 方式访问网关，通过body，json类型传递。
 
-   * 更多参数类型传递，可以参考 [soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo) 中的接口定义，以及参数传递方式。
+  * 更多参数类型传递，可以参考 [soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-dubbo) 中的接口定义，以及参数传递方式。
 
 * 单个java bean参数类型 （默认）
 
@@ -264,9 +265,9 @@ soul :
 
   * `body`为http中body传的json字符串。
 
-  *  `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用`,`分割。
+  * `parameterTypes`: 匹配到的方法参数类型列表，如果有多个，则使用`,`分割。
 
-  *  Pair中，left为参数类型，right为参数值，这是dubbo泛化调用的标准
+  * Pair中，left为参数类型，right为参数值，这是dubbo泛化调用的标准
 
   * 把你的类注册成Spring的bean，覆盖默认的实现。
 
@@ -278,15 +279,16 @@ soul :
   ```
 
 ## 服务治理
+
 * 标签路由
-    * 请求时在header中添加`Dubbo_Tag_Route`，并设置对应的值，之后当前请求就会路由到指定tag的provider，只对当前请求有效；
+  * 请求时在header中添加`Dubbo_Tag_Route`，并设置对应的值，之后当前请求就会路由到指定tag的provider，只对当前请求有效；
 * 服务提供者直连
-    * 设置`@SoulDubboClient`注解中的`url`属性；
-    * 修改Admin控制台修改元数据内的url属性；
-    * 对所有请求有效；
+  * 设置`@SoulDubboClient`注解中的`url`属性；
+  * 修改Admin控制台修改元数据内的url属性；
+  * 对所有请求有效；
 * 参数验证和自定义异常
-    * 指定`validation="soulValidation"`;
-    * 在接口中抛出`SoulException`时，异常信息会返回，需要注意的是显式抛出`SoulException`；
+  * 指定`validation="soulValidation"`;
+  * 在接口中抛出`SoulException`时，异常信息会返回，需要注意的是显式抛出`SoulException`；
     
     ```java
     @Service(validation = "soulValidation")
@@ -303,7 +305,7 @@ soul :
     }
     ```
     
-    * 请求参数
+  * 请求参数
     
     ```java
     public class HelloServiceRequest implements Serializable {
@@ -334,7 +336,7 @@ soul :
     }
     ```
   
-    * 发送请求
+  * 发送请求
     
     ```json
     {
@@ -342,7 +344,7 @@ soul :
     }
     ```
   
-    * 返回
+  * 返回
     
     ```json
     {
@@ -352,7 +354,7 @@ soul :
     }
     ```
   
-    * 当按照要求传递请求参数时，会返回自定义异常的信息
+  * 当按照要求传递请求参数时，会返回自定义异常的信息
     
     ```json
     {

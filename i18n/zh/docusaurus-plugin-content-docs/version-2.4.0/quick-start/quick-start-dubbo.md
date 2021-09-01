@@ -102,6 +102,7 @@ description: Dubbo快速开始
 下载 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) .
 
 修改 `spring-dubbo.xml` 中的注册地址为你本地（注意区分`dubbo`的版本是`apache dubbo`还是`alibaba dubbo`），如：
+
 ```xml
 <dubbo:registry address="zookeeper://localhost:2181"/>
 ```
@@ -109,6 +110,7 @@ description: Dubbo快速开始
 运行相应的`main`方法启动项目，（注意区分`dubbo`的版本是`apache dubbo`还是`alibaba dubbo`）。
 
 成功启动会有如下日志：
+
 ```shell
 2021-02-06 20:58:01.807  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/insert","pathDesc":"Insert a row of data","rpcType":"dubbo","serviceName":"org.dromara.shenyu.examples.dubbo.api.service.DubboTestService","methodName":"insert","ruleName":"/dubbo/insert","parameterTypes":"org.dromara.shenyu.examples.dubbo.api.entity.DubboTest","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
 2021-02-06 20:58:01.821  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/findAll","pathDesc":"Get all data","rpcType":"dubbo","serviceName":"org.dromara.shenyu.examples.dubbo.api.service.DubboTestService","methodName":"findAll","ruleName":"/dubbo/findAll","parameterTypes":"","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
@@ -150,6 +152,7 @@ public DubboTest batchSaveAndNameAndId(List<DubboTest> dubboTestList, String id,
     return test;
 }
 ```
+
 ![](/img/shenyu/quick-start/dubbo/postman-multiparams.jpg)
 
 当你的参数不匹配时会报如下异常：

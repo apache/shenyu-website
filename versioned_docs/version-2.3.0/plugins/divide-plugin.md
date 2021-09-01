@@ -37,13 +37,13 @@ description: divide plugin
 * Selectors and rules, please refer to: [selector](../admin/selector-and-rule).
 * Http configuration is the real invoked configuration after the gateway matches the traffic; You can set multiple configurations and concrete load balancing weights in the rules.
   * Configuration Detail:
-     * The first box: hostName, generally fill in `localhost`, which is temporarily unused.  
-     * The second box: http protocol, usually fill in ` http:// ` or ` https:// `, if not, the default is: ` http:// `.
-     * The third box: ip and port, where you fill in the ip+port of your real service.
-     * The fourth box: load balancing weight.   
+    * The first box: hostName, generally fill in `localhost`, which is temporarily unused.  
+    * The second box: http protocol, usually fill in ` http:// ` or ` https:// `, if not, the default is: ` http:// `.
+    * The third box: ip and port, where you fill in the ip+port of your real service.
+    * The fourth box: load balancing weight.   
   * Ip + Port Detection
-     * In soul-admin, there is a scheduled task to scan the configured ip and port. If it is found that the ip and port is offline, it will be removed.
-     * It can be configured as follows:
+    * In soul-admin, there is a scheduled task to scan the configured ip and port. If it is found that the ip and port is offline, it will be removed.
+    * It can be configured as follows:
 
 ```yaml
 soul.upstream.check: true  //Default is ture, if setting false, program will not detect.

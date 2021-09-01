@@ -58,6 +58,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
 ## Run the shenyu-examples-sofa project
 
 Download [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+
 ```xml
 com:
   alipay:
@@ -69,6 +70,7 @@ com:
 Execute the `org.apache.shenyu.examples.sofa.service.TestSofaApplication` main method to start sofa service.
 
 The following log appears when the startup is successful:
+
 ```shell
 2021-02-10 02:31:45.599  INFO 2156 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : sofa client register success: {"appName":"sofa","contextPath":"/sofa","path":"/sofa/insert","pathDesc":"Insert a row of data","rpcType":"sofa","serviceName":"org.dromara.shenyu.examples.sofa.api.service.SofaSingleParamService","methodName":"insert","ruleName":"/sofa/insert","parameterTypes":"org.dromara.shenyu.examples.sofa.api.entity.SofaSimpleTypeBean","rpcExt":"{\"loadbalance\":\"hash\",\"retries\":3,\"timeout\":-1}","enabled":true} 
 2021-02-10 02:31:45.605  INFO 2156 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : sofa client register success: {"appName":"sofa","contextPath":"/sofa","path":"/sofa/findById","pathDesc":"Find by Id","rpcType":"sofa","serviceName":"org.dromara.shenyu.examples.sofa.api.service.SofaSingleParamService","methodName":"findById","ruleName":"/sofa/findById","parameterTypes":"java.lang.String","rpcExt":"{\"loadbalance\":\"hash\",\"retries\":3,\"timeout\":-1}","enabled":true} 
@@ -121,6 +123,7 @@ Use PostMan to simulate HTTP to request your Sofa service:
 ![](/img/shenyu/quick-start/sofa/postman-findbyid.png)
 
 Complex multi-parameter example: The related interface implementation class is `org.apache.shenyu.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
+
 ```java
 @Override
 @ShenyuSofaClient(path = "/batchSaveNameAndId")
@@ -131,4 +134,5 @@ public SofaSimpleTypeBean batchSaveNameAndId(final List<SofaSimpleTypeBean> sofa
     return simpleTypeBean;
 }
 ```
+
 ![](/img/shenyu/quick-start/sofa/postman-multiparams.png)

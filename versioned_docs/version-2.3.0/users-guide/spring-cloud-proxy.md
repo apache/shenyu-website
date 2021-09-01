@@ -48,7 +48,7 @@ description: springCloud with soul gateway
    </dependency>
    ```
   
-   * add these config values in gateway's yaml file:
+* add these config values in gateway's yaml file:
    
  ```yaml
     eureka:
@@ -71,7 +71,7 @@ description: springCloud with soul gateway
   </dependency>
    ```
   
-   * add these config values in gateway's yaml file:
+* add these config values in gateway's yaml file:
    
  ```yaml
    spring:
@@ -100,9 +100,9 @@ description: springCloud with soul gateway
 
 * add the annotation `@SoulSpringCloudClient` in your `controller` interface.
 
- * you can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces.
+* you can apply the annotation to class-level in a controller.the name of the path variable is prefix and '/**' will apply proxy for entire interfaces.
   
-   * example （1）：both `/test/payment` and `/test/findByUserId` will be handled by gateway.
+  * example （1）：both `/test/payment` and `/test/findByUserId` will be handled by gateway.
    
  ```java
   @RestController
@@ -125,7 +125,7 @@ description: springCloud with soul gateway
    }
 ```
   
-   * example （2）：`/order/save` will be handled by gateway, and `/order/findById` won't.
+* example （2）：`/order/save` will be handled by gateway, and `/order/findById` won't.
   
  ```java
   @RestController
@@ -151,7 +151,7 @@ description: springCloud with soul gateway
 ```
 
   
-* start your service, get the log `dubbo client register success `, then your interface has been added with soul gateway successfully.
+* start your service, get the log `dubbo client register success`, then your interface has been added with soul gateway successfully.
   
 ## Plugin Setting
 
@@ -178,4 +178,5 @@ description: springCloud with soul gateway
 # Any questions, pls join the group and we can talk about it.
 
 ```
+
 * Then you can visit, very easy and simple.

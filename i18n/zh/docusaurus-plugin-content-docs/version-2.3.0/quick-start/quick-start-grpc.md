@@ -10,6 +10,7 @@ description: Grpc快速开始
 请参考[配置网关环境](../users-guide/soul-set-up)并启动`soul-admin`和`soul-bootstrap`。
 
 注：`soul-bootstrap`需要引入grpc依赖
+
 ```xml
 <dependency>
     <groupId>org.dromara</groupId>
@@ -23,6 +24,7 @@ description: Grpc快速开始
 下载[soul-examples-grpc](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-grpc)
 
 在`soul-examples-grpc`下执行以下命令生成java代码
+
 ```shell
 mvn protobuf:compile //编译消息对象
 mvn protobuf:compile-custom //依赖消息对象,生成接口服务
@@ -31,6 +33,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 运行`org.dromara.soul.examples.grpc.SoulTestGrpcApplication`main方法启动项目。
 
 成功启动会有如下日志：
+
 ```shell
 2021-02-10 01:57:02.154  INFO 76 --- [           main] o.d.s.e.grpc.SoulTestGrpcApplication     : Started SoulTestGrpcApplication in 2.088 seconds (JVM running for 3.232)
 2021-02-10 01:57:02.380  INFO 76 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : grpc client register success: {"appName":"127.0.0.1:8080","contextPath":"/grpc","path":"/grpc/echo","pathDesc":"","rpcType":"grpc","serviceName":"echo.EchoService","methodName":"echo","ruleName":"/grpc/echo","parameterTypes":"echo.EchoRequest,io.grpc.stub.StreamObserver","rpcExt":"{\"timeout\":-1}","enabled":true} 

@@ -13,6 +13,7 @@ description: MetaData Concept Design
 * Add a new table in the database,and data can synchronize to the JVM memory of gateway according to the data synchronization scheme.
 
 * Table Structure:
+
 ```sql
 CREATE TABLE  IF NOT EXISTS `meta_data` (
   `id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'id',

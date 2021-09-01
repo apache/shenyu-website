@@ -39,19 +39,19 @@ description: divide插件
 * http配置，是网关匹配到流量以后，真实调用的http配置，可以配置多个，设置负载均衡权重，具体的负载均衡策略，在规则中指定。
   * 配置详解：
 
-     * 第一个框：hostName，一般填写 `localhost`，该字段暂时没使用。
+    * 第一个框：hostName，一般填写 `localhost`，该字段暂时没使用。
   
-     * 第二个框：http协议，一般填写 `http://` 或者 `https://` ，不填写默认为:`http://`
+    * 第二个框：http协议，一般填写 `http://` 或者 `https://` ，不填写默认为:`http://`
   
-     * 第三个框：ip与端口，这里填写你真实服务的 ip + 端口。
+    * 第三个框：ip与端口，这里填写你真实服务的 ip + 端口。
   
-     * 第四个框：负载均衡权重。
+    * 第四个框：负载均衡权重。
      
   * ip + port 检测
   
-     * 在soul-admin 会有一个定时任务来扫描 配置的ip端口，如果发现下线，则会删除该 ip + port  
+    * 在soul-admin 会有一个定时任务来扫描 配置的ip端口，如果发现下线，则会删除该 ip + port  
      
-     * 可以进行如下配置 ：
+    * 可以进行如下配置 ：
      
 ```yaml
       soul.upstream.check:true  默认为 ture，设置为false，不检测

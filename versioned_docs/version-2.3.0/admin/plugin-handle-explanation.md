@@ -13,6 +13,7 @@ description: plugin handle explanation
 ## Table Design
 
 * sql
+
 ```sql
 CREATE TABLE IF NOT EXISTS `plugin_handle` (
   `id` varchar(128) NOT NULL,

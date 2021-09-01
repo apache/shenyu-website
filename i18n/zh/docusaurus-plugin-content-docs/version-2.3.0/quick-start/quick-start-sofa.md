@@ -10,6 +10,7 @@ description: Sofa快速开始
 请参考[配置网关环境](../users-guide/soul-set-up)并启动`soul-admin`和`soul-bootstrap`，另外使用zookeeper需提前下载启动。
 
 注：启动`soul-bootstrap`之前需要引入sofa依赖
+
 ```xml
 <!-- soul sofa plugin starter-->
 <dependency>
@@ -42,10 +43,12 @@ description: Sofa快速开始
 <!-- soul sofa plugin end-->
 
 ```
+
 ## 运行soul-examples-sofa项目
 
 下载[soul-examples-dubbo](https://github.com/dromara/soul/tree/2.3.0/soul-examples/soul-examples-sofa)，调整`application.yml`
 的zk注册地址为你本地，如：
+
 ```xml
 com:
   alipay:
@@ -57,6 +60,7 @@ com:
 运行`org.dromara.soul.examples.sofa.service.TestSofaApplication`main方法启动sofa服务。
 
 成功启动会有如下日志：
+
 ```shell
 2021-02-10 02:31:45.599  INFO 2156 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : sofa client register success: {"appName":"sofa","contextPath":"/sofa","path":"/sofa/insert","pathDesc":"Insert a row of data","rpcType":"sofa","serviceName":"org.dromara.soul.examples.sofa.api.service.SofaSingleParamService","methodName":"insert","ruleName":"/sofa/insert","parameterTypes":"org.dromara.soul.examples.sofa.api.entity.SofaSimpleTypeBean","rpcExt":"{\"loadbalance\":\"hash\",\"retries\":3,\"timeout\":-1}","enabled":true} 
 2021-02-10 02:31:45.605  INFO 2156 --- [pool-1-thread-1] o.d.s.client.common.utils.RegisterUtils  : sofa client register success: {"appName":"sofa","contextPath":"/sofa","path":"/sofa/findById","pathDesc":"Find by Id","rpcType":"sofa","serviceName":"org.dromara.soul.examples.sofa.api.service.SofaSingleParamService","methodName":"findById","ruleName":"/sofa/findById","parameterTypes":"java.lang.String","rpcExt":"{\"loadbalance\":\"hash\",\"retries\":3,\"timeout\":-1}","enabled":true} 
@@ -98,9 +102,10 @@ com:
 ## sofa 插件设置
 
 * 首先在 `soul-admin` 插件管理中，把`sofa` 插件设置为开启。
-* 其次在 `sofa ` 插件中配置你的注册地址，或者其他注册中心的地址。
+* 其次在 `sofa` 插件中配置你的注册地址，或者其他注册中心的地址。
 
 ## 测试
+
 `soul-examples-sofa`项目成功启动之后会自动把加 `@SoulSofaClient` 注解的接口方法注册到网关。
 
 打开插件管理->sofa可以看到插件规则配置列表
@@ -112,6 +117,7 @@ com:
 ![](/img/soul/quick-start/sofa/postman-findbyid.png)
 
 复杂多参数示例：对应接口实现类为`org.dromara.soul.examples.sofa.service.impl.SofaMultiParamServiceImpl#batchSaveNameAndId`
+
 ```java
 @Override
 @SoulSofaClient(path = "/batchSaveNameAndId")
@@ -122,4 +128,5 @@ public SofaSimpleTypeBean batchSaveNameAndId(final List<SofaSimpleTypeBean> sofa
     return simpleTypeBean;
 }
 ```
+
 ![](/img/soul/quick-start/sofa/postman-multiparams.png)

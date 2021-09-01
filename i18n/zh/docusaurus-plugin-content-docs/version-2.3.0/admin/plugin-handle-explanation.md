@@ -13,6 +13,7 @@ description: 插件处理详解
 ### 表设计
 
 * sql
+
 ```sql
 CREATE TABLE IF NOT EXISTS `plugin_handle` (
   `id` varchar(128) NOT NULL,

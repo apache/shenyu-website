@@ -35,6 +35,7 @@ description: dubbo plugin
 ```yaml
 {"register":"zookeeper://localhost:2181"} or {"register":"nacos://localhost:8848"} 
 ```
+
 * Plugin needs to cooperate with `starter` to take effect, please refer to: [user-dubbo](../users-guide/dubbo-proxy).
 
 * Selectors and rules, please refer to: [selector](../admin/selector-and-rule).

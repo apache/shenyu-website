@@ -86,9 +86,11 @@ Best wishes,
 (PPMC)
 
 ```
+
 **5. Nominee replies the invitation, including content like accept the offer and give thanks.**
 
 **6. PPMC replies the email.**
+
 ```
 Hi (nominee),
 
@@ -118,6 +120,7 @@ https://www.apache.org/foundation/policies/conduct.html
 Here is the guideline for all of the Apache ShenYu committers:
 https://shenyu.apache.org/community/en/contribute/committer/
 ```
+
 **7. New committer signs iCLA, this step refers to [Sign ICLA Guide](https://shenyu.apache.org/community/icla/).**
 
 **8. New committer waits for secretary to create a new account.**

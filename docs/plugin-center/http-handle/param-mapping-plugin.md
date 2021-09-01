@@ -28,27 +28,32 @@ description:  param-mapping-plugin
 
 * Selectors and rules, please refer to:[Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule)。
 
-    * Only those matched requests can be modified your request body.
+  * Only those matched requests can be modified your request body.
 
 
 ## ParamMappingPlugin Guide
+
 * 1.Configuration selector
 * 2.Configuration rule
 * 3.modify request body
   ![](/img/shenyu/plugin/param-mapping/param-mapping.png)
 * param details:
-    * `addParameterKeys`: add a new `key-value` on body
-    * `replaceParameterKeys`: replace request body's `key` ，`key` is the value to be replaced，`value` is the value after replacement
-    * `removeParameterKeys`: remove a body `key`
+  * `addParameterKeys`: add a new `key-value` on body
+  * `replaceParameterKeys`: replace request body's `key` ，`key` is the value to be replaced，`value` is the value after replacement
+  * `removeParameterKeys`: remove a body `key`
 
 param_mapping modify the request body is achieved through `JSONPath` , `$.` represents the root directory.
 
 use the configuration，unopened the plugin，request body is:
+
 ```json
 {"id":3,"data":{"value":"18","age":"36"}}
 ```
+
 open the plugin，the final request body is
+
 ```json
 {"name":"shenyu","userId":3,"data":{"age":"36"}}
 ```
+
 add a new key-value `name:shenyu`,replace the key `id` to `userId`, remove the key `data.value` .

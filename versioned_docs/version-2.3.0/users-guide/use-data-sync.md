@@ -15,7 +15,7 @@ description: use different data-sync strategy
 
 * gateway setting（note:restart）
 
-    * Add these dependencies in `pom.xml`：
+  * Add these dependencies in `pom.xml`：
     
     ```xml
     <!--soul data sync start use websocket-->
@@ -25,7 +25,8 @@ description: use different data-sync strategy
       <version>${last.version}</version>
     </dependency>
     ```
-   * add these config values in springboot yaml file:
+    
+  * add these config values in springboot yaml file:
     
     ```yaml
     soul :
@@ -35,7 +36,7 @@ description: use different data-sync strategy
     #urls: address of soul-admin，multi-address will be splitted with (,).
     ```
 
-    * soul-admin config, enable this parameter `--soul.sync.websocket='' ` in soul admin, then restart service.
+  * soul-admin config, enable this parameter `--soul.sync.websocket=''` in soul admin, then restart service.
 
     ```yaml
     soul:
@@ -50,7 +51,7 @@ description: use different data-sync strategy
 
 * gateway setting（note: restart）
 
-    * Add these dependencies in `pom.xml`:
+  * Add these dependencies in `pom.xml`:
 
     ```xml
     <!--soul data sync start use zookeeper-->
@@ -61,7 +62,7 @@ description: use different data-sync strategy
       </dependency>
     ```
 
-   * Add these dependencies in  springboot yaml file:
+  * Add these dependencies in  springboot yaml file:
    
     ```yaml
     soul :
@@ -73,7 +74,7 @@ description: use different data-sync strategy
     #url: config with your zk address, used by the cluster environment, splitted with (,).
     ```
 
-    * soul-admin config: configure the soul-admin's starting parameter with `--soul.sync.zookeeper.url='your address' `,then restart the service.
+  * soul-admin config: configure the soul-admin's starting parameter with `--soul.sync.zookeeper.url='your address'`,then restart the service.
     
     ```yaml
     soul:
@@ -83,14 +84,15 @@ description: use different data-sync strategy
             sessionTimeout: 5000
             connectionTimeout: 2000
     ```
-    * It is  good to use ZooKeeper synchronization mechanism with high timeliness, but we also have to deal with the unstable environment of ZK, cluster brain splitting and other
+    
+  * It is  good to use ZooKeeper synchronization mechanism with high timeliness, but we also have to deal with the unstable environment of ZK, cluster brain splitting and other
   problems.
 
 ## Http long-polling sync
 
 * gateway setting（note:restart）
 
-    * Add these dependencies in `pom.xml`：
+  * Add these dependencies in `pom.xml`：
 
     ```xml
     <!--soul data sync start use http-->
@@ -101,7 +103,7 @@ description: use different data-sync strategy
       </dependency>
     ```
 
-   * add these config values in your springboot yaml file:
+  * add these config values in your springboot yaml file:
    
       ```yaml
       soul :
@@ -110,7 +112,8 @@ description: use different data-sync strategy
                    url: http://localhost:9095
       #url: config with your soul-admin's ip and port url, pls use (,) to split multi-admin cluster environment.
        ```
-    * soul-admin config, configure the soul-admin's starting parameter with `--soul.sync.http='' `, then restart service.
+    
+  * soul-admin config, configure the soul-admin's starting parameter with `--soul.sync.http=''`, then restart service.
 
     ```yaml
     soul:
@@ -128,7 +131,7 @@ description: use different data-sync strategy
 
 * gateway setting（note:restart）
 
-    * Add these dependencies in your `pom.xml`：
+  * Add these dependencies in your `pom.xml`：
     
     ```xml
     <!--soul data sync start use nacos-->
@@ -156,6 +159,7 @@ description: use different data-sync strategy
       # url: config with your nacos address, pls use (,) to split your cluster environment.
       # other configure，pls refer to the naocs website.
      ```
+
     * soul-admin config: passing values one by one with '--' operator in the soul-Admin startup parameter.
 
     ```yaml

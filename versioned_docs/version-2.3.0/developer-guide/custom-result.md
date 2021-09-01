@@ -31,6 +31,7 @@ public class SoulDefaultEntity implements Serializable {
 ```
 
 * The returned json as follows:
+
 ```json
 {
     "code": -100, //response code,
@@ -41,7 +42,7 @@ public class SoulDefaultEntity implements Serializable {
 
 ## Extensions
 
-*  Declare a new class named "A" and implements `org.dromara.soul.plugin.api.result.SoulResult`
+* Declare a new class named "A" and implements `org.dromara.soul.plugin.api.result.SoulResult`
 
 ```java
  public interface SoulResult<T> {

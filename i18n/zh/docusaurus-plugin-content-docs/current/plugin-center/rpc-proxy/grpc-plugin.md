@@ -33,13 +33,13 @@ description: gRPC插件
 * 处理配置详解：
 
 
-     * `ip:port`：`ip` 与端口，这里填写你真实服务的 `ip` + 端口。
+  * `ip:port`：`ip` 与端口，这里填写你真实服务的 `ip` + 端口。
 
-     * `protocol`：`http` 协议，一般填写 `http://` 或者 `https://` ，不填写默认为:`http://`
+  * `protocol`：`http` 协议，一般填写 `http://` 或者 `https://` ，不填写默认为:`http://`
        
-     * `weight`：服务权重。
+  * `weight`：服务权重。
      
-     * `status`：开启或关闭。
+  * `status`：开启或关闭。
 
 
 ## 元数据

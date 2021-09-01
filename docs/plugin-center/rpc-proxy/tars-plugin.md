@@ -34,19 +34,19 @@ Selector Handler, the `handle` field is the tars service that is actually invoke
 
 * config details：
 
-    * `host`：generally, enter `localhost`.
+  * `host`：generally, enter `localhost`.
 
-    * `ip:port`：enter the ip:port of your real service .
+  * `ip:port`：enter the ip:port of your real service .
 
-    * `protocol`：indicates the Http protocol. Generally, the value is `http://` or `https://`. If the value is not specified, the default value is `http://` .
+  * `protocol`：indicates the Http protocol. Generally, the value is `http://` or `https://`. If the value is not specified, the default value is `http://` .
 
-    * `startupTime`： start up time.
+  * `startupTime`： start up time.
 
-    * `weight`： load balancing weight.
+  * `weight`： load balancing weight.
 
-    * `warmupTime`：warm up time.
+  * `warmupTime`：warm up time.
 
-    * `status`：open or close.
+  * `status`：open or close.
 
 
 #### Rule Handle
@@ -56,9 +56,9 @@ Selector Handler, the `handle` field is the tars service that is actually invoke
 Rule Handle, the `handle` field indicates the processing rule adopted by the gateway after the final matching of traffic. For more information, see [Plugin Handle Management](../../user-guide/admin-usage/plugin-handle-explanation) .
 
 * config details:
-    * `loadStrategy`: if the `Http` client is a cluster, Apache ShenYu gateway uses the load balancing policy when calling, currently supporting `roundRobin`, `random`, and `hash`.
-    * `retryCount`: the number of retries to invoke the client.
-    * `timeout`: time out to invoke the client.
+  * `loadStrategy`: if the `Http` client is a cluster, Apache ShenYu gateway uses the load balancing policy when calling, currently supporting `roundRobin`, `random`, and `hash`.
+  * `retryCount`: the number of retries to invoke the client.
+  * `timeout`: time out to invoke the client.
 
 ## Metadata
 

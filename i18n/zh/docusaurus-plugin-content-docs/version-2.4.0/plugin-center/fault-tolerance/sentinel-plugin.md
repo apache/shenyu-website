@@ -34,17 +34,17 @@ description: sentinel插件
 ``` 
 
 
-##  sentinel 插件配置
+## sentinel 插件配置
 
 关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)， 这里只对部分字段进行了介绍。
 
-####  选择器配置
+#### 选择器配置
 
 用于对流量第一次筛选，不需要特殊处理字段。
 
 <img src="/img/shenyu/plugin/sentinel/selector_zh.png" width="80%" height="80%" />
 
-####  规则配置
+#### 规则配置
 
 用于对流量最终筛选，有规则处理逻辑。
 

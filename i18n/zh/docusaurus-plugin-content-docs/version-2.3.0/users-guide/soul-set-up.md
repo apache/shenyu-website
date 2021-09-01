@@ -8,7 +8,7 @@ description: 环境搭建
 ## 说明
 
 * `soul 2.2.0`以后都是基于插件化可插拔的思想，本文是说明如何基于soul搭建属于你自己网关。
-* 请确保你的机器安装了`JDK 1.8+`，`Mysql 5.5.20 + `。
+* 请确保你的机器安装了`JDK 1.8+`，`Mysql 5.5.20 +`。
 
 ## 启动 Soul-Admin
 
@@ -42,6 +42,7 @@ description: 环境搭建
 ```
 
 * 使用 `h2` 来存储后台数据
+
 ```
 > docker run -d -p 9095:9095 --net soul dromara/soul-admin
 ```
@@ -69,21 +70,23 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 ### 本地构建
 
 * 下载代码
+
 ```
 > git clone https://github.com/dromara/soul.git
 > cd soul
 ```
 
 * 编译代码
+
 ```
 > mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 * 启动 `SoulAdminBootstrap`。 
 
-   * 如果使用h2来存储，设置变量 `--spring.profiles.active = h2`
+  * 如果使用h2来存储，设置变量 `--spring.profiles.active = h2`
    
-   * 如果使用mysql来存储，修改 `application.yaml` 中的 `mysql` 配置。
+  * 如果使用mysql来存储，修改 `application.yaml` 中的 `mysql` 配置。
    
 
 访问 http://localhost:9095   用户名密码为: `admin/123456`
@@ -114,12 +117,14 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 ### 本地构建
 
 * 下载代码
+
 ```
 > git clone https://github.com/dromara/soul.git
 > cd soul
 ```
 
 * 编译代码
+
 ```
 > mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
@@ -159,6 +164,7 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
         <version>${last.version}</version>
    </dependency>
 ```
+
 * 在你的 `application.yaml` 文件中加上如下配置：
 
 ```yaml
@@ -175,6 +181,7 @@ soul :
     websocket :
       urls: ws://localhost:9095/websocket  //设置成你的soul-admin地址
 ```
+
 * 你的项目环境搭建完成，启动你的项目。
 
 > 注意，这里只是完成了网关的搭建，但是没有引入功能插件。比如，接入http请求，需要引入divide插件，请参考 [Http 代理](./http-proxy/) 。接入dubbo服务，需要引入dubbo插件，请参考 [Dubbo 代理](./dubbo-proxy/) 。

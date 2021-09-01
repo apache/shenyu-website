@@ -16,7 +16,7 @@ description: monitor插件
 
 * 异步或者同步的方式，在soul网关里面进行 `metrics` 埋点。
 
-* `prometheus` 服务端通过 http 请求 来 拉取  `metrics`，再使用 `Grafana ` 展示。
+* `prometheus` 服务端通过 http 请求 来 拉取  `metrics`，再使用 `Grafana` 展示。
 
 ## 插件设置
 
@@ -47,13 +47,14 @@ description: monitor插件
   </dependency>
   <!-- soul monitor plugin end-->
 ``` 
+
 * 选择器和规则，请详细看 : [选择器规则](../admin/selector-and-rule)。
    
-   * 只有当匹配的url，才会进行url请求埋点。
+  * 只有当匹配的url，才会进行url请求埋点。
 
 ## metrics信息
 
-* 所有的JVM，线程，内存，等相关信息都会埋点，可以在 `Granfana ` 面板中，新增一个 JVM 模块，则会完全展示 具体请看：https://github.com/prometheus/jmx_exporter
+* 所有的JVM，线程，内存，等相关信息都会埋点，可以在 `Granfana` 面板中，新增一个 JVM 模块，则会完全展示 具体请看：https://github.com/prometheus/jmx_exporter
 
 * 另外还有如下自定义的 `metrics` 
 
@@ -78,6 +79,7 @@ description: monitor插件
      static_configs:
      - targets: ['localhost:9190']
  ```
+
 **注：** `job_name`跟`monitor`插件配置的`metricsName`相对应
 
 * 配置完成之后window下可以直接双击`prometheus.exe`启动即可，默认启动端口为9090，可通过http://localhost:9090/ 验证是否成功

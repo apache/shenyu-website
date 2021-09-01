@@ -22,9 +22,11 @@ description: sofa access soul gateway
 
 * First, go to `soul-admin` --> plug-in management->  setting `sofa` is open.
 * Then, in the configuration of sofa plug-in, config sofa's register center like this: 
+
 ```yaml
 {"protocol":"zookeeper","register":"127.0.0.1:2181"}
 ```
+
 * The plug-in needs to be used with a dependent `starter`. For details, please see: [user-sofa](../users-guide/sofa-rpc-proxy).
 
 * Selector's rules，see : [selector](../admin/selector-and-rule)。

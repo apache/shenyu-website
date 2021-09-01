@@ -64,6 +64,7 @@ description: sign插件
 
 
 第一步：首先构造一个 `Map` 。
+
 ```java
 Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
 //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
@@ -73,6 +74,7 @@ map.put("version", "1.0.0");
 ```
 
 第二步：进行 `Key` 的自然排序，然后 `Key`，`Value`值拼接最后再拼接分配给你的 `SK`。
+
 ```java
 List<String> storedKeys = Arrays.stream(map.keySet()
                 .toArray(new String[]{}))
@@ -83,9 +85,11 @@ final String sign = storedKeys.stream()
                 .collect(Collectors.joining()).trim()
                 .concat("506EEB535CF740D7A755CB4B9F4A1536");
 ```
+
 * 你得到的 `sign` 值应该为：`path/api/service/abctimestamp1571711067186version1.0.0506EEB535CF740D7A755CB4B9F4A1536`
 
 第三步：进行 `MD5` 加密后转成大写。
+
 ```java
 DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```

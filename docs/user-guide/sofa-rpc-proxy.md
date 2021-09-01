@@ -61,6 +61,7 @@ you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-sh
 * SpringBoot
 
   Add the following dependencies :
+
  ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
@@ -73,6 +74,7 @@ you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-sh
 * Spring
 
   Add the following dependencies:
+
  ```xml
         <dependency>
             <groupId>org.apache.shenyu</groupId>
@@ -80,6 +82,7 @@ you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-sh
             <version>${shenyu.version}</version>
         </dependency>
    ```
+
 Add the following in the xml file of your bean definition:
 
   ```xml
@@ -128,8 +131,8 @@ ShenYu gateway needs to have a routing prefix, this routing prefix is for you to
 
 * Parameter passing：
 
-    * Access the gateway through http post，and pass through body and json.
-    * For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
+  * Access the gateway through http post，and pass through body and json.
+  * For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:

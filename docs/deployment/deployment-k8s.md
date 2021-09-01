@@ -11,10 +11,10 @@ This article introduces the use of `k8s` to deploy the `Apache ShenYu` gateway.
 > Catalog
 >
 > I. Using h2 as a database
+>
 > 1. create nameSpace and configMap
 > 2. deploying shenyu-admin
 > 3. deploy shenyu-bootstrap
-
 > II. Use mysql as the database
 >
 > Similar to the h2 process, there are two points to note
@@ -23,6 +23,7 @@ This article introduces the use of `k8s` to deploy the `Apache ShenYu` gateway.
 > 2. you need to specify an external mysql database configuration to proxy the external mysql database via endpoint
 >
 > The process is as follows.
+>
 > 1. create nameSpace and configMap
 > 2. create endpoint to proxy external mysql
 > 3. create pv store mysql-connector.jar
@@ -32,8 +33,11 @@ This article introduces the use of `k8s` to deploy the `Apache ShenYu` gateway.
 
 
 ## I. Using h2 as a database
+
 ### 1. Create nameSpace and configMap
+
 - create shenyu-ns.yaml
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -95,10 +99,13 @@ data:
             org.apache.shenyu.lottery: info
             org.apache.shenyu: info
 ```
+
 - execute `kubectl apply -f shenyu-ns.yaml`
 
 ### 2. Create shenyu-admin
+
 - create shenyu-admin.yaml
+
 ```yaml
 # Example of using the nodeport type to expose ports
 apiVersion: v1
@@ -142,11 +149,13 @@ spec:
         - name: 'TZ'
           value: 'Asia/Beijing'
 ```
+
 - execute`kubectl apply -f shenyu-ns.yaml`
 
 ### 3. Create shenyu-bootstrap
 
 - create shenyu-bootstrap.yaml
+
 ```yaml
 # Example of using the nodeport type to expose ports
 apiVersion: v1
@@ -210,7 +219,9 @@ spec:
 ## II. Use mysql as the database
 
 ### 1. Create nameSpace and configMap
+
 - create shenyu-ns.yaml
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -276,10 +287,13 @@ data:
     spring.datasource.user: {your_mysql_user}
     spring.datasource.password: {your_mysql_password}
 ```
+
 - execute `kubectl apply -f shenyu-ns.yaml`
 
 ### 2. Create endpoint to represent mysql
+
 - create shenyu-ep.yaml
+
 ```yaml
 kind: Service
 apiVersion: v1
@@ -304,9 +318,13 @@ subsets:
   - port: {your_mysql_port}
     name: mysql
 ```
+
 - execute `kubectl apply -f shenyu-ep.yaml`
+
 ### 3. Create pv to store mysql-connector.jar
+
 - create shenyu-store.yaml
+
 ```yaml
 # Example of using pvc、pv、storageClass to store jar file
 apiVersion: v1
@@ -352,6 +370,7 @@ metadata:
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
 ```
+
 - execute `kubectl apply -f shenyu-pv.yaml`
 - pv mounted directory upload `mysql-connector.jar`
 
@@ -359,6 +378,7 @@ volumeBindingMode: WaitForFirstConsumer
 ### 4. Create shenyu-admin
 
 - create shenyu-admin.yaml
+
 ```yaml
 # Example of using the nodeport type to expose ports
 apiVersion: v1
@@ -420,11 +440,13 @@ spec:
         - mountPath: /opt/shenyu-admin/ext-lib
           name: mysql-connector-volume
 ```
+
 - execute`kubectl apply -f shenyu-ns.yaml`
 
 ### 3. Create shenyu-bootstrap
 
 - create shenyu-bootstrap.yaml
+
 ```yaml
 # Example of using the nodeport type to expose ports
 apiVersion: v1

@@ -8,7 +8,6 @@ This document focuses on how to use different data synchronization strategies. D
 
 <img src="/img/shenyu/dataSync/data-sync-config-dir-en.png" width="70%" height="60%" />
 
-
 For details about the data synchronization principles, see [Data Synchronization Design](../design/data-sync) in the design document.
 
 ### WebSocket Synchronization Config（default strategy, recommend）
@@ -26,8 +25,7 @@ For details about the data synchronization principles, see [Data Synchronization
     </dependency>
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-pom.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-pom.png" width="80%" height="70%" />
 
 Add these config values in  yaml file:
 
@@ -52,10 +50,9 @@ shenyu:
       enabled: true
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-admin-yml.png" width="80%" height="70%" />
+<img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-admin-yml.png" width="80%" height="70%" />
 
 After the connection is established, the data will be fully obtained once, and the subsequent data will be updated and added increments, with good performance. It also supports disconnection (default: `30` seconds). This mode is recommended for data synchronization and is the default data synchronization strategy of ShenYu.
-
 
 ### Zookeeper Synchronization Config
 
@@ -72,11 +69,9 @@ After the connection is established, the data will be fully obtained once, and t
         </dependency>
  ```
 
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-pom.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-zk-pom.png" width="80%" height="70%" />
 
 Add these config values in  yaml file:
-
 
 ```yaml
 shenyu:
@@ -88,14 +83,12 @@ shenyu:
       connectionTimeout: 2000
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-yml.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-zk-yml.png" width="80%" height="70%" />
 
 * `shenyu-admin` config
 
 Add these config values in  yaml file:
 
-
 ```yaml
 shenyu:
   sync:
@@ -106,13 +99,9 @@ shenyu:
       connectionTimeout: 2000
 ```
 
-
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-zk-yml.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-admin-zk-yml.png" width="80%" height="70%" />
 
 It is a good idea to use ZooKeeper synchronization mechanism with high timeliness, but we also have to deal with the unstable environment of ZK, cluster brain splitting and other problems.
-
-
 
 ### HTTP Long Polling Synchronization Config
 
@@ -129,8 +118,7 @@ Add these dependencies in `pom.xml`：
         </dependency>
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-http-pom.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-http-pom.png" width="80%" height="70%" />
 
 Add these config values in  yaml file:
 
@@ -142,12 +130,11 @@ shenyu:
         #url: config your shenyu-admin  ip and port，cluster IP by split by (,)
 ```
 
-   <img src="/img/shenyu/dataSync/shenyu-data-sync-http-yml.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-http-yml.png" width="80%" height="70%" />
 
 * `shenyu-admin` config
 
-  Add these config values in  yaml file:
+Add these config values in  yaml file:
 
 ```yaml
 shenyu:
@@ -156,30 +143,26 @@ shenyu:
       enabled: true
 ```
 
-   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-http-yml.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-admin-http-yml.png" width="80%" height="70%" />
 
 HTTP long-polling makes the gateway lightweight, but less time-sensitive. It pulls according to the group key, if the data is too large, it will have some influences, a small change under a group will pull the entire group.
-
-
 
 ### Nacos Synchronization Config
 
 * `Apache ShenYu` gateway config
 
-
 Add these dependencies in `pom.xml`：
 
 ```xml
-        <!-- apache shenyu data sync start use nacos-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!-- apache shenyu data sync start use nacos-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-pom.png" width="80%" height="70%" />
 
+<img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-pom.png" width="80%" height="70%" />
 
 Add these config values in  yaml file:
 
@@ -200,12 +183,12 @@ shenyu:
         secretKey:
      # other configure，please refer to the naocs website.
 ```
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
 
+<img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
 
 * `shenyu-admin` config
 
-  Add these config values in  yaml file:
+Add these config values in  yaml file:
 
 ```yaml
 shenyu:
@@ -225,8 +208,7 @@ shenyu:
         # other configure，pls refer to the naocs website.
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-nacos-yml.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-admin-nacos-yml.png" width="80%" height="70%" />
 
 ### Etcd Synchronization Config
 
@@ -252,8 +234,8 @@ shenyu:
             </exclusions>
         </dependency>
 ```
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-pom.png" width="80%" height="70%" />
 
+<img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-pom.png" width="80%" height="70%" />
 
 Add these config values in  yaml file:
 
@@ -265,12 +247,11 @@ shenyu:
        #url: config with your etcd address, used by the cluster environment, separated with (,).
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-yml.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-yml.png" width="80%" height="70%" />
 
 * `shenyu-admin` config
 
-  Add these config values in  yaml file:
+Add these config values in  yaml file:
 
 ```yaml
 shenyu:
@@ -280,8 +261,7 @@ shenyu:
        #url: config with your etcd address, used by the cluster environment, separated with (,).
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-etcd-yml.png" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu-data-sync-admin-etcd-yml.png" width="80%" height="70%" />
 
 ### Consul Synchronization Config
 
@@ -298,26 +278,24 @@ Add these dependencies in `pom.xml`：
 </dependency>
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu_consul_sync_gateway.jpg" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu_consul_sync_gateway.jpg" width="80%" height="70%" />
 
 Add these config values in  yaml file:
 
 ```yaml
 shenyu:
-    sync:
-      consul:
-				url: http://localhost:8500
-        waitTime: 1000	# query wait time
-        watchDelay: 1000	# Data synchronization interval                             
+  sync:
+    consul:
+	  url: http://localhost:8500
+      waitTime: 1000	# query wait time
+      watchDelay: 1000	# Data synchronization interval
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu_consul_gateway_sync_config.jpg" width="80%" height="70%" />
-
+<img src="/img/shenyu/dataSync/shenyu_consul_gateway_sync_config.jpg" width="80%" height="70%" />
 
 * `shenyu-admin` config
 
-  Add these config values in  yaml file:
+Add these config values in  yaml file:
 
 ```yaml
 shenyu:
@@ -326,10 +304,8 @@ shenyu:
       url: http://localhost:8500
 ```
 
-  <img src="/img/shenyu/dataSync/shenyu_consul_admin_sync_config.jpg" width="80%" height="70%" />
+<img src="/img/shenyu/dataSync/shenyu_consul_admin_sync_config.jpg" width="80%" height="70%" />
 
-
-
-> After the data synchronization strategy of Apache ShenYu gateway and shenyu-admin is reconfigured, the microservice needs to be restarted.
->
+> After the data synchronization strategy of Apache ShenYu gateway and shenyu-admin is reconfigured,
+> the microservice needs to be restarted.
 > the Apache ShenYu gateway and shenyu-admin must use the same synchronization strategy.

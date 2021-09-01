@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu Code Conduct
+title: Code Conduct
 description: Apache ShenYu Coding Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"
@@ -70,3 +70,5 @@ cover: "/img/architecture/shenyu-framework.png"
 - For accurate asserts, try not to use `not`, `containsString` to make assertions.
 - Actual values of test cases should be named `actualXXX`, expected values `expectedXXX`.
 - Class for test case and `@Test` annotation do not need javadoc.
+
+**The content is referenced from the Apache ShardingSphere code conduct with appropriate adjustments.**

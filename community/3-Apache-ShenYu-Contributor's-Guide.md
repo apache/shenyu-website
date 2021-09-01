@@ -1,5 +1,5 @@
 ---
-title: Apache ShenYu Contributor
+title: Contributor
 description: Apache ShenYu Contributor's Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"

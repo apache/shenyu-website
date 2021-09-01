@@ -10,9 +10,9 @@ The Apache ShenYu gateway implements support for the WebSocket proxy through the
 
 ## Environment to prepare
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment-local) .
+Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [Local Deployment](../../deployment/deployment-local).
 
-After successful startup, you need to open the Divide plugin on in the BasicConfig `->` Plugin. For `Divide` plugin details, please refer to: [Divide Plugin](../divide-plugin) .
+After successful startup, you need to open the Divide plugin on in the BasicConfig `->` Plugin. For `Divide` plugin details, please refer to: [Divide Plugin](./divide-plugin) .
 
 <img src="/img/shenyu/quick-start/http/http_open_en.png" width="60%" height="50%" />
 

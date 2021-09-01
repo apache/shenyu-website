@@ -9,7 +9,7 @@ description: release-notes
 ##### 新功能
 - 支持读取 resource/directory 路径底下的 init_script 文件
 - 按类别显示插件菜单
-- 支持管 admin 模块执行不同路径 sql 脚本
+- 支持 admin 模块执行不同路径 sql 脚本
 - ipUtils 添加参数选择网络 ip
 - 添加 parameter-mapping 映射插件
 - 支持 Consul 作为 shenyu-register-center

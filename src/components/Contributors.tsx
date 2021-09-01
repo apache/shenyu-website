@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 export default () => {
   const [contributers, setContributers] = useState([]);
   useEffect(() => {
-    fetch("https://api.github.com/repos/apache/incubator-shenyu/contributors?page=1&per_page=10000").then(function (response) {
+    if(!contributers || contributers.length === 0) {
+      fetch("https://api.github.com/repos/apache/incubator-shenyu/contributors?page=1&per_page=10000").then(function (response) {
         return response.json();
-    }).then((res)=>{
-      setContributers(res);
-    });
+      }).then((res)=>{
+        setContributers(res);
+      });
+    }
   });
   let html = "<table>";
   if (contributers && Array.isArray(contributers)) {

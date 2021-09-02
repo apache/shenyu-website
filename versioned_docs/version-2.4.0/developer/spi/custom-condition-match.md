@@ -35,7 +35,7 @@ ${you spi name} = ${you class path}
 
 * In the `Admin` service ---> BasicConfig ---> Dictionary ,  Find the dictionary code as `MATCH_MODE`, add a new piece of data, pay attention to the dictionary name: `${you spi name}`.
 
-<img src="/static/img/shenyu/custom/custom-condition-match-en.png" width="40%" height="30%" />
+<img src="/img/shenyu/custom/custom-condition-match-en.png" width="40%" height="30%" />
 
 * Or execute the following custom `SQL` statement：
 

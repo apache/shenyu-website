@@ -41,7 +41,7 @@ ${you spi name} = ${you class path}
 
 * In the `Admin` service ---> BasicConfig ---> Dictionary ,  Find the dictionary code as `LOAD_BALANCE`, add a new piece of data, pay attention to the dictionary name: `${you spi name}`.
 
-<img src="/static/img/shenyu/custom/custom-load-balance-en.jpg" width="40%" height="30%" />
+<img src="/img/shenyu/custom/custom-load-balance-en.jpg" width="40%" height="30%" />
 
 * Or execute the following custom `SQL` statement：
 

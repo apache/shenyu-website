@@ -32,7 +32,7 @@ This article introduces how to start the `Apache ShenYu` gateway in the local en
 
 * use the development tool to start `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`.
 
-
+* If using the system of Windows, you may encounter a Git error with Filename too long. You can run the command `git config --system core.longpaths true` to solve this problem.
 
 
 

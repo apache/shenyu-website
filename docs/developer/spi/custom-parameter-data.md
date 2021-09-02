@@ -4,12 +4,9 @@ keywords: ["ParameterData"]
 description: Custom Parameter Data
 ---
 
+This paper describes how to customize the extension of  `org.apache.shenyu.plugin.base.condition.data.ParameterData`.
 
-* This article describes how to customize the extension of  `org.apache.shenyu.plugin.base.condition.data.ParameterData`.
-
-
-
-*  Create a new class `CustomParameterData`, implements `org.apache.shenyu.plugin.base.condition.data.ParameterData`, add annotation `org.apache.shenyu.spi.Join`.
+* Create a new class `CustomParameterData`, implements `org.apache.shenyu.plugin.base.condition.data.ParameterData`, add annotation `org.apache.shenyu.spi.Join`.
 
 ```java
 /**
@@ -61,7 +58,7 @@ custom=org.apache.shenyu.examples.http.condition.data.CustomParameterData
 > DictionaryName: `${spi name}`, input your custom spi name;
 >
 > DictionaryValue: When used, the value of the drop-down box, do not repeat with the existing;
-
+>
 > DictionaryDescribe: desc your custom match strategy;
 >
 > Sort: to sort;

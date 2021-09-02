@@ -5,11 +5,10 @@ description: Custom Predicate Judge
 ---
 
 
-* This article describes how to customize the extension of  `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`.
+* This paper describes how to customize the extension of  `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`.
 
 
-
-*  Create a new class `CustomPredicateJudge`, implements `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`, add annotation `org.apache.shenyu.spi.Join`.
+* Create a new class `CustomPredicateJudge`, implements `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`, add annotation `org.apache.shenyu.spi.Join`.
 
 ```java
 /**
@@ -65,7 +64,7 @@ custom=org.apache.shenyu.examples.http.judge.CustomPredicateJudge
 > DictionaryName: `${spi name}`, input your custom spi name;
 >
 > DictionaryValue: When used, the value of the drop-down box, do not repeat with the existing;
-
+>
 > DictionaryDescribe: desc your custom match strategy;
 >
 > Sort: to sort;

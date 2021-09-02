@@ -5,7 +5,7 @@ description: custom match mode
 ---
 
 
-* This article describes how to customize the extension of  `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy`.
+* This paper describes how to customize the extension of  `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy`.
 
 
 * Create a new class `CustomMatchStrategy`, extends `org.apache.shenyu.plugin.base.condition.strategy.AbstractMatchStrategy`, implements `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy`, add annotation `org.apache.shenyu.spi.Join`.
@@ -61,7 +61,7 @@ custom = org.apache.shenyu.examples.http.strategy.CustomMatchStrategy
 > DictionaryName: `${spi name}`, input your custom spi name;
 >
 > DictionaryValue: When used, the value of the drop-down box, do not repeat with the existing;
-
+>
 > DictionaryDescribe: desc your custom match strategy;
 >
 > Sort: to sort;
@@ -73,5 +73,3 @@ custom = org.apache.shenyu.examples.http.strategy.CustomMatchStrategy
 
 
 <img src="/img/shenyu/custom/use_custom_match_strategy_en.png" width="80%" height="70%" />
-
-

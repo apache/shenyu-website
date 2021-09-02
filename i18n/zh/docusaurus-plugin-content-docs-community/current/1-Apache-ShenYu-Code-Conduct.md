@@ -8,7 +8,6 @@ date: 2019-04-09
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-
 ## 开发理念
 
 - **用心** 保持责任心和敬畏心，以工匠精神持续雕琢。

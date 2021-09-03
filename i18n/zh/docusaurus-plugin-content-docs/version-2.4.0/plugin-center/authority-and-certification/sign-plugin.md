@@ -108,7 +108,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 | --------   | -----:  | :----: |
 | timestamp  |   `1571711067186`  |  上述你进行签名的时候使用的时间值   |
 | appKey     | `1TEST123456781`  | 分配给你的AK值 |
-| sign       | `A90E66763793BDBC817CF3B52AAAC041`  | 上述得到的签名值 |
+| sign       | `A021BF82BE342668B78CD9ADE593D683`  | 上述得到的签名值 |
 | version       | `1.0.0`  | 写死，就为这个值 |
 
 * 签名插件会默认过滤 `5` 分钟之前的请求

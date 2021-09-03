@@ -32,7 +32,7 @@ description: 本地部署
 
 * 使用开发工具启动 `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`。
 
-
+* 使用 Windows 来运行代码时，可能会碰到 `filename too long` 的 Git 报错，可以通过使用管理员权限运行 `git config --system core.longpaths true` 命令来解决
 
 
 

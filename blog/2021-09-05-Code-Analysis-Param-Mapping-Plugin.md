@@ -114,7 +114,7 @@ return bodyInserter.insert(cachedBodyOutputMessage, new BodyInserterContext())
         )).onErrorResume((Function<Throwable, Mono<Void>>) throwable -> release(cachedBodyOutputMessage, throwable));
 ```
 
->  PS: 省略的部分是设置请求头等操作。
+> PS: 省略的部分是设置请求头等操作。
 
 上面比较重要的应该是打星的修改请求体，也就是 `operation` 方法的调用。这里因为参数类型的原因，会先调用 `Operator` 接口的默认方法（而不是 `FormDataOperator` 重写的）。
 

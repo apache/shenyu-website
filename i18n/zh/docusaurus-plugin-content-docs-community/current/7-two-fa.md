@@ -1,5 +1,6 @@
 ---
 title: 双因素认证
+sidebar_position: 8
 description: Apache ShenYu Two FA
 author: "xiaoyu"
 categories: "Apache ShenYu"

@@ -189,12 +189,7 @@
 .swiper-slide  img {
   max-height: 90%;
   max-width: 90%;
-  opacity: 0.4;
   transition: opacity 0.5s;
-}
-
-.swiper-slide  img:hover {
-  opacity: 1;
 }
 
 @media only screen and (max-width: 768px) {

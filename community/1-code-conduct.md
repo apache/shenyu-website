@@ -1,5 +1,6 @@
 ---
 title: Code Conduct
+sidebar_position: 2
 description: Apache ShenYu Coding Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"

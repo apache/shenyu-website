@@ -1,5 +1,6 @@
 ---
 title: Contributor
+sidebar_position: 4
 description: Apache ShenYu Contributor's Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"

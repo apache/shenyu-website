@@ -1,5 +1,6 @@
 ---
 title: 版本发布
+sidebar_position: 12
 keywords: ["release-notes"]
 description: release-notes
 ---

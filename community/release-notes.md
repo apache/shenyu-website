@@ -1,5 +1,6 @@
 ---
 title: Release Notes
+sidebar_position: 12
 keywords: ["release-notes"]
 description: release-notes
 ---

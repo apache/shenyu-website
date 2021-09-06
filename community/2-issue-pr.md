@@ -1,5 +1,6 @@
 ---
 title: Issue And Pull Request
+sidebar_position: 3
 description: Apache ShenYu Issue And Pull Request
 author: "xiaoyu"
 categories: "Apache ShenYu"

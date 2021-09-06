@@ -1,5 +1,6 @@
 ---
 title: How to vote Committer
+sidebar_position: 7
 description: How to vote Committer
 author: "xiaoyu"
 categories: "Apache ShenYu"

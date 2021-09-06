@@ -1,5 +1,6 @@
 ---
 title: 编码指南
+sidebar_position: 2
 description: Apache ShenYu 编码指南
 author: "xiaoyu"
 categories: "Apache ShenYu"

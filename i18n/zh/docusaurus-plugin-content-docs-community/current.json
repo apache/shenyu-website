@@ -20,7 +20,7 @@
     "description": "The label for category contributor-list in sidebar community"
   },
   "sidebar.community.category.contributor": {
-    "message": "contributor",
+    "message": "贡献者",
     "description": "The label for category contributor in sidebar community"
   },
   "sidebar.community.category.icla": {

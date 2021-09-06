@@ -30,7 +30,7 @@ tags: [Context-Path, Apache ShenYu]
 
 开始前，先看一下这个插件的结构，如下图。
 
-![image-20210904104145516](https://img.jooks.cn/img/20210904104145.png)
+![param-mapping-structure](/img/activities/code-analysis-param-mapping-plugin/param-mapping-structure.png)
 
 猜测：handler是用来做数据同步的；strategy中文意思是策略，可能是对各种请求体做了适配，应该是这个插件的重点；`ParamMappingPlugin` 应该是 `ShenyuPlugin` 的实现。
 

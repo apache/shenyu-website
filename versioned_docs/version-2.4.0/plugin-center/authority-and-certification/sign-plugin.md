@@ -36,7 +36,7 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
 
 ## Add AK/SK
 
-* In `shenyu-admin` --> In authentication management, click `Add` to add a new AK/SK。please refer to: [Authentication](../authority-management).
+* In `shenyu-admin` --> In authentication management, click `Add` to add a new AK/SK。please refer to: [Authentication](../../user-guide/admin-usage/authority-management).
 
 ## Implementation of Gateway Technology
 

@@ -1,44 +1,46 @@
-###  Shenyu PredicateJudge  -- analyze the design based on SPI
+---
+title: "PredicateJudge -- analyze the design based on SPI"
+author: "Huihui Yin"
+categories: "Apache ShenYu"
+tags: ["SPI","Apache ShenYu"]
+date: 2021-09-07
+---
 
-
-
-Apache Shenyu has been identified as a gateway application which supports a variety of protocols and  microservice frameworks such as  Dubbo, gRPC, Spring-Cloud, etc.  To do this, the product has accomplished an elegant SPI (Service Provider Interface) as its foundation, and make the  Rule data parsing and predicting program very simple , resiliency and security. As to rule data parsing processing,  the SPI design increases the product's scalability. When appending new plugin, in most cases, the   existing module is enough for rule data parsing , otherwise it can be rapidly carry out with tiny effort. 
+**Apache Shenyu** has been identified as a gateway application which supports a variety of protocols and  microservice frameworks such as  Dubbo, gRPC, Spring-Cloud, etc.  To do this, the product has accomplished an elegant `SPI` (Service Provider Interface) as its foundation, and make the  Rule data parsing and predicting program very simple , resiliency and security. As to rule data parsing processing,  the `SPI` design increases the product's scalability. When appending new plugin, in most cases, the   existing module is enough for rule data parsing , otherwise it can be rapidly carry out with tiny effort. 
 
 [TOC]
 
-### Top level design of SPI
+## Top level design of SPI
 
- In Apache Shenyu, the SPI archtecure is defined in shenyu-spi module and composed of three parts:   SPI interface,  factory  design pattern,  and configuration file. There is  two interface defined as annotation: @SPI and @Join. When class file with  @Join annotation,  it means that it will join as an SPI extension class, in other words, it is an application or registration.  The  @SPI denotes that the class is an SPI extension class.
+ In `Apache Shenyu`, the `SPI` archtecure is defined in ***shenyu-spi*** module and composed of three parts:   `SPI` interface,  factory  design pattern,  and configuration file. There is  two interface defined as annotation: @SPI and @Join. When class file with  @Join annotation,  it means that it will join as an `SPI` extension class, in other words, it is an application or registration.  The  @SPI denotes that the class is an `SPI` extension class.
 
-Fig 1 classes in the shenyu-spi 
+Fig 1 classes in the ***shenyu-spi***
 
-![](toplevel-SPI.png)
+![toplevel-SPI](toplevel-SPI.png)
 
-The SPI configuration directory is  META-INF/shenyu/.  that is specified:
+The SPI configuration directory is  `META-INF/shenyu/.`  that is specified:
 
-```
+```java
 SHENYU_DIRECTORY = "META-INF/shenyu/";
 ```
 
-When starting the gateway system , the ExtensionLoader will scan config files under  SHENYU_DIRECTORY,   in turn, load and validate and then  initialize each configed class. The configuration file uses  "Key = class-file" format.  During operation of the system,  the corresponding SPI implementation class will be invoked through the factory mechanism.
+When starting the gateway system , the `ExtensionLoader` will scan the profiles under  `SHENYU_DIRECTORY`,  in turn, load and validate and then  initialize each configed class. The configuration file uses  "Key = class-file" format.  During operation of the system,  the corresponding `SPI` implementation class will be invoked through the factory mechanism.
 
-### Implementation of shenyu-plugin SPI
+## Implementation of shenyu-plugin SPI
 
-In shenyu-plugin module,  various plugins for HTTP routing are implemented according to the plugin mechanism, including  request, redirect, response and rewrite, etc.  Plugins for microservice frameworks such as Dubbo, gRPC和 Spring-Cloud, Tars have been developed in the gateway product.  And plugins are still increasing. If  no such  dependent module fo parsing and judge routing  parameters and data,  each plugin is necessary to implement the parsing functions, and has to frequently  modify  to support their matching rules, such as wildcard, regular expression, SpEL expression, etc. Therefore,  they made a high level abstraction for routing parameter data following the SPI framework in  Shenyu plugin module.  The rule analysis consists of three parts:
+In ***shenyu-plugin*** module,  various plugins for HTTP routing are implemented according to the plugin mechanism, including  request, redirect, response and rewrite, etc.  Plugins for microservice frameworks such as Dubbo, gRPC , Spring-Cloud and Tars have been developed in the gateway product.  And plugins are still increasing. If  no such  dependent module fo parsing and judge routing  parameters and data,  each plugin is necessary to implement the parsing functions, and has to frequently  modify  to support their matching rules, such as wildcard, regular expression, SpEL expression, etc. Therefore,  they made a high level abstraction for routing parameter data following the `SPI` framework in  ***shenyu-plugin*** module.  The rule analysis consists of three parts:
 
-- ParameterData- parameter data
+- `ParameterData`- parameter data
 
-- PredicatJudge-  predicate whether the actural data match the rule
+- `PredicatJudge`-  predicate whether the actural data match the rule
 
-- MatchStrategy- combine multiple conditions, the final used strategy
+- `MatchStrategy`- combine multiple conditions, the final used strategy
 
-  
+These implementation classes are defined in ***shenyu-plugin-base*** module. In each plugin, resolution and predication of  the routing parameter can be realized through `AbstractShenyuPlugin` using the above  `SPIs`. That is dedicated and easy to extend, in line with SOLID principle.
 
-这些扩展类定义在 shenyu-plugin-base module中，经过这样抽象后，每个插件实现中，routing 参数解析的功能全部由AbstractShenyuPlugin 来调用上述三个SPI工厂类来定义和实现。做到了功能的专一，并易于扩展，符合SOLID原则。
+​      This section analyzes the  `PredictJudge` in detail. You can find the dependency to ***shenyu-spi*** in the pom.xml of this module.
 
-​      This section analyzes the  PredictJudge in detail. You can find the dependency to shenyu-spi in the pom.xml of this module.
-
-```
+```xml
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spi</artifactId>
@@ -46,13 +48,11 @@ In shenyu-plugin module,  various plugins for HTTP routing are implemented accor
 </dependency>
 ```
 
+### Design of PredicateJudge SPI
 
+`PredicateJudge` `SPI`  is used to analyze and judge various routing rules configed in `Apache Shenyu` gateway.  The name and functions of this SPI are similar to [Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html)  in Java, but the acceptance behavior is further  abstracted applying for routing aspect. This `SPI` is implemented through the Factory pattern.  Let's look at the `Predictejudge` `SPI` interface:
 
-#### Design of PredicateJudge SPI
-
-PredicateJudge SPI  is used to analyze and judge various routing rules configed in the shenyu gateway.  The name and functions of this SPI are similar to [Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html)  in Java, but the acceptance behavior is further  abstracted applying for routing aspect. This SPI is implemented through the Factory pattern.  Let's look at the Predictejudge SPI interface:
-
-```
+```java
 @SPI
 @FunctionalInterface
 public interface PredicateJudge {
@@ -70,23 +70,21 @@ public interface PredicateJudge {
 
 The class diagram is as follows:
 
-Fig 2-Predicate class diagram
+Fig 2-`Predicate` class diagram
 
-![](predicate-class-diagram.png)
+![predicate-class-diagram](predicate-class-diagram.png)
 
-
-
-The important  methods of PredicateJudgeFactory  are shown as follows:
+The important  methods of `PredicateJudgeFactory`  are shown as follows:
 
 Whenever need to parsing and matching routing data, you can use
 
-```
+```java
     public static PredicateJudge newInstance(final String operator) {
         return ExtensionLoader.getExtensionLoader(PredicateJudge.class).getJoin(processSpecialOperator(operator));
     }
 ```
 
-```
+```java
     public static Boolean judge(final ConditionData conditionData, final String realData) {
         if (Objects.isNull(conditionData) || StringUtils.isBlank(realData)) {
             return false;
@@ -95,51 +93,49 @@ Whenever need to parsing and matching routing data, you can use
     }
 ```
 
+`ConditionData` contains of four attributes of String type: `paramType`, `operator`,`paramName`,`paramValue` 
 
+#### ParamTypeEnum
 
-ConditionData contains of four attributes of String type: paramType, operator,paramName,paramValue 
+Where **paramType** must be the  enumeration type  `ParamTypeEnum`. The default supported `paramType` are:
 
-##### ParamTypeEnum
-
-Where **paramType** must be the  enumeration type  ParamTypeEnum. The default supported paramType are:
-
-```
+```java
 post, uri,query, host, ip,header, cookie,req_method
 ```
 
-##### OperatorEnum
+#### OperatorEnum
 
-**operator** must be the enumeration type OperatorEnum, currently  supported operators are:
+**operator** must be the enumeration type `OperatorEnum`, currently  supported operators are:
 
-```
+```java
    match, =,regex, >,<, contains, SpEL,  Groovy, TimeBefore,TimeAfter
 ```
 
-Base on the above defination , the plugin module provides  the following  eight PredicateJudge  implemetation classes to realize the logic of these operators respectively. 
+Base on the above defination , the plugin module provides  the following  eight `PredicateJudge`  implemetation classes to realize the logic of these operators respectively. 
 
-| Implementatin class       | Logic description                                            | corespondece operator |
-| ------------------------- | ------------------------------------------------------------ | --------------------- |
-| ContainsPredicateJudge    | "contain" relation, the actual data needs contain the specified string | contains              |
-| EqualsPredicateJudge      | equals "="                                                   | =                     |
-| MatchPredicateJudge       | used for URI context path matching                           | match                 |
-| TimerAfterPredicateJudge  | Whether the local time is after the specified time           | TimeBefore            |
-| TimerBeforePredicateJudge | Whether the local time is before the specified time          | TimeAfter             |
-| GroovyPredicateJudge      | used Groovy syntax toe set ParamName and value data          | Groovy                |
-| RegexPredicateJudge       | used Regex to match                                          | regex                 |
+| Implementation class        | Logic description                                            | corespondece operator |
+| --------------------------- | ------------------------------------------------------------ | --------------------- |
+| `ContainsPredicateJudge`    | "contain" relation, the actual data needs contain the specified string | contains              |
+| `EqualsPredicateJudge`      | equals "="                                                   | =                     |
+| `MatchPredicateJudge`       | used for URI context path matching                           | match                 |
+| `TimerAfterPredicateJudge`  | Whether the local time is after the specified time           | TimeBefore            |
+| `TimerBeforePredicateJudge` | Whether the local time is before the specified time          | TimeAfter             |
+| `GroovyPredicateJudge`      | used Groovy syntax toe set ParamName and value data          | Groovy                |
+| `RegexPredicateJudge`       | used Regex to match                                          | regex                 |
 
-##### How to use PredicateJudge
+### How to use PredicateJudge
 
-When you want to parse parameters, you only need to call PredicateJudgeFactory as follows. 
+When you want to parse parameters, you only need to call `PredicateJudgeFactory` as follows. 
 
-```
+```java
 PredicateJudgeFactory.judge(final ConditionData conditionData, final String realData);
 ```
 
-##### SPI profile
+### SPI profile
 
-The implementation class is configed in the file under directory SHENYU_DIRECTORY . It  will be loaded and cached at startup. 
+The implementation class is configed in the file under directory `SHENYU_DIRECTORY` . It  will be loaded and cached at startup. 
 
-```
+```properties
 equals=org.apache.shenyu.plugin.base.condition.judge.EqualsPredicateJudge
 
 contains=org.apache.shenyu.plugin.base.condition.judge.ContainsPredicateJudge
@@ -151,49 +147,36 @@ TimeAfter=org.apache.shenyu.plugin.base.condition.judge.TimerAfterPredicateJudge
 TimeBefore=org.apache.shenyu.plugin.base.condition.judge.TimerBeforePredicateJudge
 ```
 
+## The usage of PredicateJudge SPI in Shenyu gateway
 
+Most plugins in `Apache Shenyu` are inherited from `AbstractShenyuPlugin`.  In this abstract class, the filter functions (selection and matching) are achieved through  `MatchStrategy` `SPI`, and `PredicateJudge` will be invoked from `MatchStrategy`  to predicate each condition data. 
 
-#### The usage of PredicateJudge SPI in Shenyu gateway
+Fig 3- class diagram of plugins with `PredicateJudge` and `MatchStrategy` `SPI`
 
-Most plugins in Shenyu are inherited from AbstractShenyuPlugin.  In this abstract class, the filter functions (selection and matching) are achieved through  MatchStrategy SPI, and PredicateJudge will be invoked from MatchStrategy  to predicate each condition data. 
-
-Fig 3- class diagram of plugins with PredicateJudge and MatchStrategy SPI
-
-![](plugin-SPI-class-diagram.png)
-
-
+![plugin-SPI-class-diagram](plugin-SPI-class-diagram.png)
 
 The process from client request  calling the routing parsing moodule is showed as following chart.
 
 Fig 4- flow chart for Shenyu gateway filter  with parameter processing
 
-![](SPI-flow-diagram.png)
+![SPI-flow-diagram](SPI-flow-diagram.png)
 
-
-
-- When startup, the system will load SPI classes from profile and cache them.
+- When startup, the system will load `SPI` classes from profile and cache them.
 - When the client sends a new request to the Shenyu gateway,  will call the corresponding plugin within  the gateway.
-- When analyzing real data with routing rules, the  PredicateJudge implementation class  will be invoked according to the contained operator.
+- When analyzing real data with routing rules, the  `PredicateJudge` implementation class  will be invoked according to the contained operator.
 
-#### Others:
+## Others
 
-##### Examples of PredicateJudge  judgement
+### Examples of PredicateJudge  judgement
 
-###### ContainsPredicateJudge- " contains“ rule
+#### ContainsPredicateJudge- " contains“ rule
 
+For example, giving a `ConditionData`  with: `paramType`="uri", `paramValue` 是 "/http/**",  when using the "contains" relation: `ContainsPredicateJudge`, the matching result is as follows.
 
+| `ConditionData`  (operator="contains") | real data             | judge result |
+| -------------------------------------- | --------------------- | ------------ |
+| paramType="uri",    "/http/**"         | "/http/**/test"       | true         |
+|                                        | "/test/http/**/other" | true         |
+|                                        | "/http1/**"           | false        |
 
-For example, giving a ConditionData  with: paramType="uri", paramValue 是 "/http/**",  when using the "contains" relation: ContainsPredicateJudge, the matching result is as follows. 
-
-| ConditionData  (operator="contains") | real data             | judge result |
-| ------------------------------------ | --------------------- | ------------ |
-| paramType="uri",    "/http/**"       | "/http/**/test"       | true         |
-|                                      | "/test/http/**/other" | true         |
-|                                      | "/http1/**"           | false        |
-
-About other PredicateJudge implemetantion classes, you  can  refer to the code and test classes.
-
-
-
-
-
+About other `PredicateJudge` implemetantion classes, you  can  refer to the code and test classes.

@@ -1,44 +1,46 @@
-###  Shenyu PredicateJudge  -- 基于SPI的设计实现分析
+---
+title: "PredicateJudgeS-- 基于SPI的设计实现分析"
+author: "Huihui Yin"
+categories: "Apache ShenYu"
+tags: ["SPI","Apache ShenYu"]
+date: 2021-09-07
+---
 
-
-
-​      灵活的插件和规则定义，是[Shenyu网关](http://shenyu.apache.org/)的一大特色。它以插件形式支持多种网络协议和多种流行的微服务框架，如Dubbo, gRPC和 Spring-Cloud 等。 为了实现对各种协议及插件的配置规则的解析，网关在规则策略解析方面，采用了优雅的SPI(Service Provider Interface)实现，当添加新的插件时，规则解析部分可以沿用现有实现或采用SPI机制快速实现，具有良好的可扩展性。
+​      灵活的插件和规则定义，是[Shenyu网关](http://shenyu.apache.org/)的一大特色。它以插件形式支持多种网络协议和多种流行的微服务框架，如Dubbo, gRPC和 Spring-Cloud 等。 为了实现对各种协议及插件的配置规则的解析，网关在规则策略解析方面，采用了优雅的`SPI`(Service Provider Interface)实现，当添加新的插件时，规则解析部分可以沿用现有实现或采用`SPI`机制快速实现，具有良好的可扩展性。
 
 [TOC]
 
-### SPI 的顶层设计
+## `SPI` 的顶层设计
 
-Shenyu的SPI采用接口+ 工厂模式+配置文件的方式，来实现模组的动态加载。在其shen-spi-模组，做了SPI的顶层设计。定义了@ Join ，@SPI 两个annotation。 其中@Join  代表此类会加入扩展机制，相当于是做申请注册。 @SPI 标明当前类为SPI功能扩展类。
+Shenyu的`SPI`采用接口+ 工厂模式+配置文件的方式，来实现模组的动态加载。在其***shen-`SPI`***-模组，做了`SPI`的顶层设计。定义了@ Join ，@`SPI` 两个annotation。 其中@Join  代表此类会加入扩展机制，相当于是做申请注册。 @`SPI` 标明当前类为`SPI`功能扩展类。
 
-Fig 1 classes in the shenyu-spi 
+Fig 1 classes in the ***shenyu-spi***
 
-![](toplevel-SPI.png)
+![toplevel-SPI ](toplevel-SPI.png)
 
-配置文件方面，定义SPI加载的目录为 META-INF/shenyu/ 
+配置文件方面，定义`SPI`加载的目录为 `META-INF/shenyu/`
 
-```
+```java
 SHENYU_DIRECTORY = "META-INF/shenyu/";
 ```
 
-系统启动时，会扫描 SHENYU_DIRECTORY 下的配置文件，并由 ExtensionLoader 类来加载所配置的SPI扩展类，并cache到内存中。  配置文件内容为 key=class的形式。 在系统执行期间， 由ExtensionFactory的实现类，返回key所对应的SPI实现类。 
+系统启动时，会扫描 `SHENYU_DIRECTORY` 下的配置文件，并由 `ExtensionLoader` 类来加载所配置的`SPI`扩展类，并cache到内存中。  配置文件内容为 key=class的形式。 在系统执行期间， 由`ExtensionFactory`的实现类，返回key所对应的`SPI`实现类。 
 
+## shenyu-plugin的`SPI` 实现
 
+在***shenyu-plugin***模组中，按照插件机制，实现了各种请求转发功能，包括支持request, redirect, response, rewrite等http协议功能，及 gRPC, dubbo, hystrix等微服务框架， 并且插件功能还在不断增加中。如果在各自的功能插件实做类中，还要做对routing 参数的解析等处理，不仅会造成程序的冗余，而且当要支持各自匹配规则，如通配符、正则表达式、SpEL解析等，会造成频繁对插件核心代码的修改。因此，在***shenyu-plugin***模组中，将routing参数解析做了更高一层的抽象，并按照`SPI`机制做了规则解析的实现。解析由三个部分组成：
 
-### shenyu-plugin的SPI 实现
+- `ParameterData`-参数资料,  
 
-在shenyu-plugin模组中，按照插件机制，实现了各种请求转发功能，包括支持request， redirect, response, rewrite等http协议功能，及 gRPC，dubbo, hystrix等微服务框架， 并且插件功能还在不断增加中。如果在各自的功能插件实做类中，还要做对routing 参数的解析等处理，不仅会造成程序的冗余，而且当要支持各自匹配规则，如通配符、正则表达式、SpEL解析等，会造成频繁对插件核心代码的修改。因此，在shenyu-plugin模组中，将routing参数解析做了更高一层的抽象，并按照SPI机制做了规则解析的实现。解析由三个部分组成：
+- `PredictJudge`-断言
 
-- ParameterData-参数资料,  
+- `MatchStrategy`-匹配策略三个`SPI`实现。
 
-- PredictJudge-断言
+  这些扩展类定义在 ***shenyu-plugin-base*** module中，经过这样抽象后，每个插件实现中，routing 参数解析的功能全部由AbstractShenyuPlugin 来调用上述三个`SPI`工厂类来定义和实现。做到了功能的专一，并易于扩展，符合SOLID原则。
 
-- MatchStrategy-匹配策略三个SPI实现。
+本节就其中的`PredictJudge`-断言做详细解析。可以看到这个module中的pom文件中，添加了对***shenyu-`SPI`***的依赖
 
-  这些扩展类定义在 shenyu-plugin-base module中，经过这样抽象后，每个插件实现中，routing 参数解析的功能全部由AbstractShenyuPlugin 来调用上述三个SPI工厂类来定义和实现。做到了功能的专一，并易于扩展，符合SOLID原则。
-
-本节就其中的PredictJudge-断言做详细解析。可以看到这个module中的pom文件中，添加了对shenyu-spi的依赖
-
-```
+```xml
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spi</artifactId>
@@ -46,13 +48,11 @@ SHENYU_DIRECTORY = "META-INF/shenyu/";
 </dependency>
 ```
 
+### PredicateJudge `SPI` 设计
 
+PredicateJudge `SPI` 实现用来解析判断各类规则，当网关中配置的。这个类命名和功能都类似于java 的[Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html)  ，但对接受行为做了更进一步的抽象。这个`SPI`通过一个工厂和策略模式实现，首先来看`PredicateJudge` `SPI`接口的定义：
 
-#### PredicateJudge SPI 设计
-
-PredicateJudge SPI 实现用来解析判断各类规则，当网关中配置的。这个类命名和功能都类似于java 的[Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html)  ，但对接受行为做了更进一步的抽象。这个SPI通过一个工厂和策略模式实现，首先来看PredicateJudge SPI接口的定义：
-
-```
+```java
 @SPI
 @FunctionalInterface
 public interface PredicateJudge {
@@ -72,19 +72,17 @@ public interface PredicateJudge {
 
 Fig 2-Predicate class diagram
 
-![](predicate-class-diagram.png)
+![predicate-class-diagram](predicate-class-diagram.png)
 
+`PredicateJudgeFactory`的重要方法如下：
 
-
-PredicateJudgeFactory的重要方法如下：
-
-```
+```java
     public static PredicateJudge newInstance(final String operator) {
         return ExtensionLoader.getExtensionLoader(PredicateJudge.class).getJoin(processSpecialOperator(operator));
     }
 ```
 
-```
+```java
     public static Boolean judge(final ConditionData conditionData, final String realData) {
         if (Objects.isNull(conditionData) || StringUtils.isBlank(realData)) {
             return false;
@@ -93,55 +91,51 @@ PredicateJudgeFactory的重要方法如下：
     }
 ```
 
+这里`ConditionData`定义如下包含属性四个String类型的属性： `paramType, operator,paramName,paramValue`
 
+#### ParamTypeEnum
 
-这里ConditionData定义如下包含属性四个String类型的属性： paramType, operator,paramName,paramValue
+参数 `paramType`必须为系统中枚举类型 `ParamTypeEnum`，默认支持的`paramType`有：
 
-##### ParamTypeEnum
-
-参数 paramType必须为系统中枚举类型 ParamTypeEnum，默认支持的paramType有：
-
-```
+```java
 post, uri,query, host, ip,header, cookie,req_method
 ```
 
-##### OperatorEnum
+#### OperatorEnum
 
- operator 必须为枚举类型 OperatorEnum ，目前支持的操作符有：（注意，严格区分大小写)
+ `operator` 必须为枚举类型 `OperatorEnum` ，目前支持的操作符有：（注意，严格区分大小写)
 
-```
+```java
    match, =,regex, >,<, contains, SpEL,  Groovy, TimeBefore,TimeAfter
 ```
 
-基于以上的规则, plugin 模组实现了如下8个 PredicateJudge 实现类，分别实现上述operator的逻辑匹配规则. 
+基于以上的规则, plugin 模组实现了如下8个 `PredicateJudge` 实现类，分别实现上述operator的逻辑匹配规则.
 
+| Implementation class        | Rule denotes 规则说明                                | corespondece operator |
+| --------------------------- | ---------------------------------------------------- | --------------------- |
+| `ContainsPredicateJudge`    | 包含关系 "contains"， 实际结果，需要包含所定规则的值 | contains              |
+| `EqualsPredicateJudge`      | 相等"="，                                            | =                     |
+| `MatchPredicateJudge`       | 用于URI 路径匹配的处理                               | match                 |
+| `TimerAfterPredicateJudge`  | 当前local时间是否晚于设定的时间                      | TimeBefore            |
+| `TimerBeforePredicateJudge` | 当前local时间是否早于设定的时间                      | TimeAfter             |
+| `GroovyPredicateJudge`      | Groovy,设定ParamName的值，与设定ParamValue相同       | Groovy                |
+| `RegexPredicateJudge`       | 正则表达式匹配资料                                   | regex                 |
 
+### 调用方法
 
-| Implementatin class       | Rule denotes 规则说明                                | corespondece operator |
-| ------------------------- | ---------------------------------------------------- | --------------------- |
-| ContainsPredicateJudge    | 包含关系 "contains"， 实际结果，需要包含所定规则的值 | contains              |
-| EqualsPredicateJudge      | 相等"="，                                            | =                     |
-| MatchPredicateJudge       | 用于URI 路径匹配的处理                               | match                 |
-| TimerAfterPredicateJudge  | 当前local时间是否晚于设定的时间                      | TimeBefore            |
-| TimerBeforePredicateJudge | 当前local时间是否早于设定的时间                      | TimeAfter             |
-| GroovyPredicateJudge      | Groovy,设定ParamName的值，与设定ParamValue相同       | Groovy                |
-| RegexPredicateJudge       | 正则表达式匹配资料                                   | regex                 |
+当要做一组参数的解析时，只需要调用`PredicateJudgeFactory`的judge方法即可：
 
-##### 调用方法
-
-当要做一组参数的解析时，只需要调用PredicateJudgeFactory的judge方法即可：
-
-```
+```java
 PredicateJudgeFactory.judge(final ConditionData conditionData, final String realData);
 ```
 
-##### SPI配置文件
+### `SPI`配置文件
 
-这些PredicateJudge实现类在  SHENYU_DIRECTORY 中的config文件中做了配置，在启动时会加加载并cache到内存中。
+这些`PredicateJudge`实现类在  `SHENYU_DIRECTORY` 中的config文件中做了配置，在启动时会加加载并cache到内存中。
 
-PredicateJudge文件的内容如下，为key=class形式，左边的operator要和ParamEnum中的定义一致。
+`PredicateJudge`文件的内容如下，为key=class形式，左边的operator要和`ParamEnum`中的定义一致。
 
-```
+```properties
 equals=org.apache.shenyu.plugin.base.condition.judge.EqualsPredicateJudge
 
 contains=org.apache.shenyu.plugin.base.condition.judge.ContainsPredicateJudge
@@ -153,39 +147,31 @@ TimeAfter=org.apache.shenyu.plugin.base.condition.judge.TimerAfterPredicateJudge
 TimeBefore=org.apache.shenyu.plugin.base.condition.judge.TimerBeforePredicateJudge
 ```
 
+## PredicateJudge `SPI`在网关Plugin中的使用
 
+网关系统中，大部分的Plugin 都继承自`AbstractShenyuPlugin`，这个抽象类中，在做选择和规则解析时，调用了上述`SPI`中的`MatchStrategy`，继而在策略判断时调用`PredicateJudge` 的各个断言类来处理。
 
-#### PredicateJudge SPI在网关Plugin中的使用
+Plugin与`SPI` 的类图如下:
 
-网关系统中，大部分的Plugin 都继承自AbstractShenyuPlugin，这个抽象类中，在做选择和规则解析时，调用了上述SPI中的MatchStrategy，继而在策略判断时调用PredicateJudge 的各个断言类来处理。
+Fig 3- class diagram of plugins with PredicateJudge and `MatchStrategy` `SPI`
 
-Plugin与SPI 的类图如下:
+![plugin-SPI-class-diagram](plugin-SPI-class-diagram.png)
 
-Fig 3- class diagram of plugins with PredicateJudge and MatchStrategy SPI
-
-![](plugin-SPI-class-diagram.png)
-
-
-
-从客户端发来的请求，在系统中调用规则部分的SPI的流程如下：
+从客户端发来的请求，在系统中调用规则部分的`SPI`的流程如下：
 
 Fig 4- flow chart for Shenyu gateway filter  with parameter processing
 
-![](SPI-flow-diagram.png)
+![SPI-flow-diagram](SPI-flow-diagram.png)
 
-
-
-- 系统启动时，会加载目录下配置的SPI资料到内存中
+- 系统启动时，会加载目录下配置的`SPI`资料到内存中
 - 当client有新的请求发到Apache shenyu 网关系统时，在网关内部，会调用对应的plugin
 - 对实际请求资料做规则匹配时，会根据所包含的operator,调用的对应的PredicateJudge实现类
 
+## 其他
 
+### PredicateJudge  判断结果举例
 
-#### 其他：
-
-##### PredicateJudge  判断结果举例
-
-###### ContainsPredicateJudge- " contains“ rule
+#### ContainsPredicateJudge- " contains“ rule
 
  举例：给定一组参数（ConditionData ）， paramType="uri", paramValue 是 "/http/**"
 
@@ -197,11 +183,4 @@ Fig 4- flow chart for Shenyu gateway filter  with parameter processing
 |                                      | "/test/http/**/other" | true         |
 |                                      | "/http1/**"           | false        |
 
-其他的几个PredicateJudge的具体功能可参考其代码和测试类。 
-
-
-
-
-
-
-
+其他的几个PredicateJudge的具体功能可参考其代码和测试类.

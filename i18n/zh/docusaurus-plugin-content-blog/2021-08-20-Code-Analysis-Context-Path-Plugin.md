@@ -8,7 +8,7 @@ author_image_url: https://avatars1.githubusercontent.com/u/62384022?v=4
 tags: [Context-Path, Apache ShenYu]
 ---
 
-> 开始前，可以运行[Context-Path插件的Demo](demo-collection#context-path插件)
+> 开始前，可以参考 [这篇文章](./start-demo) 运行shenyu网关
 
 ### 正文
 

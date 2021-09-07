@@ -8,7 +8,7 @@ author_image_url: https://avatars1.githubusercontent.com/u/62384022?v=4
 tags: [Param-Mapping, Apache ShenYu]
 ---
 
-> Before you start, you can run [the Demo Of Param-Mapping Plugin](demo-collection#param-mapping-plugin)
+> Before starting, you can refer to [this article](./start-demo) to start the gateway
 
 ### Body
 

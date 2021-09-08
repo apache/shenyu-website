@@ -68,7 +68,7 @@ ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket
 <img src="/img/shenyu/plugin/websocket/websocket_rule.png" width="80%"/>
 
 
-在条件中选择`query`类型，填写匹配字段和取值，这里分别是`method`，`websocket` 。这里的字段和取值，也可以自定义，只要能够匹配上请求就行。
+在条件中选择`query`类型，填写匹配字段和取值，这里分别是`method`，`/websocket` 。这里的字段和取值，也可以自定义，只要能够匹配上请求就行。
 
 通过以上的选择器和规则配置，你的请求就会被匹配上，然后再请求代理的的真实`websocket`地址：`127.0.0.1:8080/websocket`，这样 Apache ShenYu 网关就完成了`websocket`的代理。
 

@@ -71,7 +71,7 @@ Add a new rule under this selector:
 <img src="/img/shenyu/plugin/websocket/websocket_rule_en.png" width="80%"/>
 
 
-Select the type `query` in the condition, and fill in the matching field and value, which are `method` and `websocket` respectively. You can also customize the fields and the values, as long as they match the request.
+Select the type `query` in the condition, and fill in the matching field and value, which are `method` and `/websocket` respectively. You can also customize the fields and the values, as long as they match the request.
 
 
 

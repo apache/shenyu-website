@@ -9,9 +9,9 @@ description: websocket代理
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
-启动成功后，需要在基础配置`->`插件管理中，把`divide` 插件设置为开启。 `Divide`插件的相关使用，请参考：[Divide插件](../divide-plugin) 。
+启动成功后，需要在基础配置`->`插件管理中，把`divide` 插件设置为开启。 `Divide`插件的相关使用，请参考：[Divide插件](./divide-plugin) 。
 
 
 <img src="/img/shenyu/quick-start/http/http-plugin-enable.png" width="60%" height="50%" />
@@ -68,7 +68,7 @@ ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket
 <img src="/img/shenyu/plugin/websocket/websocket_rule.png" width="80%"/>
 
 
-在条件中选择`query`类型，填写匹配字段和取值，这里分别是`method`，`websocket` 。这里的字段和取值，也可以自定义，只要能够匹配上请求就行。
+在条件中选择`query`类型，填写匹配字段和取值，这里分别是`method`，`/websocket` 。这里的字段和取值，也可以自定义，只要能够匹配上请求就行。
 
 通过以上的选择器和规则配置，你的请求就会被匹配上，然后再请求代理的的真实`websocket`地址：`127.0.0.1:8080/websocket`，这样 Apache ShenYu 网关就完成了`websocket`的代理。
 

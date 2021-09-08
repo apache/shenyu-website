@@ -37,7 +37,7 @@ description: sign插件
 
 ## 新增 AK/SK
 
-* 在 `shenyu-admin` --> 基础配置/认证管理中，点击新增，新增一条 `AK/SK` 。详情请看：[认证管理](../authority-management)
+* 在 `shenyu-admin` --> 基础配置/认证管理中，点击新增，新增一条 `AK/SK` 。详情请看：[认证管理](../../user-guide/admin-usage/authority-management) 。
 
 ## 网关技术实现
 

@@ -12,10 +12,10 @@ description: 自定义指标监控
 
 ## 扩展实现
 
-* 新增一个类 `${you class}`，实现 `org.apache.shenyu.metrics.spi.MetricsBootService`
+* 新增一个类 `${you spi class}` ，实现 `org.apache.shenyu.metrics.spi.MetricsBootService`
 
 ```java
-public class ${you class} implements MetricsBootService {
+public class ${you spi class} implements MetricsBootService {
    
    	/**
      * Start metrics tracker.

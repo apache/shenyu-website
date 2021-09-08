@@ -1,6 +1,6 @@
 ---
 slug: code-analysis-param-mapping
-title: Code Analysis For Param-Mapping Plugin
+title: Param-Mapping插件源码分析
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/JooKS-me
@@ -8,22 +8,22 @@ author_image_url: https://avatars1.githubusercontent.com/u/62384022?v=4
 tags: [Param-Mapping, Apache ShenYu]
 ---
 
-> Before starting, you can refer to [this article](./start-demo) to start the gateway
+> 开始前，可以参考 [这篇文章](./start-demo) 运行shenyu网关
 
-### Body
+### 正文
 
-Let's take a look at the structure of this plugin first, as shown in the figure below.
+先看一下这个插件的结构，如下图。
 
 ![param-mapping-structure](/img/activities/code-analysis-param-mapping-plugin/param-mapping-structure.png)
 
-Guess: handler is used for data synchronization; strategy may be adapted to various request bodies, which should be the focus of this plugin; `ParamMappingPlugin` should be the implementation of `ShenyuPlugin`.
+猜测：handler是用来做数据同步的；strategy中文意思是策略，可能是对各种请求体做了适配，应该是这个插件的重点；`ParamMappingPlugin` 应该是 `ShenyuPlugin` 的实现。
 
-First, take a look at the `ParamMappingPlugin`, the focus is on the override of the `doExecute` method.
+首先，看一下 `ParamMappingPlugin` ，里面主要是对 `doExecute` 方法的重写。
 
 ```java
 public Mono<Void> doExecute(final ServerWebExchange exchange, final ShenyuPluginChain chain, final SelectorData selector, final RuleData rule) {
-    ... // judge whether paramMappingHandle is null
-    // Determine the request body type according to the contentType in the header line
+    ... // paramMappingHandle判断是否为空
+    // 根据首部行中的contentType确定请求体类型
     HttpHeaders headers = exchange.getRequest().getHeaders();
     MediaType contentType = headers.getContentType();
   	// *
@@ -31,7 +31,7 @@ public Mono<Void> doExecute(final ServerWebExchange exchange, final ShenyuPlugin
 }
 ```
 
-- The match method returns the corresponding `Operator` according to contentType
+- match方法是根据contentType返回对应的 `Operator`
 
   ```java
   private Operator match(final MediaType mediaType) {
@@ -45,19 +45,19 @@ public Mono<Void> doExecute(final ServerWebExchange exchange, final ShenyuPlugin
   }
   ```
 
-  As can be seen from the code of the match method, there are currently three types of `DefaultOperator`, `FormDataOperator`, and `JsonOperator`, which support the request body in two formats: `x-www-form-urlencoded` and `json`.
+  从match方法的代码可以看出，目前有 `DefaultOperator`、`FormDataOperator`、`JsonOperator`三种，支持 `x-www-form-urlencoded` 和 `json` 两种格式的请求体。
 
-So let's take a look at what the above three operators are like.
+那么我们就来看一下上面三种Operator究竟是怎么样的吧。
 
-#### 1. DefaultOperator
+#### 一、DefaultOperator
 
-Nothing happens, its apply method just continues to execute the plug-in chain, and has no real function. When the request body does not match the Operator, it will be skipped by `DefaultOperator`.
+虚晃一枪，它的apply方法只是继续执行插件链，并没有实质功能。当请求体没有匹配到Operator时，就会通过 `DefaultOperator` 跳过。
 
-#### 2. FormDataOperator
+#### 二、FormDataOperator
 
-This class is used to process the request body in the format of `x-www-form-urlencoded`.
+这个类是用来处理 `x-www-form-urlencoded` 格式的请求体的。
 
-Mainly depends on the `apply` method, but it looks a bit strange.
+主要是看apply方法，但是这个apply方法长得有点奇怪。
 
 ```java
 public Mono<Void> apply(final ServerWebExchange exchange, final ShenyuPluginChain shenyuPluginChain, final ParamMappingHandle paramMappingHandle) {
@@ -69,28 +69,28 @@ public Mono<Void> apply(final ServerWebExchange exchange, final ShenyuPluginChai
 }
 ```
 
-The code in the ellipsis is the processing of the request body, as follows.
+省略号中的代码是对请求体的处理，如下。
 
 ```java
-// judge whether it is empty
+// 判空
 if (Objects.isNull(multiValueMap) || multiValueMap.isEmpty()) {
     return shenyuPluginChain.execute(exchange);
 }
-// convert form-data to json
+// 将form-data转化成json
 String original = GsonUtils.getInstance().toJson(multiValueMap);
 LOG.info("get from data success data:{}", original);
-// *modify request body*
+// *修改请求体*
 String modify = operation(original, paramMappingHandle);
 if (StringUtils.isEmpty(modify)) {
     return shenyuPluginChain.execute(exchange);
 }
 ...
-// Convert the modified json into LinkedMultiValueMap. Pay attention to this line, it will be mentioned later!
+// 将修改后的json，转换成LinkedMultiValueMap。注意一下这一行，后面会提到！
 LinkedMultiValueMap<String, String> modifyMap = GsonUtils.getInstance().toLinkedMultiValueMap(modify);
 ...
 final BodyInserter bodyInserter = BodyInserters.fromValue(modifyMap);
 ...
-// modify the request body in the exchange, and then continue to execute the plugin chain
+// 修改exchange中的请求体，然后继续执行插件链
 return bodyInserter.insert(cachedBodyOutputMessage, new BodyInserterContext())
         .then(Mono.defer(() -> shenyuPluginChain.execute(exchange.mutate()
                 .request(new ModifyServerHttpRequestDecorator(httpHeaders, exchange.getRequest(), cachedBodyOutputMessage))
@@ -98,22 +98,22 @@ return bodyInserter.insert(cachedBodyOutputMessage, new BodyInserterContext())
         )).onErrorResume((Function<Throwable, Mono<Void>>) throwable -> release(cachedBodyOutputMessage, throwable));
 ```
 
-> PS: The omitted part is to set the request first and other operations.
+> PS: 省略的部分是设置请求头等操作。
 
-The more important thing above should be the modification request body of the star, that is, the call of the `operation` method. Here, because of the parameter type, the default method of the `Operator` interface will be called first (instead of being overridden by the `FormDataOperator`).
+上面比较重要的应该是打星的修改请求体，也就是 `operation` 方法的调用。这里因为参数类型的原因，会先调用 `Operator` 接口的默认方法（而不是 `FormDataOperator` 重写的）。
 
 ```java
 default String operation(final String jsonValue, final ParamMappingHandle paramMappingHandle) {
     DocumentContext context = JsonPath.parse(jsonValue);
-    // call the override operation method and add addParameterKey
+    // 调用重写的operation方法，添加addParameterKey
     operation(context, paramMappingHandle);
-    // replace the related replacedParameterKey
+    // 对设置的replacedParameterKey进行替换
     if (!CollectionUtils.isEmpty(paramMappingHandle.getReplaceParameterKeys())) {
         paramMappingHandle.getReplaceParameterKeys().forEach(info -> {
             context.renameKey(info.getPath(), info.getKey(), info.getValue());
         });
     }
-    // Delete the related removeParameterKey
+    // 对设置的removeParameterKey进行删除
     if (!CollectionUtils.isEmpty(paramMappingHandle.getRemoveParameterKeys())) {
         paramMappingHandle.getRemoveParameterKeys().forEach(info -> {
             context.delete(info);
@@ -123,14 +123,14 @@ default String operation(final String jsonValue, final ParamMappingHandle paramM
 }
 ```
 
-After sorting it out, we can find that the json tool [JsonPath](https://github.com/json-path/JsonPath) imported here makes the processing of the request body much simpler and clearer.
+梳理下来可以发现，这里引入的json工具[JsonPath](https://github.com/json-path/JsonPath)使得请求体的加工变得简单、清晰很多。
 
-**In addition, we can notice that the `FormDataOperator` overrides the `operation(DocumentContext, ParamMappingHandle)` method.**
+**另外，我们可以注意到 `FormDataOperator` 重写了 `operation(DocumentContext, ParamMappingHandle)` 方法。**
 
-**Why override it?** There is a default method for handling addParameterKey in the interface.
+**为什么要重写呢？** 接口中有对应处理addParameterKey的默认方法啊。
 
 ```java
-// Default method in Operator interface
+// Operator接口中的默认方法
 default void operation(final DocumentContext context, final ParamMappingHandle paramMappingHandle) {
     if (!CollectionUtils.isEmpty(paramMappingHandle.getAddParameterKeys())) {
         paramMappingHandle.getAddParameterKeys().forEach(info -> {
@@ -139,7 +139,7 @@ default void operation(final DocumentContext context, final ParamMappingHandle p
     }
 }
 
-// method overridden by FormDataOperator
+// FormDataOperator重写的方法
 @Override
 public void operation(final DocumentContext context, final ParamMappingHandle paramMappingHandle) {
     if (!CollectionUtils.isEmpty(paramMappingHandle.getAddParameterKeys())) {
@@ -150,10 +150,9 @@ public void operation(final DocumentContext context, final ParamMappingHandle pa
 }
 ```
 
-In fact, there is such a line in `FormDataOperator#apply` (mentioned earlier):
-`LinkedMultiValueMap<String, String> modifyMap = GsonUtils.getInstance().toLinkedMultiValueMap(modify);`
+实际上，在 `FormDataOperator#apply` 中有这么一行（前面有提到）：`LinkedMultiValueMap<String, String> modifyMap = GsonUtils.getInstance().toLinkedMultiValueMap(modify);`
 
-This line converts the modified json into `LinkedMultiValueMap`, `GsonUtils#toLinkedMultiValueMap` is as follows.
+这一行是将修改后的json转换成 `LinkedMultiValueMap`，`GsonUtils#toLinkedMultiValueMap` 如下。
 
 ```java
 public LinkedMultiValueMap<String, String> toLinkedMultiValueMap(final String json) {
@@ -162,33 +161,33 @@ public LinkedMultiValueMap<String, String> toLinkedMultiValueMap(final String js
 }
 ```
 
-The attribute `targetMap` in the `LinkedMultiValueMap` class is defined as: `private final Map<K, List<V>> targetMap`
+而 `LinkedMultiValueMap` 类中的属性 `targetMap` 定义为：`private final Map<K, List<V>> targetMap`
 
-Therefore, the value in the json string must be in the form of a list, otherwise Gson will throw a conversion error exception, which is why the `FormDataOperator` must override the operator method.
+因此，json字符串中的value必须是列表形式的，不然Gson就会抛出转换错误的异常，这也就是为什么 `FormDataOperator` 要重写operator方法。
 
-**But why use `LinkedMultiValueMap`?**
+**那么为什么要用 `LinkedMultiValueMap` 呢？**
 
-Go back to the first line `exchange.getFormData` of the `FormDataOperator#apply` method. In SpringMVC, the return value type of `DefaultServerWebExchange#getFormData` is `Mono<MultiValueMap<String, String>>`, and `LinkedMultiValueMap` is a subclass of `MultiValueMap`. And, the `getFormData` method is for the request body in the format of `x-www-form-urlencoded`.
+回到 `FormDataOperator#apply` 方法的第一行 `exchange.getFormData` 。而SpringMVC中，`DefaultServerWebExchange#getFormData` 的返回值类型就是 `Mono<MultiValueMap<String, String>>` ，而 `LinkedMultiValueMap` 是 `MultiValueMap` 的子类。并且，`getFormData` 方法就是针对 `x-www-form-urlencoded` 格式的请求体的。
 
 ![param-mapping-getFormData](/img/activities/code-analysis-param-mapping-plugin/param-mapping-getFormData.png)
 
 #### 三、JsonOperator
 
-Obviously, this class is used to process the request body in Json format.
+显然，这个类是用来处理Json格式的请求体的。
 
 ```java
 public Mono<Void> apply(final ServerWebExchange exchange, final ShenyuPluginChain shenyuPluginChain, final ParamMappingHandle paramMappingHandle) {
     ServerRequest serverRequest = ServerRequest.create(exchange, MESSAGE_READERS);
     Mono<String> mono = serverRequest.bodyToMono(String.class).switchIfEmpty(Mono.defer(() -> Mono.just(""))).flatMap(originalBody -> {
         LOG.info("get body data success data:{}", originalBody);
-        // call the default operation method to modify the request body
+        // 调用默认的operation方法修改请求体
         String modify = operation(originalBody, paramMappingHandle);
         return Mono.just(modify);
     });
     BodyInserter bodyInserter = BodyInserters.fromPublisher(mono, String.class);
-    ... //process the header line
+    ... //处理首部行
     CachedBodyOutputMessage outputMessage = new CachedBodyOutputMessage(exchange, headers);
-    // modify the request body in the exchange, and then continue to execute the plugin chain
+    // 修改exchange中的请求体，然后继续执行插件链
     return bodyInserter.insert(outputMessage, new BodyInserterContext())
             .then(Mono.defer(() -> {
                 ServerHttpRequestDecorator decorator = new ModifyServerHttpRequestDecorator(headers, exchange.getRequest(), outputMessage);
@@ -197,10 +196,10 @@ public Mono<Void> apply(final ServerWebExchange exchange, final ShenyuPluginChai
 }
 ```
 
-The processing flow of `JsonOperator` is roughly similar to that of `FormDataOperator`.
+`JsonOperator` 的处理流程与 `FormDataOperator` 大致类似。
 
-### Conclusion
+### 总结
 
-Finally, use a picture to briefly summarize.
+最后，用一张图来简单总结一下。
 
 ![param-mapping-summary](/img/activities/code-analysis-param-mapping-plugin/param-mapping-summary.jpg)

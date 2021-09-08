@@ -1,14 +1,13 @@
 ---
-title: "PredicateJudgeS-- 基于SPI的设计实现分析"
-author: "Huihui Yin"
-categories: "Apache ShenYu"
-tags: ["SPI","Apache ShenYu"]
-date: 2021-09-07
+slug: PredicateJudge-SPI
+title: PredicateJudge-- 基于SPI的设计实现分析
+author: Huihui Yin
+author_title: Apache ShenYu Contributor
+tags: [SPI, Apache ShenYu]
 ---
 
-​      灵活的插件和规则定义，是[Shenyu网关](http://shenyu.apache.org/)的一大特色。它以插件形式支持多种网络协议和多种流行的微服务框架，如Dubbo, gRPC和 Spring-Cloud 等。 为了实现对各种协议及插件的配置规则的解析，网关在规则策略解析方面，采用了优雅的`SPI`(Service Provider Interface)实现，当添加新的插件时，规则解析部分可以沿用现有实现或采用`SPI`机制快速实现，具有良好的可扩展性。
+灵活的插件和规则定义，是[Shenyu网关](http://shenyu.apache.org/)的一大特色。它以插件形式支持多种网络协议和多种流行的微服务框架，如Dubbo, gRPC和 Spring-Cloud 等。 为了实现对各种协议及插件的配置规则的解析，网关在规则策略解析方面，采用了优雅的`SPI`(Service Provider Interface)实现，当添加新的插件时，规则解析部分可以沿用现有实现或采用`SPI`机制快速实现，具有良好的可扩展性。
 
-[TOC]
 
 ## `SPI` 的顶层设计
 
@@ -16,7 +15,7 @@ Shenyu的`SPI`采用接口+ 工厂模式+配置文件的方式，来实现模组
 
 Fig 1 classes in the ***shenyu-spi***
 
-![toplevel-SPI ](toplevel-SPI.png)
+![toplevel-SPI](/img/activities/code-analysis-predicatejudge-spi/toplevel-SPI.png)
 
 配置文件方面，定义`SPI`加载的目录为 `META-INF/shenyu/`
 
@@ -72,7 +71,7 @@ public interface PredicateJudge {
 
 Fig 2-Predicate class diagram
 
-![predicate-class-diagram](predicate-class-diagram.png)
+![predicate-class-diagram](/img/activities/code-analysis-predicatejudge-spi/predicate-class-diagram.png)
 
 `PredicateJudgeFactory`的重要方法如下：
 
@@ -155,13 +154,13 @@ Plugin与`SPI` 的类图如下:
 
 Fig 3- class diagram of plugins with PredicateJudge and `MatchStrategy` `SPI`
 
-![plugin-SPI-class-diagram](plugin-SPI-class-diagram.png)
+![plugin-SPI-class-diagram](/img/activities/code-analysis-predicatejudge-spi/plugin-SPI-class-diagram.png)
 
 从客户端发来的请求，在系统中调用规则部分的`SPI`的流程如下：
 
 Fig 4- flow chart for Shenyu gateway filter  with parameter processing
 
-![SPI-flow-diagram](SPI-flow-diagram.png)
+![SPI-flow-diagram](/img/activities/code-analysis-predicatejudge-spi/SPI-flow-diagram.png)
 
 - 系统启动时，会加载目录下配置的`SPI`资料到内存中
 - 当client有新的请求发到Apache shenyu 网关系统时，在网关内部，会调用对应的plugin

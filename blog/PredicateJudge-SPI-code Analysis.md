@@ -1,14 +1,13 @@
 ---
+slug: PredicateJudge-SPI
 title: "PredicateJudge -- analyze the design based on SPI"
-author: "Huihui Yin"
-categories: "Apache ShenYu"
+author: Huihui Yin
+author_title: Apache ShenYu Contributor
 tags: ["SPI","Apache ShenYu"]
-date: 2021-09-07
 ---
 
 **Apache Shenyu** has been identified as a gateway application which supports a variety of protocols and  microservice frameworks such as  Dubbo, gRPC, Spring-Cloud, etc.  To do this, the product has accomplished an elegant `SPI` (Service Provider Interface) as its foundation, and make the  Rule data parsing and predicting program very simple , resiliency and security. As to rule data parsing processing,  the `SPI` design increases the product's scalability. When appending new plugin, in most cases, the   existing module is enough for rule data parsing , otherwise it can be rapidly carry out with tiny effort. 
 
-[TOC]
 
 ## Top level design of SPI
 
@@ -16,7 +15,7 @@ date: 2021-09-07
 
 Fig 1 classes in the ***shenyu-spi***
 
-![toplevel-SPI](toplevel-SPI.png)
+![toplevel-SPI](/img/activities/code-analysis-predicatejudge-spi/toplevel-SPI.png)
 
 The SPI configuration directory is  `META-INF/shenyu/.`  that is specified:
 
@@ -72,7 +71,7 @@ The class diagram is as follows:
 
 Fig 2-`Predicate` class diagram
 
-![predicate-class-diagram](predicate-class-diagram.png)
+![predicate-class-diagram](/img/activities/code-analysis-predicatejudge-spi/predicate-class-diagram.png)
 
 The important  methods of `PredicateJudgeFactory`  are shown as follows:
 
@@ -153,13 +152,13 @@ Most plugins in `Apache Shenyu` are inherited from `AbstractShenyuPlugin`.  In t
 
 Fig 3- class diagram of plugins with `PredicateJudge` and `MatchStrategy` `SPI`
 
-![plugin-SPI-class-diagram](plugin-SPI-class-diagram.png)
+![plugin-SPI-class-diagram](/img/activities/code-analysis-predicatejudge-spi/plugin-SPI-class-diagram.png)
 
 The process from client request  calling the routing parsing moodule is showed as following chart.
 
 Fig 4- flow chart for Shenyu gateway filter  with parameter processing
 
-![SPI-flow-diagram](SPI-flow-diagram.png)
+![SPI-flow-diagram](/img/activities/code-analysis-predicatejudge-spi/SPI-flow-diagram.png)
 
 - When startup, the system will load `SPI` classes from profile and cache them.
 - When the client sends a new request to the Shenyu gateway,  will call the corresponding plugin within  the gateway.

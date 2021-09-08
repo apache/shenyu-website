@@ -12,38 +12,43 @@ description: 网关属性配置
 
 ```yaml
 shenyu:
-#  httpclient:
-#    strategy: webClient
-#    connectTimeout: 45000
-#    readTimeout: 3000
-#    writeTimeout: 3000
-#    wiretap: false
-#    pool:
-#      type: ELASTIC
-#      name: proxy
-#      maxConnections: 16
-#      acquireTimeout: 45000
-#    proxy:
-#      host:
-#      port:
-#      username:
-#      password:
-#      nonProxyHostsPattern:
-#    ssl:
-#      useInsecureTrustManager: false
-#      trustedX509Certificates:
-#      handshakeTimeout:
-#      closeNotifyFlushTimeout:
-#      closeNotifyReadTimeout:
-#      defaultConfigurationType:
-  file:
-    enabled: true
+  httpclient:
+    strategy: webClient
+    connectTimeout: 45000
+    readTimeout: 3000
+    writeTimeout: 3000
+    wiretap: false
+    pool:
+      type: ELASTIC
+      name: proxy
+      maxConnections: 16
+      acquireTimeout: 45000
+    proxy:
+      host:
+      port:
+      username:
+      password:
+      nonProxyHostsPattern:
+    ssl:
+      useInsecureTrustManager: false
+      trustedX509Certificates:
+      handshakeTimeout: 10000
+      closeNotifyFlushTimeout: 3000
+      closeNotifyReadTimeout: 0
+      defaultConfigurationType: TCP
   cross:
     enabled: true
-  exclude:
-    enabled: false
-    paths:
-      - /favicon.ico
+    allowedHeaders:
+    allowedMethods: "*"
+    allowedOrigin: "*"
+    allowedExpose: "*"
+    maxAge: "18000"
+    allowCredentials: true
+  switchConfig:
+    local: true
+  file:
+    enabled: true
+    maxSize : 10
   sync:
     websocket:
       urls: ws://localhost:9095/websocket
@@ -70,18 +75,40 @@ shenyu:
 #      url: http://localhost:8500
 #      waitTime: 1000
 #      watchDelay: 1000
+  exclude:
+    enabled: false
+    paths:
+      - /favicon.ico
+  extPlugin:
+    path:
+    enabled: true
+    threads: 1
+    scheduleTime: 300
+    scheduleDelay: 30
+  scheduler:
+    enabled: false
+    type: fixed
+    threads: 16
+  upstreamCheck:
+    enabled: false
+    timeout: 3000
+    healthyThreshold: 1
+    unhealthyThreshold: 1
+    interval: 5000
+    printEnabled: true
+    printInterval: 60000
 
 ```
 
 ### 属性详解
 
-##### shenyu.httpclient 配置
+#### shenyu.httpclient 配置
 
 这是 `ShenYu` 网关中代理Http及SpringCloud协议后，用于发送代理请求的HttpClient配置。
 
 | Name           |  Type   |    Default    | Required | Description                                                  |
 | :------------- | :-----: | :-----------: | :------: | :----------------------------------------------------------- |
-| strategy       | String  | webcwebClient |    No    | HttpClientPlugin实现策略（默认使用webClietn）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
+| strategy       | String  |     webClient |    No    | HttpClientPlugin实现策略（默认使用webClietn）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
 | connectTimeout |   int   |     45000     |    No    | 连接超时时间 (毫秒)，默认值为 `45000`.                       |
 | readTimeout    |   int   |     3000      |    No    | 读取超时 (毫秒)，默认值为 `3000`.                            |
 | writeTimeout   |   int   |     3000      |    No    | 输出超时 (millisecond)，默认值为 `3000`.                     |
@@ -128,25 +155,42 @@ Netty HttpClient 代理的相关配置：
 
 
 
-##### 过滤器相关配置
-
-- `shenyu.file` 配置
-
-文件过滤器的相关配置。
-
-| 名称    | 类型    | 默认值 | 是否必填 | 说明                 |
-| :------ | :------ | :----: | :------: | :------------------- |
-| enabled | Boolean | false  |    否    | 是否开启文件大小过滤 |
-
-
+#### 过滤器相关配置
 
 - `shenyu.cross` 配置
 
 跨域相关配置。
 
-| 名称    | 类型    | 默认值 | 是否必填 | 说明             |
-| :------ | :------ | :----: | :------: | :--------------- |
-| enabled | Boolean | false  |    否    | 是否支持跨域请求 |
+| 名称             | 类型    | 默认值 | 是否必填 | 说明                                                         |
+| :--------------- | :------ | :----: | :------: | :----------------------------------------------------------- |
+| enabled          | Boolean | false  |    否    | 是否支持跨域请求                                             |
+| allowedHeaders   | String  |   无   |    否    | 用于设置响应头参数<br />`Access-Control-Allow-Headers`（多个值使用逗号`,`分隔）<br />默认包含以下字段：<br />x-requested-with<br />authorization<br />Content-Type<br />Authorization<br />credential<br />X-XSRF-TOKEN<br />token<br />username<br />client |
+| allowedMethods   | String  |  `*`   |    否    | 用于设置响应头参数<br />`Access-Control-Allow-Methods`（多个值使用逗号`,`分隔）<br />默认值为 `*` |
+| allowedOrigin    | String  |  `*`   |    否    | 用于设置响应头参数<br />`Access-Control-Allow-Origin`（多个值使用逗号`,`分隔）<br />默认值为 `*` |
+| allowedExpose    | String  |  `*`   |    否    | 用于设置响应头参数<br />`Access-Control-Expose-Headers`（多个值使用逗号`,`分隔）<br />默认值为 `*` |
+| maxAge           | int     | 18000  |    否    | 用于设置响应头参数<br />`Access-Control-Max-Age`，默认值为 `18000` |
+| allowCredentials | Boolean |  true  |    否    | 用于设置响应头参数<br />`Access-Control-Allow-Credentials`（多个值使用逗号`,`分隔）<br />默认值为 `true` |
+
+
+
+- `shenyu.switchConfig` 配置
+
+本地请求过滤器相关配置。
+
+| 名称  | 类型    | 默认值 | 是否必填 | 说明                                                         |
+| :---- | :------ | :----: | :------: | :----------------------------------------------------------- |
+| local | Boolean |  true  |    否    | 开启后路径为`/shenyu/**的请求不进行代理，由网关的控制器处理， |
+
+
+
+- `shenyu.file` 配置
+
+文件过滤器的相关配置。
+
+| 名称    | 类型    | 默认值 | 是否必填 | 说明                                 |
+| :------ | :------ | :----: | :------: | :----------------------------------- |
+| enabled | Boolean | false  |    否    | 是否开启文件大小过滤                 |
+| maxSize | int     |   无   |    是    | 允许文件传输大小的最大值（单位：MB） |
 
 
 
@@ -161,7 +205,49 @@ Netty HttpClient 代理的相关配置：
 
 
 
-##### shenyu.sync 配置
+- `shenyu.extPlugin` 配置
+
+插件热加载相关配置
+
+| 名称          | 类型    | 默认值 | 是否必填 | 说明                                             |
+| :------------ | :------ | :----: | :------: | :----------------------------------------------- |
+| enabled       | Boolean |  true  |    否    | 是否开启插件热加载，默认开启                     |
+| path          | String  |   无   |    是    | 插件路径，请将插件放于该路径下`/ext-lib`文件夹内 |
+| threads       | int     |   1    |    否    | 插件检查线程数，默认值为`1`                        |
+| scheduleTime  | int     |  300   |    否    | 插件检查间隔（秒），默认值为300秒                |
+| scheduleDelay | int     |   30   |    否    | 启动后首次检查延迟时间（秒），默认值为30秒       |
+
+
+
+- `shenyu.scheduler` 配置
+
+插件链线程池相关配置
+
+| 名称    | 类型    |             默认值             | 是否必填 | 说明                                                         |
+| :------ | :------ | :----------------------------: | :------: | :----------------------------------------------------------- |
+| enabled | Boolean |              true              |    否    | 是否自定义插件链线程池，默认关闭                             |
+| type    | String  |             fixed              |    否    | 插件链线程池类型<br />- fixed: 固定数量线程池<br />- elastic: 创建一个可重用的线程池，线程数无上限 |
+| threads | int     | 2*CPU+1 或 16 （取两者最大值） |    否    | 线程池类型为`fixed`时，指定最大线程数，默认值为`2*CPU+1 或 16 （取两者最大值）` |
+
+
+
+- `shenyu.upstreamCheck` 配置
+
+健康检查相关配置，定时对上游服务探活，剔除异常节点。
+
+| 名称               | 类型    | 默认值 | 是否必填 | 说明                                                |
+| :----------------- | :------ | :----: | :------: | :-------------------------------------------------- |
+| enabled            | Boolean | false  |    否    | 是否开启健康检查，默认关闭                          |
+| timeout            | int     |  3000  |    否    | 探活超时时间                                        |
+| healthyThreshold   | int     |   1    |    否    | 连续多少次探活成功，则为健康服务，默认值为1         |
+| unhealthyThreshold | int     |   1    |    否    | 连续多少次探活失败，则为不健康服务，默认值为1       |
+| interval           | int     |  5000  |    否    | 健康检查间隔时间（毫秒），默认值为5000              |
+| printEnabled       | Boolean |  true  |    否    | 是否定时打印健康服务地址，默认开启                  |
+| printInterval      | int     | 60000  |    否    | 定时打印健康服务地址间隔时间（毫秒），默认值为60000 |
+
+
+
+#### shenyu.sync 配置
 
 网关和`Admin`端使用数据同步的相关配置。
 

@@ -12,38 +12,43 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 
 ```yaml
 shenyu:
-#  httpclient:
-#    strategy: webClient
-#    connectTimeout: 45000
-#    readTimeout: 3000
-#    writeTimeout: 3000
-#    wiretap: false
-#    pool:
-#      type: ELASTIC
-#      name: proxy
-#      maxConnections: 16
-#      acquireTimeout: 45000
-#    proxy:
-#      host:
-#      port:
-#      username:
-#      password:
-#      nonProxyHostsPattern:
-#    ssl:
-#      useInsecureTrustManager: false
-#      trustedX509Certificates:
-#      handshakeTimeout:
-#      closeNotifyFlushTimeout:
-#      closeNotifyReadTimeout:
-#      defaultConfigurationType:
-  file:
-    enabled: true
+  httpclient:
+    strategy: webClient
+    connectTimeout: 45000
+    readTimeout: 3000
+    writeTimeout: 3000
+    wiretap: false
+    pool:
+      type: ELASTIC
+      name: proxy
+      maxConnections: 16
+      acquireTimeout: 45000
+    proxy:
+      host:
+      port:
+      username:
+      password:
+      nonProxyHostsPattern:
+    ssl:
+      useInsecureTrustManager: false
+      trustedX509Certificates:
+      handshakeTimeout: 10000
+      closeNotifyFlushTimeout: 3000
+      closeNotifyReadTimeout: 0
+      defaultConfigurationType: TCP
   cross:
     enabled: true
-  exclude:
-    enabled: false
-    paths:
-      - /favicon.ico
+    allowedHeaders:
+    allowedMethods: "*"
+    allowedOrigin: "*"
+    allowedExpose: "*"
+    maxAge: "18000"
+    allowCredentials: true
+  switchConfig:
+    local: true
+  file:
+    enabled: true
+    maxSize : 10
   sync:
     websocket:
       urls: ws://localhost:9095/websocket
@@ -70,6 +75,29 @@ shenyu:
 #      url: http://localhost:8500
 #      waitTime: 1000
 #      watchDelay: 1000
+  exclude:
+    enabled: false
+    paths:
+      - /favicon.ico
+  extPlugin:
+    path:
+    enabled: true
+    threads: 1
+    scheduleTime: 300
+    scheduleDelay: 30
+  scheduler:
+    enabled: false
+    type: fixed
+    threads: 16
+  upstreamCheck:
+    enabled: false
+    timeout: 3000
+    healthyThreshold: 1
+    unhealthyThreshold: 1
+    interval: 5000
+    printEnabled: true
+    printInterval: 60000
+
 ```
 
 ### Property Detail
@@ -129,25 +157,40 @@ Gateway routing can support routing to http and https back-end services at the s
 
 ##### Filter Configuration
 
+- `shenyu.cross` config
+
+Cross-domain configuration: 
+
+| Name             | Type    | Default | Required | Description                                                  |
+| :--------------- | :------ | :-----: | :------: | :----------------------------------------------------------- |
+| enabled          | Boolean |  false  |    No    | Whether to support cross-domain requests                     |
+| allowedHeaders   | String  |  Null   |    No    | Used to set response header parameters <br />`Access-Control-Allow-Headers`(Comma-separated)<br />The following fields are included by default:<br />x-requested-with<br />authorization<br />Content-Type<br />Authorization<br />credential<br />X-XSRF-TOKEN<br />token<br />username<br />client |
+| allowedMethods   | String  |   `*`   |    No    | Used to set response header parameters<br />`Access-Control-Allow-Methods`(Comma-separated)<br />The default value is `*` |
+| allowedOrigin    | String  |   `*`   |    No    | Used to set response header parameters<br />`Access-Control-Allow-Origin`(Comma-separated)<br />The default value is `*` |
+| allowedExpose    | String  |   `*`   |    No    | Used to set response header parameters<br />`Access-Control-Expose-Headers`(Comma-separated)<br />The default value is  `*` |
+| maxAge           | int     |  18000  |    No    | Used to set response header parameters<br />`Access-Control-Max-Age`，The default value is `18000` |
+| allowCredentials | Boolean |  true   |    No    | Used to set response header parameters<br />`Access-Control-Allow-Credentials`(Comma-separated)<br />The default value is `true` |
+
+
+
+- `shenyu.switchConfig` config
+
+Local request filter configuration: 
+
+| Name  | Type    | Default | Required | Description                                                  |
+| :---- | :------ | :-----: | :------: | :----------------------------------------------------------- |
+| local | Boolean |  true   |    No    | After opening, the request whose path match `/shenyu/**` will not be proxied, but will be processed by the gateway's controller. |
+
+
+
 - `shenyu.file` config
 
 File filter properties: 
 
-|Name                      | Type  |  Default   | Required  | Description                        |
+| Name    | Type    | Default | Required | Description                |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-| enabled | Boolean |  false  |    No    | enable file size filtering |
-
-
-
-
-- `shenyu.cross` config
-
-Cross filter properties: 
-
-
-|Name                      | Type  |  Default   | Required  | Description                        |
-|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-| enabled | Boolean |  false  |    No    | allow cross-domain requests |
+| enabled | Boolean | false  |    No    | Whether to enable file size filtering |
+| maxSize | int     |   Null   |    Yes    | Maximum allowable file transfer size (MB) |
 
 
 
@@ -159,6 +202,48 @@ Exculde filter properties:
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | whether to enable `exclude filter` and reject the specified request to pass through the gateway |
 | paths   | Array   |  null   |   Yes    | Requests matching this list can not pass through the gateway (support Path-Matching) |
+
+
+
+- `shenyu.extPlugin` config
+
+Plug-in hot loading configuration: 
+
+| Name          | Type    | Default | Required | Description                                                  |
+| :------------ | :------ | :-----: | :------: | :----------------------------------------------------------- |
+| enabled       | Boolean |  true   |    No    | Whether to enable plug-in hot reloading, enabled by default  |
+| path          | String  |  Null   |   Yes    | Plug-in path, please put the plug-in in the `/ext-lib` folder under this path |
+| threads       | int     |    1    |    No    | Plug-in check thread number, the default value is `1`        |
+| scheduleTime  | int     |   300   |    No    | Plug-in check interval (seconds), the default value is 300 seconds |
+| scheduleDelay | int     |   30    |    No    | The first check delay time after startup (seconds), the default value is 30 seconds |
+
+
+
+- `shenyu.scheduler` config
+
+Plug-in chain thread pool configuration: 
+
+| Name    | Type    |                 Default                  | Required | Description                                                  |
+| :------ | :------ | :--------------------------------------: | :------: | :----------------------------------------------------------- |
+| enabled | Boolean |                   true                   |    No    | Whether to customize the plug-in chain thread pool, it is closed by default |
+| type    | String  |                 `fixed`                  |    No    | Plug-in chain thread pool type: <br />- fixed: Fixed thread number of thread pool<br />- elastic: Create a reusable unbounded thread pool |
+| threads | int     | 2*CPU+1 or 16 (whichever is the largest) |    No    | When the thread pool type is `fixed`, specify the maximum number of threads, the default value is `2*CPU+1 or 16 (whichever is the maximum)` |
+
+
+
+- `shenyu.upstreamCheck` config
+
+Health check related configuration, check upstream services regularly, and eliminate abnormal nodes: 
+
+| Name               | Type    | Default | Required | Description                                                  |
+| :----------------- | :------ | :-----: | :------: | :----------------------------------------------------------- |
+| enabled            | Boolean |  false  |    No    | Whether to enable health check, it is disabled by default    |
+| timeout            | int     |  3000   |    No    | Upstream check timeout                                       |
+| healthyThreshold   | int     |    1    |    No    | If the check is passed `N` consecutive times, it is a health service. The default value is 1 |
+| unhealthyThreshold | int     |    1    |    No    | If the check fails for `N` consecutive times, it is an unhealthy service. The default value is 1 |
+| interval           | int     |  5000   |    No    | Health check interval (milliseconds), the default value is 5000 |
+| printEnabled       | Boolean |  true   |    No    | Whether to print the health service address, it is enabled by default |
+| printInterval      | int     |  60000  |    No    | The interval of printing of health service addresses (milliseconds), the default value is 60000 |
 
 
 

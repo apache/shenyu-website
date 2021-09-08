@@ -36,14 +36,6 @@ shenyu:
 #      closeNotifyFlushTimeout:
 #      closeNotifyReadTimeout:
 #      defaultConfigurationType:
-  file:
-    enabled: true
-  cross:
-    enabled: true
-  exclude:
-    enabled: false
-    paths:
-      - /favicon.ico
   sync:
     websocket:
       urls: ws://localhost:9095/websocket
@@ -70,6 +62,41 @@ shenyu:
 #      url: http://localhost:8500
 #      waitTime: 1000
 #      watchDelay: 1000
+  cross:
+    enabled: true
+    allowedHeaders:
+    allowedMethods: "*"
+    allowedOrigin: "*"
+    allowedExpose: "*"
+    maxAge: "18000"
+    allowCredentials: true
+  switchConfig:
+    local: true
+  file:
+    enabled: true
+    maxSize : 10
+  exclude:
+    enabled: false
+    paths:
+      - /favicon.ico
+  extPlugin:
+    path:
+    enabled: true
+    threads: 1
+    scheduleTime: 300
+    scheduleDelay: 30
+  scheduler:
+    enabled: false
+    type: fixed
+    threads: 16
+  upstreamCheck:
+    enabled: false
+    timeout: 3000
+    healthyThreshold: 1
+    unhealthyThreshold: 1
+    interval: 5000
+    printEnabled: true
+    printInterval: 60000
 ```
 
 ### Property Detail
@@ -136,9 +163,8 @@ File filter properties:
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | enable file size filtering |
-
-
-
+| maxSize | Integer |  10  |    No    | upload file maxSize （MB） |
+     
 
 - `shenyu.cross` config
 
@@ -148,7 +174,12 @@ Cross filter properties:
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | allow cross-domain requests |
-
+| allowedHeaders | String |    |    No    | allowedHeaders, Use "," split in multiple cases |
+| allowedMethods | String |   "*"  |    No    | allowedMethods |
+| allowedOrigin | String |  "*"  |    No    | allowedOrigin |
+| allowedExpose | String |  "*"  |    No    | allowedExpose |
+| maxAge | String |  "18000"  |    No    | maxAge (ms) |
+| allowCredentials | Boolean |  true  |    No    | allowCredentials |
 
 
 - `shenyu.exclude` config
@@ -159,7 +190,6 @@ Exculde filter properties:
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | whether to enable `exclude filter` and reject the specified request to pass through the gateway |
 | paths   | Array   |  null   |   Yes    | Requests matching this list can not pass through the gateway (support Path-Matching) |
-
 
 
 ##### shenyu.sync config
@@ -232,3 +262,48 @@ The following properties are configured for data synchronization using `consul` 
 | waitTime   | int    |  null   |   Yes    | the timeout period for requesting consul service to pull configuration information (milliseconds) |
 |watchDelay | int | null | Yes |Synchronization interval (milliseconds)|
 
+
+##### shenyu.extPlugin config
+
+The Apache ShenYu Supports dynamic loading of custom plug-ins with the following configuration
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| enabled | Boolean |  true  |    No    | open dynamic loading of custom plug-ins |
+| path | String |     |   False    | custom plugins path, if not config, the path is /ext/lib |
+| threads | Integer |    1 |   False    | threads for dynamic loading custom plug-ins |
+| scheduleTime | Integer |    300 |   False    | schedule time (s) for dynamic loading custom plug-ins |
+| scheduleDelay | Integer |    30 |   False    |  schedule delay when app startup|
+
+##### shenyu.scheduler config
+
+scheduler config for Apache ShenYu Scheduler Thread Model 
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| enabled | Boolean |  false  |    No    | Whether to turn on Scheduler Thread Model |
+| type | String |   fixed  |   False    | fixed Thread Pool or elastic  Scheduler Thread Model|
+| threads | Integer |    Math.max((Runtime.getRuntime().availableProcessors() << 1) + 1, 16) |   False    | threads for fixed Thread Pool |
+
+
+##### shenyu.upstreamCheck config
+
+upstreamCheck config is the configuration used by  Apache ShenYu to detect upstream
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| enabled | Boolean |  false  |    No    | Whether to turn on upstreamCheck |
+| timeout | Integer |    3000 |   False    | timeout （ms） |
+| healthyThreshold | Integer |    1 |   False    | healthyThreshold  |
+| unhealthyThreshold | Integer |    1 |   False    | unhealthyThreshold |
+| interval | Integer |    5000 |   False    | schedule time (ms) for checked |
+| printEnabled | Boolean |  true  |    No    | Whether to turn on print logs |
+| printInterval | Integer |    60000 |   False    | schedule time (ms) for print logs |
+
+##### shenyu.switchConfig config
+
+Apache ShenYu Switch Config
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| local | Boolean |  true  |    No    | Whether to open local mode, if so, local operation data, default open |

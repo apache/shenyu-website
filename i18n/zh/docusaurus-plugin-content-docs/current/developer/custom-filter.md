@@ -12,7 +12,7 @@ description: filter扩展
 
 * 新增 `org.apache.shenyu.web.filter.CrossFilter` 实现 `WebFilter`。
 
- ```java
+```java
  public class CrossFilter implements WebFilter {
 
      private static final String ALLOWED_HEADERS = "x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN,token,username,client";
@@ -48,7 +48,10 @@ description: filter扩展
  }
 ```
 
-* 将 `CrossFilter` 注册成为 `Spring`的`bean`。
+
+
+
+- 将 `CrossFilter` 注册成为 `Spring`的`bean`。
 
 
 ## 网关过滤 springboot健康检查
@@ -76,8 +79,9 @@ public final class HealthFilter implements WebFilter {
         return Objects.requireNonNull(chain).filter(exchange);
     }
 }
-
 ```
+
+
 
 ## 继承 `org.apache.shenyu.web.filter.AbstractWebFilter`
 

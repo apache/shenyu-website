@@ -10,9 +10,9 @@ description: divide plugin
 
 ## Plugin Setting
 
-* Add related dependencies and enable plugin, please refer to: [Quick start http](../../quick-start/quick-start-http)
+* Add related dependencies and enable plugin, please refer to: [Quick start with Http](../../quick-start/quick-start-http)
 
-* `Http` client access, please refer to：[Http proxy](../../user-guide/admin-usage/http-proxy) .
+* `Http` client access, please refer to：[Http proxy](../../user-guide/http-proxy) .
 
 ## Plugin detail
 

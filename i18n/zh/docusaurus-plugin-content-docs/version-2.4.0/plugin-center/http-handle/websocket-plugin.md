@@ -9,9 +9,9 @@ description: websocket代理
 
 ## 环境准备
 
-请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment-local) 启动`Apache ShenYu`后台管理系统。
+请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
-启动成功后，需要在基础配置`->`插件管理中，把`divide` 插件设置为开启。 `Divide`插件的相关使用，请参考：[Divide插件](../divide-plugin) 。
+启动成功后，需要在基础配置`->`插件管理中，把`divide` 插件设置为开启。 `Divide`插件的相关使用，请参考：[Divide插件](./divide-plugin) 。
 
 
 <img src="/img/shenyu/quick-start/http/http-plugin-enable.png" width="60%" height="50%" />

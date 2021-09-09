@@ -65,7 +65,7 @@ ws://localhost:9195/?module=ws&method=/websocket&rpcType=websocket
 
 在这一条选择器下新增一条规则：
 
-<img src="/img/shenyu/plugin/websocket/websocket_rule.png" width="80%"/>
+<img src="/img/shenyu/plugin/websocket/websocket_rule_zh.png" width="80%"/>
 
 
 在条件中选择`query`类型，填写匹配字段和取值，这里分别是`method`，`/websocket` 。这里的字段和取值，也可以自定义，只要能够匹配上请求就行。

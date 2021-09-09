@@ -1,80 +1,68 @@
 ---
-title: Custom Load Balance
+title: Custom Load Balancer
 keywords: ["LoadBalance"]
 description: Custom Load Balance
 ---
 
-## Explanation
+* This paper describes how to customize the extension of  `org.apache.shenyu.loadbalancer.spi.LoadBalancer`.
 
-* Before custom development, please customize and build the gateway environment first, please refer to: [custom deployment](../deployment-custom).
+* Create a new class  `CustomLoadBalancer`, extends `org.apache.shenyu.loadbalancer.spi.AbstractLoadBalancer`.
 
-* This article describes how to customize the extension of `org.apache.shenyu.plugin.divide.balance.LoadBalance` .
-
-## Extension
-
-* Create a new class `${you class}`, implements `org.apache.shenyu.plugin.divide.balance.LoadBalance`
 
 ```java
-public class ${you class} implements LoadBalance {
-   
-    /**
-     * select one from upstream list.
-     *
-     * @param upstreamList upstream list
-     * @param ip ip
-     * @return divide upstream
-     */
+public class CustomLoadBalancer extends AbstractLoadBalancer {
+
     @Override
-    public DivideUpstream doSelect(final List<DivideUpstream> upstreamList, 
-                                   final String ip) {
-        //coding and return
+    public Upstream doSelect(final List<Upstream> upstreamList, final String ip) {
+        // custom load balancer
     }
 }
 ```
 
-* In the project  `resources` directory，Create a new `META-INF/shenyu` directory， and the new file name is : `org.apache.shenyu.plugin.divide.balance.LoadBalance`.
-add `${you spi name}` = `${you class path}`:
 
+* Add key-value as following in `org.apache.shenyu.loadbalancer.spi.LoadBalancer` file.
+
+```shell script
+${spi name}=${custom class path}
+``` 
+
+`${spi name}` represents the name of `spi` and `${custom class path}` represents the fully qualified name of the class. Such as:
+
+```shell script
+custom=org.apache.shenyu.loadbalancer.spi.CustomLoadBalancer
 ```
-${you spi name} = ${you class path}
-```
 
-* In the `Admin` service ---> BasicConfig ---> Dictionary ,  Find the dictionary code as `LOAD_BALANCE`, add a new piece of data, pay attention to the dictionary name: `${you spi name}`.
+* Add enum in `org.apache.shenyu.common.enums.LoadBalanceEnum` class:
 
-<img src="/img/shenyu/custom/custom-load-balance-en.jpg" width="40%" height="30%" />
+```java
 
-* Or execute the following custom `SQL` statement：
-
-```sql
-INSERT IGNORE INTO `shenyu_dict` (
-        `id`,
-        `type`,
-        `dict_code`,
-        `dict_name`,
-        `dict_value`,
-        `desc`,
-        `sort`,
-        `enabled`,
-        `date_created`,
-        `date_updated`
-    )
-VALUES (
-        'you id',
-        'matchMode',
-        'MATCH_MODE',
-        'you spi name',
-        'you value',
-        'you spi name',
-        0,
-        1,
-        '2021-08-30 19:29:10',
-        '2021-08-30 20:15:23'
-    );
+/**
+ * Custom load balance enum.
+ */
+    CUSTOM(4, "custom", true),
 ```
 
 
+* In the `Apache ShenYu` gateway management system --> BasicConfig --> Dictionary,  find the dictionary code as `LOAD_BALANCE`, add a new piece of data, pay attention to the dictionary name: `${spi name}`.
 
 
+<img src="static/img/shenyu/241/custom_load_balancer_en.png" width="80%" height="70%" />
 
 
+> DictionaryType: `loadBalance`;
+>
+> DictionaryCode: `LOAD_BALANCE`;
+>
+> DictionaryName: `${spi name}`, input your custom spi name;
+>
+> DictionaryValue: When used, the value of the drop-down box, do not repeat with the existing;
+>
+> DictionaryDescribe: desc your custom match strategy;
+>
+> Sort: to sort;
+
+
+* When adding selectors or rules, you can use custom MatchType:
+
+<img src="static/img/shenyu/241/use_custom_load_balancer_en.png" width="90%" height="80%" />
 

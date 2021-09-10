@@ -29,7 +29,7 @@ description: 权限管理详解
 
 点击确认后，生成一条认证信息，该信息包含 `AppKey` 和 `加密秘钥` ，即 `Sign` 插件中的 `AK/SK`  。
 
-`Sign`插件的详细使用说明请参考： [Sign插件](../sign-plugin) 。
+`Sign`插件的详细使用说明请参考： [Sign插件](../../plugin-center/authority-and-certification/sign-plugin) 。
 
 #### 路径操作
 

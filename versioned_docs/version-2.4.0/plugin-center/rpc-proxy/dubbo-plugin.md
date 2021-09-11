@@ -50,15 +50,19 @@ description: dubbo plugin
 
   * Name mapping
 
+
       ```yaml
       {"id":"java.lang.Integer","name":"java.lang.String","age":"java.lang.Integer"}      
       ```
+
 
     * Use `"parameter name":"parameter type"` to represent a parameter, set in order of interface parameter type, separated by `,`
 
     * No need to pay attention to the order when requesting, and no need to use null placeholders.
 
-          Request body example: `{"name":"Mike","id":1}`
+
+          Request body example:  `{"name":"Mike","id":1}`
+
 
 * RpcExpand: corresponding to some configurations of dubbo interface; If you want to adjust, please modify here, which support json format like the following fields:
 

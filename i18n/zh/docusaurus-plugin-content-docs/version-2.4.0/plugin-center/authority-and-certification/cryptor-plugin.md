@@ -14,8 +14,6 @@ description: Cryptor 插件
 
 * 在 `shenyu-admin` 基础配置 --> 插件管理 --> `cryptor_request` 、`cryptor_response` ，设置为开启。如果用户不想使用此功能，请在 `admin` 后台停用此插件。
 
-
-
 ## 在网关中引入 Cryptor 插件
 
 * 在网关的 `pom.xml` 文件中添加 `cryptor` 的依赖。
@@ -41,7 +39,7 @@ description: Cryptor 插件
 加解密的算法策略，当前是基于 SPI 机制制作，允许使用者 `自定义` 加解密算法策略，只需要实现 `org.apache.shenyu.plugin.cryptor.strategy.CryptorStrategy` 该接口。
 
 具体操作：
-```
+```java
 @Join
 public class ${you class} implements CryptorStrategy {
 
@@ -74,7 +72,7 @@ public class ${you class} implements CryptorStrategy {
 写上对应的名称以及刚刚实现的 class 包名。
 
 接着执行
-```
+```sql
 INSERT IGNORE INTO `shenyu_dict` (
 `id`, 
 `type`,

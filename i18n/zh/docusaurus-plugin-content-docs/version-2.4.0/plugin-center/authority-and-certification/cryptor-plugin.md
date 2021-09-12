@@ -6,6 +6,7 @@ description: Cryptor 插件
 ----------------
 
 ## 说明
+
 * `Cryptor` 插件，由两个插件组合而成，分别是 `CryptorRequest plugin` 针对 `Request` 进来的加密报文进行 `解密` 处理，另一个 `CryptorResponse plugin` 针对 `Response` 返回的报文进行 `加密` 处理返回出去。由于是组合在一起的插件，两者可以独立启动，不影响其中一个。
 
 ## 插件设置
@@ -39,6 +40,7 @@ description: Cryptor 插件
 加解密的算法策略，当前是基于 SPI 机制制作，允许使用者 `自定义` 加解密算法策略，只需要实现 `org.apache.shenyu.plugin.cryptor.strategy.CryptorStrategy` 该接口。
 
 具体操作：
+
 ```java
 @Join
 public class ${you class} implements CryptorStrategy {
@@ -68,10 +70,12 @@ public class ${you class} implements CryptorStrategy {
     }
 }
 ```
+
 找到 `shenyu-plugin-cryptor` 模块底下的 resources 文件夹 META-INF.shenyu 的 org.apache.shenyu.plugin.cryptor.strategy.CryptorStrategy 
 写上对应的名称以及刚刚实现的 class 包名。
 
 接着执行
+
 ```sql
 INSERT IGNORE INTO `shenyu_dict` (
 `id`, 

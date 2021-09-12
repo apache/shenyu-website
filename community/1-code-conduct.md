@@ -72,4 +72,4 @@ cover: "/img/architecture/shenyu-framework.png"
 - Actual values of test cases should be named `actualXXX`, expected values `expectedXXX`.
 - Class for test case and `@Test` annotation do not need javadoc.
 
-**The content is referenced from the Apache ShardingSphere code conduct with appropriate adjustments.**
+**The content is referenced from the [Apache ShardingSphere](https://shardingsphere.apache.org/community/en/contribute/code-conduct/) code conduct with appropriate adjustments.**

@@ -1,6 +1,6 @@
 ---
 title: Two FA
-sidebar_position: 8
+sidebar_position: 9
 description: Apache ShenYu Two FA
 author: "xiaoyu"
 categories: "Apache ShenYu"

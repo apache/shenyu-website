@@ -38,6 +38,7 @@ module.exports = {
         src: 'img/logo.png',
       },
       items: [
+        {to: '/download/download', label: 'Download', position: 'left'},
         {
           type: 'doc',
           docId: 'index',
@@ -49,6 +50,12 @@ module.exports = {
           label: 'Community',
           position: 'left',
           activeBaseRegex: `/community/`,
+        },
+        {
+          label: 'Event',
+          position: 'left',
+          to: '/event/2.4.0-release',
+          activeBaseRegex: `/event/`,
         },
         {to: '/news', label: 'News', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
@@ -82,7 +89,6 @@ module.exports = {
             },
           ],
         },
-
         {
           type: 'docsVersionDropdown',
           position: 'right',
@@ -111,6 +117,10 @@ module.exports = {
         {
           title: 'ShenYu',
           items: [
+            {
+              label: 'Download',
+              to: '/download/download',
+            },
             {
               label: 'Document',
               to: '/docs/index',
@@ -216,6 +226,25 @@ module.exports = {
     [
       '@docusaurus/plugin-content-docs',
       {
+        id: 'download',
+        path: 'download',
+        routeBasePath: 'download',
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          if (locale !== 'en') {
+            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/${docPath}`;
+          }
+          return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
+        },
+        editCurrentVersion: true,
+        editLocalizedFiles: true,
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
@@ -231,6 +260,25 @@ module.exports = {
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
       },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'event',
+        path: 'event',
+        routeBasePath: 'event',
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          if (locale !== 'en') {
+            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/${docPath}`;
+          }
+          return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
+        },
+        editCurrentVersion: true,
+        editLocalizedFiles: true,
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      }
     ],
     [
       "@docusaurus/plugin-content-blog",

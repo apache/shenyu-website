@@ -1,4 +1,8 @@
 {
+  "item.label.Download": {
+    "message": "下载",
+    "description": "Navbar item with label Download"
+  },
   "item.label.Document": {
     "message": "文档",
     "description": "Navbar item with label Document"
@@ -6,6 +10,10 @@
   "item.label.Community": {
     "message": "社区",
     "description": "Navbar item with label Community"
+  },
+  "item.label.Event": {
+    "message": "事件",
+    "description": "Navbar item with label Event"
   },
   "item.label.News": {
     "message": "新闻",

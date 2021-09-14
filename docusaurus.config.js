@@ -212,6 +212,7 @@ module.exports = {
         },
         blog: {
           showReadingTime: true,
+          blogSidebarCount: "ALL",
           // Please change this to your repo.
           editUrl:
             'https://github.com/apache/incubator-shenyu-website/edit/main/blog/',

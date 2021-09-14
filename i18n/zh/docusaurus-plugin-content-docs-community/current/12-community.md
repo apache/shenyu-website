@@ -8,7 +8,9 @@ tags: ["community"]
 ---
 
 ## 微信公众号
+
 ![](/img/qrcode/WechatIMG127.jpeg)
 
 ## QQ 群
+
 ![](/img/community/qq_group.jpg)

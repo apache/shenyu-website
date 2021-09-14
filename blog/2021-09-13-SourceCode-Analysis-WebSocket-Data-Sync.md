@@ -412,12 +412,12 @@ public class WebsocketCollector {
 
 The example we give is a new operation, an incremental synchronization, so it goes
 
-`                SESSION_SET.forEach(session -> sendMessageBySession(session, message));`
+`SESSION_SET.forEach(session -> sendMessageBySession(session, message));`
 
 
 then through
 
-`            session.getBasicRemote().sendText(message);`
+`session.getBasicRemote().sendText(message);`
 
 the data was sent out.
 

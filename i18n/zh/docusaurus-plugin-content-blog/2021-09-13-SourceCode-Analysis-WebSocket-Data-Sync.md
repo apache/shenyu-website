@@ -15,7 +15,7 @@ tags: [websocket,data sync,Apache ShenYu]
 
 ### 1. 关于WebSocket通信
 
-`WebSocket `协议诞生于`2008`年，在`2011`年成为国际标准。它可以双向通信，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息。`WebSocket `协议建立在 `TCP` 协议之上，属于应用层，性能开销小，通信高效，协议标识符是`ws`。
+`WebSocket`协议诞生于`2008`年，在`2011`年成为国际标准。它可以双向通信，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息。`WebSocket `协议建立在 `TCP` 协议之上，属于应用层，性能开销小，通信高效，协议标识符是`ws`。
 
 
 ### 2. Admin数据同步
@@ -138,13 +138,11 @@ public class SelectorServiceImpl implements SelectorService {
 
 > 关于`ApplicationEventPublisher`：
 >
-> 当有状态发生变化时，发布者调用 `ApplicationEventPublisher` 的 `publishEvent` 方法发布一个事件，`Spring `容器广播事件给所有观察者，调用观察者的 `onApplicationEvent` 方法把事件对象传递给观察者。调用 `publishEvent `方法有两种途径，一种是实现接口由容器注入 `ApplicationEventPublisher` 对象然后调用其方法，另一种是直接调用容器的方法，两种方法发布事件没有太大区别。
+> 当有状态发生变化时，发布者调用 `ApplicationEventPublisher` 的 `publishEvent` 方法发布一个事件，`Spring`容器广播事件给所有观察者，调用观察者的 `onApplicationEvent` 方法把事件对象传递给观察者。调用 `publishEvent`方法有两种途径，一种是实现接口由容器注入 `ApplicationEventPublisher` 对象然后调用其方法，另一种是直接调用容器的方法，两种方法发布事件没有太大区别。
 >
 > - `ApplicationEventPublisher`：发布事件；
 > - `ApplicationEvent`：`Spring` 事件，记录事件源、时间和数据；
 > - `ApplicationListener`：事件监听者，观察者。
-
-
 
 在`Spring`的事件发布机制中，有三个对象，
 
@@ -334,7 +332,6 @@ public class DataSyncConfiguration {
 ```
 
 
-
 #### 2.4 Websocket数据变更监听器
 
 - WebsocketDataChangedListener.onSelectorChanged()
@@ -352,7 +349,6 @@ public class DataSyncConfiguration {
         WebsocketCollector.send(GsonUtils.getInstance().toJson(websocketData), eventType);
     }
 ```
-
 
 
 #### 2.5 Websocket发送数据
@@ -405,13 +401,13 @@ public class WebsocketCollector {
 
 我们给的案例是一个新增操作 ，是一个增量同步，所以会走
 
-`                SESSION_SET.forEach(session -> sendMessageBySession(session, message));`
+`SESSION_SET.forEach(session -> sendMessageBySession(session, message));`
 
 这个逻辑。
 
 再通过
 
-`            session.getBasicRemote().sendText(message);`
+`session.getBasicRemote().sendText(message);`
 
 将数据发送了出去。
 
@@ -615,7 +611,7 @@ public abstract class AbstractDataHandler<T> implements DataHandler {
 }
 ```
 
-新增一条选择器数据，是新增操作，通过`switch-case`进入到` doUpdate()`方法中。
+新增一条选择器数据，是新增操作，通过`switch-case`进入到`doUpdate()`方法中。
 
 #### 3.4 进入具体的数据处理器
 

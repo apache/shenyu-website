@@ -1,11 +1,11 @@
 ---
 title: "MatchStrategy  -- analyze the design based on SPI"
 author: "Huihui Yin"
+author_title: Apache ShenYu Contributor
 categories: "Apache ShenYu"
 tags: ["SPI","Apache ShenYu"]
 date: 2021-09-14
 ---
-[TOC]
 
 In most of the `plugins` ( such as `Dubbo`, `gRPC`,`Spring-cloud`, etc) of `Apache Shenyu`, the `routing`parameters are designed to support the combination of multiple conditions. In order to realize such requirements,  the parameters and behaviors are abstracted to three parts according to its `SPI` mechanism,  and implemented in ***shenyu-plugin-base***  module.
 
@@ -19,7 +19,7 @@ Relatively speaking, the `MatchStrategy` is the part that needs the least extens
 
 The implementation of `MatchStrategy` is in ***shenyu-plugin-base*** module. It has based on the SPI creation mechanism, and used factory pattern and strategy design pattern. The class diagram of `MatchStrategy` `is` showed as follows.
 
-![MatchStrategy-class-diagram](MatchStrategy-class-diagram.PNG)
+![MatchStrategy-class-diagram](/img/activities/code-analysis-matchstrategy-spi/MatchStrategy-class-diagram.PNG)
 
 Base on the interface `MatchStrategy` to design the implementation classes, and the  abstract class `AbstractMatchStrategy` supplies common method, while the factory class `MatchStrategyFactory` provides creation  functions.
 

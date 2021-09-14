@@ -150,7 +150,7 @@ spec:
           value: 'Asia/Beijing'
 ```
 
-- 执行`kubectl apply -f shenyu-ns.yaml`
+- 执行`kubectl apply -f shenyu-admin.yaml`
 
 ### 3. 部署 shenyu-bootstrap
 

@@ -150,7 +150,7 @@ spec:
           value: 'Asia/Beijing'
 ```
 
-- execute`kubectl apply -f shenyu-ns.yaml`
+- execute`kubectl apply -f shenyu-admin.yaml`
 
 ### 3. Create shenyu-bootstrap
 
@@ -441,7 +441,7 @@ spec:
           name: mysql-connector-volume
 ```
 
-- execute`kubectl apply -f shenyu-ns.yaml`
+- execute`kubectl apply -f shenyu-admin.yaml`
 
 ### 3. Create shenyu-bootstrap
 

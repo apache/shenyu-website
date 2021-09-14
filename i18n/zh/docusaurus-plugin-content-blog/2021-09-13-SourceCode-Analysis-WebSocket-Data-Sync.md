@@ -15,7 +15,7 @@ tags: [websocket,data sync,Apache ShenYu]
 
 ### 1. 关于WebSocket通信
 
-`WebSocket`协议诞生于`2008`年，在`2011`年成为国际标准。它可以双向通信，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息。`WebSocket `协议建立在 `TCP` 协议之上，属于应用层，性能开销小，通信高效，协议标识符是`ws`。
+`WebSocket`协议诞生于`2008`年，在`2011`年成为国际标准。它可以双向通信，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息。`WebSocket`协议建立在 `TCP` 协议之上，属于应用层，性能开销小，通信高效，协议标识符是`ws`。
 
 
 ### 2. Admin数据同步
@@ -336,7 +336,7 @@ public class DataSyncConfiguration {
 
 - WebsocketDataChangedListener.onSelectorChanged()
 
-  在`onSelectorChanged()`方法中，将数据进行了封装，转成`WebsocketData`，然后通过` WebsocketCollector.send()`发送数据。
+  在`onSelectorChanged()`方法中，将数据进行了封装，转成`WebsocketData`，然后通过`WebsocketCollector.send()`发送数据。
 
 ```java
     // 选择器数据有更新

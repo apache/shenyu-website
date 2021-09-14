@@ -4,7 +4,6 @@ author: "Huihui Yin"
 author_title: Apache ShenYu Contributor
 categories: "Apache ShenYu"
 tags: ["SPI","Apache ShenYu"]
-date: 2021-09-14
 ---
 
 `Apache Shenyu` 网关的各个`Plugin`（包括`Dubbo`, `gRPC`,`Spring-cloud`等) 中，`routing`参数均设计为可以接受多个条件的组合。 为了实现这样的目的，遵循其`SPI`的机制进行将参数及行为抽象为如下三部分，这些`SPI` 在***shenyu-plugin-base***模组中实现

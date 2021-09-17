@@ -632,6 +632,8 @@ https://shenyu.apache.org/projects/shenyu/download/
 
 https://shenyu.apache.org/zh/projects/shenyu/download/
 
+Download links should use https://www.apache.org/dyn/closer.lua not closer.cgi or mirrors.cgi
+
 GPG signatures and hashes (SHA* etc) must use URL start with `https://downloads.apache.org/incubator/shenyu/`
 
 **7. Announce release completed by email**

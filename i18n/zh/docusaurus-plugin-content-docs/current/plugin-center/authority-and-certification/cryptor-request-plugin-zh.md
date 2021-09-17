@@ -20,7 +20,6 @@ description: CryptorRequest 插件
 
   <img src="/img/shenyu/plugin/cryptor/cryptor-request-rules-config.png" width="80%" height="80%" />
 
-
   * strategyName: 解密算法名称。当前基于 shenyu 的 SPI 机制，可自定义加解密算法，
     需要实现 `org.apache.shenyu.plugin.cryptor.strategy.CryptorStrategy` 接口。
     
@@ -52,6 +51,7 @@ description: CryptorRequest 插件
 ```
 
 ## 场景
+
 防互联网黑产，恶意获取数据。提高数据安全性。
 
 

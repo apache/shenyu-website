@@ -28,11 +28,13 @@ description: CryptorRequest 插件
 
   * fieldNames: 匹配的参数名，支持解析多层次的 json 格式匹配，使用 `.` 分割，例如 data.id 。 
 ```json5
+
         {
           data: {
             "id": ""
           }  
         }
+
 ```
   * key: 秘钥，用于解密数据。
 

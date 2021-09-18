@@ -629,6 +629,8 @@ https://shenyu.apache.org/projects/shenyu/download/
 
 https://shenyu.apache.org/zh/projects/shenyu/download/
 
+项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
+
 GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
 
 **7. 邮件通知版本发布完成**

@@ -38,7 +38,7 @@ module.exports = {
         src: 'img/logo.png',
       },
       items: [
-        {to: '/download/download', label: 'Download', position: 'left'},
+        {to: '/download/download-latest', label: 'Download', position: 'left'},
         {
           type: 'doc',
           docId: 'index',
@@ -119,7 +119,7 @@ module.exports = {
           items: [
             {
               label: 'Download',
-              to: '/download/download',
+              to: '/download/download-latest',
             },
             {
               label: 'Document',

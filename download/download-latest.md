@@ -1,5 +1,6 @@
 ---
-title: Download
+title: 2.4.0
+sidebar_position: 0
 keywords: ["Download"]
 description: Download
 ---

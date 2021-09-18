@@ -1,5 +1,6 @@
 ---
-title: 下载
+title: 2.4.0
+sidebar_position: 0
 keywords: ["下载"]
 description: 下载
 ---

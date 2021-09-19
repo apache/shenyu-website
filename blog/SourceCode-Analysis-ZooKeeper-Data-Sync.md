@@ -292,7 +292,7 @@ This configuration class is implemented through the SpringBoot conditional assem
             connectionTimeout: 2000
   ```
 
-- ` @Import(ZookeeperConfiguration.class)`：import `ZookeeperConfiguration`；
+- `@Import(ZookeeperConfiguration.class)`：import `ZookeeperConfiguration`;
 
 ```java
   @EnableConfigurationProperties(ZookeeperProperties.class)  // enable zookeeper properties

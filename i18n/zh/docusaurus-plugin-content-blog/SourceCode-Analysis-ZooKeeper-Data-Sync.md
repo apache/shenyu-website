@@ -135,7 +135,7 @@ public class SelectorServiceImpl implements SelectorService {
 
 > 关于`ApplicationEventPublisher`：
 >
-> 当有状态发生变化时，发布者调用 `ApplicationEventPublisher` 的 `publishEvent` 方法发布一个事件，`Spring `容器广播事件给所有观察者，调用观察者的 `onApplicationEvent` 方法把事件对象传递给观察者。调用 `publishEvent `方法有两种途径，一种是实现接口由容器注入 `ApplicationEventPublisher` 对象然后调用其方法，另一种是直接调用容器的方法，两种方法发布事件没有太大区别。
+> 当有状态发生变化时，发布者调用 `ApplicationEventPublisher` 的 `publishEvent` 方法发布一个事件，`Spring`容器广播事件给所有观察者，调用观察者的 `onApplicationEvent` 方法把事件对象传递给观察者。调用 `publishEvent`方法有两种途径，一种是实现接口由容器注入 `ApplicationEventPublisher` 对象然后调用其方法，另一种是直接调用容器的方法，两种方法发布事件没有太大区别。
 >
 > - `ApplicationEventPublisher`：发布事件；
 > - `ApplicationEvent`：`Spring` 事件，记录事件源、时间和数据；
@@ -298,7 +298,7 @@ public class DataSyncConfiguration {
             connectionTimeout: 2000
   ```
 
-- ` @Import(ZookeeperConfiguration.class)`：导入另一个类`ZookeeperConfiguration`；
+- `@Import(ZookeeperConfiguration.class)`：导入另一个类`ZookeeperConfiguration`；
 
 ```java
   @EnableConfigurationProperties(ZookeeperProperties.class)  // 启用zk属性配置类
@@ -661,7 +661,7 @@ public class ZookeeperDataInit implements CommandLineRunner {
 
 判断`zk`中是否存在数据，如果不存在，则进行同步。
 
-`ZookeeperDataInit`实现了`CommandLineRunner`接口。它是`springboot`提供的接口，会在所有 `Spring Beans `初始化之后执行`run()`方法，常用于项目中初始化的操作。
+`ZookeeperDataInit`实现了`CommandLineRunner`接口。它是`springboot`提供的接口，会在所有 `Spring Beans`初始化之后执行`run()`方法，常用于项目中初始化的操作。
 
 - SyncDataService.syncAll()
 
@@ -704,7 +704,7 @@ public class SyncDataServiceImpl implements SyncDataService {
 网关这边的数据同步初始化操作主要是订阅`zk`中的节点，当有数据变更时，收到变更数据。这依赖于`ZooKeeper`的`Watch`机制。在`ShenYu`中，负责`zk`数据同步的是`ZookeeperSyncDataService`，也在前面提到过。
 
 
-`ZookeeperSyncDataService`的功能逻辑是在实例化的过程中完成的：对`zk`中的`shenyu`数据同步节点完成订阅。这里的订阅分两类，一类是已经存在的节点上面数据发生更新，这通过`zkClient.subscribeDataChanges()`方法实现；另一类是当前节点下有新增或删除节点，即子节点发生变化，这通过` zkClient.subscribeChildChanges()`方法实现。
+`ZookeeperSyncDataService`的功能逻辑是在实例化的过程中完成的：对`zk`中的`shenyu`数据同步节点完成订阅。这里的订阅分两类，一类是已经存在的节点上面数据发生更新，这通过`zkClient.subscribeDataChanges()`方法实现；另一类是当前节点下有新增或删除节点，即子节点发生变化，这通过`zkClient.subscribeChildChanges()`方法实现。
 
 
 `ZookeeperSyncDataService`的代码有点多，这里我们以插件数据的读取和订阅进行追踪，其他类型的数据操作原理是一样的。

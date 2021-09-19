@@ -1,7 +1,7 @@
 ---
 slug: code-analysis-websocket-data-sync
 title: WebSocket Data Synchronization Source Code Analysis
-author: Liu Liang
+author: midnight2104
 author_title: Apache ShenYu Committer
 author_url: https://github.com/midnight2104
 tags: [websocket,data sync,Apache ShenYu]
@@ -649,8 +649,7 @@ It has no additional logic and calls the `subscribeDataHandler()` method directl
 
 ```java
 /**
- * The universal plug-in data subscriber, responsible for handling all plug-in, selector, and rule information
- * The type Common plugin data subscriber.
+ * The common plugin data subscriber, responsible for handling all plug-in, selector, and rule information
  */
 public class CommonPluginDataSubscriber implements PluginDataSubscriber {
     //......
@@ -774,7 +773,7 @@ Second, if each plugin has its own processing logic, then do it. Through the `ID
 
 ![](/img/activities/code-analysis-websocket-data-sync/handler-selector.png)
 
-After the above source tracing, and through a practical case, in the 'admin' side to add a selector data, will `websocket` data synchronization process analysis cleared.
+After the above source tracing, and through a practical case, in the `admin` side to add a selector data, will `websocket` data synchronization process analysis cleared.
 
 Let's use the following figure to concatenate the data synchronization process on the gateway side:
 

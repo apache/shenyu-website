@@ -90,7 +90,7 @@ while (iter.hasNext()) {
 
 ## Exception
 
-*  不要在循环内部去捕获异常。
+* 不要在循环内部去捕获异常。
 
 ```
 try {

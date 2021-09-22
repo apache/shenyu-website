@@ -1,0 +1,22 @@
+.mainWrapper {
+    width: 100%;
+    margin: 4rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.articleWrapper {
+    width: 70%;
+}
+
+.moduleWrapper {
+    margin-top: 4rem;
+}
+
+.h1Wrapper {
+    font-size: 5em;
+}
+
+.h2Wrapper {
+    font-size: 2em;
+}

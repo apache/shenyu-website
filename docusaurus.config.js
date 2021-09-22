@@ -26,6 +26,18 @@ module.exports = {
       },
     },
   },
+  customFields: {
+    downloads: [
+      {
+        name: "Apache ShenYu (incubating)",
+        description: "High-performance, multi-protocol, extensible, responsive API Gateway",
+        githubRepo: "apache/incubator-shenyu",
+        version: "2.4.0",
+        releaseDate: "2021-08-08",
+        url: "https://dlcdn.apache.org/incubator/shenyu/2.4.0/"
+      }
+    ],
+  },
   themeConfig: {
     announcementBar: {
       id: 'announcementBar-2', // Increment on change
@@ -38,7 +50,7 @@ module.exports = {
         src: 'img/logo.png',
       },
       items: [
-        {to: '/download/download-latest', label: 'Download', position: 'left'},
+        {to: '/download', label: 'Download', position: 'left'},
         {
           type: 'doc',
           docId: 'index',
@@ -119,7 +131,7 @@ module.exports = {
           items: [
             {
               label: 'Download',
-              to: '/download/download-latest',
+              to: '/download',
             },
             {
               label: 'Document',
@@ -224,25 +236,6 @@ module.exports = {
     ],
   ],
   plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'download',
-        path: 'download',
-        routeBasePath: 'download',
-        editUrl: ({locale, versionDocsDirPath, docPath}) => {
-          if (locale !== 'en') {
-            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/${docPath}`;
-          }
-          return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
-        },
-        editCurrentVersion: true,
-        editLocalizedFiles: true,
-        sidebarPath: require.resolve('./sidebarsCommunity.js'),
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
-      }
-    ],
     [
       '@docusaurus/plugin-content-docs',
       {

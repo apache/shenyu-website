@@ -90,7 +90,7 @@ while (iter.hasNext()) {
 
 ## Exception
 
-*  Do not use try...catch in a loop, it should be on the outermost layer.
+* Do not use try...catch in a loop, it should be on the outermost layer.
 
 ```
 try {

@@ -29,28 +29,28 @@ const VersionCard: React.FC<VersionCardProps> = ({ ...props }) => {
             </div>
             <ul className={styles.downloadDetail}>
                 {
-                    props.content.map((value) => {
+                    props.content instanceof Array && props.content.map((value) => {
                         return (
                             <li key={value.name}>
                              <span>
                                 {value.name} :
                             </span>
-                            {value.zip &&
+                                {value.zip &&
                                 <a href={value.zip}>
                                     ZIP
                                 </a>
-                            }
-                            {value.tar &&
+                                }
+                                {value.tar &&
                                 <a href={value.tar}>
                                     TAR
                                 </a>
-                            }
-                            <a href={value.asc}>
-                                ASC
-                            </a>
-                            <a href={value.sha512}>
-                                SHA512
-                            </a>
+                                }
+                                <a href={value.asc}>
+                                    ASC
+                                </a>
+                                <a href={value.sha512}>
+                                    SHA512
+                                </a>
                             </li>
                         );
                     })

@@ -135,6 +135,8 @@ https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 **3. Create Release Branch**
 
+Download and install [Git](https://git-scm.com/downloads)
+
 Suppose ShenYu source codes downloaded from github is under `~/shenyu/` directory and the version to be released is `${RELEASE.VERSION}`. 
 Create `${RELEASE.VERSION}-release` branch, where all the following operations are performed.
 
@@ -196,6 +198,8 @@ If there is any problem in gpg signature, `Close` will fail, but you can see the
 ## Apache SVN Repository Release
 
 **1. Checkout ShenYu Release Directory**
+
+Download and install [SVN](https://tortoisesvn.net/downloads.html)
 
 If there is no local work directory, create one at first.
 

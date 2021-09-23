@@ -134,6 +134,8 @@ https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 **3. 创建发布分支**
 
+下载并安装[Git](https://git-scm.com/downloads)
+
 假设从GitHub下载的ShenYu源代码在`~/shenyu/`目录；假设即将发布的版本为`${RELEASE.VERSION}`。
 创建`${RELEASE.VERSION}-release`分支，接下来的操作都在该分支进行。
 
@@ -193,6 +195,8 @@ mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=
 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
 
 ## 发布Apache SVN仓库
+
+下载并安装[SVN](https://tortoisesvn.net/downloads.html)
 
 **1. 检出ShenYu发布目录**
 

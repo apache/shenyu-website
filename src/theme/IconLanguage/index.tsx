@@ -9,7 +9,7 @@ const IconLanguage = ({
   debugger
   return (
     <svg t="1631348384596"
-      class="icon" viewBox="0 0 1024 1024"
+      className="icon" viewBox="0 0 1024 1024"
       version="1.1"
       {...props}
       p-id="557" width="20" height="20">

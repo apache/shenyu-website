@@ -48,7 +48,7 @@ module.exports = {
             sha512: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.sha512"
           },
           {
-            name: "ShenYu-Dashboard Binary Distribution",
+            name: "ShenYu-Bootstrap Binary Distribution",
             tar: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz",
             asc: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.asc",
             sha512: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.sha512"

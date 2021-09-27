@@ -293,6 +293,7 @@ shenyu:
     scheduleTime: 300  //Cycle time (in seconds)
     scheduleDelay: 30 //How long the shenyu gateway is delayed to load after it starts (in seconds)
 ```
+
 #### Plugin loading path details
 
 * This path is for the directory where the extended plugin jar package is stored。

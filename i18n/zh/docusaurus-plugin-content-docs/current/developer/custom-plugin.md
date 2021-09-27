@@ -278,10 +278,10 @@ public interface PluginDataHandler {
 * 注册成`Spring`的`bean`，参考如下或者直接在实现类上加 `@Component` 注解。
 
 ```java
-    @Bean
+@Bean
 public PluginDataHandler pluginDataHandler() {
-        return new PluginDataHandler();
-        }
+    return new PluginDataHandler();
+}
 ```
 
 ## 动态加载自定义插件

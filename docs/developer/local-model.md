@@ -40,7 +40,7 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**id**|String|False| plugin id|
+|**id**|String|False| |plugin id|
 |**name**|String|True| |plugin name|
 |**config**|String|False| |plugin configuration (Json format)|
 |**role**|String|False| |plugin role |
@@ -155,7 +155,7 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**id**|String|False| selector id|
+|**id**|String|False| |selector id|
 |**pluginName**|String|True| |plugin name|
 |**name**|String|False| |Selector name (default is plugin:selector+random number if not filled)|
 |**matchMode**|Integer|False| |Matching mode (0:and;1:or), not filled with the default generation And mode|
@@ -170,7 +170,7 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**paramType**|String|True| param type（post，uri，query，host，header，cookie，req_method，domain）|
+|**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
 |**operator**|String|True| |operator （match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
 |**paramValue**|Integer|False| |param value|
@@ -236,7 +236,7 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**ruleName**|String|False| rule name|
+|**ruleName**|String|False| |rule name|
 |**ruleHandler**|String|True| |Rule handler (different plugins pass different values)）|
 |**matchMode**|Integer|False| |Matching pattern (0:and;1:or)|
 |**conditionList**|[ConditionData](#ConditionData)|True| |Rule condition collection (Json List object)|
@@ -245,7 +245,7 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**paramType**|String|True| param type（post，uri，query，host，header，cookie，req_method，domain）|
+|**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
 |**operator**|String|True| |operator （match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
 |**paramValue**|Integer|False| |param value|
@@ -341,7 +341,7 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**id**|String|False| rule id|
+|**id**|String|False| |rule id|
 |**pluginName**|String|True| |plugin name|
 |**name**|String|False| |Rule name (default generation if not filled plugin:rule+random number)|
 |**selectorId**|String|True| |Selector id|
@@ -356,7 +356,7 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**paramType**|String|True| param type（post，uri，query，host，header，cookie，req_method，domain）|
+|**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
 |**operator**|String|True| |operator （match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
 |**paramValue**|Integer|False| |param value|
@@ -448,7 +448,7 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**id**|String|False| ID|
+|**id**|String|False| |ID|
 |**appName**|String|True| |app name|
 |**contextPath**|String|True| |contextPath|
 |**path**|String|True| |path|
@@ -457,7 +457,7 @@ POST
 |**methodName**|String|True| |method name|
 |**parameterTypes**|String|True| |parameter types|
 |**rpcExt**|String|False| |rpc extension parameters (json objects)|
-|**enabled**|Boolean|False| Whether to turn on|
+|**enabled**|Boolean|False| |Whether to turn on|
 
 ### Delete
 
@@ -504,8 +504,8 @@ POST
 |---|---|---|---|---|
 |**appKey**|String|True| |app key|
 |**appSecret**|String|True| |app secret|
-|**enabled**|Boolean|False| Whether to turn on|
-|**open**|Boolean|False| is open|
+|**enabled**|Boolean|False| |Whether to turn on|
+|**open**|Boolean|False| |is open|
 |**paramDataList**|[AuthParamData](#AuthParamData)|false| |Parameter set, open is true when you need to pass (Json list object)|
 |**AuthPathData**|[AuthPathData](#AuthPathData)|false| |Path collection, open is true when you need to pass (Json list object)|
 
@@ -522,7 +522,7 @@ POST
 |---|---|---|---|---|
 |**appName**|String|True| |app name|
 |**path**|String|True| |path|
-|**enabled**|Boolean|False| Whether to turn on|
+|**enabled**|Boolean|False| |Whether to turn on|
 
 ### Delete
 

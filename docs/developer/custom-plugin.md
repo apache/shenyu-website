@@ -272,10 +272,10 @@ public interface PluginDataHandler {
 * Register defined class as a `Spring Bean`, or simply apply `@Component` in implementation class.
 
 ```java
-    @Bean
-    public PluginDataHandler pluginDataHandler() {
-        return new PluginDataHandler();
-    }
+@Bean
+public PluginDataHandler pluginDataHandler() {
+  return new PluginDataHandler();
+}
 ```
 
 ## Dynamic loading

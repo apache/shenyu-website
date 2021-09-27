@@ -283,6 +283,7 @@ public PluginDataHandler pluginDataHandler() {
         return new PluginDataHandler();
         }
 ```
+
 ## 动态加载自定义插件
 
 * 当使用此功能时候，上述扩展 `ShenyuPlugin`, `PluginDataHandler`, 不用成为 `spring bean`。只需要构建出扩展项目的jar包即可。
@@ -298,6 +299,7 @@ shenyu:
     scheduleTime: 300 //间隔时间（单位：秒）
     scheduleDelay: 30 //网关启动后延迟多久加载（单位：秒）
 ```
+
 #### 插件加载路径详解
 
 * 此路径是为存放扩展插件jar包的目录。

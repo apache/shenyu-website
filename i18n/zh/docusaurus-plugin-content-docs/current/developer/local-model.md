@@ -19,15 +19,19 @@ success
 ## 插件数据
 
 ### 新增或者更新插件
+
 新增或者更新插件
 
 ##### 请求方式
+
 POST
 
 ##### 请求路径
+
 /plugin/saveOrUpdate
 
 ##### 请求参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**PluginData**|[PluginData](#PluginData)|True| |插件对象（Body里面传Json对象）|
@@ -42,6 +46,7 @@ POST
 |**enabled**|Boolean|False| |是否开启|
 
 ##### 请求示例
+
 POST body
 ```
 {"id":3,"name":"divide","enabled":"true"}
@@ -49,21 +54,27 @@ POST body
 ```
 
 ### 清空所有数据
+
 清空所有插件，选择器，规则数据
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /cleanAll
 
 ### 清空插件数据
+
 清空单个插件，选择器，规则数据
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /cleanPlugin?name = xxxx
 
 ##### Request参数
@@ -73,57 +84,72 @@ GET
 |**name**|String|true| |插件名称 |
 
 ### 删除插件
+
 删除单个插件(不包含，插件里面的选择器与规则)
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /plugin/delete?name = xxxx
 
 ##### Request参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**name**|String|true| |插件名称 |
 
 ### 删除所有插件
+
 删除所有插件(不包含，插件里面的选择器与规则)
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /plugin/deleteAll
 
 ### 获取插件
+
 根据名称获取插件数据
 
 ##### 请求方式
 GET
 
 ##### 请求路径
+
 /plugin/findByName?name=xxxx
 
 ##### Request参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**name**|String|true| |插件名称 |
 
 ### 新增或更新选择器
+
 新增或者更新插件
 
 ##### 请求方式
+
 POST
 
 ##### 请求路径
+
 /plugin/selector/saveOrUpdate
 
 ##### 请求参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**SelectorData**|[SelectorData](#SelectorData)|True| |选择器对象（Body里面传Json对象）|
 
 ##### <div id="SelectorData">SelectorData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**id**|String|False| 选择器ID|
@@ -138,6 +164,7 @@ POST
 |**conditionList**|[conditionList](#conditionList)|False| |条件集合，自定义流量需要传，全流量不用传（Json List对象）|
 
 ##### <div id="conditionList">conditionList</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**paramType**|String|True| 参数类型（post，uri，query，host，header，cookie，req_method，domain）|
@@ -146,6 +173,7 @@ POST
 |**paramValue**|Integer|False| |匹配值|
 
 ##### 请求示例
+
 POST body
 ```
 {
@@ -163,26 +191,32 @@ POST body
 ```
 
 ##### 返回数据
+
 选择器ID
 
 ```
 xxxxx
 ```
 ### 新增选择器与规则
+
 新增一条选择器与多条规则
 
 ##### 请求方式
+
 POST
 
 ##### 请求路径
+
 /plugin/selectorAndRules
 
 ##### 请求参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**SelectorRulesData**|[SelectorRulesData](#SelectorRulesData)|True| |选择器规则对象（Body里面传Json对象）|
 
 ##### <div id="SelectorRulesData">SelectorRulesData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**pluginName**|String|True| |插件名称|
@@ -193,6 +227,7 @@ POST
 |**ruleDataList**|[RuleLocalData](#RuleLocalData)|True| |规则对象集合（Json List对象）|
 
 ##### <div id="RuleLocalData">RuleLocalData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**ruleName**|String|False| 规则名称|
@@ -201,6 +236,7 @@ POST
 |**conditionList**|[ConditionData](#ConditionData)|True| |规则条件集合（Json List对象）|
 
 ##### <div id="ConditionData">ConditionData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**paramType**|String|True| 参数类型（post，uri，query，host，header，cookie，req_method，domain）|
@@ -209,6 +245,7 @@ POST
 |**paramValue**|Integer|False| |匹配值|
 
 ##### 请求示例
+
 POST body
 ```
 {
@@ -239,49 +276,62 @@ POST body
 ```
 
 ### 删除选择器
+
 根据选择器id与插件名称删除选择器
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /plugin/selector/delete?pluginName=xxxx&&id=xxxx
 
 ##### Request参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**pluginName**|String|true| |插件名称 |
 |**id**|String|true| |选择器id |
 
 ### 获取插件下的所有选择器
+
 根据插件名称获取所有选择器
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /plugin/selector/findList?pluginName=xxxx
 
 ##### Request参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**pluginName**|String|true| |插件名称 |
 
 ### 新增或更新规则
+
 新增或者更新规则数据
 
 ##### 请求方式
+
 POST
 
 ##### 请求路径
+
 /plugin/rule/saveOrUpdate
 
 ##### 请求参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**RuleData**|[RuleData](#RuleData)|True| |规则对象（Body里面传Json对象）|
 
 ##### <div id="RuleData">RuleData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**id**|String|False| 规则ID|
@@ -296,6 +346,7 @@ POST
 |**conditionList**|[ConditionData](#ConditionData)|False| |条件集合（Json List对象）|
 
 ##### <div id="conditionList">conditionList</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**paramType**|String|True| 参数类型（post，uri，query，host，header，cookie，req_method，domain）|
@@ -304,6 +355,7 @@ POST
 |**paramValue**|Integer|False| |匹配值|
 
 ##### 请求示例
+
 POST body
 ```
 {
@@ -320,6 +372,7 @@ POST body
 ```
 
 ##### 返回数据
+
 规则ID
 
 ```
@@ -327,30 +380,38 @@ xxxxx
 ```
 
 ### 删除规则
+
 根据选择器id与规则id删除规则
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /plugin/rule/delete?selectorId=xxxx&&id=xxxx
 
 ##### Request参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**selectorId**|String|true| |选择器ID |
 |**id**|String|true| |规则ID |
 
 ### 获取规则集合
+
 根据选择器ID获取所有规则
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /plugin/rule/findList?selectorId=xxxx
 
 ##### Request参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**selectorId**|String|true| |选择器ID |
@@ -358,20 +419,25 @@ GET
 ## 元数据
 
 ### 新增或者更新元数据
+
 新增或者更新元数据
 
 ##### 请求方式
+
 POST
 
 ##### 请求路径
+
 /meta/saveOrUpdate
 
 ##### 请求参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**MetaData**|[MetaData](#MetaData)|True| |元数据对象（Body里面传Json对象）|
 
 ##### <div id="MetaData">MetaData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**id**|String|False| 元数据ID|
@@ -386,15 +452,19 @@ POST
 |**enabled**|Boolean|False| 是否开启|
 
 ### 删除元数据
+
 删除元数据
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
+
 /meta/delete?rpcType=xxxx&&path=xxx
 
 ##### Request参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**rpcType**|String|true| |rpc类型（dubbo，sofa，tars，springCloud，motan，grpc） |
@@ -403,20 +473,25 @@ GET
 ## 签名数据
 
 ### 新增或者更新
+
 新增或者更新签名数据
 
 ##### 请求方式
+
 POST
 
 ##### 请求路径
+
 /auth/saveOrUpdate
 
 ##### 请求参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**AppAuthData**|[AppAuthData](#AppAuthData)|True| |签名对象（Body里面传Json对象）|
 
 ##### <div id="AppAuthData">AppAuthData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**appKey**|String|True| |app key|
@@ -427,12 +502,14 @@ POST
 |**AuthPathData**|[AuthPathData](#AuthPathData)|false| |路径集合，open为true时候需要传（Json list对象）|
 
 ##### <div id="AuthParamData">AuthParamData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**appName**|String|True| |应用名称|
 |**appParam**|String|True| |应用参数|
 
 ##### <div id="AuthPathData">AuthPathData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**appName**|String|True| |应用名称|
@@ -440,15 +517,19 @@ POST
 |**enabled**|Boolean|False| 是否开启|
 
 ### 删除
+
 删除签名数据
 
 #####请求方式
+
 GET
 
 ##### 请求路径
+
 /auth/delete?appKey=xxxx
 
 ##### Request参数
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**appKey**|String|true| |app key |

@@ -19,20 +19,25 @@ success
 ## Plugin
 
 ### saveOrUpdate
+
 save or update plugin data
 
 ##### Request Method
+
 POST
 
 ##### Path
+
 /plugin/saveOrUpdate
 
 ##### Request Parameters
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**PluginData**|[PluginData](#PluginData)|True| |Plugin data object (pass Json object inside Body)|
 
 ##### <div id="PluginData">PluginData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**id**|String|False| plugin id|
@@ -42,6 +47,7 @@ POST
 |**enabled**|Boolean|False| |whether to turn on|
 
 ##### Example
+
 POST body
 ```
 {"id":3,"name":"divide","enabled":"true"}
@@ -49,21 +55,27 @@ POST body
 ```
 
 ### CleanAll
+
 Clear all data (plugins, selectors, rules)
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /cleanAll
 
 ### Clean Plugin
+
 Clear plugin data（selector, rule）
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /cleanPlugin?name = xxxx
 
 ##### RequestParam
@@ -73,12 +85,15 @@ GET
 |**name**|String|true| |plugin name |
 
 ### Delete plugin
+
 Remove plugin data (not included, the selectors and rules data)
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /plugin/delete?name = xxxx
 
 ##### RequestParam
@@ -87,45 +102,56 @@ GET
 |---|---|---|---|---|
 |**name**|String|true| |plugin name |
 
-
 ### Delete All Plugin
+
 Remove all plugin data (not included, the selectors and rules data)
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /plugin/deleteAll
 
 ### Find plugin by name
+
 Find plugin by name
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /plugin/findByName?name=xxxx
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**name**|String|true| |plugin name |
 
 ### Save or Update Selector
+
 Save or Update Selector
 
 ##### Request Method
+
 POST
 
 ##### Path
+
 /plugin/selector/saveOrUpdate
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**SelectorData**|[SelectorData](#SelectorData)|True| |Selector object (pass Json object inside Body)|
 
 ##### <div id="SelectorData">SelectorData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**id**|String|False| selector id|
@@ -140,6 +166,7 @@ POST
 |**conditionList**|[Condition](#Condition)|False| |Conditional collection, custom traffic needs to be passed, full traffic does not need to be passed (Json List object)|
 
 ##### <div id="Condition">Condition</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**paramType**|String|True| param type（post，uri，query，host，header，cookie，req_method，domain）|
@@ -149,6 +176,7 @@ POST
 
 
 ##### Example
+
 POST body
 ```
 {
@@ -174,20 +202,25 @@ xxxxx
 ```
 
 ### Add Selector And Rules
+
 Add a selector with multiple rules
 
 ##### Request Method
+
 POST
 
 ##### Path
+
 /plugin/selectorAndRules
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**SelectorRulesData**|[SelectorRulesData](#SelectorRulesData)|True| |Selector rule object (Body inside pass Json object)|
 
 ##### <div id="SelectorRulesData">SelectorRulesData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**pluginName**|String|True| |plugin name|
@@ -198,6 +231,7 @@ POST
 |**ruleDataList**|[RuleLocalData](#RuleLocalData)|True| |Rule condition collection (Json List object)|
 
 ##### <div id="RuleLocalData">RuleLocalData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**ruleName**|String|False| rule name|
@@ -206,6 +240,7 @@ POST
 |**conditionList**|[ConditionData](#ConditionData)|True| |Rule condition collection (Json List object)|
 
 ##### <div id="ConditionData">ConditionData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**paramType**|String|True| param type（post，uri，query，host，header，cookie，req_method，domain）|
@@ -213,8 +248,8 @@ POST
 |**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
 |**paramValue**|Integer|False| |param value|
 
-
 ##### Example
+
 POST body
 ```
 {
@@ -245,27 +280,34 @@ POST body
 ```
 
 ### Delete Selector
+
 Delete selectors based on selector id and plugin name
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /plugin/selector/delete?pluginName=xxxx&&id=xxxx
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**pluginName**|String|true| |plugin name |
 |**id**|String|true| |selector id |
 
 ### Find All Selector
+
 Get all selectors by plugin name
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /plugin/selector/findList?pluginName=xxxx
 
 ##### RequestParam
@@ -275,20 +317,25 @@ GET
 |**pluginName**|String|true| |plugin name |
 
 ### Save or Update Rule Data
+
 Save or Update Rule Data
 
 ##### Request Method
+
 POST
 
 ##### Path
+
 /plugin/rule/saveOrUpdate
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**RuleData**|[RuleData](#RuleData)|True| |Rule object (pass Json object inside Body)|
 
 ##### <div id="RuleData">RuleData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**id**|String|False| rule id|
@@ -303,6 +350,7 @@ POST
 |**conditionList**|[ConditionData](#ConditionData)|False| |Conditional collections (Json List objects)|
 
 ##### <div id="conditionList">conditionList</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**paramType**|String|True| param type（post，uri，query，host，header，cookie，req_method，domain）|
@@ -311,6 +359,7 @@ POST
 |**paramValue**|Integer|False| |param value|
 
 ##### Example
+
 POST body
 ```
 {
@@ -334,30 +383,38 @@ xxxxx
 ```
 
 ### Delete rule data
+
 Delete rules based on selector id and rule id
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /plugin/rule/delete?selectorId=xxxx&&id=xxxx
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**selectorId**|String|true| |selector ID |
 |**id**|String|true| |rule ID |
 
 ### Find Rule data List
+
 Get all rules by selector ID
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /plugin/rule/findList?selectorId=xxxx
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**selectorId**|String|true| |selector id |
@@ -365,20 +422,25 @@ GET
 ## Meta data
 
 ### Save Or Update
+
 Save Or Update Meta data
 
 ##### Request Method
+
 POST
 
 ##### Path
+
 /meta/saveOrUpdate
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**MetaData**|[MetaData](#MetaData)|True| |Metadata object (pass Json object inside Body)|
 
 ##### <div id="MetaData">MetaData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**id**|String|False| ID|
@@ -393,15 +455,19 @@ POST
 |**enabled**|Boolean|False| Whether to turn on|
 
 ### Delete
+
 Delete Meta data
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /meta/delete?rpcType=xxxx&&path=xxx
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**rpcType**|String|true| |rpc type（dubbo，sofa，tars，springCloud，motan，grpc） |
@@ -410,20 +476,25 @@ GET
 ## App Sign Data
 
 ### Save Or Update
+
 Save Or Update App Sign Data
 
 ##### Request Method
+
 POST
 
 ##### Path
+
 /auth/saveOrUpdate
 
 ##### RequestParam
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**AppAuthData**|[AppAuthData](#AppAuthData)|True| |Signature object (Json object passed inside the Body)|
 
 ##### <div id="AppAuthData">AppAuthData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**appKey**|String|True| |app key|
@@ -434,12 +505,14 @@ POST
 |**AuthPathData**|[AuthPathData](#AuthPathData)|false| |Path collection, open is true when you need to pass (Json list object)|
 
 ##### <div id="AuthParamData">AuthParamData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**appName**|String|True| |app name|
 |**appParam**|String|True| |app param|
 
 ##### <div id="AuthPathData">AuthPathData</div>
+
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**appName**|String|True| |app name|
@@ -447,12 +520,15 @@ POST
 |**enabled**|Boolean|False| Whether to turn on|
 
 ### Delete
+
 Delete App Sign Data
 
 ##### Request Method
+
 GET
 
 ##### Path
+
 /auth/delete?appKey=xxxx
 
 ##### RequestParam

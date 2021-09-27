@@ -283,3 +283,25 @@ public PluginDataHandler pluginDataHandler() {
         return new PluginDataHandler();
         }
 ```
+## 动态加载自定义插件
+
+* 当使用此功能时候，上述扩展 `ShenyuPlugin`, `PluginDataHandler`, 不用成为 `spring bean`。只需要构建出扩展项目的jar包即可。
+
+* 使用以下配置：
+
+```yaml
+shenyu:
+  extPlugin:
+    path:  //加载扩展插件jar包路径
+    enabled: true //是否开启
+    threads: 1  //加载插件线程数量
+    scheduleTime: 300 //间隔时间（单位：秒）
+    scheduleDelay: 30 //网关启动后延迟多久加载（单位：秒）
+```
+#### 插件加载路径详解
+
+* 此路径是为存放扩展插件jar包的目录。
+
+* 可以使用 `-Dplugin-ext=xxxx` 指定，也可以使用 `shenyu.extPlugin.path`配置文件指定，如果都没配置，默认会加载网关启动路径下的 `ext-lib`目录。
+
+* 优先级 ：`-Dplugin-ext=xxxx` > `shenyu.extPlugin.path` > `ext-lib(default)`

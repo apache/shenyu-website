@@ -37,6 +37,7 @@ POST
 |**PluginData**|[PluginData](#PluginData)|True| |插件对象（Body里面传Json对象）|
 
 ##### <div id="PluginData">PluginData</div>
+
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**id**|String|False| 插件ID|
@@ -48,6 +49,7 @@ POST
 ##### 请求示例
 
 POST body
+
 ```
 {"id":3,"name":"divide","enabled":"true"}
 
@@ -118,6 +120,7 @@ GET
 根据名称获取插件数据
 
 ##### 请求方式
+
 GET
 
 ##### 请求路径
@@ -175,6 +178,7 @@ POST
 ##### 请求示例
 
 POST body
+
 ```
 {
 	"pluginName": "divide",
@@ -197,6 +201,7 @@ POST body
 ```
 xxxxx
 ```
+
 ### 新增选择器与规则
 
 新增一条选择器与多条规则
@@ -247,6 +252,7 @@ POST
 ##### 请求示例
 
 POST body
+
 ```
 {
 	"pluginName": "divide",
@@ -357,6 +363,7 @@ POST
 ##### 请求示例
 
 POST body
+
 ```
 {
 	"pluginName": "divide",
@@ -520,7 +527,7 @@ POST
 
 删除签名数据
 
-#####请求方式
+##### 请求方式
 
 GET
 

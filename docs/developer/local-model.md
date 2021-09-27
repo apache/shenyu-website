@@ -49,6 +49,7 @@ POST
 ##### Example
 
 POST body
+
 ```
 {"id":3,"name":"divide","enabled":"true"}
 
@@ -178,6 +179,7 @@ POST
 ##### Example
 
 POST body
+
 ```
 {
 	"pluginName": "divide",
@@ -251,6 +253,7 @@ POST
 ##### Example
 
 POST body
+
 ```
 {
 	"pluginName": "divide",
@@ -361,6 +364,7 @@ POST
 ##### Example
 
 POST body
+
 ```
 {
 	"pluginName": "divide",
@@ -376,6 +380,7 @@ POST body
 ```
 
 ##### Result
+
 Is rule id
 
 ```

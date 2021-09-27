@@ -40,7 +40,7 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**id**|String|False| 插件ID|
+|**id**|String|False| |插件ID|
 |**name**|String|True| |插件名称|
 |**config**|String|False| |插件配置（Json格式）|
 |**role**|String|False| |插件角色|
@@ -155,7 +155,7 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**id**|String|False| 选择器ID|
+|**id**|String|False| |选择器ID|
 |**pluginName**|String|True| |插件名称|
 |**name**|String|False| |选择器名称（不填则默认生成 plugin:selector+随机数字）|
 |**matchMode**|Integer|False| |匹配模式（0：and;1：or），不填默认生成 And模式|
@@ -164,13 +164,13 @@ POST
 |**enabled**|Boolean|False| |是否开启，不填默认生成 true|
 |**logged**|Boolean|False| |是否打印日志，不填默认生成为false|
 |**handle**|String|False| |选择器处理（Json对象，根据每个插件不同，传的对象不同）|
-|**conditionList**|[conditionList](#conditionList)|False| |条件集合，自定义流量需要传，全流量不用传（Json List对象）|
+|**conditionList**|[Condition](#Condition)|False| |条件集合，自定义流量需要传，全流量不用传（Json List对象）|
 
-##### <div id="conditionList">conditionList</div>
+##### <div id="Condition">Condition</div>
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**paramType**|String|True| 参数类型（post，uri，query，host，header，cookie，req_method，domain）|
+|**paramType**|String|True| |参数类型（post，uri，query，host，header，cookie，req_method，domain）|
 |**operator**|String|True| |匹配方式（match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |参数名称（uri 参数类型时候，可以不传）|
 |**paramValue**|Integer|False| |匹配值|
@@ -235,7 +235,7 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**ruleName**|String|False| 规则名称|
+|**ruleName**|String|False| |规则名称|
 |**ruleHandler**|String|True| |规则处理（不同的插件传不同的值）|
 |**matchMode**|Integer|False| |匹配模式（0：and;1：or)|
 |**conditionList**|[ConditionData](#ConditionData)|True| |规则条件集合（Json List对象）|
@@ -244,7 +244,7 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**paramType**|String|True| 参数类型（post，uri，query，host，header，cookie，req_method，domain）|
+|**paramType**|String|True| |参数类型（post，uri，query，host，header，cookie，req_method，domain）|
 |**operator**|String|True| |匹配方式（match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |参数名称（uri 参数类型时候，可以不传）|
 |**paramValue**|Integer|False| |匹配值|
@@ -340,7 +340,7 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**id**|String|False| 规则ID|
+|**id**|String|False| |规则ID|
 |**pluginName**|String|True| |插件名称|
 |**name**|String|False| |规则名称（不填则默认生成 plugin:rule+随机数字）|
 |**selectorId**|String|True| |选择器ID（不填则默认生成 plugin:rule+随机数字）|
@@ -355,7 +355,7 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**paramType**|String|True| 参数类型（post，uri，query，host，header，cookie，req_method，domain）|
+|**paramType**|String|True| |参数类型（post，uri，query，host，header，cookie，req_method，domain）|
 |**operator**|String|True| |匹配方式（match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |参数名称（uri 参数类型时候，可以不传）|
 |**paramValue**|Integer|False| |匹配值|
@@ -447,7 +447,7 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**id**|String|False| 元数据ID|
+|**id**|String|False| |元数据ID|
 |**appName**|String|True| |应用名称|
 |**contextPath**|String|True| |contextPath|
 |**path**|String|True| |请求路径|
@@ -456,7 +456,7 @@ POST
 |**methodName**|String|True| |方法名称|
 |**parameterTypes**|String|True| |参数类型|
 |**rpcExt**|String|False| |rpc扩展参数（json对象）|
-|**enabled**|Boolean|False| 是否开启|
+|**enabled**|Boolean|False| |是否开启|
 
 ### 删除元数据
 
@@ -503,8 +503,8 @@ POST
 |---|---|---|---|---|
 |**appKey**|String|True| |app key|
 |**appSecret**|String|True| |app secret|
-|**enabled**|Boolean|False| 是否开启|
-|**open**|Boolean|False| 是否是开放平台|
+|**enabled**|Boolean|False| |是否开启|
+|**open**|Boolean|False| |是否是开放平台|
 |**paramDataList**|[AuthParamData](#AuthParamData)|false| |参数集合，open为true时候需要传（Json list对象）|
 |**AuthPathData**|[AuthPathData](#AuthPathData)|false| |路径集合，open为true时候需要传（Json list对象）|
 
@@ -521,7 +521,7 @@ POST
 |---|---|---|---|---|
 |**appName**|String|True| |应用名称|
 |**path**|String|True| |路径|
-|**enabled**|Boolean|False| 是否开启|
+|**enabled**|Boolean|False| |是否开启|
 
 ### 删除
 

@@ -197,7 +197,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
   * 重新登陆  `shenyu-admin` 后台，可以看见刚新增的插件，然后就可以进行选择器规则匹配。
 
-  * 在规则中，有个 `handler` 字段，是自定义处理数据，在 `doExecute()` 方法中，通过 `final String ruleHandle = rule.getHandle();` 获取，然后进行你的操作。
+  * 在 基础配置 --> 插件处理管理 中，可以给插件的不同位置添加自定义字段。然后在相应位置添加条目时，就可以为这些字段指定值，它们将以 json 格式发送给插件，从而达到动态配置插件的目的。其中 `选择器` 与 `规则` 处的字段，分别可以在 `doExecute()` 方法中，通过 `selector.getHandle();` 与 `rule.getHandle();` 获取，然后进行你的操作。
 
 * 注册成`Spring`的`bean`，参考如下或者直接在实现类上加 `@Component` 注解。
 

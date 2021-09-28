@@ -192,7 +192,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
   * Re-login  `shenyu-admin`, the plugin you added now showing on plugin-list page, you can choose selectors for matching.
 
-  * There is a field named `handler` in rules, it is customized json string to be processed. You can process data after acquiring a ruleHandle (`final String ruleHandle = rule.getHandle();`) in `doExecute()` method.
+  * You can add custom fields to different level of the plugin in `BasicConfig –> PluginHandle`. Then when you add an entry in the corresponding table, you can specify values for these fields. They will be sent to the plugin in json, to achieving the purpose of dynamically configuring the plugin. You can process data after acquiring a handle (`selector.getHandle();`, `rule.getHandle();`) in `doExecute()` method.
 
 * Register plugin in `Spring` as a `Bean`, or simply apply `@Component` in implementation class.
 

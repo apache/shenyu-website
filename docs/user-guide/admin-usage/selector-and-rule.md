@@ -103,46 +103,185 @@ For example, add a selector to the `divide` plugin:
 * rule advice: combine `uri` condition with `match` the real `uri path` condition as the final filter.
 * combine selector means ：when the request `uri` is `/http/order/save`, it will be redicted to `127.0.0.1:8080` by `random` method.
 
-## Condition Explanation
 
-* uri matching （recommend）
+## Condition Parameter Data
 
-  * uri matching is based on your request uri, the frontend won't change anything before accessing the gateway.
+Conditional parameter Settings in selectors and rules are explained again. Suppose the following is a request header for an `Http` request:
 
-  * the `match` filter method is the same with`springmvc` fuzzy matching.
+```shell
+GET http://localhost:9195/http/order/findById?id=100
+Accept: application/json
+Cookie: shenyu=shenyu_cookie
+MyHeader: custom-header
+```
 
-  * in selector，we recommend to match with the prefix of uri, and use the specific path in rule.
+In `ShenYu` you can set different conditional parameters to get real data from the request information.
 
-  * when changing the match method, the matching field name can be filled randomly, but make sure the match value must be correct.
+- If the condition parameter is `uri`, then the actual data retrieved is `/http/order/findById`;
+- If the condition parameter is `header`, the field name is `MyHeader`, then the actual data retrieved is `custom-header`;
+- If the condition parameter is `query`, the field name is `id`, then the actual data retrieved is `100`;
+- If the condition parameter is `ip`, then the actual data retrieved is `0:0:0:0:0:0:0:1`;
+- If the condition parameter is `host`, then the actual data retrieved is `0:0:0:0:0:0:0:1`;
+- If the condition parameter is `post`, the field name is `contextPath`, then the actual data retrieved is `/http`;
+- If the condition parameter is `cookie`, the field name is `shenyu`, then the actual data retrieved is `shenyu_cookie`;
+- If the condition parameter is `req_method`, then the actual data retrieved is `GET`;
 
-* header matching
+* `uri`(recommended)
 
-  * header matches with your `http` request header value.
+  * `uri` matches are based on the `uri` in the path you requested, and there is almost no change in the front end when accessing the gateway.
+ 
+  * When using `match`, the principle is the same as `SpringMVC` fuzzy matching.
+  
+  * In selectors, it is recommended to use prefixes in `URI` for matching, while in rules, specific paths are used for matching.
 
-* query matching
+  * When using this matching method, fill in the value of the matching field, as shown in the figure `/http/**`.
 
-  * it matches the query string in your uri, such as: /test?a=1&&b=2.
+  ![](/img/shenyu/basicConfig/selectorRule/parameter-data-uri-en.png)
 
-  * so you can add a new condition, choose query method: a   =  1.
+* `header` 
 
-* ip matching
+  * The `header` is matched against the field values in your `http` request header.
 
-  * it matches the ip of the http caller.
+  * When using this matching method, you need to fill in the field name and field value. The examples in the figure are `MyHeader` and `custom-header` respectively
 
-  * especially in the waf plugin, if you find some ip is unsafe, you can add a match condition with this ip, then it can't access any more.
+  ![](/img/shenyu/basicConfig/selectorRule/parameter-data-header-en.png)
 
-  * if you use nginx proxy before ShenYu, you can get the right ip with refering to [parsing-ip-and-host](../../developer/custom-parsing-ip-and-host)
+* `query` 
 
-* host matching
+  * This matches the query parameters in your `uri`, such as `/test?id=1`, then the matching method can be selected.
 
-  * it matches the host of http caller.
+  * When using this matching method, you need to fill in the field name and field value. The examples in the figure are `id` and 1 respectively.
 
-  * especially in waf plugin, if you find some host is unsafe, you can add a match condition with this host, then it can't access any more.
+  ![](/img/shenyu/basicConfig/selectorRule/parameter-data-query-en.png)
 
-  * if you use nginx proxy before ShenYu, you can get the right ip with refering to [parsing-ip-and-host](../../developer/custom-parsing-ip-and-host)
+* `ip`
 
-* post matching
+  * This is matched against the `http` caller's `ip`.
 
-  * not recommend to use.
+  * Especially in waf plugin, if an `ip` address is found to be attacked, you can add a matching condition, fill in the `ip`, deny the `ip` access.
+
+  * If you use nginx proxy before ShenYu, you can get the right ip with refering to [parsing-ip-and-host](../../developer/custom-parsing-ip-and-host)
+
+  * When using this matching method, fill in the value of the matching field, as shown in the example `192.168.236.75`.
+
+  ![](/img/shenyu/basicConfig/selectorRule/parameter-data-ip-en.png)
 
 
+* `host` 
+
+  * This is matched against the `http` caller's `host`.
+
+  * Especially in waf plugin, if an `host` address is found to be attacked, you can add a matching condition, fill in the `host`, deny the `host` access.
+
+  * If you use nginx proxy before ShenYu, you can get the right ip with refering to [parsing-ip-and-host](../../developer/custom-parsing-ip-and-host)
+
+  * When using this matching method, fill in the value of the matching field, as shown in the example `localhost`.
+  
+  ![](/img/shenyu/basicConfig/selectorRule/parameter-data-host-en.png)
+
+* `post` 
+
+  * To get condition parameters from the request context(`org.apache.shenyu.plugin.api.context.ShenyuContext`), reflection is required to get the value of the field, which is not recommended.
+  
+  * When using this matching method, the field name and value need to be specified. The examples in the figure are `contextPath` and `/http` respectively.
+  
+  ![](/img/shenyu/basicConfig/selectorRule/parameter-data-post-en.png)
+
+
+* `cookie` 
+
+  * This is matched against the `Cookie` in the `http` caller's request header as a condition parameter.
+
+  * When using this matching method, you need to fill in the field name and field value. The examples in the figure are `shenyu` and `shenyu_cookie` respectively.
+  
+  ![](/img/shenyu/basicConfig/selectorRule/parameter-data-cookie-en.png)
+
+* `req_method` 
+
+  * This matches the request form of the `http` caller, such as `GET`, `POST`, etc.
+
+  * When using this matching method, fill in the value of the matching field, as shown in the example `GET`.
+  
+  ![](/img/shenyu/basicConfig/selectorRule/parameter-data-req_method-en.png)
+
+For a more in-depth understanding of condition parameter fetching, read the source code, package name is `org.apache.shenyu.plugin.base.condition.data`:
+
+|Condition Parameter                      | Class  | 
+|:------------------------ |:----- |
+|`uri`               |`URIParameterData` |  
+|`header`           |`HeaderParameterData` |  
+|`query`             |`QueryParameterData` |  
+|`ip`              |`IpParameterData` |  
+|`host`            |`HostParameterData` |  
+|`post`               |`PostParameterData` |  
+|`cookie`                |`CookieParameterData` |  
+|`req_method`            |`RequestMethodParameterData` |  
+
+
+## Condition Match Strategy
+
+Condition parameters allow you to retrieve the actual data of the request. How the real data matches the conditional data preset by the selector or rule is realized through the condition match strategy.
+
+
+* `match` 
+
+  * `match` supports fuzzy matching (`/**`). Request `/http/order/findById` will match if your selector condition is set as follows.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-match-en.png)
+
+* `=` 
+
+  * `=` means that the requested real data is equal to the preset condition data. If your selector condition is set to request uri equal to `/http/order/findById`, then request`/http/order/findById?id=1` can match it.
+  
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-equals-en.png)
+
+* `regex` 
+
+  * `regex` means that the requested real data can meet the preset condition of the regular expression to match successfully. Suppose your rule condition is set as follows: the request parameter contains an `id` and is a three-digit number. So request `/http/order/findById?id=900` will match.
+  
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-regex-en.png)
+
+* `contains` 
+
+  * `contains`  means that the requested real data contains the default condition data. Suppose your rule condition is set as follows: request uri contains `findById`. Request `/http/order/findById?id=1` will match.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-contains-en.png)
+
+* `SpEL` 
+
+  * `SpEL` means that the requested real data can satisfy the preset `SpEL` expression. Suppose your rule conditions are set as follows: request parameters contain `id` and `id` is greater than `100`. Request `/http/order/findById?id=101` will match.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-spel-en.png)
+
+* `Groovy` 
+
+  * The `Groovy` way of expressing the request for real data can satisfy the preset `Groovy` expression. Suppose your rule conditions are set as follows: request parameters include `id`, and `id` equals `100`. Request `/http/order/findById?id=100` will match.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-groovy-en.png)
+
+* `TimeBefore` 
+
+  * `TimeBefore` indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are set as follows: request parameters contain `date` and `date` is less than `2021-09-26 06:12:10`. Request `/http/order/findById?id=100&date=2021-09-22 06:12:10` will match.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timebefore-en.png)
+
+* `TimeAfter` 
+
+  * `TimeAfter` indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are set as follows: request parameters contain `date` and `date` is greater than `2021-09-26 06:12:10`. Request `/http/order/findById?id=100&date=2021-09-22 06:12:10` will match.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timeafter-en.png)
+
+If you want to further understand conditions matching strategy, please read the source code, the package name is `org.apache.shenyu.plugin.base.condition.judge`:
+
+|Match Strategy                      | Class  | 
+|:------------------------ |:----- |
+|`match`                   |`MatchPredicateJudge` |  
+|`=`                 |`EqualsPredicateJudge` |  
+|`regex`                 |`RegexPredicateJudge` |  
+|`contains`                  |`ContainsPredicateJudge` |  
+|`SpEL`                 |`SpELPredicateJudge` |  
+|`Groovy`                  |`GroovyPredicateJudge` |  
+|`TimeBefore`                    |`TimerBeforePredicateJudge` |  
+|`TimeAfter`                    |`TimerAfterPredicateJudge` |  
+
+The examples in this article illustrate the use of selectors and rules. The Settings of specific conditions need to be selected according to actual conditions.

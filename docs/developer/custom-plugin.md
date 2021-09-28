@@ -272,8 +272,32 @@ public interface PluginDataHandler {
 * Register defined class as a `Spring Bean`, or simply apply `@Component` in implementation class.
 
 ```java
-    @Bean
-    public PluginDataHandler pluginDataHandler() {
-        return new PluginDataHandler();
-    }
+@Bean
+public PluginDataHandler pluginDataHandler() {
+  return new PluginDataHandler();
+}
 ```
+
+## Dynamic loading
+
+* When using this feature, the above extensions `ShenyuPlugin`, `PluginDataHandler`, do not need to be `spring bean`. You just need to build the jar package of the extension project.
+
+* Config in Yaml：
+
+```yaml
+shenyu:
+  extPlugin:
+    path:  //Load the extension plugin jar package path
+    enabled: true //Whether to turn on 
+    threads: 1  //Number of loading plug-in threads
+    scheduleTime: 300  //Cycle time (in seconds)
+    scheduleDelay: 30 //How long the shenyu gateway is delayed to load after it starts (in seconds)
+```
+
+#### Plugin loading path details
+
+* This path is for the directory where the extended plugin jar package is stored。
+
+* Used `-Dplugin-ext=xxxx`, Also used `shenyu.extPlugin.path` in yaml，If neither is configured, the `ext-lib` directory in the apache shenyu gateway boot path will be loaded by default.
+
+* Priority ：`-Dplugin-ext=xxxx` > `shenyu.extPlugin.path` > `ext-lib(default)`

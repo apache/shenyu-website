@@ -4,11 +4,9 @@ keywords: ["选择器", "规则"]
 description: 选择器和规则管理
 ---
 
-
 本文档将介绍`Apache ShenYu`后台管理系统中选择器和规则的使用，关于选择器和规则的概念及设计请参考 [流量控制](../../design/flow-control)。
 
 请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。 启动成功后，可以直接访问 `http://localhost:9095` ，默认用户名和密码分别为: `admin` 和 `123456`。
-
 
 ## 选择器
 
@@ -119,7 +117,7 @@ MyHeader: custom-header
 - 如果条件参数是`req_method`，那么获取到的真实数据是 `GET`。
 
 
-* `uri` 匹配 （推荐）
+* `uri`  （推荐）
 
   * `uri` 匹配是根据你请求路径中的 `uri` 来进行匹配，在接入网关的时候，前端几乎不用做任何更改。
 
@@ -131,7 +129,7 @@ MyHeader: custom-header
   
   ![](/img/shenyu/basicConfig/selectorRule/parameter-data-uri-zh.png)
 
-* `header` 匹配
+* `header` 
 
   * `header` 是根据你的 `http` 请求头中的字段值来匹配。 
   
@@ -139,7 +137,7 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/parameter-data-header-zh.png)
 
-* `query` 匹配
+* `query` 
 
   * 这个是根据你的 `uri` 中的查询参数来进行匹配，比如 `/test?id=1`，那么可以选择该匹配方式。
 
@@ -147,7 +145,7 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/parameter-data-query-zh.png)
 
-* `ip`匹配
+* `ip`
 
   * 这个是根据 `http` 调用方的 `ip` 来进行匹配。
 
@@ -160,7 +158,7 @@ MyHeader: custom-header
   ![](/img/shenyu/basicConfig/selectorRule/parameter-data-ip-zh.png)
 
 
-* `host` 匹配
+* `host` 
 
   * 这个是根据 `http` 调用方的 `host` 来进行匹配。
 
@@ -172,7 +170,7 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/parameter-data-host-zh.png)
 
-* `post` 匹配
+* `post` 
 
   * 从请求上下文（`org.apache.shenyu.plugin.api.context.ShenyuContext`）中获取条件参数，需要通过反射获取字段的值，不推荐使用此方式。
 
@@ -181,7 +179,7 @@ MyHeader: custom-header
   ![](/img/shenyu/basicConfig/selectorRule/parameter-data-post-zh.png)
 
 
-* `cookie` 匹配
+* `cookie` 
 
   * 这个是根据 `http` 调用方的请求头中`Cookie`作为条件参数进行匹配。
 
@@ -189,7 +187,7 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/parameter-data-cookie-zh.png)
 
-* `req_method` 匹配
+* `req_method` 
 
   * 这个是根据 `http` 调用方的请求形式来进行匹配，比如`GET`、`POST`等。
 
@@ -199,65 +197,65 @@ MyHeader: custom-header
 
 如果想更深入理解条件参数的获取，请阅读相关源码，包名是`org.apache.shenyu.plugin.base.condition.data`：
 
-|匹配策略                      | 源码类  | 
+|条件参数                   | 源码类  | 
 |:------------------------ |:----- |
-|`uri` 匹配                |`URIParameterData` |  
-|`header` 匹配            |`HeaderParameterData` |  
-|`query` 匹配              |`QueryParameterData` |  
-|`ip`匹配               |`IpParameterData` |  
-|`host`匹配              |`HostParameterData` |  
-|`post` 匹配               |`PostParameterData` |  
-|`cookie` 匹配                 |`CookieParameterData` |  
-|`req_method` 匹配                |`RequestMethodParameterData` |  
+|`uri`                 |`URIParameterData` |  
+|`header`             |`HeaderParameterData` |  
+|`query`               |`QueryParameterData` |  
+|`ip`               |`IpParameterData` |  
+|`host`              |`HostParameterData` |  
+|`post`                |`PostParameterData` |  
+|`cookie`                  |`CookieParameterData` |  
+|`req_method`                 |`RequestMethodParameterData` |  
 
 
 ## 条件匹配策略
 
 通过条件参数能够获取到请求的真实数据。真实数据如何匹配上选择器或规则预设的条件数据，是通过条件匹配策略来实现。
 
-* `match` 匹配策略
+* `match` 
 
   `match` 的方式支持模糊匹配（`/**`）。假如你的选择器条件设置如下，那么请求 `/http/order/findById` 就可以匹配上。
   
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-match-zh.png)
 
-* `=` 匹配策略
+* `=` 
 
   `=` 的方式表示请求的真实数据和预设的条件数据相等。假如你的选择器条件设置如下：请求`uri`等于`/http/order/findById`，那么请求 `/http/order/findById?id=1` 就可以匹配上。
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-equals-zh.png)
 
-* `regex` 匹配策略
+* `regex` 
 
   `regex` 的方式表示请求的真实数据能够满足预设条件的正则表达式才能匹配成功。假如你的规则条件设置如下：请求参数中包含`id`，并且是3位数字。那么请求 `/http/order/findById?id=900` 就可以匹配上。
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-regex-zh.png)
 
-* `contains` 匹配策略
+* `contains` 
 
   `contains` 的方式表示请求的真实数据包含预设的条件数据。假如你的规则条件设置如下：请求`uri`中包含`findById`。那么请求 `/http/order/findById?id=1` 就可以匹配上。
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-contains-zh.png)
 
-* `SpEL` 匹配策略
+* `SpEL` 
 
   `SpEL` 的方式表示请求的真实数据能够满足预设的`SpEL`表达式。假如你的规则条件设置如下：请求参数中包含`id`，并且`id`大于`100`。那么请求 `/http/order/findById?id=101` 就可以匹配上。
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-spel-zh.png)
 
-* `Groovy` 匹配策略
+* `Groovy` 
 
   `Groovy` 的方式表示请求的真实数据能够满足预设的`Groovy`表达式。假如你的规则条件设置如下：请求参数中包含`id`，并且`id`等`100`。那么请求 `/http/order/findById?id=100` 就可以匹配上。
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-groovy-zh.png)
 
-* `TimeBefore` 匹配策略
+* `TimeBefore` 
 
   `TimeBefore` 的方式表示请求时间在预设的条件时间之前才能匹配成功。假如你的规则条件设置如下：请求参数中包含`date`，并且`date`小于`2021-09-26 06:12:10`。那么请求 `/http/order/findById?id=100&date=2021-09-22 06:12:10` 就可以匹配上。
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timebefore-zh.png)
 
-* `TimeAfter` 匹配策略
+* `TimeAfter` 
 
   `TimeAfter` 的方式表示请求时间在预设的条件时间之后才能匹配成功。假如你的规则条件设置如下：请求参数中包含`date`，并且`date`大于`2021-09-26 06:12:10`。那么请求 `/http/order/findById?id=100&date=2021-09-29 06:12:10` 就可以匹配上。
 
@@ -267,13 +265,13 @@ MyHeader: custom-header
 
 |匹配策略                      | 源码类  | 
 |:------------------------ |:----- |
-|`match` 匹配策略                  |`MatchPredicateJudge` |  
-|`=` 匹配策略                |`EqualsPredicateJudge` |  
-|`regex` 匹配策略                |`RegexPredicateJudge` |  
-|`contains` 匹配策略                 |`ContainsPredicateJudge` |  
-|`SpEL` 匹配策略                |`SpELPredicateJudge` |  
-|`Groovy` 匹配策略                 |`GroovyPredicateJudge` |  
-|`TimeBefore` 匹配策略                   |`TimerBeforePredicateJudge` |  
-|`TimeAfter` 匹配策略                   |`TimerAfterPredicateJudge` |  
+|`match`                   |`MatchPredicateJudge` |  
+|`=`                 |`EqualsPredicateJudge` |  
+|`regex`                 |`RegexPredicateJudge` |  
+|`contains`                  |`ContainsPredicateJudge` |  
+|`SpEL`                 |`SpELPredicateJudge` |  
+|`Groovy`                  |`GroovyPredicateJudge` |  
+|`TimeBefore`                    |`TimerBeforePredicateJudge` |  
+|`TimeAfter`                    |`TimerAfterPredicateJudge` |  
 
-
+文中的示例是为了说明选择器和规则的使用，具体条件的设置需要根据实际情况选择。

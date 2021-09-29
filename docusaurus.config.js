@@ -173,19 +173,10 @@ module.exports = {
       darkTheme: darkCodeTheme,
     },
     algolia: {
-      apiKey: 'c352a8b2c857f45d2b70a21eae903f40',
-      indexName: 'shenyu',
-
+      apiKey: '5f882bef2dfc81f5f1b4e5ea87b2f165',
+      indexName: 'apache_shenyu',
       // Optional: see doc section below
       contextualSearch: true,
-
-      // Optional: see doc section below
-      appId: 'NVVPQWV3R7',
-
-      // Optional: Algolia search parameters
-      searchParameters: {},
-
-      //... other Algolia params
     },
   },
   presets: [

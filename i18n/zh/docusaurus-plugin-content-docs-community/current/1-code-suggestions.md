@@ -64,7 +64,7 @@ for () {
 
 ### Map
 
-* 当在并发场景时候，必须使用 `ConcurrenHashMap`，其他场景请使用 `HashMap`。
+* 当在并发场景时候，必须使用 `ConcurrentHashMap`，其他场景请使用 `HashMap`。
 
 * 使用最优的方式迭代或者使用`lambda`表达式。
 

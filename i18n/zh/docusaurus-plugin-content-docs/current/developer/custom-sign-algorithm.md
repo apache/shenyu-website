@@ -33,10 +33,10 @@ description: 自定义sign插件检验
 * 把新增的实现类注册成为`Spring`的`bean`，如下
 
 ```java
-   @Bean
+@Bean
 public SignService customSignService() {
-        return new CustomSignService();
-        }
+      return new CustomSignService();
+}
 ```
 
 

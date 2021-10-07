@@ -4,7 +4,6 @@
     border: #cecece solid 1px;
     border-radius: 1rem;
     display: flex;
-    overflow: hidden;
 }
 
 .main a:hover {
@@ -12,7 +11,7 @@
 }
 
 .githubDetail {
-    width: 70%;
+    width: 100%;
     height: 100%;
     padding: 30px 0 0 20px;
 }
@@ -43,6 +42,7 @@
     padding: 0;
     font-size: 20px;
     display: flex;
+    position: relative;
 }
 
 .githubRepoDetail {
@@ -50,27 +50,67 @@
     align-items: center;
 }
 
-.downloadMessage {
-    width: 30%;
-    height: 100%;
-    padding: 80px 40px 0 0;
-}
-
 .downloadBtn {
-    width: 80%;
+    width: 200px;
     height: 50px;
     margin-top: 20px;
     border-radius: 1rem;
+    border: 0;
     background: var(--ifm-color-primary);
     display: flex;
     font-size: 24px;
     color: white;
     justify-content: center;
     align-items: center;
-    float: right;
     position: relative;
 }
 
-.downloadBtn:hover {
-    color: white;
+.downloadPopover {
+    position: absolute;
+    right: 40px;
+    bottom: 0;
+}
+
+.downloadPanel {
+    width: 500px;
+    max-height: 20vh;
+    margin: 10px 0 10px -60px;
+    background-color: white;
+    box-shadow: 2px 2px 1px #cecece;
+    padding: 2px 10px;
+    border: #cecece solid 1px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 10;
+    display: grid;
+    overflow-y: scroll;
+}
+
+.downloadPanel > div {
+    margin: 5px 0;
+}
+
+.downloadPanelTitle {
+    font-size: 16px;
+    height: 16px;
+    white-space:nowrap;
+}
+
+.downloadPanelTitleDate {
+    font-size: 10px;
+    color: gray;
+}
+
+.downloadPanelUrl {
+    margin-top: 4px;
+    font-size: 14px;
+    display: flex;
+}
+
+.downloadPanelUrl > div {
+    margin-right: 4px;
+}
+
+.downloadPanelUrl > div > a {
+    color: var(--ifm-color-primary);
 }

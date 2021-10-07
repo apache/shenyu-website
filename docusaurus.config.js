@@ -32,23 +32,27 @@ module.exports = {
         name: "Apache ShenYu (incubating)",
         description: "High-performance, multi-protocol, extensible, responsive API Gateway",
         githubRepo: "apache/incubator-shenyu",
-        version: "2.4.0",
-        releaseDate: "Aug 8, 2021",
         content: [
           {
             name: "Source Codes",
+            version: "2.4.0",
+            releaseDate: "Aug 8, 2021",
             zip: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip",
             asc: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.asc",
             sha512: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.sha512"
           },
           {
             name: "ShenYu-Admin Binary Distribution",
+            version: "2.4.0",
+            releaseDate: "Aug 8, 2021",
             tar: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz",
             asc: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.asc",
             sha512: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.sha512"
           },
           {
             name: "ShenYu-Bootstrap Binary Distribution",
+            version: "2.4.0",
+            releaseDate: "Aug 8, 2021",
             tar: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz",
             asc: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.asc",
             sha512: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.sha512"

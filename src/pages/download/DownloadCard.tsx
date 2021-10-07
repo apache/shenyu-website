@@ -1,19 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import { Popover } from '@headlessui/react';
 import { GoStar, GoIssueOpened, GoRepoForked } from 'react-icons/go';
 import { RiDownload2Fill } from 'react-icons/ri';
 import Translate, { translate } from '@docusaurus/Translate';
 import styles from './downloadCard.module.css';
 
+// interface DownloadCardProps {
+//     name?: string,
+//     description?: string,
+//     githubRepo?: string,
+//     version?: string,
+//     releaseDate?: string,
+//     url?: string
+// }
+
 interface DownloadCardProps {
-    name?: string,
-    description?: string,
-    githubRepo?: string,
-    version?: string,
-    releaseDate?: string,
-    url?: string
+    name?: string;
+    description?: string;
+    githubRepo?: string;
+    content?: Array<IContentAttribute>;
 }
 
-interface RepoAttribute {
+interface IContentAttribute {
+    name: string;
+    version?: string;
+    releaseDate?: string;
+    zip?: string;
+    tar?: string;
+    asc: string;
+    sha512: string;
+}
+
+interface IRepoAttribute {
     stars: number;
     issues: number;
     forks: number;
@@ -21,13 +39,14 @@ interface RepoAttribute {
 
 const DownloadCard: React.FC<DownloadCardProps> = ({ ...props }) => {
 
-    const [repo, setRepo] = useState<RepoAttribute>({
+    const [repo, setRepo] = useState<IRepoAttribute>({
         stars: 0,
         issues: 0,
         forks: 0
     });
 
     useEffect(() => {
+        console.log(props);
         getGitHubRepoStats(props.githubRepo).then((repo) => {
             setRepo({
                 stars: repo.stargazers_count,
@@ -61,19 +80,43 @@ const DownloadCard: React.FC<DownloadCardProps> = ({ ...props }) => {
                         <GoRepoForked/>
                         <span style={{ marginLeft: '4px' }}>{repo.forks}</span>
                     </div>
+
+                    <Popover className={styles.downloadPopover}>
+                        <Popover.Button className={styles.downloadBtn}>Download</Popover.Button>
+                        <Popover.Panel className={styles.downloadPanel}>
+                            {
+                                props.content instanceof Array && props.content.map((value, index) =>
+                                    <div key={index}>
+                                        <div className={styles.downloadPanelTitle}>
+                                            <span>v{value.version} for {value.name}</span>
+                                            <span className={styles.downloadPanelTitleDate}>
+                                                &nbsp;|&nbsp;{value.releaseDate}
+                                            </span>
+                                        </div>
+                                        <div className={styles.downloadPanelUrl}>
+                                            {
+                                                value.zip &&
+                                                <div>[<a href={value.zip}>zip</a>]</div>
+                                            }
+                                            {
+                                                value.tar &&
+                                                <div>[<a href={value.tar}>tar</a>]</div>
+                                            }
+                                            {
+                                                value.asc &&
+                                                <div>[<a href={value.asc}>asc</a>]</div>
+                                            }
+                                            {
+                                                value.sha512 &&
+                                                <div>[<a href={value.sha512}>sha512</a>]</div>
+                                            }
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </Popover.Panel>
+                    </Popover>
                 </div>
-            </div>
-            <div className={styles.downloadMessage}>
-                <div style={{ textAlign: 'right' }}>
-                    <span>Version: {props.version}</span>
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                    <span>Release Date: {props.releaseDate}</span>
-                </div>
-                <a className={styles.downloadBtn} target="_blank" href={props.url}>
-                    <RiDownload2Fill/>
-                    <span style={{ marginLeft: '6px' }}>Download</span>
-                </a>
             </div>
         </div>
     );

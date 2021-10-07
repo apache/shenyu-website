@@ -4,7 +4,7 @@ import CodeBlock from '@theme/CodeBlock';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-import VersionCard from './VersionCard';
+import DownloadCard from './DownloadCard';
 
 const Download: React.FC = () => {
 
@@ -15,7 +15,7 @@ const Download: React.FC = () => {
     }
 
     const projects = siteConfig.customFields.downloads.map((project) => {
-        return <VersionCard key={project.name} {...project} />;
+        return <DownloadCard key={project.name} {...project} />;
     });
 
     return (

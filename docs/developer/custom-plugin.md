@@ -76,7 +76,7 @@ Detailed instruction of interface methods:
 
 * `execute()` core method, you can do any task here freely.
 * `getOrder()` get the order of current plugin.
-* `named()` acquire the name of specific plugin.
+* `named()` acquire the name of specific plugin that uses the `Upper Camel Case`, eg: `Dubbo`, `SpringCloud` .
 * `skip()` determines whether this plugin should be skipped under certain conditions.
 * Register plugin in `Spring` as a `Bean`, or simply apply `@Component` in implementation class.
 
@@ -134,7 +134,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
      */
     @Override
     public String named() {
-        return "shenyu";
+        return "ShenYu";
     }
 
     /**

@@ -23,7 +23,7 @@ Responsible for service monitoring, loading concrete implementation through `SPI
 
 ### Load Balance
 
-Select one of the service providers to call. Currently, the supported algorithms are `Has`, `Random`, and `RoundRobin`, and the extended interface is `LoadBalance`.
+Select one of the service providers to call. Currently, the supported algorithms are `Hash`, `Random`, and `RoundRobin`, and the extended interface is `LoadBalance`.
 
 ### RateLimiter
 

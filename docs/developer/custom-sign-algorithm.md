@@ -41,7 +41,7 @@ description: specify sign plugins for examination
 
 > If you only want to modify the signature algorithm, refer to the following.
 
-- The default implementation of the signature algorithm is `org.apache.shenyu.common.utils.SignUtils#generateSign` .
+- The default implementation of the signature algorithm is `org.apache.shenyu.common.utils.SignUtils#generateSign`.
 -  Declare a new class named `CustomSignProvider` and implements  `org.apache.shenyu.plugin.sign.api.SignProvider`.
 
 ```java
@@ -61,7 +61,7 @@ public interface SignProvider {
 }
 ```
 
-- Put `CustomSignProvider` to` Spring IoC`
+- Put `CustomSignProvider` to `Spring IoC`
 
 ```java
 @Bean

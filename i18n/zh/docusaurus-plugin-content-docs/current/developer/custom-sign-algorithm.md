@@ -12,7 +12,7 @@ description: 自定义sign插件检验
 
 * 默认的实现为 `org.apache.shenyu.plugin.sign.service.DefaultSignService`。
 
-* 新增一个类 `CustomSignService` 实现  `org.apache.shenyu.plugin.api.SignService`。
+* 新增一个类 `CustomSignService` 实现  `org.apache.shenyu.plugin.sign.api.SignService`。
 
 ```java
  public interface SignService {
@@ -35,9 +35,38 @@ description: 自定义sign插件检验
 ```java
 @Bean
 public SignService customSignService() {
-      return new CustomSignService();
+    return new CustomSignService();
 }
 ```
 
+## 其他扩展
 
+> 当你只希望修改签名算法时可以参考如下。
 
+* 签名算法，默认使用的 `org.apache.shenyu.common.utils.SignUtils#generateSign`，还可以新增一个类 `CustomSignProvider` 实现 `org.apache.shenyu.plugin.sign.api.SignProvider`.
+
+```java
+/**
+ * The Sign plugin sign provider.
+ */
+public interface SignProvider {
+
+    /**
+     * acquired sign.
+     *
+     * @param signKey sign key
+     * @param params  params
+     * @return sign
+     */
+    String generateSign(String signKey, Map<String, String> params);
+}
+```
+
+* 把新增的实现类 `CustomSignProvider` 注入到`Spring IoC`即可，如下
+
+```java
+@Bean
+public SignProvider customSignProvider() {
+    return new CustomSignProvider();
+}
+```

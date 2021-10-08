@@ -11,7 +11,7 @@ description: specify sign plugins for examination
 ## Extension
 
 * The default implementation is `org.apache.shenyu.plugin.sign.service.DefaultSignService`.
-* Declare a new class named `CustomSignService` and implements  `org.apache.shenyu.plugin.api.SignService`.
+* Declare a new class named `CustomSignService` and implements  `org.apache.shenyu.plugin.sign.api.SignService`.
 
 ```java
  public interface SignService {
@@ -37,5 +37,36 @@ description: specify sign plugins for examination
    }
 ```
 
+# Others
 
+> If you only want to modify the signature algorithm, refer to the following.
+
+- The default implementation of the signature algorithm is `org.apache.shenyu.common.utils.SignUtils#generateSign` .
+-  Declare a new class named `CustomSignProvider` and implements  `org.apache.shenyu.plugin.sign.api.SignProvider`.
+
+```java
+/**
+ * The Sign plugin sign provider.
+ */
+public interface SignProvider {
+
+    /**
+     * acquired sign.
+     *
+     * @param signKey sign key
+     * @param params  params
+     * @return sign
+     */
+    String generateSign(String signKey, Map<String, String> params);
+}
+```
+
+- Put `CustomSignProvider` to` Spring IoC`
+
+```java
+@Bean
+public SignProvider customSignProvider() {
+    return new CustomSignProvider();
+}
+```
 

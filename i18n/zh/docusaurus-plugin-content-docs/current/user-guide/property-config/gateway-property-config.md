@@ -173,7 +173,7 @@ Netty HttpClient 代理的相关配置：
 | 名称    | 类型    | 默认值 | 是否必填 | 说明             |
 | :------ | :------ | :----: | :------: | :--------------- |
 | enabled | Boolean | false  |    否    | 是否支持跨域请求 |
-| allowedHeaders | String |    |    No    | 允许的Header头，多个请用 "," 分割 |
+| allowedHeaders | String | x-requested-with, authorization, Content-Type, Authorization, credential,  X-XSRF-TOKEN, token, username, client |    No    | 允许的Header头，多个请用 "," 分割。新的"allowedHeaders"会在默认值基础上，去除重复的追加到"Access-Control-Allow-Headers"。 |
 | allowedMethods | String |   "*"  |    No    | 允许的方法 |
 | allowedOrigin | String |  "*"  |    No    | 允许的Origin |
 | allowedExpose | String |  "*"  |    No    | 允许的Expose |

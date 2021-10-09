@@ -164,7 +164,7 @@ File filter properties:
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | enable file size filtering |
 | maxSize | Integer |  10  |    No    | upload file maxSize （MB） |
-     
+
 
 - `shenyu.cross` config
 
@@ -174,7 +174,7 @@ Cross filter properties:
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | allow cross-domain requests |
-| allowedHeaders | String |    |    No    | allowedHeaders, Use "," split in multiple cases |
+| allowedHeaders | String | x-requested-with, authorization, Content-Type, Authorization, credential,  X-XSRF-TOKEN, token, username, client |    No    | allowedHeaders, Use "," split in multiple cases. the new "allowedHeaders" will append to "Access-Control-Allow-Headers" based on the default value and remove the reduplicative header. |
 | allowedMethods | String |   "*"  |    No    | allowedMethods |
 | allowedOrigin | String |  "*"  |    No    | allowedOrigin |
 | allowedExpose | String |  "*"  |    No    | allowedExpose |

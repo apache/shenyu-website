@@ -104,6 +104,35 @@ For example, add a selector to the `divide` plugin:
 * combine selector means ：when the request `uri` is `/http/order/save`, it will be redicted to `127.0.0.1:8080` by `random` method.
 
 
+## Match Strategy
+
+Matching mode refers to the matching mode between multiple conditions when a selector or rule is matched. Currently, `and` and `or` are supported.
+
+
+* `and`
+
+  `and` indicates that a selector or rule can be matched only if more than one condition is met.
+
+  The example below shows that a request must meet both the condition `uri = /http/order/findById` and the condition `id = 100`  to match this rule.
+
+  For example, a real request `http://localhost:9195/http/order/findById?id=100` satisfies both conditions, this rule can be matched.
+
+
+![](/img/shenyu/basicConfig/selectorRule/match-strategy-and-en.png)
+
+
+* `or`
+
+  `or` indicates that one of the conditions matches a selector or rule.
+
+  The example below shows that a request matches this rule if it meets either the condition `uri = /http/order/findById` or the condition `id = 100`.
+
+  For example, a real request `http://localhost:9195/http/order/findById?id=99` satisfies the first condition `uri = /http/order/findById`, so it can also match this rule.
+
+
+![](/img/shenyu/basicConfig/selectorRule/match-strategy-or-en.png)
+
+
 ## Condition Parameter Data
 
 Conditional parameter Settings in selectors and rules are explained again. Suppose the following is a request header for an `Http` request:

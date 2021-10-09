@@ -94,6 +94,31 @@ description: 选择器和规则管理
 
 联合选择器，我们来表述一下：当一个请求的 `uri` 为 `/http/order/save`，会通过 `random` 的方式，转发到 `127.0.0.1:8080` 机器上。
 
+## 匹配方式
+
+匹配方式是指在选择器或规则匹配时，多个条件之间的匹配方式，当前支持 `and` 和 `or`。
+
+* `and`
+
+  `and`表示多个条件同时满足才能匹配上选择器或规则。
+
+  下图中的示例表示，请求必须同时满足条件 `uri = /http/order/findById` 和 条件 `id = 100` 才能匹配上该条规则。
+
+  比如一个真实的请求 `http://localhost:9195/http/order/findById?id=100` 能够同时满足上述两个条件，所以可以匹配上该条规则。
+
+![](/img/shenyu/basicConfig/selectorRule/match-strategy-and-zh.png)
+
+
+* `or`
+
+  `or`表示多个条件中满足一个就能匹配上选择器或规则。
+
+  下图中的示例表示，请求满足条件 `uri = /http/order/findById` 或者 条件 `id = 100` 就能匹配上该条规则。
+
+  比如一个真实的请求 `http://localhost:9195/http/order/findById?id=99` 能够满足上述第一个条件 `uri = /http/order/findById`，所以也可以匹配上该条规则。
+
+![](/img/shenyu/basicConfig/selectorRule/match-strategy-or-zh.png)
+
 ## 条件参数
 
 对选择器和规则中的条件参数设置再次进行解释。假如下面是一个 `HTTP` 请求的请求头：

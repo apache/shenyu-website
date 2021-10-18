@@ -137,13 +137,13 @@ https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 Download and install [Git](https://git-scm.com/downloads)
 
-Suppose ShenYu source codes downloaded from github is under `~/shenyu/` directory and the version to be released is `${RELEASE.VERSION}`. 
+Suppose ShenYu source codes downloaded from github is under `~/incubator-shenyu/` directory and the version to be released is `${RELEASE.VERSION}`. 
 Create `${RELEASE.VERSION}-release` branch, where all the following operations are performed.
 
 ```shell
 # ${name} is the properly branch, e.g. master, main
-git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/shenyu
-cd ~/shenyu/
+git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
+cd ~/incubator-shenyu/
 git pull
 git checkout -b ${RELEASE.VERSION}-release
 git push origin ${RELEASE.VERSION}-release
@@ -256,7 +256,7 @@ shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz > 
 
 ```shell
 cd ~/shenyu_svn/dev/shenyu
-svn add *
+svn add ${RELEASE.VERSION}/
 svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
 ```
 
@@ -388,7 +388,7 @@ Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx

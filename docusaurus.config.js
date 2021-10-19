@@ -239,9 +239,10 @@ module.exports = {
         blog: {
           showReadingTime: true,
           blogSidebarCount: "ALL",
+          editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-shenyu-website/edit/main/blog/',
+            'https://github.com/apache/incubator-shenyu-website/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -258,7 +259,7 @@ module.exports = {
         routeBasePath: 'community',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/docusaurus-plugin-content-docs-community/current/${docPath}`;
           }
           return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
         },
@@ -277,7 +278,7 @@ module.exports = {
         routeBasePath: 'event',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/docusaurus-plugin-content-docs-event/current/${docPath}`;
           }
           return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
         },

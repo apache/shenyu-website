@@ -136,13 +136,13 @@ https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 下载并安装[Git](https://git-scm.com/downloads)
 
-假设从GitHub下载的ShenYu源代码在`~/shenyu/`目录；假设即将发布的版本为`${RELEASE.VERSION}`。
+假设从GitHub下载的ShenYu源代码在`~/incubator-shenyu/`目录；假设即将发布的版本为`${RELEASE.VERSION}`。
 创建`${RELEASE.VERSION}-release`分支，接下来的操作都在该分支进行。
 
 ```shell
 # ${name}为源码所在分支，如：master，main
-git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/shenyu
-cd ~/shenyu/
+git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
+cd ~/incubator-shenyu/
 git pull
 git checkout -b ${RELEASE.VERSION}-release
 git push origin ${RELEASE.VERSION}-release
@@ -383,7 +383,7 @@ Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -392,7 +392,7 @@ Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release/#check-release
+https://shenyu.apache.org/zh/community/release-guide/#check-release
 
 GPG user ID:
 ${YOUR.GPG.USER.ID}
@@ -483,7 +483,7 @@ Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -492,7 +492,7 @@ Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release/#check-release
+https://shenyu.apache.org/zh/community/release-guide/#check-release
 
 GPG user ID:
 ${YOUR.GPG.USER.ID}

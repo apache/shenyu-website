@@ -632,7 +632,7 @@ Edit version number and release notes, click `Publish release`
 
 **6. Update the download page**
 
-https://shenyu.apache.org/download
+https://shenyu.apache.org/download/
 
 https://shenyu.apache.org/zh/download/
 
@@ -667,7 +667,7 @@ Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.
 Dynamic flow configuration, high performance.
 Support cluster deployment, A/B Test, blue-green release.
 
-Download Links: https://shenyu.apache.org/download
+Download Links: https://shenyu.apache.org/download/
 
 Release Notes: https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 

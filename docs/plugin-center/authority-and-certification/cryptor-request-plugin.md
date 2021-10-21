@@ -43,13 +43,13 @@ description: CryptorRequest plugin
 * Add support for `cryptorRequest` in the `pom.xml` file of shenyu-bootstrap.
 
 ```xml
-        <!-- apache shenyu Cryptor Request plugin start-->
+<!-- apache shenyu Cryptor Request plugin start-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-cryptor</artifactId>
   <version>${project.version}</version>
 </dependency>
-        <!-- apache shenyu Cryptor Request plugin end-->
+<!-- apache shenyu Cryptor Request plugin end-->
 ```
 
 ## Situation

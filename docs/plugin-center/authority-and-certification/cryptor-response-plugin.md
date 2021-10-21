@@ -44,13 +44,13 @@ description: CryptorResponse plugin
 * Add support for `cryptorResponse` in the `pom.xml` file of shenyu-bootstrap.
 
 ```xml
-        <!-- apache shenyu Cryptor Response plugin start-->
+<!-- apache shenyu Cryptor Response plugin start-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-cryptor</artifactId>
   <version>${project.version}</version>
 </dependency>
-        <!-- apache shenyu Cryptor Response plugin end-->
+<!-- apache shenyu Cryptor Response plugin end-->
 ```
 
 ## Situation

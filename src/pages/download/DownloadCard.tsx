@@ -59,7 +59,7 @@ const DownloadCard: React.FC<DownloadCardProps> = ({ ...props }) => {
     return (
         <div className={styles.main}>
             <div className={styles.githubDetail}>
-                <a target="_blank" href={`https://github.com/apache/incubator-shenyu/${props.githubRepo}`}>
+                <a target="_blank" href={`https://github.com/${props.githubRepo}`}>
                     <h1>
                         {props.name}
                     </h1>

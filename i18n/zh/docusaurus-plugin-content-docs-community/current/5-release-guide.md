@@ -136,13 +136,13 @@ https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 下载并安装[Git](https://git-scm.com/downloads)
 
-假设从GitHub下载的ShenYu源代码在`~/shenyu/`目录；假设即将发布的版本为`${RELEASE.VERSION}`。
+假设从GitHub下载的ShenYu源代码在`~/incubator-shenyu/`目录；假设即将发布的版本为`${RELEASE.VERSION}`。
 创建`${RELEASE.VERSION}-release`分支，接下来的操作都在该分支进行。
 
 ```shell
 # ${name}为源码所在分支，如：master，main
-git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/shenyu
-cd ~/shenyu/
+git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
+cd ~/incubator-shenyu/
 git pull
 git checkout -b ${RELEASE.VERSION}-release
 git push origin ${RELEASE.VERSION}-release
@@ -254,7 +254,7 @@ shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz > 
 
 ```shell
 cd ~/shenyu_svn/dev/shenyu
-svn add *
+svn add ${RELEASE.VERSION}/
 svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
 ```
 
@@ -360,6 +360,12 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 1. ShenYu社区投票模板
 
+发送至：
+
+```
+dev@shenyu.apache.org
+```
+
 标题：
 
 ```
@@ -383,7 +389,7 @@ Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -392,7 +398,7 @@ Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release/#check-release
+https://shenyu.apache.org/community/release-guide/#check-release
 
 GPG user ID:
 ${YOUR.GPG.USER.ID}
@@ -424,6 +430,12 @@ Checklist for reference:
 
 2. 宣布投票结果模板
 
+发送至：
+
+```
+dev@shenyu.apache.org
+```
+
 标题：
 
 ```
@@ -447,6 +459,12 @@ Thank you everyone for taking the time to review the release and help us.
 ```
 
 3. Incubator社区投票模板
+
+发送至：
+
+```
+general@incubator.apache.org
+```
 
 标题：
 
@@ -483,7 +501,7 @@ Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -492,7 +510,7 @@ Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release/#check-release
+https://shenyu.apache.org/community/release-guide/#check-release
 
 GPG user ID:
 ${YOUR.GPG.USER.ID}
@@ -523,6 +541,12 @@ Checklist for reference:
 ```
 
 4. 宣布投票结果模板
+
+发送至：
+
+```
+general@incubator.apache.org
+```
 
 标题：
 
@@ -629,9 +653,9 @@ docker push apache/shenyu-admin:${RELEASE_VERSION}
 
 等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：
 
-https://shenyu.apache.org/projects/shenyu/download/
+https://shenyu.apache.org/download/
 
-https://shenyu.apache.org/zh/projects/shenyu/download/
+https://shenyu.apache.org/zh/download/
 
 项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
 
@@ -639,7 +663,7 @@ GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`h
 
 **7. 邮件通知版本发布完成**
 
-发送邮件到`general@incubator.apache.org`和`dev@shenyu.apache.org`通知完成版本发布
+发送邮件到`general@incubator.apache.org`、`dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
 
 通知邮件模板：
 
@@ -664,7 +688,7 @@ Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.
 Dynamic flow configuration, high performance.
 Support cluster deployment, A/B Test, blue-green release.
 
-Download Links: https://shenyu.apache.org/projects/shenyu/download/
+Download Links: https://shenyu.apache.org/download/
 
 Release Notes: https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 

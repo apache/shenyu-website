@@ -364,11 +364,16 @@ After at least 72 hours and with at least 3 `+1 binding` votes, it can come to a
 
 1. ShenYu Community Vote Template
 
+To:
+
+```
+dev@shenyu.apache.org
+```
+
 Title:
 
 ```
 [VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
-
 ```
 
 Body:
@@ -429,6 +434,12 @@ Checklist for reference:
 
 2. Announce the vote result
 
+To:
+
+```
+dev@shenyu.apache.org
+```
+
 Title:
 
 ```
@@ -452,6 +463,12 @@ Thank you everyone for taking the time to review the release and help us.
 ```
 
 3. Incubator Community Vote Template
+
+To:
+
+```
+general@incubator.apache.org
+```
 
 Title:
 
@@ -528,6 +545,12 @@ Checklist for reference:
 ```
 
 4. Announce the vote result
+
+To:
+
+```
+general@incubator.apache.org
+```
 
 Title:
 
@@ -642,7 +665,7 @@ GPG signatures and hashes (SHA* etc) must use URL start with `https://downloads.
 
 **7. Announce release completed by email**
 
-Send e-mail to `general@incubator.apache.org` and `dev@shenyu.apache.org` to announce the release is complete
+Send e-mail to `general@incubator.apache.org`, `dev@shenyu.apache.org` and `announce@apache.org` to announce the release is complete
 
 Announcement e-mail template:
 

@@ -360,6 +360,12 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 1. ShenYu社区投票模板
 
+发送至：
+
+```
+dev@shenyu.apache.org
+```
+
 标题：
 
 ```
@@ -424,6 +430,12 @@ Checklist for reference:
 
 2. 宣布投票结果模板
 
+发送至：
+
+```
+dev@shenyu.apache.org
+```
+
 标题：
 
 ```
@@ -447,6 +459,12 @@ Thank you everyone for taking the time to review the release and help us.
 ```
 
 3. Incubator社区投票模板
+
+发送至：
+
+```
+general@incubator.apache.org
+```
 
 标题：
 
@@ -523,6 +541,12 @@ Checklist for reference:
 ```
 
 4. 宣布投票结果模板
+
+发送至：
+
+```
+general@incubator.apache.org
+```
 
 标题：
 
@@ -639,7 +663,7 @@ GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`h
 
 **7. 邮件通知版本发布完成**
 
-发送邮件到`general@incubator.apache.org`和`dev@shenyu.apache.org`通知完成版本发布
+发送邮件到`general@incubator.apache.org`、`dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
 
 通知邮件模板：
 

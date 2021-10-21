@@ -397,7 +397,7 @@ Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release/#check-release
+https://shenyu.apache.org/community/release-guide/#check-release
 
 GPG user ID:
 ${YOUR.GPG.USER.ID}
@@ -488,7 +488,7 @@ Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -497,7 +497,7 @@ Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release/#check-release
+https://shenyu.apache.org/community/release-guide/#check-release
 
 GPG user ID:
 ${YOUR.GPG.USER.ID}
@@ -632,9 +632,9 @@ Edit version number and release notes, click `Publish release`
 
 **6. Update the download page**
 
-https://shenyu.apache.org/projects/shenyu/download/
+https://shenyu.apache.org/download
 
-https://shenyu.apache.org/zh/projects/shenyu/download/
+https://shenyu.apache.org/zh/download/
 
 Download links should use https://www.apache.org/dyn/closer.lua not closer.cgi or mirrors.cgi
 
@@ -667,7 +667,7 @@ Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.
 Dynamic flow configuration, high performance.
 Support cluster deployment, A/B Test, blue-green release.
 
-Download Links: https://shenyu.apache.org/projects/shenyu/download/
+Download Links: https://shenyu.apache.org/download
 
 Release Notes: https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 

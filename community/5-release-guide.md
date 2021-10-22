@@ -715,3 +715,73 @@ While incubation status is not necessarily a reflection of the completeness or s
 it does indicate that the project has yet to be fully endorsed by the ASF.
 
 ```
+
+**8. 8. Re-releasing (not required)**
+
+Note: Re-releasing is only required if the vote did not pass.
+
+8.1. Cancellation vote Email Template
+
+Initiate a vote cancel email at `dev@shenyu.apache.org` or `general@incubator.apache.org` as appropriate.
+
+To:
+
+```
+dev@shenyu.apache.org
+```
+
+or
+
+```
+general@incubator.apache.org
+```
+
+Title:
+
+```
+[CANCEL][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+```
+
+Content:
+
+```
+Hi,
+
+I'm cancelling this vote because of xxxxxx issues. I'll fix them and start the round ${n} vote process.
+The detail of the modifications are as follows:
+
+1. xxxxxx
+2. xxxxxx
+
+Thanks a lot for all your help.
+```
+
+8.2 Drop the staging repository
+
+Go to https://repository.apache.org/#stagingRepositories, log in with your Apache LDAP account, select the previous `Close` version and click `Drop`.
+
+8.3 Delete GitHub branches and tags
+
+```shell
+git push origin --delete ${RELEASE.VERSION}-release
+git branch -D ${RELEASE.VERSION}-release
+git push origin --delete tag v${RELEASE.VERSION}
+git tag -d v${RELEASE.VERSION}
+```
+
+8.4 Deleting SVN pending release content
+
+```shell
+svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS -m "delete KEYS"
+svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} -m "delete ${RELEASE.VERSION}"
+```
+
+8.5 Update the email title
+
+After completing the above steps, you can start the release procedure. The next vote email title needs to have the `[ROUND ${n}]` suffix added. For example:
+
+```
+[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION} [ROUND 2]
+```
+
+Vote results and announce emails do not need this suffix.

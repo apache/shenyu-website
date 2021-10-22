@@ -712,3 +712,73 @@ communications, and decision making process have stabilized in a manner consiste
 While incubation status is not necessarily a reflection of the completeness or stability of the code,
 it does indicate that the project has yet to be fully endorsed by the ASF.
 ```
+
+**8. 重新发布（非必需）**
+
+注意：只有在投票没有通过的情况下才需要重新发布。
+
+8.1. 取消投票邮件模板
+
+视情况在`dev@shenyu.apache.org`或`general@incubator.apache.org`发起取消投票邮件。
+
+发送至：
+
+```
+dev@shenyu.apache.org
+```
+
+或者
+
+```
+general@incubator.apache.org
+```
+
+标题：
+
+```
+[CANCEL][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+```
+
+正文：
+
+```
+Hi,
+
+I'm cancelling this vote because of xxxxxx issues. I'll fix them and start the round ${n} vote process.
+The detail of the modifications are as follows:
+
+1. xxxxxx
+2. xxxxxx
+
+Thanks a lot for all your help.
+```
+
+8.2 清理筹备仓库
+
+访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，选中之前`Close`的版本，点击`Drop`。
+
+8.3 删除GitHub分支和标签
+
+```shell
+git push origin --delete ${RELEASE.VERSION}-release
+git branch -D ${RELEASE.VERSION}-release
+git push origin --delete tag v${RELEASE.VERSION}
+git tag -d v${RELEASE.VERSION}
+```
+
+8.4 删除SVN待发布内容
+
+```shell
+svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS -m "delete KEYS"
+svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} -m "delete ${RELEASE.VERSION}"
+```
+
+8.5 更新邮件标题
+
+完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加`[ROUND ${n}]`后缀。例如：
+
+```
+[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION} [ROUND 2]
+```
+
+投票结果和通知邮件不需要加后缀。

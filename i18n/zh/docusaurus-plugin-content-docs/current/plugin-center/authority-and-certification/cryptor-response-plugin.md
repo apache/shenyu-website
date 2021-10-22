@@ -43,13 +43,13 @@ description: CryptorResponse 插件
 * 在网关的 `pom.xml` 文件中添加 `cryptorResponse` 的支持。
 
 ```xml
-        <!-- apache shenyu Cryptor Response plugin start-->
+<!-- apache shenyu Cryptor Response plugin start-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-cryptor</artifactId>
   <version>${project.version}</version>
 </dependency>
-        <!-- apache shenyu Cryptor Response plugin end-->
+<!-- apache shenyu Cryptor Response plugin end-->
 ```
 
 ## 场景

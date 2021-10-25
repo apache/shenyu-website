@@ -10,13 +10,17 @@ description: 下载
 
 由于下载内容分布在镜像服务器上，所以下载后应该进行 GPG 或 SHA-512 校验，以此来保证内容没有被篡改。
 
-##### `Apache ShenYu (incubating) - 版本: 2.4.0 (发布日期: Aug 8, 2021)`
+##### `Apache ShenYu (incubating) - 版本: 2.4.1 (发布时间：2021-10-25)`
 
-- 源码 [[zip]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.sha512)
+- 源码 [[zip]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-src.zip.sha512)
 
-- ShenYu-Admin 二进制包 [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.sha512)
+- ShenYu-Admin 二进制包 [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz.sha512)
 
-- ShenYu-Bootstrap 二进制包 [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.sha512)
+- ShenYu-Bootstrap 二进制包 [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz.sha512)
+
+## 所有版本
+
+可以在 [Archive repository](https://archive.apache.org/dist/incubator/shenyu/) 中找到所有的版本.
 
 ## 校验版本
 

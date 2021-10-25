@@ -11,13 +11,6 @@ description: Download
 
 The downloads are distributed via mirror sites and should be checked for tampering using GPG or SHA-512.
 
-##### `Apache ShenYu (incubating) - Version: 2.4.0 (Release Date: Aug 8, 2021)`
-
-- Source Codes [[zip]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.sha512)
-
-- ShenYu-Admin Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.sha512)
-
-- ShenYu-Bootstrap Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.sha512)
 
 ## Verify the Releases
 

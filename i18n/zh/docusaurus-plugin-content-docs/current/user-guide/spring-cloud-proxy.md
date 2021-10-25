@@ -36,11 +36,6 @@ description: SpringCloud接入ShenYu网关
         <artifactId>spring-cloud-commons</artifactId>
         <version>2.2.0.RELEASE</version>
    </dependency>
-   <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        <version>2.2.0.RELEASE</version>
-   </dependency>
 ```
 
 * 如果你使用 `eureka` 作为 `springCloud`的注册中心

@@ -18,6 +18,58 @@ description: dubbo plugin
 
 * Set selector and rule, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
+## Plugin Detail
+
+After the client accesses the `ShenYu` gateway, it will automatically register the selector and rule information. For details about the selector and rule configuration, see [Selector and Rule Config](../../user-guide/admin-usage/selector-and-rule) .
+
+#### Selector Handler
+
+<img src="/img/shenyu/plugin/dubbo/selector_en_new.png" width="80%" height="80%" />
+
+Selector Handler, the `handle` field, is an operation that can be processed by the gateway after matching the traffic. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
+
+* details：
+
+  * `host`：host string.
+  
+  * `ip:port`：ip+port string.
+    
+  * `protocol`：protocol default is 'http'.
+  
+  * `group`：the group of dubbo service.
+  
+  * `version`：the version of dubbo service.
+  
+  * `weight`：the server instance and participate in load balancing calculation.
+  
+  * `warmupTime`：the server's warm up time and and participate in load balancing calculation.
+  
+  * `startupTime`：the server's start time.
+  
+  * `status`：true: the server is available，false: the server is unavailable.
+      
+  * `gray`：enable gray routing.
+  
+Gray routing
+
+if you want to user gray route in dubbo-plugin, you can click the `gray` button.
+
+* Gray level publishing can customize and control the traffic proportion of new version applications when publishing new version applications, gradually complete the full launch of new version applications, maximize the business risk caused by new version publishing, reduce the impact surface caused by faults, and support rapid roll back.
+
+when the gray is open,Gateway load balancing will select one node from the current node list for routing and you can modify node weights to change the weight of nodes in the load balancing algorithm.
+It should be noted that,if your business instance not use the client jar of 'shenyu-client-apache-dubbo' or 'shenyu-client-alibaba-dubbo', You should add gray node information manually on this selector page.
+
+#### Rule Handler
+
+<img src="/img/shenyu/plugin/dubbo/rule_en.png" width="80%" height="80%" />
+
+Rule Handler, the `handle` field, can be performed by the gateway after the final matching of traffic. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
+
+* details：
+
+  * `loadbalance`：the loadbalance of dubbo service, if the gray node selection fails, the default load balancing method will be used.
+
+* Apache ShenYu will obtain the real IP of the corresponding service and initiate rpc proxy calls from registration center of dubbo.
 
 ## Metadata
 

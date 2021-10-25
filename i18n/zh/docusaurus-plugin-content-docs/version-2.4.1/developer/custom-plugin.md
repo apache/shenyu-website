@@ -78,7 +78,7 @@ public interface ShenyuPlugin {
 
   * `getOrder()` 指定插件的排序。
 
-  * `named()` 指定插件的名称，命名采用`Upper Camel Case`，如：`Dubbo`、`SpringCloud`。
+  * `named()` 指定插件的名称，命名采用`Camel Case`，如：`dubbo`、`springCloud`。
 
   * `skip()` 在特定的条件下，该插件是否被跳过。
 
@@ -139,7 +139,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
      */
     @Override
     public String named() {
-        return "ShenYu";
+        return "shenYu";
     }
 
     /**

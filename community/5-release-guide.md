@@ -137,13 +137,13 @@ https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 Download and install [Git](https://git-scm.com/downloads)
 
-Suppose ShenYu source codes downloaded from github is under `~/shenyu/` directory and the version to be released is `${RELEASE.VERSION}`. 
+Suppose ShenYu source codes downloaded from github is under `~/incubator-shenyu/` directory and the version to be released is `${RELEASE.VERSION}`. 
 Create `${RELEASE.VERSION}-release` branch, where all the following operations are performed.
 
 ```shell
 # ${name} is the properly branch, e.g. master, main
-git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/shenyu
-cd ~/shenyu/
+git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
+cd ~/incubator-shenyu/
 git pull
 git checkout -b ${RELEASE.VERSION}-release
 git push origin ${RELEASE.VERSION}-release
@@ -256,7 +256,7 @@ shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz > 
 
 ```shell
 cd ~/shenyu_svn/dev/shenyu
-svn add *
+svn add ${RELEASE.VERSION}/
 svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
 ```
 
@@ -364,11 +364,16 @@ After at least 72 hours and with at least 3 `+1 binding` votes, it can come to a
 
 1. ShenYu Community Vote Template
 
+To:
+
+```
+dev@shenyu.apache.org
+```
+
 Title:
 
 ```
 [VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
-
 ```
 
 Body:
@@ -388,7 +393,7 @@ Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -397,7 +402,7 @@ Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release/#check-release
+https://shenyu.apache.org/community/release-guide/#check-release
 
 GPG user ID:
 ${YOUR.GPG.USER.ID}
@@ -429,6 +434,12 @@ Checklist for reference:
 
 2. Announce the vote result
 
+To:
+
+```
+dev@shenyu.apache.org
+```
+
 Title:
 
 ```
@@ -452,6 +463,12 @@ Thank you everyone for taking the time to review the release and help us.
 ```
 
 3. Incubator Community Vote Template
+
+To:
+
+```
+general@incubator.apache.org
+```
 
 Title:
 
@@ -488,7 +505,7 @@ Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -497,7 +514,7 @@ Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release/#check-release
+https://shenyu.apache.org/community/release-guide/#check-release
 
 GPG user ID:
 ${YOUR.GPG.USER.ID}
@@ -528,6 +545,12 @@ Checklist for reference:
 ```
 
 4. Announce the vote result
+
+To:
+
+```
+general@incubator.apache.org
+```
 
 Title:
 
@@ -632,9 +655,9 @@ Edit version number and release notes, click `Publish release`
 
 **6. Update the download page**
 
-https://shenyu.apache.org/projects/shenyu/download/
+https://shenyu.apache.org/download/
 
-https://shenyu.apache.org/zh/projects/shenyu/download/
+https://shenyu.apache.org/zh/download/
 
 Download links should use https://www.apache.org/dyn/closer.lua not closer.cgi or mirrors.cgi
 
@@ -642,7 +665,7 @@ GPG signatures and hashes (SHA* etc) must use URL start with `https://downloads.
 
 **7. Announce release completed by email**
 
-Send e-mail to `general@incubator.apache.org` and `dev@shenyu.apache.org` to announce the release is complete
+Send e-mail to `general@incubator.apache.org`, `dev@shenyu.apache.org` and `announce@apache.org` to announce the release is complete
 
 Announcement e-mail template:
 
@@ -667,7 +690,7 @@ Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.
 Dynamic flow configuration, high performance.
 Support cluster deployment, A/B Test, blue-green release.
 
-Download Links: https://shenyu.apache.org/projects/shenyu/download/
+Download Links: https://shenyu.apache.org/download/
 
 Release Notes: https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
@@ -692,3 +715,73 @@ While incubation status is not necessarily a reflection of the completeness or s
 it does indicate that the project has yet to be fully endorsed by the ASF.
 
 ```
+
+**8. 8. Re-releasing (not required)**
+
+Note: Re-releasing is only required if the vote did not pass.
+
+8.1. Cancellation vote Email Template
+
+Initiate a vote cancel email at `dev@shenyu.apache.org` or `general@incubator.apache.org` as appropriate.
+
+To:
+
+```
+dev@shenyu.apache.org
+```
+
+or
+
+```
+general@incubator.apache.org
+```
+
+Title:
+
+```
+[CANCEL][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+```
+
+Content:
+
+```
+Hi,
+
+I'm cancelling this vote because of xxxxxx issues. I'll fix them and start the round ${n} vote process.
+The detail of the modifications are as follows:
+
+1. xxxxxx
+2. xxxxxx
+
+Thanks a lot for all your help.
+```
+
+8.2 Drop the staging repository
+
+Go to https://repository.apache.org/#stagingRepositories, log in with your Apache LDAP account, select the previous `Close` version and click `Drop`.
+
+8.3 Delete GitHub branches and tags
+
+```shell
+git push origin --delete ${RELEASE.VERSION}-release
+git branch -D ${RELEASE.VERSION}-release
+git push origin --delete tag v${RELEASE.VERSION}
+git tag -d v${RELEASE.VERSION}
+```
+
+8.4 Deleting SVN pending release content
+
+```shell
+svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS -m "delete KEYS"
+svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} -m "delete ${RELEASE.VERSION}"
+```
+
+8.5 Update the email title
+
+After completing the above steps, you can start the release procedure. The next vote email title needs to have the `[ROUND ${n}]` suffix added. For example:
+
+```
+[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION} [ROUND 2]
+```
+
+Vote results and announce emails do not need this suffix.

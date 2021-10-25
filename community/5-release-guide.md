@@ -599,11 +599,20 @@ svn cp https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS https://dist
 
 **3. Merge release branch to `master` and delete release branch on Github**
 
+Fork a copy of the code from GitHub and execute the following command:
+
 ```shell
 git checkout master
 git merge origin/${RELEASE.VERSION}-release
 git pull
 git push origin master
+```
+
+Create a pull request with the above changes.
+
+Execute the following command in the project's original repository:
+
+```shell
 git push --delete origin ${RELEASE.VERSION}-release
 git branch -d ${RELEASE.VERSION}-release
 ```
@@ -699,7 +708,7 @@ Website: https://shenyu.apache.org/
 ShenYu Resources:
 - Issue: https://github.com/apache/incubator-shenyu/issues
 - Mailing list: dev@shenyu.apache.org
-- Documents: https://shenyu.apache.org/projects/shenyu/overview/
+- Documents: https://shenyu.apache.org/docs/index/
 
 
 - Apache ShenYu (incubating) Team

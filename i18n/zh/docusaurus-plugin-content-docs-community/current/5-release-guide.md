@@ -595,11 +595,20 @@ svn cp https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS https://dist
 
 **3. 合并Github的release分支到`master`, 合并完成后删除release分支**
 
+从GitHub Fork一份代码，并执行以下命令：
+
 ```shell
 git checkout master
 git merge origin/${RELEASE.VERSION}-release
 git pull
 git push origin master
+```
+
+以上修改创建一个pull request。
+
+在项目原始仓库执行以下命令：
+
+```shell
 git push --delete origin ${RELEASE.VERSION}-release
 git branch -d ${RELEASE.VERSION}-release
 ```
@@ -697,7 +706,7 @@ Website: https://shenyu.apache.org/
 ShenYu Resources:
 - Issue: https://github.com/apache/incubator-shenyu/issues
 - Mailing list: dev@shenyu.apache.org
-- Documents: https://shenyu.apache.org/projects/shenyu/overview/
+- Documents: https://shenyu.apache.org/docs/index/
 
 
 - Apache ShenYu (incubating) Team

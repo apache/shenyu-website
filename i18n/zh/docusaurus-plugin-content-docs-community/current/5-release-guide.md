@@ -198,7 +198,37 @@ mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=
 
 下载并安装[SVN](https://tortoisesvn.net/downloads.html)
 
-**1. 检出ShenYu发布目录**
+**1. 添加gpg公钥**
+
+仅第一次发布的账号需要添加，只要`KEYS`中包含已经发布过的账户的公钥即可。
+
+如无本地工作目录，则先创建本地工作目录。
+
+```shell
+mkdir -p ~/keys_svn/release/
+cd ~/keys_svn/release/
+```
+
+创建完毕后，从Apache SVN release目录检出ShenYu发布目录。
+
+```shell
+svn --username=${APACHE LDAP 用户名} co https://dist.apache.org/repos/dist/release/incubator/shenyu
+cd ~/keys_svn/release/shenyu
+```
+
+添加新的公钥。
+
+```shell
+gpg -a --export ${GPG用户名} >> KEYS
+```
+
+提交至SVN。
+
+```shell
+svn --username=${APACHE LDAP 用户名} commit -m "append to KEYS"
+```
+
+**2. 检出ShenYu发布目录**
 
 如无本地工作目录，则先创建本地工作目录。
 
@@ -207,19 +237,11 @@ mkdir -p ~/shenyu_svn/dev/
 cd ~/shenyu_svn/dev/
 ```
 
-创建完毕后，从Apache SVN检出ShenYu发布目录。
+创建完毕后，从Apache SVN dev目录检出ShenYu发布目录。
 
 ```shell
 svn --username=${APACHE LDAP 用户名} co https://dist.apache.org/repos/dist/dev/incubator/shenyu
 cd ~/shenyu_svn/dev/shenyu
-```
-
-**2. 添加gpg公钥**
-
-仅第一次部署的账号需要添加，只要`KEYS`中包含已经部署过的账户的公钥即可。
-
-```shell
-gpg -a --export ${GPG用户名} >> KEYS
 ```
 
 **3. 将待发布的内容添加至SVN目录**
@@ -273,7 +295,7 @@ shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.sha512
 首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
 
 ```shell
-curl https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS >> KEYS
+curl https://downloads.apache.org/incubator/shenyu/KEYS >> KEYS
 gpg --import KEYS
 gpg --edit-key "${发布人的gpg用户名}"
   > trust
@@ -395,7 +417,7 @@ Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 Keys to verify the Release Candidate:
-https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
+https://downloads.apache.org/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
 https://shenyu.apache.org/community/release-guide/#check-release
@@ -507,7 +529,7 @@ Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 Keys to verify the Release Candidate:
-https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS
+https://downloads.apache.org/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
 https://shenyu.apache.org/community/release-guide/#check-release
@@ -583,23 +605,30 @@ announcements in the coming days.
 
 ## 完成发布
 
-**1. 将源码、二进制包以及KEYS从svn的dev目录移动到release目录**
+**1. 将源码、二进制包从svn的dev目录移动到release目录**
 
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${RELEASE.VERSION}"
-svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/KEYS -m "delete KEYS"
-svn cp https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer KEYS for ${RELEASE.VERSION}"
 ```
 
 **2. 在Apache Staging仓库找到ShenYu并点击`Release`**
 
 **3. 合并Github的release分支到`master`, 合并完成后删除release分支**
 
+从GitHub Fork一份代码，并执行以下命令：
+
 ```shell
 git checkout master
 git merge origin/${RELEASE.VERSION}-release
 git pull
 git push origin master
+```
+
+以上修改创建一个pull request。
+
+在项目原始仓库执行以下命令：
+
+```shell
 git push --delete origin ${RELEASE.VERSION}-release
 git branch -d ${RELEASE.VERSION}-release
 ```
@@ -697,7 +726,7 @@ Website: https://shenyu.apache.org/
 ShenYu Resources:
 - Issue: https://github.com/apache/incubator-shenyu/issues
 - Mailing list: dev@shenyu.apache.org
-- Documents: https://shenyu.apache.org/projects/shenyu/overview/
+- Documents: https://shenyu.apache.org/docs/index/
 
 
 - Apache ShenYu (incubating) Team
@@ -769,7 +798,6 @@ git tag -d v${RELEASE.VERSION}
 8.4 删除SVN待发布内容
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/KEYS -m "delete KEYS"
 svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} -m "delete ${RELEASE.VERSION}"
 ```
 

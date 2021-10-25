@@ -20,13 +20,41 @@ description: Spring Cloud插件
 
 #### 选择器处理
 
-<img src="/img/shenyu/plugin/springcloud/selector_zh.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/springcloud/selector_zh_new.png" width="80%" height="80%" />
 
 选择器处理，即`handle`字段，是网关匹配到流量以后，可以进行处理的操作。更多信息请参考插件管理中的 [插件处理管理](../../user-guide/admin-usage/plugin-handle-explanation) 。
 
 * 处理配置详解：
 
-  * `serviceId`：服务 `id` 。
+  * `serviceId`:serviceId。
+
+  * `gray`：启用灰度路由。
+
+    * `protocol`：协议默认值为'http'。
+
+    * `upstreamUrl`: 服务器节点地址。
+
+    * `weight`: 服务器节点权重。
+
+    * `status`:true：服务器可用，false：服务器不可用。
+
+    * `timestamp`：节点的启动时间。
+
+    * `warmup`：节点的预热时间，参与负载均衡计算。
+
+灰度路由
+
+如果您想在springCloud插件中使用灰色路由，可以单击“灰色”按钮。
+
+<img src="/img/shenyu/plugin/springcloud/gray_zh.png" width="80%" height="80%" />
+
+* 灰度发布可以在发布新版本应用时，自定义控制新版本应用流量比重，渐进式完成新版本应用的全量上线，最大限度地控制新版本发布带来的业务风险，降低故障带来的影响面，同时支持快速回滚。
+
+当开启灰度是，网关的负载平衡算法将从当前节点列表中选择一个节点进行路由，并且您可以通过修改节点权重以更改负载平衡算法中节点的权重。
+
+<img src="/img/shenyu/plugin/springcloud/gray.png" width="80%" height="80%" />
+
+需要注意的是，如果您的业务实例没有使用'shenyu-client-springcloud'的客户端进行业务注册发现，您应该在当前选择器页面上手动添加节点信息进行灰度路由。
 
 #### 规则处理
 

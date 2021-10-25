@@ -33,12 +33,7 @@ description: Spring Cloud快速开始
                     <artifactId>spring-cloud-commons</artifactId>
                     <version>2.2.0.RELEASE</version>
                 </dependency>
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-                    <version>2.2.0.RELEASE</version>
-                </dependency>
-
+               
                 <dependency>
                     <groupId>org.apache.shenyu</groupId>
                     <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>

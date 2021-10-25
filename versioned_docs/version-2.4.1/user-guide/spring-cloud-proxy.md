@@ -38,11 +38,6 @@ For details about data synchronization configurations, see [Data Synchronization
         <artifactId>spring-cloud-commons</artifactId>
         <version>2.2.0.RELEASE</version>
    </dependency>
-   <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        <version>2.2.0.RELEASE</version>
-   </dependency>
 ```
 
 * If you use `eureka` as SpringCloud registry center.

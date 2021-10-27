@@ -10,7 +10,7 @@ description: CryptorRequest 插件
 
 ## 插件设置
 
-1. 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `cryptor_request` 设置为开启。
+1. 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `cryptorRequest` 设置为开启。
 
 <img src="/img/shenyu/plugin/cryptor/enable-cryptor-request-plugin.png" width="80%" height="80%" />
 

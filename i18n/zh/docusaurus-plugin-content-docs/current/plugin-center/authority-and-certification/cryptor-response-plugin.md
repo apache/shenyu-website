@@ -10,7 +10,7 @@ description: CryptorResponse 插件
 
 ## 插件设置
 
-1. 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `cryptor_response` 设置为开启。
+1. 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `cryptorResponse` 设置为开启。
 
 <img src="/img/shenyu/plugin/cryptor/enable-cryptor-response-plugin.png" width="80%" height="80%" />
 

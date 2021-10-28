@@ -25,9 +25,9 @@ shenyu:
   register:
     registerType: http
     props:
-      checked: true  # is checked
-      zombieCheckTimes: 5 # how many times does it fail to detect the service
-      scheduledTime: 10 # timed detection interval time
+      	checked: true  # is checked
+      	zombieCheckTimes: 5 # how many times does it fail to detect the service
+      	scheduledTime: 10 # timed detection interval time
 ```
 
 <img src="/img/shenyu/register/register-http-admin-yml.png" width="70%" height="60%" />
@@ -39,21 +39,23 @@ The following shows the configuration information registered through `Http` when
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: http
     serverLists: http://localhost:9095
-    props:
-      contextPath: /http
-      appName: http
-      port: 8188  
-      isFull: false
+  client:
+    http:
+    	props:
+      		contextPath: /http
+      		appName: http
+      		port: 8188  
+      		isFull: false
 # registerType : register type, set http
 # serverList: when register type is http，set shenyu-admin address list，pls note 'http://' is necessary.
 # port: your project port number; apply to springmvc/tars/grpc
 # contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
-``` 
+```
 
 
 <img src="/img/shenyu/register/register-http-client-yml.png" width="70%" height="60%" />
@@ -115,21 +117,23 @@ The following shows the configuration information registered by `zookeeper` when
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: zookeeper
     serverLists: localhost:2181
-    props:
-      contextPath: /http
-      appName: http
-      port: 8189  
-      isFull: false
+  client:
+    http:
+    	props:
+      		contextPath: /http
+      		appName: http
+      		port: 8189  
+      		isFull: false
 # registerType : register type, set zookeeper
 # serverList: when register type is zookeeper，set zookeeper address list
 # port: your project port number; apply to springmvc/tars/grpc
 # contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
-``` 
+```
 
 <img src="/img/shenyu/register/register-zk-client-yml.png" width="70%" height="60%" />
 
@@ -190,21 +194,23 @@ The following shows the configuration information registered by `Etcd` when the 
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: etcd 
     serverLists: http://localhost:2379
-    props:
-      contextPath: /http
-      appName: http
-      port: 8189  
-      isFull: false
+  client:
+    http:
+    	props:
+      		contextPath: /http
+      		appName: http
+      		port: 8189  
+      		isFull: false
 # registerType : register type, set etcd 
 # serverList: when register type is etcd, add etcd address list
 # port: your project port number; apply to springmvc/tars/grpc
 # contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
-``` 
+```
 
 
 <img src="/img/shenyu/register/register-etcd-client-yml.png" width="70%" height="60%" />
@@ -296,13 +302,15 @@ The following shows the configuration information registered by `Consul` when th
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: consul 
-    props:
-      contextPath: /http
-      appName: http
-      port: 8188  
-      isFull: false
+  client:
+    http:
+    	props:
+      		contextPath: /http
+      		appName: http
+      		port: 8188  
+      		isFull: false
 
 spring:
   cloud:
@@ -378,18 +386,21 @@ The following shows the configuration information registered by `Nacos` when the
 <img src="/img/shenyu/register/register-nacos-client-pom.png" width="70%" height="60%" />
 
 
-* Then in `yml` configure registration mode as `naco`, and fill in `nacos` service address and related parameters, also need `nacos` namespace (need to be consistent with `shenyu-admin`), IP (optional, then automatically obtain the local IP address) and port, configuration information is as follows:
+* Then in `yml` configure registration mode as `nacos`, and fill in `nacos` service address and related parameters, also need `nacos` namespace (need to be consistent with `shenyu-admin`), IP (optional, then automatically obtain the local IP address) and port, configuration information is as follows:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: nacos
     serverLists: localhost:8848
+  client:
+    http:
+    	props:
+      		contextPath: /http
+      		appName: http
+      		port: 8188  
+      		isFull: false
     props:
-      contextPath: /http
-      appName: http
-      port: 8188  
-      isFull: false
       nacosNameSpace: ShenyuRegisterCenter
 # registerType : register type, set nacos 
 # serverList: when register type is nacos, add nacos address list
@@ -398,9 +409,48 @@ shenyu:
 # appName：your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 # nacosNameSpace: nacos namespace
-``` 
+```
 
 <img src="/img/shenyu/register/register-nacos-client-yml.png" width="70%" height="60%" />
+
+### Register different type API at same time
+
+> follow example use the http and dubbo.
+
+the `yml` configuration like follow:
+
+```yaml
+shenyu:
+  register:
+    registerType: nacos
+    serverLists: localhost:8848
+  client:
+    http:
+    	props:
+      		contextPath: /http
+      		appName: http
+      		port: 8188  
+      		isFull: false
+    dubbo:
+    	props:
+      		contextPath: /dubbo
+      		appName: dubbo
+      		port: 28080
+    props:
+      nacosNameSpace: ShenyuRegisterCenter
+# registerType : register type, set nacos 
+# serverList: when register type is nacos, add nacos address list
+# http.port: your project port number; apply to springmvc
+# http.contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
+# http.appName：your project name,the default value is`spring.application.name`.
+# http.isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
+# dubbo.contextPath: your project dubbo service's context path
+# dubbo.port: your project dubbo rpc port
+# dubbo.appName: your project dubbo appliation name
+# nacosNameSpace: nacos namespace
+```
+
+
 
 In conclusion, this paper mainly describes how to connect your microservices (currently supporting `Http`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa`, `Tars` and other protocols) to the `Apache ShenYu` gateway. the Apache ShenYu gateway support registry has `Http`, `Zookeeper`, `Etcd`, `Consul`, `Nacos` and so on. This paper introduces the different ways to register configuration information when `Http` service is used as the client to access `Apache ShenYu` gateway.
 

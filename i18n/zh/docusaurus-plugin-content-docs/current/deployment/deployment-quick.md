@@ -41,6 +41,7 @@ description: 单机快速部署
 * 按照如下进行选择器和规则配置
 
 ### 使用postman
+
 > 请求方式POST，地址`http://localhost:9195/shenyu/plugin/selectorAndRules`,body 选择raw json，内容如下：
 
 ```json

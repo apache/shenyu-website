@@ -41,6 +41,7 @@ example：
 * use the follow data to add selector and rule
 
 ### by postman
+
 > `POST` method，address`http://localhost:9195/shenyu/plugin/selectorAndRules`,body use `raw json` content：
 
 ```json

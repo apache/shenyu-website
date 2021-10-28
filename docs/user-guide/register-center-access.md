@@ -39,9 +39,10 @@ The following shows the configuration information registered through `Http` when
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: http
     serverLists: http://localhost:9095
+  client:
     http:
     	props:
       		contextPath: /http
@@ -116,9 +117,10 @@ The following shows the configuration information registered by `zookeeper` when
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: zookeeper
     serverLists: localhost:2181
+  client:
     http:
     	props:
       		contextPath: /http
@@ -192,9 +194,10 @@ The following shows the configuration information registered by `Etcd` when the 
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: etcd 
     serverLists: http://localhost:2379
+  client:
     http:
     	props:
       		contextPath: /http
@@ -299,8 +302,9 @@ The following shows the configuration information registered by `Consul` when th
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: consul 
+  client:
     http:
     	props:
       		contextPath: /http
@@ -386,9 +390,10 @@ The following shows the configuration information registered by `Nacos` when the
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: nacos
     serverLists: localhost:8848
+  client:
     http:
     	props:
       		contextPath: /http
@@ -416,9 +421,10 @@ the `yml` configuration like follow:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: nacos
     serverLists: localhost:8848
+  client:
     http:
     	props:
       		contextPath: /http

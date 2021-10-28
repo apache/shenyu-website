@@ -6,16 +6,16 @@ description: context_path插件
 
 ## 说明
 
-* `Apache ShenYu` 网关在对目标服务调用的时候，还容许用户使用 `context_path` 插件来重写请求路径的 `contextPath`
+* `Apache ShenYu` 网关在对目标服务调用的时候，还容许用户使用 `contextPath` 插件来重写请求路径的 `contextPath`
 
 ## 插件设置
 
-- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `context_path` 设置为开启。
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `contextPath` 设置为开启。
 - 如果用户不需要，可以把插件禁用。
 
 ## 插件使用
 
-- 在网关的 `pom.xml` 文件中添加 `context_path` 的支持。
+- 在网关的 `pom.xml` 文件中添加 `contextPath` 的支持。
 
 ```xml
   <!-- apache shenyu context_path plugin start-->

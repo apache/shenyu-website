@@ -42,9 +42,10 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: http
     serverLists: http://localhost:9095
+  client:
     http:
         props:
           contextPath: /http
@@ -115,9 +116,10 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: zookeeper
     serverLists: localhost:2181
+  client:
     http:
         props:
           contextPath: /http
@@ -186,9 +188,10 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: etcd 
     serverLists: http://localhost:2379
+  client:
     http:
         props:
           contextPath: /http
@@ -296,8 +299,9 @@ spring:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: consul
+  client:
     http:
         props:
           contextPath: /http
@@ -379,9 +383,10 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: nacos
     serverLists: localhost:8848
+  client:
     http:
     	props:
       		contextPath: /http
@@ -409,9 +414,10 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: nacos
     serverLists: localhost:8848
+  client:
     http:
     	props:
       		contextPath: /http

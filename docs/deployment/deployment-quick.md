@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-title: Standalone Deployment
+title: Local Quick Deployment
 keywords: ["Deployment"]
-description: Standalone Deployment
+description: Local Quick Deployment
 ---
 
-This article introduces how to start the `Apache ShenYu` gateway in the standalone environment.
+This article introduces how to quick start the `Apache ShenYu` gateway in the standalone environment.
 
 ### Environmental preparation
 
@@ -40,6 +40,9 @@ example：
 
 * use the follow data to add selector and rule
 
+### by postman
+> `POST` method，address`http://localhost:9195/shenyu/plugin/selectorAndRules`,body use `raw json` content：
+
 ```json
 {
     "pluginName": "divide",
@@ -58,6 +61,30 @@ example：
         }]
     }]
 }
+```
+
+### by curl
+
+```bash
+curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndRules' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "pluginName": "divide",
+    "selectorHandler": "[{\"upstreamUrl\":\"127.0.0.1:8080\"}]",
+    "conditionDataList": [{
+        "paramType": "uri",
+        "operator": "match",
+        "paramValue": "/**"
+    }],
+    "ruleDataList": [{
+        "ruleHandler": "{\"loadBalance\":\"random\"}",
+        "conditionDataList": [{
+            "paramType": "uri",
+            "operator": "match",
+            "paramValue": "/**"
+        }]
+    }]
+}'
 ```
 
 * open `http://localhost:9195/helloworld`:

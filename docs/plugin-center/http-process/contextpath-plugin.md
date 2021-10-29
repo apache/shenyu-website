@@ -1,17 +1,17 @@
 ---
-title: Context-Path Plugin
-keywords: ["context_path"]
-description: context_path plugin
+title: ContextPath Plugin
+keywords: ["contextPath"]
+description: contextPath plugin
 ---
 
 ## Explanation
 
-* When making invokes to the target service, `Apache ShenYu` Gateway also allows users to customize the `contextPath` using the `context_path` plugin.
+* When making invokes to the target service, `Apache ShenYu` Gateway also allows users to customize the `contextPath` using the `contextPath` plugin.
 
 ## Plugin Setting
 
-* In `shenyu-admin` --> BasicConfig --> Plugin --> `context_path` , set to enable.
-* Introduce `context_path` support in the `pom.xml` file of the gateway.
+* In `shenyu-admin` --> BasicConfig --> Plugin --> `contextPath` , set to enable.
+* Introduce `contextPath` support in the `pom.xml` file of the gateway.
 * If the user don't use, please disable the plugin in the background.
 
 ```xml

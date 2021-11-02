@@ -172,3 +172,5 @@ The Apache ShenYu PPMC
 **8. Nominee replies the invitation, including content like accept the offer and give thanks.**
 
 **9. PPMC adds new PPMC member in [roster](https://whimsy.apache.org/roster/ppmc/shenyu).**
+
+**10. Notify new PPMC member to subscribe to the private mailing list: [private-subscribe@shenyu.apache.org](mailto:private-subscribe@shenyu.apache.org), same process as subscribing to the dev mailing list**

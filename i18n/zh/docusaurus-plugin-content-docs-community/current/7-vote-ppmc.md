@@ -172,3 +172,5 @@ The Apache ShenYu PPMC
 **8、准PPMC成员回复邀请函内容，回复表达同意与感谢。**
 
 **9、PPMC添加新PPMC成员到[roster](https://whimsy.apache.org/roster/ppmc/shenyu)**
+
+**10、通知新PPMC成员订阅private邮件列表：[private-subscribe@shenyu.apache.org](mailto:private-subscribe@shenyu.apache.org)，流程与订阅dev邮件列表相同**

@@ -17,7 +17,7 @@ In `ShenYu` gateway, data synchronization refers to how to synchronize the updat
 
 Here is a direct quote from the official website with the relevant description.
 
->  The mechanism of `Zookeeper` and `WebSocket` data synchronization is relatively simple, while `Http long polling` is more complex. `Apache ShenYu` borrowed the design ideas of `Apollo` and `Nacos`, took their essence, and implemented `Http long polling` data synchronization function by itself. Note that this is not the traditional `ajax` long polling!
+> The mechanism of `Zookeeper` and `WebSocket` data synchronization is relatively simple, while `Http long polling` is more complex. `Apache ShenYu` borrowed the design ideas of `Apollo` and `Nacos`, took their essence, and implemented `Http long polling` data synchronization function by itself. Note that this is not the traditional `ajax` long polling!
 
 ![](/img/shenyu/dataSync/http-long-polling-en.png)
 

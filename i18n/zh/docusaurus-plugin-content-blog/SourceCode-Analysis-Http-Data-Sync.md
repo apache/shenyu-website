@@ -410,7 +410,7 @@ protected boolean updateCacheIfNeed(final ConfigData<T> newVal, final ConfigGrou
 
 - HttpLongPollingTask#run()
 
-长轮询任务是`HttpLongPollingTask`，它实现了`Runnable`接口，任务逻辑在`run()`方法中。通过`while()`循环实现不断执行任务，即长轮询。在每一次的轮询中有三次重试逻辑，一次轮询任务失败了，等 `5s` 再继续，`3` 次都失败了，等` 5` 分钟再试。
+长轮询任务是`HttpLongPollingTask`，它实现了`Runnable`接口，任务逻辑在`run()`方法中。通过`while()`循环实现不断执行任务，即长轮询。在每一次的轮询中有三次重试逻辑，一次轮询任务失败了，等 `5s` 再继续，`3` 次都失败了，等`5` 分钟再试。
 
 开始长轮询，一个`admin`服务，创建一个线程用于数据同步。
 
@@ -525,7 +525,7 @@ private void doLongPolling(final String server) {
 
 > 网关收到响应信息之后，只知道是哪个 Group 发生了配置变更，还需要再次请求该 Group 的配置数据。
 > 这里可能会存在一个疑问：为什么不是直接将变更的数据写出？
->  我们在开发的时候，也深入讨论过该问题，因为 `http` 长轮询机制只能保证准实时，如果在网关层处理不及时，
+> 我们在开发的时候，也深入讨论过该问题，因为 `http` 长轮询机制只能保证准实时，如果在网关层处理不及时，
 > 或者管理员频繁更新配置，很有可能便错过了某个配置变更的推送，安全起见，我们只告知某个 Group 信息发生了变更。
 
 个人理解是：

@@ -1,6 +1,6 @@
 ---
 title: 版本发布
-sidebar_position: 13
+sidebar_position: 1
 keywords: ["release-notes"]
 description: release-notes
 ---
@@ -45,7 +45,7 @@ description: release-notes
 - 支持`JDK8 ~ JDK15`。
 - `motan`插件添加`plugin_handle`的`SQL`语句。
 
-## 错误修改
+## 错误修复
 
 - 修复`jwt`插件的`JsonSyntaxException`。
 - 修复`resilience4j`插件`sql`脚本。

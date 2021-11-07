@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-http-data-sync
 title: Http Long Polling Data Synchronization Source Code Analysis
 author: midnight2104
 author_title: Apache ShenYu Committer

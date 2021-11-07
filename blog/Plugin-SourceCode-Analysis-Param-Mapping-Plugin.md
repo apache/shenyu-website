@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-param-mapping
 title: Code Analysis For Param-Mapping Plugin
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor

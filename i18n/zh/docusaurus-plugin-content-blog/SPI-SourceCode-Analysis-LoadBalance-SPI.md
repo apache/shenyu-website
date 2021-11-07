@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-loadbalance-spi
 title: LoadBalance SPI 代码分析
 author: Huihui Yin
 author_title: Apache ShenYu Contributor

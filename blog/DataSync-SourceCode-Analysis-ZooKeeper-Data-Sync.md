@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-zookeeper-data-sync
 title: ZooKeeper Data Synchronization Source Code Analysis
 author: midnight2104
 author_title: Apache ShenYu Committer

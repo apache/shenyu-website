@@ -1,5 +1,4 @@
 ---
-slug: PredicateJudge-SPI
 title: "PredicateJudge -- analyze the design based on SPI"
 author: Huihui Yin
 author_title: Apache ShenYu Contributor

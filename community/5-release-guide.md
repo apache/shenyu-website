@@ -609,10 +609,11 @@ announcements in the coming days.
 
 ## Finish the Release
 
-**1. Move source packages and binary packages from the `dev` directory to `release` directory**
+**1. Move source packages and binary packages from the `dev` directory to `release` directory, and delete the previous version from the `release` directory**
 
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${RELEASE.VERSION}"
+svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. Find ShenYu in staging repository and click `Release`**

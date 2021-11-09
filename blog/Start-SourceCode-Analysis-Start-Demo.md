@@ -1,5 +1,4 @@
 ---
-slug: start-demo
 title: Apache ShenYu Start Demo
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor

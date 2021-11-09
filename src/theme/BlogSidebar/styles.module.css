@@ -1,0 +1,66 @@
+.sidebar {
+    max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+    overflow-y: auto;
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 2rem);
+  }
+  
+  .sidebarItemTitle {
+    margin-bottom: 0.5rem;
+    color: var(--subtle);
+    padding-left: 12px;
+  }
+  
+  .categoryHeader {
+    color: rgb(118, 118, 118);
+    /* text-decoration: underline; */
+    font-size: 16px;
+    padding-left: 10px;
+    user-select: none;
+    height: 30px;
+    line-height: 30px;
+    margin: 0px;
+    text-shadow: 4px 6px 0 rgb(0 0 0 / 7%);
+    /* border-bottom: 1px solid rgba(161, 153, 153, 0.5); */
+  }
+
+  .sidebarItemList {
+    list-style: none;
+    font-size: 0.9rem;
+    padding-left: 0;
+  }
+  
+  .sidebarItem {
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 2px;
+    line-height: 18px;
+    min-height: 26px;
+  }
+  .sidebarItemLink {
+    color: var(--ifm-font-color-base);
+    font-size: 13px;
+    padding: 4px 8px;
+    display: inline-flex;
+    border-left: 4px solid transparent;
+    border-radius: 0.25rem;
+    min-width: 100%;
+  }
+  .sidebarItemLink:hover {
+    background: var(--ifm-menu-color-background-active);
+    color: var(--ifm-font-color-base);
+    text-decoration: none;
+  }
+  .sidebarItemLinkActive {
+    color: var(--ifm-font-color-base);
+    background: var(--ifm-menu-color-background-active);
+    border-left-color: var(--ifm-menu-color-active);
+    font-weight: 700;
+  }
+
+  @media only screen and (max-width: 996px) {
+    .sidebar {
+      display: none;
+    }
+  }
+  

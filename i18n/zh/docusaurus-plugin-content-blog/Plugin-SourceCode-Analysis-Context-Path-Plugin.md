@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-context-path
 title: Context-Path插件源码分析
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor

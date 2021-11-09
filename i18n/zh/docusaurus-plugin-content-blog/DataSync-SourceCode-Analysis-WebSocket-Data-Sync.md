@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-websocket-data-sync
 title: WebSocket数据同步源码分析
 author: midnight2104
 author_title: Apache ShenYu Committer

@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-websocket-data-sync
 title: WebSocket Data Synchronization Source Code Analysis
 author: midnight2104
 author_title: Apache ShenYu Committer

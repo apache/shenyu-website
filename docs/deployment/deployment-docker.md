@@ -29,7 +29,7 @@ docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PRO
 another way is to put the `application.yml` configuration in ${your_work_dir}/conf, and then execute the following statement：
 
 ```          
-docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf/ -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin
 ```
 
 * use `PostgreSql` to store data, execute the following statement：
@@ -41,7 +41,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=pg" -e "spring.datasource.url=jdbc:postgre
 another way is to put the `application.yml` configuration in ${your_work_dir}/conf, and then execute the following statement：
 
 ```
-docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin
 ```
 
 ### Start Apache ShenYu Bootstrap

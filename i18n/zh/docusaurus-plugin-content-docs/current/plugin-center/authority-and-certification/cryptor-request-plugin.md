@@ -36,7 +36,11 @@ description: CryptorRequest 插件
         }
 ```
 
-* key: 秘钥，用于解密数据。
+* decryptKey: 密钥，用于解密数据。
+
+* encryptKey: 密钥，用于加密数据。
+
+* way: 选择加密或解密。
 
 ## 插件使用
 

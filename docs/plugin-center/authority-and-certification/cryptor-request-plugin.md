@@ -36,7 +36,11 @@ description: CryptorRequest plugin
         }
 ```
 
-* key: Secret key. Used to decrypt data.
+* decryptKey: Secret key. Used to decrypt data.
+
+* encryptKey: Secret key. Used to encrypt data.
+
+* way: Select encrypt or decrypt.
 
 ## Plugin Use
 

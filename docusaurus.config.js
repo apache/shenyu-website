@@ -54,7 +54,7 @@ module.exports = {
         {
           label: 'Event',
           position: 'left',
-          to: '/event/2.4.0-release',
+          to: '/event/2.4.1-release',
           activeBaseRegex: `/event/`,
         },
         {to: '/news', label: 'News', position: 'left'},
@@ -204,6 +204,7 @@ module.exports = {
         blog: {
           showReadingTime: true,
           blogSidebarCount: "ALL",
+          blogSidebarTitle: 'All Blog Posts',
           editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl:

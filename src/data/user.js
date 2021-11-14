@@ -34,5 +34,7 @@ export default [
     {name:"吉祥航空",src:"/img/users/jixiang.jpg",link:"http://www.juneyaoair.com/"},
     {name:"大参林",src:"/img/users/dasunlin.png",link:"https://www.dslyy.com/"},
     {name:"浙江新课堂教育股份有限公司",src:"/img/users/xinketang.png",link:"https://www.thinktown.com/"},
-    {name:"稿定科技",src:"/img/users/gaoding.png",link:"https://www.thinktown.com/"},
+    {name:"稿定科技",src:"/img/users/gaoding.png",link:"https://www.gaoding.com/"},
+    {name:"Kenyatta University",src:"/img/users/KenyattaUniversity.png",link:"http://www.ku.ac.ke/"},
+    {name:"苏州安软信息科技有限公司",src:"/img/users/safesoft.png",link:"http:/www.safesoftcorp.com"},
 ]

@@ -15,7 +15,7 @@ cover: "/img/architecture/shenyu-framework.png"
 成为committer你会拥有
 
 * Apache ShenYu仓库写的权限
-* idea 正版使用
+* [jetbrains正版全家桶](https://www.jetbrains.com/shop/eform/apache)
 
 ## 提交者责任
 

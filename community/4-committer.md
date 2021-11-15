@@ -14,7 +14,7 @@ cover: "/img/architecture/shenyu-framework.png"
 After you have made a lot of contributions, the community will nominate. Become a committer you will have
 
 * Permissions written by Apache ShenYu repository
-* Idea is used legally
+* [jetbrains all](https://www.jetbrains.com/shop/eform/apache)
 
 ## Committer Responsibilities {#committer-responsibilities}
 

@@ -29,7 +29,7 @@ docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PRO
 另外一种方式把 `application.yml` 配置放到`${your_work_dir}/conf`， 然后执行以下语句：
 
 ```          
-docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf/ -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin
 ```
 
 * 使用 `PostgreSql` 来存储后台数据, 执行以下语句：
@@ -41,7 +41,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=pg" -e "spring.datasource.url=jdbc:postgre
 另外一种方式把 `application.yml` 配置放到`${your_work_dir}/conf`， 然后执行以下语句：
 
 ```
-docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf/ -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin
 ```
 
 ### 启动Apache ShenYu Bootstrap

@@ -28,8 +28,16 @@ cover: "/img/architecture/shenyu-framework.png"
 
 - 从 ShenYu 的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为 ShenYu 的repo。
 
+* 从你的github仓库克隆代码.
+
 ```shell
-git remote add upstream https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/your-github/incubator-shenyu.git
+```
+
+* 设置远程仓库 (为了同步代码) .
+
+```shell
+git remote add apache https://github.com/apache/incubator-shenyu.git
 ```
 
 **选择issue**

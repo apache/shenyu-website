@@ -51,7 +51,7 @@ git remote add apache https://github.com/apache/incubator-shenyu.git
 
 ```shell
 git checkout master
-git pull upstream master
+git pull apache master
 git checkout -b issueNo
 ```
 

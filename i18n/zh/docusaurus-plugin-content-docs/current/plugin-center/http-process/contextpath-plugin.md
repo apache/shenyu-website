@@ -1,7 +1,7 @@
 ---
 title: Context Path插件
-keywords: ["context_path"]
-description: context_path插件
+keywords: ["contextPath"]
+description: contextPath插件
 ---
 
 ## 说明

@@ -1,7 +1,7 @@
 ---
-title: Param-mapping插件
+title: ParamMapping插件
 keywords: ["ParamMapping"]
-description:  Param-mapping插件
+description:  ParamMapping插件
 ---
 
 ## 说明

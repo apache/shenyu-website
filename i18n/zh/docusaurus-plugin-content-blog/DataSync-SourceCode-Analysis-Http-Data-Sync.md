@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-http-data-sync
 title: Http长轮询数据同步源码分析
 author: midnight2104
 author_title: Apache ShenYu Committer

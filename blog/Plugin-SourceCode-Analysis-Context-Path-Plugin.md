@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-context-path
 title: Code Analysis For Context-Path Plugin
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor

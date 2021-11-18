@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-param-mapping
 title: Param-Mapping插件源码分析
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor

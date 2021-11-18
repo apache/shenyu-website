@@ -28,11 +28,19 @@ You can report a bug, submit a new function enhancement suggestion, or submit a 
 
 - Fork a `Apache ShenYu` repo to your own repo to work, then setting upstream.
 
+* git clone from your repository.
+
 ```shell
-git remote add upstream https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/your-github/incubator-shenyu.git
 ```
 
-**Choose Issue**
+* set remote repository (To synchronize remote repository updates) .
+
+```shell
+git remote add apache https://github.com/apache/incubator-shenyu.git
+```
+
+**Choose or Creator Issue**
 
 - Please choose the issue to be edited. If it is a new issue discovered or a new function enhancement to offer, please create an issue and set the right label for it.
 - After choosing the relevant issue, please reply with a deadline to indicate that you are working on it.
@@ -43,7 +51,7 @@ git remote add upstream https://github.com/apache/incubator-shenyu.git
 
 ```shell
 git checkout master
-git pull upstream master
+git pull apche master
 git checkout -b issueNo
 ```
 

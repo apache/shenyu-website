@@ -97,7 +97,7 @@ git config --global user.email "username@mail.com"
 
 ```shell
 git checkout master
-git fetch upstream
-git reset --hard upstream/master
+git fetch apache
+git reset --hard apache/master
 git push -f
 ```

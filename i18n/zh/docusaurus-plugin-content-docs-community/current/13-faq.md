@@ -17,6 +17,7 @@ tags: ["community"]
 
 打开 cmd.exe（你需要将 git 添加到环境变量中）并执行下面的命令，可以让 git 支持长
 文件名：
+
 ```
 git config --global core.longpaths true
 ```

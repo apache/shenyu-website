@@ -1,12 +1,10 @@
 ---
-​---
 slug: code-analysis-ratelimiter-spi
 title: RateLimiter SPI code analysis
 author: Huihui Yin
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/changanjennifer/
 tags: [rate limiter,SPI,Apache ShenYu]
-​---
 ---
 
   *Rate limiter* is a very important integral of  gateway application, to deal with  high traffic.  When the system is attacked abnormally by a large number of traffic gathered in a short time;  When there are a large number of lower priority request need to be slow down or else it  will effect your high  priority transactions;  Or sometimes your system can not afford the regular traffic; in these  scenarios, we need to start *rate limiter* component to protect our system,  through rejection, wait, load  shedding,etc,  limit the requests to an acceptable quantities, or only  certain domains (or services) requests can get through.  

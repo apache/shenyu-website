@@ -1,12 +1,10 @@
 ---
-​---
 slug: code-analysis-ratelimiter-spi
 title: RateLimiter SPI 代码分析
 author: Huihui Yin
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/changanjennifer/
 tags: [rate limiter,SPI,Apache ShenYu]
-​---
 ---
 
 限流是网关必备的功能，用来应对高并发请求的场景。当系统受到异常攻击，短期内聚集了大量的流量；当有大量低级别的请求，处理这些请求会影响关键业务的处理，需要限制这些请求的访问速度; 或者系统内部出现一些异常，不能满负荷的服务整个应用请求等等。这些情况下，都需要启用限流来保护系统。可以拒绝服务、等待或降级处理，将流量限制到系统可接受的量，或者只允许某些域名(或某些业务)的请求优先处理。

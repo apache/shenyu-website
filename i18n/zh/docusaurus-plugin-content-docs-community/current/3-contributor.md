@@ -28,8 +28,16 @@ cover: "/img/architecture/shenyu-framework.png"
 
 - 从 ShenYu 的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为 ShenYu 的repo。
 
+* 从你的github仓库克隆代码.
+
 ```shell
-git remote add upstream https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/your-github/incubator-shenyu.git
+```
+
+* 设置远程仓库 (为了同步代码) .
+
+```shell
+git remote add apache https://github.com/apache/incubator-shenyu.git
 ```
 
 **选择issue**
@@ -43,7 +51,7 @@ git remote add upstream https://github.com/apache/incubator-shenyu.git
 
 ```shell
 git checkout master
-git pull upstream master
+git pull apache master
 git checkout -b issueNo
 ```
 
@@ -51,8 +59,8 @@ git checkout -b issueNo
 
 **编码**
 
-- 请您在开发过程中遵循 ShenYu 的 [开发规范](../code-conduct)。并在准备提交pull request之前完成相应的检查。
-- 将修改的代码push到fork库的分支上。
+- 请您在开发过程中遵循 ShenYu 的 [编码建议](/community/code-suggestions)。并在准备提交pull request之前完成相应的检查。
+- 将修改的代码 push 到 fork 库的分支上。
 
 ```shell
 git add 修改代码
@@ -91,7 +99,7 @@ git config --global user.email "username@mail.com"
 
 ```shell
 git checkout master
-git fetch upstream
-git reset --hard upstream/master
+git fetch apache
+git reset --hard apache/master
 git push -f
 ```

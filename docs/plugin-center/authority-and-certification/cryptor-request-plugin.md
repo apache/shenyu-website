@@ -36,20 +36,24 @@ description: CryptorRequest plugin
         }
 ```
 
-* key: Secret key. Used to decrypt data.
+* decryptKey: Secret key. Used to decrypt data.
+
+* encryptKey: Secret key. Used to encrypt data.
+
+* way: Select encrypt or decrypt.
 
 ## Plugin Use
 
 * Add support for `cryptorRequest` in the `pom.xml` file of shenyu-bootstrap.
 
 ```xml
-        <!-- apache shenyu Cryptor Request plugin start-->
+<!-- apache shenyu Cryptor Request plugin start-->
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-cryptor</artifactId>
   <version>${project.version}</version>
 </dependency>
-        <!-- apache shenyu Cryptor Request plugin end-->
+<!-- apache shenyu Cryptor Request plugin end-->
 ```
 
 ## Situation

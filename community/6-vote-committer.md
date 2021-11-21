@@ -15,13 +15,13 @@ Example：
 
 To：private@shenyu.apache.org
 
-Title： [VOTE] New committer:(nominee)
+Title： [VOTE] New committer:(nominee name not GitHub ID)
 
 Content：
 
 Hi, everyone
 
-This is ^a formal vote^ about inviting (nominee)as our new committer. 
+This is ^a formal vote^ about inviting (nominee name not GitHub ID)as our new committer. 
 He/She really made an effort to improve ShenYu Parser and fix many issues. 
 The following links will direct you to his/her work.
 
@@ -42,7 +42,7 @@ Example：
 
 To: private@shenyu.apache.org
 
-Title: [RESULT] [VOTE] New committer: (nominee)
+Title: [RESULT] [VOTE] New committer: (nominee name not GitHub ID)
 
 Content:
 
@@ -51,7 +51,7 @@ Hi all PPMCs,
 I am glad to receive your votes, and the voting result is,
 6   +1 votes, 0   +/-1 votes, 0   -1 votes
 
-Therefore, I will send the invitation to (nominee).
+Therefore, I will send the invitation to (nominee name not GitHub ID).
 ```
 
 **4. If the vote passes, send an offer to become a committer with @private@shenyu.apache.org.**
@@ -61,11 +61,11 @@ To: (nominee email address)
 
 cc: private@shenyu.apache.org
 
-Title Invitation to become apache shenyu committer: (nominee)
+Title Invitation to become apache shenyu committer: (nominee name not GitHub ID)
 
 Content:
 
-Hello (nominee),
+Hello (nominee name not GitHub ID),
 
 The Apache ShenYu Polling Project Management Committee (PPMC) hereby offers you committer privileges to the project. These privileges are offered on the understanding that you'll use them reasonably and with common sense. We like to work on trust
 rather than unnecessary constraints.
@@ -93,7 +93,7 @@ Best wishes,
 **6. PPMC replies the email.**
 
 ```
-Hi (nominee),
+Hi (nominee name not GitHub ID),
 
 Welcome! Here are the next steps. After that we will make an announcement to the shenyu-dev list.
 
@@ -135,16 +135,16 @@ https://shenyu.apache.org/community/en/contribute/committer/
 ```
 To: dev@shenyu.apache.org
 
-Title: [ANNOUNCE] New committer: (nominee)
+Title: [ANNOUNCE] New committer: (nominee name not GitHub ID)
 
 Content:
 
 Hi community,
 
 The Polling Project Management Committee (PPMC) for Apache shenyu
-has invited (nominee) to become a committer and we are pleased to announce that he has accepted.
+has invited (nominee name not GitHub ID) to become a committer and we are pleased to announce that he has accepted.
 
-(nominee) is active in Apache ShenYu community, hope see your further interactions with the community! 
+(nominee name not GitHub ID) is active in Apache ShenYu community, hope see your further interactions with the community! 
 
 Thanks for your contributions.
 ```

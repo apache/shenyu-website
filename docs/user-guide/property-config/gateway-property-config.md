@@ -97,6 +97,20 @@ shenyu:
     interval: 5000
     printEnabled: true
     printInterval: 60000
+#netty:
+#  tcp:
+#    select:
+#      count: 1
+#    worker:
+#      count: 4
+#    connect_timeout_millis: 10000
+#    write_buffer_high_water_mark: 65536
+#    write_buffer_low_water_mark: 32768
+#    so_keepalive: false
+#    so_reuseaddr: false
+#    so_linger: -1
+#    so_backlog: 128
+#    tcp_nodelay: true
 ```
 
 ### Property Detail
@@ -307,3 +321,20 @@ Apache ShenYu Switch Config
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | local | Boolean |  true  |    No    | Whether to open local mode, if so, local operation data, default open |
+
+##### shenyu.NettyTcpConfig config
+
+Apache ShenYu Netty config
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| select.count | int |  1  |    No    | Number of netty selectors |
+| worker.count | int | 4 | No | Number of netty workers |
+| connect_timeout_millis | int | 10000 | No | Netty config, the connect timeout of the channel in milliseconds |
+| write_buffer_high_water_mark | int | 65536 | No | Netty config, the high water mark of the write buffer |
+| write_buffer_low_water_mark | int | 32768 | No | Netty config, the low water mark of the write buffer |
+| so_keepalive | boolean | false | No | Socket config, enable tcp keepalive |
+| so_reuseaddr | boolean | false | No | Socket config, allow reuse of local addresses |
+| so_linger | int | -1 | No | Socket config, the delay time for closing the socket |
+| so_backlog | int | 128 | No | Socket config, maximum length of the accept queue |
+| tcp_nodelay | boolean | true | No | Socket config, enable Nagle algorithm |
+

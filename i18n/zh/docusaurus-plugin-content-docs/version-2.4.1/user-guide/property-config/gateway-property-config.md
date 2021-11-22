@@ -97,6 +97,20 @@ shenyu:
     interval: 5000
     printEnabled: true
     printInterval: 60000
+#netty:
+#  tcp:
+#    select:
+#      count: 1
+#    worker:
+#      count: 4
+#    connect_timeout_millis: 10000
+#    write_buffer_high_water_mark: 65536
+#    write_buffer_low_water_mark: 32768
+#    so_keepalive: false
+#    so_reuseaddr: false
+#    so_linger: -1
+#    so_backlog: 128
+#    tcp_nodelay: true
 ```
 
 ### 属性详解
@@ -305,3 +319,20 @@ Apache ShenYu开关配置
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | local | Boolean |  true  |    No    | 是否开启本地模式，如果开启，本地操作数据，默认开启 |
+
+##### shenyu.NettyTcpConfig config
+
+Apache ShenYu Netty 配置
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| select.count | int |  1  |    No    | Netty 选择器个数 |
+| worker.count | int | 4 | No | Netty 工作线程个数 |
+| connect_timeout_millis | int | 10000 | No | Netty 参数，连接超时时间 |
+| write_buffer_high_water_mark | int | 65536 | No | Netty 参数，通道水位线上限 |
+| write_buffer_low_water_mark | int | 32768 | No | Netty 参数，通道水位线下限 |
+| so_keepalive | boolean | false | No | Socket 参数，是否启用心跳保活机制 |
+| so_reuseaddr | boolean | false | No | Socket 参数，是否复用地址 |
+| so_linger | int | -1 | No | Socket 参数，关闭 Socket 的延迟时间 |
+| so_backlog | int | 128 | No | Socket 参数，accept 队列的最大长度 |
+| tcp_nodelay | boolean | true | No | Socket 参数，是否启用 Nagle 算法 |
+

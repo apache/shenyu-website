@@ -34,6 +34,8 @@ cover: "/img/architecture/shenyu-framework.png"
 git clone https://github.com/your-github/incubator-shenyu.git
 ```
 
+Windows 环境下，如果克隆 Apache Shenyu 源码时，提示文件名过长，请参看[FAQ](/community/faq)
+
 * 设置远程仓库 (为了同步代码) .
 
 ```shell

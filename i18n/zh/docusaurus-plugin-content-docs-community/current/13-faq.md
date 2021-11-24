@@ -7,7 +7,7 @@ categories: "Apache ShenYu"
 tags: ["community"]
 ---
 
-### 1. Windows 环境下，通过 Git 克隆 Apache Shenyu 源码时为什么提示文件>名过长，如何解决？
+### 1. Windows 环境下，通过 Git 克隆 Apache Shenyu 源码时为什么提示文件名过长，如何解决？
 
 回答：
 

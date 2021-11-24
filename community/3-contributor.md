@@ -34,6 +34,8 @@ You can report a bug, submit a new function enhancement suggestion, or submit a 
 git clone https://github.com/your-github/incubator-shenyu.git
 ```
 
+  if you have some problem about filename too long when cloning source code  in windows enviroment，please see [FAQ](/community/faq)
+
 * set remote repository (To synchronize remote repository updates) .
 
 ```shell

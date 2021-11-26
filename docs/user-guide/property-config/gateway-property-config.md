@@ -12,6 +12,20 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 
 ```yaml
 shenyu:
+  netty:
+    tcp:
+      selectCount: 1
+      workerCount: 4
+      connectTimeoutMillis: 10000
+      writeBufferHighWaterMark: 65536
+      writeBufferLowWaterMark: 32768
+      writeSpinCount: 16
+      autoRead: true
+      tcpNodelay: true
+      soKeepalive: false
+      soReuseaddr: false
+      soLinger: -1
+      soBacklog: 128
 #  httpclient:
 #    strategy: webClient
 #    connectTimeout: 45000
@@ -100,6 +114,25 @@ shenyu:
 ```
 
 ### Property Detail
+
+##### shenyu.NettyTcpConfig config
+
+`ShenYu` Netty config
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| selectCount | int |  1  |    No    | Number of netty selectors |
+| workerCount | int | 4 | No | Number of netty workers |
+| connectTimeoutMillis | int | 10000 | No | Netty config, the connect timeout of the channel in milliseconds |
+| writeBufferHighWaterMark | int | 65536 | No | Netty config, the high water mark of the write buffer |
+| writeBufferLowWaterMark | int | 32768 | No | Netty config, the low water mark of the write buffer |
+| writeSpinCount | int | 16 | No | Netty config, the maximum loop count for a write operation |
+| autoRead | boolean | true | No | Netty config,  channel read method will be invoked automatically so that a user application doesn't need to call it at all. |
+| tcpNodelay | boolean | true | No | Socket config, enable Nagle algorithm |
+| soKeepalive | boolean | false | No | Socket config, enable tcp keepalive |
+| soReuseaddr | boolean | false | No | Socket config, allow reuse of local addresses |
+| soLinger | int | -1 | No | Socket config, the delay time for closing the socket |
+| soBacklog | int | 128 | No | Socket config, maximum length of the accept queue |
 
 ##### shenyu.httpclient config
 

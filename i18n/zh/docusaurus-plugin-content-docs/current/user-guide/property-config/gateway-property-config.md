@@ -12,6 +12,20 @@ description: 网关属性配置
 
 ```yaml
 shenyu:
+  netty:
+    tcp:
+      selectCount: 1
+      workerCount: 4
+      connectTimeoutMillis: 10000
+      writeBufferHighWaterMark: 65536
+      writeBufferLowWaterMark: 32768
+      writeSpinCount: 16
+      autoRead: true
+      tcpNodelay: true
+      soKeepalive: false
+      soReuseaddr: false
+      soLinger: -1
+      soBacklog: 128
 #  httpclient:
 #    strategy: webClient
 #    connectTimeout: 45000
@@ -100,6 +114,25 @@ shenyu:
 ```
 
 ### 属性详解
+
+##### shenyu.NettyTcpConfig 配置
+
+`ShenYu` Netty 配置
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| selectCount | int |  1  |    No    | Netty 选择器数 |
+| workerCount | int | 4 | No | Netty 工作线程数 |
+| connectTimeoutMillis | int | 10000 | No | Netty 参数，连接超时时间 |
+| writeBufferHighWaterMark | int | 65536 | No | Netty 参数，通道水位线上限 |
+| writeBufferLowWaterMark | int | 32768 | No | Netty 参数，通道水位线下限 |
+| writeSpinCount | int | 16 | No | Netty参数，一个Loop写操作执行的最大次数 |
+| autoRead | boolean | true | No | Netty参数，自动读取 |
+| tcpNodelay | boolean | true | No | Socket 参数，是否启用 Nagle 算法 |
+| soKeepalive | boolean | false | No | Socket 参数，是否启用心跳保活机制 |
+| soReuseaddr | boolean | false | No | Socket 参数，是否复用地址 |
+| soLinger | int | -1 | No | Socket 参数，关闭 Socket 的延迟时间 |
+| soBacklog | int | 128 | No | Socket 参数，accept 队列的最大长度 |
 
 ##### shenyu.httpclient 配置
 

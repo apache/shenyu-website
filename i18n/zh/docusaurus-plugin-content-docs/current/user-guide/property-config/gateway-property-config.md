@@ -26,6 +26,11 @@ shenyu:
       soReuseaddr: false
       soLinger: -1
       soBacklog: 128
+  instance:
+    enabled: false
+    registerType: zookeeper #etcd #consul
+    serverLists: localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
 #  httpclient:
 #    strategy: webClient
 #    connectTimeout: 45000
@@ -133,6 +138,35 @@ shenyu:
 | soReuseaddr | boolean | false | No | Socket 参数，是否复用地址 |
 | soLinger | int | -1 | No | Socket 参数，关闭 Socket 的延迟时间 |
 | soBacklog | int | 128 | No | Socket 参数，accept 队列的最大长度 |
+
+##### shenyu.instance 配置
+
+这是 `ShenYu` 网关注册到注册中心的相关配置，注册中心配置请参考 [注册中心配置](../register-center-instance.md) 。
+
+| 名称         |  类型   |     默认值     | 是否必填 | 说明                                      |
+| :----------- | :-----: | :------------: | :------: | :---------------------------------------- |
+| enabled      | boolean |     false      |    是    | 是否启动                                  |
+| registerType | String  |   zookeeper    |    是    | 使用哪个注册中心，目前支持zookeeper、etcd |
+| serverLists  | String  | localhost:2181 |    是    | 注册中心的地址。若使用集群，用 `,` 分隔   |
+| props        |         |                |          | 使用不同注册类型时，属性取值不同。        |
+
+- `props`配置
+
+使用不同的注册中心时，属性取值不同。
+
+当注册类型为 `zookeeper` 时，支持的属性配置如下：
+
+|名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+|sessionTimeout                   | int |  30000      | 否     |session超时时间（毫秒）|
+|connectionTimeout                | int |  3000    |  否  |连接超时时间（毫秒）|
+
+当注册类型为 `etcd` 时，支持的属性配置如下：
+
+|名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+|etcdTimeout                   | int |  30000      | 否     |etcd超时时间（毫秒）|
+|etcdTTL                | int |  5    |  否  |租约生存时间（秒）|
 
 ##### shenyu.httpclient 配置
 

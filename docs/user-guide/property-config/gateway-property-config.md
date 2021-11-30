@@ -26,6 +26,11 @@ shenyu:
       soReuseaddr: false
       soLinger: -1
       soBacklog: 128
+  instance:
+    enabled: false
+    registerType: zookeeper #etcd #consul
+    serverLists: localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
 #  httpclient:
 #    strategy: webClient
 #    connectTimeout: 45000
@@ -133,6 +138,35 @@ shenyu:
 | soReuseaddr | boolean | false | No | Socket config, allow reuse of local addresses |
 | soLinger | int | -1 | No | Socket config, the delay time for closing the socket |
 | soBacklog | int | 128 | No | Socket config, maximum length of the accept queue |
+
+##### shenyu.instance config
+
+This is the relevant configuration for the `ShenYu` gateway to register to the registration center. For the configuration of the registration center, please refer to [Register Center Instance Config](../register-center-instance.md).
+
+| Name         |  Type   |    Default     | Required | Description                                                  |
+| :----------- | :-----: | :------------: | :------: | :----------------------------------------------------------- |
+| enabled      | boolean |     false      |   Yes    | Whether to start                                             |
+| registerType | String  |   zookeeper    |   Yes    | Which registry to use, currently supports zookeeper, etcd    |
+| serverLists  | String  | localhost:2181 |   Yes    | The address of the register center. If using clusters, separate with `,` |
+| props        |         |                |          | When using different register types, the attribute values are different. |
+
+- `props` config
+
+When using different register center, the attribute values are different.
+
+When the registerType is `zookeeper`, the supported properties are as follows.
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+|sessionTimeout                   | int |  30000      | No     |session time out(millisecond)|
+|connectionTimeout                | int |  3000    |  No  |connection time out(millisecond)|
+
+When the registerType is `etcd`, the supported properties are as follows.
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+|etcdTimeout                   | int |  30000      | No     |etcd time out(millisecond)|
+|etcdTTL                | int |  5    |  No  |client lease time to live(second)|
 
 ##### shenyu.httpclient config
 

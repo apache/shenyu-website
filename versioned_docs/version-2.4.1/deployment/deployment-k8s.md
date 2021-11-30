@@ -296,7 +296,7 @@ data:
             org.apache.shenyu: info
   application-mysql.yml: |
     spring.datasource.url: jdbc:mysql://mysql.shenyu.svc.cluster.local:3306/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    spring.datasource.user: {your_mysql_user}
+    spring.datasource.username: {your_mysql_user}
     spring.datasource.password: {your_mysql_password}
 ```
 

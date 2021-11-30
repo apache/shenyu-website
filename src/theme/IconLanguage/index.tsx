@@ -6,7 +6,6 @@ const IconLanguage = ({
   height = 20,
   ...props
 }: Props): JSX.Element => {
-  debugger
   return (
     <svg t="1631348384596"
       className="icon" viewBox="0 0 1024 1024"

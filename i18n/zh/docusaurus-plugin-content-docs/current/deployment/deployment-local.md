@@ -30,6 +30,8 @@ description: 本地部署
 
   * 如果使用`MySQL`来存储，修改 `application.yaml` 中的 `mysql` 配置。
 
+  * 如果使用`PostgreSql`来存储，修改 `application.yaml` 中的 `spring.profiles.active` 配置为 `pg`。
+
 * 使用开发工具启动 `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`。
 
 

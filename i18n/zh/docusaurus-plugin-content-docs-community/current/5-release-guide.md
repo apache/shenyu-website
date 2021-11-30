@@ -605,10 +605,11 @@ announcements in the coming days.
 
 ## 完成发布
 
-**1. 将源码、二进制包从svn的dev目录移动到release目录**
+**1. 将源码、二进制包从svn的dev目录移动到release目录，并删除release目录的前一个版本**
 
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${RELEASE.VERSION}"
+svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. 在Apache Staging仓库找到ShenYu并点击`Release`**

@@ -22,6 +22,7 @@ description: 注册中心配置
 ### 使用zookeeper
 
 在网关的 `yml` 文件中添加如下配置：
+
 ```yaml
 instance:
     enabled: true
@@ -35,6 +36,7 @@ instance:
 ### 使用etcd
 
 在网关的 `yml` 文件中添加如下配置：
+
 ```yaml
 instance:
     enabled: true

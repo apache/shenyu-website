@@ -23,6 +23,7 @@ First, introduce the following dependencies in the gateway's `pom.xml` file.
 ### Use zookeeper
 
 Add the following configuration to the gateway's `yml` file:
+
 ```yaml
 instance:
     enabled: true
@@ -36,6 +37,7 @@ instance:
 ### Use etcd
 
 Add the following configuration to the gateway's `yml` file:
+
 ```yaml
 instance:
     enabled: true

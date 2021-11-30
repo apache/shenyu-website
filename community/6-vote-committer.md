@@ -30,7 +30,15 @@ https://github.com/apache/incubator-shenyu/pull/2
 https://github.com/apache/incubator-shenyu/pull/3
 https://github.com/apache/incubator-shenyu/pull/4
 
-[^ means these words are subject to change in different case]
+The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+Please vote accordingly:
+
+[ ] +1 approve 
+
+[ ] +0 no opinion
+ 
+[ ] -1 disapprove with the reason
 ```
 
 **2. Wait 72 hours to get vote result from community PPMC.**

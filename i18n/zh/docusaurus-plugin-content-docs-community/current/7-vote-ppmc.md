@@ -30,6 +30,15 @@ https://github.com/apache/incubator-shenyu/pull/2
 https://github.com/apache/incubator-shenyu/pull/3
 https://github.com/apache/incubator-shenyu/pull/4
 
+The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+Please vote accordingly:
+
+[ ] +1 approve 
+
+[ ] +0 no opinion
+ 
+[ ] -1 disapprove with the reason
 ```
 
 如果大家一致认为提名的成员是合适的，就应该进行正式投票。 

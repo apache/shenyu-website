@@ -74,7 +74,7 @@ shenyu:
 
 Each attribute indicates the following meaning.
 
-- `registerType `: the service registration type, fill in `http`.
+- `registerType`: the service registration type, fill in `http`.
 - `serverList`: The address of the `Shenyu-Admin` project to fill in for the `http` registration type, note the addition of `http://` and separate multiple addresses with English commas.
 - `port`: the start port of your project, currently `springmvc/tars/grpc` needs to be filled in.
 - `contextPath`: the routing prefix for your `mvc` project in `shenyu` gateway, such as `/order`, `/product`, etc. The gateway will route according to your prefix.
@@ -283,7 +283,7 @@ shenyu:
           isFull: false
 ```
 
-Finally, ` publisher.start()` is executed to start event publishing and prepare for registration.
+Finally, `publisher.start()` is executed to start event publishing and prepare for registration.
 
 - ShenyuClientRegisterEventPublisher
 
@@ -830,7 +830,7 @@ The actuator subscribers are divided into two categories, one that handles metad
 Here is the registration `URI` information, so the execution class is `ShenyuClientURIExecutorSubscriber`.
 
 
--  ShenyuClientURIExecutorSubscriber#executor()
+- ShenyuClientURIExecutorSubscriber#executor()
 
 The main logic is to iterate through the URI data collection and implement data registration through the `persistURI()` method.
 

@@ -91,9 +91,9 @@ shenyu:
 
 每个属性表示的含义如下：
 
-- `registerType `: 服务注册类型，填写 `http`。
+- `registerType`: 服务注册类型，填写 `http`。
 - `serverList`: 为`http`注册类型时，填写`Shenyu-Admin`项目的地址，注意加上`http://`，多个地址用英文逗号分隔。
--  `port`: 你本项目的启动端口，目前`springmvc/tars/grpc`需要进行填写。
+- `port`: 你本项目的启动端口，目前`springmvc/tars/grpc`需要进行填写。
 - `contextPath`: 为你的这个`mvc`项目在`shenyu`网关的路由前缀， 比如`/order` ，`/product` 等等，网关会根据你的这个前缀来进行路由。
 - `appName`：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值。
 - `isFull`: 设置 `true` 代表代理你的整个服务，`false`表示代理你其中某几个`controller`；目前适用于`springmvc/springcloud`。
@@ -317,9 +317,7 @@ shenyu:
 
 
 
-最后，执行了` publisher.start()`，开始事件发布，为注册做准备。
-
-
+最后，执行了`publisher.start()`，开始事件发布，为注册做准备。
 
 - ShenyuClientRegisterEventPublisher
 
@@ -920,7 +918,7 @@ public class ContextRegisterListener implements ApplicationListener<ContextRefre
 
 
 
--  ShenyuClientURIExecutorSubscriber#executor()
+- ShenyuClientURIExecutorSubscriber#executor()
 
 主要逻辑是遍历URI数据集合，通过`persistURI()`方法实现数据注册。
 
@@ -1126,13 +1124,12 @@ public class RegisterCenterConfiguration {
 
 在创建`shenyuServerRegisterRepository`的过程中，也进行了一系列的准备工作：
 
--  1.从配置属性中获取注册类型。
+- 1.从配置属性中获取注册类型。
 - 2.通过注册类型，以`SPI`的方法加载实现类：比如指定的类型是`http`，就会加载`ShenyuHttpRegistryController`。
 - 3.获取`publisher`，向`Disruptor`队列中写数据。
 - 4.注册`Service`， `rpcType -> registerService`：获取注册的`Service`，每种`rpc`都有对应的`Service`。本文的客户端构建是通过`springboot`，属于`http`类型，还有其他客户端类型：`dubbo`，`Spring Cloud`，`gRPC`等。
 - 5.事件发布的准备工作：添加服务端元数据和`URI`订阅器，处理数据。并且启动`Disruptor`队列。
--  6.注册的初始化操作：`http`类型的注册初始化操作就是保存`publisher`。
-
+- 6.注册的初始化操作：`http`类型的注册初始化操作就是保存`publisher`。
 
 
 - RegisterServerDisruptorPublisher#publish()

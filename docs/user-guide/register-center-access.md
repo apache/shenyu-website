@@ -230,109 +230,101 @@ First add the related dependencies to the `pom` file :
             <version>${project.version}</version>
         </dependency>
 
-        <!--spring-cloud-starter-consul-discovery need add by yourself, suggest use 2.2.6.RELEASE version, other version maybe can't work-->
+        <!-- apache shenyu consul register start -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-            <version>2.2.6.RELEASE</version>
+            <groupId>com.ecwid.consul</groupId>
+            <artifactId>consul-api</artifactId>
+            <version>${consul.api.version}</version>
         </dependency>
         <!-- apache shenyu consul register end-->
 
 ```
 
-<img src="/img/shenyu/register/register-consul-admin-pom.png" width="70%" height="60%" />
 
-* In the `yml` file to configure the registry as `consul`, you also need to configure `spring.cloud.consul`, the configuration information is as follows:
+
+* In the `yml` file to configure the registry as `consul`, the unique configuration of consul is configured under the props node, the configuration information is as follows:
 
 
 ```yaml
 shenyu:
   register:
     registerType: consul
+    serverLists: localhost:8500
     props:
       delay: 1
       wait-time: 55
-
-spring:
-  cloud:
-    consul:
-      discovery:
-        instance-id: shenyu-admin-1
-        service-name: shenyu-admin
-        tags-as-metadata: false
-      host: localhost
+      name: shenyuAdmin
+      instanceId: shenyuAdmin
+      hostName: localhost
       port: 8500
+      tags: test1,test2
+      preferAgentAddress: false
+      enableTagOverride: false
 
 # registerType : register type, set consul.
+# serverLists: the address of consul server agent
 # delay: The interval of each polling of monitoring metadata, in seconds, the default value is 1 second.
 # wait-time: The waiting time for each polling of metadata monitoring, in seconds, the default value is 55 second.
-# instance-id: Required, Consul needs to find specific services through instance-id.
-# service-name: The name where the service is registered to consul. If not configured, the value of `spring.application.name` will be taken by default.
-# host: Consul server host, the default value is localhost.
-# port: Consul server port, the default value is 8500.
-# tags-as-metadata: false, Required, This option must be set to false, otherwise the URI information will not be found, will cause to selector and upstream cache unable to update.
+# instanceId: Required, Consul needs to find specific services through instanceId.
+# name: The name where the service is registered to consul. 
+# hostName: When registering the type for consul, fill in the address of the registered service instance. The service instance address registered in the registry will not be used for client calls, so this configuration does not need to be filled in. Port and preferAgentAddress are the same.
+# port: When registering the type for consul, fill in the port of the registered service instance.
+# tags: Corresponding to the tags configuration in the consul configuration
+# preferAgentAddress：Using the address corresponding to the agent on the consul client side as the address of the registered service instance will override the manual configuration of hostName
+# enableTagOverride：Corresponding to the enableTagOverride configuration in the consul configuration
 
 ```
-
-<img src="/img/shenyu/register/register-consul-admin-yml.png" width="70%" height="60%" />
 
 
 #### shenyu-client config
 
-> Note that the `consul` registry is currently incompatible with the `Spring Cloud` service and will conflict with the `Eureka/Nacos` registry.
-
-
-The following shows the configuration information registered by `Consul` when the `Http` service accesses the `Apache ShenYu` gateway as a client. Other clients (such as `Dubbo` and `Spring Cloud`) can be configured in the same way.
+Register configuration information through the `Consul` method (the registry of the springCloud service itself can be selected at will, and there will be no conflict with the registry selected by shenyu, eureka is used in the example).
 
 
 * First add dependencies to the `pom` file:
 
 ```xml
-            <dependency>
-               <groupId>org.springframework.cloud</groupId>
-               <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-               <version>2.2.6.RELEASE</version>
-           </dependency>
+<!-- apache shenyu consul register center -->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-register-client-consul</artifactId>
+    <version>${shenyu.version}</version>
+</dependency>
 ```
 
-<img src="/img/shenyu/register/register-consul-client-pom.png" width="70%" height="60%" />
 
-
-* Then set the register type to `consul` in `yml` and config `spring.cloud.consul`, and related parameters as follows:
+* Then set the register type to `consul` in `yml` and config `shenyu.register.props`, and related parameters as follows:
 
 ```yaml
 shenyu:
   register:
-    registerType: consul 
-  client:
-    http:
-    	props:
-      		contextPath: /http
-      		appName: http
-      		port: 8188  
-      		isFull: false
-
-spring:
-  cloud:
-    consul:
-      discovery:
-        instance-id: shenyu-http-1
-        service-name: shenyu-http
-      host: localhost
-      port: 8500
+  registerType: consul
+  serverLists: localhost:8500
+  props:
+    name: shenyuSpringCloudExample
+    instanceId: shenyuSpringCloudExample
+    hostName: localhost
+    port: 8500
+    tags: test1,test2
+    preferAgentAddress: false
+    enableTagOverride: false
+client:
+  springCloud:
+    props:
+      contextPath: /springcloud
+      port: 8884
 # registerType : register type, set consul.
-# port: your project port number; apply to springmvc/tars/grpc
-# contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
-# appName：your project name,the default value is`spring.application.name`.
-# isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc
-# instance-id: Required, Consul needs to find specific services through instance-id.
-# service-name: The name where the service is registered to consul. If not configured, the value of `spring.application.name` will be taken by default.
-# host: Consul server host, the default value is localhost.
-# port: Consul server port, the default value is 8500.
+# serverLists: the address of consul server agent
+# delay: The interval of each polling of monitoring metadata, in seconds, the default value is 1 second.
+# wait-time: The waiting time for each polling of metadata monitoring, in seconds, the default value is 55 second.
+# instanceId: Required, Consul needs to find specific services through instanceId.
+# name: The name where the service is registered to consul. 
+# hostName: When registering the type for consul, fill in the address of the registered service instance. The service instance address registered in the registry will not be used for client calls, so this configuration does not need to be filled in. Port and preferAgentAddress are the same.
+# port: When registering the type for consul, fill in the port of the registered service instance.
+# tags: Corresponding to the tags configuration in the consul configuration
+# preferAgentAddress：Using the address corresponding to the agent on the consul client side as the address of the registered service instance will override the manual configuration of hostName
+# enableTagOverride：Corresponding to the enableTagOverride configuration in the consul configuration
 ```
-
-<img src="/img/shenyu/register/register-consul-client-yml.png" width="70%" height="60%" />
-
 
 
 

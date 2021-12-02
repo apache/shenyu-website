@@ -233,6 +233,7 @@ shenyu:
 shenyu:
   register:
     registerType: consul
+    serverLists: localhost:8500
     props:
       delay: 1
       wait-time: 55
@@ -245,6 +246,7 @@ shenyu:
       enableTagOverride: false
 
 # registerType : 服务注册类型，填写 consul
+# serverLists: consul server agent地址
 # delay: 对Metadata的监控每次轮询的间隔时长，单位为秒，默认1秒
 # wait-time: 对Metadata的监控单次请求的等待时间（长轮询机制），单位为秒，默认55秒
 # instanceId: consul服务必填，consul需要通过instance-id找到具体服务
@@ -273,12 +275,12 @@ shenyu:
 </dependency>
 ```
 
-* 然后在 `yml`文件中配置注册方式为`consul`, 额外还需要配置`spring.cloud.consul`, 配置信息如下：
+* 然后在 `yml`文件中配置注册方式为`consul`, 额外还需要配置`shenyu.register.props`, 配置信息如下：
 
 ```yaml
 shenyu:
   register:
-    registerType: consul #
+    registerType: consul
     serverLists: localhost:8500
     props:
       name: shenyuSpringCloudExample
@@ -295,6 +297,7 @@ shenyu:
         port: 8884
 
 # registerType : 服务注册类型，填写 consul
+# serverLists: consul server agent地址
 # shenyu.client.props.port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
 # contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值

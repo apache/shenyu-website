@@ -262,7 +262,7 @@ shenyu:
       enableTagOverride: false
 
 # registerType : register type, set consul.
-# serverLists: the address of consul server agent
+# serverLists: Consul client agent address (sidecar mode deployment, it can also be the address of consul server agent, but it cannot connect to the consul cluster)
 # delay: The interval of each polling of monitoring metadata, in seconds, the default value is 1 second.
 # wait-time: The waiting time for each polling of metadata monitoring, in seconds, the default value is 55 second.
 # instanceId: Required, Consul needs to find specific services through instanceId.
@@ -314,7 +314,7 @@ client:
       contextPath: /springcloud
       port: 8884
 # registerType : register type, set consul.
-# serverLists: the address of consul server agent
+# serverLists: Consul client agent address (sidecar mode deployment, it can also be the address of consul server agent, but it cannot connect to the consul cluster)
 # delay: The interval of each polling of monitoring metadata, in seconds, the default value is 1 second.
 # wait-time: The waiting time for each polling of metadata monitoring, in seconds, the default value is 55 second.
 # instanceId: Required, Consul needs to find specific services through instanceId.

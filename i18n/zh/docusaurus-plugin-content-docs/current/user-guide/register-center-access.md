@@ -56,7 +56,7 @@ shenyu:
 # contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
-``` 
+```
 
 
 <img src="/img/shenyu/register/register-http-client-yml.png" width="70%" height="60%" />
@@ -128,7 +128,7 @@ shenyu:
 # contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
-``` 
+```
 
 <img src="/img/shenyu/register/register-zk-client-yml.png" width="70%" height="60%" />
 
@@ -198,7 +198,7 @@ shenyu:
 # contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
-``` 
+```
 
 
 <img src="/img/shenyu/register/register-etcd-client-yml.png" width="70%" height="60%" />
@@ -246,7 +246,7 @@ shenyu:
       enableTagOverride: false
 
 # registerType : 服务注册类型，填写 consul
-# serverLists: consul server agent地址
+# serverLists: consul client agent地址(sidecar模式部署，也可以是consul server agent的地址，但不能连接consul集群)
 # delay: 对Metadata的监控每次轮询的间隔时长，单位为秒，默认1秒
 # wait-time: 对Metadata的监控单次请求的等待时间（长轮询机制），单位为秒，默认55秒
 # instanceId: consul服务必填，consul需要通过instance-id找到具体服务
@@ -297,7 +297,7 @@ shenyu:
         port: 8884
 
 # registerType : 服务注册类型，填写 consul
-# serverLists: consul server agent地址
+# serverLists: consul client agent地址(sidecar模式部署，也可以是consul server agent的地址，但不能连接consul集群)
 # shenyu.client.props.port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
 # contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
@@ -309,7 +309,7 @@ shenyu:
 # tags: 对应consul配置中的tags配置
 # preferAgentAddress：使用consul客户端侧的agent对应的address作为注册服务实例的address，会覆盖hostName的手动配置
 # enableTagOverride：对应consul配置中的enableTagOverride配置
-``` 
+```
 
 <img src="/img/shenyu/register/register-consul-client-yml.png" width="70%" height="60%" />
 
@@ -383,8 +383,9 @@ shenyu:
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值
 # isFull: 设置true 代表代理你的整个服务，false表示代理你其中某几个controller；目前适用于springmvc/springcloud
 # nacosNameSpace: nacos的命名空间
-``` 
+```
 
 <img src="/img/shenyu/register/register-nacos-client-yml.png" width="70%" height="60%" />
 
 总结，本文主要介绍了如何将你的微服务（当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议）接入到`Apache ShenYu`网关。介绍了注册中心的原理，`Apache ShenYu`网关支持的注册中心有`Http`、`Zookeeper`、`Etcd`、`Consul`、`Nacos`等方式。介绍了以`http`服务作为客户端接入到`Apache ShenYu`网关时，使用不同方式注册配置信息。
+

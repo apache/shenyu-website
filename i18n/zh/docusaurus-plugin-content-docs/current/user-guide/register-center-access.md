@@ -246,7 +246,7 @@ shenyu:
       enableTagOverride: false
 
 # registerType : 服务注册类型，填写 consul
-# serverLists: consul client agent地址(sidecar模式部署，也可以是consul server agent的地址，但不能连接consul集群)
+# serverLists: consul client agent地址(sidecar模式部署(单机或者集群)，也可以是consul server agent的地址(只能连接一个consul server agent节点，如果是集群，那么会存在单点故障问题))
 # delay: 对Metadata的监控每次轮询的间隔时长，单位为秒，默认1秒
 # wait-time: 对Metadata的监控单次请求的等待时间（长轮询机制），单位为秒，默认55秒
 # instanceId: consul服务必填，consul需要通过instance-id找到具体服务
@@ -297,7 +297,7 @@ shenyu:
         port: 8884
 
 # registerType : 服务注册类型，填写 consul
-# serverLists: consul client agent地址(sidecar模式部署，也可以是consul server agent的地址，但不能连接consul集群)
+# serverLists: consul client agent地址(sidecar模式部署(单机或者集群)，也可以是consul server agent的地址(只能连接一个consul server agent节点，如果是集群，那么会存在单点故障问题))
 # shenyu.client.props.port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
 # contextPath: 为你的这个mvc项目在shenyu网关的路由前缀， 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由.
 # appName：你的应用名称，不配置的话，会默认取 `spring.application.name` 的值

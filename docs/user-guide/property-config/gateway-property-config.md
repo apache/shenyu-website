@@ -12,6 +12,25 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 
 ```yaml
 shenyu:
+  netty:
+    tcp:
+      selectCount: 1
+      workerCount: 4
+      connectTimeoutMillis: 10000
+      writeBufferHighWaterMark: 65536
+      writeBufferLowWaterMark: 32768
+      writeSpinCount: 16
+      autoRead: true
+      tcpNodelay: true
+      soKeepalive: false
+      soReuseaddr: false
+      soLinger: -1
+      soBacklog: 128
+  instance:
+    enabled: false
+    registerType: zookeeper #etcd #consul
+    serverLists: localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
 #  httpclient:
 #    strategy: webClient
 #    connectTimeout: 45000
@@ -100,6 +119,54 @@ shenyu:
 ```
 
 ### Property Detail
+
+##### shenyu.NettyTcpConfig config
+
+`ShenYu` Netty config
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+| selectCount | int |  1  |    No    | Number of netty selectors |
+| workerCount | int | 4 | No | Number of netty workers |
+| connectTimeoutMillis | int | 10000 | No | Netty config, the connect timeout of the channel in milliseconds |
+| writeBufferHighWaterMark | int | 65536 | No | Netty config, the high water mark of the write buffer |
+| writeBufferLowWaterMark | int | 32768 | No | Netty config, the low water mark of the write buffer |
+| writeSpinCount | int | 16 | No | Netty config, the maximum loop count for a write operation |
+| autoRead | boolean | true | No | Netty config,  channel read method will be invoked automatically so that a user application doesn't need to call it at all. |
+| tcpNodelay | boolean | true | No | Socket config, enable Nagle algorithm |
+| soKeepalive | boolean | false | No | Socket config, enable tcp keepalive |
+| soReuseaddr | boolean | false | No | Socket config, allow reuse of local addresses |
+| soLinger | int | -1 | No | Socket config, the delay time for closing the socket |
+| soBacklog | int | 128 | No | Socket config, maximum length of the accept queue |
+
+##### shenyu.instance config
+
+This is the relevant configuration for the `ShenYu` gateway to register to the registration center. For the configuration of the registration center, please refer to [Register Center Instance Config](../register-center-instance.md).
+
+| Name         |  Type   |    Default     | Required | Description                                                  |
+| :----------- | :-----: | :------------: | :------: | :----------------------------------------------------------- |
+| enabled      | boolean |     false      |   Yes    | Whether to start                                             |
+| registerType | String  |   zookeeper    |   Yes    | Which registry to use, currently supports zookeeper, etcd    |
+| serverLists  | String  | localhost:2181 |   Yes    | The address of the register center. If using clusters, separate with `,` |
+| props        |         |                |          | When using different register types, the attribute values are different. |
+
+- `props` config
+
+When using different register center, the attribute values are different.
+
+When the registerType is `zookeeper`, the supported properties are as follows.
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+|sessionTimeout                   | int |  30000      | No     |session time out(millisecond)|
+|connectionTimeout                | int |  3000    |  No  |connection time out(millisecond)|
+
+When the registerType is `etcd`, the supported properties are as follows.
+
+|Name                      | Type  |  Default   | Required  | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
+|etcdTimeout                   | int |  30000      | No     |etcd time out(millisecond)|
+|etcdTTL                | int |  5    |  No  |client lease time to live(second)|
 
 ##### shenyu.httpclient config
 

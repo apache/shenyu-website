@@ -4,7 +4,6 @@ keywords: ["Response"]
 description: 自定义Response数据Format,支持json和xml
 ---
 
-
 ## 说明
 
 * 此篇文章是介绍如何自定义响应数据结果格式，支持json和xml两种。

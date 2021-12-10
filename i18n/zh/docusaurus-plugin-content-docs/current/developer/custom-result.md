@@ -87,6 +87,7 @@ public abstract class ShenyuResult<T> extends ConcurrentHashMap<String, Object> 
     }
 }
 ```
+
 * 当`Format`使用`xml`时，可以用 `@JacksonXmlRootElement`自定义xml root
 
 ```java

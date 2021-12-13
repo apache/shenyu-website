@@ -21,5 +21,5 @@ curl --location --request GET 'http://localhost:9195/helloworld' \
 
 ![](/img/shenyu/user-guide/dubbo-json-response-data.jpg)
 ![](/img/shenyu/user-guide/dubbo-xml-response-data.jpg)
-![](/img/shenyu/user-guide/shenyu-json-response-data.jpg)
-![](/img/shenyu/user-guide/shenyu-xml-response-data.jpg)
+![](/img/shenyu/user-guide/shenyu-json-response-data.png)
+![](/img/shenyu/user-guide/shenyu-xml-response-data.png)

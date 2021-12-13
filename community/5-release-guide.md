@@ -471,7 +471,7 @@ Title:
 Body:
 
 ```
-We’ve received 7 +1 votes:
+We’ve received 7 +1 votes[1]:
 
 +1, xxx (mentor)
 +1, xxx (mentor)
@@ -480,6 +480,8 @@ We’ve received 7 +1 votes:
 +1, xxx (ppmc)
 +1, xxx (ppmc)
 +1, xxx (ppmc)
+
+[1]: https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
 
 Thank you everyone for taking the time to review the release and help us. 
 ```

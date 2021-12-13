@@ -41,32 +41,60 @@ public class DefaultShenyuEntity implements Serializable {
 
 ## 扩展
 
-* 新增一个类 `CustomShenyuResult` 实现 `org.apache.shenyu.plugin.api.result.ShenyuResult`
+* 新增一个类 `CustomShenyuResult` 继承 `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
- public interface ShenyuResult<T> {
+ /**
+ * The interface shenyu result.
+ */
+public abstract class ShenyuResult<T> extends ConcurrentHashMap<String, Object> {
 
-     /**
-      * Success t.
-      *
-      * @param code    the code
-      * @param message the message
-      * @param object  the object
-      * @return the t
-      */
-     T success(int code, String message, Object object);
+    /**
+     * Success t.
+     *
+     * @param code    the code
+     * @param message the message
+     * @param object  the object
+     * @return the t
+     */
+    public abstract T success(int code, String message, Object object);
 
-     /**
-      * Error t.
-      *
-      * @param code    the code
-      * @param message the message
-      * @param object  the object
-      * @return the t
-      */
-     T error(int code, String message, Object object);
- }
+    /**
+     * Error t.
+     *
+     * @param code    the code
+     * @param message the message
+     * @param object  the object
+     * @return the t
+     */
+    public abstract T error(int code, String message, Object object);
 
+    /**
+     * put all data and skip the null data.
+     *
+     * @param m the putting data
+     */
+    @Override
+    public void putAll(final Map<? extends String, ?> m) {
+        Optional.ofNullable(m).ifPresent(map -> {
+            final Object[] value = {new AtomicReference<>()};
+            map.keySet().stream().filter(Objects::nonNull).forEach(key -> {
+                if (Objects.nonNull(value[0] = m.get(key))) {
+                    put(key, value[0]);
+                }
+            });
+        });
+    }
+}
+```
+
+* 当`Format`使用`xml`时，可以用 `@JacksonXmlRootElement`自定义xml root
+
+```java
+@JacksonXmlRootElement(localName = "customroot")
+public class CustomShenyuResult extends ShenyuResult<Object> {
+    ...
+}
 ```
 
 * 其中泛型 `T` 为自定义的数据格式，返回它就好。
@@ -74,10 +102,10 @@ public class DefaultShenyuEntity implements Serializable {
 * 把你新增的实现类注册成为`Spring`的`bean`，如下：
 
 ```java
-    @Bean
+@Bean
 public ShenyuResult customShenyuResult() {
-        return new CustomShenyuResult();
-        }
+    return new CustomShenyuResult();
+}
 ```
 
 

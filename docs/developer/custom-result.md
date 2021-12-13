@@ -41,32 +41,60 @@ public class ShenyuDefaultEntity implements Serializable {
 
 ## Extensions
 
-* Declare a new class named `CustomShenyuResult` and implements `org.apache.shenyu.plugin.api.result.ShenyuResult`
+* Declare a new class named `CustomShenyuResult` and extends `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
- public interface ShenyuResult<T> {
- 
-     /**
-      * Success t.
-      *
-      * @param code    the code
-      * @param message the message
-      * @param object  the object
-      * @return the t
-      */
-     T success(int code, String message, Object object);
+ /**
+ * The interface shenyu result.
+ */
+public abstract class ShenyuResult<T> extends ConcurrentHashMap<String, Object> {
 
-     /**
-      * Error t.
-      *
-      * @param code    the code
-      * @param message the message
-      * @param object  the object
-      * @return the t
-      */
-     T error(int code, String message, Object object);
- }
+    /**
+     * Success t.
+     *
+     * @param code    the code
+     * @param message the message
+     * @param object  the object
+     * @return the t
+     */
+    public abstract T success(int code, String message, Object object);
 
+    /**
+     * Error t.
+     *
+     * @param code    the code
+     * @param message the message
+     * @param object  the object
+     * @return the t
+     */
+    public abstract T error(int code, String message, Object object);
+
+    /**
+     * put all data and skip the null data.
+     *
+     * @param m the putting data
+     */
+    @Override
+    public void putAll(final Map<? extends String, ?> m) {
+        Optional.ofNullable(m).ifPresent(map -> {
+            final Object[] value = {new AtomicReference<>()};
+            map.keySet().stream().filter(Objects::nonNull).forEach(key -> {
+                if (Objects.nonNull(value[0] = m.get(key))) {
+                    put(key, value[0]);
+                }
+            });
+        });
+    }
+}
+```
+
+* when the `Format` is `xml`, use the `@JacksonXmlRootElement` custom the xml root
+
+```java
+@JacksonXmlRootElement(localName = "customroot")
+public class CustomShenyuResult extends ShenyuResult<Object> {
+    ...
+}
 ```
 
 * `T` is a generic parameter for your response data.

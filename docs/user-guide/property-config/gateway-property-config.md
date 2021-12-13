@@ -49,7 +49,11 @@ shenyu:
 #      password:
 #      nonProxyHostsPattern:
 #    ssl:
-#      useInsecureTrustManager: false
+#      useInsecureTrustManager: true
+#      keyStoreType: PKCS12
+#      keyStorePath: classpath:keystore.p12
+#      keyStorePassword: 123456
+#      keyPassword: 123456
 #      trustedX509Certificates:
 #      handshakeTimeout:
 #      closeNotifyFlushTimeout:
@@ -213,12 +217,15 @@ Gateway routing can support routing to http and https back-end services at the s
 | Name                     |  Type   | Default | Required | Description                                                  |
 | :----------------------- | :-----: | :-----: | :------: | :----------------------------------------------------------- |
 | useInsecureTrustManager  | Boolean |  false  |    No    | Installs the netty InsecureTrustManagerFactory. This is insecure and not suitable for production. |
+| keyStoreType             | String  |  PKCS12 |    No    | SSL key store type. |
+| keyStorePath             | String  |         |    No    | SSL key store path.|
+| keyStorePassword         | String  |         |    No    | SSL key store pass word. |
+| keyPassword              | String  |         |    No    | SSL key pass word. |
 | trustedX509Certificates  | String  |  Null   |    No    | Trusted certificates for verifying the remote endpoint's certificate.(Use `,` to separate multiple values) |
 | handshakeTimeout         |   int   |  10000  |    No    | SSL handshake timeout. Default to 10000 ms                   |
 | closeNotifyFlushTimeout  |   int   |  3000   |    No    | SSL close_notify flush timeout. Default to 3000 ms.          |
 | closeNotifyReadTimeout   |   int   |    0    |    No    | SSL close_notify read timeout. Default to 0 ms.              |
 | defaultConfigurationType | String  |   TCP   |    No    | The default ssl configuration type. Defaults to TCP.<br />- H2: SslProvider will be set depending on OpenSsl.isAlpnSupported(), SslProvider.HTTP2_CIPHERS, ALPN support, HTTP/1.1 and HTTP/2 support.<br />- TCP: [`SslProvider`](https://netty.io/4.1/api/io/netty/handler/ssl/SslProvider.html?is-external=true) will be set depending on `OpenSsl.isAvailable()`<br />- NONE: There will be no default configuration |
-
 
 
 ##### Filter Configuration

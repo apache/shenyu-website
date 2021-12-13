@@ -50,6 +50,10 @@ shenyu:
 #      nonProxyHostsPattern:
 #    ssl:
 #      useInsecureTrustManager: false
+#      keyStoreType: PKCS12
+#      keyStorePath: classpath:keystore.p12
+#      keyStorePassword: 123456
+#      keyPassword: 123456
 #      trustedX509Certificates:
 #      handshakeTimeout:
 #      closeNotifyFlushTimeout:
@@ -213,6 +217,10 @@ Netty HttpClient 代理的相关配置：
 | Name                     |  Type   | Default | Required | Description                                                  |
 | :----------------------- | :-----: | :-----: | :------: | :----------------------------------------------------------- |
 | useInsecureTrustManager  | Boolean |  false  |    No    | 是否信任所有下游证书，默认`false`                            |
+| keyStoreType             | String  |  PKCS12 |    No    | SSL 证书类型. |
+| keyStorePath             | String  |         |    No    | SSL 证书路径，可以放在class path下.|
+| keyStorePassword         | String  |         |    No    | SSL 证书密码. |
+| keyPassword              | String  |         |    No    | SSL 证书Key的密码. |
 | trustedX509Certificates  |  Array  |  Null   |    No    | 配置自己的信任的证书列表。                                   |
 | handshakeTimeout         |   int   |  10000  |    No    | SSL握手超时时间（毫秒），默认值为10000                       |
 | closeNotifyFlushTimeout  |   int   |  3000   |    No    | SSL close_notify 刷新超时（毫秒）默认值为 3000.              |

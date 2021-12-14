@@ -6,6 +6,17 @@ description: 自定义条件参数
 
 本文介绍如何对 `org.apache.shenyu.plugin.base.condition.data.ParameterData` 进行自定义扩展。
 
+* 新建一个工程，引入如下依赖：
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-plugin-base</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
 
 * 新增一个类 `CustomParameterData`，实现 `org.apache.shenyu.plugin.base.condition.data.ParameterData` 接口 ，添加注解`org.apache.shenyu.spi.Join`。
 
@@ -23,7 +34,7 @@ public class CustomParameterData implements ParameterData {
 }
 ```
 
-* 在 `org.apache.shenyu.plugin.base.condition.data.ParameterData` 文件中添加如下内容：
+* 在工程的META-INF/services目录创建 `org.apache.shenyu.plugin.base.condition.data.ParameterData` 文件中添加如下内容：
 
 ```shell script
 ${spi name}=${custom class path}
@@ -32,18 +43,10 @@ ${spi name}=${custom class path}
 `${spi name}`表示`spi`的名称，`${custom class path}`表示该类的全限定名。比如：
 
 ```shell script
-custom=org.apache.shenyu.examples.http.condition.data.CustomParameterData
+custom=xxx.xxx.xxx.CustomParameterData
 ```
 
-* 在 `org.apache.shenyu.common.enums.ParamTypeEnum` 类中添加枚举类型：
-
-```java
-    /**
-     * custom param type enum.
-     */
-    CUSTOM("custom", true),
-```
-
+* 将工程打包，拷贝到网关 (bootstrap-bin) 的 `lib` 或 `ext-lib` 目录。
 
 * 在`Apache ShenYu`网关管理系统 --> 基础配置 --> 字典管理， 找到字典编码为 `PARAM_TYPE`，新增一条数据，注意字典名称要为: `${spi name}`，图中的示例是`custom`。
 

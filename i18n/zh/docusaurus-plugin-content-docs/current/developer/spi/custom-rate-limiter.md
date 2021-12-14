@@ -12,6 +12,18 @@ description: 自定义限流策略
 
 ## 扩展实现
 
+* 新建一个工程，引入如下依赖：
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-plugin-base</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
+
 * 新增一个类 `${you class}`，实现 `org.apache.shenyu.plugin.ratelimiter.algorithm.RateLimiterAlgorithm`
 
 ```java
@@ -54,6 +66,8 @@ public class ${you class} implements RateLimiterAlgorithm<T> {
 ```
 ${you spi name} = ${you class path}
 ```
+
+* 将工程打包，拷贝到网关 (bootstrap-bin) 的 `lib` 或 `ext-lib` 目录。
 
 * 在 `Admin` 后台 ---> 基础管理 ---> 字典管理 ,  找到字典编码为 `ALGORITHM_*`，新增一条数据，注意字典名称要为: `${you spi name}`。
 

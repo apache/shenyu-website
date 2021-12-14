@@ -7,6 +7,18 @@ description: 自定义匹配方式
 本文介绍如何对 `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy` 进行自定义扩展。
 
 
+* 新建一个工程，引入如下依赖：
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-plugin-base</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
+
 * 新增一个类 `CustomMatchStrategy`，继承`org.apache.shenyu.plugin.base.condition.strategy.AbstractMatchStrategy`，实现 `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy` ，添加注解`org.apache.shenyu.spi.Join`。
 
 ```java
@@ -23,7 +35,7 @@ public class CustomMatchStrategy extends AbstractMatchStrategy implements MatchS
 }
 ```
 
-* 在`org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy`文件中添加如下内容：
+* 在工程的META-INF/services目录创建 `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy`文件中添加如下内容：
 
 ```shell script
 ${spi name}=${custom class path}
@@ -32,18 +44,10 @@ ${spi name}=${custom class path}
 `${spi name}`表示`spi`的名称，`${custom class path}`表示该类的全限定名。比如：
 
 ```shell script
-custom=org.apache.shenyu.examples.http.strategy.CustomMatchStrategy
+custom=xxx.xxx.xxx.CustomMatchStrategy
 ```
 
-* 在 `org.apache.shenyu.common.enums.MatchModeEnum` 类中添加枚举类型：
-
-```java
-
-    /**
-     * And custom mode enum.
-     */
-    CUSTOM(2, "custom"),
-```
+* 将工程打包，拷贝到网关 (bootstrap-bin) 的 `lib` 或 `ext-lib` 目录。
 
 * 在`Apache ShenYu`网关管理系统 --> 基础配置 --> 字典管理， 找到字典编码为 `MATCH_MODE`，新增一条数据，注意字典名称要为: `${spi name}`，图中的示例是`custom`。
 

@@ -13,6 +13,18 @@ description: custom Metrics Monitor
 
 ## Extension
 
+* Create a new project and introduce the following dependencies:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-plugin-base</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
+
 * Create a new class `${you class}`，implements `org.apache.shenyu.metrics.spi.MetricsBootService`
 
 ```
@@ -43,6 +55,8 @@ add `${you spi name}` = `${you class path}`:
 ```
 ${you spi name} = ${you class path}
 ```
+
+* Package the project and copy it to the `lib` or `ext-lib` directory of the gateway (bootstrap-bin).
 
 * In the `Admin` service ---> BasicConfig ---> Plugin ,  Find the `Monitor` plugin,  edit config, pay attention to the `metricsName` name: `${you spi name}`.
 

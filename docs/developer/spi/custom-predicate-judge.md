@@ -13,6 +13,18 @@ description: Custom Predicate Judge
 
 ## Extension
 
+* Create a new project and introduce the following dependencies:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-plugin-base</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
+
 * Create a new class `CustomPredicateJudge`, implements `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`, add annotation `org.apache.shenyu.spi.Join`.
 
 ```java
@@ -30,7 +42,7 @@ public class CustomPredicateJudge implements PredicateJudge {
 
 ```
 
-* In `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` file, add key-value as following:
+* In the project's META-INF/services directory, create `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` file, add key-value as following:
 
 ```shell script
 ${spi name} = ${custom class path}
@@ -39,17 +51,10 @@ ${spi name} = ${custom class path}
 `${spi name}` represents the name of `spi` and `${custom class path}` represents the fully qualified name of the class. Such as:
 
 ```shell script
-custom=org.apache.shenyu.examples.http.judge.CustomPredicateJudge
+custom=xxx.xxx.xxx.CustomPredicateJudge
 ```
 
-* Add enum in `org.apache.shenyu.common.enums.OperatorEnum` class:
-
-```java
-    /**
-     * custom operator enum.
-     */
-    CUSTOM("custom", true),
-```
+* Package the project and copy it to the `lib` or `ext-lib` directory of the gateway (bootstrap-bin).
 
 * In the `Apache ShenYu` gateway management system --> BasicConfig --> Dictionary, find the dictionary code as `OPERATOR`, add a new piece of data, pay attention to the dictionary name: `${spi name}`.
 
@@ -111,19 +116,6 @@ public class SpELPredicateJudge implements PredicateJudge {
 * Update `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`:
 
 ```shell script
-Groovy=org.apache.shenyu.plugin.base.condition.judge.GroovyPredicateJudge
-SpEL=org.apache.shenyu.plugin.base.condition.judge.SpELPredicateJudge
-```
-
-* Adding enumeration types
-
-```java
-    /**
-     * SpEL enum.
-     */
-    SPEL("SpEL", true),
-    /**
-     * Groovy enum.
-     */
-    GROOVY("Groovy", true),
+Groovy=xxx.xxx.xxx.GroovyPredicateJudge
+SpEL=xxx.xxx.xxx.SpELPredicateJudge
 ```

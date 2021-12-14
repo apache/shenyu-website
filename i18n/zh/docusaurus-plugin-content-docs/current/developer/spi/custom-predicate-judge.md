@@ -13,7 +13,19 @@ description: 自定义条件策略
 
 ## 扩展
 
-* 新增一个类 `CustomPredicateJudge`，实现 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 接口，添加注解 `org.apache.shenyu.spi.Join`。
+* 新建一个工程，引入如下依赖：
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-plugin-base</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
+
+* 新增类 `CustomPredicateJudge`，实现 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 接口，添加注解 `org.apache.shenyu.spi.Join`。
 
 ```java
 /**
@@ -29,7 +41,7 @@ public class CustomPredicateJudge implements PredicateJudge {
 }
 ```
 
-* 在 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 文件中添加如下内容：
+* 在工程的META-INF/services目录创建 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 文件，并添加如下内容：
 
 ```shell script
 ${spi name}=${custom class path}
@@ -38,17 +50,10 @@ ${spi name}=${custom class path}
 `${spi name}` 表示 `spi` 的名称， `${custom class path}` 表示该类的全限定名。比如：
 
 ```shell script
-custom=org.apache.shenyu.examples.http.judge.CustomPredicateJudge
+custom=xxx.xxx.xxx.CustomPredicateJudge
 ```
 
-* 在 `org.apache.shenyu.common.enums.OperatorEnum` 类中添加枚举类型：
-
-```java
-    /**
-     * custom operator enum.
-     */
-    CUSTOM("custom", true),
-```
+* 将工程打包，拷贝到网关 (bootstrap-bin) 的 `lib` 或 `ext-lib` 目录。
 
 * 在 `Apache ShenYu` 网关管理系统 --> 基础配置 --> 字典管理， 找到字典编码为 `OPERATOR`，新增一条数据，注意字典名称要为: `${spi name}`，图中的示例是 `custom`。
 
@@ -110,19 +115,6 @@ public class SpELPredicateJudge implements PredicateJudge {
 * 更新 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`， 添加：
 
 ```shell script
-Groovy=org.apache.shenyu.plugin.base.condition.judge.GroovyPredicateJudge
-SpEL=org.apache.shenyu.plugin.base.condition.judge.SpELPredicateJudge
-```
-
-* 添加枚举类型
-
-```java
-    /**
-     * SpEL enum.
-     */
-    SPEL("SpEL", true),
-    /**
-     * Groovy enum.
-     */
-    GROOVY("Groovy", true),
+Groovy=xxx.xxx.xxx.GroovyPredicateJudge
+SpEL=xxx.xxx.xxx.SpELPredicateJudge
 ```

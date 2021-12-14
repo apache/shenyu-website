@@ -6,7 +6,6 @@ description: 自定义匹配方式
 
 本文介绍如何对 `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy` 进行自定义扩展。
 
-
 * 新建一个工程，引入如下依赖：
 
 ```xml
@@ -67,10 +66,6 @@ custom=xxx.xxx.xxx.CustomMatchStrategy
 >
 > 状态：打开或关闭。
 
-
-
 * 在添加选择器或规则时，就可以使用自定义的匹配方式：
 
 <img src="/img/shenyu/custom/use_custom_match_strategy_zh.png" width="80%" height="70%" />
-
-

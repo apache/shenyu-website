@@ -63,4 +63,3 @@ custom=xxx.xxx.xxx.CustomLoadBalancer
 * When adding selectors or rules, you can use custom MatchType:
 
 <img src="static/img/shenyu/241/use_custom_load_balancer_en.png" width="90%" height="80%" />
-

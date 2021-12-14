@@ -66,9 +66,6 @@ custom=xxx.xxx.xxx.CustomParameterData
 >
 > 状态：打开或关闭。
 
-
 * 在添加选择器或规则时，就可以使用自定义的条件参数：
 
 <img src="/img/shenyu/custom/use_custom_parameter_data_zh.png" width="80%" height="70%" />
-
-

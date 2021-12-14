@@ -69,6 +69,3 @@ custom=xxx.xxx.xxx.CustomParameterData
 * When adding selectors or rules, you can use custom parameter data:
 
 <img src="/img/shenyu/custom/use_custom_parameter_data_en.png" width="80%" height="70%" />
-
-
-

@@ -3,7 +3,6 @@ title: 自定义负载均衡策略
 description: 自定义负载均衡策略
 ---
 
-
 本文介绍如何对 `org.apache.shenyu.loadbalancer.spi.LoadBalancer` 进行自定义扩展。
 
 * 新建一个工程，引入如下依赖：
@@ -20,7 +19,6 @@ description: 自定义负载均衡策略
 
 * 新增一个类 `CustomLoadBalancer`，继承`org.apache.shenyu.loadbalancer.spi.AbstractLoadBalancer`。
 
-
 ```java
 public class CustomLoadBalancer extends AbstractLoadBalancer {
 
@@ -30,7 +28,6 @@ public class CustomLoadBalancer extends AbstractLoadBalancer {
     }
 }
 ```
-
 
 * 在工程的META-INF/services目录创建 `org.apache.shenyu.loadbalancer.spi.LoadBalancer`文件中添加如下内容：
 
@@ -61,8 +58,6 @@ custom=xxx.xxx.xxx.CustomLoadBalancer
 > 字典描述或备注信息：描述信息；
 >
 > 排序： 排序；
-
-
 
 * 在添加选择器或规则时，就可以使用自定义的匹配方式：
 

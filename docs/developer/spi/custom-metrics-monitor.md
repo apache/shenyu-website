@@ -61,9 +61,3 @@ ${you spi name} = ${you class path}
 * In the `Admin` service ---> BasicConfig ---> Plugin ,  Find the `Monitor` plugin,  edit config, pay attention to the `metricsName` name: `${you spi name}`.
 
 <img src="/img/shenyu/custom/custom-metrics-monitor-en.jpg" width="40%" height="30%" />
-
-
-
-
-
-

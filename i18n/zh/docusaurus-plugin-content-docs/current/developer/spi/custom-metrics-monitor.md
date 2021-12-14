@@ -3,7 +3,6 @@ title: 自定义指标监控
 description: 自定义指标监控
 ---
 
-
 ## 说明
 
 * 在自定义开发前，请先自定义搭建好网关环境，请参考: [自定义部署](../../deployment/deployment-custom)
@@ -59,11 +58,3 @@ ${you spi name} = ${you class path}
 
 * 在 `Admin` 后台 ---> 基础管理 ---> 插件管理 ,  找到 `Monitor` 插件，编辑插件信息，注意``metricsName要为: `${you spi name}`。
 <img src="/img/shenyu/custom/custom-metrics-monitor-zh.jpg" width="40%" height="30%" />
-
-
-
-
-
-
-
-

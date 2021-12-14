@@ -4,11 +4,16 @@ keywords: ["PredicateJudge"]
 description: 自定义条件策略
 ---
 
+## 说明
 
 * 本文介绍如何对 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 进行自定义扩展。
+* 条件谓语是选择器中连接数据和规则的桥梁，作用是筛选出符合条件的请求。
+* 目前已经存在包括 match, =, regex, contains, TimeBefore, TimeAfter, exclude 共七个条件谓语。
+* 用户可以参考 [judge](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-plugin/shenyu-plugin-base/src/main/java/org/apache/shenyu/plugin/base/condition/judge) 模块，新增自己的条件谓语，如果有好的公用插件，可以向官网提交 `pr`。
 
+## 扩展
 
-* 新增一个类 `CustomPredicateJudge`，实现 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 接口 ，添加注解`org.apache.shenyu.spi.Join`。
+* 新增一个类 `CustomPredicateJudge`，实现 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 接口，添加注解 `org.apache.shenyu.spi.Join`。
 
 ```java
 /**
@@ -22,7 +27,6 @@ public class CustomPredicateJudge implements PredicateJudge {
         // 自定义条件策略
     }
 }
-
 ```
 
 * 在 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 文件中添加如下内容：
@@ -31,12 +35,11 @@ public class CustomPredicateJudge implements PredicateJudge {
 ${spi name}=${custom class path}
 ``` 
 
-`${spi name}`表示`spi`的名称，`${custom class path}`表示该类的全限定名。比如：
+`${spi name}` 表示 `spi` 的名称， `${custom class path}` 表示该类的全限定名。比如：
 
 ```shell script
 custom=org.apache.shenyu.examples.http.judge.CustomPredicateJudge
 ```
-
 
 * 在 `org.apache.shenyu.common.enums.OperatorEnum` 类中添加枚举类型：
 
@@ -47,8 +50,7 @@ custom=org.apache.shenyu.examples.http.judge.CustomPredicateJudge
     CUSTOM("custom", true),
 ```
 
-
-* 在`Apache ShenYu`网关管理系统 --> 基础配置 --> 字典管理， 找到字典编码为 `OPERATOR`，新增一条数据，注意字典名称要为: `${spi name}`，图中的示例是`custom`。
+* 在 `Apache ShenYu` 网关管理系统 --> 基础配置 --> 字典管理， 找到字典编码为 `OPERATOR`，新增一条数据，注意字典名称要为: `${spi name}`，图中的示例是 `custom`。
 
 <img src="/img/shenyu/custom/custom_predicate_judge_zh.png" width="70%" height="60%" />
 
@@ -66,10 +68,61 @@ custom=org.apache.shenyu.examples.http.judge.CustomPredicateJudge
 >
 > 状态：打开或关闭。
 
-
-
 * 在添加选择器或规则时，就可以使用自定义的条件策略：
 
 <img src="/img/shenyu/custom/use_custom_predicate_judge_zh.png" width="80%" height="70%" />
 
+## 示例
 
+* 添加 `GroovyPredicateJudge` 和 `SpELPredicateJudge` 扩展。
+
+```java
+/**
+ * Groovy predicate judge.
+ */
+@Join
+public class GroovyPredicateJudge implements PredicateJudge {
+    
+    @Override
+    public Boolean judge(final ConditionData conditionData, final String realData) {
+        return (Boolean) Eval.me(conditionData.getParamName(), realData, conditionData.getParamValue());
+    }
+}
+```
+
+```java
+/**
+ * SpEL predicate judge.
+ */
+@Join
+public class SpELPredicateJudge implements PredicateJudge {
+    
+    private static final ExpressionParser EXPRESSION_PARSER = new SpelExpressionParser();
+    
+    @Override
+    public Boolean judge(final ConditionData conditionData, final String realData) {
+        Expression expression = EXPRESSION_PARSER.parseExpression(conditionData.getParamValue().replace('#' + conditionData.getParamName(), realData));
+        return expression.getValue(Boolean.class);
+    }
+}
+```
+
+* 更新 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`， 添加：
+
+```shell script
+Groovy=org.apache.shenyu.plugin.base.condition.judge.GroovyPredicateJudge
+SpEL=org.apache.shenyu.plugin.base.condition.judge.SpELPredicateJudge
+```
+
+* 添加枚举类型
+
+```java
+    /**
+     * SpEL enum.
+     */
+    SPEL("SpEL", true),
+    /**
+     * Groovy enum.
+     */
+    GROOVY("Groovy", true),
+```

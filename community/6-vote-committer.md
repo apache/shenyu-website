@@ -56,8 +56,10 @@ Content:
 
 Hi all PPMCs, 
 
-I am glad to receive your votes, and the voting result is,
+I am glad to receive your votes, and the voting result is [1],
 6   +1 votes, 0   +/-1 votes, 0   -1 votes
+
+[1]: https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
 
 Therefore, I will send the invitation to (nominee name not GitHub ID).
 ```

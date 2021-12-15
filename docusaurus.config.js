@@ -59,6 +59,7 @@ module.exports = {
         },
         {to: '/news', label: 'News', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/users', label: 'Users', position: 'left'},
         {
           label: 'ASF',
           position: 'left',

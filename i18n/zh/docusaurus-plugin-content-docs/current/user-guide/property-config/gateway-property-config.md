@@ -14,18 +14,34 @@ description: 网关属性配置
 shenyu:
   netty:
     tcp:
+      webServerFactoryEnabled: true
       selectCount: 1
       workerCount: 4
-      connectTimeoutMillis: 10000
-      writeBufferHighWaterMark: 65536
-      writeBufferLowWaterMark: 32768
-      writeSpinCount: 16
-      autoRead: true
-      tcpNodelay: true
-      soKeepalive: false
-      soReuseaddr: false
-      soLinger: -1
-      soBacklog: 128
+      serverSocketChannel:
+        soRcvBuf: 87380
+        soBackLog: 128
+        soReuseAddr: false
+        connectTimeoutMillis: 10000
+        writeBufferHighWaterMark: 65536
+        writeBufferLowWaterMark: 32768
+        writeSpinCount: 16
+        autoRead: true
+        allocType: "pooled"
+      socketChannel:
+        soKeepAlive: false
+        soReuseAddr: false
+        soLinger: -1
+        tcpNoDelay: true
+        soRcvBuf: 87380
+        soSndBuf: 16384
+        ipTos: 0
+        allowHalfClosure: false
+        connectTimeoutMillis: 10000
+        writeBufferHighWaterMark: 65536
+        writeBufferLowWaterMark: 32768
+        writeSpinCount: 16
+        autoRead: true
+        allocType: "pooled"
   instance:
     enabled: false
     registerType: zookeeper #etcd #consul
@@ -50,6 +66,10 @@ shenyu:
 #      nonProxyHostsPattern:
 #    ssl:
 #      useInsecureTrustManager: false
+#      keyStoreType: PKCS12
+#      keyStorePath: classpath:keystore.p12
+#      keyStorePassword: 123456
+#      keyPassword: 123456
 #      trustedX509Certificates:
 #      handshakeTimeout:
 #      closeNotifyFlushTimeout:
@@ -120,24 +140,40 @@ shenyu:
 
 ### 属性详解
 
-##### shenyu.NettyTcpConfig 配置
+##### shenyu.NettyTcpProperties 配置
 
 `ShenYu` Netty 配置
 
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-| selectCount | int |  1  |    No    | Netty 选择器数 |
-| workerCount | int | 4 | No | Netty 工作线程数 |
-| connectTimeoutMillis | int | 10000 | No | Netty 参数，连接超时时间 |
-| writeBufferHighWaterMark | int | 65536 | No | Netty 参数，通道水位线上限 |
-| writeBufferLowWaterMark | int | 32768 | No | Netty 参数，通道水位线下限 |
-| writeSpinCount | int | 16 | No | Netty参数，一个Loop写操作执行的最大次数 |
-| autoRead | boolean | true | No | Netty参数，自动读取 |
-| tcpNodelay | boolean | true | No | Socket 参数，是否启用 Nagle 算法 |
-| soKeepalive | boolean | false | No | Socket 参数，是否启用心跳保活机制 |
-| soReuseaddr | boolean | false | No | Socket 参数，是否复用地址 |
-| soLinger | int | -1 | No | Socket 参数，关闭 Socket 的延迟时间 |
-| soBacklog | int | 128 | No | Socket 参数，accept 队列的最大长度 |
+|webServerFactoryEnabled | Boolean | true | No | 是否开启自定义参数，true-开启，false-可以自行配置NettyReactiveWebServerFactory |
+| selectCount | Integer |  1  |    No    | Netty 选择器数 |
+| workerCount | Integer | 4 | No | Netty 工作线程数 |
+| **ServerSocketChannelConfig** |  |  |  |  |
+| soRcvBuf              | Integer | 87380 | No | Socket参数，TCP数据接收缓冲区大小 |
+| soBackLog            | Integer | 128 | No | Socket参数，服务端接受连接的队列长度 |
+| soReuseAddr | Boolean | false | No | Socket 参数，是否复用地址 |
+| connectTimeoutMillis | Integer | 10000 | No | Netty 参数，连接超时时间 |
+| writeBufferHighWaterMark | Integer | 65536 | No | Netty 参数，通道水位线上限 |
+| writeBufferLowWaterMark | Integer | 32768 | No | Netty 参数，通道水位线下限 |
+| writeSpinCount                | Integer |   16    |    No    | Netty参数，一个Loop写操作执行的最大次数         |
+| autoRead                      | Boolean |  true   |    No    | Netty参数，自动读取                             |
+| allocType                     | String  | pooled  |    No    | Netty参数，ByteBuf的分配器 |
+| **SocketChannelConfig** |  |  |  |  |
+| soKeepAlive | Boolean | false | No | Socket 参数，是否启用心跳保活机制 |
+| soReuseAddr | Boolean | false | No | Socket 参数，是否复用地址 |
+| soLinger | Integer | -1 | No | Socket 参数，关闭 Socket 的延迟时间 |
+| tcpNoDelay | Boolean | true | No | Socket 参数，是否启用 Nagle 算法 |
+| soRcvBuf | Integer | 87380 | No | Socket参数，TCP数据接收缓冲区大小 |
+| soSndBuf | Integer | 128 | No |  |
+| ipTos | Integer | 0 | No | IP参数，设置IP头部的Type-of-Service字段，用于描述IP包的优先级和QoS选项 |
+| allowHalfClosure | Boolean | false | No | Netty参数，一个连接的远端关闭时本地端是否关闭 |
+| connectTimeoutMillis | Integer | 10000 | No | Netty 参数，连接超时时间 |
+| writeBufferHighWaterMark | Integer | 65536 | No | Netty 参数，通道水位线上限 |
+| writeBufferLowWaterMark | Integer | 32768 | No | Netty 参数，通道水位线下限 |
+| writeSpinCount | Integer | 16 | No | Netty参数，一个Loop写操作执行的最大次数 |
+| autoRead | Boolean | true | No | Netty参数，自动读取 |
+| allocType | String | pooled | No | Netty参数，ByteBuf的分配器 |
 
 ##### shenyu.instance 配置
 
@@ -213,6 +249,10 @@ Netty HttpClient 代理的相关配置：
 | Name                     |  Type   | Default | Required | Description                                                  |
 | :----------------------- | :-----: | :-----: | :------: | :----------------------------------------------------------- |
 | useInsecureTrustManager  | Boolean |  false  |    No    | 是否信任所有下游证书，默认`false`                            |
+| keyStoreType             | String  |  PKCS12 |    No    | SSL 证书类型. |
+| keyStorePath             | String  |         |    No    | SSL 证书路径，可以放在class path下.|
+| keyStorePassword         | String  |         |    No    | SSL 证书密码. |
+| keyPassword              | String  |         |    No    | SSL 证书Key的密码. |
 | trustedX509Certificates  |  Array  |  Null   |    No    | 配置自己的信任的证书列表。                                   |
 | handshakeTimeout         |   int   |  10000  |    No    | SSL握手超时时间（毫秒），默认值为10000                       |
 | closeNotifyFlushTimeout  |   int   |  3000   |    No    | SSL close_notify 刷新超时（毫秒）默认值为 3000.              |

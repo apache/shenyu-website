@@ -388,6 +388,7 @@ public class EtcdDataDataChangedListener implements DataChangedListener {
     
 }
 ```
+
 这部分是核心。`changed`表示需更新的`SelectorData`列表，`eventType`表示事件类型。当事件类型为刷新`REFRESH`，并且`SelectorData`有改动时，会先将etcd中该plugin下的selector节点都先删除。注意这里的条件`SelectorData`有改动是必须的，否则会出现没有改动时进行刷新，将所有selector节点都删除的bug。
 获取到selector对应路径后，会对节点进行删除、创建或更新。
 

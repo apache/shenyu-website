@@ -30,7 +30,7 @@ The execution logic of plugin, selector and rule is as follows. When the traffic
 
 Traffic filtering is the soul of the selector and the rule, corresponding to the matching conditions in the selector and the rule. According to different traffic filtering rules, we can deal with various complex scenes. Traffic filtering can fetch data from Http requests such as `Header`, `URI`, `Query`, `Cookie`, etc.
 
-You can then use `Match`, `=`, `SpEL`, `Regex`, `Groovy`, etc, to Match the desired data. Multi-group matching Adds matching policies that can use And/Or.
+You can then use `Match`, `=`, `SpEL`, `Regex`, `Groovy`, `Exclude`, etc, to Match the desired data. Multi-group matching Adds matching policies that can use And/Or.
 
 
 please refre to [Selector And Rule Config](../user-guide/admin-usage/selector-and-rule) for details.

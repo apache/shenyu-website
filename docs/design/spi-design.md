@@ -44,6 +44,6 @@ Currently, `URI`,`RequestMethod`, `Query`, `Post`, `IP`, `Host`, `Cookie`, and `
 
 ### Predicate Judge
 
-Which conditional policy to use when adding selectors and rules currently supports `Match`, `Contains`,`Equals`, `Groovy`, `Regex`, `SpEL`, `TimerAfter` and `TimerBefore`. The extension interface is `PredicateJudge`.
+Which conditional policy to use when adding selectors and rules currently supports `Match`, `Contains`,`Equals`, `Groovy`, `Regex`, `SpEL`, `TimerAfter`, `TimerBefore` and `Exclude`. The extension interface is `PredicateJudge`.
 
 

@@ -30,7 +30,7 @@ description:  介绍ShenYu网关如何对流量进行控制
 
 流量筛选，是选择器和规则的灵魂，对应为选择器与规则里面的匹配条件(conditions)，根据不同的流量筛选规则，我们可以处理各种复杂的场景。流量筛选可以从`Header`, `URI`,  `Query`, `Cookie` 等等Http请求获取数据，
 
-然后可以采用 `Match`，`=`，`SpEL`，`Regex`，`Groovy`等匹配方式，匹配出你所预想的数据。多组匹配添加可以使用And/Or的匹配策略。
+然后可以采用 `Match`，`=`，`SpEL`，`Regex`，`Groovy`，`Exclude`等匹配方式，匹配出你所预想的数据。多组匹配添加可以使用And/Or的匹配策略。
 
 
 具体的介绍与使用请看: [选择器与规则管理](../user-guide/admin-usage/selector-and-rule) 。

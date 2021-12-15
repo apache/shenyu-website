@@ -288,6 +288,12 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timeafter-zh.png)
 
+* `exclude`
+
+  `exclude` 的方式是 `match` 方式的反选，`match` 有的功能也都有，但是是匹配过滤。假如你的选择器条件设置如下，那么请求 `/http/order/findById` 就会过滤这个。
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-exclude-zh.png)
+
 如果想更深入理解条件匹配策略，请阅读相关源码，包名是`org.apache.shenyu.plugin.base.condition.judge`：
 
 |匹配策略                      | 源码类  | 
@@ -299,6 +305,7 @@ MyHeader: custom-header
 |`SpEL`                 |`SpELPredicateJudge` |  
 |`Groovy`                  |`GroovyPredicateJudge` |  
 |`TimeBefore`                    |`TimerBeforePredicateJudge` |  
-|`TimeAfter`                    |`TimerAfterPredicateJudge` |  
+|`TimeAfter`                    |`TimerAfterPredicateJudge` |
+|`exclude`                    |`ExcludePredicateJudge` |
 
 文中的示例是为了说明选择器和规则的使用，具体条件的设置需要根据实际情况选择。

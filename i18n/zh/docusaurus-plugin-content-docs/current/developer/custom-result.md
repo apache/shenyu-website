@@ -41,23 +41,50 @@ public class DefaultShenyuEntity implements Serializable {
 
 ## 扩展
 
-* 新增一个类 `CustomShenyuResult` 继承 `org.apache.shenyu.plugin.api.result.ShenyuResult`
+* 新增一个类 `CustomShenyuResult` 实现 `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
- /**
+/**
  * The interface shenyu result.
  */
-public abstract class ShenyuResult<T> extends ConcurrentHashMap<String, Object> {
+public interface ShenyuResult<T> {
 
     /**
-     * Success t.
+     * The response result.
      *
-     * @param code    the code
-     * @param message the message
+     * @param exchange the exchange
      * @param object  the object
-     * @return the t
+     * @return the result object
      */
-    public abstract T success(int code, String message, Object object);
+    default Object result(ServerWebExchange exchange, Object object) {
+        return object;
+    }
+
+    /**
+     * format the object, default is json format.
+     *
+     * @param exchange the exchange
+     * @param object the object
+     * @return format object
+     */
+    default Object format(ServerWebExchange exchange, Object object) {
+        // basic data
+        if (ObjectTypeUtils.isBasicType(object)) {
+            return object;
+        }
+        // error result or rpc object result.
+        return JsonUtils.toJson(object);
+    }
+
+    /**
+     * the response context type, default is application/json.
+     *
+     * @param exchange the exchange
+     * @return the context type
+     */
+    default MediaType contentType(ServerWebExchange exchange) {
+        return MediaType.APPLICATION_JSON;
+    }
 
     /**
      * Error t.
@@ -67,35 +94,12 @@ public abstract class ShenyuResult<T> extends ConcurrentHashMap<String, Object> 
      * @param object  the object
      * @return the t
      */
-    public abstract T error(int code, String message, Object object);
-
-    /**
-     * put all data and skip the null data.
-     *
-     * @param m the putting data
-     */
-    @Override
-    public void putAll(final Map<? extends String, ?> m) {
-        Optional.ofNullable(m).ifPresent(map -> {
-            final Object[] value = {new AtomicReference<>()};
-            map.keySet().stream().filter(Objects::nonNull).forEach(key -> {
-                if (Objects.nonNull(value[0] = m.get(key))) {
-                    put(key, value[0]);
-                }
-            });
-        });
-    }
+    T error(int code, String message, Object object);
 }
 ```
 
-* 当`Format`使用`xml`时，可以用 `@JacksonXmlRootElement`自定义xml root
-
-```java
-@JacksonXmlRootElement(localName = "customroot")
-public class CustomShenyuResult extends ShenyuResult<Object> {
-    ...
-}
-```
+> `format`方法将先于`result`方法格式化数据，可以根据情况执行格式化数据。默认为基本类型返回自身，其他类型转换为json。
+> 如果是基本类型时，将丢弃`contentType`结果，直接使用`text/plain`。
 
 * 其中泛型 `T` 为自定义的数据格式，返回它就好。
 
@@ -103,7 +107,7 @@ public class CustomShenyuResult extends ShenyuResult<Object> {
 
 ```java
 @Bean
-public ShenyuResult customShenyuResult() {
+public ShenyuResult<?> customShenyuResult() {
     return new CustomShenyuResult();
 }
 ```

@@ -53,36 +53,37 @@ public interface ShenyuResult<T> {
      * The response result.
      *
      * @param exchange the exchange
-     * @param object  the object
+     * @param formatted the formatted object
      * @return the result object
      */
-    default Object result(ServerWebExchange exchange, Object object) {
-        return object;
+    default Object result(ServerWebExchange exchange, Object formatted) {
+        return formatted;
     }
 
     /**
-     * format the object, default is json format.
+     * format the origin, default is json format.
      *
      * @param exchange the exchange
-     * @param object the object
-     * @return format object
+     * @param origin the origin
+     * @return format origin
      */
-    default Object format(ServerWebExchange exchange, Object object) {
+    default Object format(ServerWebExchange exchange, Object origin) {
         // basic data
-        if (ObjectTypeUtils.isBasicType(object)) {
-            return object;
+        if (ObjectTypeUtils.isBasicType(origin)) {
+            return origin;
         }
-        // error result or rpc object result.
-        return JsonUtils.toJson(object);
+        // error result or rpc origin result.
+        return JsonUtils.toJson(origin);
     }
 
     /**
      * the response context type, default is application/json.
      *
      * @param exchange the exchange
+     * @param formatted the formatted data that is origin data or byte[] convert string
      * @return the context type
      */
-    default MediaType contentType(ServerWebExchange exchange) {
+    default MediaType contentType(ServerWebExchange exchange, Object formatted) {
         return MediaType.APPLICATION_JSON;
     }
 
@@ -98,8 +99,7 @@ public interface ShenyuResult<T> {
 }
 ```
 
-> The `format` method will format the data before the `result` method, and the formatting can be performed as needed. By default, basic types return themselves, and other types are converted to JSON.
-> For basic types, `contentType` results are discarded and `text/plain` is used.
+> Processing sequence: `format`->`contextType`->`result`. The `format` method performs data formatting. If the data is a basic type and returns itself, other types are converted to `JSON`, and the parameter `origin` is the original data. Formatting can be performed according to the situation. `contextType`, if it is a basic type, use `text/plain`, the default is `application/json`, the parameter `formatted` is the data processed by the `format` method, and can be combined with the return result of `format` for data type Define processing. The parameter `formatted` of `result` is the data processed by the `format` method, which returns to itself by default, and can be combined with the return result of `format` for custom processing of the data type.
 
 * `T` is a generic parameter for your response data.
 * Register defined class as a `Spring Bean`.

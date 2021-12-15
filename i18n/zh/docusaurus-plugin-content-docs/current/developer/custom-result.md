@@ -53,36 +53,37 @@ public interface ShenyuResult<T> {
      * The response result.
      *
      * @param exchange the exchange
-     * @param object  the object
+     * @param formatted the formatted object
      * @return the result object
      */
-    default Object result(ServerWebExchange exchange, Object object) {
-        return object;
+    default Object result(ServerWebExchange exchange, Object formatted) {
+        return formatted;
     }
 
     /**
-     * format the object, default is json format.
+     * format the origin, default is json format.
      *
      * @param exchange the exchange
-     * @param object the object
-     * @return format object
+     * @param origin the origin
+     * @return format origin
      */
-    default Object format(ServerWebExchange exchange, Object object) {
+    default Object format(ServerWebExchange exchange, Object origin) {
         // basic data
-        if (ObjectTypeUtils.isBasicType(object)) {
-            return object;
+        if (ObjectTypeUtils.isBasicType(origin)) {
+            return origin;
         }
-        // error result or rpc object result.
-        return JsonUtils.toJson(object);
+        // error result or rpc origin result.
+        return JsonUtils.toJson(origin);
     }
 
     /**
      * the response context type, default is application/json.
      *
      * @param exchange the exchange
+     * @param formatted the formatted data that is origin data or byte[] convert string
      * @return the context type
      */
-    default MediaType contentType(ServerWebExchange exchange) {
+    default MediaType contentType(ServerWebExchange exchange, Object formatted) {
         return MediaType.APPLICATION_JSON;
     }
 
@@ -98,8 +99,7 @@ public interface ShenyuResult<T> {
 }
 ```
 
-> `format`方法将先于`result`方法格式化数据，可以根据情况执行格式化数据。默认为基本类型返回自身，其他类型转换为json。
-> 如果是基本类型时，将丢弃`contentType`结果，直接使用`text/plain`。
+> 处理顺序：`format`->`contextType`->`result`。`format`方法进行数据的格式化，若数据为基本类型返回自身，其他类型转换为`JSON`，参数`origin`为原始数据，可根据情况执行格式化处理。`contextType`，若是基本类型，使用`text/plain`，默认为`application/json`，参数`formatted`为`format`方法处理之后的数据，可结合`format`的返回结果进行数据类型的自定义处理。`result`的参数`formatted`为`format`方法处理之后的数据，默认返回自身，可结合`format`的返回结果进行数据类型的自定义处理。
 
 * 其中泛型 `T` 为自定义的数据格式，返回它就好。
 

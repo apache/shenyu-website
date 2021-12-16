@@ -63,7 +63,7 @@ function Home() {
             <div className="col col--5 ">
               <img alt={translate({ message: 'Docusaurus with Keytar' })}
                 className={styles.heroLogo}
-                src={useBaseUrl('/img/shenyu-framework.png')}
+                src={useBaseUrl('/img/architecture/shenyu-framework.png')}
               />
             </div>
           </div>

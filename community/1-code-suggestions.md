@@ -111,7 +111,7 @@ try {
 
 ## Several methods to judge and handle Null    
 
-* Judge self if null or not, and also need to transform self, below are some representative examples:  
+* Judge self if Null or not, and also need to transform self, below are some representative examples:  
     current : ```result.setUrl(null == dataSourceName ? databaseEnvironment.getURL() : databaseEnvironment.getURL(dataSourceName));```  
     recommendation : ```Optional.ofNullable(dataSourceName).map(databaseEnvironment::getURL).orElse(databaseEnvironment.getURL());```    
     current : ```return null == loadBalanceStrategyConfiguration ? serviceLoader.newService() : serviceLoader.newService(loadBalanceStrategyConfiguration.getType(), loadBalanceStrategyConfiguration.getProperties());```    
@@ -121,12 +121,12 @@ try {
     current : ```return null == shardingStrategyConfiguration ? new NoneShardingStrategy() : ShardingStrategyFactory.newInstance(shardingStrategyConfiguration);```    
     recommendation : ```return Optional.ofNullable(shardingStrategyConfiguration).map(ShardingStrategyFactory::newInstance).orElse(new NoneShardingStrategy());```  
 
-* Directly compare current object with null, below are some representative examples:    
+* Directly compare current object with Null, below are some representative examples:    
   current : ```public void xxx（Object o）{if(null == o){retrun;}}```  
   current : ```public boolean wasNull() {return null == currentRow;}```  
   recommendation ：Use JDK8's Objects.isNull method.    
 
-* Judge self if null or not, and also need to return self related ternary operator, below are some representative examples:      
+* Judge self if Null or not, and also need to return self related ternary operator, below are some representative examples:      
   current : ```this.loadBalanceAlgorithm = null == loadBalanceAlgorithm ? new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService() : loadBalanceAlgorithm;```      
   recommendation : ```Optional.ofNullable(loadBalanceAlgorithm).orElse(new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService());```  
   current : ```currentDataSourceName = null == currentDataSourceName ? shardingRule.getShardingDataSourceNames().getRandomDataSourceName() : currentDataSourceName;```      
@@ -152,7 +152,7 @@ try {
   current : ```return null == getSqlStatement().getTable() ? Collections.emptyList() : Collections.singletonList(getSqlStatement().getTable());```    
   recommendation : ```return Optional.ofNullable(getSqlStatement().getTable()).map(Collections::singletonList).orElse(Collections.emptyList());```  
 
-* Judge self if null or not, and also need to return self independent ternary operator, below are some representative examples:    
+* Judge self if Null or not, and also need to return self independent ternary operator, below are some representative examples:    
   current : ```DataSource dataSource = null == shardingRule ? dataSourceMap.values().iterator().next() : dataSourceMap.get(getCurrentDataSourceName());```  
   current : ```return null == encryptRuleConfig ? new EncryptRule() : new EncryptRule(ruleConfiguration.getEncryptRuleConfig());```    
   recommendation : No modification.  
@@ -168,7 +168,7 @@ try {
   
   recommendation : Add a collection tool class to make unified judgment.    
                   
-* Judge Map's value is null or not, below are some representative examples:  
+* Judge Map's value is Null or not, below are some representative examples:  
   current :  
 
   ```
@@ -189,7 +189,7 @@ try {
   }
   ```
 
-* Judge is null or not, if yes throw exception, else execute next step, below are some representative examples:    
+* Judge is Null or not, if yes throw exception, else execute next step, below are some representative examples:    
   current :
 
   ```
@@ -212,7 +212,7 @@ try {
   }
   ```
 
-* Judge is null or not, and return Optional wrapped object, below are some representative examples:    
+* Judge is Null or not, and return Optional wrapped object, below are some representative examples:    
   current : ```return null == alias ? Optional.empty() : Optional.ofNullable(alias.getIdentifier().getValue());```    
   recommendation : ```return Optional.ofNullable(alias).map(e -> e.getIdentifier().getValue());```  
   

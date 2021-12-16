@@ -109,9 +109,9 @@ try {
 
 * 请尽可能的使用 `try with resource` 语句来关闭资源.
 
-## 判断和处理 null 的几种方式
+## 判断和处理 Null 的几种方式
 
-* 判断自身是否为 null，然后需要对自身转换的，以下是几个代表实例。    
+* 判断自身是否为 Null，然后需要对自身转换的，以下是几个代表实例。    
     目前 ： ```result.setUrl(null == dataSourceName ? databaseEnvironment.getURL() : databaseEnvironment.getURL(dataSourceName));```  
     建议 ： ```Optional.ofNullable(dataSourceName).map(databaseEnvironment::getURL).orElse(databaseEnvironment.getURL());```  
     目前 ： ```return null == loadBalanceStrategyConfiguration ? serviceLoader.newService() : serviceLoader.newService(loadBalanceStrategyConfiguration.getType(), loadBalanceStrategyConfiguration.getProperties());```    
@@ -121,12 +121,12 @@ try {
     目前 ： ```return null == shardingStrategyConfiguration ? new NoneShardingStrategy() : ShardingStrategyFactory.newInstance(shardingStrategyConfiguration);```    
     建议 ： ```return Optional.ofNullable(shardingStrategyConfiguration).map(ShardingStrategyFactory::newInstance).orElse(new NoneShardingStrategy());```  
 
-* 当前对象直接与 null 进行比较，以下是几个代表实例。  
+* 当前对象直接与 Null 进行比较，以下是几个代表实例。  
   目前 ：```public void xxx（Object o）{if(null == o){retrun;}}```  
   目前 ：```public boolean wasNull() {return null == currentRow;}```  
   建议 ：使用 JDK8 提供的 Objects.isNull 方法。  
 
-* 判断本身是否是 null，然后返回自身，和其他的三元运算符，以下是代表实例。  
+* 判断本身是否是 Null，然后返回自身，和其他的三元运算符，以下是代表实例。  
   目前 ： ```this.loadBalanceAlgorithm = null == loadBalanceAlgorithm ? new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService() : loadBalanceAlgorithm;```      
   建议 ： ```Optional.ofNullable(loadBalanceAlgorithm).orElse(new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService());```  
   目前 ： ```currentDataSourceName = null == currentDataSourceName ? shardingRule.getShardingDataSourceNames().getRandomDataSourceName() : currentDataSourceName;```      
@@ -152,7 +152,7 @@ try {
   目前 ： ```return null == getSqlStatement().getTable() ? Collections.emptyList() : Collections.singletonList(getSqlStatement().getTable());```    
   建议 ： ```return Optional.ofNullable(getSqlStatement().getTable()).map(Collections::singletonList).orElse(Collections.emptyList());```  
 
-* 判断本身是 null，然后返回与自身无关的三元运算符,以下是代表实例。  
+* 判断本身是 Null，然后返回与自身无关的三元运算符,以下是代表实例。  
   目前 ： ```DataSource dataSource = null == shardingRule ? dataSourceMap.values().iterator().next() : dataSourceMap.get(getCurrentDataSourceName());```  
   目前 ： ```return null == encryptRuleConfig ? new EncryptRule() : new EncryptRule(ruleConfiguration.getEncryptRuleConfig());```  
   建议 ：不做修改  
@@ -168,7 +168,7 @@ try {
   
   建议 ：新增一个集合工具类，来统一判断。  
 
-* 获取 Map 的 value 值，然后判断是否为 null，以下是几个代表实例。  
+* 获取 Map 的 value 值，然后判断是否为 Null，以下是几个代表实例。  
   目前 ：
 
   ```
@@ -189,7 +189,7 @@ try {
   }
   ```
 
-* 判断是否为 null，如果为 null 抛出异常，否则进行下一步操作 ，以下是几个代表实例。  
+* 判断是否为 Null，如果为 Null 抛出异常，否则进行下一步操作 ，以下是几个代表实例。  
   目前 ：
 
   ```
@@ -212,7 +212,7 @@ try {
   }
   ```
 
-* 判断自身对象是否为 null，但是返回 Optional 包装的，以下是几个代表实例。  
+* 判断自身对象是否为 Null，但是返回 Optional 包装的，以下是几个代表实例。  
   目前 ： ```return null == alias ? Optional.empty() : Optional.ofNullable(alias.getIdentifier().getValue());```    
   建议 ： ```return Optional.ofNullable(alias).map(e -> e.getIdentifier().getValue());```  
   

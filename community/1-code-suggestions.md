@@ -108,3 +108,111 @@ try {
 ## Resource
 
 * Please use `try with resource` to close resource.
+
+## Several methods to judge and handle Null    
+
+* Judge self if null or not, and also need to transform self, below are some representative examples:  
+    current : ```result.setUrl(null == dataSourceName ? databaseEnvironment.getURL() : databaseEnvironment.getURL(dataSourceName));```  
+    recommendation : ```Optional.ofNullable(dataSourceName).map(databaseEnvironment::getURL).orElse(databaseEnvironment.getURL());```    
+    current : ```return null == loadBalanceStrategyConfiguration ? serviceLoader.newService() : serviceLoader.newService(loadBalanceStrategyConfiguration.getType(), loadBalanceStrategyConfiguration.getProperties());```    
+    recommendation : ```return Optional.ofNullable(loadBalanceStrategyConfiguration).map(e -> serviceLoader.newService(e.getType(),e.getProperties())).orElse(serviceLoader.newService());```  
+    current : ```return null == shardingRuleConfig.getDefaultKeyGeneratorConfig() ? null : shardingRuleConfig.getDefaultKeyGeneratorConfig().getColumn();```  
+    recommendation : ```return Optional.ofNullable(shardingRuleConfig.getDefaultKeyGeneratorConfig()).map(KeyGeneratorConfiguration::getColumn).orElse(null);```  
+    current : ```return null == shardingStrategyConfiguration ? new NoneShardingStrategy() : ShardingStrategyFactory.newInstance(shardingStrategyConfiguration);```    
+    recommendation : ```return Optional.ofNullable(shardingStrategyConfiguration).map(ShardingStrategyFactory::newInstance).orElse(new NoneShardingStrategy());```  
+
+* Directly compare current object with null, below are some representative examples:    
+  current : ```public void xxx（Object o）{if(null == o){retrun;}}```  
+  current : ```public boolean wasNull() {return null == currentRow;}```  
+  recommendation ：Use JDK8's Objects.isNull method.    
+
+* Judge self if null or not, and also need to return self related ternary operator, below are some representative examples:      
+  current : ```this.loadBalanceAlgorithm = null == loadBalanceAlgorithm ? new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService() : loadBalanceAlgorithm;```      
+  recommendation : ```Optional.ofNullable(loadBalanceAlgorithm).orElse(new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService());```  
+  current : ```currentDataSourceName = null == currentDataSourceName ? shardingRule.getShardingDataSourceNames().getRandomDataSourceName() : currentDataSourceName;```      
+  recommendation : ```currentDataSourceName  = Optional.ofNullable(currentDataSourceName).orElse(shardingRule.getShardingDataSourceNames().getRandomDataSourceName());```  
+  current : ```return null == tableRule.getDatabaseShardingStrategy() ? defaultDatabaseShardingStrategy : tableRule.getDatabaseShardingStrategy();```  
+  recommendation : ```return Optional.ofNullable(tableRule.getDatabaseShardingStrategy()).orElse(defaultDatabaseShardingStrategy);```  
+  current :
+
+  ```
+  BigDecimal count;
+  BigDecimal sum;
+  if (null == count) {
+    count = new BigDecimal("0");
+  }
+  if (null == sum) {
+    sum = new BigDecimal("0");
+  }
+  ```
+  
+  recommendation : ```count = Optional.ofNullable(count).orElse(new BigDecimal("0")); sum = Optional.ofNullable(sum).orElse(new BigDecimal("0"));```    
+  current : ```return null == results.get(0) ? 0 : results.get(0);```  
+  recommendation : ```return Optional.ofNullable(results.get(0)).orElse(0);```  
+  current : ```return null == getSqlStatement().getTable() ? Collections.emptyList() : Collections.singletonList(getSqlStatement().getTable());```    
+  recommendation : ```return Optional.ofNullable(getSqlStatement().getTable()).map(Collections::singletonList).orElse(Collections.emptyList());```  
+
+* Judge self if null or not, and also need to return self independent ternary operator, below are some representative examples:    
+  current : ```DataSource dataSource = null == shardingRule ? dataSourceMap.values().iterator().next() : dataSourceMap.get(getCurrentDataSourceName());```  
+  current : ```return null == encryptRuleConfig ? new EncryptRule() : new EncryptRule(ruleConfiguration.getEncryptRuleConfig());```    
+  recommendation : No modification.  
+                  
+* Judge collection is null or not, below are some representative examples:      
+  current :  
+
+  ```
+  private boolean isEmptyDataNodes(final List<String> dataNodes) {
+      return null == dataNodes || dataNodes.isEmpty();
+  }
+  ```  
+  
+  recommendation : Add a collection tool class to make unified judgment.    
+                  
+* Judge Map's value is null or not, below are some representative examples:  
+  current :  
+
+  ```
+  public Collection<String> getActualTableNames(final String targetDataSource) {
+     Collection<String> result = datasourceToTablesMap.get(targetDataSource);
+     if (null == result) {
+        result = Collections.emptySet();
+     }
+     return result;
+  }
+  ```
+  
+  recommendation : Use Map.getOrDefault() method.   
+
+  ```
+  public Collection<String> getActualTableNames(final String targetDataSource) {
+    return datasourceToTablesMap.getOrDefault(targetDataSource, Collections.emptySet());
+  }
+  ```
+
+* Judge is null or not, if yes throw exception, else execute next step, below are some representative examples:    
+  current :
+
+  ```
+  private Collection<String> doSharding(final Collection<String> availableTargetNames, final RangeRouteValue<?> shardingValue) {
+    if (null == rangeShardingAlgorithm) {
+       throw new UnsupportedOperationException("Cannot find range sharding strategy in sharding rule.");
+    }
+    return rangeShardingAlgorithm.doSharding(availableTargetNames,
+        new RangeShardingValue(shardingValue.getTableName(), shardingValue.getColumnName(), shardingValue.getValueRange()));
+  }
+  ```
+  
+  recommendation :
+
+  ```
+  private Collection<String> doSharding(final Collection<String> availableTargetNames, final RangeRouteValue<?> shardingValue) {
+       return Optional.ofNullable(rangeShardingAlgorithm).map(e -> e.doSharding(availableTargetNames,
+              new RangeShardingValue(shardingValue.getTableName(), shardingValue.getColumnName(), shardingValue.getValueRange())))
+             .orElseThrow(()-> new UnsupportedOperationException("Cannot find range sharding strategy in sharding rule."));
+  }
+  ```
+
+* Judge is null or not, and return Optional wrapped object, below are some representative examples:    
+  current : ```return null == alias ? Optional.empty() : Optional.ofNullable(alias.getIdentifier().getValue());```    
+  recommendation : ```return Optional.ofNullable(alias).map(e -> e.getIdentifier().getValue());```  
+  

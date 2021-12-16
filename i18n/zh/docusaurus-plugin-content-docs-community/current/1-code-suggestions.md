@@ -108,3 +108,111 @@ try {
 ## Resource
 
 * 请尽可能的使用 `try with resource` 语句来关闭资源.
+
+## 判断和处理 null 的几种方式
+
+* 判断自身是否为 null，然后需要对自身转换的，以下是几个代表实例。    
+    目前 ： ```result.setUrl(null == dataSourceName ? databaseEnvironment.getURL() : databaseEnvironment.getURL(dataSourceName));```  
+    建议 ： ```Optional.ofNullable(dataSourceName).map(databaseEnvironment::getURL).orElse(databaseEnvironment.getURL());```  
+    目前 ： ```return null == loadBalanceStrategyConfiguration ? serviceLoader.newService() : serviceLoader.newService(loadBalanceStrategyConfiguration.getType(), loadBalanceStrategyConfiguration.getProperties());```    
+    建议 ： ```return Optional.ofNullable(loadBalanceStrategyConfiguration).map(e -> serviceLoader.newService(e.getType(),e.getProperties())).orElse(serviceLoader.newService());```  
+    目前 ： ```return null == shardingRuleConfig.getDefaultKeyGeneratorConfig() ? null : shardingRuleConfig.getDefaultKeyGeneratorConfig().getColumn();```  
+    建议 ： ```return Optional.ofNullable(shardingRuleConfig.getDefaultKeyGeneratorConfig()).map(KeyGeneratorConfiguration::getColumn).orElse(null);```  
+    目前 ： ```return null == shardingStrategyConfiguration ? new NoneShardingStrategy() : ShardingStrategyFactory.newInstance(shardingStrategyConfiguration);```    
+    建议 ： ```return Optional.ofNullable(shardingStrategyConfiguration).map(ShardingStrategyFactory::newInstance).orElse(new NoneShardingStrategy());```  
+
+* 当前对象直接与 null 进行比较，以下是几个代表实例。  
+  目前 ：```public void xxx（Object o）{if(null == o){retrun;}}```  
+  目前 ：```public boolean wasNull() {return null == currentRow;}```  
+  建议 ：使用 JDK8 提供的 Objects.isNull 方法。  
+
+* 判断本身是否是 null，然后返回自身，和其他的三元运算符，以下是代表实例。  
+  目前 ： ```this.loadBalanceAlgorithm = null == loadBalanceAlgorithm ? new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService() : loadBalanceAlgorithm;```      
+  建议 ： ```Optional.ofNullable(loadBalanceAlgorithm).orElse(new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService());```  
+  目前 ： ```currentDataSourceName = null == currentDataSourceName ? shardingRule.getShardingDataSourceNames().getRandomDataSourceName() : currentDataSourceName;```      
+  建议 ： ```currentDataSourceName  = Optional.ofNullable(currentDataSourceName).orElse(shardingRule.getShardingDataSourceNames().getRandomDataSourceName());```  
+  目前 ： ```return null == tableRule.getDatabaseShardingStrategy() ? defaultDatabaseShardingStrategy : tableRule.getDatabaseShardingStrategy();```  
+  建议 ： ```return Optional.ofNullable(tableRule.getDatabaseShardingStrategy()).orElse(defaultDatabaseShardingStrategy);```  
+  目前 ： 
+
+  ```
+  BigDecimal count;
+  BigDecimal sum;
+  if (null == count) {
+    count = new BigDecimal("0");
+  }
+  if (null == sum) {
+    sum = new BigDecimal("0");
+  }
+  ```
+  
+  建议 ： ```count = Optional.ofNullable(count).orElse(new BigDecimal("0")); sum = Optional.ofNullable(sum).orElse(new BigDecimal("0"));```    
+  目前 ： ```return null == results.get(0) ? 0 : results.get(0);```  
+  建议 ： ```return Optional.ofNullable(results.get(0)).orElse(0);```  
+  目前 ： ```return null == getSqlStatement().getTable() ? Collections.emptyList() : Collections.singletonList(getSqlStatement().getTable());```    
+  建议 ： ```return Optional.ofNullable(getSqlStatement().getTable()).map(Collections::singletonList).orElse(Collections.emptyList());```  
+
+* 判断本身是 null，然后返回与自身无关的三元运算符,以下是代表实例。  
+  目前 ： ```DataSource dataSource = null == shardingRule ? dataSourceMap.values().iterator().next() : dataSourceMap.get(getCurrentDataSourceName());```  
+  目前 ： ```return null == encryptRuleConfig ? new EncryptRule() : new EncryptRule(ruleConfiguration.getEncryptRuleConfig());```  
+  建议 ：不做修改  
+
+* 判断集合是否为非空，以下是几个代表实例。  
+  目前 ：  
+
+  ```
+  private boolean isEmptyDataNodes(final List<String> dataNodes) {
+      return null == dataNodes || dataNodes.isEmpty();
+  }
+  ```
+  
+  建议 ：新增一个集合工具类，来统一判断。  
+
+* 获取 Map 的 value 值，然后判断是否为 null，以下是几个代表实例。  
+  目前 ：
+
+  ```
+  public Collection<String> getActualTableNames(final String targetDataSource) {
+     Collection<String> result = datasourceToTablesMap.get(targetDataSource);
+     if (null == result) {
+        result = Collections.emptySet();
+     }
+     return result;
+  }
+  ```
+  
+  建议 ： 使用Map.getOrDefault()方法  
+
+  ```
+  public Collection<String> getActualTableNames(final String targetDataSource) {
+    return datasourceToTablesMap.getOrDefault(targetDataSource, Collections.emptySet());
+  }
+  ```
+
+* 判断是否为 null，如果为 null 抛出异常，否则进行下一步操作 ，以下是几个代表实例。  
+  目前 ：
+
+  ```
+  private Collection<String> doSharding(final Collection<String> availableTargetNames, final RangeRouteValue<?> shardingValue) {
+    if (null == rangeShardingAlgorithm) {
+       throw new UnsupportedOperationException("Cannot find range sharding strategy in sharding rule.");
+    }
+    return rangeShardingAlgorithm.doSharding(availableTargetNames,
+        new RangeShardingValue(shardingValue.getTableName(), shardingValue.getColumnName(), shardingValue.getValueRange()));
+  }
+  ```
+  
+  建议 ：
+
+  ```
+  private Collection<String> doSharding(final Collection<String> availableTargetNames, final RangeRouteValue<?> shardingValue) {
+       return Optional.ofNullable(rangeShardingAlgorithm).map(e -> e.doSharding(availableTargetNames,
+              new RangeShardingValue(shardingValue.getTableName(), shardingValue.getColumnName(), shardingValue.getValueRange())))
+             .orElseThrow(()-> new UnsupportedOperationException("Cannot find range sharding strategy in sharding rule."));
+  }
+  ```
+
+* 判断自身对象是否为 null，但是返回 Optional 包装的，以下是几个代表实例。  
+  目前 ： ```return null == alias ? Optional.empty() : Optional.ofNullable(alias.getIdentifier().getValue());```    
+  建议 ： ```return Optional.ofNullable(alias).map(e -> e.getIdentifier().getValue());```  
+  

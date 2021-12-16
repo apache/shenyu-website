@@ -471,7 +471,7 @@ Title:
 Body:
 
 ```
-We’ve received 7 +1 votes:
+We’ve received 7 +1 votes[1]:
 
 +1, xxx (mentor)
 +1, xxx (mentor)
@@ -480,6 +480,8 @@ We’ve received 7 +1 votes:
 +1, xxx (ppmc)
 +1, xxx (ppmc)
 +1, xxx (ppmc)
+
+[1]: https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
 
 Thank you everyone for taking the time to review the release and help us. 
 ```
@@ -652,18 +654,7 @@ cd ~/shenyu/shenyu-dist/
 mvn clean package -Prelease,docker
 ```
 
-4.3 Tag the local Docker Image
-
-Check the image ID through `docker images`, for example: e9ea51023687 and e9ea51023688
-
-```shell
-docker tag e9ea51023687 apache/shenyu-bootstrap:latest
-docker tag e9ea51023687 apache/shenyu-bootstrap:${RELEASE.VERSION}
-docker tag e9ea51023688 apache/shenyu-admin:latest
-docker tag e9ea51023688 apache/shenyu-admin:${RELEASE.VERSION}
-```
-
-4.4 Publish Docker Image
+4.3 Publish Docker Image
 
 ```shell
 docker login
@@ -673,7 +664,7 @@ docker push apache/shenyu-admin:latest
 docker push apache/shenyu-admin:${RELEASE_VERSION}
 ```
 
-4.5 Confirm the successful release
+4.4 Confirm the successful release
 
 Login Docker Hub to check whether there are published images in [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) and [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 
 

@@ -42,16 +42,14 @@ shenyu:
 
 ```yaml
 shenyu:
-  register:
+  client:
     registerType: http
     serverLists: http://localhost:9095
-  client:
-    http:
-        props:
-          contextPath: /http
-          appName: http
-          port: 8188  
-          isFull: false
+    props:
+      contextPath: /http
+      appName: http
+      port: 8188  
+      isFull: false
 # registerType : 服务注册类型，填写 http
 # serverList: 为http注册类型时，填写Shenyu-Admin项目的地址，注意加上http://，多个地址用英文逗号分隔
 # port: 你本项目的启动端口，目前springmvc/tars/grpc需要进行填写
@@ -116,16 +114,14 @@ shenyu:
 
 ```yaml
 shenyu:
-  register:
+  client:
     registerType: zookeeper
     serverLists: localhost:2181
-  client:
-    http:
-        props:
-          contextPath: /http
-          appName: http
-          port: 8189  
-          isFull: false
+    props:
+      contextPath: /http
+      appName: http
+      port: 8189  
+      isFull: false
 # registerType : 服务注册类型，填写 zookeeper
 # serverList: 为zookeeper注册类型时，填写zookeeper地址，多个地址用英文逗号分隔
 # port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
@@ -188,16 +184,14 @@ shenyu:
 
 ```yaml
 shenyu:
-  register:
+  client:
     registerType: etcd 
     serverLists: http://localhost:2379
-  client:
-    http:
-        props:
-          contextPath: /http
-          appName: http
-          port: 8189  
-          isFull: false
+    props:
+      contextPath: /http
+      appName: http
+      port: 8189  
+      isFull: false
 # registerType : 服务注册类型，填写 etcd
 # serverList: 为etcd注册类型时，填写etcd地址，多个地址用英文逗号分隔
 # port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写
@@ -317,6 +311,7 @@ shenyu:
 ```
 
 
+
 ### Nacos方式注册配置
 
 #### shenyu-admin配置
@@ -370,17 +365,14 @@ shenyu:
 
 ```yaml
 shenyu:
-  register:
+  client:
     registerType: nacos
     serverLists: localhost:8848
-  client:
-    http:
-    	props:
-      		contextPath: /http
-      		appName: http
-      		port: 8188  
-      		isFull: false
     props:
+      contextPath: /http
+      appName: http
+      port: 8188  
+      isFull: false
       nacosNameSpace: ShenyuRegisterCenter
 # registerType : 服务注册类型，填写 nacos
 # serverList: 为nacos注册类型时，填写nacos地址，多个地址用英文逗号分隔
@@ -430,5 +422,7 @@ shenyu:
 ```
 
 
-
 总结，本文主要介绍了如何将你的微服务（当前支持`Http`、 `Dubbo`、 `Spring Cloud`、 `gRPC`、 `Motan`、 `Sofa`、 `Tars`等协议）接入到`Apache ShenYu`网关。介绍了注册中心的原理，`Apache ShenYu`网关支持的注册中心有`Http`、`Zookeeper`、`Etcd`、`Consul`、`Nacos`等方式。介绍了以`http`服务作为客户端接入到`Apache ShenYu`网关时，使用不同方式注册配置信息。
+
+
+

@@ -93,6 +93,7 @@ For example, add a selector to the `divide` plugin:
       * Groovy: match through Groovy.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
+      * exclude: Same function as `match`, flow selection is opposite.
 
   * PrintLogs: it will print the matching log with the open option enabled.
 
@@ -302,6 +303,12 @@ Condition parameters allow you to retrieve the actual data of the request. How t
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timeafter-en.png)
 
+* `exclude`
+
+  `exclude` is the inverse of the method of `match`, and some functions of `match` are also available, but it is a matching filter. If your selector condition is set as follows, the request `/http/order/findById` will filter this.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-exclude-en.png)
+
 If you want to further understand conditions matching strategy, please read the source code, the package name is `org.apache.shenyu.plugin.base.condition.judge`:
 
 |Match Strategy                      | Class  | 
@@ -313,6 +320,7 @@ If you want to further understand conditions matching strategy, please read the 
 |`SpEL`                 |`SpELPredicateJudge` |  
 |`Groovy`                  |`GroovyPredicateJudge` |  
 |`TimeBefore`                    |`TimerBeforePredicateJudge` |  
-|`TimeAfter`                    |`TimerAfterPredicateJudge` |  
+|`TimeAfter`                    |`TimerAfterPredicateJudge` |
+|`exclude`                    |`ExcludePredicateJudge` |
 
 The examples in this article illustrate the use of selectors and rules. The Settings of specific conditions need to be selected according to actual conditions.

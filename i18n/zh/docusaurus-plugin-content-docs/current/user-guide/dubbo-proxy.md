@@ -62,7 +62,7 @@ description: Dubbo服务接入
          <version>${project.version}</version>
       </dependency>
       <!-- apache shenyu apache dubbo plugin end-->
-  
+      
       <dependency>
          <groupId>org.apache.dubbo</groupId>
          <artifactId>dubbo</artifactId>
@@ -80,7 +80,7 @@ description: Dubbo服务接入
          <version>1.1.4</version>
       </dependency>
       <!-- Dubbo Nacos registry dependency  end-->
-  
+      
       <!-- Dubbo zookeeper registry dependency start-->
       <dependency>
          <groupId>org.apache.curator</groupId>
@@ -133,21 +133,28 @@ description: Dubbo服务接入
 并在你的 `bean` 定义的 `xml` 文件中新增如下 ：
 
 ```xml
-<bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
-   <constructor-arg  ref="shenyuRegisterCenterConfig"/>
+<bean id="clientConfig" class="org.apache.shenyu.register.common.config.PropertiesConfig">
+    <property name="props">
+      <map>
+        <entry key="contextPath" value="/你的contextPath"/>
+        <entry key="appName" value="你的名字"/>
+      </map>
+    </property>
 </bean>
 
 <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-       <property name="registerType" value="http"/>
-       <property name="serverList" value="http://localhost:9095"/>
-       <property name="props">
-          <map>
-            <entry key="contextPath" value="/你的contextPath"/>
-            <entry key="appName" value="你的名字"/>
-            <entry key="ifFull" value="false"/>
-          </map>
-        </property>
-  </bean>
+   <property name="registerType" value="http"/>
+   <property name="serverList" value="http://localhost:9095"/>
+</bean>
+
+<bean id="shenyuClientRegisterRepository" class="org.apache.shenyu.client.core.register.ShenyuClientRegisterRepositoryFactory" factory-method="newInstance">
+       <property name="shenyuRegisterCenterConfig" ref="shenyuRegisterCenterConfig"/>
+ </bean>
+
+<bean id ="alibabaDubboServiceBeanListener" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanListener">
+   <constructor-arg name="clientConfig" ref="clientConfig"/>
+   <constructor-arg name="shenyuClientRegisterRepository" ref="shenyuClientRegisterRepository"/> 
+</bean>
 ```
 
 
@@ -161,7 +168,7 @@ description: Dubbo服务接入
      <artifactId>shenyu-spring-boot-starter-client-apache-dubbo</artifactId>
      <version>${shenyu.version}</version>
 </dependency>
-```
+ ```
 
 
 如果是`spring`构建，引入以下依赖：
@@ -178,21 +185,28 @@ description: Dubbo服务接入
 并在你的 `bean` 定义的 `xml` 文件中新增如下 ：
 
 ```xml
-  <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
-       <constructor-arg ref="shenyuRegisterCenterConfig"/>
-  </bean>
+<bean id="clientConfig" class="org.apache.shenyu.register.common.config.PropertiesConfig">
+    <property name="props">
+      <map>
+        <entry key="contextPath" value="/你的contextPath"/>
+        <entry key="appName" value="你的名字"/>
+      </map>
+    </property>
+</bean>
 
-  <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-       <property name="registerType" value="http"/>
-       <property name="serverList" value="http://localhost:9095"/>
-       <property name="props">
-          <map>
-            <entry key="contextPath" value="/你的contextPath"/>
-            <entry key="appName" value="你的名字"/>
-            <entry key="ifFull" value="false"/>
-          </map>
-        </property>
-  </bean>
+<bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+   <property name="registerType" value="http"/>
+   <property name="serverList" value="http://localhost:9095"/>
+</bean>
+
+<bean id="shenyuClientRegisterRepository" class="org.apache.shenyu.client.core.register.ShenyuClientRegisterRepositoryFactory" factory-method="newInstance">
+       <property name="shenyuRegisterCenterConfig" ref="shenyuRegisterCenterConfig"/>
+ </bean>
+
+<bean id ="apacheDubboServiceBeanListener" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener">
+   <constructor-arg name="clientConfig" ref="clientConfig"/>
+   <constructor-arg name="shenyuClientRegisterRepository" ref="shenyuClientRegisterRepository"/> 
+</bean>
 ```
 
 ## dubbo 插件设置
@@ -269,7 +283,7 @@ shenyu:
   public DubboParamResolveService myDubboParamResolveService() {
           return new MyDubboParamResolveService();
   }
-  ```
+ ```
 
 ## 服务治理
 

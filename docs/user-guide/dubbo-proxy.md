@@ -132,20 +132,27 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
       Inject these properties into your Spring beans XML file：
 
        ```xml
-       <bean id ="alibabaDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanPostProcessor">
-            <constructor-arg  ref="shenyuRegisterCenterConfig"/>
-       </bean>
+       <bean id="clientConfig" class="org.apache.shenyu.register.common.config.PropertiesConfig">
+            <property name="props">
+              <map>
+                <entry key="contextPath" value="/你的contextPath"/>
+                <entry key="appName" value="你的名字"/>
+              </map>
+            </property>
+        </bean>
 
-       <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
           <property name="registerType" value="http"/>
           <property name="serverList" value="http://localhost:9095"/>
-          <property name="props">
-              <map>
-                  <entry key="contextPath" value="/your contextPath"/>
-                  <entry key="appName" value="your name"/>
-                  <entry key="isFull" value="false"/>
-              </map>
-           </property>
+        </bean>
+
+        <bean id="shenyuClientRegisterRepository" class="org.apache.shenyu.client.core.register.ShenyuClientRegisterRepositoryFactory" factory-method="newInstance">
+              <property name="shenyuRegisterCenterConfig" ref="shenyuRegisterCenterConfig"/>
+        </bean>
+
+        <bean id ="alibabaDubboServiceBeanListener" class ="org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanListener">
+          <constructor-arg name="clientConfig" ref="clientConfig"/>
+          <constructor-arg name="shenyuClientRegisterRepository" ref="shenyuClientRegisterRepository"/> 
         </bean>
        ```
 
@@ -178,21 +185,28 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
       Injecct these properties into your Spring beans XML file:
 
       ```xml
-      <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
-         <constructor-arg  ref="shenyuRegisterCenterConfig"/>
-      </bean>
-  
-      <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-         <property name="registerType" value="http"/>
-         <property name="serverList" value="http://localhost:9095"/>
-         <property name="props">
+      <bean id="clientConfig" class="org.apache.shenyu.register.common.config.PropertiesConfig">
+            <property name="props">
               <map>
-                   <entry key="contextPath" value="/your contextPath"/>
-                   <entry key="appName" value="your name"/>
-                   <entry key="isFull" value="false"/>
+                <entry key="contextPath" value="/你的contextPath"/>
+                <entry key="appName" value="你的名字"/>
               </map>
-         </property>
-      </bean>
+            </property>
+        </bean>
+
+        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+          <property name="registerType" value="http"/>
+          <property name="serverList" value="http://localhost:9095"/>
+        </bean>
+
+        <bean id="shenyuClientRegisterRepository" class="org.apache.shenyu.client.core.register.ShenyuClientRegisterRepositoryFactory" factory-method="newInstance">
+              <property name="shenyuRegisterCenterConfig" ref="shenyuRegisterCenterConfig"/>
+        </bean>
+
+        <bean id ="apacheDubboServiceBeanListener" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener">
+          <constructor-arg name="clientConfig" ref="clientConfig"/>
+          <constructor-arg name="shenyuClientRegisterRepository" ref="shenyuClientRegisterRepository"/> 
+        </bean>
       ```
 
 ## Dubbo configuration

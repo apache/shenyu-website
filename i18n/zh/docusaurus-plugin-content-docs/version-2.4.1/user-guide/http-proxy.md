@@ -16,40 +16,95 @@ description: Http服务接入
 
 * 在网关的 `pom.xml` 文件中增加如下依赖：
 
-```xml
-        <dependency>
-  <groupId>org.apache.shenyu</groupId>
-  <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
-  <version>${project.version}</version>
-</dependency>
-
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-<version>${project.version}</version>
-</dependency>
-```
+  ```xml
+      <dependency>
+          <groupId>org.apache.shenyu</groupId>
+          <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+  
+      <dependency>
+          <groupId>org.apache.shenyu</groupId>
+          <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+  ```
 
 ## Http请求接入网关（springMvc 体系用户）
 
-可以参考：[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
-
-
-* `SpringBoot` 用户
+* `SpringBoot` 用户  
+  
+  可以参考：[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
   在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
 
-```xml
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
-        <version>${shenyu.version}</version>
-    </dependency>
- ```
+  ```xml
+      <dependency>
+          <groupId>org.apache.shenyu</groupId>
+          <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
+          <version>${shenyu.version}</version>
+      </dependency>
+   ```
 
-在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
+* `SpringMvc` 用户
+  
+  可以参考：[shenyu-examples-springmvc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springmvc)
 
-你可以把注解加到 `Controller` 类上面，里面的`path`属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
+  在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
+
+  ```xml
+      <dependency>
+          <groupId>org.apache.shenyu</groupId>
+          <artifactId>shenyu-client-springmvc</artifactId>
+          <version>${shenyu.version}</version>
+      </dependency>
+   ```
+
+  并在你的 `bean` 定义的 `xml` 文件中新增如下：
+
+   ```xml
+      <bean id="springMvcClientBeanPostProcessor" class="org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
+          <constructor-arg ref="clientPropertiesConfig"/>
+          <constructor-arg ref="clientRegisterRepository"/>
+      </bean>
+          
+      <!-- 根据实际的注册类型配置注册中心 -->
+      <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+          <property name="registerType" value="http"/>
+          <property name="serverLists" value="http://localhost:9095"/>
+      </bean>
+          
+      <!-- 客户端属性配置 -->
+      <bean id="clientPropertiesConfig"
+            class="org.apache.shenyu.register.common.config.ShenyuClientConfig.ClientPropertiesConfig">
+          <property name="props">
+              <map>
+                  <entry key="contextPath" value="/你的contextPath"/>
+                  <entry key="appName" value="你的app名字"/>
+                  <entry key="port" value="你的端口"/>
+                  <entry key="isFull" value="false"/>
+              </map>
+          </property>
+      </bean>
+      
+      <!-- 根据实际的注册类型配置客户端注册仓库 -->
+      <bean id="clientRegisterRepository" class="org.apache.shenyu.register.client.http.HttpClientRegisterRepository">
+          <constructor-arg ref="shenyuRegisterCenterConfig"/>
+      </bean>
+      
+      <bean id="shenyuClientShutdownHook" class="org.apache.shenyu.client.core.shutdown.ShenyuClientShutdownHook">
+          <constructor-arg ref="shenyuRegisterCenterConfig"/>
+          <constructor-arg ref="clientRegisterRepository"/>
+      </bean>
+      
+      <bean id="contextRegisterListener" class="org.apache.shenyu.client.springmvc.init.ContextRegisterListener">
+          <constructor-arg ref="clientPropertiesConfig"/>
+      </bean>
+  ```
+
+  在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
+
+  你可以把注解加到 `Controller` 类上面，里面的`path`属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
 
 示例一
 

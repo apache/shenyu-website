@@ -30,11 +30,10 @@ curl -sSl https://raw.githubusercontent.com/apache/incubator-shenyu/master/sheny
 ```shell
 curl -sSl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/stand-alone-mysql/docker-compose.yaml > docker-compose.yaml
 mkdir -p shenyu-admin/ext-lib
+(cd shenyu-admin/ext-lib && curl -O https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar > mysql-connector.jar)
 (cd shenyu-admin/conf/ && curl -OOO https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-admin/src/main/resources/{application-mysql.yml,logback.xml,application.yml})
 (cd shenyu-bootstrap/conf/ && curl -OOO https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-bootstrap/src/main/resources/{application-local.yml,logback.xml,application.yml})
 ```
-
-并将 `mysql-connector.jar` 复制到 `shenyu-admin/ext-lib`。
 
 * 利用 `pg`
 

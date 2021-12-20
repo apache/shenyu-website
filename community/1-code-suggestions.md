@@ -112,8 +112,8 @@ try {
 ## Several methods to judge and handle Null    
 
 * Judge self if Null or not, and also need to transform self, below are some representative examples:  
-    current : ```result.setC(null == a ? b.getC() : b.getC(a));```  
-    recommendation : ```Optional.ofNullable(a).map(b::getC).orElse(b.getC());```    
+    current : ```result.setXXX(null == a ? b.getXXX() : b.getXXX(a));```  
+    recommendation : ```Optional.ofNullable(a).map(b::getXXX).orElse(b.getXXX());```    
     current : ```return null == a ? b.newC() : b.newC(a.getD(), a.getE());```    
     recommendation : ```return Optional.ofNullable(a).map(e -> b.newC(e.getD(),e.getE())).orElse(b.newC());```  
     current : ```return null == a.getB() ? null : a.getB().getC();```  
@@ -212,6 +212,6 @@ try {
   ```
 
 * Judge is Null or not, and return Optional wrapped object, below are some representative examples:    
-  current : ```return null == alias ? Optional.empty() : Optional.ofNullable(alias.getIdentifier().getValue());```    
-  recommendation : ```return Optional.ofNullable(alias).map(e -> e.getIdentifier().getValue());```  
+  current : ```return null == a ? Optional.empty() : Optional.ofNullable(a.getXXX());```    
+  recommendation : ```return Optional.ofNullable(a).map(e -> e.getXXX());```  
   

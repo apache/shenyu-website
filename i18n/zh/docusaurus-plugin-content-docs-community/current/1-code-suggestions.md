@@ -112,8 +112,8 @@ try {
 ## 判断和处理 Null 的几种方式
 
 * 判断自身是否为 Null，然后需要对自身转换的，以下是几个代表实例。    
-    目前 ： ```result.setC(null == a ? b.getC() : b.getC(a));```  
-    建议 ： ```Optional.ofNullable(a).map(b::getC).orElse(b.getC());```  
+    目前 ： ```result.setXXX(null == a ? b.getXXX() : b.getXXX(a));```  
+    建议 ： ```Optional.ofNullable(a).map(b::getXXX).orElse(b.getXXX());```  
     目前 ： ```return null == a ? b.newC() : b.newC(a.getD(), a.getE());```    
     建议 ： ```return Optional.ofNullable(a).map(e -> b.newC(e.getD(),e.getE())).orElse(b.newC());```  
     目前 ： ```return null == a.getB() ? null : a.getB().getC();```  
@@ -212,6 +212,6 @@ try {
   ```
 
 * 判断自身对象是否为 Null，但是返回 Optional 包装的，以下是几个代表实例。  
-  目前 ： ```return null == alias ? Optional.empty() : Optional.ofNullable(alias.getIdentifier().getValue());```    
-  建议 ： ```return Optional.ofNullable(alias).map(e -> e.getIdentifier().getValue());```  
+  目前 ： ```return null == a ? Optional.empty() : Optional.ofNullable(a.getXXX());```    
+  建议 ： ```return Optional.ofNullable(a).map(e -> e.getXXX());```  
   

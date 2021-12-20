@@ -112,14 +112,14 @@ try {
 ## 判断和处理 Null 的几种方式
 
 * 判断自身是否为 Null，然后需要对自身转换的，以下是几个代表实例。    
-    目前 ： ```result.setUrl(null == dataSourceName ? databaseEnvironment.getURL() : databaseEnvironment.getURL(dataSourceName));```  
-    建议 ： ```Optional.ofNullable(dataSourceName).map(databaseEnvironment::getURL).orElse(databaseEnvironment.getURL());```  
-    目前 ： ```return null == loadBalanceStrategyConfiguration ? serviceLoader.newService() : serviceLoader.newService(loadBalanceStrategyConfiguration.getType(), loadBalanceStrategyConfiguration.getProperties());```    
-    建议 ： ```return Optional.ofNullable(loadBalanceStrategyConfiguration).map(e -> serviceLoader.newService(e.getType(),e.getProperties())).orElse(serviceLoader.newService());```  
-    目前 ： ```return null == shardingRuleConfig.getDefaultKeyGeneratorConfig() ? null : shardingRuleConfig.getDefaultKeyGeneratorConfig().getColumn();```  
-    建议 ： ```return Optional.ofNullable(shardingRuleConfig.getDefaultKeyGeneratorConfig()).map(KeyGeneratorConfiguration::getColumn).orElse(null);```  
-    目前 ： ```return null == shardingStrategyConfiguration ? new NoneShardingStrategy() : ShardingStrategyFactory.newInstance(shardingStrategyConfiguration);```    
-    建议 ： ```return Optional.ofNullable(shardingStrategyConfiguration).map(ShardingStrategyFactory::newInstance).orElse(new NoneShardingStrategy());```  
+    目前 ： ```result.setC(null == a ? b.getC() : b.getC(a));```  
+    建议 ： ```Optional.ofNullable(a).map(b::getC).orElse(b.getC());```  
+    目前 ： ```return null == a ? b.newC() : b.newC(a.getD(), a.getE());```    
+    建议 ： ```return Optional.ofNullable(a).map(e -> b.newC(e.getD(),e.getE())).orElse(b.newC());```  
+    目前 ： ```return null == a.getB() ? null : a.getB().getC();```  
+    建议 ： ```return Optional.ofNullable(a.getB()).map(C::getD).orElse(null);```  
+    目前 ： ```return null == a ? new B() : C.newD(a);```    
+    建议 ： ```return Optional.ofNullable(a).map(B::newC).orElse(new D());```  
 
 * 当前对象直接与 Null 进行比较，以下是几个代表实例。  
   目前 ：```public void xxx（Object o）{if(null == o){retrun;}}```  
@@ -127,42 +127,42 @@ try {
   建议 ：使用 JDK8 提供的 Objects.isNull 方法。  
 
 * 判断本身是否是 Null，然后返回自身，和其他的三元运算符，以下是代表实例。  
-  目前 ： ```this.loadBalanceAlgorithm = null == loadBalanceAlgorithm ? new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService() : loadBalanceAlgorithm;```      
-  建议 ： ```Optional.ofNullable(loadBalanceAlgorithm).orElse(new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService());```  
-  目前 ： ```currentDataSourceName = null == currentDataSourceName ? shardingRule.getShardingDataSourceNames().getRandomDataSourceName() : currentDataSourceName;```      
-  建议 ： ```currentDataSourceName  = Optional.ofNullable(currentDataSourceName).orElse(shardingRule.getShardingDataSourceNames().getRandomDataSourceName());```  
-  目前 ： ```return null == tableRule.getDatabaseShardingStrategy() ? defaultDatabaseShardingStrategy : tableRule.getDatabaseShardingStrategy();```  
-  建议 ： ```return Optional.ofNullable(tableRule.getDatabaseShardingStrategy()).orElse(defaultDatabaseShardingStrategy);```  
+  目前 ： ```this.a = null == a ? new B().newC() : a;```      
+  建议 ： ```Optional.ofNullable(a).orElse(new B().newC());```  
+  目前 ： ```a = null == a ? b.getC().getD() : a;```      
+  建议 ： ```a  = Optional.ofNullable(a).orElse(b.getC().getD());```  
+  目前 ： ```return null == a.getB() ? c : a.getB();```  
+  建议 ： ```return Optional.ofNullable(a.getB()).orElse(c);```  
   目前 ： 
 
   ```
-  BigDecimal count;
-  BigDecimal sum;
-  if (null == count) {
-    count = new BigDecimal("0");
+  BigDecimal c;
+  BigDecimal s;
+  if (null == c) {
+    c = new BigDecimal("0");
   }
-  if (null == sum) {
-    sum = new BigDecimal("0");
+  if (null == s) {
+    s = new BigDecimal("0");
   }
   ```
   
-  建议 ： ```count = Optional.ofNullable(count).orElse(new BigDecimal("0")); sum = Optional.ofNullable(sum).orElse(new BigDecimal("0"));```    
+  建议 ： ```c = Optional.ofNullable(c).orElse(new BigDecimal("0")); s = Optional.ofNullable(s).orElse(new BigDecimal("0"));```    
   目前 ： ```return null == results.get(0) ? 0 : results.get(0);```  
   建议 ： ```return Optional.ofNullable(results.get(0)).orElse(0);```  
-  目前 ： ```return null == getSqlStatement().getTable() ? Collections.emptyList() : Collections.singletonList(getSqlStatement().getTable());```    
-  建议 ： ```return Optional.ofNullable(getSqlStatement().getTable()).map(Collections::singletonList).orElse(Collections.emptyList());```  
+  目前 ： ```return null == getA().getB() ? Collections.emptyList() : Collections.singletonList(getA().getB());```    
+  建议 ： ```return Optional.ofNullable(getA().getB()).map(Collections::singletonList).orElse(Collections.emptyList());```  
 
 * 判断本身是 Null，然后返回与自身无关的三元运算符,以下是代表实例。  
-  目前 ： ```DataSource dataSource = null == shardingRule ? dataSourceMap.values().iterator().next() : dataSourceMap.get(getCurrentDataSourceName());```  
-  目前 ： ```return null == encryptRuleConfig ? new EncryptRule() : new EncryptRule(ruleConfiguration.getEncryptRuleConfig());```  
+  目前 ： ```A a = null == b ? cMap.values().iterator().next() : cMap.get(d);```  
+  目前 ： ```return null == a ? new B() : new B(c);```  
   建议 ：不做修改  
 
 * 判断集合是否为非空，以下是几个代表实例。  
   目前 ：  
 
   ```
-  private boolean isEmptyDataNodes(final List<String> dataNodes) {
-      return null == dataNodes || dataNodes.isEmpty();
+  private boolean isEmpty(final List<String> xxx) {
+      return null == xxx || xxx.isEmpty();
   }
   ```
   
@@ -172,8 +172,8 @@ try {
   目前 ：
 
   ```
-  public Collection<String> getActualTableNames(final String targetDataSource) {
-     Collection<String> result = datasourceToTablesMap.get(targetDataSource);
+  public Collection<String> getA(final String b) {
+     Collection<String> result = cMap.get(b);
      if (null == result) {
         result = Collections.emptySet();
      }
@@ -184,8 +184,8 @@ try {
   建议 ： 使用Map.getOrDefault()方法  
 
   ```
-  public Collection<String> getActualTableNames(final String targetDataSource) {
-    return datasourceToTablesMap.getOrDefault(targetDataSource, Collections.emptySet());
+  public Collection<String> getA(final String b) {
+    return cMap.getOrDefault(b, Collections.emptySet());
   }
   ```
 
@@ -193,22 +193,21 @@ try {
   目前 ：
 
   ```
-  private Collection<String> doSharding(final Collection<String> availableTargetNames, final RangeRouteValue<?> shardingValue) {
-    if (null == rangeShardingAlgorithm) {
-       throw new UnsupportedOperationException("Cannot find range sharding strategy in sharding rule.");
+  private Collection<String> doXxx(final Collection<String> a, final Object<?> b) {
+    if (null == c) {
+       throw new Exception("XXX");
     }
-    return rangeShardingAlgorithm.doSharding(availableTargetNames,
-        new RangeShardingValue(shardingValue.getTableName(), shardingValue.getColumnName(), shardingValue.getValueRange()));
+    return c.doXxx(a,new Object(b.getXXX(), b.getXXX(), b.getXXX()));
   }
   ```
   
   建议 ：
 
   ```
-  private Collection<String> doSharding(final Collection<String> availableTargetNames, final RangeRouteValue<?> shardingValue) {
-       return Optional.ofNullable(rangeShardingAlgorithm).map(e -> e.doSharding(availableTargetNames,
-              new RangeShardingValue(shardingValue.getTableName(), shardingValue.getColumnName(), shardingValue.getValueRange())))
-             .orElseThrow(()-> new UnsupportedOperationException("Cannot find range sharding strategy in sharding rule."));
+  private Collection<String> doXxx(final Collection<String> a, final Object<?> b) {
+       return Optional.ofNullable(c).map(e -> e.doXxx(a,
+              new Object(b.getXXX(), b.getXXX(), b.getXXX())))
+             .orElseThrow(()-> new Exception("XXX"));
   }
   ```
 

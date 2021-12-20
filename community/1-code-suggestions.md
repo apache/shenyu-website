@@ -112,14 +112,14 @@ try {
 ## Several methods to judge and handle Null    
 
 * Judge self if Null or not, and also need to transform self, below are some representative examples:  
-    current : ```result.setUrl(null == dataSourceName ? databaseEnvironment.getURL() : databaseEnvironment.getURL(dataSourceName));```  
-    recommendation : ```Optional.ofNullable(dataSourceName).map(databaseEnvironment::getURL).orElse(databaseEnvironment.getURL());```    
-    current : ```return null == loadBalanceStrategyConfiguration ? serviceLoader.newService() : serviceLoader.newService(loadBalanceStrategyConfiguration.getType(), loadBalanceStrategyConfiguration.getProperties());```    
-    recommendation : ```return Optional.ofNullable(loadBalanceStrategyConfiguration).map(e -> serviceLoader.newService(e.getType(),e.getProperties())).orElse(serviceLoader.newService());```  
-    current : ```return null == shardingRuleConfig.getDefaultKeyGeneratorConfig() ? null : shardingRuleConfig.getDefaultKeyGeneratorConfig().getColumn();```  
-    recommendation : ```return Optional.ofNullable(shardingRuleConfig.getDefaultKeyGeneratorConfig()).map(KeyGeneratorConfiguration::getColumn).orElse(null);```  
-    current : ```return null == shardingStrategyConfiguration ? new NoneShardingStrategy() : ShardingStrategyFactory.newInstance(shardingStrategyConfiguration);```    
-    recommendation : ```return Optional.ofNullable(shardingStrategyConfiguration).map(ShardingStrategyFactory::newInstance).orElse(new NoneShardingStrategy());```  
+    current : ```result.setC(null == a ? b.getC() : b.getC(a));```  
+    recommendation : ```Optional.ofNullable(a).map(b::getC).orElse(b.getC());```    
+    current : ```return null == a ? b.newC() : b.newC(a.getD(), a.getE());```    
+    recommendation : ```return Optional.ofNullable(a).map(e -> b.newC(e.getD(),e.getE())).orElse(b.newC());```  
+    current : ```return null == a.getB() ? null : a.getB().getC();```  
+    recommendation : ```return Optional.ofNullable(a.getB()).map(C::getD).orElse(null);```  
+    current : ```return null == a ? new B() : C.newD(a);```    
+    recommendation : ```return Optional.ofNullable(a).map(B::newC).orElse(new D());```  
 
 * Directly compare current object with Null, below are some representative examples:    
   current : ```public void xxx（Object o）{if(null == o){retrun;}}```  
@@ -127,42 +127,42 @@ try {
   recommendation ：Use JDK8's Objects.isNull method.    
 
 * Judge self if Null or not, and also need to return self related ternary operator, below are some representative examples:      
-  current : ```this.loadBalanceAlgorithm = null == loadBalanceAlgorithm ? new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService() : loadBalanceAlgorithm;```      
-  recommendation : ```Optional.ofNullable(loadBalanceAlgorithm).orElse(new MasterSlaveLoadBalanceAlgorithmServiceLoader().newService());```  
-  current : ```currentDataSourceName = null == currentDataSourceName ? shardingRule.getShardingDataSourceNames().getRandomDataSourceName() : currentDataSourceName;```      
-  recommendation : ```currentDataSourceName  = Optional.ofNullable(currentDataSourceName).orElse(shardingRule.getShardingDataSourceNames().getRandomDataSourceName());```  
-  current : ```return null == tableRule.getDatabaseShardingStrategy() ? defaultDatabaseShardingStrategy : tableRule.getDatabaseShardingStrategy();```  
-  recommendation : ```return Optional.ofNullable(tableRule.getDatabaseShardingStrategy()).orElse(defaultDatabaseShardingStrategy);```  
+  current : ```this.a = null == a ? new B().newC() : a;```      
+  recommendation : ```Optional.ofNullable(a).orElse(new B().newC());```  
+  current : ```a = null == a ? b.getC().getD() : a;```      
+  recommendation : ```a  = Optional.ofNullable(a).orElse(b.getC().getD());```  
+  current : ```return null == a.getB() ? c : a.getB();```  
+  recommendation : ```return Optional.ofNullable(a.getB()).orElse(c);```  
   current :
 
   ```
-  BigDecimal count;
-  BigDecimal sum;
-  if (null == count) {
-    count = new BigDecimal("0");
+  BigDecimal c;
+  BigDecimal s;
+  if (null == c) {
+    c = new BigDecimal("0");
   }
-  if (null == sum) {
-    sum = new BigDecimal("0");
+  if (null == s) {
+    s = new BigDecimal("0");
   }
   ```
   
-  recommendation : ```count = Optional.ofNullable(count).orElse(new BigDecimal("0")); sum = Optional.ofNullable(sum).orElse(new BigDecimal("0"));```    
+  recommendation : ```c = Optional.ofNullable(c).orElse(new BigDecimal("0")); s = Optional.ofNullable(s).orElse(new BigDecimal("0"));```    
   current : ```return null == results.get(0) ? 0 : results.get(0);```  
   recommendation : ```return Optional.ofNullable(results.get(0)).orElse(0);```  
-  current : ```return null == getSqlStatement().getTable() ? Collections.emptyList() : Collections.singletonList(getSqlStatement().getTable());```    
-  recommendation : ```return Optional.ofNullable(getSqlStatement().getTable()).map(Collections::singletonList).orElse(Collections.emptyList());```  
+  current : ```return null == getA().getB() ? Collections.emptyList() : Collections.singletonList(getA().getB());```    
+  recommendation : ```return Optional.ofNullable(getA().getB()).map(Collections::singletonList).orElse(Collections.emptyList());```  
 
 * Judge self if Null or not, and also need to return self independent ternary operator, below are some representative examples:    
-  current : ```DataSource dataSource = null == shardingRule ? dataSourceMap.values().iterator().next() : dataSourceMap.get(getCurrentDataSourceName());```  
-  current : ```return null == encryptRuleConfig ? new EncryptRule() : new EncryptRule(ruleConfiguration.getEncryptRuleConfig());```    
+  current : ```A a = null == b ? cMap.values().iterator().next() : cMap.get(d);```  
+  current : ```return null == a ? new B() : new B(c);```    
   recommendation : No modification.  
                   
 * Judge collection is null or not, below are some representative examples:      
   current :  
 
   ```
-  private boolean isEmptyDataNodes(final List<String> dataNodes) {
-      return null == dataNodes || dataNodes.isEmpty();
+  private boolean isEmpty(final List<String> xxx) {
+      return null == xxx || xxx.isEmpty();
   }
   ```  
   
@@ -172,8 +172,8 @@ try {
   current :  
 
   ```
-  public Collection<String> getActualTableNames(final String targetDataSource) {
-     Collection<String> result = datasourceToTablesMap.get(targetDataSource);
+  public Collection<String> getA(final String b) {
+     Collection<String> result = cMap.get(b);
      if (null == result) {
         result = Collections.emptySet();
      }
@@ -184,8 +184,8 @@ try {
   recommendation : Use Map.getOrDefault() method.   
 
   ```
-  public Collection<String> getActualTableNames(final String targetDataSource) {
-    return datasourceToTablesMap.getOrDefault(targetDataSource, Collections.emptySet());
+  public Collection<String> getA(final String b) {
+    return cMap.getOrDefault(b, Collections.emptySet());
   }
   ```
 
@@ -193,22 +193,21 @@ try {
   current :
 
   ```
-  private Collection<String> doSharding(final Collection<String> availableTargetNames, final RangeRouteValue<?> shardingValue) {
-    if (null == rangeShardingAlgorithm) {
-       throw new UnsupportedOperationException("Cannot find range sharding strategy in sharding rule.");
+  private Collection<String> doXxx(final Collection<String> a, final Object<?> b) {
+    if (null == c) {
+       throw new Exception("XXX");
     }
-    return rangeShardingAlgorithm.doSharding(availableTargetNames,
-        new RangeShardingValue(shardingValue.getTableName(), shardingValue.getColumnName(), shardingValue.getValueRange()));
+    return c.doXxx(a,new Object(b.getXXX(), b.getXXX(), b.getXXX()));
   }
   ```
   
   recommendation :
 
   ```
-  private Collection<String> doSharding(final Collection<String> availableTargetNames, final RangeRouteValue<?> shardingValue) {
-       return Optional.ofNullable(rangeShardingAlgorithm).map(e -> e.doSharding(availableTargetNames,
-              new RangeShardingValue(shardingValue.getTableName(), shardingValue.getColumnName(), shardingValue.getValueRange())))
-             .orElseThrow(()-> new UnsupportedOperationException("Cannot find range sharding strategy in sharding rule."));
+  private Collection<String> doXxx(final Collection<String> a, final Object<?> b) {
+       return Optional.ofNullable(c).map(e -> e.doXxx(a,
+              new Object(b.getXXX(), b.getXXX(), b.getXXX())))
+             .orElseThrow(()-> new Exception("XXX"));
   }
   ```
 

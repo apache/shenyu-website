@@ -80,9 +80,9 @@ For details about data synchronization configurations, see [Data Synchronization
             class="org.apache.shenyu.register.common.config.ShenyuClientConfig.ClientPropertiesConfig">
         <property name="props">
             <map>
-                <entry key="contextPath" value="/你的contextPath"/>
-                <entry key="appName" value="你的app名字"/>
-                <entry key="port" value="你的端口"/>
+                <entry key="contextPath" value="/your contextPath"/>
+                <entry key="appName" value="your appName"/>
+                <entry key="port" value="your port"/>
                 <entry key="isFull" value="false"/>
             </map>
         </property>

@@ -282,7 +282,7 @@ Netty HttpClient 代理的相关配置：
 | enabled | Boolean | false  |    否    | 是否支持跨域请求 |
 | allowedHeaders | String | x-requested-with, authorization, Content-Type, Authorization, credential,  X-XSRF-TOKEN, token, username, client |    No    | 允许的Header头，多个请用 "," 分割。新的"allowedHeaders"会在默认值基础上，去除重复的追加到"Access-Control-Allow-Headers"。 |
 | allowedMethods | String |   "*"  |    No    | 允许的方法 |
-| allowedOrigin | String |  "*"  |    No    | 允许的Origin |
+| allowedOrigin | String |  "*"  |    No    | 允许的Origin，当取值为""时，使用`request.getHeaders().getOrigin()`设置`Access-Control-Allow-Origin` |
 | allowedExpose | String |  "*"  |    No    | 允许的Expose |
 | maxAge | String |  "18000"  |    No    | 最大年龄 (ms) |
 | allowCredentials | Boolean |  true  |    No    | 允许认证 |

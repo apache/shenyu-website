@@ -19,19 +19,13 @@ tags: ["integration test"]
 ./mvnw -B clean install -Prelease,docker -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ```
 
-2. 构建 `shenyu-examples`
-
-```shell
-./mvnw -B clean install -DskipTests -f ./shenyu-examples/pom.xml -Pdocker
-```
-
-3. 构建 `shenyu-integrated-test`
+2. 构建 `shenyu-integrated-test`
 
 ```shell
 ./mvnw -B clean install -Pit -DskipTests -f ./shenyu-integrated-test/pom.xml
 ```
 
-4. docker-compose 运行
+3. docker-compose 运行
 
 ```shell
 docker-compose -f ./shenyu-integrated-test/${{ matrix.case }}/docker-compose.yml up -d
@@ -39,7 +33,7 @@ docker-compose -f ./shenyu-integrated-test/${{ matrix.case }}/docker-compose.yml
 
 > 你需要把 `${{ matrix.case }}` 替换成具体的目录, 比如 `shenyu-integrated-test-http`.
 
-5. 运行测试
+4. 运行测试
 
 ```shell
 ./mvnw test -Pit -f ./shenyu-integrated-test/${{ matrix.case }}/pom.xml

@@ -33,5 +33,3 @@ description: generalContext plugin
 ## Situation
 
 * The parameters in the request header need to be passed to the proxy server.
-
-* Need to replace a key in the request header and pass it to the proxy server.

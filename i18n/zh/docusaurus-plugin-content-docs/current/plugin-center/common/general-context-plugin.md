@@ -37,5 +37,3 @@ description: generalContext插件
 ## 场景
 
 * 需要对请求header中的参数传递至代理服务端。
-
-* 需要对请求header中的某个key进行替换后传递至代理服务端。

@@ -15,7 +15,7 @@ description: generalContext插件
 * 如果用户不需要，可以把插件禁用。
 
 
-<img src="/img/shenyu/plugin/general/general-context-open-zh.png" width="70%" height="60%" />
+<img src="/img/shenyu/plugin/general-context/general-context-open-zh.png" width="70%" height="60%" />
 
 
 * 在网关的 `pom.xml` 文件中添加 `generalContext` 的支持。

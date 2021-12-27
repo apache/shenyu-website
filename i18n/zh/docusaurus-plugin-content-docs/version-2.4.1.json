@@ -51,6 +51,10 @@
     "message": "可观测性",
     "description": "The label for category Observability in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Common": {
+    "message": "通用组件",
+    "description": "The label for category Common"
+  },
   "sidebar.tutorialSidebar.category.Developer Documentation": {
     "message": "开发者文档",
     "description": "The label for category Developer-Documentation in sidebar tutorialSidebar"

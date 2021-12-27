@@ -282,7 +282,7 @@ Cross filter properties:
 | enabled | Boolean |  false  |    No    | allow cross-domain requests |
 | allowedHeaders | String | x-requested-with, authorization, Content-Type, Authorization, credential,  X-XSRF-TOKEN, token, username, client |    No    | allowedHeaders, Use "," split in multiple cases. the new "allowedHeaders" will append to "Access-Control-Allow-Headers" based on the default value and remove the reduplicative header. |
 | allowedMethods | String |   "*"  |    No    | allowedMethods |
-| allowedOrigin | String |  "*"  |    No    | allowedOrigin |
+| allowedOrigin | String |  "*"  |    No    | allowedOrigin，if the value is empty, use `request.getHeaders().getOrigin()` set to `Access-Control-Allow-Origin` |
 | allowedExpose | String |  "*"  |    No    | allowedExpose |
 | maxAge | String |  "18000"  |    No    | maxAge (ms) |
 | allowCredentials | Boolean |  true  |    No    | allowCredentials |

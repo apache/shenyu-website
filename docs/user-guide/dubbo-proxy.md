@@ -185,29 +185,57 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
       Injecct these properties into your Spring beans XML file:
 
       ```xml
-      <bean id="clientConfig" class="org.apache.shenyu.register.common.config.PropertiesConfig">
-            <property name="props">
+      <bean id = "apacheDubboServiceBeanListener" class="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener">
+          <constructor-arg ref="clientPropertiesConfig"/>
+          <constructor-arg ref="clientRegisterRepository"/>
+      </bean>
+
+       <!-- Config register repository according to your register type -->
+       <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+           <property name="registerType" value="${shenyu.register.registerType}"/>
+           <property name="serverLists" value="${shenyu.register.serverLists}"/>
+       </bean>
+
+       <!-- Client properties config -->
+       <bean id="clientPropertiesConfig"
+          class="org.apache.shenyu.register.common.config.ShenyuClientConfig.ClientPropertiesConfig">
+          <property name="props">
               <map>
-                <entry key="contextPath" value="/你的contextPath"/>
-                <entry key="appName" value="你的名字"/>
+                  <entry key="contextPath" value="${shenyu.client.dubbo.props.contextPath}"/>
+                  <entry key="appName" value="${shenyu.client.dubbo.props.appName}"/>
               </map>
-            </property>
-        </bean>
+          </property>
+       </bean>
 
-        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-          <property name="registerType" value="http"/>
-          <property name="serverList" value="http://localhost:9095"/>
-        </bean>
+      <!-- Config register repository according to your register type -->
+      <bean id="clientRegisterRepository" class="org.apache.shenyu.register.client.http.HttpClientRegisterRepository">
+          <constructor-arg ref="shenyuRegisterCenterConfig"/>
+      </bean>
 
-        <bean id="shenyuClientRegisterRepository" class="org.apache.shenyu.client.core.register.ShenyuClientRegisterRepositoryFactory" factory-method="newInstance">
-              <property name="shenyuRegisterCenterConfig" ref="shenyuRegisterCenterConfig"/>
-        </bean>
-
-        <bean id ="apacheDubboServiceBeanListener" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener">
-          <constructor-arg name="clientConfig" ref="clientConfig"/>
-          <constructor-arg name="shenyuClientRegisterRepository" ref="shenyuClientRegisterRepository"/> 
-        </bean>
+      <bean id="shenyuClientShutdownHook" class="org.apache.shenyu.client.core.shutdown.ShenyuClientShutdownHook">
+          <constructor-arg ref="shenyuRegisterCenterConfig"/>
+          <constructor-arg ref="clientRegisterRepository"/>
+      </bean>
       ```
+    
+Both need add these in your client project's application.yml:
+
+```yml
+dubbo:
+  registry:
+    address: dubbo register address
+    port: dubbo service port
+
+shenyu:
+  register:
+    registerType: shenyu service register type #http #zookeeper #etcd #nacos #consul
+    serverLists: shenyu service register address #http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+client:
+  dubbo:
+    props:
+      contextPath: /your contextPath
+      appName: your app name
+```
 
 ## Dubbo configuration
 

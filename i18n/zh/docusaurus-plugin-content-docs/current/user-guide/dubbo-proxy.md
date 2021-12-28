@@ -170,9 +170,26 @@ description: Dubbo服务接入
 </dependency>
  ```
 
+需要在你的 `客户端项目` 定义的 `application.yml` 文件中新增如下：
+
+```yaml
+dubbo:
+  registry:
+    address: dubbo注册中心地址
+
+shenyu:
+  register:
+    registerType: shenyu服务注册类型 #http #zookeeper #etcd #nacos #consul
+    serverLists: shenyu服务注册地址 #http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+  client:
+    dubbo:
+      props:
+        contextPath: /你的contextPath
+        appName: 你的应用名称
+```
+
 
 如果是`spring`构建，引入以下依赖：
-
 
 ```xml
 <dependency>
@@ -182,7 +199,7 @@ description: Dubbo服务接入
 </dependency>
 ```
 
-spring构建需要在你的 `bean` 定义的 `xml` 文件中新增如下 ：
+需要在你的 `bean` 定义的 `xml` 文件中新增如下 ：
 
 ```xml
 <bean id = "apacheDubboServiceBeanListener" class="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener">
@@ -192,8 +209,8 @@ spring构建需要在你的 `bean` 定义的 `xml` 文件中新增如下 ：
 
 <!-- 根据实际的注册类型配置注册中心 -->
 <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-    <property name="registerType" value="${shenyu.register.registerType}"/>
-    <property name="serverLists" value="${shenyu.register.serverLists}"/>
+    <property name="registerType" value="你的服务注册类型"/>
+    <property name="serverLists" value="你的服务注册地址"/>
 </bean>
 
 <!-- 客户端属性配置 -->
@@ -201,8 +218,8 @@ spring构建需要在你的 `bean` 定义的 `xml` 文件中新增如下 ：
       class="org.apache.shenyu.register.common.config.ShenyuClientConfig.ClientPropertiesConfig">
 <property name="props">
   <map>
-    <entry key="contextPath" value="${shenyu.client.dubbo.props.contextPath}"/>
-    <entry key="appName" value="${shenyu.client.dubbo.props.appName}"/>
+    <entry key="contextPath" value="/你的contextPath"/>
+    <entry key="appName" value="你的应用名字"/>
   </map>
 </property>
 </bean>
@@ -218,23 +235,13 @@ spring构建需要在你的 `bean` 定义的 `xml` 文件中新增如下 ：
 </bean>
 ```
 
-两者都需要在你的 `客户端项目` 定义的 `application.yml` 文件中新增如下：  
+需要在你的 `客户端项目` 定义的 `application.yml` 文件中新增如下：  
 
 ```yaml
 dubbo:
   registry:
     address: dubbo注册中心地址
     port: dubbo服务端口号
-    
-shenyu:
-  register:
-    registerType: shenyu服务注册类型 #http #zookeeper #etcd #nacos #consul
-    serverLists: shenyu服务注册地址 #http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
-  client:
-    dubbo:
-      props:
-        contextPath: /你的contextPath
-        appName: 你的应用名称
 ```
 
 ## dubbo 插件设置

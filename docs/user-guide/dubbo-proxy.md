@@ -169,6 +169,25 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
             <version>${shenyu.version}</version>
        </dependency>
        ```
+    
+       Add these in your client project's application.yml:  
+
+       ```yml
+       dubbo:
+         registry:
+           address: dubbo register address
+           port: dubbo service port
+  
+       shenyu:
+         register:
+           registerType: shenyu service register type #http #zookeeper #etcd #nacos #consul
+           serverLists: shenyu service register address #http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+         client:
+           dubbo:
+             props:
+               contextPath: /your contextPath
+               appName: your app name
+       ```
 
   * Spring
 
@@ -192,8 +211,8 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
 
        <!-- Config register repository according to your register type -->
        <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-           <property name="registerType" value="${shenyu.register.registerType}"/>
-           <property name="serverLists" value="${shenyu.register.serverLists}"/>
+           <property name="registerType" value="your service registerType"/>
+           <property name="serverLists" value="your service register serverLists"/>
        </bean>
 
        <!-- Client properties config -->
@@ -201,8 +220,8 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
           class="org.apache.shenyu.register.common.config.ShenyuClientConfig.ClientPropertiesConfig">
           <property name="props">
               <map>
-                  <entry key="contextPath" value="${shenyu.client.dubbo.props.contextPath}"/>
-                  <entry key="appName" value="${shenyu.client.dubbo.props.appName}"/>
+                  <entry key="contextPath" value="/your contextPath"/>
+                  <entry key="appName" value="your appName"/>
               </map>
           </property>
        </bean>
@@ -218,24 +237,14 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
       </bean>
       ```
     
-Both need add these in your client project's application.yml:
-
-```yml
-dubbo:
-  registry:
-    address: dubbo register address
-    port: dubbo service port
-
-shenyu:
-  register:
-    registerType: shenyu service register type #http #zookeeper #etcd #nacos #consul
-    serverLists: shenyu service register address #http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
-client:
-  dubbo:
-    props:
-      contextPath: /your contextPath
-      appName: your app name
-```
+      Add these in your client project's application.yml:
+  
+      ```yml
+      dubbo:
+        registry:
+          address: dubbo register address
+          port: dubbo service port
+      ```
 
 ## Dubbo configuration
 

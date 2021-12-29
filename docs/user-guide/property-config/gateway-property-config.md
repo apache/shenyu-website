@@ -210,7 +210,7 @@ This is the HttpClient configuration used to send proxy requests after proxying 
 
 | Name           |  Type   |    Default    | Required | Description                                                  |
 | :------------- | :-----: | :-----------: | :------: | :----------------------------------------------------------- |
-| strategy       | String  | webcwebClient |    No    | The strategy of httpClientPlugin                             |
+| strategy       | String  |   webClient   |    No    | Type of http client, defaults to webClient.<br /> - webClient: use by WebClientPlugin<br />- netty: use by NettyHttpClientPlugin.                          |
 | connectTimeout |   int   |     45000     |    No    | Connection timeout (millisecond), the default value is 45000. |
 | readTimeout    |   int   |     3000      |    No    | Read timeout (millisecond), the default value is 3000.       |
 | writeTimeout   |   int   |     3000      |    No    | Write timeout (millisecond), the default value is 3000.      |

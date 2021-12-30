@@ -36,4 +36,8 @@ export default [
     {name:"稿定科技",src:"/img/users/gaoding.png",link:"https://www.gaoding.com/"},
     {name:"司机宝",src:"/img/users/sijibao.png",link:"https://www.sijibao.com/"},
     {name:"凯京科技",src:"/img/users/keking.jpeg",link:"http://www.keking.com/"},
+    {name:"聚拍网",src:"/img/users/jupai.png",link:"https://www.jupai.net"},
+    {name:"九州通",src:"/img/users/jzt.png",link:"https://www.yyjzt.com"},
+    {name:"浙江百应科技",src:"/img/users/by_logo.png",link:"https://www.byai.com/"},
+    {name:"ShipOut",src:"/img/users/shiout_logo.png",link:"https://www.ShipOut.com"},
 ]

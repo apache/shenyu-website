@@ -37,7 +37,7 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
 * Detailed design:
   - one user corresponds to multiple role,one role corresponds to multiple resources.
 
-## Data Permissin {#data-permissin}
+## Data Permission {#data-permission}
 
 * Data Permission use database to store the relationship between users, selectors and rules.
 

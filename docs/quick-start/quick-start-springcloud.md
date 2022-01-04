@@ -51,7 +51,7 @@ Add the gateway proxy plugin for `Spring Cloud` and add the your registry center
 
 `eureka` config information:
 
-```xml
+```yml
 eureka:
   client:
     serviceUrl:
@@ -60,6 +60,31 @@ eureka:
     prefer-ip-address: true
 ```
 
+Note: Please ensure that the spring Cloud registry service discovery configuration is enabled
+
+* Configuration method
+```yml
+spring:
+  cloud:
+    discovery:
+      enabled: true
+```
+* code method
+```java
+@SpringBootApplication
+@EnableDiscoveryClient
+public class ShenyuBootstrapApplication {
+    
+    /**
+     * Main Entrance.
+     *
+     * @param args startup arguments
+     */
+    public static void main(final String[] args) {
+        SpringApplication.run(ShenyuBootstrapApplication.class, args);
+    }
+}
+```
 
 Restart the `shenyu-bootstrap` project.
 
@@ -126,3 +151,11 @@ Open PluginList -> rpc proxy -> springCloud to see the list of plugin rule confi
 Use PostMan to simulate HTTP to request your SpringCloud service:
 
 ![](/img/shenyu/quick-start/springcloud/postman-test.png)
+
+Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[local:no Shenyu proxy]:
+
+![](/img/shenyu/quick-start/springcloud/idea-http-test-local.png)
+
+Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[Shenyu proxy]:
+
+![](/img/shenyu/quick-start/springcloud/idea-http-test-proxy.png)

@@ -117,6 +117,19 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
    </dependency>
    ```
 
+   Config this in your client project's application.yml file
+   
+   ```yaml
+   shenyu:
+     client:
+       registerType: your service registerType
+       serverLists: your service register serverLists
+       props:
+         contextPath: /your contextPath
+         appName: your appName
+         port: dubbo service port
+   ```
+
   * Spring
 
       Add these dependencies：
@@ -163,36 +176,17 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
        </dependency>
        ```
 
-  * Spring
-
-      Add these dependencies:
-
-      ```xml
-         <dependency>
-             <groupId>org.apache.shenyu</groupId>
-             <artifactId>shenyu-client-apache-dubbo</artifactId>
-             <version>${shenyu.version}</version>
-          </dependency>
-       ```
-
-      Injecct these properties into your Spring beans XML file:
-
-      ```xml
-      <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
-         <constructor-arg  ref="shenyuRegisterCenterConfig"/>
-      </bean>
-  
-      <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-         <property name="registerType" value="http"/>
-         <property name="serverList" value="http://localhost:9095"/>
-         <property name="props">
-              <map>
-                   <entry key="contextPath" value="/your contextPath"/>
-                   <entry key="appName" value="your name"/>
-                   <entry key="isFull" value="false"/>
-              </map>
-         </property>
-      </bean>
+      Config this in your client project's application.yml file
+      
+      ```yaml
+      shenyu:
+        client:
+          registerType: your service registerType
+          serverLists: your service register serverLists
+          props:
+            contextPath: /your contextPath
+            appName: your appName
+            port: dubbo service port
       ```
 
 ## Dubbo configuration

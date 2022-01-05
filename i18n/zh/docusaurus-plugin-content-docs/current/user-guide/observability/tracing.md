@@ -25,6 +25,7 @@ description: Tracing access
 ## 配置文件
 
 配置文件 `shenyu-agent.yaml` 位于 `shenyu-agent-dist` 模块中：
+
 ```yaml
 appName: shenyu-agent
 supports:

@@ -63,13 +63,16 @@ eureka:
 Note: Please ensure that the spring Cloud registry service discovery configuration is enabled
 
 * Configuration method
+
 ```yml
 spring:
   cloud:
     discovery:
       enabled: true
 ```
+
 * code method
+
 ```java
 @SpringBootApplication
 @EnableDiscoveryClient

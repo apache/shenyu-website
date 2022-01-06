@@ -10,9 +10,9 @@ description: 二进制包部署
 
 ### 启动 Apache ShenYu Admin
 
-* 下载 `apache-shenyu-incubating-2.4.0-admin-bin.tar.gz`
+* 下载 `apache-shenyu-incubating-2.4.1-admin-bin.tar.gz`
 
-* 解压缩 `apache-shenyu-incubating-2.4.0-admin-bin.tar.gz`。 进入 `bin` 目录。
+* 解压缩 `apache-shenyu-incubating-2.4.1-admin-bin.tar.gz`。 进入 `bin` 目录。
 
 * 使用 `h2` 来存储后台数据：
 
@@ -30,11 +30,19 @@ description: 二进制包部署
 > linux: ./start.sh 
 ```
 
+* 使用 `PostgreSql` 来存储后台数据， 进入 `/conf` 目录，修改 `application.yaml` 中 `spring.profiles.active` 的配置为 `pg`。
+
+```
+> windows: start.bat 
+
+> linux: ./start.sh 
+```
+
 ### 启动 Apache ShenYu Bootstrap
 
-* 下载 `apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz`
+* 下载 `apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz`
 
-* 解压缩 `apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz`。 进入 bin 目录。
+* 解压缩 `apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz`。 进入 bin 目录。
 
 ```
 > windwos : start.bat 

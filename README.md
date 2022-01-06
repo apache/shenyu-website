@@ -28,7 +28,7 @@ yarn start
 - Start your localized site in dev mode, using the locale of your choice.Then Your site is accessible at http://localhost:3000/zh/.
 
 ```console
-yarn start -- --locale zh
+yarn start --locale zh
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.

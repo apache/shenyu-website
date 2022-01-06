@@ -61,10 +61,18 @@ The following log appears when the startup is successful:
 
 The `shenyu-examples-http` project will automatically register interface methods annotated with `@ShenyuSpringMvcClient` in the Apache ShenYu gateway after successful startup.
 
-Open PluginList -> rpc proxy -> divide to see the list of plugin rule configurations:
+Open PluginList -> Proxy -> divide to see the list of plugin rule configurations:
 
 ![](/img/shenyu/quick-start/http/rule-list.png)
 
 Use PostMan to simulate HTTP to request your http service:
 
 ![](/img/shenyu/quick-start/http/postman-test.png)
+
+Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[local:no Shenyu proxy]:
+
+![](/img/shenyu/quick-start/http/idea-http-test-local.png)
+
+Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[Shenyu proxy]:
+
+![](/img/shenyu/quick-start/http/idea-http-test-proxy.png)

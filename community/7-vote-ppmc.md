@@ -14,13 +14,13 @@ Example：
 
 To：private@shenyu.apache.org
 
-Title： [DISCUSS] (nominee) PPMC membership
+Title： [DISCUSS] (nominee name not GitHub ID) PPMC membership
 
 Content：
 
 Hi, everyone
 
-I propose to invite an active committer, (nominee), to be our PPMC member, considering his/her efforts and motivation to the community.
+I propose to invite an active committer, (nominee name not GitHub ID), to be our PPMC member, considering his/her efforts and motivation to the community.
 This discussion shows his/her contribution to the community and welcome your opinions about this proposal.
 
 The pull requests between become a committer until now of him/her:
@@ -29,6 +29,16 @@ https://github.com/apache/incubator-shenyu/pull/1
 https://github.com/apache/incubator-shenyu/pull/2
 https://github.com/apache/incubator-shenyu/pull/3
 https://github.com/apache/incubator-shenyu/pull/4
+
+The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+Please vote accordingly:
+
+[ ] +1 approve 
+
+[ ] +0 no opinion
+ 
+[ ] -1 disapprove with the reason
 
 ```
 
@@ -41,13 +51,13 @@ Example：
 
 To：private@shenyu.apache.org
 
-Title： [VOTE] (nominee) PPMC membership
+Title： [VOTE] (nominee name not GitHub ID) PPMC membership
 
 Content：
 
 Hi, everyone
 
-This is a formal vote about inviting (nominee) as our new PPMC member. 
+This is a formal vote about inviting (nominee name not GitHub ID) as our new PPMC member. 
 He/She really made an effort to improve ShenYu and fix many issues. 
 The following links will direct you to his/her work.
 
@@ -67,16 +77,17 @@ Example：
 
 To: private@shenyu.apache.org
 
-Title: [RESULT][VOTE] (nominee) PPMC membership
+Title: [RESULT][VOTE] (nominee name not GitHub ID) PPMC membership
 
 Content:
 
 Hi all PPMCs, 
 
-I am glad to receive your votes, and the voting result is,
+I am glad to receive your votes, and the voting result is[1],
 6   +1 votes, 0   +/-1 votes, 0   -1 votes
 
-Therefore, I will send the invitation to (nominee).
+[1]: https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+Therefore, I will send the invitation to (nominee name not GitHub ID).
 ```
 
 **5. PPMC sends notice over email.**
@@ -87,13 +98,13 @@ Example：
 To: private@incubator.apache.org
 CC: private@shenyu.apache.org
 
-Title: [NOTICE] (nominee) for Apache ShenYu PPMC
+Title: [NOTICE] (nominee name not GitHub ID) for Apache ShenYu PPMC
 
 Content:
 
 Hi, 
 
-(nominee) has been voted as a new member of the Apache ShenYu PPMC. the vote thread is at: (link to the vote thread)
+(nominee name not GitHub ID) has been voted as a new member of the Apache ShenYu PPMC. the vote thread is at: (link to the vote thread)
 ```
 
 **6. Wait grace period of 72 hours.**
@@ -105,11 +116,11 @@ To: (nominee email address)
 
 cc: private@shenyu.apache.org
 
-Title: Invitation to become Apache ShenYu PPMC member: (nominee)
+Title: Invitation to become Apache ShenYu PPMC member: (nominee name not GitHub ID)
 
 Content:
 
-Dear (nominee),
+Dear (nominee name not GitHub ID),
 
 In recognition of your demonstrated commitment to, and alignment with, the
 goals of the Apache ShenYu project, the ShenYu PPMC has voted to offer you
@@ -172,3 +183,5 @@ The Apache ShenYu PPMC
 **8. Nominee replies the invitation, including content like accept the offer and give thanks.**
 
 **9. PPMC adds new PPMC member in [roster](https://whimsy.apache.org/roster/ppmc/shenyu).**
+
+**10. Notify new PPMC member to subscribe to the private mailing list: [private-subscribe@shenyu.apache.org](mailto:private-subscribe@shenyu.apache.org), same process as subscribing to the dev mailing list**

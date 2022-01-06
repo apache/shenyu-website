@@ -119,6 +119,18 @@ description: Dubbo服务接入
 </dependency>
 ```
 
+并在你的客户端项目 application.yml 文件中配置：
+
+```yaml
+shenyu:
+  client:
+    registerType: 你的服务注册类型
+    serverLists: 你的服务注册地址
+    props:
+      contextPath: /你的contextPath
+      appName: 你的应用名字
+      port: dubbo 服务端口
+```
 
 如果是`spring`构建，引入以下依赖：
 
@@ -163,36 +175,17 @@ description: Dubbo服务接入
 </dependency>
 ```
 
+并在你的客户端项目 application.yml 文件中配置：
 
-如果是`spring`构建，引入以下依赖：
-
-
-```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-client-apache-dubbo</artifactId>
-   <version>${shenyu.version}</version>
-</dependency>
-```
-
-并在你的 `bean` 定义的 `xml` 文件中新增如下 ：
-
-```xml
-  <bean id ="apacheDubboServiceBeanPostProcessor" class ="org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanPostProcessor">
-       <constructor-arg ref="shenyuRegisterCenterConfig"/>
-  </bean>
-
-  <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-       <property name="registerType" value="http"/>
-       <property name="serverList" value="http://localhost:9095"/>
-       <property name="props">
-          <map>
-            <entry key="contextPath" value="/你的contextPath"/>
-            <entry key="appName" value="你的名字"/>
-            <entry key="ifFull" value="false"/>
-          </map>
-        </property>
-  </bean>
+```yaml
+shenyu:
+  client:
+    registerType: 你的服务注册类型
+    serverLists: 你的服务注册地址
+    props:
+      contextPath: /你的contextPath
+      appName: 你的应用名字
+      port: dubbo 服务端口
 ```
 
 ## dubbo 插件设置

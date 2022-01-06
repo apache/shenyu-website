@@ -48,10 +48,12 @@ description: 选择器和规则管理
   * 打印日志：打开时，当匹配上的时候，会打印匹配日志。
   * 执行顺序：当多个选择器的时候，执行顺序小的优先执行，值越小优先级越高。
   * 处理：即`handle`字段，在 [插件处理管理](./plugin-handle-explanation) 中进行设置。作用是：当请求流量匹配上该选择器时，做什么样的处理操作。
-
 * 上述图片中表示: 当请求的 `uri` 前缀是 `/http`，会转发到 `127.0.0.1:8080` 这个服务上。
-
 * 选择器建议：可以通过设置 `uri` 条件， `match` 前缀（`/contextPath`）匹配，进行第一道流量筛选。
+* 选择器(同规则)模糊匹配条件规则：
+  * `?` 匹配1个字符
+  * `*` 匹配0个或多个字符
+  * `**`  匹配0个或多个目录
 
 ## 规则
 
@@ -286,6 +288,12 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timeafter-zh.png)
 
+* `exclude`
+
+  `exclude` 的方式是 `match` 方式的反选，`match` 有的功能也都有，但是是匹配过滤。假如你的选择器条件设置如下，那么请求 `/http/order/findById` 就会过滤这个。
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-exclude-zh.png)
+
 如果想更深入理解条件匹配策略，请阅读相关源码，包名是`org.apache.shenyu.plugin.base.condition.judge`：
 
 |匹配策略                      | 源码类  | 
@@ -297,6 +305,7 @@ MyHeader: custom-header
 |`SpEL`                 |`SpELPredicateJudge` |  
 |`Groovy`                  |`GroovyPredicateJudge` |  
 |`TimeBefore`                    |`TimerBeforePredicateJudge` |  
-|`TimeAfter`                    |`TimerAfterPredicateJudge` |  
+|`TimeAfter`                    |`TimerAfterPredicateJudge` |
+|`exclude`                    |`ExcludePredicateJudge` |
 
 文中的示例是为了说明选择器和规则的使用，具体条件的设置需要根据实际情况选择。

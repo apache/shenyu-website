@@ -17,80 +17,95 @@ For details about data synchronization configurations, see [Data Synchronization
 
 * Add the following dependencies to the gateway's `pom.xml` file:
 
-
-```xml
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-```
-
-
+  ```xml
+      <dependency>
+          <groupId>org.apache.shenyu</groupId>
+          <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+  
+      <dependency>
+          <groupId>org.apache.shenyu</groupId>
+          <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+  ```
 
 ## Http request access gateway (for springMvc)
 
+* SpringBoot  
 
-Please refer this：[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http)
-
-
-* SpringBoot
+  Please refer this：[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http)
 
   Add the following dependencies to the `pom.xml` file in your `Http` service:
 
-```xml
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
-        <version>${shenyu.version}</version>
-    </dependency>
- ```
-
+  ```xml
+      <dependency>
+          <groupId>org.apache.shenyu</groupId>
+          <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
+          <version>${shenyu.version}</version>
+      </dependency>
+   ```
 
 * SpringMvc
 
-  Add the following dependencies to the `pom.xml` file in your `Http` service:
+  Please refer this：[shenyu-examples-springmvc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springmvc)
 
-```xml
-       <dependency>
-           <groupId>org.apache.shenyu</groupId>
-           <artifactId>shenyu-client-springmvc</artifactId>
-           <version>${shenyu.version}</version>
-       </dependency>
- ```
+  Add the following dependencies to the `pom.xml` file in your `Http` service:  
 
-Add the following to the `XML` file defined by your `bean` :
+  ```xml
+      <dependency>
+          <groupId>org.apache.shenyu</groupId>
+          <artifactId>shenyu-client-springmvc</artifactId>
+          <version>${shenyu.version}</version>
+      </dependency>
+   ```  
 
+  Add the following to the `XML` file defined by your `bean` :
 
- ```xml
-    <bean id ="springMvcClientBeanPostProcessor" class ="org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
-         <constructor-arg  ref="shenyuRegisterCenterConfig"/>
-    </bean>
-
-    <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
-         <property name="registerType" value="http"/>
-         <property name="serverList" value="http://localhost:9095"/>
-         <property name="props">
-              <map>
+   ```xml
+      <bean id="springMvcClientBeanPostProcessor" class="org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor">
+          <constructor-arg ref="clientPropertiesConfig"/>
+          <constructor-arg ref="clientRegisterRepository"/>
+      </bean>
+          
+      <!-- Config register center according to your register type-->
+      <bean id="shenyuRegisterCenterConfig" class="org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig">
+          <property name="registerType" value="http"/>
+          <property name="serverLists" value="http://localhost:9095"/>
+      </bean>
+  
+      <!-- Client properties config -->
+      <bean id="clientPropertiesConfig"
+            class="org.apache.shenyu.register.common.config.ShenyuClientConfig.ClientPropertiesConfig">
+        <property name="props">
+            <map>
                 <entry key="contextPath" value="/your contextPath"/>
-                <entry key="appName" value="your name"/>
+                <entry key="appName" value="your appName"/>
                 <entry key="port" value="your port"/>
                 <entry key="isFull" value="false"/>
-              </map>
-         </property>
-    </bean>
-```
+            </map>
+        </property>
+      </bean>
+  
+      <!-- Config register repository according to your register type -->
+      <bean id="clientRegisterRepository" class="org.apache.shenyu.register.client.http.HttpClientRegisterRepository">
+          <constructor-arg ref="shenyuRegisterCenterConfig"/>
+      </bean>
+      
+      <bean id="shenyuClientShutdownHook" class="org.apache.shenyu.client.core.shutdown.ShenyuClientShutdownHook">
+          <constructor-arg ref="shenyuRegisterCenterConfig"/>
+          <constructor-arg ref="clientRegisterRepository"/>
+      </bean>
+      
+      <bean id="contextRegisterListener" class="org.apache.shenyu.client.springmvc.init.ContextRegisterListener">
+          <constructor-arg ref="clientPropertiesConfig"/>
+      </bean>
+  ```
 
+  Add this annotation `@ShenyuSpringMvcClient` in your `controller` interface.
 
-Add this annotation `@ShenyuSpringMvcClient` in your `controller` interface.
-
-You can apply the annotation to class-level in a controller. The name of the `path` variable is prefix and `/**` will apply proxy for entire interfaces.
+  You can apply the annotation to class-level in a controller. The name of the `path` variable is prefix and `/**` will apply proxy for entire interfaces.
 
 
 Example(1)

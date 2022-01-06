@@ -44,40 +44,72 @@ public class DefaultShenyuEntity implements Serializable {
 * 新增一个类 `CustomShenyuResult` 实现 `org.apache.shenyu.plugin.api.result.ShenyuResult`
 
 ```java
- public interface ShenyuResult<T> {
+/**
+ * The interface shenyu result.
+ */
+public interface ShenyuResult<T> {
 
-     /**
-      * Success t.
-      *
-      * @param code    the code
-      * @param message the message
-      * @param object  the object
-      * @return the t
-      */
-     T success(int code, String message, Object object);
+    /**
+     * The response result.
+     *
+     * @param exchange the exchange
+     * @param formatted the formatted object
+     * @return the result object
+     */
+    default Object result(ServerWebExchange exchange, Object formatted) {
+        return formatted;
+    }
 
-     /**
-      * Error t.
-      *
-      * @param code    the code
-      * @param message the message
-      * @param object  the object
-      * @return the t
-      */
-     T error(int code, String message, Object object);
- }
+    /**
+     * format the origin, default is json format.
+     *
+     * @param exchange the exchange
+     * @param origin the origin
+     * @return format origin
+     */
+    default Object format(ServerWebExchange exchange, Object origin) {
+        // basic data
+        if (ObjectTypeUtils.isBasicType(origin)) {
+            return origin;
+        }
+        // error result or rpc origin result.
+        return JsonUtils.toJson(origin);
+    }
 
+    /**
+     * the response context type, default is application/json.
+     *
+     * @param exchange the exchange
+     * @param formatted the formatted data that is origin data or byte[] convert string
+     * @return the context type
+     */
+    default MediaType contentType(ServerWebExchange exchange, Object formatted) {
+        return MediaType.APPLICATION_JSON;
+    }
+
+    /**
+     * Error t.
+     *
+     * @param code    the code
+     * @param message the message
+     * @param object  the object
+     * @return the t
+     */
+    T error(int code, String message, Object object);
+}
 ```
+
+> 处理顺序：`format`->`contextType`->`result`。`format`方法进行数据的格式化，若数据为基本类型返回自身，其他类型转换为`JSON`，参数`origin`为原始数据，可根据情况执行格式化处理。`contextType`，若是基本类型，使用`text/plain`，默认为`application/json`，参数`formatted`为`format`方法处理之后的数据，可结合`format`的返回结果进行数据类型的自定义处理。`result`的参数`formatted`为`format`方法处理之后的数据，默认返回自身，可结合`format`的返回结果进行数据类型的自定义处理。
 
 * 其中泛型 `T` 为自定义的数据格式，返回它就好。
 
 * 把你新增的实现类注册成为`Spring`的`bean`，如下：
 
 ```java
-    @Bean
-public ShenyuResult customShenyuResult() {
-        return new CustomShenyuResult();
-        }
+@Bean
+public ShenyuResult<?> customShenyuResult() {
+    return new CustomShenyuResult();
+}
 ```
 
 

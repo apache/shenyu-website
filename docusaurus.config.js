@@ -26,70 +26,8 @@ module.exports = {
       },
     },
   },
-  customFields: {
-    downloads: [
-      {
-        name: "Apache ShenYu (incubating)",
-        description: "High-performance, multi-protocol, extensible, responsive API Gateway",
-        githubRepo: "apache/incubator-shenyu",
-        content: [
-          {
-            name: "Source Codes",
-            version: "2.4.1",
-            releaseDate: "Oct 24, 2021",
-            zip: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-src.zip",
-            asc: "https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-src.zip.asc",
-            sha512: "https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-src.zip.sha512"
-          },
-          {
-            name: "ShenYu-Admin Binary Distribution",
-            version: "2.4.1",
-            releaseDate: "Oct 24, 2021",
-            tar: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz",
-            asc: "https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz.asc",
-            sha512: "https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz.sha512"
-          },
-          {
-            name: "ShenYu-Bootstrap Binary Distribution",
-            version: "2.4.1",
-            releaseDate: "Oct 24, 2021",
-            tar: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz",
-            asc: "https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz.asc",
-            sha512: "https://downloads.apache.org/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz.sha512"
-          },
-          {
-            name: "Source Codes",
-            version: "2.4.0",
-            releaseDate: "Aug 8, 2021",
-            zip: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip",
-            asc: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.asc",
-            sha512: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-src.zip.sha512"
-          },
-          {
-            name: "ShenYu-Admin Binary Distribution",
-            version: "2.4.0",
-            releaseDate: "Aug 8, 2021",
-            tar: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz",
-            asc: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.asc",
-            sha512: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-admin-bin.tar.gz.sha512"
-          },
-          {
-            name: "ShenYu-Bootstrap Binary Distribution",
-            version: "2.4.0",
-            releaseDate: "Aug 8, 2021",
-            tar: "https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz",
-            asc: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.asc",
-            sha512: "https://downloads.apache.org/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz.sha512"
-          }
-        ]
-      }
-    ],
-  },
   themeConfig: {
-    announcementBar: {
-      id: 'announcementBar-2', // Increment on change
-      content: `⭐️ &nbsp; If you like Apache ShenYu (Incubating), give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-shenyu">GitHub</a>`,
-    },
+
     navbar: {
      // title: 'Apache ShenYu (Incubating)',
       logo: {
@@ -113,11 +51,12 @@ module.exports = {
         {
           label: 'Event',
           position: 'left',
-          to: '/event/2.4.0-release',
+          to: '/event/2.4.1-release',
           activeBaseRegex: `/event/`,
         },
         {to: '/news', label: 'News', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/users', label: 'Users', position: 'left'},
         {
           label: 'ASF',
           position: 'left',
@@ -263,6 +202,7 @@ module.exports = {
         blog: {
           showReadingTime: true,
           blogSidebarCount: "ALL",
+          blogSidebarTitle: 'All Blog Posts',
           editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl:
@@ -294,6 +234,20 @@ module.exports = {
         showLastUpdateTime: true,
       },
     ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'download',
+    //     path: 'download',
+    //     routeBasePath: 'download',
+    //     editUrl: ({locale, versionDocsDirPath, docPath}) => {
+    //       if (locale !== 'en') {
+    //         return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/docusaurus-plugin-content-docs-event/current/${docPath}`;
+    //       }
+    //       return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
+    //     },
+    //   }
+    // ],
     [
       '@docusaurus/plugin-content-docs',
       {

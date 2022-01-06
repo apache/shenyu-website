@@ -54,10 +54,12 @@ For example, add a selector to the `divide` plugin:
   * Enable: whether to enable the plugin.
   * Order：the smaller will have high priorty to execute among multi-selectors.
   * Handler: The operation when the request matches the selector.
-
 * the above picture means: when the prefix of the request uri is `/http`, it will redirect to this service `127.0.0.1:8080`.
-
 * selector advice : combine `uri` conditon and `match` prefix（/contextPath）as the first request filter.
+* selector(the same for rule) match condition fuzzy string matching rule:
+  * `?` matches one character
+  * `*` matches zero or more characters
+  * `**` matches zero or more directories in a path
 
 ## Rule
 
@@ -91,6 +93,7 @@ For example, add a selector to the `divide` plugin:
       * Groovy: match through Groovy.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
+      * exclude: Same function as `match`, flow selection is opposite.
 
   * PrintLogs: it will print the matching log with the open option enabled.
 
@@ -158,7 +161,7 @@ In `ShenYu` you can set different conditional parameters to get real data from t
 * `uri`(recommended)
 
   * `uri` matches are based on the `uri` in the path you requested, and there is almost no change in the front end when accessing the gateway.
- 
+
   * When using `match`, the principle is the same as `SpringMVC` fuzzy matching.
   
   * In selectors, it is recommended to use prefixes in `URI` for matching, while in rules, specific paths are used for matching.
@@ -300,6 +303,12 @@ Condition parameters allow you to retrieve the actual data of the request. How t
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timeafter-en.png)
 
+* `exclude`
+
+  `exclude` is the inverse of the method of `match`, and some functions of `match` are also available, but it is a matching filter. If your selector condition is set as follows, the request `/http/order/findById` will filter this.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-exclude-en.png)
+
 If you want to further understand conditions matching strategy, please read the source code, the package name is `org.apache.shenyu.plugin.base.condition.judge`:
 
 |Match Strategy                      | Class  | 
@@ -311,6 +320,7 @@ If you want to further understand conditions matching strategy, please read the 
 |`SpEL`                 |`SpELPredicateJudge` |  
 |`Groovy`                  |`GroovyPredicateJudge` |  
 |`TimeBefore`                    |`TimerBeforePredicateJudge` |  
-|`TimeAfter`                    |`TimerAfterPredicateJudge` |  
+|`TimeAfter`                    |`TimerAfterPredicateJudge` |
+|`exclude`                    |`ExcludePredicateJudge` |
 
 The examples in this article illustrate the use of selectors and rules. The Settings of specific conditions need to be selected according to actual conditions.

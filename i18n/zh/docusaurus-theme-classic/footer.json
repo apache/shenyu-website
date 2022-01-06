@@ -44,7 +44,7 @@
     "description": "The label of footer link with label=Issue Tracker linking to https://github.com/apache/incubator-shenyu/issues"
   },
   "link.item.label.How to subscribe": {
-    "message": "如何定阅",
+    "message": "如何订阅",
     "description": "The label of footer link with label=How to subscribe linking to /community/subscribe-email"
   },
   "link.item.label.Subscribe Mail": {

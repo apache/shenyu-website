@@ -12,6 +12,18 @@ description: Custom Rate Limiter
 
 ## Extension
 
+* Create a new project and introduce the following dependencies:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-plugin-base</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
+```
+
 * Create a new class `${you class}`, implements `org.apache.shenyu.plugin.ratelimiter.algorithm.RateLimiterAlgorithm`
 
 ```java
@@ -56,6 +68,8 @@ add `${you spi name}` = `${you class path}`:
 ${you spi name} = ${you class path}
 ```
 
+* Package the project and copy it to the `lib` or `ext-lib` directory of the gateway (bootstrap-bin).
+
 * In the `Admin` service ---> BasicConfig ---> Dictionary ,  Find the dictionary code as `ALGORITHM_*`, add a new piece of data, pay attention to the dictionary name: `${you spi name}`.
 
 <img src="/img/shenyu/custom/custom-rate-limiter-en.jpg" width="40%" height="30%" />
@@ -88,9 +102,3 @@ VALUES (
         '2021-08-30 20:15:23'
     );
 ```
-
-
-
-
-
-

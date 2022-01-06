@@ -30,6 +30,14 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 > linux: ./start.sh 
 ```
 
+* use `PostgreSql` to store data, go to the `/conf` directory, and  modify `spring.profiles.active` of the configuration in `application.yaml` to `pg`.
+
+```
+> windows: start.bat 
+
+> linux: ./start.sh 
+```
+
 ### Start Apache ShenYu Bootstrap
 
 * download `apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz`

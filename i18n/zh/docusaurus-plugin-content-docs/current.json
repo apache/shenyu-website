@@ -47,6 +47,10 @@
     "message": "权限认证",
     "description": "The label for category Authority-And-Certification in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Common": {
+    "message": "通用组件",
+    "description": "The label for category Common"
+  },
   "sidebar.tutorialSidebar.category.Observability": {
     "message": "可观测性",
     "description": "The label for category Observability in sidebar tutorialSidebar"

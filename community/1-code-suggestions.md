@@ -29,15 +29,15 @@ cover: "/img/architecture/shenyu-framework.png"
 
 ## Object
 
-* Ues Optional transform Null.
+* Use Optional transform Null.
 
 > Optional.ofNullable(xxx).orElse(obj)
 
-* Ues Objects Judgment Null Or NotNull.
+* Use Objects Judgment Null Or NotNull.
 
 > Objects.isNull(obj) OR Objects.nonNull(obj)
 
-* Ues `Objects.equals` Judgment are they equal.
+* Use `Objects.equals` Judgment are they equal.
 
 > Objects.equals(obj1, obj2)
 
@@ -58,7 +58,7 @@ for () {
 
 * Use `LinkedList` when you need to add or delete elements, Else use `ArrayList`.
 
-* Ues `org.apache.commons.collections4.CollectionUtils` Judgment Is empty Or Not empty.
+* Use `org.apache.commons.collections4.CollectionUtils` Judgment Is empty Or Not empty.
 
 > CollectionUtils.isEmpty(list) or CollectionUtils.isNotEmpty(data)
 
@@ -79,7 +79,7 @@ while (iter.hasNext()) {
 
 ## String
 
-* Ues `org.apache.commons.lang3.StringUtils` Judgment Is empty Or Not empty.
+* Use `org.apache.commons.lang3.StringUtils` Judgment Is empty Or Not empty.
 
 > StringUtils.isEmpty(list) or StringUtils.isNotEmpty(data)
 

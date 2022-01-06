@@ -84,6 +84,7 @@ add these config values in gateway's yaml file:
           discovery:
              server-addr: 127.0.0.1:8848 # your nacos address
    ```
+
 Special note: Please ensure that the spring Cloud registry service discovery configuration is enabled
 
 * Configuration method

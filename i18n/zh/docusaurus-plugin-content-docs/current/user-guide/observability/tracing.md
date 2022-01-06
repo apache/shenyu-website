@@ -88,6 +88,47 @@ opentelemetry 插件使用的sdk基于 `opentelemetry-sdk-extension-autoconfigur
 | SAMPLER_PARAM | String | 1            | Zipkin 采样率参数        |
 
 
+## 使用 jaeger 插件
+
+- 修改配置文件
+
+在 `shenyu-agent.yaml` 文件中通过`supports.tracing`指定使用 `jaeger` 插件，通过 `plugins.tracing` 填写 `jaeger` 的配置信息。
+
+```yaml
+appName: shenyu-agent
+supports:
+  tracing:
+    - jaeger
+
+plugins:
+  tracing:
+    jaeger:
+      host: "localhost"
+      port: 5775
+      props:
+        SERVICE_NAME: "shenyu-agent"
+        JAEGER_SAMPLER_TYPE: "const"
+        JAEGER_SAMPLER_PARAM: "1"
+```
+
+- 启动 jaeger 服务
+
+请参考 [jaeger-quickstart](https://www.jaegertracing.io/docs/1.28/getting-started/) 启动 `jaeger`
+
+- 测试
+  - 参考 [运维部署](../../deployment/deployment-local.md) 的相关文章，启动 `shenyu-admin`；
+  - 参考上述操作步骤，启动网关；
+  - 参考 [Http快速开始](../../quick-start/quick-start-http.md) ，启动 `shenyu-examples-http`。
+  - 向网关发起请求：
+  > GET http://localhost:9195/http/order/findById?id=1
+  >
+  > Accept: application/json
+
+- 请求成功后，可以看到链路日志已经上报到 jaeger 中：
+  ![](/img/shenyu/agent/shenyu-agent-plugin-tracing-jaeger-1.jpg)
+  ![](/img/shenyu/agent/shenyu-agent-plugin-tracing-jaeger-2.jpg)
+
+
 ## 使用 zipkin 插件
 
 - 修改配置文件

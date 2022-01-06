@@ -85,6 +85,46 @@ The SDK used by the opentelemetry plugin is initialized based on `opentelemetry-
 | SAMPLER_PARAM | String | 1            | zipkin sampler param      |
 
 
+## Agent Plugin Tracing Jaeger
+
+- modify yaml file
+
+Specify the use of the `jaeger` plugin via `supports.tracing` in the `shenyu-agent.yaml` file, and fill in the `jaeger` configuration information via `plugins.tracing`.
+
+```yaml
+appName: shenyu-agent
+supports:
+  tracing:
+    - jaeger
+
+plugins:
+  tracing:
+    jaeger:
+      host: "localhost"
+      port: 5775
+      props:
+        SERVICE_NAME: "shenyu-agent"
+        JAEGER_SAMPLER_TYPE: "const"
+        JAEGER_SAMPLER_PARAM: "1"
+```
+
+- start jaeger server
+
+please see [jaeger-quickstart](https://www.jaegertracing.io/docs/1.28/getting-started/) to start `jaeger`
+
+- tracing test
+  - Reference [Deployment](../../deployment/deployment-local.md) to start `shenyu-admin`.
+  - Start the gateway by referring to the above procedure.
+  - Refer to [Quick start with Http](../../quick-start/quick-start-http.md) to start `shenyu-examples-http`.
+  - Launch a request to the gateway.
+  > GET http://localhost:9195/http/order/findById?id=1
+  >
+  > Accept: application/json
+
+  - After a successful request, you can see that the link log has been reported to jaeger:
+  ![](/img/shenyu/agent/shenyu-agent-plugin-tracing-jaeger-1.jpg)
+  ![](/img/shenyu/agent/shenyu-agent-plugin-tracing-jaeger-2.jpg)
+
 ## Agent Plugin Tracing Zipkin
 
 - modify yaml file

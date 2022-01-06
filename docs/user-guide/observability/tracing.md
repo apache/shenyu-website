@@ -74,4 +74,54 @@ plugins:
 
 The SDK used by the opentelemetry plugin is initialized based on `opentelemetry-sdk-extension-autoconfigure`. For more usage, please refer to [OpenTelemetry SDK AutoConfiguration Instructions](https://github.com/open-telemetry/opentelemetry-java/tree/v1.9.1/sdk-extensions/autoconfigure#opentelemetry-sdk-autoconfigure)
 
-#### zipkin
+
+##### zipkin
+
+| Name                 |  Type  | Default       | Description                     |
+| :------------------- | :----: | :----------- | :----------------------- |
+| SERVICE_NAME         | String | shenyu-agent | The name displayed in the traces system |
+| URL_VERSION         | String | /api/v2/spans | zipkin url version |
+| SAMPLER_TYPE  | String | const        | zipkin sampler type        |
+| SAMPLER_PARAM | String | 1            | zipkin sampler param      |
+
+
+## Agent Plugin Tracing Zipkin
+
+- modify yaml file
+
+Specify the use of the `zipkin` plugin via `supports.tracing` in the `shenyu-agent.yaml` file, and fill in the `zipkin` configuration information via `plugins.tracing`.
+
+```yaml
+appName: shenyu-agent
+supports:
+  tracing:
+    - zipkin
+
+plugins:
+  tracing:
+    zipkin:
+      host: "localhost"
+      port: 9411
+      props:
+        SERVICE_NAME: "shenyu-agent"
+        URL_VERSION: "/api/v2/spans"
+        SAMPLER_TYPE: "const"
+        SAMPLER_PARAM: "1"
+```
+
+- start zipkin-server
+
+please see [zipkin-quickstart](https://zipkin.io/pages/quickstart) to start `zipkin-server` .
+
+- tracing test 
+    - Reference [Deployment](../../deployment/deployment-local.md) to start `shenyu-admin`.
+    - Start the gateway by referring to the above procedure.
+    - Refer to [Quick start with Http](../../quick-start/quick-start-http.md) to start `shenyu-examples-http`.
+    - Launch a request to the gateway.
+    > GET http://localhost:9195/http/order/findById?id=999
+    >
+    > Accept: application/json
+
+    - After a successful request, you can see that the link log has been reported to zipkin:
+      ![](/img/shenyu/agent/shenyu-agent-plugin-tracing-zipkin.png)
+    

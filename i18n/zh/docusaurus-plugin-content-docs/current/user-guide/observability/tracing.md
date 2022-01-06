@@ -112,24 +112,9 @@ plugins:
         SAMPLER_PARAM: "1"
 ```
 
-关于拦截点的配置，默认已经对网关的全部插件加上了链路追踪的拦截点，如果不想记录某个插件的链路信息，可以在 `tracing-point.yaml` 文件中去掉目标类。
-
-- 重新打包
-
-配置信息修改完成后，需要重新打包 `shenyu-agent-dist` 模块：
-
-```shell
-> cd shenyu-agent-dist
-> mvn clean install 
-```
-
 - 启动 zipkin-server
 
 请参考 [zipkin-quickstart](https://zipkin.io/pages/quickstart) 启动 `zipkin-server` 。
-
-- 启动网关
-
-在启动 `Apache ShenYu` 网关时，加上 `-javaagent` 参数，在参数中指定 `shenyu-agent.jar` 的路径。
 
 - 测试
    - 参考 [运维部署](../../deployment/deployment-local.md) 的相关文章，启动 `shenyu-admin`；

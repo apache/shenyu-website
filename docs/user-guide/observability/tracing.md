@@ -109,24 +109,9 @@ plugins:
         SAMPLER_PARAM: "1"
 ```
 
-Regarding the configuration of interception points, by default all plugins of the gateway have been added with link tracing interception points. If you don't want to record the link information of a particular plugin, you can remove the target class in the `tracing-point.yaml` file.
-
-- repackage
-
-Once the configuration information has been changed, the `shenyu-agent-dist` module needs to be repackaged.
-
-```shell
-> cd shenyu-agent-dist
-> mvn clean package 
-```
-
 - start zipkin-server
 
 please see [zipkin-quickstart](https://zipkin.io/pages/quickstart) to start `zipkin-server` .
-
-- start apache shenyu gateway
-
-When starting the `Apache ShenYu` gateway, add the `-javaagent` parameter and specify the path to `shenyu-agent.jar` in the parameter.
 
 - tracing test 
     - Reference [Deployment](../../deployment/deployment-local.md) to start `shenyu-admin`.

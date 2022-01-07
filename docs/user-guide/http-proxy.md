@@ -164,6 +164,60 @@ The following indicates that `/order/save` is proxied by the gateway, while `/or
   }
 ```
 
+example (3)：This is a simplified way to use it, just need a simple annotation to register to the gateway using metadata.
+Special note: currently only supports @RequestMapping, @GetMapping, @PostMapping, @DeleteMapping, @PutMapping annotations, and only valid for the first path in @XXXMapping
+
+```java
+  @RestController
+  @RequestMapping("new/feature")
+  public class NewFeatureController {
+  
+    /**
+     * no support gateway access api.
+     *
+     * @return result
+     */
+    @RequestMapping("/gateway/not")
+    public EntityResult noSupportGateway() {
+      return new EntityResult(200, "no support gateway access");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used request mapping path.
+     *
+     * @return result
+     */
+    @RequestMapping("/requst/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult requestMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used request mapping path");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used post mapping path.
+     *
+     * @return result
+     */
+    @PostMapping("/post/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult postMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used post mapping path");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used post mapping path.
+     *
+     * @return result
+     */
+    @GetMapping("/get/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult getMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used get mapping path");
+    }
+  }
+
+```
+
 * Start your project, your service interface is connected to the gateway, go to the `shenyu-admin` management system plugin list `->` HTTP process `->` Divide, see automatically created selectors and rules.
 
 

@@ -85,6 +85,35 @@ add these config values in gateway's yaml file:
              server-addr: 127.0.0.1:8848 # your nacos address
    ```
 
+Special note: Please ensure that the spring Cloud registry service discovery configuration is enabled
+
+* Configuration method
+
+```yml
+spring:
+  cloud:
+    discovery:
+      enabled: true
+```
+
+* code method
+
+```java
+@SpringBootApplication
+@EnableDiscoveryClient
+public class ShenyuBootstrapApplication {
+    
+    /**
+     * Main Entrance.
+     *
+     * @param args startup arguments
+     */
+    public static void main(final String[] args) {
+        SpringApplication.run(ShenyuBootstrapApplication.class, args);
+    }
+}
+```
+
 * restart your gateway service.
 
 ## SpringCloud service access gateway
@@ -189,6 +218,60 @@ shenyu:
           return orderDTO;
       }
   }
+```
+
+example (4)：This is a simplified way to use it, just need a simple annotation to register to the gateway using metadata.
+Special note: currently only supports @RequestMapping, @GetMapping, @PostMapping, @DeleteMapping, @PutMapping annotations, and only valid for the first path in @XXXMapping
+
+```java
+  @RestController
+  @RequestMapping("new/feature")
+  public class NewFeatureController {
+  
+    /**
+     * no support gateway access api.
+     *
+     * @return result
+     */
+    @RequestMapping("/gateway/not")
+    public EntityResult noSupportGateway() {
+      return new EntityResult(200, "no support gateway access");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used request mapping path.
+     *
+     * @return result
+     */
+    @RequestMapping("/requst/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult requestMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used request mapping path");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used post mapping path.
+     *
+     * @return result
+     */
+    @PostMapping("/post/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult postMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used post mapping path");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used post mapping path.
+     *
+     * @return result
+     */
+    @GetMapping("/get/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult getMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used get mapping path");
+    }
+  }
+
 ```
 
 * After successfully registering your service, go to the backend management system PluginList -> rpc proxy -> springCloud ', you will see the automatic registration of selectors and rules information.

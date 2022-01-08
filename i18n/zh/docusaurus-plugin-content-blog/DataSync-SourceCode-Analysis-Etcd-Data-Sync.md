@@ -328,7 +328,8 @@ public class EtcdProperties {
 根据上文所述，在事件处理方法`onApplicationEvent()`中，就会到相应的`listener`中。在我们的案例中，是对一条选择器数据进行更新，数据同步采用的是`etcd`，所以，代码会进入到`EtcdDataDataChangedListener`进行选择器数据变更处理。
 
 ```java
-    @Override
+    //DataChangedEventDispatcher.java
+		@Override
     @SuppressWarnings("unchecked")
     public void onApplicationEvent(final DataChangedEvent event) {
         // 遍历数据变更监听器(一般使用一种数据同步的方式就好了)
@@ -401,7 +402,7 @@ public class EtcdDataDataChangedListener implements DataChangedListener {
 
 我们用时序图将上面的更新流程串联起来。
 
-![](/img/activities/code-analysis-zookeeper-data-sync/etcd-sync-sequence-admin-zh.png)
+![](/img/activities/code-analysis-etcd-data-sync/etcd-sync-sequence-admin-zh.png)
 
 
 ### 3. 网关数据同步
@@ -586,7 +587,7 @@ public final class BaseDataCache {
 
 我们还是通过时序图将网关端的数据同步流程串联一下：
 
-![](/img/activities/code-analysis-zookeeper-data-sync/etcd-sync-sequence-gateway-zh.png)
+![](/img/activities/code-analysis-etcd-data-sync/etcd-sync-sequence-gateway-zh.png)
 
 数据同步的流程已经分析完了，为了不让同步流程被打断，在分析过程中就忽略了其他逻辑。我们还需要分析`Admin`同步数据初始化和网关同步操作初始化的流程。
 

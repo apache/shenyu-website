@@ -413,7 +413,7 @@ public class EtcdDataDataChangedListener implements DataChangedListener {
 
 - EtcdClient.watchDataChange()
 
-在网关端有一个`EtcdSyncDataService`类，它通过`ZkClient`订阅了数据节点，当数据发生变更时，可以感知到。
+在网关端有一个`EtcdSyncDataService`类，它通过`etcdClient`订阅了数据节点，当数据发生变更时，可以感知到。
 
 ```java
 /**

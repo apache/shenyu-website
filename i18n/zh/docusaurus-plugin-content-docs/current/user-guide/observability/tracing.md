@@ -169,3 +169,43 @@ plugins:
    - 请求成功后，可以看到链路日志已经上报到zipkin中：
    ![](/img/shenyu/agent/shenyu-agent-plugin-tracing-zipkin.png)
     
+
+## 使用 opentelemetry 插件
+
+- 修改配置文件
+
+在 `shenyu-agent.yaml` 文件中通过`supports.tracing`指定使用 `opentelemetry` 插件，通过 `plugins.tracing` 填写 `opentelemetry` 的配置信息。
+
+```yaml
+appName: shenyu-agent
+supports:
+  tracing:
+    - opentelemetry
+
+plugins:
+  tracing:
+    opentelemetry:
+      props:
+        otel.traces.exporter: jaeger #zipkin #otlp
+        otel.resource.attributes: "service.name=shenyu-agent"
+        otel.exporter.jaeger.endpoint: "http://localhost:14250/api/traces"
+```
+
+- 根据导出器配置启动 jaeger 或 zipkin 或 opentelemetry-collector
+
+启动 jaeger 可参考 [jaeger-quickstart](https://www.jaegertracing.io/docs/1.28/getting-started/)
+
+启动 zipkin 可参考 [zipkin-quickstart](https://zipkin.io/pages/quickstart)
+
+启动 otel-collector 可参考 [opentelemetry-collector-quickstart](https://opentelemetry.io/docs/collector/getting-started/)
+
+- 测试
+  - 参考 [运维部署](../../deployment/deployment-local.md) 的相关文章，启动 `shenyu-admin`；
+  - 参考上述操作步骤，启动网关；
+  - 参考 [Http快速开始](../../quick-start/quick-start-http.md) ，启动 `shenyu-examples-http`。
+  - 向网关发起请求：
+  > GET http://localhost:9195/http/order/findById?id=1
+  >
+  > Accept: application/json
+
+  - 请求成功后，可在相应后端看到链路日志，效果与上面的jaeger插件和zipkin插件相同。

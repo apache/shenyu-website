@@ -39,5 +39,5 @@ export default [
     {name:"聚拍网",src:"/img/users/jupai.png",link:"https://www.jupai.net"},
     {name:"九州通",src:"/img/users/jzt.png",link:"https://www.yyjzt.com"},
     {name:"浙江百应科技",src:"/img/users/by_logo.png",link:"https://www.byai.com/"},
-    {name:"ShipOut",src:"/img/users/shiout_logo.png",link:"https://www.ShipOut.com"},
+    {name:"ShipOut",src:"/img/users/shipout_logo.png",link:"https://www.ShipOut.com"},
 ]

@@ -86,14 +86,6 @@ plugins:
 
 ## 使用
 
-在启动 `Apache ShenYu` 网关的启动脚本中，最后运行jar包时加上-javaagent参数即可，即：
-
-```shell
-nohup java ${JAVA_OPTS}\
--javaagent:${SHENYU_AGENT_PATH}/shenyu-agent.jar\
--classpath ${CLASS_PATH} ${MAIN_CLASS} >> ${LOG_FILES} 2>&1 &
-```
-
-其中 `${SHENYU_AGENT_PATH}` 为 `shenyu-agent` 目录的路径
+部署请参考 [部署shenyu-agent](../../deployment/deployment-agent.md)
 
 > 开发者可将-javaagent参数添加到IDE启动配置的JVM参数中

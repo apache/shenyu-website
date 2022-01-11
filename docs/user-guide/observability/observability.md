@@ -86,14 +86,6 @@ plugins:
 
 ## For use
 
-In the startup script to start the `Apache ShenYu` gateway, add the -javaagent parameter when running the jar package at the end, namely:
-
-```shell
-nohup java ${JAVA_OPTS}\
--javaagent:${SHENYU_AGENT_PATH}/shenyu-agent.jar\
--classpath ${CLASS_PATH} ${MAIN_CLASS} >> ${LOG_FILES} 2>&1 &
-```
-
-Where `${SHENYU_AGENT_PATH}` is the path of the `shenyu-agent` directory
+For deployment, please refer to [Deploy shenyu-agent](../../deployment/deployment-agent.md)
 
 > Developers can add the `-javaagent` parameter to the JVM parameter of the IDE startup configuration

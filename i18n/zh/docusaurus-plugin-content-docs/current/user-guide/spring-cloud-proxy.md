@@ -83,6 +83,35 @@ description: SpringCloud接入ShenYu网关
              server-addr: 127.0.0.1:8848 # 你的nacos地址
    ```
 
+特别提示：请确保spring Cloud注册中心服务发现配置开启
+
+* 配置方式
+
+```yml
+spring:
+  cloud:
+    discovery:
+      enabled: true
+```
+
+* 代码方式
+
+```java
+@SpringBootApplication
+@EnableDiscoveryClient
+public class ShenyuBootstrapApplication {
+    
+    /**
+     * Main Entrance.
+     *
+     * @param args startup arguments
+     */
+    public static void main(final String[] args) {
+        SpringApplication.run(ShenyuBootstrapApplication.class, args);
+    }
+}
+```
+
 * 重启你的网关服务。
 
 ## SpringCloud服务接入网关
@@ -195,6 +224,60 @@ shenyu:
   }
 ```
 
+
+示例四：这是一种简化的使用方式，只需要一个简单的注解，使用元数据注册到网关。
+特别说明：目前只支持`@RequestMapping、@GetMapping、@PostMapping、@DeleteMapping、@PutMapping`注解，并且只对`@XXXMapping`中的第一个路径有效。
+
+```java
+  @RestController
+  @RequestMapping("new/feature")
+  public class NewFeatureController {
+  
+    /**
+     * no support gateway access api.
+     *
+     * @return result
+     */
+    @RequestMapping("/gateway/not")
+    public EntityResult noSupportGateway() {
+      return new EntityResult(200, "no support gateway access");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used request mapping path.
+     *
+     * @return result
+     */
+    @RequestMapping("/requst/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult requestMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used request mapping path");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used post mapping path.
+     *
+     * @return result
+     */
+    @PostMapping("/post/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult postMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used post mapping path");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used post mapping path.
+     *
+     * @return result
+     */
+    @GetMapping("/get/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult getMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used get mapping path");
+    }
+  }
+
+```
 
 * 启动你的服务成功注册后，进入后台管理系统的`插件列表 -> rpc proxy -> springCloud`，会看到自动注册的选择器和规则信息。
 

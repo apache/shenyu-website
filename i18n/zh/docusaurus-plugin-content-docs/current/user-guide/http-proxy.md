@@ -159,6 +159,61 @@ description: Http服务接入
   }
 ```
 
+示例三：这是一种简化的使用方式，只需要一个简单的注释即可使用元数据注册到网关.
+特别说明：目前只支持`@RequestMapping、@GetMapping、@PostMapping、@DeleteMapping、@PutMapping`注解，并且只对`@XXXMapping`中的第一个路径有效
+
+```java
+  @RestController
+  @RequestMapping("new/feature")
+  public class NewFeatureController {
+  
+    /**
+     * no support gateway access api.
+     *
+     * @return result
+     */
+    @RequestMapping("/gateway/not")
+    public EntityResult noSupportGateway() {
+      return new EntityResult(200, "no support gateway access");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used request mapping path.
+     *
+     * @return result
+     */
+    @RequestMapping("/requst/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult requestMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used request mapping path");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used post mapping path.
+     *
+     * @return result
+     */
+    @PostMapping("/post/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult postMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used post mapping path");
+    }
+  
+    /**
+     * Do not use shenyu annotation path. used post mapping path.
+     *
+     * @return result
+     */
+    @GetMapping("/get/mapping/path")
+    @ShenyuSpringCloudClient
+    public EntityResult getMappingUrl() {
+      return new EntityResult(200, "Do not use shenyu annotation path. used get mapping path");
+    }
+  }
+
+```
+
+
 * 启动你的项目，你的服务接口接入到了网关，进入`shenyu-admin`后台管理系统的`插件列表 -> http process -> divide`，看到自动创建的选择器和规则。
 
 ## Http请求接入网关（其他语言，非springMvc体系）

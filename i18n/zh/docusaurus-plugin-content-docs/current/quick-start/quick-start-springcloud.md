@@ -51,13 +51,42 @@ description: Spring Cloud快速开始
 
 `eureka`配置信息如下：
 
-```xml
+```yml
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+```
+
+特别注意: 请保证`springCloud`注册中心服务发现配置为开启
+
+* 配置方式
+
+```yml
+spring:
+  cloud:
+    discovery:
+      enabled: true
+```
+
+* 代码方式
+
+```java
+@SpringBootApplication
+@EnableDiscoveryClient
+public class ShenyuBootstrapApplication {
+    
+    /**
+     * Main Entrance.
+     *
+     * @param args startup arguments
+     */
+    public static void main(final String[] args) {
+        SpringApplication.run(ShenyuBootstrapApplication.class, args);
+    }
+}
 ```
 
 启动`shenyu-bootstrap`项目。
@@ -123,3 +152,11 @@ eureka:
 下面使用`postman`模拟`http`的方式来请求你的`SpringCloud`服务：
 
 ![](/img/shenyu/quick-start/springcloud/postman-test.png)
+
+使用 `IDEA HTTP Client` 插件模拟`http`的方式来请求你的`SpringCloud`服务[本地访问，不使用`shenyu`代理]:
+
+![](/img/shenyu/quick-start/springcloud/idea-http-test-local.png)
+
+使用 `IDEA HTTP Client` 插件模拟`http`的方式来请求你的`SpringCloud`服务[使用`shenyu`代理]:
+
+![](/img/shenyu/quick-start/springcloud/idea-http-test-proxy.png)

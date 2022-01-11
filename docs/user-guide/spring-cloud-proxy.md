@@ -221,7 +221,7 @@ shenyu:
 ```
 
 example (4)：This is a simplified way to use it, just need a simple annotation to register to the gateway using metadata.
-Special note: currently only supports @RequestMapping, @GetMapping, @PostMapping, @DeleteMapping, @PutMapping annotations, and only valid for the first path in @XXXMapping
+Special note: currently only supports `@RequestMapping, @GetMapping, @PostMapping, @DeleteMapping, @PutMapping` annotations, and only valid for the first path in `@XXXMapping`.
 
 ```java
   @RestController

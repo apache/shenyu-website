@@ -70,3 +70,10 @@ description: Http快速开始
 
 ![](/img/shenyu/quick-start/http/postman-test.png)
 
+下面使用`IDEA HTTP Client Plugin`模拟`http`的方式来请求你的`http`服务[本地访问，不使用`shenyu`代理]:
+
+![](/img/shenyu/quick-start/http/idea-http-test-local.png)
+
+下面使用`IDEA HTTP Client Plugin`模拟`http`的方式来请求你的`http`服务[使用`shenyu`代理]:
+
+![](/img/shenyu/quick-start/http/idea-http-test-proxy.png)

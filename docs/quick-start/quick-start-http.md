@@ -69,10 +69,10 @@ Use PostMan to simulate HTTP to request your http service:
 
 ![](/img/shenyu/quick-start/http/postman-test.png)
 
-Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[local:no Shenyu proxy]:
+Use IDEA HTTP Client Plugin to simulate HTTP to request your http service[local:no Shenyu proxy]:
 
 ![](/img/shenyu/quick-start/http/idea-http-test-local.png)
 
-Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[Shenyu proxy]:
+Use IDEA HTTP Client Plugin to simulate HTTP to request your http service[Shenyu proxy]:
 
 ![](/img/shenyu/quick-start/http/idea-http-test-proxy.png)

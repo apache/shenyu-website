@@ -86,6 +86,6 @@ plugins:
 
 ## 使用
 
-部署请参考 [部署shenyu-agent](../../deployment/deployment-agent.md)
+部署请参考 [二进制包部署](../../deployment/deployment-package.md#启动-shenyu-bootstrap-的同时启动-shenyu-agent) 或 [Docker部署](../../deployment/deployment-docker.md#启动-shenyu-bootstrap-的同时启动-shenyu-agent)
 
 > 开发者可将-javaagent参数添加到IDE启动配置的JVM参数中

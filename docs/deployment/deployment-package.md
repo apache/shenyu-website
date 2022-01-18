@@ -10,9 +10,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Admin
 
-* download `apache-shenyu-incubating-2.4.0-admin-bin.tar.gz`
+* download `apache-shenyu-incubating-${PROJECT_VERSION}-admin-bin.tar.gz`
 
-* unzip `apache-shenyu-incubating-2.4.0-admin-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-incubating-${PROJECT_VERSION}-admin-bin.tar.gz`。 go to the `bin` directory.
 
 * use `h2` to store data：
 
@@ -40,9 +40,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Bootstrap
 
-* download `apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz`
+* download `apache-shenyu-incubating-${PROJECT_VERSION}-bootstrap-bin.tar.gz`
 
-* unzip `apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-incubating-${PROJECT_VERSION}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 
 ```
 > windwos : start.bat 
@@ -50,11 +50,15 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 > linux : ./start.sh 
 ```
 
+### Start ShenYu Bootstrap with ShenYu Agent
 
+> 2.4.2 version started to support shenyu-agent ([Observability](../user-guide/observability/observability.md))
 
+Agent related configuration is in `./agent/conf`.
 
+If you want to start bootstrap with shenyu-agent, you just need to add one parameter at startup: agent
 
-
-
-
+```shell
+./start.sh agent
+```
 

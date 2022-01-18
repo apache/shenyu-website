@@ -46,12 +46,35 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 
 ### 启动Apache ShenYu Bootstrap
 
-```
+宿主机中，bootstrap的[配置文件](https://github.com/apache/incubator-shenyu/tree/master/shenyu-bootstrap/src/main/resources)所在目录记为 `$BOOTSTRAP_CONF`。
+
+```shell
 > docker network create shenyu
 > docker pull apache/shenyu-bootstrap
-> docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap
-```                       
+> docker run -d \
+  -p 9195:9195 \
+  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
+  apache/shenyu-bootstrap
+```
 
+### 启动 ShenYu Bootstrap 的同时，启动 ShenYu Agent
 
+> 2.4.2版本开始支持shenyu-agent ([可观测性](../user-guide/observability/observability.md))
 
+* 编辑配置文件
 
+agent相关配置文件位于 [shenyu-dist/shenyu-agent-dist/src/main/resources/conf/](https://github.com/apache/incubator-shenyu/tree/master/shenyu-dist/shenyu-agent-dist/src/main/resources/conf) ，编辑好 `shenyu-agent.yaml` 和 `tracing-point.yaml` 后，将这两个文件放在同一目录下，记为 `$AGENT_CONF`。
+
+* 拉取docker镜像并启动
+
+附带参数 `agent` 表示启动 `shenyu-agent`。
+
+```shell
+> docker network create shenyu
+> docker pull apache/shenyu-bootstrap
+> docker run -d \
+  -p 9195:9195 \
+  -v $AGENT_CONF:/opt/shenyu-bootstrap/agent/conf \
+  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
+  apache/shenyu-bootstrap agent
+```

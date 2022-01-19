@@ -86,6 +86,6 @@ plugins:
 
 ## For use
 
-For deployment, please refer to [Deploy shenyu-agent](../../deployment/deployment-agent.md)
+For deployment, please refer to [Binary Packages Deployment](../../deployment/deployment-package.md#start-shenyu-bootstrap-with-shenyu-agent) or [Docker Deployment](../../deployment/deployment-docker.md#start-shenyu-bootstrap-with-shenyu-agent)
 
 > Developers can add the `-javaagent` parameter to the JVM parameter of the IDE startup configuration

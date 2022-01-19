@@ -10,9 +10,9 @@ description: 二进制包部署
 
 ### 启动 Apache ShenYu Admin
 
-* 下载 `apache-shenyu-incubating-2.4.1-admin-bin.tar.gz`
+* 下载 `apache-shenyu-incubating-${PROJECT_VERSION}-admin-bin.tar.gz`
 
-* 解压缩 `apache-shenyu-incubating-2.4.1-admin-bin.tar.gz`。 进入 `bin` 目录。
+* 解压缩 `apache-shenyu-incubating-${PROJECT_VERSION}-admin-bin.tar.gz`。 进入 `bin` 目录。
 
 * 使用 `h2` 来存储后台数据：
 
@@ -40,9 +40,9 @@ description: 二进制包部署
 
 ### 启动 Apache ShenYu Bootstrap
 
-* 下载 `apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz`
+* 下载 `apache-shenyu-incubating-${PROJECT_VERSION}-bootstrap-bin.tar.gz`
 
-* 解压缩 `apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz`。 进入 bin 目录。
+* 解压缩 `apache-shenyu-incubating-${PROJECT_VERSION}-bootstrap-bin.tar.gz`。 进入 bin 目录。
 
 ```
 > windwos : start.bat 
@@ -50,11 +50,14 @@ description: 二进制包部署
 > linux : ./start.sh 
 ```
 
+### 启动 ShenYu Bootstrap 的同时，启动 ShenYu Agent
 
+> 2.4.2版本开始支持shenyu-agent ([可观测性](../user-guide/observability/observability.md))
 
+agent 相关配置在 `./agent/conf`。
 
+如果你想使用 shenyu-agent，只需要在启动时添加一个参数：agent
 
-
-
-
-
+```shell
+./start.sh agent
+```

@@ -10,9 +10,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Admin
 
-* download `apache-shenyu-incubating-${PROJECT_VERSION}-admin-bin.tar.gz`
+* download `apache-shenyu-incubating-2.4.2-admin-bin.tar.gz`
 
-* unzip `apache-shenyu-incubating-${PROJECT_VERSION}-admin-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-incubating-2.4.2-admin-bin.tar.gz`。 go to the `bin` directory.
 
 * use `h2` to store data：
 
@@ -40,9 +40,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Bootstrap
 
-* download `apache-shenyu-incubating-${PROJECT_VERSION}-bootstrap-bin.tar.gz`
+* download `apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz`
 
-* unzip `apache-shenyu-incubating-${PROJECT_VERSION}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 
 ```
 > windwos : start.bat 

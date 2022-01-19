@@ -10,38 +10,38 @@ This article introduces the use of `docker` to deploy the `Apache ShenYu` gatewa
 ### Start Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin
+> docker pull apache/shenyu-admin:2.4.2
 > docker network create shenyu
 ```
 
 * use `h2` to store data:
 
 ```
-> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
+> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
 ```
 
 * use `MySQL` to store data, copy `mysql-connector.jar` to `/$(your_work_dir)/ext-lib`：
 
 ```
-docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
 ```
 
 another way is to put the `application.yml`、`application-mysql.yml`、`application-pg.yml` configuration in  ${your_work_dir}/conf from [Configure address](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) , and then execute the following statement：
 
 ```          
-docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
 ```
 
 * use `PostgreSql` to store data, execute the following statement：
 
 ```
-docker run -e "SPRING_PROFILES_ACTIVE=pg" -e "spring.datasource.url=jdbc:postgresql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -e "SPRING_PROFILES_ACTIVE=pg" -e "spring.datasource.url=jdbc:postgresql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
 ```
 
 another way is to put the `application.yml` configuration in ${your_work_dir}/conf, and then execute the following statement：
 
 ```
-docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
 ```
 
 ### Start Apache ShenYu Bootstrap
@@ -50,11 +50,11 @@ In the host, the directory where the bootstrap [configuration file](https://gith
 
 ```shell
 > docker network create shenyu
-> docker pull apache/shenyu-bootstrap
+> docker pull apache/shenyu-bootstrap:2.4.2
 > docker run -d \
   -p 9195:9195 \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
-  apache/shenyu-bootstrap
+  apache/shenyu-bootstrap:2.4.2
 ```
 
 ### Start ShenYu Bootstrap with ShenYu Agent
@@ -71,10 +71,10 @@ The additional parameter `agent` means to start `shenyu-agent`.
 
 ```shell
 > docker network create shenyu
-> docker pull apache/shenyu-bootstrap
+> docker pull apache/shenyu-bootstrap:2.4.2
 > docker run -d \
   -p 9195:9195 \
   -v $AGENT_CONF:/opt/shenyu-bootstrap/agent/conf \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
-  apache/shenyu-bootstrap agent
+  apache/shenyu-bootstrap:2.4.2 agent
 ```

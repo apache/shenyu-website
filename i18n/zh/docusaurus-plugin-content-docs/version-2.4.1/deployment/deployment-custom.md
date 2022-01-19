@@ -34,12 +34,12 @@ description: 自定义部署
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
-        <version>${project.version}</version>
+        <version>2.4.1</version>
     </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>${project.version}</version>
+        <version>2.4.1</version>
     </dependency>
 </dependencies>
 ```

@@ -16,9 +16,9 @@ description: Tracing access
 │   └── tracing-point.yaml
 ├── plugins
 │   ├── shenyu-agent-plugin-tracing-common-${latest.release.version}.jar
-│   ├── shenyu-agent-plugin-tracing-jaeger-${latest.release.version}-SNAPSHOT.jar
-│   ├── shenyu-agent-plugin-tracing-opentelemetry-${latest.release.version}-SNAPSHOT.jar
-│   └── shenyu-agent-plugin-tracing-zipkin-${latest.release.version}-SNAPSHOT.jar
+│   ├── shenyu-agent-plugin-tracing-jaeger-${latest.release.version}.jar
+│   ├── shenyu-agent-plugin-tracing-opentelemetry-${latest.release.version}.jar
+│   └── shenyu-agent-plugin-tracing-zipkin-${latest.release.version}.jar
 └── shenyu-agent.jar
 ```
 

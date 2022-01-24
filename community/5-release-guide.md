@@ -368,6 +368,16 @@ to check the following items:
 
 ## Call for a Vote
 
+**Subscribe Incubator mail list** 
+
+1. Use your mailbox to send an e-mail to [general-subscribe@incubator.apache.org](mailto:general-subscribe@incubator.apache.org) with any subject or content.
+
+2. After Step 1, you will receive a confirmation e-mail from [general-help@incubator.apache.org](mailto:general-help@incubator.apache.org) (if you have not received that, please check "RSS feeds", "junk e-mail" or other items). Reply that e-mail directly or click the link in e-mail to reply, with any subject or content.
+
+3. After finishing the two steps above, an e-mail with the subject of `WELCOME to general@incubator.apache.org` will be sent to your e-mail address. You have succeeded in subscribing Incubator mail-list.
+   
+   Until now, you can interact with community by your subscribed email or track email conversations by [Archived email list](https://lists.apache.org/list.html?general@incubator.apache.org).
+
 **Vote procedure**
 
 1. ShenYu community vote: send the vote e-mail to `dev@shenyu.apache.org`. 

@@ -366,6 +366,16 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 ## 发起投票
 
+**订阅 Incubator 邮件列表**
+
+1. 用自己的邮箱向 [general-subscribe@incubator.apache.org](mailto:general-subscribe@incubator.apache.org) 发送一封邮件，主题和内容任意。
+
+2. 完成步骤1后，您将收到一封来自 [general-help@incubator.apache.org](mailto:general-help@incubator.apache.org) 的确认邮件（如未收到，请确认该邮件是否已被拦截，或已经被自动归入订阅邮件、垃圾邮件、推广邮件等文件夹）。直接回复该邮件，或点击邮件里的链接快捷回复即可，主题和内容任意。
+
+3. 完成以上步骤后，您会收到一封主题为 `WELCOME to general@incubator.apache.org` 的欢迎邮件，成功订阅邮件列表。
+   
+   至此，您可以通过 `general@incubator.apache.org` 接收及回复邮件，或通过查看[归档邮件](https://lists.apache.org/list.html?general@incubator.apache.org)来跟踪邮件对话。
+
 **投票阶段**
 
 1. ShenYu社区投票，发起投票邮件到`dev@shenyu.apache.org`。PPMC成员需要先按照文档检查版本的正确性，然后再进行投票。

@@ -52,9 +52,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start ShenYu Bootstrap with ShenYu Agent
 
-> 2.4.2 version started to support shenyu-agent ([Observability](../user-guide/observability/observability.md))
+> 2.4.2 version started to support shenyu-agent
 
-Agent related configuration is in `./agent/conf`.
+Agent related configuration is in `./agent/conf`. For detailed configuration, please refer to [Observability](../user-guide/observability/observability.md)
 
 If you want to start bootstrap with shenyu-agent, you just need to add one parameter at startup: agent
 

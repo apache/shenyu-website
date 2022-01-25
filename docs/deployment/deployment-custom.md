@@ -35,12 +35,12 @@ This article describes how to build your own gateway based on `Apache ShenYu`.
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
-        <version>2.4.2</version>
+        <version>${current.version}</version>
    </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>2.4.2</version>
+        <version>${current.version}</version>
    </dependency>
 </dependencies>
 ```

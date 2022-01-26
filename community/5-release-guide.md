@@ -698,6 +698,8 @@ GPG signatures and hashes (SHA* etc) must use URL start with `https://downloads.
 
 Send e-mail to `general@incubator.apache.org`, `dev@shenyu.apache.org` and `announce@apache.org` to announce the release is complete
 
+> Note: The `announce@apache.org` address requires the email to be sent in plain text format. If you are using Gmail, you can check `Plain Text Mode` in the edit page.
+
 Announcement e-mail template:
 
 Title:
@@ -749,7 +751,7 @@ it does indicate that the project has yet to be fully endorsed by the ASF.
 
 **8. 8. Re-releasing (not required)**
 
-Note: Re-releasing is only required if the vote did not pass.
+> Note: Re-releasing is only required if the vote did not pass.
 
 8.1. Cancellation vote Email Template
 

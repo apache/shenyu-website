@@ -18,6 +18,7 @@ Apache ShenYu puts integration tests in continuous integration, using GitHub Act
 ### How to automate integration testing?
 
 In Apache ShenYu, the main steps of integration testing are embodied in the script of the GitHub Action workflow, as shown below, which is located at [~/.github/workflows](https://github.com/apache/incubator-shenyu/tree /master/.github/workflows) directory.
+
 ```yaml
 name: it
 on:

@@ -694,6 +694,8 @@ GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`h
 
 发送邮件到`general@incubator.apache.org`、`dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
 
+> 注意：`announce@apache.org` 地址要求以纯文本格式发送邮件。如果你使用的是Gmail，可以在编辑界面勾选`纯文本模式`。
+
 通知邮件模板：
 
 标题：
@@ -744,7 +746,7 @@ it does indicate that the project has yet to be fully endorsed by the ASF.
 
 **8. 重新发布（非必需）**
 
-注意：只有在投票没有通过的情况下才需要重新发布。
+> 注意：只有在投票没有通过的情况下才需要重新发布。
 
 8.1. 取消投票邮件模板
 

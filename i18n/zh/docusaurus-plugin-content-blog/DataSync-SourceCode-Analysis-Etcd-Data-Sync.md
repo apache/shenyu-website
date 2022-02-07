@@ -321,10 +321,10 @@ public class EtcdProperties {
 }
 ```
 
-当我们在配置文件中配置了`shenyu.sync.etcd.url`属性时，将采用`etcd`进行数据同步，此时配置类`EtcdListener`会生效，并生成`EtcdClient`, `EtcdDataDataChangedListener`和`EtcdDataInit`类型的bean。
+当我们在配置文件中配置了`shenyu.sync.etcd.url`属性时，`Admin`将采用`etcd`进行数据同步，此时配置类`EtcdListener`会生效，并生成`EtcdClient`, `EtcdDataDataChangedListener`和`EtcdDataInit`类型的bean。
 * 生成`EtcdClient`类型的bean，`etcdClient`，这个bean根据配置文件，配置了与etcd服务器的连接信息，可以直接操作etcd节点。
-* 生成`EtcdDataDataChangedListener`类型的bean，`etcdDataDataChangedListener`，这个bean将`EtcdClient`类型的bean作为成员变量，当监听到事件时，进行回调操作，可以直接使用该bean操作etcd节点。
-* 生成`EtcdDataInit`类型的bean，`etcdDataInit`，这个bean将bean`etcdClient`和bean`syncDataService`作为成员变量，使用`etcdClient`根据etcd路径判断未初始化时，调用syncDataService进行刷新操作，将在下文详述。
+* 生成`EtcdDataDataChangedListener`类型的bean，`etcdDataDataChangedListener`，这个bean将bean`etcdClient`作为成员变量，当监听到事件时，进行回调操作，可以直接使用该bean操作etcd节点。
+* 生成`EtcdDataInit`类型的bean，`etcdDataInit`，这个bean将bean`etcdClient`和bean`syncDataService`作为成员变量，使用`etcdClient`根据etcd路径，判断数据是否未初始化，当未初始化时，将调用syncDataService进行刷新操作，将在下文详述。
 根据上文所述，在事件处理方法`onApplicationEvent()`中，就会到相应的`listener`中。在我们的案例中，是对一条选择器数据进行更新，数据同步采用的是`etcd`，所以，代码会进入到`EtcdDataDataChangedListener`进行选择器数据变更处理。
 
 ```java
@@ -670,8 +670,7 @@ public class SyncDataServiceImpl implements SyncDataService {
 
 网关这边的数据同步初始化操作主要是订阅`etcd`中的节点，当有数据变更时，收到变更数据。这依赖于`Etcd`的`Watch`机制。在`ShenYu`中，负责`etcd`数据同步的是`EtcdSyncDataService`，也在前面提到过。
 
-
-`EtcdSyncDataService`的功能逻辑是在实例化的过程中完成的：对`etcd`中的`shenyu`数据同步节点完成订阅。这里的订阅分两类，一类是已经存在的节点上面数据发生更新，这通过`zkClient.watchDataChange()`方法实现；另一类是当前节点下有新增或删除节点，即子节点发生变化，这通过`zkClient.watchChildChange()`方法实现。
+`EtcdSyncDataService`的功能逻辑是在实例化的过程中完成的：对`etcd`中的`shenyu`数据同步节点完成订阅。这里的订阅分两类，一类是已经存在的节点上面数据发生更新，这通过`etcdClient.watchDataChange()`方法实现；另一类是当前节点下有新增或删除节点，即子节点发生变化，这通过`etcdClient.watchChildChange()`方法实现。
 
 
 `EtcdSyncDataService`的代码有点多，这里我们以插件数据的读取和订阅进行追踪，其他类型的数据操作原理是一样的。

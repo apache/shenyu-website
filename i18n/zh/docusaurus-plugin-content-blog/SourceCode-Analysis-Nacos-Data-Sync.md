@@ -342,7 +342,7 @@ public class NacosConfiguration {
 
 这个方法主要分成两步，第一步根据是否使用了aliyun的ACM服务，从NacosProperties中获取不同的nacos路径和鉴权信息，第二步根据获取到的这些属性，使用Nacos官方的工厂方法，使用反射的方式，创建configService。
 
-下面我们再分析一下Nacos的属性配置和对应的配置文件。
+接下来，让我们分析一下Nacos的属性配置和对应的配置文件。
 
 ```java
 /**
@@ -560,7 +560,7 @@ public class NacosProperties {
 当我们在配置文件中配置了`shenyu.sync.nacos.url`属性时，将采用`nacos`进行数据同步，此时配置类`NacosListener`会生效，并生成`NacosDataChangedListener`和`NacosDataInit`类型的bean。
 * 生成`NacosDataChangedListener`类型的bean，`nacosDataChangedListener`，这个bean将`ConfigService`类型的bean作为成员变量，`ConfigService`是nacos官方提供的api，当`nacosDataChangedListener`监听到事件时，进行回调操作，可以通过该api直接与nacos服务器交互，修改配置。
 * 生成`NacosDataInit`类型的bean，`nacosDataInit`，这个bean将bean`configService`和bean`syncDataService`作为成员变量，调用`Nacos`的api `configService`判断配置是否未初始化，未初始化则调用`syncDataService`进行刷新操作，将在下文详述。
-根据上文所述，在事件处理方法`onApplicationEvent()`中，就会到相应的`listener`中。在我们的案例中，是对一条选择器数据进行更新，数据同步采用的是`nacos`，所以，代码会进入到`NacosDataChangedListener`进行选择器数据变更处理。
+根据上文所述，在事件处理方法`onApplicationEvent()`中，会触发相应的`listener`的操作。在我们的案例中，是对一条选择器数据进行更新，数据同步采用的是`nacos`，所以，代码会进入到`NacosDataChangedListener`进行选择器数据变更处理。
 
 ```java
     //DataChangedEventDispatcher.java
@@ -641,7 +641,7 @@ public class NacosDataChangedListener implements DataChangedListener {
 
 
 
-这部分是核心。`changed`表示需更新的`SelectorData`列表，`eventType`表示事件类型。`SELECTOR_MAP`的类型是`ConcurrentMap<String, List<SelectorData>>`，该map的key为selector所属的plugin的名称，value为该plugin下的selector列表。`NacosPathConstants.SELECTOR_DATA_ID`的值为`shenyu.selector.json`，第一步，使用`getConfig`方法调用`Nacos`的api，从`Nacos`获取`group`为`shenyu.selector.json`的配置信息，`updateSelectorMap`方法使用这些配置信息更新`SELECTOR_MAP`，这样就同步到了`Nacos`上最新的selector信息。第二步，再根据事件类型来更新`SELECTOR_MAP`，最后使用`publishConfig`方法，调用`Nacos`的api，将`Nacos`上，`group`为`shenyu.selector.json`的配置进行全量替换。
+这部分是核心。`changed`表示需更新的`SelectorData`列表，`eventType`表示事件类型。`SELECTOR_MAP`的类型是`ConcurrentMap<String, List<SelectorData>>`，该map的key为selector所属的plugin的名称，value为该plugin下的selector列表。`NacosPathConstants.SELECTOR_DATA_ID`的值为`shenyu.selector.json`。操作步骤如下，第一步，使用`getConfig`方法调用`Nacos`的api，从`Nacos`获取`group`为`shenyu.selector.json`的配置信息，`updateSelectorMap`方法使用这些配置信息更新`SELECTOR_MAP`，这样就同步到了`Nacos`上最新的selector信息。第二步，再根据事件类型来更新`SELECTOR_MAP`，最后使用`publishConfig`方法，调用`Nacos`的api，将`Nacos`上，`group`为`shenyu.selector.json`的配置进行全量替换。
 
 只要将变动的数据正确写入到`Nacos`上，`admin`这边的操作就执行完成了。
 
@@ -661,7 +661,7 @@ public class NacosDataChangedListener implements DataChangedListener {
 
 #### 3.1 `NacosSyncDataService`接收数据
 
-网关是通过`NacosSyncDataService`对`nacos`进行监听并获取数据更新的，但是在这部分内容之前，我们先看一下`NacosSyncDataService`类型的bean是如何生成的。答案是在配置类`NacosSyncDataConfiguration`中定义的。我们看到`NacosSyncDataConfiguration`类上的注解，`@ConditionalOnProperty(prefix = "shenyu.sync.nacos", name = "url")`，这个注解我们在上文对`ShenYu`的Admin端中的`NacosListener`类进行分析时看到过，是一个属性条件判断，满足条件，该配置类才会生效。也就是说，当我们在`Shenyu`网关端有如下配置时，就表示`Shenyu`网关端采用`nacos`进行数据同步，`NacosSyncDataConfiguration`这个配置类生效。
+网关是通过`NacosSyncDataService`对`nacos`进行监听并获取数据更新的，但是在这部分内容之前，我们先看一下`NacosSyncDataService`类型的bean是如何生成的。答案是在Spring配置类`NacosSyncDataConfiguration`中定义的。我们看到`NacosSyncDataConfiguration`类上的注解，`@ConditionalOnProperty(prefix = "shenyu.sync.nacos", name = "url")`，这个注解我们在上文对`ShenYu`的Admin端中的`NacosListener`类进行分析时看到过，是一个属性条件判断，满足条件，该配置类才会生效。也就是说，当我们在`Shenyu`网关端有如下配置时，就表示`Shenyu`网关端采用`nacos`进行数据同步，`NacosSyncDataConfiguration`这个配置类生效。
 
 ```properties
 shenyu:  
@@ -792,7 +792,7 @@ public NacosSyncDataService(final ConfigService configService, final PluginDataS
     }
 ```
 
-可以看到，在构造方法中调用了start方法，并且通过watcherData方法创建了监听器，并且关联了回调函数oc，由于我们正在分析selector类型组件的变化，对应的回调函数是`updateSelectorMap`。这个回调函数用于处理数据。
+可以看到，在构造方法中调用了`start`方法，并且通过`watcherData`方法创建了监听器，并且关联了回调函数oc，由于我们正在分析selector类型组件的变化，对应的回调函数是`updateSelectorMap`。这个回调函数用于处理数据。
 
 #### 3.2 处理数据
 
@@ -961,7 +961,7 @@ public final class BaseDataCache {
 
 ### 4. Admin同步数据初始化
 
-`Admin`端，`NacosDataInit`类型的bean，在`NacosListener`中进行定义和生成，如果`Admin`的配置中指定了使用`nacos`进行数据同步，当`Admin`启动后，会将当前的数据信息全量同步到`nacos`中，实现逻辑如下：
+`admin`端，`NacosDataInit`类型的bean，在`NacosListener`中进行定义和生成，如果`admin`的配置中指定了使用`nacos`进行数据同步，当`admin`启动后，会将当前的数据信息全量同步到`nacos`中，实现逻辑如下：
 
 ```java
 

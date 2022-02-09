@@ -28,7 +28,7 @@ This article introduces how to start the `Apache ShenYu` gateway in the local en
 
   * If you use `h2` to store, set the variable `--spring.profiles.active = h2`.
 
-  * If you use `MySQL` for storage, modify the `mysql` configuration in `application.yaml`.
+  * If you use `MySQL` for storage, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) to /$(your_work_dir)/ext-lib, and modify the `mysql` configuration in `application.yaml`.
   
   * If you use `PostgreSql` for storage, modify the `pg` of `spring.profiles.active` configuration in `application.yaml`.
 

@@ -22,7 +22,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 > linux: ./start.sh --spring.profiles.active = h2
 ```
 
-* use `MySQL` to store data, go to the `/conf` directory, and modify the configuration of `mysql` in `application.yaml`.
+* use `MySQL` to store data, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) to /$(your_work_dir)/ext-lib, go to the `/conf` directory, and modify the configuration of `mysql` in `application.yaml`.
 
 ```
 > windows: start.bat 

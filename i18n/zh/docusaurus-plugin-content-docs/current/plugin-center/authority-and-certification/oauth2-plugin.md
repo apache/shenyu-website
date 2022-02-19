@@ -31,6 +31,27 @@ description:  OAuth 2插件
   
 ```
 
+- 在`shenyu-bootstrap`模块配置`oauth2`
+
+```yml
+
+spring:
+ security:
+   oauth2:
+     client:
+       registration:
+         <这里填入你的 client-registration-id>:
+           client-id: <这里填入你的 client-id>
+           client-secret: <这里填入你的 client-secret>
+           # 下面这部分是授权服务器的配置
+       provider:
+         <这里填入你的 client-registration-id>:
+           authorization-uri: <这里填入你的 authorization-uri>
+           token-uri: <这里填入 access-token-uri>
+           user-info-uri: <这里填入 user-info-uri>
+           jwk-set-uri: <这里填入 jwk-set-uri>
+```
+
 - 在网关的配置文件中配置 `spring.security.oauth2` 的相关配置，详细配置说明可参考 [Spring Webflux OAuth2](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-oauth2)
 - 配置选择器和规则作为您需要 `OAuth2` 授权的请求地址，默认放行所有请求。关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)
 

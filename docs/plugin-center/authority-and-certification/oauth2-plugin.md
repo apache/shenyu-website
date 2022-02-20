@@ -33,6 +33,28 @@ Please refer to the `deployment` document, choose a way to start `shenyu-admin`.
   
 ```
 
+- Configuration `oauth2` at `shenyu-bootstrap`
+
+```yml
+
+spring:
+ security:
+   oauth2:
+     client:
+       registration:
+         <your client-registration-id>:
+           client-id: <your client-id>
+           client-secret: <your client-secret>
+           # the next part is authorize server‘s config
+       provider:
+         <your client-registration-id>:
+           authorization-uri: <your authorization-uri>
+           token-uri: <your access-token-uri>
+           user-info-uri: <your user-info-uri>
+           jwk-set-uri: <your jwk-set-uri>
+```
+
+
 - Configure the relevant configuration of `spring.security.oauth2` in the configuration file of the gateway. For detailed configuration instructions, please refer to [Spring Webflux OAuth2](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#webflux-oauth2)
 - Configure the selector and rule as the request address that you need `OAuth2` authorization, and release all requests by default. For more instructions on selector and rule configuration, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule).
 

@@ -11,8 +11,10 @@ description: logging plugin
 ## Plugin Setting
 
 * In `shenyu-admin` --> BasicConfig --> Plugin --> `logging`, set to enable.
-* Introduce `logging` support in the pox.xml file of the gateway.
 * If the user don't use, please disable the plugin in the background.
+  <img src="/img/shenyu/plugin/logging/logging_open_en.png" width="70%" height="60%" />
+
+* Introduce `logging` support in the pox.xml file of the gateway.
 
 ```xml
    <!-- apache shenyu logging plugin start-->

@@ -88,4 +88,4 @@ plugins:
 
 For deployment, please refer to [Binary Packages Deployment](../../deployment/deployment-package.md#start-shenyu-bootstrap-with-shenyu-agent) or [Docker Deployment](../../deployment/deployment-docker.md#start-shenyu-bootstrap-with-shenyu-agent)
 
-> Developers can add the `-javaagent` parameter to the JVM parameter of the IDE startup configuration
+> Developers can add the `-javaagent` parameter to the JVM parameter of the IDE startup configuration, please refer to [Local debug and run agent module](../../developer/debug-agent.md).

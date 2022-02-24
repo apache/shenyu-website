@@ -1,8 +1,6 @@
 ---
 title: 本地运行集成测试
-sidebar_position: 15
 description: Run Integration Test Locally
-categories: "Apache ShenYu"
 tags: ["integration test"]
 ---
 

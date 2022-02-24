@@ -27,6 +27,8 @@ cover: "/img/architecture/shenyu-framework.png"
 
 * 所有的代码 必须通过 checkStyle的检查: https://github.com/apache/incubator-shenyu/blob/master/script/shenyu_checkstyle.xml
 
+* 添加新文件时，需要在文件头添加 [apache协议](https://github.com/apache/incubator-shenyu-website/blob/57f9a6b14c27d97137275453b207232f3df53205/LICENSE#L191-L201)
+
 ## Object
 
 * 使用`Optional` 来转换 `Null` 对象。

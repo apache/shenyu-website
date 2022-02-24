@@ -27,6 +27,9 @@ cover: "/img/architecture/shenyu-framework.png"
 
 * All code passage of Checkstyle: https://github.com/apache/incubator-shenyu/blob/master/script/shenyu_checkstyle.xml
 
+* When adding a new file, you need to add the [apache protocol](https://github.com/apache/incubator-shenyu-website/blob/57f9a6b14c27d97137275453b207232f3df53205/LICENSE#L191-L201) in the header of the file.
+
+
 ## Object
 
 * Use Optional transform Null.

@@ -116,8 +116,8 @@ Base on the above defination , the plugin module provides  the following  eight 
 | `ContainsPredicateJudge`    | "contain" relation, the actual data needs contain the specified string | contains              |
 | `EqualsPredicateJudge`      | equals "="                                                   | =                     |
 | `MatchPredicateJudge`       | used for URI context path matching                           | match                 |
-| `TimerAfterPredicateJudge`  | Whether the local time is after the specified time           | TimeBefore            |
-| `TimerBeforePredicateJudge` | Whether the local time is before the specified time          | TimeAfter             |
+| `TimerAfterPredicateJudge`  | Whether the local time is after the specified time           | TimeAfter             |
+| `TimerBeforePredicateJudge` | Whether the local time is before the specified time          | TimeBefore            |
 | `GroovyPredicateJudge`      | used Groovy syntax toe set ParamName and value data          | Groovy                |
 | `RegexPredicateJudge`       | used Regex to match                                          | regex                 |
 

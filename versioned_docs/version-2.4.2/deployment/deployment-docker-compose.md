@@ -14,17 +14,17 @@ Choose one as the data source. It can be `h2` or `mysql` or `pg`.
 * use `h2`
 
 ```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master h2
+curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s v2.4.2 h2
 ```
 
 * use `mysql`
 
 ```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master mysql
+curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s v2.4.2 mysql
 ```
 
 * use `pg`
 
 ```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master pg
+curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s v2.4.2 pg
 ```

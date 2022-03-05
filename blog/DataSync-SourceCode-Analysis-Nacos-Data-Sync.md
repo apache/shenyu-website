@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-nacos-data-sync
 title: Nacos Data Synchronization Source Code Analysis
 author: 4zd
 author_title: Apache ShenYu Contributor

@@ -6,7 +6,7 @@ description: rateLimiter plugin
 
 ## Description
 
-* RateLimiter is core implementation of gateway restrictions on network traffic.
+* `RateLimiter` is core implementation of gateway restrictions on network traffic.
 
 * the Apache ShenYu gateway provides a variety of current limiting algorithms, including `token bucket algorithm`, `concurrent token bucket algorithm`, `leaky bucket algorithm` and `sliding time window algorithm`.
 

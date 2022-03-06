@@ -141,7 +141,7 @@ spec:
     spec:
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:latest
+        image: apache/shenyu-admin:${current.version}
         imagePullPolicy: Always
         ports:
         - containerPort: 9095
@@ -198,7 +198,7 @@ spec:
             path: application-local.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:latest
+        image: apache/shenyu-bootstrap:${current.version}
         ports:
         - containerPort: 9195
         env:
@@ -424,7 +424,7 @@ spec:
             path: application-mysql.yml
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:latest
+        image: apache/shenyu-admin:${current.version}
         imagePullPolicy: Always
         ports:
         - containerPort: 9095
@@ -489,7 +489,7 @@ spec:
             path: application-local.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:latest
+        image: apache/shenyu-bootstrap:${current.version}
         ports:
         - containerPort: 9195
         env:

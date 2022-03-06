@@ -24,3 +24,4 @@ yarn-error.log*
 *.ipr
 *.iml
 *.iws
+yarn.lock

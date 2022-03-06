@@ -27,17 +27,20 @@ cover: "/img/architecture/shenyu-framework.png"
 
 * All code passage of Checkstyle: https://github.com/apache/incubator-shenyu/blob/master/script/shenyu_checkstyle.xml
 
+* When adding a new file, you need to add the [apache protocol](https://github.com/apache/incubator-shenyu-website/blob/57f9a6b14c27d97137275453b207232f3df53205/LICENSE#L191-L201) in the header of the file.
+
+
 ## Object
 
-* Ues Optional transform Null.
+* Use Optional transform Null.
 
 > Optional.ofNullable(xxx).orElse(obj)
 
-* Ues Objects Judgment Null Or NotNull.
+* Use Objects Judgment Null Or NotNull.
 
 > Objects.isNull(obj) OR Objects.nonNull(obj)
 
-* Ues `Objects.equals` Judgment are they equal.
+* Use `Objects.equals` Judgment are they equal.
 
 > Objects.equals(obj1, obj2)
 
@@ -58,7 +61,7 @@ for () {
 
 * Use `LinkedList` when you need to add or delete elements, Else use `ArrayList`.
 
-* Ues `org.apache.commons.collections4.CollectionUtils` Judgment Is empty Or Not empty.
+* Use `org.apache.commons.collections4.CollectionUtils` Judgment Is empty Or Not empty.
 
 > CollectionUtils.isEmpty(list) or CollectionUtils.isNotEmpty(data)
 
@@ -79,7 +82,7 @@ while (iter.hasNext()) {
 
 ## String
 
-* Ues `org.apache.commons.lang3.StringUtils` Judgment Is empty Or Not empty.
+* Use `org.apache.commons.lang3.StringUtils` Judgment Is empty Or Not empty.
 
 > StringUtils.isEmpty(list) or StringUtils.isNotEmpty(data)
 

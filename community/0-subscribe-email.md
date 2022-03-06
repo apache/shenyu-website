@@ -16,7 +16,7 @@ Use your mailbox to send an e-mail to [dev-subscribe@shenyu.apache.org](mailto:d
 
 **2.Receive and reply the confirmation e-mail.**
 
-After Step 1, you will receive a confirmation e-mail from [dev-help@shenyu.apache.org](mailto:dev-help@shenyu.apache.org) (if you have not received that, please check “RSS feeds”, “junk e-mail” or other items). Reply that e-mail directly or click the link in e-mail to reply, with any subject or content.
+After Step 1, you will receive a confirmation e-mail from [dev-help@shenyu.apache.org](mailto:dev-help@shenyu.apache.org) (if you have not received that, please check "RSS feeds", "junk e-mail" or other items). Reply that e-mail directly or click the link in e-mail to reply, with any subject or content.
 
 **3.Receive the welcome e-mail.**
 

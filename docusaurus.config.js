@@ -51,7 +51,7 @@ module.exports = {
         {
           label: 'Event',
           position: 'left',
-          to: '/event/2.4.1-release',
+          to: '/event/2.4.2-release',
           activeBaseRegex: `/event/`,
         },
         {to: '/news', label: 'News', position: 'left'},

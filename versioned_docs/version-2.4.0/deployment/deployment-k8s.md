@@ -19,7 +19,7 @@ This article introduces the use of `k8s` to deploy the `Apache ShenYu` gateway.
 >
 > Similar to the h2 process, there are two points to note
 >
-> 1. you need to load mysql-connector.jar, so you need a place to store the file
+> 1. you need to load [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar), so you need a place to store the file
 > 2. you need to specify an external mysql database configuration to proxy the external mysql database via endpoint
 >
 > The process is as follows.
@@ -141,7 +141,7 @@ spec:
     spec:
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:latest
+        image: apache/shenyu-admin:2.4.0
         imagePullPolicy: Always
         ports:
         - containerPort: 9095
@@ -198,7 +198,7 @@ spec:
             path: application-local.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:latest
+        image: apache/shenyu-bootstrap:2.4.0
         ports:
         - containerPort: 9195
         env:
@@ -424,7 +424,7 @@ spec:
             path: application-mysql.yml
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:latest
+        image: apache/shenyu-admin:2.4.0
         imagePullPolicy: Always
         ports:
         - containerPort: 9095
@@ -489,7 +489,7 @@ spec:
             path: application-local.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:latest
+        image: apache/shenyu-bootstrap:2.4.0
         ports:
         - containerPort: 9195
         env:

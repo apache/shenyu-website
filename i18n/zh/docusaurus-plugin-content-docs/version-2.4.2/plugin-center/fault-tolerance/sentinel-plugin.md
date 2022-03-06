@@ -56,7 +56,7 @@ description: sentinel插件
 
   * `degradeRuleCount`:临界点 
   
-  * `degradeRuleEnable (1 or 0) `(是否开启流控 (1或0) ) ：是否开启`sentinel`的流控。
+  * `degradeRuleEnable`(是否开启流控 (1或0) ) ：是否开启`sentinel`的流控。
   
   * `degradeRuleGrade`(断路器策略): 支持秒级RT/秒级Error Ratio/分钟级Error Count策略。  
   

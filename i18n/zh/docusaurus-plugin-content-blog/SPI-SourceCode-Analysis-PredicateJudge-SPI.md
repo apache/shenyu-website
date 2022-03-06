@@ -114,8 +114,8 @@ post, uri,query, host, ip,header, cookie,req_method
 | `ContainsPredicateJudge`    | 包含关系 "contains"， 实际结果，需要包含所定规则的值 | contains              |
 | `EqualsPredicateJudge`      | 相等"="，                                            | =                     |
 | `MatchPredicateJudge`       | 用于URI 路径匹配的处理                               | match                 |
-| `TimerAfterPredicateJudge`  | 当前local时间是否晚于设定的时间                      | TimeBefore            |
-| `TimerBeforePredicateJudge` | 当前local时间是否早于设定的时间                      | TimeAfter             |
+| `TimerAfterPredicateJudge`  | 当前local时间是否晚于设定的时间                      | TimeAfter             |
+| `TimerBeforePredicateJudge` | 当前local时间是否早于设定的时间                      | TimeBefore            |
 | `GroovyPredicateJudge`      | Groovy,设定ParamName的值，与设定ParamValue相同       | Groovy                |
 | `RegexPredicateJudge`       | 正则表达式匹配资料                                   | regex                 |
 

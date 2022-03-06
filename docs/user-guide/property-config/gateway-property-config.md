@@ -50,14 +50,20 @@ shenyu:
 #  httpclient:
 #    strategy: webClient
 #    connectTimeout: 45000
+#    responseTimeout: 3000
+#    readerIdleTime: 3000
+#    writerIdleTime: 3000
+#    allIdleTime: 3000
 #    readTimeout: 3000
 #    writeTimeout: 3000
 #    wiretap: false
+#    keepAlive: false
 #    pool:
 #      type: ELASTIC
 #      name: proxy
 #      maxConnections: 16
 #      acquireTimeout: 45000
+#      maxIdleTime: 3000
 #    proxy:
 #      host:
 #      port:
@@ -69,6 +75,7 @@ shenyu:
 #      keyStoreType: PKCS12
 #      keyStorePath: classpath:keystore.p12
 #      keyStorePassword: 123456
+#      keyStoreProvider: 
 #      keyPassword: 123456
 #      trustedX509Certificates:
 #      handshakeTimeout:
@@ -212,9 +219,14 @@ This is the HttpClient configuration used to send proxy requests after proxying 
 | :------------- | :-----: | :-----------: | :------: | :----------------------------------------------------------- |
 | strategy       | String  |   webClient   |    No    | Type of http client, defaults to webClient.<br /> - webClient: use by WebClientPlugin<br />- netty: use by NettyHttpClientPlugin.                          |
 | connectTimeout |   int   |     45000     |    No    | Connection timeout (millisecond), the default value is 45000. |
+| responseTimeout|   int   |     3000      |    No    | The response timeout (millisecond), the default value is 3000. |
+| readerIdleTime |   int   |     3000      |    No    | The reader idle timeout (millisecond), the default value is 3000. |
+| writerIdleTime |   int   |     3000      |    No    | The writer idle timeout (millisecond), the default value is 3000. |
+| allIdleTime    |   int   |     3000      |    No    | The all idle timeout (millisecond), the default value is 3000.    |
 | readTimeout    |   int   |     3000      |    No    | Read timeout (millisecond), the default value is 3000.       |
 | writeTimeout   |   int   |     3000      |    No    | Write timeout (millisecond), the default value is 3000.      |
 | wiretap        | Boolean |     false     |    No    | Enables wiretap debugging for Netty HttpClient, the default value is 'false'. |
+| keepAlive      | Boolean |     false     |    No    | Enable or Disable Keep-Alive support for the outgoing request, the default value is 'false'. |
 | pool           |         |               |          | HttpClient connection pool config                            |
 | proxy          |         |               |          | HttpClient proxy config                                      |
 | ssl            |         |               |          | HttpClient ssl config                                        |
@@ -228,7 +240,8 @@ HttpClient connection pool configuration:
 | type           | String |              ELASTIC              |    No    | Type of pool for HttpClient to use, defaults to ELASTIC.<br /> - ELASTIC: The connection pool can be cached and grown on demand<br />- FIXED: The connection pool cache and reuse a fixed maximum The number of connections.<br />- DISABLED: The connection pool will always create a new connection. |
 | name           | String |               proxy               |    No    | The channel pool map name, defaults to proxy.                |
 | maxConnections |  int   | the maximum value of 2*CPU and 16 |    No    | Only for type FIXED, the maximum number of connections before starting pending acquisition on existing ones.<br />the default value is available number of processors*2. <br /> (but with a minimum value of 16) |
-| acquireTimeout |  int   |               45000               |    No    | Only for type FIXED, the maximum time in millis to wait for aquiring. the default value is 45000 |
+| acquireTimeout |  int   |               45000               |    No    | Only for type FIXED, the maximum time in millis to wait for acquiring. the default value is 45000 |
+| maxIdleTime    |  int   |               NULL                |    No    | After which the channel will be closed, if NULL there is no max idle time. |
 
 - `proxy` config
 
@@ -250,8 +263,9 @@ Gateway routing can support routing to http and https back-end services at the s
 | :----------------------- | :-----: | :-----: | :------: | :----------------------------------------------------------- |
 | useInsecureTrustManager  | Boolean |  false  |    No    | Installs the netty InsecureTrustManagerFactory. This is insecure and not suitable for production. |
 | keyStoreType             | String  |  PKCS12 |    No    | SSL key store type. |
-| keyStorePath             | String  |         |    No    | SSL key store path.|
+| keyStorePath             | String  |         |    No    | SSL key store path. |
 | keyStorePassword         | String  |         |    No    | SSL key store pass word. |
+| keyStoreProvider         | String  |         |    No    | SSL Keystore provider for netty httpClient and webclient. |
 | keyPassword              | String  |         |    No    | SSL key pass word. |
 | trustedX509Certificates  | String  |  Null   |    No    | Trusted certificates for verifying the remote endpoint's certificate.(Use `,` to separate multiple values) |
 | handshakeTimeout         |   int   |  10000  |    No    | SSL handshake timeout. Default to 10000 ms                   |

@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-ratelimiter-spi
 title: RateLimiter SPI 代码分析
 author: Huihui Yin
 author_title: Apache ShenYu Contributor

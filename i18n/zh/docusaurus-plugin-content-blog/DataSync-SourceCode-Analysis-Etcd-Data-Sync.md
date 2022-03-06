@@ -1,5 +1,4 @@
 ---
-slug: code-analysis-etcd-data-sync
 title: Etcd数据同步源码分析
 author: 4zd
 author_title: Apache ShenYu Contributor

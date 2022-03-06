@@ -1,33 +1,32 @@
 ---
-slug: code-analysis-nacos-data-sync
-title: Nacos Data Synchronization Source Code Analysis
+title: Nacos数据同步源码分析
 author: 4zd
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/4zd
 tags: [nacos,data sync,Apache ShenYu]
 ---
 
-> [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) is an asynchronous, high-performance, cross-language, responsive API gateway.
+> [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) 是一个异步的，高性能的，跨语言的，响应式的 `API` 网关。
 
-In `ShenYu` gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for `ZooKeeper`, `WebSocket`, `http long poll`, `Nacos`, `etcd` and `Consul`. The main content of this article is based on `Nacos` data synchronization source code analysis.
+在`ShenYu`网关中，数据同步是指，当在后台管理系统中，数据发送了更新后，如何将更新的数据同步到网关中。`Apache ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos` 、`Etcd` 和 `Consul` 进行数据同步。本文的主要内容是基于`Nacos`的数据同步源码分析。
 
-> This paper based on `shenyu-2.4.0` version of the source code analysis, the official website of the introduction of please refer to the [Data Synchronization Design](https://shenyu.apache.org/docs/design/data-sync/) .
+> 本文基于`shenyu-2.4.0`版本进行源码分析，官网的介绍请参考 [数据同步原理](https://shenyu.apache.org/zh/docs/design/data-sync) 。
 
-### 1. About Nacos
+### 1. 关于Nacos
 
-[`Nacos`](https://github.com/alibaba/nacos)  can be used for dynamic service discovery and configuration and service management. `Shenyu` use `Nacos` as an option to sync data.
+[`Nacos`](https://github.com/alibaba/nacos) 平台用于动态服务发现，以及配置和服务管理。 `Shenyu`网关可选择使用`Nacos`进行数据同步。
 
-### 2. Admin Data Sync
+### 2. Admin数据同步
 
-We traced the source code from a real case, such as updating a selector data in the `Divide` plugin to a weight of 90 in a background administration system:
+我们从一个实际案例进行源码追踪，比如在后台管理系统中，对`Divide`插件中的一条选择器数据进行更新，将权重更新为90：
 
-![](/img/activities/code-analysis-zookeeper-data-sync/update-selector-en.png)
+![](/img/activities/code-analysis-zookeeper-data-sync/update-selector-zh.png)
 
-#### 2.1 Accept Data
+#### 2.1 接收数据
 
 - SelectorController.createSelector()
 
-Enter the createSelector() method of the `SelectorController` class, which validates data, adds or updates data, and returns results.
+进入`SelectorController`类中的`updateSelector()`方法，它负责数据的校验，添加或更新数据，返回结果信息。
 
 ```java
 @Validated
@@ -38,11 +37,11 @@ public class SelectorController {
     
     @PutMapping("/{id}")
     public ShenyuAdminResult updateSelector(@PathVariable("id") final String id, @Valid @RequestBody final SelectorDTO selectorDTO) {
-        // set the current selector data ID
+        // 设置当前选择器数据id
         selectorDTO.setId(id);
-        // create or update operation
+        // 创建或更新操作
         Integer updateCount = selectorService.createOrUpdate(selectorDTO);
-        // return result 
+        // 返回结果信息
         return ShenyuAdminResult.success(ShenyuResultMessage.UPDATE_SUCCESS, updateCount);
     }
     
@@ -50,36 +49,37 @@ public class SelectorController {
 }
 ```
 
-#### 2.2 Handle Data
+#### 2.2 处理数据
 
 - SelectorServiceImpl.createOrUpdate()
 
-Convert data in the `SelectorServiceImpl` class using the `createOrUpdate()` method, save it to the database, publish the event, update `upstream`.
+在`SelectorServiceImpl`类中通过`createOrUpdate()`方法完成数据的转换，保存到数据库，发布事件，更新`upstream`。
 
 ```java
 @RequiredArgsConstructor
 @Service
 public class SelectorServiceImpl implements SelectorService {
-    // eventPublisher
+    // 负责事件发布的eventPublisher
     private final ApplicationEventPublisher eventPublisher;
     
     @Override
     @Transactional(rollbackFor = Exception.class)
     public int createOrUpdate(final SelectorDTO selectorDTO) {
         int selectorCount;
-        // build data DTO --> DO
+        // 构建数据 DTO --> DO
         SelectorDO selectorDO = SelectorDO.buildSelectorDO(selectorDTO);
         List<SelectorConditionDTO> selectorConditionDTOs = selectorDTO.getSelectorConditions();
-        // insert or update ?
+        // 判断是添加还是更新
         if (StringUtils.isEmpty(selectorDTO.getId())) {
-            //  insert into data
+            // 插入选择器数据
             selectorCount = selectorMapper.insertSelective(selectorDO);
-            // insert into condition data
+            // 插入选择器中的条件数据
             selectorConditionDTOs.forEach(selectorConditionDTO -> {
                 selectorConditionDTO.setSelectorId(selectorDO.getId());
                 selectorConditionMapper.insertSelective(SelectorConditionDO.buildSelectorConditionDO(selectorConditionDTO));
             });
             // check selector add
+            // 权限检查
             if (dataPermissionMapper.listByUserId(JwtUtils.getUserInfo().getUserId()).size() > 0) {
                 DataPermissionDTO dataPermissionDTO = new DataPermissionDTO();
                 dataPermissionDTO.setUserId(JwtUtils.getUserInfo().getUserId());
@@ -89,7 +89,7 @@ public class SelectorServiceImpl implements SelectorService {
             }
 
         } else {
-            // update data, delete and then insert
+            // 更新数据，先删除再新增
             selectorCount = selectorMapper.updateSelective(selectorDO);
             //delete rule condition then add
             selectorConditionMapper.deleteByQuery(new SelectorConditionQuery(selectorDO.getId()));
@@ -99,50 +99,53 @@ public class SelectorServiceImpl implements SelectorService {
                 selectorConditionMapper.insertSelective(selectorConditionDO);
             });
         }
-        // publish event
+        // 发布事件
         publishEvent(selectorDO, selectorConditionDTOs);
 
-        // update upstream
+        // 更新upstream
         updateDivideUpstream(selectorDO);
         return selectorCount;
     }
     
+    
     // ......
     
 }
+
 ```
 
-In the `Service` class to persist data, i.e. to the database, this should be familiar, not expand. The update upstream operation is analyzed in the corresponding section below, focusing on the publish event operation, which performs data synchronization.
+在`Service`类完成数据的持久化操作，即保存数据到数据库，这个比较简单，就不深入追踪了。关于更新`upstream`操作，放到后面对应的章节中进行分析，重点关注发布事件的操作，它会执行数据同步。
 
-The logic of the `publishEvent()`  method is to find the plugin corresponding to the selector, build the conditional data, and publish the change data.
+`publishEvent()`方法的逻辑是：找到选择器对应的插件，构建条件数据，发布变更数据。
 
 ```java
-       private void publishEvent(final SelectorDO selectorDO, final List<SelectorConditionDTO> selectorConditionDTOs) {
-        // find plugin of selector
+     private void publishEvent(final SelectorDO selectorDO, final List<SelectorConditionDTO> selectorConditionDTOs) {
+        // 找到选择器对应的插件
         PluginDO pluginDO = pluginMapper.selectById(selectorDO.getPluginId());
-        // build condition data
+        // 构建条件数据
         List<ConditionData> conditionDataList =                selectorConditionDTOs.stream().map(ConditionTransfer.INSTANCE::mapToSelectorDTO).collect(Collectors.toList());
-        // publish event
+        // 发布变更数据
         eventPublisher.publishEvent(new DataChangedEvent(ConfigGroupEnum.SELECTOR, DataEventTypeEnum.UPDATE,
                 Collections.singletonList(SelectorDO.transFrom(selectorDO, pluginDO.getName(), conditionDataList))));
     }
 ```
 
-Change data released by `eventPublisher.PublishEvent()` is complete, the `eventPublisher` object is a `ApplicationEventPublisher` class, The fully qualified class name is `org.springframework.context.ApplicationEventPublisher`. Here we see that publishing data is done through `Spring` related functionality.
+发布变更数据通过`eventPublisher.publishEvent()`完成，这个`eventPublisher`对象是一个`ApplicationEventPublisher`类，这个类的全限定名是`org.springframework.context.ApplicationEventPublisher`。看到这儿，我们知道了发布数据是通过`Spring`相关的功能来完成的。
 
-> `ApplicationEventPublisher`：
+> 关于`ApplicationEventPublisher`：
 >
-> When a state change, the publisher calls `ApplicationEventPublisher` of `publishEvent` method to release an event, `Spring` container broadcast event for all observers, The observer's `onApplicationEvent` method is called to pass the event object to the observer. There are two ways to call `publishEvent` method, one is to implement the interface by the container injection `ApplicationEventPublisher` object and then call the method, the other is a direct call container, the method of two methods of publishing events not too big difference.
+> 当有状态发生变化时，发布者调用 `ApplicationEventPublisher` 的 `publishEvent` 方法发布一个事件，`Spring`容器广播事件给所有观察者，调用观察者的 `onApplicationEvent` 方法把事件对象传递给观察者。调用 `publishEvent`方法有两种途径，一种是实现接口由容器注入 `ApplicationEventPublisher` 对象然后调用其方法，另一种是直接调用容器的方法，两种方法发布事件没有太大区别。
 >
-> - `ApplicationEventPublisher`: publish event;
-> - `ApplicationEvent`: `Spring` event, record the event source, time, and data;
-> - `ApplicationListener`: event listener, observer.
+> - `ApplicationEventPublisher`：发布事件；
+> - `ApplicationEvent`：`Spring` 事件，记录事件源、时间和数据；
+> - `ApplicationListener`：事件监听者，观察者；
 
-In Spring event publishing mechanism, there are three objects,
 
-An object is a publish event `ApplicationEventPublisher`, in `ShenYu` through the constructor in the injected a `eventPublisher`.
+在`Spring`的事件发布机制中，有三个对象，
 
-The other object is `ApplicationEvent` , inherited from `ShenYu` through `DataChangedEvent`, representing the event object.
+一个是发布事件的`ApplicationEventPublisher`，在`ShenYu`中通过构造器注入了一个`eventPublisher`。
+
+另一个对象是`ApplicationEvent`，在`ShenYu`中通过`DataChangedEvent`继承了它，表示事件对象。
 
 ```java
 public class DataChangedEvent extends ApplicationEvent {
@@ -150,7 +153,7 @@ public class DataChangedEvent extends ApplicationEvent {
 }
 ```
 
-The last object is `ApplicationListener` in `ShenYu` in through `DataChangedEventDispatcher` class implements this interface, as the event listener, responsible for handling the event object.
+最后一个是 `ApplicationListener`，在`ShenYu`中通过`DataChangedEventDispatcher`类实现了该接口，作为事件的监听者，负责处理事件对象。
 
 ```java
 @Component
@@ -161,44 +164,44 @@ public class DataChangedEventDispatcher implements ApplicationListener<DataChang
 }
 ```
 
-#### 2.3 Dispatch Data
+#### 2.3 分发数据
 
 - DataChangedEventDispatcher.onApplicationEvent()
 
-Released when the event is completed, will automatically enter the `DataChangedEventDispatcher` class `onApplicationEvent()` method of handling events.
+当事件发布完成后，会自动进入到`DataChangedEventDispatcher`类中的`onApplicationEvent()`方法，进行事件处理。
 
 ```java
 @Component
 public class DataChangedEventDispatcher implements ApplicationListener<DataChangedEvent>, InitializingBean {
 
   /**
-     * This method is called when there are data changes
-   * @param event
+     * 有数据变更时，调用此方法
+     * @param event
      */
     @Override
     @SuppressWarnings("unchecked")
     public void onApplicationEvent(final DataChangedEvent event) {
-        // Iterate through the data change listener (usually using a data synchronization approach is fine)
-      for (DataChangedListener listener : listeners) {
-            // What kind of data has changed
-        switch (event.getGroupKey()) {
-                case APP_AUTH: // app auth data
+        // 遍历数据变更监听器(一般使用一种数据同步的方式就好了)
+        for (DataChangedListener listener : listeners) {
+            // 哪种数据发生变更
+            switch (event.getGroupKey()) {
+                case APP_AUTH: // 认证信息
                     listener.onAppAuthChanged((List<AppAuthData>) event.getSource(), event.getEventType());
                     break;
-                case PLUGIN:  // plugin data
+                case PLUGIN:  // 插件信息
                     listener.onPluginChanged((List<PluginData>) event.getSource(), event.getEventType());
                     break;
-                case RULE:    // rule data
+                case RULE:    // 规则信息
                     listener.onRuleChanged((List<RuleData>) event.getSource(), event.getEventType());
                     break;
-                case SELECTOR:   // selector data
+                case SELECTOR:   // 选择器信息
                     listener.onSelectorChanged((List<SelectorData>) event.getSource(), event.getEventType());
                     break;
-                case META_DATA:  // metadata
+                case META_DATA:  // 元数据
                     listener.onMetaDataChanged((List<MetaData>) event.getSource(), event.getEventType());
                     break;
-                default:  // other types throw exception
-                  throw new IllegalStateException("Unexpected value: " + event.getGroupKey());
+                default:  // 其他类型，抛出异常
+                    throw new IllegalStateException("Unexpected value: " + event.getGroupKey());
             }
         }
     }
@@ -206,36 +209,39 @@ public class DataChangedEventDispatcher implements ApplicationListener<DataChang
 }
 ```
 
-When there is a data change, the `onApplicationEvent` method is called and all the data change listeners are iterated to determine the data type and handed over to the appropriate data listener for processing.
+当有数据变更时，调用`onApplicationEvent`方法，然后遍历所有数据变更监听器，判断是哪种数据类型，交给相应的数据监听器进行处理。
 
-ShenYu groups all the data into five categories: `APP_AUTH`, `PLUGIN`, `RULE`, `SELECTOR` and `META_DATA`.
+`ShenYu`将所有数据进行了分组，一共是五种：认证信息、插件信息、规则信息、选择器信息和元数据。
 
-Here the data change listener (`DataChangedListener`) is an abstraction of the data synchronization policy. Its concrete implementation is:
+这里的数据变更监听器（`DataChangedListener`），就是数据同步策略的抽象，它的具体实现有：
 
 ![](/img/activities/code-analysis-zookeeper-data-sync/data-changed-listener.png)
 
-These implementation classes are the synchronization strategies currently supported by ShenYu:
+这几个实现类就是当前`ShenYu`支持的同步策略：
 
-- `WebsocketDataChangedListener`: data synchronization based on Websocket;
-- `ZookeeperDataChangedListener`:data synchronization based on Zookeeper;
-- `ConsulDataChangedListener`: data synchronization based on Consul;
-- `EtcdDataDataChangedListener`：data synchronization based on etcd;
-- `HttpLongPollingDataChangedListener`：data synchronization based on http long polling;
-- `NacosDataChangedListener`：data synchronization based on nacos;
+- `WebsocketDataChangedListener`：基于`websocket`的数据同步；
+- `ZookeeperDataChangedListener`：基于`zookeeper`的数据同步；
+- `ConsulDataChangedListener`：基于`consul`的数据同步；
+- `EtcdDataDataChangedListener`：基于`etcd`的数据同步；
+- `HttpLongPollingDataChangedListener`：基于`http长轮询`的数据同步；
+- `NacosDataChangedListener`：基于`nacos`的数据同步；
 
-Given that there are so many implementation strategies, how do you decide which to use?
+既然有这么多种实现策略，那么如何确定使用哪一种呢？
 
-Because this paper is based on `nacos` data synchronization source code analysis, so here to `NacosDataChangedListener` as an example, the analysis of how it is loaded and implemented.
+因为本文是基于`Nacos`的数据同步源码分析，所以这里以`NacosDataChangedListener`为例，分析它是如何被加载并实现的。
 
-A global search in the source code project shows that its implementation is done in the `DataSyncConfiguration` class.
+通过查看对`NacosDataChangedListener`类的调用，可以发现，它是在`DataSyncConfiguration`类进行配置的。
 
 ```java
 /**
+ * 数据同步配置类
+ * 通过springboot条件装配实现
  * The type Data sync configuration.
  */
 @Configuration
 public class DataSyncConfiguration {
-	// some codes omitted here
+
+   //省略了其他代码......
   
     /**
      * The type Nacos listener.
@@ -270,17 +276,17 @@ public class DataSyncConfiguration {
             return new NacosDataInit(configService, syncDataService);
         }
     }  
-  
-  // some codes omitted here
+    
+   //省略了其他代码......
 }
 
 ```
 
-This configuration class is implemented through the SpringBoot conditional assembly class. The `NacosListener` class has several annotations:
+这个配置类是通过`SpringBoot`条件装配类实现的。在`NacosListener`类上面有几个注解：
 
-- `@Configuration`: Configuration file, application context;
+- `@Configuration`：配置文件，应用上下文；
 
-- `@ConditionalOnProperty(prefix = "shenyu.sync.nacos", name = "url")`: attribute condition. The configuration class takes effect only when the condition is met. That is, when we have the following configuration, `nacos` is used for data synchronization.
+- `@ConditionalOnProperty(prefix = "shenyu.sync.nacos", name = "url")`：属性条件判断，满足条件，该配置类才会生效。也就是说，当我们有如下配置时，就会采用`nacos`进行数据同步。
 
   ```properties
   shenyu:  
@@ -288,8 +294,8 @@ This configuration class is implemented through the SpringBoot conditional assem
        nacos:
             url: localhost:8848
   ```
-  
-- `@Import(NacosConfiguration.class)`：import  a configration class `NacosConfiguration`, which provides a method `ConfigService nacosConfigService(final NacosProperties nacosProp)` to convert the nacos properties to a bean with the `ConfigService` type. We would take a look at how to generate the bean and then analyze the property configuration class and the property configuration file.  
+
+- `@Import(NacosConfiguration.class)`：导入另一个配置类`NacosConfiguration`，`NacosConfiguration`提供了一个方法`ConfigService nacosConfigService(final NacosProperties nacosProp)`，将Nacos属性转换为`ConfigService`类型的bean，而Nacos属性是通过`@EnableConfigurationProperties(NacosProperties.class)` 导入的。我们先看ConfigService类型的bean定义。再分析属性配置类和对应的属性配置文件。
 
 ```java
 /**
@@ -333,9 +339,9 @@ public class NacosConfiguration {
 }
 ```
 
-There are two steps in this method. Firstly, `Properties` object is generated and populated with the specified nacos path value and authority values on whether the alyun ACM service is used. Secondly, the nacos factory class would use its static factory method to create a `configService` object via reflect methods and then populate the object with the `Properties` object generated in the first step.
+这个方法主要分成两步，第一步根据是否使用了aliyun的ACM服务，从NacosProperties中获取不同的nacos路径和鉴权信息，第二步根据获取到的这些属性，使用Nacos官方的工厂方法，使用反射的方式，创建configService。
 
-Now, let's analyze the `NacosProperties` class and its counterpart property file.
+接下来，让我们分析一下Nacos的属性配置和对应的配置文件。
 
 ```java
 /**
@@ -550,44 +556,42 @@ public class NacosProperties {
 }
 ```
 
-When the property `shenyu.sync.nacos.url` is set in the property file, the `shenyu` admin would choose the `nacos` to sync data. At this time, the configuration class `NacosListener` would take effect and a bean with the type `NacosDataChangedListener` and another bean with the type `NacosDataInit` would both be generated.
-
-* `nacosDataChangedListener`, the bean with the type `NacosDataChangedListener` , takes the bean with the type `ConfigService` as a member variable. `ConfigService` is an api provided by `nacos` and can be used to send request to nacos server to modify configurations once the `nacosDataChangedListener` has accepted an event and trigger the callback method.
-
-* `nacosDataInit`, the bean with the type `NacosDataInit`, takes the bean `configService` and the bean `syncDataService` as memeber variables. It use `configService` to call the `Nacos` api to judge whether the configurations have been initialized, and would use `syncDataService` to refresh them if the answer is no. 
-
-  As mentioned above, some operations of the  `listener` would be triggered in the event handle method `onApplicationEvent()`. In this example, we update selector data and choose `nacos` to sync data, so the code about logic of the selector data changes in the `NacosDataChangedListener` class would be called.
+当我们在配置文件中配置了`shenyu.sync.nacos.url`属性时，将采用`nacos`进行数据同步，此时配置类`NacosListener`会生效，并生成`NacosDataChangedListener`和`NacosDataInit`类型的bean。
+* 生成`NacosDataChangedListener`类型的bean，`nacosDataChangedListener`，这个bean将`ConfigService`类型的bean作为成员变量，`ConfigService`是nacos官方提供的api，当`nacosDataChangedListener`监听到事件时，进行回调操作，可以通过该api直接与nacos服务器交互，修改配置。
+* 生成`NacosDataInit`类型的bean，`nacosDataInit`，这个bean将bean`configService`和bean`syncDataService`作为成员变量，调用`Nacos`的api `configService`判断配置是否未初始化，未初始化则调用`syncDataService`进行刷新操作，将在下文详述。
+根据上文所述，在事件处理方法`onApplicationEvent()`中，会触发相应的`listener`的操作。在我们的案例中，是对一条选择器数据进行更新，数据同步采用的是`nacos`，所以，代码会进入到`NacosDataChangedListener`进行选择器数据变更处理。
 
 ```java
     //DataChangedEventDispatcher.java
-    @Override
+		@Override
     @SuppressWarnings("unchecked")
     public void onApplicationEvent(final DataChangedEvent event) {
-          // Iterate through the data change listener (usually using a data synchronization approach is fine)
+        // 遍历数据变更监听器(一般使用一种数据同步的方式就好了)
         for (DataChangedListener listener : listeners) {
-          // What kind of data has changed
-          switch (event.getGroupKey()) {
-                 // some codes omitted
-                  case SELECTOR:   // selector data
-                      listener.onSelectorChanged((List<SelectorData>) event.getSource(), event.getEventType());
-                      break;
-              }
-          }
-      }
+            // 哪种数据发生变更
+            switch (event.getGroupKey()) {
+                    
+                // 省略了其他逻辑
+                    
+                case SELECTOR:   // 选择器信息
+                    listener.onSelectorChanged((List<SelectorData>) event.getSource(), event.getEventType());   // 在我们的案例中，会进入到NacosDataChangedListener进行选择器数据变更处理
+                    break;
+         }
+    }
 ```
 
-
-#### 2.4 Nacos Data Changed Listener
+#### 2.4 Nacos数据变更监听器
 
 - NacosDataChangedListener.onSelectorChanged()
 
-In the `onSelectorChanged()` method, determine the type of action, whether to refresh synchronization or update or create synchronization. Determine whether the node is in `etcd` based on the current selector data.
+  在`onSelectorChanged()`方法中，判断操作类型，是刷新同步还是更新或创建同步。根据当前选择器数据信息判断节点是否在`etcd`中。
 
 ```java
 /**
  * Use nacos to push data changes.
  */
 public class NacosDataChangedListener implements DataChangedListener {
+    // 选择器信息发生改变
     @Override
     public void onSelectorChanged(final List<SelectorData> changed, final DataEventTypeEnum eventType) {
         updateSelectorMap(getConfig(NacosPathConstants.SELECTOR_DATA_ID));
@@ -631,31 +635,32 @@ public class NacosDataChangedListener implements DataChangedListener {
         }
         publishConfig(NacosPathConstants.SELECTOR_DATA_ID, SELECTOR_MAP);
     }
-  }
+}
 ```
 
-This is the core part. The variable `changed` represents the list , which needs to be updated, with the elements of the `SelectorData` type. The variable `eventType` represents the event type. The variable `SELECTOR_MAP` is with the type `ConcurrentMap<String, List<SelectorData>>`, so the key of the map is with the `String` type and the value is the selector list of this plugin.  The value of the constant `NacosPathConstants.SELECTOR_DATA_ID` is `shenyu.selector.json`. The steps are as follows, firstly, use the method `getConfig` to call the api of `Nacos` to fetch the config with the `group` value of `shenyu.selector.json` from `Nacos` and call the `updateSelectorMap` method to use the config fetched above to update the `SELECTOR_MAP` so that the we refresh the selector config from `Nacos`. Secondly, we can update `SELECTOR_MAP` according to the event type and then use the `publishConfig` method to call the `Nacos` api to update all the config with the `group` value of `shenyu.selector.json`.
 
-As long as the changed data is correctly written to the `Nacos` node, the `admin` side of the operation is complete. 
 
-In our current case, updating one of the selector data in the `Divide` plugin with a weight of 90 updates specific nodes in the graph.
+这部分是核心。`changed`表示需更新的`SelectorData`列表，`eventType`表示事件类型。`SELECTOR_MAP`的类型是`ConcurrentMap<String, List<SelectorData>>`，该map的key为selector所属的plugin的名称，value为该plugin下的selector列表。`NacosPathConstants.SELECTOR_DATA_ID`的值为`shenyu.selector.json`。操作步骤如下，第一步，使用`getConfig`方法调用`Nacos`的api，从`Nacos`获取`group`为`shenyu.selector.json`的配置信息，`updateSelectorMap`方法使用这些配置信息更新`SELECTOR_MAP`，这样就同步到了`Nacos`上最新的selector信息。第二步，再根据事件类型来更新`SELECTOR_MAP`，最后使用`publishConfig`方法，调用`Nacos`的api，将`Nacos`上，`group`为`shenyu.selector.json`的配置进行全量替换。
+
+只要将变动的数据正确写入到`Nacos`上，`admin`这边的操作就执行完成了。
+
+在我们当前的案例中，对`Divide`插件中的一条选择器数据进行更新，将权重更新为90，就会对图中的特定节点更新。
 
 ![](/img/activities/code-analysis-zookeeper-data-sync/zookeeper-node.png)
 
 
-We series the above update flow with a sequence diagram.
+我们用时序图将上面的更新流程串联起来。
+
+![](/img/activities/code-analysis-nacos-data-sync/nacos-sync-sequence-admin-zh.png)
 
 
-![](/img/activities/code-analysis-nacos-data-sync/nacos-sync-sequence-admin-en.png)
+### 3. 网关数据同步
 
+假设`ShenYu`网关已经在正常运行，使用的数据同步方式也是`nacos`。那么当在`admin`端更新选择器数据后，并且向`nacos`发送了变更的数据，那网关是如何接收并处理数据的呢？接下来我们就继续进行源码分析，一探究竟。
 
-### 3. Gateway Data Sync
+#### 3.1 `NacosSyncDataService`接收数据
 
-Assume that the ShenYu gateway is already running properly, and the data synchronization mode is also `nacos`. How does the gateway receive and process the selector data after updating it on the `admin` side and sending the changed data to `nacos`? Let's continue our source code analysis to find out.
-
-#### 3.1 NacosSyncDataService Accept Data
-
-The gateway side use `NacosSyncDataService` to watch `nacos` and fetch the data update, but before we dive into this part, let us take a look on how the bean with the type `NacosSyncDataService` is generated. The answer is it's defined in the Spring config class `NacosSyncDataConfiguration`. Let's focus on the annotation `@ConditionalOnProperty(prefix = "shenyu.sync.nacos", name = "url")` on the class `NacosSyncDataConfiguration` again. We have met this annotation when we  analyzed the `NacosListener` class on the `Admin` side before, this config class would take effect only and if only the condition on this annotation is matched. In other words, when we have the config as below on the gateway side, the gateway would use `nacos` to sync data and the config class `NacosSyncDataConfiguration` would take effect.
+网关是通过`NacosSyncDataService`对`nacos`进行监听并获取数据更新的，但是在这部分内容之前，我们先看一下`NacosSyncDataService`类型的bean是如何生成的。答案是在Spring配置类`NacosSyncDataConfiguration`中定义的。我们看到`NacosSyncDataConfiguration`类上的注解，`@ConditionalOnProperty(prefix = "shenyu.sync.nacos", name = "url")`，这个注解我们在上文对`ShenYu`的Admin端中的`NacosListener`类进行分析时看到过，是一个属性条件判断，满足条件，该配置类才会生效。也就是说，当我们在`Shenyu`网关端有如下配置时，就表示`Shenyu`网关端采用`nacos`进行数据同步，`NacosSyncDataConfiguration`这个配置类生效。
 
 ```properties
 shenyu:  
@@ -735,7 +740,7 @@ public class NacosSyncDataConfiguration {
 }
 ```
 
-Let's focus on the part of code above which is about the  generation of the bean `nacosSyncDataService`:
+我们重点关注一下上面代码中`nacosSyncDataService`这个bean的生成：
 
 ```java
 @Bean
@@ -747,7 +752,7 @@ public SyncDataService nacosSyncDataService(final ObjectProvider<ConfigService> 
 }
 ```
 
-As we can see, the bean is generated by the construction method of the Class `NacosSyncDataService`. Let's dive into the construction method.
+是直接调用`NacosSyncDataService`的构造方法new了一个该类型的对象。我们继续看构造方法：
 
 ```java
 public NacosSyncDataService(final ConfigService configService, final PluginDataSubscriber pluginDataSubscriber,
@@ -786,14 +791,13 @@ public NacosSyncDataService(final ConfigService configService, final PluginDataS
     }
 ```
 
-As we can see, the construction method calls the `start` method and calls the `watcherData` method to create a listener which relates itself to a callback method `oc`, since we're analyzing the changes on the component with the `selector` type, the relative callback method is `updateSelectorMap`. This callback method is used to handle data.
+可以看到，在构造方法中调用了`start`方法，并且通过`watcherData`方法创建了监听器，并且关联了回调函数oc，由于我们正在分析selector类型组件的变化，对应的回调函数是`updateSelectorMap`。这个回调函数用于处理数据。
 
-
-#### 3.2 Handle Data
+#### 3.2 处理数据
 
 - NacosCacheHandler.updateSelectorMap()
 
-The data is not null, and caching the selector data is again handled by `PluginDataSubscriber`.
+经过判空逻辑之后，缓存选择器数据的操作又交给了`PluginDataSubscriber`处理。
 
 ```java
     protected void updateSelectorMap(final String configInfo) {
@@ -809,76 +813,68 @@ The data is not null, and caching the selector data is again handled by `PluginD
     }
 ```
 
-`PluginDataSubscriber` is an interface, it is only a `CommonPluginDataSubscriber` implementation class, responsible for data processing plugin, selector and rules.
+`PluginDataSubscriber`是一个接口，它只有一个`CommonPluginDataSubscriber`实现类，负责处理插件、选择器和规则数据。
 
 
+#### 3.3 通用插件数据订阅者
 
-#### 3.3 Common Plugin Data Subscriber
-
-- PluginDataSubscriber.unSelectorSubscribe()
 - PluginDataSubscriber.onSelectorSubscribe()
 
-It has no additional logic and calls the `unSelectorSubscribe()`and`subscribeDataHandler()` method directly. Within methods, there are data types (plugins, selectors, or rules) and action types (update or delete) to perform different logic.
-
+它没有其他逻辑，直接调用`subscribeDataHandler()`方法。在方法中，更具数据类型（插件、选择器或规则），操作类型（更新或删除），去执行不同逻辑。
 
 ```java
 /**
- * The common plugin data subscriber, responsible for handling all plug-in, selector, and rule information
+ * 通用插件数据订阅者，负责处理所有插件、选择器和规则信息
+ * The type Common plugin data subscriber.
  */
 public class CommonPluginDataSubscriber implements PluginDataSubscriber {
     //......
-     // handle selector data
+     // 处理选择器数据
     @Override
-    public void onSelectorSubscribe(final SelectoData selectorData) {
+    public void onSelectorSubscribe(final SelectorData selectorData) {
         subscribeDataHandler(selectorData, DataEventTypeEnum.UPDATE);
-    }   
-  
-    @Override
-    public void unSelectorSubscribe(final SelectorData selectorData) {
-        subscribeDataHandler(selectorData, DataEventTypeEnum.DELETE);
-    } 
+    }    
     
-    // A subscription data handler that handles updates or deletions of data
+    // 订阅数据处理器，处理数据的更新或删除
     private <T> void subscribeDataHandler(final T classData, final DataEventTypeEnum dataType) {
         Optional.ofNullable(classData).ifPresent(data -> {
-            // plugin data
+            // 插件数据
             if (data instanceof PluginData) {
                 PluginData pluginData = (PluginData) data;
-                if (dataType == DataEventTypeEnum.UPDATE) { // update
-                    // save the data to gateway memory
-                     BaseDataCache.getInstance().cachePluginData(pluginData);
-                    // If each plugin has its own processing logic, then do it
+                if (dataType == DataEventTypeEnum.UPDATE) { // 更新操作
+                    // 将数据保存到网关内存
+                    BaseDataCache.getInstance().cachePluginData(pluginData);
+                    // 如果每个插件还有自己的处理逻辑，那么就去处理
                     Optional.ofNullable(handlerMap.get(pluginData.getName())).ifPresent(handler -> handler.handlerPlugin(pluginData));
-                } else if (dataType == DataEventTypeEnum.DELETE) {  // delete
-                    // delete the data from gateway memory
+                } else if (dataType == DataEventTypeEnum.DELETE) {  // 删除操作
+                    // 从网关内存移除数据
                     BaseDataCache.getInstance().removePluginData(pluginData);
-                    // If each plugin has its own processing logic, then do it
+                    // 如果每个插件还有自己的处理逻辑，那么就去处理
                     Optional.ofNullable(handlerMap.get(pluginData.getName())).ifPresent(handler -> handler.removePlugin(pluginData));
                 }
-            } else if (data instanceof SelectorData) {  // selector data
+            } else if (data instanceof SelectorData) {  // 选择器数据
                 SelectorData selectorData = (SelectorData) data;
-                if (dataType == DataEventTypeEnum.UPDATE) { // update
-                    // save the data to gateway memory
+                if (dataType == DataEventTypeEnum.UPDATE) { // 更新操作
+                    // 将数据保存到网关内存
                     BaseDataCache.getInstance().cacheSelectData(selectorData);
-                    // If each plugin has its own processing logic, then do it 
-                    Optional.ofNullable(handlerMap.get(selectorData.getPluginName())).ifPresent(handler -> handler.handlerSelector(selectorData));
-                } else if (dataType == DataEventTypeEnum.DELETE) {  // delete
-                    // delete the data from gateway memory
+                    // 如果每个插件还有自己的处理逻辑，那么就去处理                    Optional.ofNullable(handlerMap.get(selectorData.getPluginName())).ifPresent(handler -> handler.handlerSelector(selectorData));
+                } else if (dataType == DataEventTypeEnum.DELETE) {  // 删除操作
+                    // 从网关内存移除数据
                     BaseDataCache.getInstance().removeSelectData(selectorData);
-                    // If each plugin has its own processing logic, then do it
+                    // 如果每个插件还有自己的处理逻辑，那么就去处理
                     Optional.ofNullable(handlerMap.get(selectorData.getPluginName())).ifPresent(handler -> handler.removeSelector(selectorData));
                 }
-            } else if (data instanceof RuleData) {  // rule data
+            } else if (data instanceof RuleData) {  // 规则数据
                 RuleData ruleData = (RuleData) data;
-                if (dataType == DataEventTypeEnum.UPDATE) { // update
-                    // save the data to gateway memory
+                if (dataType == DataEventTypeEnum.UPDATE) { // 更新操作
+                    // 将数据保存到网关内存
                     BaseDataCache.getInstance().cacheRuleData(ruleData);
-                    // If each plugin has its own processing logic, then do it
+                    // 如果每个插件还有自己的处理逻辑，那么就去处理
                     Optional.ofNullable(handlerMap.get(ruleData.getPluginName())).ifPresent(handler -> handler.handlerRule(ruleData));
-                } else if (dataType == DataEventTypeEnum.DELETE) { // delete
-                    // delete the data from gateway memory
+                } else if (dataType == DataEventTypeEnum.DELETE) { // 删除操作
+                    // 从网关内存移除数据
                     BaseDataCache.getInstance().removeRuleData(ruleData);
-                    // If each plugin has its own processing logic, then do it
+                    // 如果每个插件还有自己的处理逻辑，那么就去处理
                     Optional.ofNullable(handlerMap.get(ruleData.getPluginName())).ifPresent(handler -> handler.removeRule(ruleData));
                 }
             }
@@ -888,32 +884,31 @@ public class CommonPluginDataSubscriber implements PluginDataSubscriber {
 }
 ```
 
-#### 3.4 Data cached to Memory
 
+#### 3.4 数据缓存到内存
 
-Adding a selector will enter the following logic:
+那么更新一条选择器数据，会进入下面的逻辑：
 
 ```java
-// save the data to gateway memory
+// 将数据保存到网关内存
 BaseDataCache.getInstance().cacheSelectData(selectorData);
-// If each plugin has its own processing logic, then do it
+// 如果每个插件还有自己的处理逻辑，那么就去处理                    
 Optional.ofNullable(handlerMap.get(selectorData.getPluginName())).ifPresent(handler -> handler.handlerSelector(selectorData));
 ```
 
-One is to save the data to the gateway's memory. BaseDataCache is the class that ultimately caches data, implemented in a singleton pattern. The selector data is stored in the `SELECTOR_MAP` Map. In the subsequent use, also from this data.
-
+一是将数据保存到网关的内存中。`BaseDataCache`是最终缓存数据的类，通过单例模式实现。选择器数据就存到了`SELECTOR_MAP`这个`Map`中。在后续使用的时候，也是从这里拿数据。
 
 ```java
 public final class BaseDataCache {
-    // private instance
+    // 私有变量
     private static final BaseDataCache INSTANCE = new BaseDataCache();
-  	// private constructor
+  	// 私有构造器
     private BaseDataCache() {
     }
     
     /**
      * Gets instance.
-     *  public method
+     *  公开方法
      * @return the instance
      */
     public static BaseDataCache getInstance() {
@@ -921,7 +916,7 @@ public final class BaseDataCache {
     }
     
     /**
-      * A Map of the cache selector data
+    *  缓存选择器数据的Map
      * pluginName -> SelectorData.
      */
     private static final ConcurrentMap<String, List<SelectorData>> SELECTOR_MAP = Maps.newConcurrentMap();
@@ -932,17 +927,18 @@ public final class BaseDataCache {
         
    /**
      * cache selector data.
+     * 缓存选择器数据
      * @param data the selector data
      */
     private void selectorAccept(final SelectorData data) {
         String key = data.getPluginName();
-        if (SELECTOR_MAP.containsKey(key)) { // Update operation, delete before insert
+        if (SELECTOR_MAP.containsKey(key)) { // 更新操作，先删除再插入
             List<SelectorData> existList = SELECTOR_MAP.get(key);
             final List<SelectorData> resultList = existList.stream().filter(r -> !r.getId().equals(data.getId())).collect(Collectors.toList());
             resultList.add(data);
             final List<SelectorData> collect = resultList.stream().sorted(Comparator.comparing(SelectorData::getSort)).collect(Collectors.toList());
             SELECTOR_MAP.put(key, collect);
-        } else {  // Add new operations directly to Map
+        } else {  // 新增操作，直接放到Map中
             SELECTOR_MAP.put(key, Lists.newArrayList(data));
         }
     }
@@ -950,25 +946,21 @@ public final class BaseDataCache {
 }
 ```
 
-Second, if each plugin has its own processing logic, then do it. Through the `IDEA` editor, you can see that after adding a selector, there are the following plugins and processing. We're not going to expand it here.
+二是如果每个插件还有自己的处理逻辑，那么就去处理。  通过`idea`编辑器可以看到，当新增一条选择器后，有如下的插件还有处理。这里我们就不再展开了。
 
 ![](/img/activities/code-analysis-zookeeper-data-sync/handler-selector.png)
 
-After the above source tracking, and through a practical case, in the `admin` end to update a selector data, the `ZooKeeper` data synchronization process analysis is clear.
+经过以上的源码追踪，并通过一个实际的案例，在`admin`端新增更新一条选择器数据，就将`nacos`数据同步的流程分析清楚了。
 
+我们还是通过时序图将网关端的数据同步流程串联一下：
 
-Let's series the data synchronization process on the gateway side through the sequence diagram:
+![](/img/activities/code-analysis-nacos-data-sync/nacos-sync-sequence-gateway-zh.png)
 
+数据同步的流程已经分析完了，为了不让同步流程被打断，在分析过程中就忽略了其他逻辑。网关同步操作初始化的流程在`NacosSyncDataService`的`start`方法中，我们在上文分析`网关数据同步`时分析过了，下面分析`Admin`的同步数据初始化。
 
-![](/img/activities/code-analysis-nacos-data-sync/nacos-sync-sequence-gateway-en.png)
+### 4. Admin同步数据初始化
 
-The data synchronization process has been analyzed. In order to prevent the synchronization process from being interrupted, other logic is ignored during the analysis. We have analyzed the process of  gateway synchronization operation initialization in the `start` method of `NacosSyncDataService` class. We also need to analyze the process of Admin synchronization data initialization.
-
-
-### 4. Admin Data Sync  initialization
-
-On the `admin` side, the bean with the type `NacosDataInit`, is defined and generated in the `NacosListener`, if the configuration of the admin side decides to use `nacos` to sync data, when `admin` starts, the current data will be fully synchronized to `nacos`, the implementation logic is as follows:
-
+`admin`端，`NacosDataInit`类型的bean，在`NacosListener`中进行定义和生成，如果`admin`的配置中指定了使用`nacos`进行数据同步，当`admin`启动后，会将当前的数据信息全量同步到`nacos`中，实现逻辑如下：
 
 ```java
 
@@ -1014,42 +1006,42 @@ public class NacosDataInit implements CommandLineRunner {
         }
     }
 }
+
 ```
 
-Check whether there is data in `nacos`, if not, then synchronize.
+判断`nacos`中是否存在数据，如果不存在，则进行同步。
 
-`NacosDataInit` implements the `CommandLineRunner` interface. It is an interface provided by `SpringBoot` that executes the `run()` method after all `Spring Beans` initializations and is often used for initialization operations in a project.
-
+`NacosDataInit`实现了`CommandLineRunner`接口。它是`springboot`提供的接口，会在所有 `Spring Beans`初始化之后执行`run()`方法，常用于项目中初始化的操作。
 
 - SyncDataService.syncAll()
 
-Query data from the database, and then perform full data synchronization, all authentication information, plugin information, selector information, rule information, and metadata information. Synchronous events are published primarily through `eventPublisher`. After publishing the event via `publishEvent()`, the `ApplicationListener` performs the event change operation. In `ShenYu` is mentioned in `DataChangedEventDispatcher`.
+从数据库查询数据，然后进行全量数据同步，所有的认证信息、插件信息、选择器信息、规则信息和元数据信息。主要是通过`eventPublisher`发布同步事件。这里就跟前面提到的同步逻辑就又联系起来了，`eventPublisher`通过`publishEvent()`发布完事件后，有`ApplicationListener`执行事件变更操作，在`ShenYu`中就是前面提到的`DataChangedEventDispatcher`。
 
 ```java
 @Service
 public class SyncDataServiceImpl implements SyncDataService {
-    // eventPublisher
+    // 事件发布
     private final ApplicationEventPublisher eventPublisher;
     
      /***
-     * sync all data
+     * 全量数据同步
      * @param type the type
      * @return
      */
     @Override
     public boolean syncAll(final DataEventTypeEnum type) {
-        // app auth data
+        // 同步认证信息
         appAuthService.syncData();
-        // plugin data
+        // 同步插件信息
         List<PluginData> pluginDataList = pluginService.listAll();
         eventPublisher.publishEvent(new DataChangedEvent(ConfigGroupEnum.PLUGIN, type, pluginDataList));
-        // selector data
+        // 同步选择器信息
         List<SelectorData> selectorDataList = selectorService.listAll();
         eventPublisher.publishEvent(new DataChangedEvent(ConfigGroupEnum.SELECTOR, type, selectorDataList));
-        // rule data
+        // 同步规则信息
         List<RuleData> ruleDataList = ruleService.listAll();
         eventPublisher.publishEvent(new DataChangedEvent(ConfigGroupEnum.RULE, type, ruleDataList));
-        // metadata
+        // 同步元数据信息
         metaDataService.syncData();
         return true;
     }
@@ -1058,16 +1050,12 @@ public class SyncDataServiceImpl implements SyncDataService {
 ```
 
 
-### 5. Summary
+### 5. 总结
 
-This paper through a practical case, `nacos` data synchronization principle source code analysis. The main knowledge points involved are as follows:
+本文通过一个实际案例，对`nacos`的数据同步原理进行了源码分析。涉及到的主要知识点如下：
 
-- Data synchronization based on `nacos` is mainly implemented through `watch` mechanism;
-
-- Complete event publishing and listening via `Spring`;
-
-- Support multiple synchronization strategies through abstract `DataChangedListener` interface, interface oriented programming;
-
-- Use singleton design pattern to cache data class `BaseDataCache`;
-
-- Loading of configuration classes via conditional assembly of `SpringBoot` and `starter` loading mechanism.
+- 基于`nacos`的数据同步，主要是通过`watch`机制实现；
+- 通过`Spring`完成事件发布和监听；
+- 通过抽象`DataChangedListener`接口，支持多种同步策略，面向接口编程；
+- 使用单例设计模式实现缓存数据类`BaseDataCache`；
+- 通过`SpringBoot`的条件装配和`starter`加载机制实现配置类的加载。

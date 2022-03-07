@@ -46,6 +46,12 @@ description: 单机快速部署
 > 
 > 请求方式POST，地址`http://localhost:9195/shenyu/plugin/selectorAndRules`，body 选择raw json，内容如下：
 
+```
+Headers
+
+localKey: 123456
+```
+
 ```json
 {
     "pluginName": "divide",
@@ -71,6 +77,7 @@ description: 单机快速部署
 ```bash
 curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndRules' \
 --header 'Content-Type: application/json' \
+--header 'localKey: 123456' \
 --data-raw '{
     "pluginName": "divide",
     "selectorHandler": "[{\"upstreamUrl\":\"127.0.0.1:8080\"}]",

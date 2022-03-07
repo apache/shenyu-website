@@ -42,6 +42,8 @@ example：
 
 ### by postman
 
+> Add `localKey: 123456` to Headers. If you need to customize the localKey, you can use the sha512 tool to generate the key based on plaintext and update the `shenyu.local.sha512Key` property.
+>
 > `POST` method，address`http://localhost:9195/shenyu/plugin/selectorAndRules`,body use `raw json` content：
 
 ```json

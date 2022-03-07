@@ -42,7 +42,9 @@ description: 单机快速部署
 
 ### 使用postman
 
-> 请求方式POST，地址`http://localhost:9195/shenyu/plugin/selectorAndRules`,body 选择raw json，内容如下：
+> Headers 中添加 `localKey: 123456`。如果需要自定义 localKey，可以使用 sha512 工具根据明文生成 key，并更新 `shenyu.local.sha512Key` 属性。
+> 
+> 请求方式POST，地址`http://localhost:9195/shenyu/plugin/selectorAndRules`，body 选择raw json，内容如下：
 
 ```json
 {

@@ -21,7 +21,6 @@ shenyu:
       contextPath: /http
       appName: http
       port: 8189
-      nacosNameSpace: ShenyuRegisterCenter
 
 ```
 

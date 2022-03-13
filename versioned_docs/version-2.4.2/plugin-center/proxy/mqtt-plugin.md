@@ -23,7 +23,7 @@ description: Mqtt access shenyu gateway
 
 ## Plugin Setting
 
-* Port: MQTT BS port designation.
+* port: MQTT BS port designation.
 
 * bossGroupThreadCount: default 1.
 
@@ -31,12 +31,12 @@ description: Mqtt access shenyu gateway
 
 * workerGroupThreadCount: default 12.
 
-* Username: default shenyu.
+* username: default shenyu.
 
-* Password: default shenyu.
+* password: default shenyu.
 
 * isEncryptPassword: The default is false , whether to encrypt the password.
 
 * encryptMode: encryption mode, currently only MD5 is implemented, the encryption mode can be customized, `org.apache.shenyu.protocol.mqtt.utils.EncryptUtil` view the implementation of this encryption class.
 
-* Leak level: disabled by default, resource target detection or detection level.
+* leakDetectorLevel: default DISABLED, resource target detection or detection level.

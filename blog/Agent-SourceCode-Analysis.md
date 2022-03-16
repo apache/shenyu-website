@@ -19,11 +19,11 @@ Specifically, the `shenyu-agent` module, which is based on the `Java Agent` mech
 
 Before analyzing the source code, the following `AOP` related terms are introduced to facilitate subsequent understanding.
 
-- `JoinPoint `: the join point, the point in time when the program is running, such as the execution point of a method.
-- `PointCut `: entry point, the condition that matches `JoinPoint`.
+- `JoinPoint`: the join point, the point in time when the program is running, such as the execution point of a method.
+- `PointCut`: entry point, the condition that matches `JoinPoint`.
 - `Advice`: notification, the specific execution logic.
-- `Target `: target object.
-- `Proxy `: proxy object.
+- `Target`: target object.
+- `Proxy`: proxy object.
 
 
 
@@ -1047,7 +1047,7 @@ The processing logic of each `handler` is not mentioned here because the impleme
 ![](/img/activities/code-analysis-agent/instance_method_handler.png)
 
 
-###  5. Start Plugin
+### 5. Start Plugin
 
 After creating the `agent`, start each plugin.
 

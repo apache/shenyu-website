@@ -18,11 +18,11 @@ tags: [Agent, Apache ShenYu]
 
 在分析源码之前，介绍下`AOP`相关的术语，便于后续的理解：
 
-- `JoinPoint `：连接点，程序运行中的时间点，比如方法的执行点；
-- `PointCut `：切入点，匹配 `JoinPoint` 的条件；
+- `JoinPoint`：连接点，程序运行中的时间点，比如方法的执行点；
+- `PointCut`：切入点，匹配 `JoinPoint` 的条件；
 - `Advice`：通知，具体的执行逻辑；
-- `Target `：目标对象；
-- `Proxy `：代理对象。
+- `Target`：目标对象；
+- `Proxy`：代理对象。
 
 
 ### 关于Byte Buddy
@@ -71,10 +71,10 @@ public class ShenyuAgentBootstrap {
 
 `premain函数`的核心逻辑，就是上面的四步操作：
 
--  1. 读取配置文件；
--  2. 加载所有插件；
--  3. 创建 agent；
--  4. 启动插件。
+- 1. 读取配置文件；
+- 2. 加载所有插件；
+- 3. 创建 agent；
+- 4. 启动插件。
 
 
 接下来的源码分析就依次分析这四个操作。
@@ -841,7 +841,7 @@ public class InstanceMethodInterceptor {
 
 - `@RuntimeType`：	定义运行时的目标方法，提示`ByteBuddy`禁用严格的类型检查；
 - `@This`：当前被拦截的、动态生成的实例对象；
--  `@Origin`：原有方法；
+- `@Origin`：原有方法；
 - `@AllArguments`：获取所有入参；
 - `@SuperCall`：用于调用父类版本的方法。
 
@@ -1102,7 +1102,7 @@ public class ConstructorInterceptor {
 ![](/img/activities/code-analysis-agent/instance_method_handler.png)
 
 
-###  5. 启动插件
+### 5. 启动插件
 
 创建完 `agent`之后，启动各个插件。
 

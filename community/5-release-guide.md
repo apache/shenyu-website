@@ -817,3 +817,5 @@ After completing the above steps, you can start the release procedure. The next 
 ```
 
 Vote results and announce emails do not need this suffix.
+
+**The content is referenced from the Apache ShardingSphere docs.**

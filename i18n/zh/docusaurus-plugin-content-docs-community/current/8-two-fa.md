@@ -30,3 +30,5 @@ tags: ["Two-FA"]
 进行代码的提交。
 
 具体操作，请参考[创建私有Token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)。
+
+**以上内容参考了Apache ShardingSphere的文档。**

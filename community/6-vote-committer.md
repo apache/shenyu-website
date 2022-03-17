@@ -158,3 +158,5 @@ has invited (nominee name not GitHub ID) to become a committer and we are please
 
 Thanks for your contributions.
 ```
+
+**The content is referenced from the Apache ShardingSphere docs.**

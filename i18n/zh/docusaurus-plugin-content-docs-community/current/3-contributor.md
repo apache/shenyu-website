@@ -105,3 +105,5 @@ git fetch apache
 git reset --hard apache/master
 git push -f
 ```
+
+**以上内容参考了Apache ShardingSphere的文档。**

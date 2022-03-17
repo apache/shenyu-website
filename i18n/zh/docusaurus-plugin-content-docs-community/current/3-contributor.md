@@ -106,4 +106,4 @@ git reset --hard apache/master
 git push -f
 ```
 
-**以上内容参考了Apache ShardingSphere的文档。**
+**以上内容参考了[Apache ShardingSphere的文档](https://shardingsphere.apache.org/community/cn/contribute/contributor/)。**

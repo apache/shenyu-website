@@ -163,4 +163,4 @@ Thanks for your contributions.
 
 [two-factor authentication](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
 
-**The content is referenced from the Apache ShardingSphere docs.**
+**The content is referenced from the [Apache ShardingSphere docs](https://shardingsphere.apache.org/community/en/contribute/vote/).**

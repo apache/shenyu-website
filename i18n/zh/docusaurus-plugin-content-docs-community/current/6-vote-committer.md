@@ -161,4 +161,4 @@ Thanks for your contributions.
 
 [双重身份验证](https://docs.github.com/cn/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
 
-**以上内容参考了Apache ShardingSphere的文档。**
+**以上内容参考了[Apache ShardingSphere的文档](https://shardingsphere.apache.org/community/cn/contribute/vote/)。**

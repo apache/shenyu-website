@@ -157,4 +157,8 @@ has invited (nominee name not GitHub ID) to become a committer and we are please
 Thanks for your contributions.
 ```
 
+**12、启用GitHub双重身份验证**
+
+[双重身份验证](https://docs.github.com/cn/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
+
 **以上内容参考了Apache ShardingSphere的文档。**

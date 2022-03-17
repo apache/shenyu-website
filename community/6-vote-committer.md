@@ -159,4 +159,8 @@ has invited (nominee name not GitHub ID) to become a committer and we are please
 Thanks for your contributions.
 ```
 
+**12. Enable GitHub two-factor authentication**
+
+[two-factor authentication](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
+
 **The content is referenced from the Apache ShardingSphere docs.**

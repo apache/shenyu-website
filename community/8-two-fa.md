@@ -30,3 +30,5 @@ After enabling 2FA, you need to generate a private access Token to perform opera
 At this time, you will use username + private access Token in replace of username + password to submit codes.
 
 For detailed operations, please refer to [Create a Private Token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+
+**The content is referenced from the Apache ShardingSphere docs.**

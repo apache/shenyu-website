@@ -812,3 +812,5 @@ svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VER
 ```
 
 投票结果和通知邮件不需要加后缀。
+
+**以上内容参考了Apache ShardingSphere的文档。**

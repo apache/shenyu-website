@@ -23,3 +23,5 @@ tags: ["Subscribe-Email"]
 完成以上步骤后，您会收到一封主题为 `WELCOME to dev@shenyu.apache.org` 的欢迎邮件，至此您已成功订阅 Apache ShenYu 的邮件列表。
 
 至此，您可以通过 `dev@shenyu.apache.org` 接收及回复邮件，或通过查看[归档邮件](https://lists.apache.org/list.html?dev@shenyu.apache.org)来跟踪邮件对话。
+
+**以上内容参考了[Apache ShardingSphere的文档](https://shardingsphere.apache.org/community/cn/contribute/subscribe/)。**

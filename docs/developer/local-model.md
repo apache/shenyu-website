@@ -14,7 +14,9 @@ description: Local Model
 success
 ```
 
-* Common preFix ： `localhost:9095/shenyu`
+* Common preFix: `localhost:9095/shenyu`
+
+* Common Header: `localKey: 123456`
 
 ## Plugin
 

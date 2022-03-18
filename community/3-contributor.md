@@ -103,3 +103,5 @@ git fetch apache
 git reset --hard apache/master
 git push -f
 ```
+
+**The content is referenced from the [Apache ShardingSphere docs](https://shardingsphere.apache.org/community/en/contribute/contributor/).**

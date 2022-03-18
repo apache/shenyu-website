@@ -7,8 +7,8 @@ description: sentinel plugin
 
 ## Description
 
-* Sentinel is one of the options that supports flow control and circuit breaking.
-* Sentinel supports flow control and circuit breaking functions for gateway.
+* `Sentinel` is one of the options that supports flow control and circuit breaking.
+* `Sentinel` supports flow control and circuit breaking functions for gateway.
 
 
 ## Plugin Setting

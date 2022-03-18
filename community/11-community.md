@@ -1,16 +1,16 @@
 ---
-title: 社区
-sidebar_position: 13
+title: Community
+sidebar_position: 12
 description: QR Code
 author: "xiaoyu"
 categories: "Apache ShenYu"
 tags: ["community"]
 ---
 
-## 微信公众号
+## WeChat public account
 
 ![](/img/qrcode/WechatIMG127.jpeg)
 
-## QQ 群
+## QQ Group
 
 ![](/img/community/qq_group.jpg)

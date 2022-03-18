@@ -817,3 +817,16 @@ After completing the above steps, you can start the release procedure. The next 
 ```
 
 Vote results and announce emails do not need this suffix.
+
+**The content is referenced from the [Apache ShardingSphere docs](https://shardingsphere.apache.org/community/en/contribute/release/).**
+
+**The content refers to the ASF policy on releasing**
+
+https://incubator.apache.org/guides/releasemanagement.html
+
+https://incubator.apache.org/guides/distribution.html
+
+https://infra.apache.org/release-distribution
+
+https://www.apache.org/legal/release-policy.html
+

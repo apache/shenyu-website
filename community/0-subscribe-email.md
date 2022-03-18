@@ -23,3 +23,5 @@ After Step 1, you will receive a confirmation e-mail from [dev-help@shenyu.apach
 After finishing the two steps above, an e-mail with the subject of `WELCOME to dev@shenyu.apache.org` will be sent to your e-mail address. Until now, you have succeeded in subscribing Apache ShenYu mail-list.
 
 Until now, you can interact with community by your subscribed email or track email conversations by [Archived email list](https://lists.apache.org/list.html?dev@shenyu.apache.org).
+
+**The content is referenced from the [Apache ShardingSphere docs](https://shardingsphere.apache.org/community/en/contribute/subscribe/).**

@@ -2,108 +2,107 @@
 title: 贡献者指南
 sidebar_position: 4
 description: Apache ShenYu 贡献者指南
-author: "xiaoyu"
 categories: "Apache ShenYu"
 tags: ["Contributor"]
-date: 2019-04-09
-cover: "/img/architecture/shenyu-framework.png"
 ---
 
+我们欢迎每一位贡献者的加入！
 
-您可以报告bug，提交一个新的功能增强建议或者直接对以上内容提交改进补丁。
+### 贡献方式
 
-## 提交issue
+在 Apache ShenYu 社区，贡献方式有很多：
 
-- 在提交issue之前，请经过充分的搜索，确定该issue不是通过简单的检索即可以解决的问题。
-- 查看[issue列表](https://github.com/apache/incubator-shenyu/issues)，确定该issue不是一个重复的问题。
-- [新建](https://github.com/apache/incubator-shenyu/issues/new/choose)一个issue并选择您的issue类型。
-- 使用一个清晰并有描述性的标题来定义issue。
-- 根据模板填写必要信息。
-- 在提交issue之后，对该issue分配合适的标签。如：bug，enhancement，discussion等。
-- 请对自己提交的issue保持关注，在讨论中进一步提供必要信息。
+代码：可以帮助社区完成一些任务、编写新的feature或者是修复一些bug；
 
-## 开发流程
+测试：可以来参与测试代码的编写，包括了单元测试、集成测试、e2e测试；
 
-**Fork分支到本地**
+文档：可以编写或完善文档，来帮助用户更好地了解和使用 Apache ShenYu；
 
-- 从 ShenYu 的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为 ShenYu 的repo。
+博客：可以撰写 Apache ShenYu 的相关文章，来帮助社区更好地推广；
 
-* 从你的github仓库克隆代码.
+讨论：可以参与 Apache ShenYu 新的feature的讨论，将你的想法跟 Apache ShenYu 融合；
 
-```shell
-git clone https://github.com/your-github/incubator-shenyu.git
-```
+建议：也可以对项目或者社区提出一些建议，促进社区的良性发展；
 
-Windows 环境下，如果克隆 Apache Shenyu 源码时，提示文件名过长，请参看[FAQ](/community/faq)
+。。。
 
-* 设置远程仓库 (为了同步代码) .
+即便是小到错别字的修正，或者是对404链接的修正，我们也都非常欢迎 :)
 
-```shell
-git remote add apache https://github.com/apache/incubator-shenyu.git
-```
+### 参与讨论
 
-**选择issue**
+我们认为：[社区胜于代码](https://www.apache.org/theapacheway/index.html)。
 
-- 请在选择您要修改的issue。如果是您新发现的问题或想提供issue中没有的功能增强，请先新建一个issue并设置正确的标签。
-- 在选中相关的issue之后，请回复以表明您当前正在这个issue上工作。并在回复的时候为自己设置一个deadline，添加至回复内容中。
+参与讨论是贡献的第一步，请参考 [邮件订阅指南](./0-subscribe-email.md) 来订阅我们的邮件列表，并参与邮件列表上正在进行的讨论！
 
-**创建分支**
+在讨论的过程中，请注意保持礼貌，建议阅读 ASF 的 [行为准则](https://www.apache.org/foundation/policies/conduct.html)。
 
-- 切换到fork的master分支，拉取最新代码，创建本次的分支。
+### 目标仓库
 
-```shell
-git checkout master
-git pull apache master
-git checkout -b issueNo
-```
+Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个仓库：
 
-**注意** ：PR会按照squash的方式进行merge，如果不创建新分支，本地和远程的提交记录将不能保持同步。
+[apache/incubator-shenyu](https://github.com/apache/incubator-shenyu)
 
-**编码**
+[apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard)
 
-- 请您在开发过程中遵循 ShenYu 的 [编码建议](/community/code-suggestions)。并在准备提交pull request之前完成相应的检查。
-- 将修改的代码 push 到 fork 库的分支上。
+[apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website)
 
-```shell
-git add 修改代码
-git commit -m 'commit log'
-git push origin issueNo
-```
+[apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk)
 
-**提交PR**
+[apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx)
 
-- 发送一个pull request到 ShenYu 的master分支。
-- 接着导师做CodeReview，然后他会与您讨论一些细节（包括设计，实现，性能等）。当导师对本次修改满意后，会将提交合并到当前开发版本的分支中。
-- 最后，恭喜您已经成为了ShenYu的贡献者！
+### 让 Apache ShenYu 运行起来
 
-**删除分支**
+让 Apache ShenYu 的代码在你的开发工具上运行起来，请参阅 [本地部署](../docs/next/deployment/deployment-local) 或者 [Apache ShenYu 启动示例](../blog/Start-SourceCode-Analysis-Start-Demo)，并且能够断点调试。
 
-- 在导师将pull request合并到 ShenYu 的master分支中之后，您就可以将远程的分支（origin/issueNo）及与远程分支（origin/issueNo）关联的本地分支（issueNo）删除。
+在运行起来之后，可以阅读我们官网收录的[源码分析文章](../blog)，来对 Apache ShenYu 有更深入的理解。
+
+### 寻找任务
+
+寻找你感兴趣的Issue！在我们的GitHub仓库和邮件列表中，我们经常会发布一些带有 `good first issue` 或者 `status: volunteer wanted` 标签的issue，这些issue都欢迎贡献者的帮助，其中good first issue往往门槛较低、适合新手，你可以点击 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) 查看这些issue。
+
+当然，如果你有好的想法，也可以直接在邮件列表中提出，经过充分讨论后就可以开始行动。
+
+同时，你也可以参与编写我们的源码分析文章，并通过 Pull Request 的方式提交到 Apache ShenYu 官网的博客模块。
+
+如果你是学生，那么也非常欢迎在 GSoC 等开源实习活动中申请 Apache ShenYu 的议题，你可以点击 [链接](https://community.apache.org/gsoc.html) 来查看 Apache 软件基金会对 GSoC 的介绍。你也可以通过这个 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc) 来查看 Apache ShenYu 往年或者正在进行中的 GSoC 议题！
+
+### 提交Pull Request
+
+首先你需要 Fork 你的目标仓库。
+
+接着，可以参考如下命令进行代码的提交：
+
+切换新的开发分支
 
 ```shell
-git checkout master
-git branch -d issueNo
-git push origin --delete issueNo
+git checkout -b a-new-branch
 ```
 
-**注意**
-
-为了让您的id显示在contributor列表中，别忘了以下设置：
+提交 commit
 
 ```shell
-git config --global user.name "username"
-git config --global user.email "username@mail.com"
+git add .
+git commit -m 'necessary instructions'
 ```
 
-**常见问题**
-
-- 每次Pull Request(PR)后,你需要执行以下操作,否则,之前PR的提交记录会和这次的提交记录混在一起,具体操作流程如下:
+推送到远程仓库
 
 ```shell
-git checkout master
-git fetch apache
-git reset --hard apache/master
-git push -f
+git push origin a-new-branch
 ```
 
-**以上内容参考了[Apache ShardingSphere的文档](https://shardingsphere.apache.org/community/cn/contribute/contributor/)。**
+然后你就可以在 GitHub 上发起新的 PR (Pull Request)。
+
+请注意 PR 的标题需要符合我们的[规范](./2-issue-pr.md)，并且在 PR 中写上必要的说明，来方便 Committer 和其他贡献者进行代码审查。
+
+### 等待代码被合并
+
+在提交了 PR 后，Committer 或者社区的小伙伴们会对你提交的代码进行审查（Code Review），会提出一些修改建议，或者是进行一些讨论。
+
+另外，我们的项目有比较规范和严格的 CI 检查流程，在提交 PR 之后会触发 CI，请注意是否通过 CI 检查。
+
+最后，Committer 可以将 PR 合并入主分支。
+
+### 如何成为Committer？
+
+重复前面的步骤，在社区中保持活跃，坚持下去，你就能成为 Committer！

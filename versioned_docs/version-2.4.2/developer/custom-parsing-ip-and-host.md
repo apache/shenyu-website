@@ -40,7 +40,7 @@ public interface RemoteAddressResolver {
 
 ```java
    @Bean
-   public SignService customRemoteAddressResolver() {
+   public RemoteAddressResolver customRemoteAddressResolver() {
          return new CustomRemoteAddressResolver();
    }
 ```

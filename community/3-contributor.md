@@ -101,7 +101,7 @@ git checkout -b a-dev-branch
 submit commit
 
 ```shell
-git add <modified file/path> #add后跟着改动的文件或目录
+git add <modified file/path> #add followed by the changed file or path
 git commit -m 'necessary instructions'
 ```
 

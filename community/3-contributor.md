@@ -81,7 +81,7 @@ First you need to fork your target repository.
 
 ![fork](/img/community/fork.png)
 
-Then download the code locally with git command:
+Then download the code locally **with git command**:
 
 ```shell
 git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #Recommended

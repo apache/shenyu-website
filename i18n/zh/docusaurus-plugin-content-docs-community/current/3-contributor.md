@@ -142,4 +142,4 @@ git pull upsteam master
 
 ### 如何成为Committer？
 
-通过上述步骤，你就是 Apache ShenYu 的贡献者了。重复前面的步骤，在社区中保持活跃，坚持下去，你就能成为 Committer！
+通过上述步骤，你就是 Apache ShenYu 的贡献者了。重复前面的步骤，在社区中保持活跃，坚持下去，你就能成为 [Committer](./committer)！

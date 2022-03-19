@@ -142,4 +142,4 @@ git pull upsteam master
 
 ### How to become a Committer?
 
-With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a Committer!
+With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](./committer)!

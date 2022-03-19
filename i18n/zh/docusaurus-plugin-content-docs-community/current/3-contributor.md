@@ -23,6 +23,8 @@ tags: ["Contributor"]
 
 讨论：可以参与 Apache ShenYu 新的feature的讨论，将您的想法跟 Apache ShenYu 融合；
 
+布道：可以帮助宣传或推广 Apache ShenYu 社区，在 MeetUp 中演讲；
+
 建议：也可以对项目或者社区提出一些建议，促进社区的良性发展；
 
 。。。
@@ -49,15 +51,12 @@ tags: ["Contributor"]
 
 Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个仓库：
 
-[apache/incubator-shenyu](https://github.com/apache/incubator-shenyu)
-
-[apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard)
-
-[apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website)
-
-[apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk)
-
-[apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx)
+| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | 主仓库           |
+| ------------------------------------------------------------ | ---------------- |
+| [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | shenyu-admin前端 |
+| [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | 官网及文档       |
+| [apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk) | 多语言SDK        |
+| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Nginx集成仓库    |
 
 ### 让 Apache ShenYu 运行起来
 
@@ -69,9 +68,9 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 寻找您感兴趣的Issue！在我们的GitHub仓库和邮件列表中，我们经常会发布一些带有 `good first issue` 或者 `status: volunteer wanted` 标签的issue，这些issue都欢迎贡献者的帮助。其中good first issue往往门槛较低、适合新手，您可以点击 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) 查看这些issue。
 
-当然，如果您有好的想法，也可以直接在邮件列表中提出，经过充分讨论后就可以开始行动。
+当然，如果您有好的想法，也可以直接在 邮件列表(dev@shenyu.apache.org) 中提出，经过充分讨论后就可以开始行动。
 
-同时，您也可以参与编写我们的源码分析文章，并通过 Pull Request 的方式提交到 Apache ShenYu 官网的博客模块。
+同时，您也可以参与编写我们的[博客](../blog)，并通过 Pull Request 的方式提交到 Apache ShenYu 官网的[博客模块](https://github.com/apache/incubator-shenyu-website/tree/main/blog) 。
 
 如果您是学生，那么也非常欢迎在 GSoC 等开源实习活动中申请 Apache ShenYu 的议题，您可以点击 [链接](https://community.apache.org/gsoc.html) 来查看 Apache 软件基金会对 GSoC 的介绍。您也可以通过这个 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc) 来查看 Apache ShenYu 往年或者正在进行中的 GSoC 议题！
 
@@ -117,7 +116,9 @@ git push origin a-dev-branch
 
 ### 等待代码被合并
 
-在提交了 PR 后，Committer 或者社区的小伙伴们会对您提交的代码进行审查（Code Review），会提出一些修改建议，或者是进行一些讨论。
+在提交了 PR 后，Committer 或者社区的小伙伴们会对您提交的代码进行审查（Code Review），会提出一些修改建议，或者是进行一些讨论，请及时关注您的PR。
+
+若后续需要改动，不需要发起一个新的 PR，在原有的分支上提交 commit 并推送到远程仓库后，PR会自动更新。
 
 另外，我们的项目有比较规范和严格的 CI 检查流程，在提交 PR 之后会触发 CI，请注意是否通过 CI 检查。
 
@@ -143,3 +144,5 @@ git pull upsteam master
 ### 如何成为Committer？
 
 通过上述步骤，您就是 Apache ShenYu 的贡献者了。重复前面的步骤，在社区中保持活跃，坚持下去，您就能成为 [Committer](./committer)！
+
+为了及时了解 Apache ShenYu 的发展动态，您可以关注邮件列表，也可以参与社区的双周会（会议邀请链接将会在邮件列表中发出）。

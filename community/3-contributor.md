@@ -23,6 +23,8 @@ Blog: You can write articles about Apache ShenYu to help the community better pr
 
 Discussion: You can participate in the discussion of new features of Apache ShenYu and integrate your ideas with Apache ShenYu;
 
+Evangelism: Can help publicize or promote the Apache ShenYu community, speak in MeetUp;
+
 Suggestion: You can also make some suggestions to the project or community to promote the healthy development of the community;
 
 . . .
@@ -49,15 +51,12 @@ During the discussion, please be polite and suggest reading [Code of Conduct](ht
 
 Apache ShenYu is generally developed collaboratively on GitHub. Currently, there are the following repositories:
 
-[apache/incubator-shenyu](https://github.com/apache/incubator-shenyu)
-
-[apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard)
-
-[apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website)
-
-[apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk)
-
-[apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx)
+| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | Main Repository                |
+| ------------------------------------------------------------ | ------------------------------ |
+| [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | Front-end Code of shenyu-admin |
+| [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | Official Website and Documents |
+| [apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk) | Multilingual SDK               |
+| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Code to integrate with nginx   |
 
 ### Getting Apache ShenYu up and running
 
@@ -69,9 +68,9 @@ After running, you can read the [source code analysis article](../blog) included
 
 Find the issue you are interested in! On our GitHub repo and mailing list, we often publish some issues with the label `good first issue` or `status: volunteer wanted`. These issues welcome the help of contributors. Among them, good first issues tend to have low thresholds and are suitable for novices. You can click the [link](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) to check out these issues.
 
-Of course, if you have a good idea, you can also propose it directly on the mailing list, and after a thorough discussion, you can start to act.
+Of course, if you have a good idea, you can also propose it directly on the mailing list(dev@shenyu.apache.org), and after a thorough discussion, you can start to act.
 
-At the same time, you can also participate in the writing of our source code analysis articles and submit them to the blog module of the Apache ShenYu official website through Pull Request.
+At the same time, you can also participate in the writing of our [blog](../blog) and submit them to [the blog module](https://github.com/apache/incubator-shenyu-website/tree/main/blog) of the Apache ShenYu official website through Pull Request.
 
 If you are a student, you are also very welcome to apply for the topic of Apache ShenYu in open source internship activities such as GSoC. You can click the [link](https://community.apache.org/gsoc.html) to view the Apache Software Foundation Introduction to GSoC. You can also check Apache ShenYu's previous or ongoing GSoC issues through this [link](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc)!
 
@@ -117,7 +116,9 @@ Please note that the title of the PR needs to conform to our [spec](./2-issue-pr
 
 ### Wait for the code to be merged
 
-After submitting the PR, the Committer or the community's folks will review the code you submitted (Code Review), and will propose some modification suggestions or conduct some discussions.
+After submitting the PR, the Committer or the community's friends will review the code you submitted (Code Review), and will propose some modification suggestions or conduct some discussions. Please pay attention to your PR in time.
+
+If subsequent changes are required, there is no need to initiate a new PR. After submitting a commit on the original branch and pushing it to the remote repository, the PR will be automatically updated.
 
 In addition, our project has a relatively standardized and strict CI inspection process. After submitting PR, CI will be triggered. Please pay attention to whether it passes the CI inspection.
 
@@ -143,3 +144,5 @@ git pull upsteam master
 ### How to become a Committer?
 
 With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](./committer)!
+
+In order to keep abreast of the development of Apache ShenYu, you can follow the mailing list, or you can participate in the biweekly meeting of the community (meeting invitation link will be sent on the mailing list).

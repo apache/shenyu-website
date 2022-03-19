@@ -51,8 +51,9 @@ During the discussion, please be polite and suggest reading [Code of Conduct](ht
 
 Apache ShenYu is generally developed collaboratively on GitHub. Currently, there are the following repositories:
 
-| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | Main Repository                |
+| REPOSITIRY                                                   | DETAIL                         |
 | ------------------------------------------------------------ | ------------------------------ |
+| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | Main Repository                |
 | [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | Front-end Code of shenyu-admin |
 | [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | Official Website and Documents |
 | [apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk) | Multilingual SDK               |

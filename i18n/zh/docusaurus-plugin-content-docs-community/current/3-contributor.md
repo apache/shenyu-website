@@ -51,12 +51,13 @@ tags: ["Contributor"]
 
 Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个仓库：
 
-| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | 主仓库           |
-| ------------------------------------------------------------ | ---------------- |
-| [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | shenyu-admin前端 |
-| [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | 官网及文档       |
-| [apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk) | 多语言SDK        |
-| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Nginx集成仓库    |
+| 仓库                                                         | 说明                 |
+| ------------------------------------------------------------ | -------------------- |
+| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | 主仓库               |
+| [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | shenyu-admin前端仓库 |
+| [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | 官网及文档           |
+| [apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk) | 多语言SDK            |
+| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Nginx集成仓库        |
 
 ### 让 Apache ShenYu 运行起来
 

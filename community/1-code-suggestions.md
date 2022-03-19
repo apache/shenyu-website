@@ -1,6 +1,6 @@
 ---
 title: Code Suggestions
-sidebar_position: 2
+sidebar_position: 1
 description: Apache ShenYu Coding Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"

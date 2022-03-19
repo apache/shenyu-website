@@ -1,6 +1,7 @@
 ---
+id: contributor-guide
 title: 贡献者指南
-sidebar_position: 4
+sidebar_position: 3
 description: Apache ShenYu 贡献者指南
 categories: "Apache ShenYu"
 tags: ["Contributor"]
@@ -32,9 +33,17 @@ tags: ["Contributor"]
 
 我们认为：[社区胜于代码](https://www.apache.org/theapacheway/index.html)。
 
-参与讨论是贡献的第一步，请参考 [邮件订阅指南](./0-subscribe-email.md) 来订阅我们的邮件列表，并参与邮件列表上正在进行的讨论！
+参与讨论是贡献的第一步，请先订阅我们的邮件列表，并参与邮件列表上正在进行的讨论！
 
-在讨论的过程中，请注意保持礼貌，建议阅读 ASF 的 [行为准则](https://www.apache.org/foundation/policies/conduct.html)。
+订阅邮件的步骤很简单：
+
+1. 向 [dev-subscribe@shenyu.apache.org](mailto:dev-subscribe@shenyu.apache.org) 发送一封邮件；
+2. 发送成功后，你会收到来自 [dev-help@shenyu.apache.org](mailto:dev-help@shenyu.apache.org) 的回信，请按照邮件的提示回复这封邮件，确认订阅；
+3. 在回复确认后，你会收到一封欢迎邮件，表示你已经成功订阅了邮件。
+
+在订阅成功后，你就可以在 [dev@shenyu.apache.org](mailto:dev@shenyu.apache.org) 参与讨论了。你也可以点击 [公共归档](https://lists.apache.org/list.html?dev@shenyu.apache.org) 来看到历史邮件。
+
+在讨论过程中，请保持礼貌，建议阅读 ASF 的 [行为准则](https://www.apache.org/foundation/policies/conduct.html)。
 
 ### 目标仓库
 
@@ -58,7 +67,7 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 ### 寻找任务
 
-寻找你感兴趣的Issue！在我们的GitHub仓库和邮件列表中，我们经常会发布一些带有 `good first issue` 或者 `status: volunteer wanted` 标签的issue，这些issue都欢迎贡献者的帮助，其中good first issue往往门槛较低、适合新手，你可以点击 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) 查看这些issue。
+寻找你感兴趣的Issue！在我们的GitHub仓库和邮件列表中，我们经常会发布一些带有 `good first issue` 或者 `status: volunteer wanted` 标签的issue，这些issue都欢迎贡献者的帮助。其中good first issue往往门槛较低、适合新手，你可以点击 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) 查看这些issue。
 
 当然，如果你有好的想法，也可以直接在邮件列表中提出，经过充分讨论后就可以开始行动。
 
@@ -70,12 +79,23 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 首先你需要 Fork 你的目标仓库。
 
-接着，可以参考如下命令进行代码的提交：
+![fork](/img/community/fork.png)
 
-切换新的开发分支
+然后将 **用git命令** 将代码下载到本地：
 
 ```shell
-git checkout -b a-new-branch
+git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #推荐使用
+# 也可以 git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
+```
+
+下载完成后，请参考目标仓库的入门指南或者 README 文件对项目进行初始化。Windows 环境下，如果克隆源码时，提示文件名过长，请参看[FAQ](./12-faq)。
+
+接着，你可以参考如下命令进行代码的提交：
+
+切换新的分支，进行开发
+
+```shell
+git checkout -b a-dev-branch
 ```
 
 提交 commit
@@ -88,7 +108,7 @@ git commit -m 'necessary instructions'
 推送到远程仓库
 
 ```shell
-git push origin a-new-branch
+git push origin a-dev-branch
 ```
 
 然后你就可以在 GitHub 上发起新的 PR (Pull Request)。
@@ -103,6 +123,23 @@ git push origin a-new-branch
 
 最后，Committer 可以将 PR 合并入主分支。
 
+### 代码被合并后
+
+在代码被合并后，你就可以在本地和远程仓库删除这个开发分支了：
+
+```shell
+git branch -d a-dev-branch
+git push origin --delete a-dev-branch
+```
+
+在主分支上，你可以执行以下操作来同步上游仓库：
+
+```shell
+git remote add upstream https://github.com/apache/incubator-shenyu.git #绑定远程仓库，如果执行过就不需要再执行
+git checkout master #或main
+git pull upsteam master
+```
+
 ### 如何成为Committer？
 
-重复前面的步骤，在社区中保持活跃，坚持下去，你就能成为 Committer！
+通过上述步骤，你就是 Apache ShenYu 的贡献者了。重复前面的步骤，在社区中保持活跃，坚持下去，你就能成为 Committer！

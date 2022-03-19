@@ -1,6 +1,6 @@
 ---
 title: 编码建议
-sidebar_position: 2
+sidebar_position: 1
 description: Apache ShenYu 编码建议
 author: "xiaoyu"
 categories: "Apache ShenYu"

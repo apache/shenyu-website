@@ -1,6 +1,6 @@
 ---
 title: 提交者指南
-sidebar_position: 5
+sidebar_position: 4
 description: Apache shenyu 提交者指南
 author: "xiaoyu"
 categories: "Apache ShenYu"

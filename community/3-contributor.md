@@ -1,6 +1,7 @@
 ---
+id: contributor-guide
 title: Contributor Guide
-sidebar_position: 4
+sidebar_position: 3
 description: Apache ShenYu Contributor's Guide
 categories: "Apache ShenYu"
 tags: ["Contributor"]
@@ -32,9 +33,17 @@ Even minor corrections to typos, or corrections to 404 links, are very welcome :
 
 We believe: [Community Over Code](https://www.apache.org/theapacheway/index.html).
 
-Participating in discussions is the first step in contributing, please refer to the [Email Subscription Guide](./0-subscribe-email.md) to subscribe to our mailing list and participate in ongoing discussions on the mailing list!
+Participating in discussions is the first step in contributing, please subscribe to our mailing list first and participate in ongoing discussions on the mailing list!
 
-During discussions, please be polite. And we suggest reading [Code of Conduct](https://www.apache.org/foundation/policies/conduct.html) of ASF.
+The steps to subscribe to emails are simple:
+
+1. Send an email to [dev-subscribe@shenyu.apache.org](mailto:dev-subscribe@shenyu.apache.org);
+2. After sending successfully, you will receive a reply from [dev-help@shenyu.apache.org](mailto:dev-help@shenyu.apache.org), please reply to this email according to the instructions of the email to confirm the subscription ;
+3. After replying to confirm, you will receive a welcome email indicating that you have successfully subscribed to the email.
+
+After the subscription is successful, you can participate in the discussion at [dev@shenyu.apache.org](mailto:dev@shenyu.apache.org). You can also click on [Public Archives](https://lists.apache.org/list.html?dev@shenyu.apache.org) to see historical emails.
+
+During the discussion, please be polite and suggest reading [Code of Conduct](https://www.apache.org/foundation/policies/conduct.html) of ASF.
 
 ### Target Repository
 
@@ -70,26 +79,37 @@ If you are a student, you are also very welcome to apply for the topic of Apache
 
 First you need to fork your target repository.
 
-Then, you can refer to the following command to submit the code:
+![fork](/img/community/fork.png)
 
-Switch to new a development branch
+Then download the code locally with git command:
 
 ```shell
-git checkout -b a-new-branch
+git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #Recommended
+# You can also git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
 ````
 
-Do a commit
+After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](./12-faq).
+
+Then, you can refer to the following command to submit the code:
+
+Switch to a new branch for development
+
+```shell
+git checkout -b a-dev-branch
+```
+
+submit commit
 
 ```shell
 git add .
 git commit -m 'necessary instructions'
-````
+```
 
-Push to the remote repository
+push to the remote repository
 
 ```shell
-git push origin a-new-branch
-````
+git push origin a-dev-branch
+```
 
 Then you can initiate a new PR (Pull Request) on GitHub.
 
@@ -103,6 +123,23 @@ In addition, our project has a relatively standardized and strict CI inspection 
 
 Finally, the Committers can merge the PR into the master branch.
 
+### After the code is merged
+
+After the code has been merged, you can delete the development branch on both the local and remote repositories:
+
+```shell
+git branch -d a-dev-branch
+git push origin --delete a-dev-branch
+````
+
+On the master/main branch, you can do the following to sync the upstream repository:
+
+```shell
+git remote add upstream https://github.com/apache/incubator-shenyu.git #Bind the remote warehouse, if it has been executed, it does not need to be executed again
+git checkout master # or main
+git pull upsteam master
+````
+
 ### How to become a Committer?
 
-Repeat the previous steps to stay active in the community, keep at it and you can become a Committer!
+With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a Committer!

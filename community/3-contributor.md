@@ -23,7 +23,7 @@ Blog: You can write articles about Apache ShenYu to help the community better pr
 
 Discussion: You can participate in the discussion of new features of Apache ShenYu and integrate your ideas with Apache ShenYu;
 
-Evangelism: Can help publicize or promote the Apache ShenYu community, speak in MeetUp;
+Preach: Can help publicize or promote the Apache ShenYu community, speak in meetup or summit;
 
 Suggestion: You can also make some suggestions to the project or community to promote the healthy development of the community;
 

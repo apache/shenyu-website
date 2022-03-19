@@ -23,7 +23,7 @@ tags: ["Contributor"]
 
 讨论：可以参与 Apache ShenYu 新的feature的讨论，将您的想法跟 Apache ShenYu 融合；
 
-布道：可以帮助宣传或推广 Apache ShenYu 社区，在 MeetUp 中演讲；
+布道：可以帮助宣传或推广 Apache ShenYu 社区，在 meetup 或 summit 中演讲；
 
 建议：也可以对项目或者社区提出一些建议，促进社区的良性发展；
 

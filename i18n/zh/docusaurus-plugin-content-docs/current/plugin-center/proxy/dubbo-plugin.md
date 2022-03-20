@@ -18,6 +18,18 @@ description: dubbo插件
 
 * 选择器和规则配置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 
+* 自`2.4.3版本`起dubbo插件新增字段及含义：
+
+<img src="/img/shenyu/plugin/dubbo/dubbo_plugin.png" width="80%" height="80%" />
+
+  * `corethreads`：业务线程池核心线程数。
+
+  * `queues`：业务线程池阻塞队列长度，0表示`无界阻塞队列`。
+
+  * `threadpool`：业务线程池类型，有`fixed`、`eager`、`cached`、`limited`和`shared`共5种类型，前面4种与dubbo官方提供的线程池一一对应，不多解释，这里单独说下`shared`，正如其名，`所有proxy插件`共用一个`shared`线程池，这样做的好处是能够减少线程池数量，进而降低内存、提高资源利用率。
+
+  * `threads`：业务线程池最大线程数。
+
 ## 插件详解
 
 客户端接入`Apache ShenYu`网关后，会自动注册选择器和规则信息，关于选择器和规则配置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule) 。

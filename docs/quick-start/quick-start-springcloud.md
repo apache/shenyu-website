@@ -105,7 +105,7 @@ Execute the `org.apache.shenyu.examples.eureka.EurekaServerApplication` main met
 Startup the Spring Cloud service:
 Execute the `org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication` main method to start project.
 
-Since `2.4.3`, `shenyu.client.springcloud.props.port` can be non-configured if you like.
+Since `2.4.3`, `shenyu.client.springCloud.props.port` can be non-configured if you like.
 
 The following log appears when the startup is successful:
 

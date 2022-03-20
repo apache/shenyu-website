@@ -1,6 +1,6 @@
 ---
 title: 提名新的Committer
-sidebar_position: 7
+sidebar_position: 6
 description: Apache ShenYu提名新的Committer
 author: "xiaoyu"
 categories: "Apache ShenYu"

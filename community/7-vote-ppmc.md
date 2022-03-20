@@ -1,6 +1,6 @@
 ---
 title: Voting in a new PPMC member
-sidebar_position: 8
+sidebar_position: 7
 description: Voting in a new PPMC member
 categories: "Apache ShenYu"
 tags: ["Vote-PPMC-Member"]

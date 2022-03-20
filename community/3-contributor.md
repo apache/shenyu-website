@@ -1,107 +1,149 @@
 ---
-title: Contributor
-sidebar_position: 4
+id: contributor-guide
+title: Contributor Guide
+sidebar_position: 3
 description: Apache ShenYu Contributor's Guide
-author: "xiaoyu"
 categories: "Apache ShenYu"
 tags: ["Contributor"]
-date: 2019-04-09
-cover: "/img/architecture/shenyu-framework.png"
 ---
 
+We welcome every contributor to join us!
 
-You can report a bug, submit a new function enhancement suggestion, or submit a pull request directly.
+### Kinds of Contributions
 
-## Submit an Issue {#submit-an-issue}
+In the Apache ShenYu community, there are many ways to contribute:
 
-- Before submitting an issue, please go through a comprehensive search to make sure the problem cannot be solved just by searching.
-- Check the [Issue List](https://github.com/apache/incubator-shenyu/issues) to make sure the problem is not repeated.
-- [Create](https://github.com/apache/incubator-shenyu/issues/new/choose) a new issue and choose the type of issue.
-- Define the issue with a clear and descriptive title.
-- Fill in necessary information according to the template.
-- Choose a label after the issue is created, for example: bug，enhancement，discussion.
-- Please pay attention to your issue, you may need to provide more information during discussion.
+Code: Can help the community complete some tasks, write new features or fix some bugs;
 
-## Developer Flow {#developer-flow}
+Test: Can come to participate in the writing of test code, including unit testing, integration testing, e2e testing;
 
-**Fork ShenYu repo**
+Docs: Can write or Documentation improved to help users better understand and use Apache ShenYu;
 
-- Fork a `Apache ShenYu` repo to your own repo to work, then setting upstream.
+Blog: You can write articles about Apache ShenYu to help the community better promote;
 
-* git clone from your repository.
+Discussion: You can participate in the discussion of new features of Apache ShenYu and integrate your ideas with Apache ShenYu;
 
-```shell
-git clone https://github.com/your-github/incubator-shenyu.git
-```
+Preach: Can help publicize or promote the Apache ShenYu community, speak in meetup or summit;
 
-  if you have some problem about filename too long when cloning source code  in windows enviroment，please see [FAQ](/community/faq)
+Suggestion: You can also make some suggestions to the project or community to promote the healthy development of the community;
 
-* set remote repository (To synchronize remote repository updates) .
+. . .
 
-```shell
-git remote add apache https://github.com/apache/incubator-shenyu.git
-```
+Even minor corrections to typos, or corrections to 404 links, are very welcome :)
 
-**Choose or Creator Issue**
+### Join the Discussion
 
-- Please choose the issue to be edited. If it is a new issue discovered or a new function enhancement to offer, please create an issue and set the right label for it.
-- After choosing the relevant issue, please reply with a deadline to indicate that you are working on it.
+We believe: [Community Over Code](https://www.apache.org/theapacheway/index.html).
 
-**Create Branch**
+Participating in discussions is the first step in contributing, please subscribe to our mailing list first and participate in ongoing discussions on the mailing list!
 
-- Switch to forked master branch, pull codes from upstream, then create a new branch.
+The steps to subscribe to emails are simple:
 
-```shell
-git checkout master
-git pull apche master
-git checkout -b issueNo
-```
+1. Send an email to [dev-subscribe@shenyu.apache.org](mailto:dev-subscribe@shenyu.apache.org);
+2. After sending successfully, you will receive a reply from [dev-help@shenyu.apache.org](mailto:dev-help@shenyu.apache.org), please reply to this email according to the instructions of the email to confirm the subscription ;
+3. After replying to confirm, you will receive a welcome email indicating that you have successfully subscribed to the email.
 
-**Notice** ：We will merge PR using squash, commit log will be different from upstream if you use the old branch.
+After the subscription is successful, you can participate in the discussion at [dev@shenyu.apache.org](mailto:dev@shenyu.apache.org). You can also click on [Public Archives](https://lists.apache.org/list.html?dev@shenyu.apache.org) to see historical emails.
 
-**Coding**
+During the discussion, please be polite and suggest reading [Code of Conduct](https://www.apache.org/foundation/policies/conduct.html) of ASF.
 
-- Please obey the [Code Suggestions](/community/code-suggestions) during the process of development and finish the check before submitting the pull request.
-- push code to your fork repo.
+### Target Repository
 
-```shell
-git add modified-file-names
-git commit -m 'commit log'
-git push origin issueNo
-```
+Apache ShenYu is generally developed collaboratively on GitHub. Currently, there are the following repositories:
 
-**Submit Pull Request**
+| REPOSITORY                                                   | DESCRIPTION                    |
+| ------------------------------------------------------------ | ------------------------------ |
+| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | Main Repository                |
+| [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | Front-end Code of shenyu-admin |
+| [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | Official Website and Documents |
+| [apache/incubator-shenyu-sdk](https://github.com/apache/incubator-shenyu-sdk) | Multilingual SDK               |
+| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Code to integrate with nginx   |
 
-- Send a pull request to the master branch.
-- The mentor will do code review before discussing some details (including the design, the implementation and the performance) with you. The request will be merged into the branch of current development version after the edit is well enough.
-- At last, congratulate to be an official contributor of ShenYu.
+### Getting Apache ShenYu up and running
 
-**Delete Branch**
+To get Apache ShenYu code running on your development tools, see [Local Deployment](../docs/deployment/deployment-local) or [Apache ShenYu Startup Example](../blog/Start-SourceCode-Analysis-Start-Demo), and able to debug with breakpoints.
 
-- You can delete the remote branch (origin/issueNo) and the local branch (issueNo) associated with the remote branch (origin/issueNo) after the mentor merged the pull request into the master branch of ShenYu.
+After running, you can read the [source code analysis article](../blog) included in our official website to have a deeper understanding of Apache ShenYu.
 
-```shell
-git checkout master
-git branch -d issueNo
-git push origin --delete issueNo
-```
+### Find tasks
 
-**Notice**:  Please note that in order to show your id in the contributor list, don't forget the configurations below:
+Find the issue you are interested in! On our GitHub repo and mailing list, we often publish some issues with the label `good first issue` or `status: volunteer wanted`. These issues welcome the help of contributors. Among them, good first issues tend to have low thresholds and are suitable for novices. You can click the [link](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) to check out these issues.
+
+Of course, if you have a good idea, you can also propose it directly on the mailing list(dev@shenyu.apache.org), and after a thorough discussion, you can start to act.
+
+At the same time, you can also participate in the writing of our [blog](../blog) and submit them to [the blog module](https://github.com/apache/incubator-shenyu-website/tree/main/blog) of the Apache ShenYu official website through Pull Request.
+
+If you are a student, you are also very welcome to apply for the topic of Apache ShenYu in open source internship activities such as GSoC. You can click the [link](https://community.apache.org/gsoc.html) to view the Apache Software Foundation Introduction to GSoC. You can also check Apache ShenYu's previous or ongoing GSoC issues through this [link](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc)!
+
+### Submit Pull Request
+
+First you need to fork your target repository.
+
+![fork](/img/community/fork.png)
+
+Then download the code locally **with git command**:
 
 ```shell
-git config --global user.name "username"
-git config --global user.email "username@mail.com"
-```
+git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #Recommended
+# You can also git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
+````
 
-**FAQ**
+After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](./12-faq).
 
-- After each Pull Request (PR), you need to execute the following operations, otherwise, the previous PR commit records will be mixed with this PR commit records. The specific operation process is as follows:
+Then, you can refer to the following command to submit the code:
+
+Switch to a new branch for development
 
 ```shell
-git checkout master
-git fetch apache
-git reset --hard apache/master
-git push -f
+git checkout -b a-dev-branch
 ```
 
-**The content is referenced from the [Apache ShardingSphere docs](https://shardingsphere.apache.org/community/en/contribute/contributor/).**
+submit commit
+
+```shell
+git add <modified file/path> #add followed by the modified files or path
+git commit -m 'necessary instructions'
+```
+
+push to the remote repository
+
+```shell
+git push origin a-dev-branch
+```
+
+Then you can initiate a new PR (Pull Request) on GitHub.
+
+Please note that the title of the PR needs to conform to our [spec](./2-issue-pr.md), and write the necessary description in the PR to facilitate code review by Committers and other contributors.
+
+### Wait for the code to be merged
+
+After submitting the PR, the Committer or the community's friends will review the code you submitted (Code Review), and will propose some modification suggestions or conduct some discussions. Please pay attention to your PR in time.
+
+If subsequent changes are required, there is no need to initiate a new PR. After submitting a commit on the original branch and pushing it to the remote repository, the PR will be automatically updated.
+
+In addition, our project has a relatively standardized and strict CI inspection process. After submitting PR, CI will be triggered. Please pay attention to whether it passes the CI inspection.
+
+Finally, the Committers can merge the PR into the master branch.
+
+### After the code is merged
+
+After the code has been merged, you can delete the development branch on both the local and remote repositories:
+
+```shell
+git branch -d a-dev-branch
+git push origin --delete a-dev-branch
+````
+
+On the master/main branch, you can do the following to sync the upstream repository:
+
+```shell
+git remote add upstream https://github.com/apache/incubator-shenyu.git #Bind the remote warehouse, if it has been executed, it does not need to be executed again
+git checkout master # or main
+git pull upsteam master
+````
+
+### How to become a Committer?
+
+With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](./committer)!
+
+In order to keep abreast of the development of Apache ShenYu, you can follow the mailing list, or you can participate in the biweekly meeting of the community (meeting invitation link will be sent on the mailing list).

@@ -1,6 +1,6 @@
 ---
 title: 提名新的PPMC成员
-sidebar_position: 8
+sidebar_position: 7
 description: 提名新的PPMC成员
 categories: "Apache ShenYu"
 tags: ["Vote-PPMC-Member"]

@@ -43,6 +43,8 @@ Download [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/
 
 Execute the `org.apache.shenyu.examples.http.ShenyuTestHttpApplication` main method to start project.
 
+Since `2.4.3`, `shenyu.client.http.props.port` can be non-configured if you like.
+
 The following log appears when the startup is successful:
 
 ```shell

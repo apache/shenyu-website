@@ -49,15 +49,3 @@ description: 二进制包部署
 
 > linux : ./start.sh 
 ```
-
-### 启动 ShenYu Bootstrap 的同时，启动 ShenYu Agent
-
-> 2.4.2版本开始支持shenyu-agent
-
-agent 相关配置在 `./agent/conf`，详细配置请参考 [可观测性](../user-guide/observability/observability.md)
-
-如果你想使用 shenyu-agent，只需要在启动时添加一个参数：agent
-
-```shell
-./start.sh agent
-```

@@ -9,7 +9,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 ## Create Git repository
 
-Fill in the new repository information in [GitBox](https://gitbox.apache.org/setup/newrepo.html). Take incubator-shenyu-helm-chart as an example.
+Fill in the new repository information in [GitBox](https://gitbox.apache.org/setup/newrepo.html) [1]. Take incubator-shenyu-helm-chart as an example.
 
 ![GitBox](/img/community/create_repo.png)
 
@@ -24,7 +24,7 @@ Fill in the new repository information in [GitBox](https://gitbox.apache.org/set
 
 * Once the GitHub repository is created, follow the instructions on the page to complete your first commit.
 * Add `LICENSE`, `NOTICE` and `DISCLAIMER` files.
-* Add `.asf.yaml` to custom repository configuration. A detailed description of .asf.yaml can be found [here](https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features).
+* Add `.asf.yaml` to custom repository configuration. A detailed description of .asf.yaml can be found [here](https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features) [2].
 
 helm-chart's .asf.yaml, with branch protection turned on, will need to be committed with PR for future code after push.
 
@@ -57,3 +57,9 @@ notifications:
   issues: notifications@shenyu.apache.org
   pullrequests: notifications@shenyu.apache.org
 ```
+
+**The content refers to**
+
+[1] https://gitbox.apache.org/setup/newrepo.html
+
+[2] https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features

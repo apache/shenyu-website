@@ -9,7 +9,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 ## 创建 Git 仓库
 
-在 [GitBox](https://gitbox.apache.org/setup/newrepo.html) 填写新仓库信息。以 incubator-shenyu-helm-chart 为例。
+在 [GitBox](https://gitbox.apache.org/setup/newrepo.html) [1] 填写新仓库信息。以 incubator-shenyu-helm-chart 为例。
 
 ![GitBox](/img/community/create_repo.png)
 
@@ -24,7 +24,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 * GitHub 仓库创建完成后，按照页面的指引，完成第一次提交。
 * 添加 `LICENSE`, `NOTICE` 和 `DISCLAIMER` 文件。
-* 添加 `.asf.yaml` 自定义仓库配置。.asf.yaml 的详细说明可以参考[这里](https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features)。
+* 添加 `.asf.yaml` 自定义仓库配置。.asf.yaml 的详细说明可以参考[这里](https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features) [2]。
 
 helm-chart 的 .asf.yaml，开启了主干保护，push 之后，以后的代码需要用过PR提交。
 
@@ -57,3 +57,9 @@ notifications:
   issues: notifications@shenyu.apache.org
   pullrequests: notifications@shenyu.apache.org
 ```
+
+**以上内容参考**
+
+[1] https://gitbox.apache.org/setup/newrepo.html
+
+[2] https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features

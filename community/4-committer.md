@@ -20,6 +20,17 @@ After you have made a lot of contributions, the community will nominate. Become 
 
 **1. Follow this [Committer Guide](https://community.apache.org/newcommitter.html) to complete the vote**
 
+* If you have not signed the ICLA, Please follow the [ICLA Guide](https://shenyu.apache.org/community/icla/) to complete the signing
+
+* If you have ever signed an ICLA, please provide request account like this:
+
+```
+Prospective userid:  
+Full name: 
+Forwarding email address(sign icla send eamil):
+What time to receive the reply signed by icla:
+```
+
 **2. Add the new committer to [roster](https://whimsy.apache.org/roster/ppmc/shenyu)**
 
 **3. Complete the [GitBox Setup](https://gitbox.apache.org/setup/)**

@@ -1,79 +1,63 @@
 ---
-title: Metrics 
+title: Metrics Plugin
 keywords: ["Metrics"]
-description: Metrics access
+description: Metrics plugin
 ---
 
-This article introduces how to use the `Apache ShenYu Agent Tracing`.
+## Description
 
-`Apache ShenYu` uses `java agent` and `bytecode enhancement` technology to achieve seamless embedding, so that users can access third-party observability systems without introducing dependencies, and obtain Traces, Metrics and Logging.
+* Metrics plugin is used to monitor its own running status(JVM-related) by gateway, include request response delay, QPS, TPS, and other related metrics.
 
-## Catalog Structure
+## Technical Solutions
 
-```text
-.
-├── conf
-│   ├── logback.xml
-│   ├── shenyu-agent.yaml
-│   ├── metrics-point.yaml
-|   └── metrics-meta.yaml
-├── plugins
-│   ├── shenyu-agent-plugin-metrics-api-${latest.release.version}.jar
-│   ├── shenyu-agent-plugin-metrics-common-${latest.release.version}.jar
-│   └── shenyu-agent-plugin-metrics-prometheus-${latest.release.version}.jar
-└── shenyu-agent.jar
+* Flow Diagram
+  ![](/img/shenyu/plugin/monitor/shenyu-metrics.png)
+* Make even tracking in ShenYu Gateway by asynchronous or synchronous mode.
+
+* The `prometheus` server pulls metrics' through http request, and then displays it by `Grafana`.
+
+## Plugin Setting
+
+* Introduce `metrics` dependency in the pom.xml file of the gateway.
+
+```xml
+  <!-- apache shenyu metrics plugin start-->
+  <dependency>
+      <groupId>org.apache.shenyu</groupId>
+      <artifactId>shenyu-spring-boot-starter-plugin-metrics</artifactId>
+      <version>${project.version}</version>
+  </dependency>
+  <!-- apache shenyu metrics plugin end-->
 ```
 
-## Edit shenyu-agent.yaml
+* modify this config in shenyu gateway yaml
 
-the `shenyu-agent.yaml` location in `shenyu-agent-dist`：
-
-```yaml
-appName: shenyu-agent
-supports:
+```yml
+shenyu:
   metrics:
-    - prometheus
-
-plugins:
-  metrics:
-    prometheus:
-      host: "localhost"
-      port: 8081
-      props:
-        jvm_enabled: false
-        jmx_config:
+    enabled: false  //false is close， true is open
+    name : prometheus 
+    host: 127.0.0.1
+    port: 8090
+    jmxConfig:
+    props:
 ```
 
-- Select the plugin to be used in `supports`
-- Configure the parameters of the plug-in in `plugins`. The specific usage of each plug-in props parameter is shown in the following tables:
+## Metrics Detail
 
+* All JVM，thread，memory，and other related information will be made event tracking，you can add a JVM module in the Grafana' panel, and it will be fully displayed, please refer to： https://github.com/prometheus/jmx_exporter
 
-| 名称              |   类型   | 默认值     | 说明                                                                                             |
-|:----------------|:------:|:--------|:-----------------------------------------------------------------------------------------------|
-| jvm_enabled     | String | false   | open jvm monitor                                                                               |
-| jmx_config      |  yaml  |         | jmc config，use yaml format，can look {@link io.prometheus.jmx.JmxCollector#loadConfig()} method |
-
-## metrics
+* There are also the following custom `metrics`
 
 ### shenyu gateway custom metrics
 
-| name                              | type      | labels             | help                                                  |
-|:---------------------------------:|:---------:|:------------------:|:-----------------------------------------------------:|
-| shenyu_request_total 1            | counter   |                    | ShenYu gateway request total                          |
-| shenyu_request_throw_total 1      | counter   |                    | ShenYu gateway request total when an exception occurs |
-| shenyu_http_request_total 1       | counter   | {path,method}      | ShenYu gateway request total of http                  |
-| shenyu_dubbo_request_total 1      | counter   | {path}             | ShenYu gateway request total of dubbo                 |
-| shenyu_grpc_request_total         | counter   | {path}             | ShenYu gateway request total of grpc                  |
-| shenyu_motan_request_total        | counter   | {path}             | ShenYu gateway request total of motan                 |
-| shenyu_sofa_request_total         | counter   | {path}             | ShenYu gateway request total of sofa                  |
-| shenyu_tars_request_total         | counter   | {path}             | ShenYu gateway request total of tars                  |
-| shenyu_spring_cloud_request_total | counter   | {path}             | ShenYu gateway request total of spring cloud          |
-| shenyu_http_server_error_total    | counter   | {path,method,code} | ShenYu gateway request total about httpstatus in 5xx  |
-| shenyu_http_cliend_error_total    | counter   | {path,method,code} | ShenYu gateway request total about httpstatus in 4xx  |
-| shenyu_request_undone 1           | gauge     |                    | ShenYu gateway request is not completed               |
-| shenyu_execute_latency_millis 1   | histogram | {path,le}          | ShenYu gateway execute time interval                  |
-| shenyu_request_object_size        | gauge     | {path}             | ShenYu gateway request object size                    |
-| shenyu_response_object_size       | gauge     | {path}             | ShenYu gateway response object size                   |
+| Name                                 |type                   |labels         | description                  |
+|:-----------------------------------  |:--------------------- |:------------- |:-------------------- |
+|shenyu_request_total                  |Counter                | none          |collecting all requests of Apache ShenYu Gateway |
+|shenyu_request_throw_total            |Counter                | none          |collecting all exception requests of Apache ShenYu Gateway |
+|shenyu_request_type_total             |Counter                | path,type     |collecting all matched requests of monitor|
+|shenyu_execute_latency_millis         |histogram              | none          | ShenYu gateway execute time interval                  |
+
 
 ### jmx metrics
 
@@ -168,12 +152,54 @@ plugins:
 | jvm  | info | {version(java.runtime.version),vendor(java.vm.vendor),runtime(java.runtime.name)} | VM version info |
 
 
-## test
+## Collect metrics
 
-- start shenyu-bootstrap
+Users need to install `Prometheus` service to collect
 
-  According to shenyu-agent.yaml and open browser.
-  input url, for example: http://localhost:8081/metrics
+* Choose the corresponding environment [download address](https://prometheus.io/download/) to install
+* Modify configuration file: `prometheus.yml`
 
-  ![](/img/shenyu/agent/shenyu-agent-plugin-metrics-prometheus.png)
+ ```yaml
+ scrape_configs:
+   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+   - job_name: 'prometheus'
+     # metrics_path defaults to '/metrics'
+     # scheme defaults to 'http'.
+     static_configs:
+     - targets: ['localhost:9190']
+ ```
 
+
+* After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`, Success can be verified at http://localhost:9090/
+
+## Panel Display
+
+It is recommended to use `Grafana`, Users can customize the query to personalize the display panel.
+
+Here's how to install and deploy `Grafana for Windows`
+
+* Install Grafana
+
+[download](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) Unzip it and enter the `bin` directory and `double-click` `grafana-server.exe` to run it. Go to http://localhost:3000/?orgId=1 `admin/admin` to verify the success
+
+* Config Prometheus DataSource
+
+![](/img/shenyu/monitor/prometheus-datasource.png)
+
+* Config JVM Dashboard
+
+Click `Create` - `Import` and enter the dashboards ID (8563 recommended).
+
+![](/img/shenyu/monitor/jvm-import.png)
+
+The final JVM monitor panel looks like this:
+
+![](/img/shenyu/monitor/jvm.png)
+
+* Config Custom Metric Dashboard `request_total`、`http_request_total`
+
+Click `Create` - `Import` and enter the [panel config json](https://shenyu.apache.org/img/shenyu/monitor/request_metric_dashboard.json)
+
+The final custom HTTP request monitoring panel looks like this:
+
+![](/img/shenyu/monitor/request-metric.png)

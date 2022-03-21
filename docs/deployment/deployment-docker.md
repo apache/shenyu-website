@@ -56,27 +56,3 @@ In the host, the directory where the bootstrap [configuration file](https://gith
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   apache/shenyu-bootstrap:${current.version}
 ```
-
-### Start ShenYu Bootstrap with ShenYu Agent
-
-> 2.4.2 version started to support shenyu-agent
-
-* Edit configuration file
-
-Agent related configuration files are located at [shenyu-dist/shenyu-agent-dist/src/main/resources/conf/](https://github.com/apache/incubator-shenyu/tree/master/shenyu-dist/shenyu-agent-dist/src/main/resources/conf), after editing `shenyu-agent.yaml` and `tracing-point.yaml`, put these two files in the same directory, record them as `$AGENT_CONF`.
-
-For detailed configuration, please refer to [Observability](../user-guide/observability/observability.md)
-
-* Pull the docker image and run
-
-The additional parameter `agent` means to start `shenyu-agent`.
-
-```shell
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:${current.version}
-> docker run -d \
-  -p 9195:9195 \
-  -v $AGENT_CONF:/opt/shenyu-bootstrap/agent/conf \
-  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
-  apache/shenyu-bootstrap:${current.version} agent
-```

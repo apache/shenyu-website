@@ -30,6 +30,3 @@ If we use windows 10, also need enable win32 log paths in registry editor or gro
 Reference material:
 
 https://docs.microsoft.com/zh-cn/windows/desktop/FileIO/naming-a-file           
-
-
-

@@ -99,22 +99,18 @@ description: monitor插件
 
 ![](/img/shenyu/monitor/prometheus-datasource.png)
 
-* 配置 `JVM` 面板
-
-点击`Create` - `Import`，输入 `dashboards` 的 `id`（推荐`8563`）
-
-![](/img/shenyu/monitor/jvm-import.png)
-
-最终`JVM`监控面板效果如下：
-
-![](/img/shenyu/monitor/jvm.png)
-
 * 配置自定义metric面板`request_total`、`http_request_total`
 
 点击 `Create` - `Import` 输入`dashboards` 的 [面板json配置](https://shenyu.apache.org/img/shenyu/monitor/request_metric_dashboard.json)
 
 最终自定义 `Http` 请求监控面板效果如下：
 
-![](/img/shenyu/monitor/request-metric.png)
+![](/img/shenyu/monitor/request-metric-1.png)
 
+![](/img/shenyu/monitor/request-metric-2.png)
 
+![](/img/shenyu/monitor/request-metric-3.png)
+
+![](/img/shenyu/monitor/request-metric-4.png)
+
+![](/img/shenyu/monitor/request-metric-5.png)

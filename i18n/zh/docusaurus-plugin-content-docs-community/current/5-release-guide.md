@@ -1,45 +1,66 @@
 ---
 title: 发布指南
 sidebar_position: 5
-description: Apache ShenYu发布指南
+description: Apache ShenYu 发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-## GPG设置
+## 更新发布公告
 
-**1. 安装GPG**
+按照如下格式更新[发布公告](https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md)：
 
-在[GnuPG官网](https://www.gnupg.org/download/index.html)下载安装包。
-GnuPG的1.x版本和2.x版本的命令有细微差别，下列说明以`GnuPG-2.1.23`版本为例。
+```
+## ${PUBLISH.VERSION}
 
-安装完成后，执行以下命令查看版本号。
+### New Features
 
-```shell
-gpg --version
+1. xxx
+1. xxx
+...
+
+### API Changes
+
+1. xxx
+1. xxx
+...
+
+### Enhancement
+
+1. xxx
+1. xxx
+...
+
+### Refactor
+
+1. xxx
+1. xxx
+...
+
+### Bug Fix
+
+1. xxx
+1. xxx
+...
 ```
 
-**2. 创建key**
+## 创建 GPG KEY
 
-安装完成后，执行以下命令创建key。
+> 每个发布经理只在第一次发布时创建 GPG KEY，以后发布可复用此 KEY。
 
-`GnuPG-2.x`可使用：
+**1. 创建 KEY**
+
+安装 [GnuPG](https://www.gnupg.org/download/index.html)。
+
+按照 [OpenPGP KEY Management](https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management) [1] 的说明创建 KEY：
 
 ```shell
 gpg --full-gen-key
 ```
 
-`GnuPG-1.x`可使用：
+创建步骤（以下内容来自控制台输出）：
 
 ```shell
-gpg --gen-key
-```
-
-根据提示完成key：
-
-> 注意：请使用Apache邮箱生成GPG的Key。
-
-```shell
-gpg (GnuPG) 2.0.12; Copyright (C) 2009 Free Software Foundation, Inc.
+gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
@@ -64,333 +85,237 @@ Is this correct? (y/N) y
 
 GnuPG needs to construct a user ID to identify your key.
 
-Real name: ${输入用户名}
-Email address: ${输入邮件地址}
-Comment: ${输入注释}
+Real name: （设置用户名）
+Email address: （设置邮件地址）
+Comment: （填写注释）
 You selected this USER-ID:
-   "${输入的用户名} (${输入的注释}) <${输入的邮件地址}>"
+   "用户名 (注释) <邮件地址>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
-You need a Passphrase to protect your secret key. # 输入密码
+You need a Passphrase to protect your secret key. （设置密码）
 ```
 
-**3. 查看生成的key**
+**2. 检查 KEY**
+
+按照 [Operational GPG Commands](https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands) [2] 的说明检查 KEY：
 
 ```shell
 gpg --list-keys
 ```
 
-执行结果：
+命令输出：
 
 ```shell
-pub   4096R/700E6065 2019-03-20
-uid                  ${用户名} (${注释}) <{邮件地址}>
-sub   4096R/0B7EF5B2 2019-03-20
+pub   rsa4096 2019-03-11 [SC]
+      095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
+uid           用户名 (注释) <邮件地址>
+sub   rsa4096 2019-03-11 [E]
 ```
 
-其中700E6065为公钥ID。
+公钥为 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C。
 
-**4. 将公钥同步到服务器**
+**3. 上传公钥**
 
-命令如下：
+按照 [Dirmngr Options](https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options) [3] 的说明上传公钥：
 
 ```shell
-gpg --keyserver hkp://pool.sks-keyservers.net --send-key 700E6065
+gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 ```
 
-`pool.sks-keyservers.net`为随意挑选的[公钥服务器](https://sks-keyservers.net/status/)，每个服务器之间是自动同步的，选任意一个即可。
+## 发布到 Maven 预发仓库
 
-## 发布Apache Maven中央仓库
+**1. 配置 settings.xml**
 
-**1. 设置settings.xml文件**
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明配置 settings.xml。
 
-将以下模板添加到 `~/.m2/settings.xml`中，所有密码需要加密后再填入。
-加密设置可参考[这里](http://maven.apache.org/guides/mini/guide-encryption.html)。
+**2. 创建并切换发布分支**
 
-```xml
-<settings>
-  <servers>
-    <server>
-      <id>apache.snapshots.https</id>
-      <username> <!-- APACHE LDAP 用户名 --> </username>
-      <password> <!-- APACHE LDAP 加密后的密码 --> </password>
-    </server>
-    <server>
-      <id>apache.releases.https</id>
-      <username> <!-- APACHE LDAP 用户名 --> </username>
-      <password> <!-- APACHE LDAP 加密后的密码 --> </password>
-    </server>
-  </servers>
-</settings>
-```
+下载并安装 [Git](https://git-scm.com/downloads)
 
-**2. 更新版本说明**
-
-更新如下文件，并提交PR到主干：
-
-```
-https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
-```
-
-**3. 创建发布分支**
-
-下载并安装[Git](https://git-scm.com/downloads)
-
-假设从GitHub下载的ShenYu源代码在`~/incubator-shenyu/`目录；假设即将发布的版本为`${RELEASE.VERSION}`。
-创建`${RELEASE.VERSION}-release`分支，接下来的操作都在该分支进行。
+创建并切换到 `${PUBLISH.VERSION}-release` 分支。
 
 ```shell
-# ${name}为源码所在分支，如：master，main
-git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
+git clone https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
 cd ~/incubator-shenyu/
-git pull
-git checkout -b ${RELEASE.VERSION}-release
-git push origin ${RELEASE.VERSION}-release
+git checkout -b ${PUBLISH.VERSION}-release
+git push origin ${PUBLISH.VERSION}-release
 ```
 
-**4. 发布预校验**
+**3. 发布预检**
+
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明进行发布预检。
 
 ```shell
-mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DdryRun=true -Dusername=${Github用户名}
+mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DdryRun=true -Dusername=(填写GitHub用户名)
 ```
 
--Prelease: 选择release的profile，这个profile会打包所有源码、jar文件以及ShenYu的可执行二进制包。
+**4. 准备发布**
 
--DautoVersionSubmodules=true：作用是发布过程中版本号只需要输入一次，不必为每个子模块都输入一次。
-
--DdryRun=true：演练，即不产生版本号提交，不生成新的tag。
-
-**5. 准备发布**
-
-首先清理发布预校验本地信息。
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明准备发布。
 
 ```shell
 mvn release:clean
 ```
 
 ```shell
-mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DpushChanges=false -Dusername=${Github用户名}
+mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DpushChanges=false -Dusername=(填写GitHub用户名)
 ```
 
-和上一步演练的命令基本相同，去掉了-DdryRun=true参数。
-
--DpushChanges=false：不要将修改后的版本号和tag自动提交至Github。
-
-将本地文件检查无误后，提交至github。
+提交更新版本号后的代码和新标签。
 
 ```shell
-git push origin ${RELEASE.VERSION}-release
+git push origin ${PUBLISH.VERSION}-release
 git push origin --tags
 ```
 
-**6. 部署发布**
+**5. 执行发布**
+
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明执行发布。
 
 ```shell
-mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -Dusername=${Github用户名}
+mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -Dusername=(填写GitHub用户名)
 ```
 
-执行完该命令后，待发布版本会自动上传到Apache的临时筹备仓库(staging repository)。
-访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。
-点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的。
-如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
+此时，发行版被发布到 [Staging仓库] (https://repository.apache.org/#stagingRepositories)，找到发布的版本，即 ${STAGING.RELEASE}， 并点击 Close。
 
-## 发布Apache SVN仓库
+## 发布到 SVN 预发仓库
 
 下载并安装[SVN](https://tortoisesvn.net/downloads.html)
 
-**1. 添加gpg公钥**
+**1. 更新 KEYS 文件**
 
-仅第一次发布的账号需要添加，只要`KEYS`中包含已经发布过的账户的公钥即可。
+> 如果发布经理还没有将自己的公钥追加到 KEYS 文件中，请执行以下操作。否则，跳过此步骤。
 
-如无本地工作目录，则先创建本地工作目录。
-
-```shell
-mkdir -p ~/keys_svn/release/
-cd ~/keys_svn/release/
-```
-
-创建完毕后，从Apache SVN release目录检出ShenYu发布目录。
+根据 [signing basics](https://infra.apache.org/release-signing.html#signing-basics) [5] 的说明更新 KEYS 文件。
 
 ```shell
-svn --username=${APACHE LDAP 用户名} co https://dist.apache.org/repos/dist/release/incubator/shenyu
-cd ~/keys_svn/release/shenyu
+mkdir -p ~/keys/release/
+cd ~/keys/release/
+svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/release/incubator/shenyu
+cd ~/keys/release/shenyu
+gpg -a --export ${GPG 用户名} >> KEYS
+svn --username=${LDAP ID} commit -m "append to KEYS"
 ```
 
-添加新的公钥。
+**2. 添加源码包和二进制文件包**
+
+根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明添加源码包和二进制文件包。
 
 ```shell
-gpg -a --export ${GPG用户名} >> KEYS
+mkdir -p ~/svn_release/dev/
+cd ~/svn_release/dev/
+svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/incubator/shenyu
+mkdir -p ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cd ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
 ```
 
-提交至SVN。
+**3. 添加校验文件**
+
+根据 [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] 的说明添加校验文件。
 
 ```shell
-svn --username=${APACHE LDAP 用户名} commit -m "append to KEYS"
+shasum -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip > apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.sha512
+shasum -b -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz > apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
+shasum -b -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz > apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
 ```
 
-**2. 检出ShenYu发布目录**
-
-如无本地工作目录，则先创建本地工作目录。
+**4. 提交新版本**
 
 ```shell
-mkdir -p ~/shenyu_svn/dev/
-cd ~/shenyu_svn/dev/
+cd ~/svn_release/dev/shenyu
+svn add ${PUBLISH.VERSION}/
+svn --username=${LDAP ID} commit -m "release ${PUBLISH.VERSION}"
 ```
 
-创建完毕后，从Apache SVN dev目录检出ShenYu发布目录。
+## 预发版本验证
+
+**1. 验证 sha512 校验和**
+
+根据 [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] 的说明验证 sha512 校验和。
 
 ```shell
-svn --username=${APACHE LDAP 用户名} co https://dist.apache.org/repos/dist/dev/incubator/shenyu
-cd ~/shenyu_svn/dev/shenyu
+shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.sha512
+shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
+shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
 ```
 
-**3. 将待发布的内容添加至SVN目录**
+**2. 验证 GPG 签名**
 
-创建版本号目录。
-
-```shell
-mkdir -p ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cd ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-```
-
-将源码包、二进制包和ShenYu可执行二进制包添加至SVN工作目录。
-
-```shell
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-```
-
-**4. 生成文件签名**
-
-```shell
-shasum -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-src.zip > apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.sha512
-shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz > apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.sha512
-shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz > apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.sha512
-```
-
-**5. 提交Apache SVN**
-
-```shell
-cd ~/shenyu_svn/dev/shenyu
-svn add ${RELEASE.VERSION}/
-svn --username=${APACHE LDAP 用户名} commit -m "release ${RELEASE.VERSION}"
-```
-
-## 检查发布结果
-
-**检查sha512哈希**
-
-```shell
-shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.sha512
-shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.sha512
-shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.sha512
-```
-
-**检查gpg签名**
-
-首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
+根据 [Checking Signatures](https://www.apache.org/info/verification.html#CheckingSignatures) [9] 的说明验证 GPG 签名。
 
 ```shell
 curl https://downloads.apache.org/incubator/shenyu/KEYS >> KEYS
 gpg --import KEYS
-gpg --edit-key "${发布人的gpg用户名}"
-  > trust
-
-Please decide how far you trust this user to correctly verify other users' keys
-(by looking at passports, checking fingerprints from different sources, etc.)
-
-  1 = I don't know or won't say
-  2 = I do NOT trust
-  3 = I trust marginally
-  4 = I trust fully
-  5 = I trust ultimately
-  m = back to the main menu
-
-Your decision? 5
-
-  > save
+cd ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.asc apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip
+gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.asc apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz
+gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.asc apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz
 ```
 
-然后进行gpg签名检查。
+**3. 确保 SVN 与 GitHub 源码一致**
 
-```shell
-gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.asc apache-shenyu-incubating-${RELEASE.VERSION}-src.zip
-gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.asc apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz
-gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.asc apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz
-```
-
-**检查发布文件内容**
-
-**对比源码包与Github上tag的内容差异**
+根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明确保 SVN 与 GitHub 源码一致。
 
 ```
-curl -Lo tag-${RELEASE.VERSION}.zip https://github.com/apache/incubator-shenyu/archive/v${RELEASE.VERSION}.zip
-unzip tag-${RELEASE.VERSION}.zip
-unzip apache-shenyu-incubating-${RELEASE.VERSION}-src.zip
-diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" apache-shenyu-incubating-${RELEASE.VERSION}-src incubator-shenyu-${RELEASE.VERSION}
+wget https://github.com/apache/incubator-shenyu/archive/v${PUBLISH.VERSION}.zip
+unzip v${PUBLISH.VERSION}.zip
+unzip apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip
+diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" apache-shenyu-incubating-${PUBLISH.VERSION}-src incubator-shenyu-${PUBLISH.VERSION}
 ```
 
-**检查源码包的文件内容**
+**4. 检查源码包**
 
-- 检查源码包是否包含由于包含不必要文件，致使tarball过于庞大
-- 文件夹包含单词`incubating`
-- 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
-- `NOTICE`文件中的年份正确
-- 只存在文本文件，不存在二进制文件
-- 所有文件的开头都有ASF许可证
-- 能够正确编译，单元测试可以通过 (./mvnw install) (目前支持JAVA 8)
-- 检查是否有多余文件或文件夹，例如空文件夹等
+根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明检查源码包。
 
-**检查二进制包的文件内容**
+- 文件夹包含单词 `incubating`
+- 存在 `LICENSE`，`NOTICE` 和 `DISCLAIMER` 文件
+- `NOTICE` 文件中的年份正确
+- 所有文件的开头都有 ASF 许可证
+- 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
+- 不存在不符合预期的二进制文件
+- 编译通过 (./mvnw install) (目前支持 JAVA 8)
+- 如果存在第三方代码依赖：
+  - 第三方代码依赖的许可证兼容
+  - 所有第三方代码依赖的许可证都在 `LICENSE` 文件中声名
+  - 第三方代码依赖许可证的完整版全部在 `license` 目录
+  - 如果依赖的是 Apache 许可证并且有 `NOTICE` 文件，那么这些 `NOTICE` 文件需要加入到项目的 `NOTICE` 文件中
 
-解压缩
-`apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz`，
-`apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz`
-进行如下检查:
+**5. 检查二进制包**
 
-- 文件夹包含单词`incubating`
-- 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
-- `NOTICE`文件中的年份正确
-- 所有文本文件开头都有ASF许可证
-- 检查第三方依赖许可证：
-  - 第三方依赖的许可证兼容
-  - 所有第三方依赖的许可证都在`LICENSE`文件中声名
-  - 依赖许可证的完整版全部在`license`目录
-  - 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
+根据 [Binary distributions](https://infra.apache.org/licensing-howto.html#binary) [11] 的说明检查二进制包。
 
-## 发起投票
+- 文件夹包含单词 `incubating`
+- 存在 `LICENSE`，`NOTICE` 和 `DISCLAIMER` 文件
+- `NOTICE` 文件中的年份正确
+- 所有文本文件开头都有 ASF 许可证
+- 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
+- 如果存在第三方代码依赖：
+  - 第三方代码依赖的许可证兼容
+  - 所有第三方代码依赖的许可证都在 `LICENSE` 文件中声名
+  - 第三方代码依赖许可证的完整版全部在 `license` 目录
+  - 如果依赖的是 Apache 许可证并且有 `NOTICE` 文件，那么这些 `NOTICE` 文件需要加入到项目的 `NOTICE` 文件中
 
-**订阅 Incubator 邮件列表**
+## 投票流程
 
-1. 用自己的邮箱向 [general-subscribe@incubator.apache.org](mailto:general-subscribe@incubator.apache.org) 发送一封邮件，主题和内容任意。
+根据 [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12] 
+[Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13] 
+[voting](https://www.apache.org/foundation/voting.html) [14] 的说明进行社区投票。
 
-2. 完成步骤1后，您将收到一封来自 [general-help@incubator.apache.org](mailto:general-help@incubator.apache.org) 的确认邮件（如未收到，请确认该邮件是否已被拦截，或已经被自动归入订阅邮件、垃圾邮件、推广邮件等文件夹）。直接回复该邮件，或点击邮件里的链接快捷回复即可，主题和内容任意。
+### 订阅 Incubator 邮件列表
 
-3. 完成以上步骤后，您会收到一封主题为 `WELCOME to general@incubator.apache.org` 的欢迎邮件，成功订阅邮件列表。
-   
-   至此，您可以通过 `general@incubator.apache.org` 接收及回复邮件，或通过查看[归档邮件](https://lists.apache.org/list.html?general@incubator.apache.org)来跟踪邮件对话。
+1. 发送任意主题和内容邮件到 [general-subscribe@incubator.apache.org](mailto:general-subscribe@incubator.apache.org)，然后按照提示完成订阅。
 
-**投票阶段**
+2. 可以通过这个[地址](https://lists.apache.org/list.html?general@incubator.apache.org)查看历史邮件。
 
-1. ShenYu社区投票，发起投票邮件到`dev@shenyu.apache.org`。PPMC成员需要先按照文档检查版本的正确性，然后再进行投票。
-经过至少72小时并统计到3个`+1 mentor`票后，即可进入下一阶段的投票。
+### ShenYu 社区投票
 
-2. 宣布投票结果，发起投票结果邮件到`dev@shenyu.apache.org`。
-
-3. Incubator社区投票，发起投票邮件到`general@incubator.apache.org`。
-经过至少72小时并统计到3个`+1 binding`票后，即可宣布投票结果。
-
-4. 宣布投票结果，发起投票结果邮件到`general@incubator.apache.org`。
-
-**投票模板**
-
-1. ShenYu社区投票模板
+* 投票持续至少72小时并获得3个`+1 mentor`票后，才能开始孵化器投票。
 
 发送至：
 
@@ -401,7 +326,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -409,19 +334,19 @@ dev@shenyu.apache.org
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu (incubating) version ${RELEASE.VERSION}
+This is a call for vote to release Apache ShenYu (incubating) version ${PUBLISH.VERSION}
 
 Release notes:
 https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION}/
+https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION}/
 
 Maven 2 staging repository:
-https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
+https://repository.apache.org/content/repositories/${STAGING.RELEASE}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -431,9 +356,6 @@ https://downloads.apache.org/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
 https://shenyu.apache.org/community/release-guide/#check-release
-
-GPG user ID:
-${YOUR.GPG.USER.ID}
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -460,7 +382,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-2. 宣布投票结果模板
+* 宣布投票结果
 
 发送至：
 
@@ -471,7 +393,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[RESULT][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -487,10 +409,12 @@ We’ve received 7 +1 votes:
 +1, xxx (ppmc)
 +1, xxx (ppmc)
 
-Thank you everyone for taking the time to review the release and help us. 
+Thanks everyone for taking the time to verify and vote for the release!
 ```
 
-3. Incubator社区投票模板
+### Incubator 社区投票
+
+* 投票持续至少72小时并获得3个`+1 binding`票后，才能继续接下来的流程。
 
 发送至：
 
@@ -501,7 +425,7 @@ general@incubator.apache.org
 标题：
 
 ```
-[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -509,10 +433,10 @@ general@incubator.apache.org
 ```
 Hello Incubator Community,
 
-This is a call for vote to release Apache ShenYu (incubating) version ${RELEASE.VERSION}
+This is a call for vote to release Apache ShenYu (incubating) version ${PUBLISH.VERSION}
 
 The Apache ShenYu community has voted on and approved a proposal to release 
-Apache ShenYu (incubating) version ${RELEASE.VERSION}.
+Apache ShenYu (incubating) version ${PUBLISH.VERSION}.
 
 We now kindly request the Incubator PMC members review and vote on this
 incubator release.
@@ -527,13 +451,13 @@ Release notes:
 https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION}/
+https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION}/
 
 Maven 2 staging repository:
-https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
+https://repository.apache.org/content/repositories/${STAGING.RELEASE}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -543,9 +467,6 @@ https://downloads.apache.org/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
 https://shenyu.apache.org/community/release-guide/#check-release
-
-GPG user ID:
-${YOUR.GPG.USER.ID}
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -572,7 +493,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-4. 宣布投票结果模板
+* 宣布投票结果
 
 发送至：
 
@@ -583,7 +504,7 @@ general@incubator.apache.org
 标题：
 
 ```
-[RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[RESULT][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -591,7 +512,7 @@ general@incubator.apache.org
 ```
 Hi,
 
-The vote to release Apache ShenYu (incubating) ${RELEASE.VERSION} has passed with
+The vote to release Apache ShenYu (incubating) ${PUBLISH.VERSION} has passed with
 6 +1 binding and 1 +1 non-binding votes, no +0 or -1 votes.
 
 Binding votes:
@@ -615,52 +536,29 @@ announcements in the coming days.
 
 ## 完成发布
 
-**1. 将源码、二进制包从svn的dev目录移动到release目录，并删除release目录的前一个版本**
+**1. 完成 SVN 发布**
+
+根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从dev目录转移到release目录。
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${RELEASE.VERSION}"
+svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
 svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOUS.RELEASE.VERSION}
 ```
 
-**2. 在Apache Staging仓库找到ShenYu并点击`Release`**
+**2. 完成 Maven 发布**
 
-**3. 合并Github的release分支到`master`, 合并完成后删除release分支**
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明完成 Maven 发布。
 
-从GitHub Fork一份代码，并执行以下命令：
+回到 [Staging仓库](https://repository.apache.org/#stagingRepositories) 的 ${STAGING.RELEASE}，点击 `Release`。
 
-```shell
-git checkout master
-git merge origin/${RELEASE.VERSION}-release
-git pull
-git push origin master
-```
+**3. 完成 Docker 发布**
 
-以上修改创建一个pull request。
-
-在项目原始仓库执行以下命令：
+安装 [Docker](https://docs.docker.com/get-docker/) 。
 
 ```shell
-git push --delete origin ${RELEASE.VERSION}-release
-git branch -d ${RELEASE.VERSION}-release
-```
-
-**4. 发布 Docker**
-
-4.1 准备工作
-
-本地安装 Docker，并启动服务。
-
-4.2 编译 Docker 镜像
-
-```shell
-git checkout v${RELEASE.VERSION}
+git checkout v${PUBLISH.VERSION}
 cd ~/shenyu/shenyu-dist/
 mvn clean package -Prelease,docker
-```
-
-4.3 发布 Docker 镜像
-
-```shell
 docker login
 docker push apache/shenyu-bootstrap:latest
 docker push apache/shenyu-bootstrap:${RELEASE_VERSION}
@@ -668,19 +566,37 @@ docker push apache/shenyu-admin:latest
 docker push apache/shenyu-admin:${RELEASE_VERSION}
 ```
 
-4.4 确认发布成功
+登录 Docker Hub 验证 [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) 和 [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 的镜像是否存在。
 
-登录 Docker Hub 查看 [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) 和 [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 是否有发布的镜像
+**4. 完成 GitHub 发布**
 
-**5. GitHub版本发布**
+编辑 [Releases](https://github.com/apache/incubator-shenyu/releases) 中的 `${PUBLISH.VERSION}`，然后点击发布。
+ 
+**5. 完成 GitHub 更新**
 
-在 [GitHub Releases](https://github.com/apache/incubator-shenyu/releases) 页面的 `${RELEASE_VERSION}` 版本上点击 `Edit`
+从 GitHub Fork 一份代码，并执行以下命令：
 
-编辑版本号及版本说明，并点击 `Publish release`
+```shell
+git checkout master
+git merge origin/${PUBLISH.VERSION}-release
+git pull
+git push origin master
+```
+
+以上修改需要创建一个pull request。pr合并后，在原始仓库执行以下命令：
+
+```shell
+git push --delete origin ${PUBLISH.VERSION}-release
+git branch -d ${PUBLISH.VERSION}-release
+```
 
 **6. 更新下载页面**
 
-等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：
+根据 [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15] 
+[Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 
+的说明更新下载页面。
+
+Apache 镜像连接生效后，更新下载页面：
 
 https://shenyu.apache.org/download/
 
@@ -690,18 +606,22 @@ https://shenyu.apache.org/zh/download/
 
 GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
 
-**7. 邮件通知版本发布完成**
-
-发送邮件到`general@incubator.apache.org`、`dev@shenyu.apache.org`和`announce@apache.org`通知完成版本发布
+## 发布公告
 
 > 注意：`announce@apache.org` 地址要求以纯文本格式发送邮件。如果你使用的是Gmail，可以在编辑界面勾选`纯文本模式`。
 
-通知邮件模板：
+发送至：
+
+```
+general@incubator.apache.org
+dev@shenyu.apache.org
+announce@apache.org
+```
 
 标题：
 
 ```
-[ANNOUNCE] Apache ShenYu (incubating) ${RELEASE.VERSION} available
+[ANNOUNCE] Apache ShenYu (incubating) ${PUBLISH.VERSION} available
 ```
 
 正文：
@@ -709,7 +629,7 @@ GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`h
 ```
 Hi,
 
-Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${RELEASE.VERSION}.
+Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${PUBLISH.VERSION}.
 
 Apache ShenYu (incubating) is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
@@ -744,13 +664,13 @@ While incubation status is not necessarily a reflection of the completeness or s
 it does indicate that the project has yet to be fully endorsed by the ASF.
 ```
 
-**8. 重新发布（非必需）**
+## 重新发布（非必需）
 
 > 注意：只有在投票没有通过的情况下才需要重新发布。
 
-8.1. 取消投票邮件模板
+**1. 取消投票邮件模板**
 
-视情况在`dev@shenyu.apache.org`或`general@incubator.apache.org`发起取消投票邮件。
+根据具体况向 `dev@shenyu.apache.org` 或` general@incubator.apache.org` 发送取消投票邮件。
 
 发送至：
 
@@ -767,7 +687,7 @@ general@incubator.apache.org
 标题：
 
 ```
-[CANCEL][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[CANCEL][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -784,44 +704,51 @@ The detail of the modifications are as follows:
 Thanks a lot for all your help.
 ```
 
-8.2 清理筹备仓库
+**2. 清理预发仓库**
 
-访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，选中之前`Close`的版本，点击`Drop`。
+访问 https://repository.apache.org/#stagingRepositories, 使用 Apache 的 LDAP 账户登录后，选中之前`Close`的版本，点击`Drop`。
 
-8.3 删除GitHub分支和标签
-
-```shell
-git push origin --delete ${RELEASE.VERSION}-release
-git branch -D ${RELEASE.VERSION}-release
-git push origin --delete tag v${RELEASE.VERSION}
-git tag -d v${RELEASE.VERSION}
-```
-
-8.4 删除SVN待发布内容
+**3。删除GitHub分支和标签**
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} -m "delete ${RELEASE.VERSION}"
+git push origin --delete ${PUBLISH.VERSION}-release
+git branch -D ${PUBLISH.VERSION}-release
+git push origin --delete tag v${PUBLISH.VERSION}
+git tag -d v${PUBLISH.VERSION}
 ```
 
-8.5 更新邮件标题
+**4. 删除SVN待发布内容**
+
+```shell
+svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
+```
+
+**5. 更新邮件标题**
 
 完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加`[ROUND ${n}]`后缀。例如：
 
 ```
-[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION} [ROUND 2]
+[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION} [ROUND 2]
 ```
 
 投票结果和通知邮件不需要加后缀。
 
-**以上内容参考了[Apache ShardingSphere的文档](https://shardingsphere.apache.org/community/cn/contribute/release/)。**
 
-**以上内容参考了ASF关于发版的要求**
+**以上内容参考**
 
-https://incubator.apache.org/guides/releasemanagement.html
-
-https://incubator.apache.org/guides/distribution.html
-
-https://infra.apache.org/release-distribution
-
-https://www.apache.org/legal/release-policy.html
-
+* [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
+* [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
+* [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
+* [4] https://infra.apache.org/publishing-maven-artifacts.html
+* [5] https://infra.apache.org/release-signing.html#signing-basics
+* [6] https://infra.apache.org/release-publishing.html#uploading
+* [7] https://infra.apache.org/release-distribution#sigs-and-sums
+* [8] https://www.apache.org/info/verification.html#CheckingHashes
+* [9] https://www.apache.org/info/verification.html#CheckingSignatures
+* [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+* [11] https://infra.apache.org/licensing-howto.html#binary
+* [12] https://www.apache.org/legal/release-policy.html#release-approval
+* [13] https://incubator.apache.org/policy/incubation.html#Releases
+* [14] https://www.apache.org/foundation/voting.html
+* [15] https://infra.apache.org/release-download-pages.html
+* [16] https://infra.apache.org/release-publishing.html#normal

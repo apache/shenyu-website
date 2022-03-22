@@ -101,6 +101,8 @@ public class ShenyuBootstrapApplication {
 
 启动`spring cloud`服务，运行`org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication`main方法启动项目。
 
+从`2.4.3`开始，用户可以不配置`shenyu.client.springCloud.props.port`。
+
 成功启动会有如下日志：
 
 ```shell

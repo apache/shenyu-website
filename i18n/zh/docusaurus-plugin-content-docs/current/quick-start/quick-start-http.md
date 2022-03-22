@@ -43,6 +43,8 @@ description: Http快速开始
 
 运行`org.apache.shenyu.examples.http.ShenyuTestHttpApplication`main方法启动项目。
 
+从`2.4.3`开始，用户可以不配置`shenyu.client.http.props.port`。
+
 成功启动会有如下日志：
 
 ```shell

@@ -1,6 +1,6 @@
 ---
 title: 签署ICLA指南
-sidebar_position: 9
+sidebar_position: 7
 description: 签署ICLA指南
 author: "xiaoyu"
 categories: "Apache ShenYu"

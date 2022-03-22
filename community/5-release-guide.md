@@ -1,6 +1,6 @@
 ---
 title: Release Guide
-sidebar_position: 6
+sidebar_position: 5
 description: Apache ShenYu Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---

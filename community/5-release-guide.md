@@ -670,7 +670,7 @@ it does indicate that the project has yet to be fully endorsed by the ASF.
 
 **1. Cancellation of voting email template**
 
-According to the specific situation, send to `dev@shenyu.apache.org` or ` general@incubator.apache.org`.
+According to the specific situation, send to `dev@shenyu.apache.org` or `general@incubator.apache.org`.
 
 To:
 

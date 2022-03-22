@@ -670,7 +670,7 @@ it does indicate that the project has yet to be fully endorsed by the ASF.
 
 **1. 取消投票邮件模板**
 
-根据具体况向 `dev@shenyu.apache.org` 或` general@incubator.apache.org` 发送取消投票邮件。
+根据具体况向 `dev@shenyu.apache.org` 或`general@incubator.apache.org` 发送取消投票邮件。
 
 发送至：
 

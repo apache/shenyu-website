@@ -1,6 +1,6 @@
 ---
 title: 提交者指南
-sidebar_position: 5
+sidebar_position: 4
 description: Apache shenyu 提交者指南
 author: "xiaoyu"
 categories: "Apache ShenYu"
@@ -17,27 +17,45 @@ cover: "/img/architecture/shenyu-framework.png"
 * Apache ShenYu仓库写的权限
 * [jetbrains正版全家桶](https://www.jetbrains.com/shop/eform/apache)
 
+## 提名流程
+
+**1、按照这个 [Committer 指南](https://community.apache.org/newcommitter.html) 完成投票**
+
+* 如果没有签署过 ICLA，请按照 [ICLA 签署指南](https://shenyu.apache.org/community/icla/) 完成签署
+
+* 如果曾经签署过 ICLA，请提供如下信息：
+
+```
+Prospective userid:  
+Full name: 
+Forwarding email address(sign icla send eamil):
+What time to receive the reply signed by icla:
+```
+
+**2、在 [roster](https://whimsy.apache.org/roster/ppmc/shenyu) 中添加新的committer**
+
+**3、完成 [GitBox Setup](https://gitbox.apache.org/setup/) 设置**
+
+**4、启用 GitHub 双重身份验证**
+
+[双重身份验证](https://docs.github.com/cn/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
+
 ## 提交者责任
 
-- 开发新功能；
-- 代码重构；
-- 及时和可靠的评审Pull Request；
-- 思考和接纳新特性请求；
-- 解答问题；
-- 维护文档和代码示例；
-- 改进流程和工具；
-- 引导新的参与者融入社区。
+- 解答issue问题。
+- 指导贡献者加入社区。
 
-## 日常工作
+## 评审Pull Request
 
-1. committer需要每天查看社区待处理的Pull Request和issue列表，指定给合适的committer，即assignee。
+* 尽可能给出合理的建议。
 
-2. assignee在被分配issue后，需要进行如下判断：
+* pull request 应该标有 `shenyu Lable` 并且必须设置进度表。
 
-- 判断是否是长期issue，如是，则标记为pending。
-- 判断issue类型，如：bug，enhancement，discussion等。
-- 判断Milestone，并标记。
+* 合并完成后，需要检查关联的 `issueNo` 是否关闭。  
 
-**注意**
+**以上内容参考**
 
-无论是否是社区issue，都必须有assignee，直到issue完成。
+https://community.apache.org/newcommitter.html
+
+https://docs.github.com/cn/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization
+

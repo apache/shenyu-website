@@ -1,6 +1,6 @@
 ---
 title: 问题及提交请求
-sidebar_position: 3
+sidebar_position: 2
 description: Apache ShenYu Issue And Pull Request
 author: "xiaoyu"
 categories: "Apache ShenYu"

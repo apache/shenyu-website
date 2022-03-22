@@ -1,6 +1,6 @@
 ---
 title: FAQ
-sidebar_position: 14
+sidebar_position: 12
 description: FAQ
 author: "xiaoyu"
 categories: "Apache ShenYu"
@@ -30,6 +30,3 @@ If we use windows 10, also need enable win32 log paths in registry editor or gro
 Reference material:
 
 https://docs.microsoft.com/zh-cn/windows/desktop/FileIO/naming-a-file           
-
-
-

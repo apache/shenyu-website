@@ -1,6 +1,6 @@
 ---
 title: 发布指南
-sidebar_position: 6
+sidebar_position: 5
 description: Apache ShenYu发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---
@@ -812,3 +812,16 @@ svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VER
 ```
 
 投票结果和通知邮件不需要加后缀。
+
+**以上内容参考了[Apache ShardingSphere的文档](https://shardingsphere.apache.org/community/cn/contribute/release/)。**
+
+**以上内容参考了ASF关于发版的要求**
+
+https://incubator.apache.org/guides/releasemanagement.html
+
+https://incubator.apache.org/guides/distribution.html
+
+https://infra.apache.org/release-distribution
+
+https://www.apache.org/legal/release-policy.html
+

@@ -43,7 +43,7 @@ module.exports = {
           label: 'Document',
         },
         {
-          to: '/community/subscribe-email',
+          to: '/community/contributor-guide',
           label: 'Community',
           position: 'left',
           activeBaseRegex: `/community/`,
@@ -142,7 +142,7 @@ module.exports = {
           items: [
             {
               label: 'Community',
-              to: '/community/subscribe-email',
+              to: '/community/contributor-guide',
             },
             {
               label: 'GitHub',
@@ -159,7 +159,7 @@ module.exports = {
           items: [
             {
               label: 'How to subscribe',
-              to: '/community/subscribe-email',
+              to: '/community/contributor-guide#join-the-discussion',
             },
             {
               label: 'Subscribe Mail',

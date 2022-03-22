@@ -1,6 +1,6 @@
 ---
 title: FAQ
-sidebar_position: 14
+sidebar_position: 12
 description: FAQ
 author: "xiaoyu"
 categories: "Apache ShenYu"

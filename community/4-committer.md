@@ -1,6 +1,6 @@
 ---
 title: Committer
-sidebar_position: 5
+sidebar_position: 4
 description: Apache ShenYu Committer's Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"
@@ -16,26 +16,42 @@ After you have made a lot of contributions, the community will nominate. Become 
 * Permissions written by Apache ShenYu repository
 * [jetbrains all](https://www.jetbrains.com/shop/eform/apache)
 
+## Promotion process
+
+**1. Follow this [Committer Guide](https://community.apache.org/newcommitter.html) to complete the vote**
+
+* If you have not signed the ICLA, Please follow the [ICLA Guide](https://shenyu.apache.org/community/icla/) to complete the signing
+
+* If you have ever signed an ICLA, please provide request account like this:
+
+```
+Prospective userid:  
+Full name: 
+Forwarding email address(sign icla send eamil):
+What time to receive the reply signed by icla:
+```
+
+**2. Add the new committer to [roster](https://whimsy.apache.org/roster/ppmc/shenyu)**
+
+**3. Complete the [GitBox Setup](https://gitbox.apache.org/setup/)**
+
+**4. Enable GitHub two-factor authentication**
+
+[two-factor authentication](https://docs.github.com/cn/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
+
 ## Committer Responsibilities {#committer-responsibilities}
 
-* Develop new features;
-* Refactor codes;
-* Review pull requests reliably and in time;
-* Consider and accept feature requests;
-* Answer questions;
-* Update documentation and example;
-* Improve processes and tools;
-* Guide new contributors join community.
+* Solving issue problems.
+* Mentoring contributors to the community.
 
-## Committer Routine {#committer-routine}
+## Pull Request
 
-1. A committer needs to review every day the Pull Request and issue list to be processed by the community, and assign a suitable committer, that is, Assignee.
+* Give sound advice where possible.
+* AThe pull request should be marked `shenyu Lable` and the schedule must be set.
+* Once the merge is complete, you need to check that the associated `issueNo` is closed.
 
-2. After a committer is assigned with an issue, the following work is required:
+**The content refers to**
 
-* Estimate whether it is a long-term issue. If it is, please label it as pending;
-* Add issue labels, such as bug, enhancement, discussion, etc;
-* Add milestone.
+https://community.apache.org/newcommitter.html
 
-**Notice**:  Whether it is a community issue or not, there must be Assignee until the issue is completed.
-
+https://docs.github.com/cn/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization

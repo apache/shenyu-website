@@ -22,7 +22,7 @@ description: 二进制包部署
 > linux: ./start.sh --spring.profiles.active = h2
 ```
 
-* 使用 `MySQL` 来存储后台数据， 进入 `/conf` 目录，修改 `application.yaml` 中 `mysql` 的配置。
+* 使用 `MySQL` 来存储后台数据，将 [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) 拷贝到 `/${your_work_dir}/ext-lib`， 进入 `/conf` 目录，修改 `application.yaml` 中 `mysql` 的配置。
 
 ```
 > windows: start.bat 
@@ -48,16 +48,4 @@ description: 二进制包部署
 > windwos : start.bat 
 
 > linux : ./start.sh 
-```
-
-### 启动 ShenYu Bootstrap 的同时，启动 ShenYu Agent
-
-> 2.4.2版本开始支持shenyu-agent
-
-agent 相关配置在 `./agent/conf`，详细配置请参考 [可观测性](../user-guide/observability/observability.md)
-
-如果你想使用 shenyu-agent，只需要在启动时添加一个参数：agent
-
-```shell
-./start.sh agent
 ```

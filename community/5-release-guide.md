@@ -143,6 +143,8 @@ git push origin ${PUBLISH.VERSION}-release
 
 **3. Dry Run**
 
+Download and install [Maven](https://maven.apache.org/download.cgi)
+
 Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
 ```shell

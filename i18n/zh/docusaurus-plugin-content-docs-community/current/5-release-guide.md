@@ -143,6 +143,8 @@ git push origin ${PUBLISH.VERSION}-release
 
 **3. 发布预检**
 
+下载并安装 [Maven](https://maven.apache.org/download.cgi)
+
 根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明进行发布预检。
 
 ```shell

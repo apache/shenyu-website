@@ -539,7 +539,7 @@ announcements in the coming days.
 
 ## Finish publishing
 
-**1. Finish SVN publishing**
+**1. Finish SVN release**
 
 Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
@@ -548,13 +548,13 @@ svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION
 svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOUS.RELEASE.VERSION}
 ```
 
-**2. Finish Maven publishing**
+**2. Finish Maven release**
 
 Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
 Back to [stagingRepositories](https://repository.apache.org/#stagingRepositories), find ${STAGING.RELEASE} and click `Release`.
 
-**3. Finish Docker publishing**
+**3. Finish Docker release**
 
 Install [Docker](https://docs.docker.com/get-docker/).
 
@@ -571,7 +571,7 @@ docker push apache/shenyu-admin:${RELEASE_VERSION}
 
 Login Docker Hub to verify [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) and [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) exist.
 
-**4. Finish GitHub publishing**
+**4. Finish GitHub release**
 
 Edit [Releases](https://github.com/apache/incubator-shenyu/releases) `${PUBLISH.VERSION}` and click release.
  

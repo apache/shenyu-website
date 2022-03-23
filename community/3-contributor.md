@@ -140,7 +140,7 @@ On the master/main branch, you can do the following to sync the upstream reposit
 ```shell
 git remote add upstream https://github.com/apache/incubator-shenyu.git #Bind the remote warehouse, if it has been executed, it does not need to be executed again
 git checkout master # or main
-git pull upsteam master
+git pull upstream master
 ````
 
 ### How to become a Committer?

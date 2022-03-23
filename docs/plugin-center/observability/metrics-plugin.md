@@ -182,24 +182,18 @@ Here's how to install and deploy `Grafana for Windows`
 
 [download](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) Unzip it and enter the `bin` directory and `double-click` `grafana-server.exe` to run it. Go to http://localhost:3000/?orgId=1 `admin/admin` to verify the success
 
-* Config Prometheus DataSource
-
-![](/img/shenyu/monitor/prometheus-datasource.png)
-
-* Config JVM Dashboard
-
-Click `Create` - `Import` and enter the dashboards ID (8563 recommended).
-
-![](/img/shenyu/monitor/jvm-import.png)
-
-The final JVM monitor panel looks like this:
-
-![](/img/shenyu/monitor/jvm.png)
-
 * Config Custom Metric Dashboard `request_total`、`http_request_total`
 
 Click `Create` - `Import` and enter the [panel config json](https://shenyu.apache.org/img/shenyu/monitor/request_metric_dashboard.json)
 
 The final custom HTTP request monitoring panel looks like this:
 
-![](/img/shenyu/monitor/request-metric.png)
+![](/img/shenyu/monitor/request-metric-1.png)
+
+![](/img/shenyu/monitor/request-metric-2.png)
+
+![](/img/shenyu/monitor/request-metric-3.png)
+
+![](/img/shenyu/monitor/request-metric-4.png)
+
+![](/img/shenyu/monitor/request-metric-5.png)

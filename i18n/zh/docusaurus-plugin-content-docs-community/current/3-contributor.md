@@ -140,7 +140,7 @@ git push origin --delete a-dev-branch
 ```shell
 git remote add upstream https://github.com/apache/incubator-shenyu.git #绑定远程仓库，如果执行过就不需要再执行
 git checkout master #或main
-git pull upsteam master
+git pull upstream master
 ```
 
 ### 如何成为Committer？

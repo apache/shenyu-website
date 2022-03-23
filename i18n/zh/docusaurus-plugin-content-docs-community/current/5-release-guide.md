@@ -606,7 +606,6 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 [中文版](https://shenyu.apache.org/zh/download/)
 
 > 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
-
 > 注意：GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
 
 **7. 更新文档**

@@ -606,7 +606,6 @@ After the Apache mirror links take effect (at least one hour), update the downlo
 [Chinese version](https://shenyu.apache.org/zh/download/)
 
 > Note: Project download links should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
-
 > Note: Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/incubator/shenyu/`
 
 **7. Update documentation**

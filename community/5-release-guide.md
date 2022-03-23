@@ -599,15 +599,29 @@ Follow [Release Download Pages for Projects](https://infra.apache.org/release-do
 [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 
 instructions.
 
-After the Apache mirror links take effect, update the download page at:
+After the Apache mirror links take effect (at least one hour), update the download page for:
+[English version](https://shenyu.apache.org/download/) and
+[Chinese version](https://shenyu.apache.org/zh/download/)
 
-https://shenyu.apache.org/download/
+> Note: Project download links should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
 
-https://shenyu.apache.org/zh/download/
+> Note: Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/incubator/shenyu/`
 
-Project download links should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
+**7. Update documentation**
 
-Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/incubator/shenyu/`
+Archive the `${PUBLISH.VERSION}` version of the [document](https://github.com/apache/incubator-shenyu-website) and update the [version page](https://shenyu.apache.org/versions/).
+
+**8. Update event page**
+
+Add new release event.
+
+https://shenyu.apache.org/event/${PUBLISH.VERSION}-release
+
+**9. Update news page**
+
+Add new release news.
+
+https://shenyu.apache.org/news
 
 ## Release Announcement
 

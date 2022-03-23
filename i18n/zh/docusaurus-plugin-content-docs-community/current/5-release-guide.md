@@ -599,15 +599,29 @@ git branch -d ${PUBLISH.VERSION}-release
 [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 
 的说明更新下载页面。
 
-Apache 镜像连接生效后，更新下载页面：
+Apache 镜像连接生效后（至少一小时），更新下载页面：
+[英文版](https://shenyu.apache.org/download/) 和
+[中文版](https://shenyu.apache.org/zh/download/)
 
-https://shenyu.apache.org/download/
+> 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
 
-https://shenyu.apache.org/zh/download/
+> 注意：GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
 
-项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
+**7. 更新文档**
 
-GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
+将 `${PUBLISH.VERSION}` 版本的[文档](https://github.com/apache/incubator-shenyu-website)进行归档，并更新[版本页面](https://shenyu.apache.org/zh/versions)。
+
+**8. 更新事件页面**
+
+添加新版本事件：
+
+https://shenyu.apache.org/zh/event/${PUBLISH.VERSION}-release
+
+**9. 更新新闻页面**
+
+添加新版本新闻：
+
+https://shenyu.apache.org/zh/news
 
 ## 发布公告
 

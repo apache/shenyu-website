@@ -128,7 +128,7 @@ gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 
 Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
-**2. Create and switch release branches**
+**2. Publish with a new branch**
 
 Download and install [Git](https://git-scm.com/downloads)
 

@@ -128,7 +128,7 @@ gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 
 根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明配置 settings.xml。
 
-**2. 创建并切换发布分支**
+**2. 使用新分支发布**
 
 下载并安装 [Git](https://git-scm.com/downloads)
 

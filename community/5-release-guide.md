@@ -409,6 +409,9 @@ We’ve received 7 +1 votes:
 +1, xxx (ppmc)
 +1, xxx (ppmc)
 
+Vote thread:
+https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 Thanks everyone for taking the time to verify and vote for the release!
 ```
 
@@ -442,10 +445,10 @@ We now kindly request the Incubator PMC members review and vote on this
 incubator release.
 
 ShenYu community vote thread:
-https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Vote result thread:
-https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Release notes:
 https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
@@ -527,7 +530,7 @@ Non-Binding votes:
 xxx
 
 Vote thread:
-https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Thanks a lot to everyone for taking your time to review our release candidate.
 We will proceed with publishing the approved artifacts and sending out the

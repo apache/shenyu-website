@@ -130,7 +130,7 @@ gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 
 **2. 使用新分支发布**
 
-下载并安装 [Git](https://git-scm.com/downloads)
+下载并安装 [Git](https://git-scm.com/downloads)。
 
 创建并切换到 `${PUBLISH.VERSION}-release` 分支。
 
@@ -143,7 +143,7 @@ git push origin ${PUBLISH.VERSION}-release
 
 **3. 发布预检**
 
-下载并安装 [Maven](https://maven.apache.org/download.cgi)
+下载并安装 [Maven](https://maven.apache.org/download.cgi)。
 
 根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明进行发布预检。
 
@@ -178,11 +178,11 @@ git push origin --tags
 mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -Dusername=(填写GitHub用户名)
 ```
 
-此时，发行版被发布到 [Staging仓库] (https://repository.apache.org/#stagingRepositories)，找到发布的版本，即 ${STAGING.RELEASE}， 并点击 Close。
+此时，发行版被发布到 [预发仓库](https://repository.apache.org/#stagingRepositories)，找到发布的版本，即 ${STAGING.RELEASE}， 并点击 Close。
 
 ## 发布到 SVN 预发仓库
 
-下载并安装[SVN](https://tortoisesvn.net/downloads.html)
+下载并安装[SVN](https://tortoisesvn.net/downloads.html)。
 
 **1. 更新 KEYS 文件**
 
@@ -305,9 +305,7 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 ## 投票流程
 
-根据 [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12] 
-[Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13] 
-[voting](https://www.apache.org/foundation/voting.html) [14] 的说明进行社区投票。
+根据 [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12]， [Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13]， [voting](https://www.apache.org/foundation/voting.html) [14] 的说明进行社区投票。
 
 ### 订阅 Incubator 邮件列表
 
@@ -317,7 +315,7 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 ### ShenYu 社区投票
 
-* 投票持续至少72小时并获得3个`+1 mentor`票后，才能开始孵化器投票。
+**1. 投票持续至少72小时并获得3个`+1 mentor`票后，才能开始孵化器投票**
 
 发送至：
 
@@ -384,7 +382,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-* 宣布投票结果
+**2. 宣布投票结果**
 
 发送至：
 
@@ -419,7 +417,7 @@ Thanks everyone for taking the time to verify and vote for the release!
 
 ### Incubator 社区投票
 
-* 投票持续至少72小时并获得3个`+1 binding`票后，才能继续接下来的流程。
+**1. 投票持续至少72小时并获得3个`+1 binding`票后，才能继续接下来的流程**
 
 发送至：
 
@@ -498,7 +496,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-* 宣布投票结果
+**2. 宣布投票结果**
 
 发送至：
 
@@ -543,7 +541,7 @@ announcements in the coming days.
 
 **1. 完成 SVN 发布**
 
-根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从dev目录转移到release目录。
+根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从 dev 目录转移到 release 目录。
 
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
@@ -554,11 +552,11 @@ svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOU
 
 根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明完成 Maven 发布。
 
-回到 [Staging仓库](https://repository.apache.org/#stagingRepositories) 的 ${STAGING.RELEASE}，点击 `Release`。
+回到 [预发仓库](https://repository.apache.org/#stagingRepositories) 的 ${STAGING.RELEASE}，点击 `Release`。
 
 **3. 完成 Docker 发布**
 
-安装 [Docker](https://docs.docker.com/get-docker/) 。
+安装 [Docker](https://docs.docker.com/get-docker/)。
 
 ```shell
 git checkout v${PUBLISH.VERSION}
@@ -588,7 +586,7 @@ git pull
 git push origin master
 ```
 
-以上修改需要创建一个pull request。pr合并后，在原始仓库执行以下命令：
+以上修改需要创建一个 pull request。pr 合并后，在原始仓库执行以下命令：
 
 ```shell
 git push --delete origin ${PUBLISH.VERSION}-release
@@ -597,15 +595,14 @@ git branch -d ${PUBLISH.VERSION}-release
 
 **6. 更新下载页面**
 
-根据 [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15] 
-[Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 
-的说明更新下载页面。
+根据 [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15]， [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 的说明更新下载页面。
 
 Apache 镜像连接生效后（至少一小时），更新下载页面：
 [英文版](https://shenyu.apache.org/download/) 和
 [中文版](https://shenyu.apache.org/zh/download/)
 
 > 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
+>
 > 注意：GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
 
 **7. 更新文档**
@@ -614,15 +611,11 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 
 **8. 更新事件页面**
 
-添加新版本事件：
-
-https://shenyu.apache.org/zh/event/${PUBLISH.VERSION}-release
+添加新版本[事件](https://shenyu.apache.org/zh/event/${PUBLISH.VERSION}-release)。
 
 **9. 更新新闻页面**
 
-添加新版本新闻：
-
-https://shenyu.apache.org/zh/news
+添加新版本[新闻](https://shenyu.apache.org/zh/news)。
 
 ## 发布公告
 
@@ -688,7 +681,7 @@ it does indicate that the project has yet to be fully endorsed by the ASF.
 
 **1. 取消投票邮件模板**
 
-根据具体况向 `dev@shenyu.apache.org` 或`general@incubator.apache.org` 发送取消投票邮件。
+根据具体况向 `dev@shenyu.apache.org` 或 `general@incubator.apache.org` 发送取消投票邮件。
 
 发送至：
 
@@ -724,9 +717,9 @@ Thanks a lot for all your help.
 
 **2. 清理预发仓库**
 
-访问 https://repository.apache.org/#stagingRepositories, 使用 Apache 的 LDAP 账户登录后，选中之前`Close`的版本，点击`Drop`。
+访问 https://repository.apache.org/#stagingRepositories, 使用 Apache 的 LDAP 账户登录后，选中之前 `Close` 的版本，点击 `Drop`。
 
-**3。删除GitHub分支和标签**
+**3. 删除 GitHub 分支和标签**
 
 ```shell
 git push origin --delete ${PUBLISH.VERSION}-release
@@ -735,7 +728,7 @@ git push origin --delete tag v${PUBLISH.VERSION}
 git tag -d v${PUBLISH.VERSION}
 ```
 
-**4. 删除SVN待发布内容**
+**4. 删除 SVN 待发布内容**
 
 ```shell
 svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
@@ -743,7 +736,7 @@ svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VER
 
 **5. 更新邮件标题**
 
-完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加`[ROUND ${n}]`后缀。例如：
+完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加 `[ROUND ${n}]` 后缀。例如：
 
 ```
 [VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION} [ROUND 2]

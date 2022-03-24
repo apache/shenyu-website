@@ -130,7 +130,7 @@ Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-ar
 
 **2. Publish with a new branch**
 
-Download and install [Git](https://git-scm.com/downloads)
+Download and install [Git](https://git-scm.com/downloads).
 
 Create and switch to `${PUBLISH.VERSION}-release`.
 
@@ -143,7 +143,7 @@ git push origin ${PUBLISH.VERSION}-release
 
 **3. Dry Run**
 
-Download and install [Maven](https://maven.apache.org/download.cgi)
+Download and install [Maven](https://maven.apache.org/download.cgi).
 
 Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
@@ -182,7 +182,7 @@ At this point, the distribution is published to [stagingRepositories](https://re
 
 ## Publish to SVN dev repository
 
-Install [SVN](https://tortoisesvn.net/downloads.html)
+Install [SVN](https://tortoisesvn.net/downloads.html).
 
 **1. Update KEYS file**
 
@@ -305,9 +305,7 @@ Follow [Binary distributions](https://infra.apache.org/licensing-howto.html#bina
 
 ## Voting Process
 
-Follow [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12] 
-[Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13] 
-[voting](https://www.apache.org/foundation/voting.html) [14] instructions.
+Follow [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12], [Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13], [voting](https://www.apache.org/foundation/voting.html) [14] instructions.
 
 ### Subscribe to the Incubator mailing list
 
@@ -317,7 +315,7 @@ Follow [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#relea
 
 ### ShenYu community vote
 
-* Voting lasts for at least 72 hours and receives 3 `+1 mentor` votes before incubator voting can begin.
+**1. Voting lasts for at least 72 hours and receives 3 `+1 mentor` votes before incubator voting can begin**
 
 To:
 
@@ -384,7 +382,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-* Announcement of voting results
+**2. Announcement of voting results**
 
 To:
 
@@ -419,7 +417,7 @@ Thanks everyone for taking the time to verify and vote for the release!
 
 ### Incubator community vote
 
-* Voting lasts for at least 72 hours and receives 3 `+1 binding` votes before continuing with the rest of the process.
+**1. Voting lasts for at least 72 hours and receives 3 `+1 binding` votes before continuing with the rest of the process**
 
 To:
 
@@ -498,7 +496,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-* Announcement of voting results
+**2. Announcement of voting results**
 
 To:
 
@@ -588,7 +586,7 @@ git pull
 git push origin master
 ```
 
-The above changes require the creation of a pull request. pr After the merge, execute the following command in the original repository.
+The above changes require the creation of a pull request. After the pr merged, execute the following command in the original repository.
 
 ```shell
 git push --delete origin ${PUBLISH.VERSION}-release
@@ -597,15 +595,14 @@ git branch -d ${PUBLISH.VERSION}-release
 
 **6. Update download page**
 
-Follow [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15] 
-[Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 
-instructions.
+Follow [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15], [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] instructions.
 
 After the Apache mirror links take effect (at least one hour), update the download page for:
 [English version](https://shenyu.apache.org/download/) and
 [Chinese version](https://shenyu.apache.org/zh/download/)
 
 > Note: Project download links should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
+>
 > Note: Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/incubator/shenyu/`
 
 **7. Update documentation**
@@ -614,15 +611,11 @@ Archive the `${PUBLISH.VERSION}` version of the [document](https://github.com/ap
 
 **8. Update event page**
 
-Add new release event.
-
-https://shenyu.apache.org/event/${PUBLISH.VERSION}-release
+Add new release [event](https://shenyu.apache.org/event/${PUBLISH.VERSION}-release).
 
 **9. Update news page**
 
-Add new release news.
-
-https://shenyu.apache.org/news
+Add new release [news](https://shenyu.apache.org/zh/news).
 
 ## Release Announcement
 

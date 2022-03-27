@@ -63,7 +63,7 @@ For example, add a selector to the `divide` plugin:
 
 <img src="/img/shenyu/basicConfig/pluginHandle/plugin_rule_config_en.jpg" width="80%" height="80%" />
 
-* when the request was passed by the seletor, then it will be processed by the rule, the final filter.
+* when the request was passed by the selector, then it will be processed by the rule, the final filter.
 * rule is the final confirmation about how to execute request logically.
 * rule detailed explanation：
   * Name：create your rule with a distinguish name.
@@ -94,7 +94,7 @@ For example, add a selector to the `divide` plugin:
 
   * Enable: whether to enable the plugin.
 
-  * Order：the smaller will have high priorty to execute among multi-rules.
+  * Order：the smaller will have high priority to execute among multi-rules.
 
   * handle: The operation when the request matches the rule.
 * above picture means: when the request `uri` equals to `/http/order/save`, it will execute based on this rule，load strategy is `random`.

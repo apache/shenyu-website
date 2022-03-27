@@ -50,10 +50,10 @@ For example, add a selector to the `divide` plugin:
   * Continued: whether the subsequent selector is still executed.
   * PrintLogs: it will print the matching log with the open option enabled.
   * Enable: whether to enable the plugin.
-  * Order：the smaller will have high priorty to execute among multi-selectors.
+  * Order：the smaller will have high priority to execute among multi-selectors.
   * Handler: The operation when the request matches the selector.
 * the above picture means: when the prefix of the request uri is `/http`, it will redirect to this service `127.0.0.1:8080`.
-* selector advice : combine `uri` conditon and `match` prefix（/contextPath）as the first request filter.
+* selector advice : combine `uri` condition and `match` prefix（/contextPath）as the first request filter.
 * selector(the same for rule) match condition fuzzy string matching rule:
   * `?` matches one character
   * `*` matches zero or more characters

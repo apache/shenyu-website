@@ -43,10 +43,10 @@ For example, add a selector to the `divide` plugin:
       * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
       * = : matches only if they are equal.
       * regEx : regex matching，match characters in regex expression.
-      * like : string fuzzy matching.
       * contains: when it contains the specified value, it matches.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
+      * exclude: the inverse of the method of `match`.
   * Continued: whether the subsequent selector is still executed.
   * PrintLogs: it will print the matching log with the open option enabled.
   * Enable: whether to enable the plugin.
@@ -85,7 +85,6 @@ For example, add a selector to the `divide` plugin:
       * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
       * = : matches only if they are equal.
       * regEx : regex matching，match characters in regex expression.
-      * like : string fuzzy matching.
       * contains: when it contains the specified value, it matches.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.

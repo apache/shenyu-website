@@ -5,41 +5,62 @@ description: Apache ShenYu Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-## GPG Settings
+## Update release notes
 
-**1. Install GPG**
+Update [RELEASE-NOTES](https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md) in the following format:
 
-Download installation package on [official GnuPG website](https://www.gnupg.org/download/index.html). 
-The command of GnuPG 1.x version can differ a little from that of 2.x version. 
-The following instructions take `GnuPG-2.1.23` version for example.
-After the installation, execute the following command to check the version number.
+```
+## ${PUBLISH.VERSION}
 
-```shell
-gpg --version
+### New Features
+
+1. xxx
+1. xxx
+...
+
+### API Changes
+
+1. xxx
+1. xxx
+...
+
+### Enhancement
+
+1. xxx
+1. xxx
+...
+
+### Refactor
+
+1. xxx
+1. xxx
+...
+
+### Bug Fix
+
+1. xxx
+1. xxx
+...
 ```
 
-**2. Create Key**
+## Create GPG KEY
 
-After the installation, execute the following command to create key.
+> Each release manager only creates a GPG KEY for the first release, which can be reused for subsequent releases.
 
-This command indicates `GnuPG-2.x` can be used:
+**1. Create KEY**
+
+Install [GnuPG](https://www.gnupg.org/download/index.html).
+
+Follow [OpenPGP KEY Management](https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management) [1] instructions.
 
 ```shell
 gpg --full-gen-key
 ```
 
-This command indicates `GnuPG-1.x` can be used:
+Steps (the following are from console output).
 
 ```shell
-gpg --gen-key
-```
-
-Finish the key creation according to instructions:
-
-> To be noticed: Please use Apache mail for key creation.
-
-```shell
-gpg (GnuPG) 2.0.12; Copyright (C) 2009 Free Software Foundation, Inc.
+gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
@@ -64,337 +85,237 @@ Is this correct? (y/N) y
 
 GnuPG needs to construct a user ID to identify your key.
 
-Real name: ${Input username}
-Email address: ${Input email}
-Comment: ${Input comment}
+Real name: （Set username）
+Email address: （Set email address）
+Comment: （Fill in the comments）
 You selected this USER-ID:
-   "${Inputed username} (${Inputed comment}) <${Inputed email}>"
+   "username (comments) <email>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
-You need a Passphrase to protect your secret key. # Input passwords
+You need a Passphrase to protect your secret key. （Set password）
 ```
 
-**3. Check Generated Key**
+**2. Verify KEY**
+
+Follow [Operational GPG Commands](https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands) [2] instructions.
 
 ```shell
 gpg --list-keys
 ```
 
-Execution Result:
+Output：
 
 ```shell
-pub   4096R/700E6065 2019-03-20
-uid                  ${Username} (${Comment}) <{Email}>
-sub   4096R/0B7EF5B2 2019-03-20
+pub   rsa4096 2019-03-11 [SC]
+      095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
+uid           username (comments) <email>
+sub   rsa4096 2019-03-11 [E]
 ```
 
-700E6065 is public key ID.
+Public key is `095E0D21BC28CFC7A8B8076DF7DF28D237A8048C`.
 
-**4. Upload the Public Key to Key Server**
+**3. Upload public key**
 
-The command is as follows:
+Follow [Dirmngr Options](https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options) [3] instructions.
 
 ```shell
-gpg --keyserver hkp://pool.sks-keyservers.net --send-key 700E6065
+gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 ```
 
-`pool.sks-keyservers.net` is randomly chosen from [public key server](https://sks-keyservers.net/status/). 
-Each server will automatically synchronize with one another, so it would be okay to choose any one.
-
-## Apache Maven Central Repository Release
+## Publish to Maven staging repo
 
 **1. Set settings.xml**
 
-Add the following template to `~/.m2/settings.xml`, all the passwords need to be filled in after encryption. 
-For encryption settings, please see [here](http://maven.apache.org/guides/mini/guide-encryption.html).
+Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
-```xml
-<settings>
-    <servers>
-      <server>
-          <id>apache.snapshots.https</id>
-          <username> <!-- APACHE LDAP username --> </username>
-          <password> <!-- APACHE LDAP encrypted password --> </password>
-      </server>
-      <server>
-          <id>apache.releases.https</id>
-          <username> <!-- APACHE LDAP username --> </username>
-          <password> <!-- APACHE LDAP encrypted password --> </password>
-      </server>
-    </servers>
-</settings>
-```
+**2. Publish with a new branch**
 
-**2. Update Release Notes**
+Download and install [Git](https://git-scm.com/downloads).
 
-Update the following file in master branch, and submit a PR to master branch:
-
-```
-https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
-```
-
-**3. Create Release Branch**
-
-Download and install [Git](https://git-scm.com/downloads)
-
-Suppose ShenYu source codes downloaded from github is under `~/incubator-shenyu/` directory and the version to be released is `${RELEASE.VERSION}`. 
-Create `${RELEASE.VERSION}-release` branch, where all the following operations are performed.
+Create and switch to `${PUBLISH.VERSION}-release`.
 
 ```shell
-# ${name} is the properly branch, e.g. master, main
-git clone --branch ${name} https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
+git clone https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
 cd ~/incubator-shenyu/
-git pull
-git checkout -b ${RELEASE.VERSION}-release
-git push origin ${RELEASE.VERSION}-release
+git checkout -b ${PUBLISH.VERSION}-release
+git push origin ${PUBLISH.VERSION}-release
 ```
 
-**4. Pre-Release Check**
+**3. Dry Run**
+
+Download and install [Maven](https://maven.apache.org/download.cgi).
+
+Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
 ```shell
-mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DdryRun=true -Dusername=${Github username}
+mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DdryRun=true -Dusername=(GitHub ID)
 ```
 
--Prelease: choose release profile, which will pack all the source codes, jar files and executable binary packages.
+**4. Prepare**
 
--DautoVersionSubmodules=true: it can make the version number is inputted only once and not for each sub-module.
-
--DdryRun=true: rehearsal, which means not to generate or submit new version number and new tag.
-
-**5. Prepare for the Release**
-
-First, clean local pre-release check information.
+Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
 ```shell
 mvn release:clean
 ```
 
 ```shell
-mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DpushChanges=false -Dusername=${Github username}
+mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DpushChanges=false -Dusername=(GitHub ID)
 ```
 
-It is basically the same as the previous rehearsal command, but deleting -DdryRun=true parameter.
-
--DpushChanges=false: do not submit the edited version number and tag to Github automatically.
-
-After making sure there is no mistake in local files, submit them to GitHub.
+Submit the code with updated version number and new tags.
 
 ```shell
-git push origin ${RELEASE.VERSION}-release
+git push origin ${PUBLISH.VERSION}-release
 git push origin --tags
 ```
 
-**6. Deploy the Release**
+**5. Perform**
+
+Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
 ```shell
-mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -Dusername=${Github username}
+mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -Dusername=(GitHub ID)
 ```
 
-After that command is executed, the version to be released will be uploaded to Apache staging repository automatically. 
-Visit [https://repository.apache.org/#stagingRepositories](https://repository.apache.org/#stagingRepositories) and use Apache LDAP account to log in; then you can see the uploaded version, the content of `Repository` column is the ${STAGING.REPOSITORY}. 
-Click `Close` to tell Nexus that the construction is finished, because only in this way, this version can be usable. 
-If there is any problem in gpg signature, `Close` will fail, but you can see the failure information through `Activity`.
+At this point, the distribution is published to [stagingRepositories](https://repository.apache.org/#stagingRepositories). Find the published version, ${STAGING.RELEASE}, and click `Close`.
 
-## Apache SVN Repository Release
+## Publish to SVN dev repository
 
-Download and install [SVN](https://tortoisesvn.net/downloads.html)
+Install [SVN](https://tortoisesvn.net/downloads.html).
 
-**1. Add gpg Public Key**
+**1. Update KEYS file**
 
-Only the account in its first deployment needs to add that. 
-It is alright for `KEYS` to only include the public key of the deployed account.
+> If the release manager has not yet appended his or her public key to the KEYS file, do the following. Otherwise, skip this step.
 
-If there is no local work directory, create one at first.
+Follow [signing basics](https://infra.apache.org/release-signing.html#signing-basics) [5] instructions.
 
 ```shell
-mkdir -p ~/keys_svn/release/
-cd ~/keys_svn/release/
-```
-
-After the creation, checkout ShenYu release directory from Apache SVN release directory.
-
-```shell
-svn --username=${APACHE LDAP username} co https://dist.apache.org/repos/dist/release/incubator/shenyu
-cd ~/keys_svn/release/shenyu
-```
-
-Add new public key.
-
-```shell
+mkdir -p ~/keys/release/
+cd ~/keys/release/
+svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/release/incubator/shenyu
+cd ~/keys/release/shenyu
 gpg -a --export ${GPG username} >> KEYS
+svn --username=${LDAP ID} commit -m "append to KEYS"
 ```
 
-Commit to SVN.
+**2. Adding source code packages and binary packages**
+
+Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
-svn --username=${APACHE LDAP username} commit -m "append to KEYS"
+mkdir -p ~/svn_release/dev/
+cd ~/svn_release/dev/
+svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/incubator/shenyu
+mkdir -p ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cd ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
 ```
 
-**2. Checkout ShenYu Release Directory**
+**3. Adding hashes**
 
-If there is no local work directory, create one at first.
+Follow [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] instructions.
 
 ```shell
-mkdir -p ~/shenyu_svn/dev/
-cd ~/shenyu_svn/dev/
+shasum -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip > apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.sha512
+shasum -b -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz > apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
+shasum -b -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz > apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
 ```
 
-After the creation, checkout ShenYu release directory from Apache SVN dev directory.
+**4. Submit the new release**
 
 ```shell
-svn --username=${APACHE LDAP username} co https://dist.apache.org/repos/dist/dev/incubator/shenyu
-cd ~/shenyu_svn/dev/shenyu
-```
-
-**3. Add the Release Content to SVN Directory**
-
-Create folder by version number.
-
-```shell
-mkdir -p ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cd ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-```
-
-Add source code packages, binary packages and executable binary packages to SVN working directory.
-
-```shell
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/shenyu_svn/dev/shenyu/${RELEASE.VERSION}
-```
-
-**4. Generate sign files**
-
-```shell
-shasum -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-src.zip > apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.sha512
-shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz > apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.sha512
-shasum -b -a 512 apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz > apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.sha512
-```
-
-**5. Commit to Apache SVN**
-
-```shell
-cd ~/shenyu_svn/dev/shenyu
-svn add ${RELEASE.VERSION}/
-svn --username=${APACHE LDAP username} commit -m "release ${RELEASE.VERSION}"
+cd ~/svn_release/dev/shenyu
+svn add ${PUBLISH.VERSION}/
+svn --username=${LDAP ID} commit -m "release ${PUBLISH.VERSION}"
 ```
 
 ## Check Release
 
-**Check sha512 hash**
+**1. Verify sha512 checksum**
+
+Follow [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] instructions.
 
 ```shell
-shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.sha512
-shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.sha512
-shasum -c apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.sha512
+shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.sha512
+shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
+shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
 ```
 
-**Check gpg Signature**
+**2. Verifying GPG Signatures**
 
-First, import releaser's public key. Import KEYS from SVN repository to local. (The releaser does not need to import again; the checking assistant needs to import it, with the user name filled as the releaser's. )
+Follow [Checking Signatures](https://www.apache.org/info/verification.html#CheckingSignatures) [9] instructions.
 
 ```shell
 curl https://downloads.apache.org/incubator/shenyu/KEYS >> KEYS
 gpg --import KEYS
-gpg --edit-key "${GPG username of releaser}"
-  > trust
-
-Please decide how far you trust this user to correctly verify other users' keys
-(by looking at passports, checking fingerprints from different sources, etc.)
-
-  1 = I don't know or won't say
-  2 = I do NOT trust
-  3 = I trust marginally
-  4 = I trust fully
-  5 = I trust ultimately
-  m = back to the main menu
-
-Your decision? 5
-
-  > save
+cd ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.asc apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip
+gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.asc apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz
+gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.asc apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz
 ```
 
-Then, check the gpg signature.
+**3. Ensure that SVN is consistent with GitHub source code**
 
-```shell
-gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-src.zip.asc apache-shenyu-incubating-${RELEASE.VERSION}-src.zip
-gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz.asc apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz
-gpg --verify apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz.asc apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz
-```
-
-**Check Released Files**
-
-**Compare release source with github tag**
+Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] instructions.
 
 ```
-curl -Lo tag-${RELEASE.VERSION}.zip https://github.com/apache/incubator-shenyu/archive/v${RELEASE.VERSION}.zip
-unzip tag-${RELEASE.VERSION}.zip
-unzip apache-shenyu-incubating-${RELEASE.VERSION}-src.zip
-diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" apache-shenyu-incubating-${RELEASE.VERSION}-src incubator-shenyu-${RELEASE.VERSION}
+wget https://github.com/apache/incubator-shenyu/archive/v${PUBLISH.VERSION}.zip
+unzip v${PUBLISH.VERSION}.zip
+unzip apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip
+diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" apache-shenyu-incubating-${PUBLISH.VERSION}-src incubator-shenyu-${PUBLISH.VERSION}
 ```
 
-**Check source package**
+**4. Check the source code package**
 
-* Check whether source tarball is oversized for including nonessential files
-* The release files have the word `incubating` in their names
-* `LICENSE` and `NOTICE` files exist
-* `DISCLAIMER` file exists
-* Correct year in `NOTICE` file
-* There is only text files but no binary files
-* All source files have ASF headers
-* Codes can be compiled and pass the unit tests (./mvnw install) (compatible with JAVA 8 for now)
-* Check if there is any extra files or folders, empty folders for example
+Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] instructions.
 
-**Check binary packages**
+- Folder contains the word `incubating`
+- `LICENSE`, `NOTICE` and `DISCLAIMER` files exist
+- The year in the `NOTICE` file is correct
+- All files have ASF licenses at the beginning
+- There are no `LICENSE` and `NOTICE` that do not depend on the software
+- There are no binaries that do not meet expectations
+- Compilation passes (. /mvnw install) (JAVA 8 is currently supported)
+- If there are third-party code dependencies.
+  - License compatibility for third-party code dependencies
+  - All licenses of third-party code dependencies are named in the `LICENSE` file
+  - The full version of the third-party code dependency license is in the `license` directory
+  - If the dependency is an Apache license and there are `NOTICE` files, then these `NOTICE` files need to be added to the project's `NOTICE` file
 
-Decompress
-`apache-shenyu-incubating-${RELEASE.VERSION}-bootstrap-bin.tar.gz`，
-`apache-shenyu-incubating-${RELEASE.VERSION}-admin-bin.tar.gz`
-to check the following items:
+**5. Check the binary package**
 
-* The release files have the word `incubating` in their name
-* `LICENSE` and `NOTICE` files exist
-* `DISCLAIMER` file exists
-* Correct year in `NOTICE` file
-* All text files have ASF headers
-* Check the third party dependency license:
-  * The software has a compatible license
-  * All software licenses mentioned in `LICENSE`
-  * All the third party dependency licenses are under `licenses` folder
-  * If it depends on Apache license and has a `NOTICE` file, that `NOTICE` file need to be added to `NOTICE` file of the release
+Follow [Binary distributions](https://infra.apache.org/licensing-howto.html#binary) [11] instructions.
 
-## Call for a Vote
+- Folder contains the word `incubating`
+- `LICENSE`, `NOTICE` and `DISCLAIMER` files exist
+- The year in the `NOTICE` file is correct
+- All text files start with an ASF license
+- No `LICENSE` and `NOTICE` for undependent software
+- If third-party code dependencies exist.
+  - Third-party code dependent licenses are compatible
+  - All licenses of third-party code dependencies are named in the `LICENSE` file
+  - The full version of the third-party code dependency license is in the `LICENSE` directory
+  - If the dependency is an Apache license and there are `NOTICE` files, then these `NOTICE` files need to be added to the project's `NOTICE` file
 
-**Subscribe Incubator mail list** 
+## Voting Process
 
-1. Use your mailbox to send an e-mail to [general-subscribe@incubator.apache.org](mailto:general-subscribe@incubator.apache.org) with any subject or content.
+Follow [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12], [Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13], [voting](https://www.apache.org/foundation/voting.html) [14] instructions.
 
-2. After Step 1, you will receive a confirmation e-mail from [general-help@incubator.apache.org](mailto:general-help@incubator.apache.org) (if you have not received that, please check "RSS feeds", "junk e-mail" or other items). Reply that e-mail directly or click the link in e-mail to reply, with any subject or content.
+### Subscribe to the Incubator mailing list
 
-3. After finishing the two steps above, an e-mail with the subject of `WELCOME to general@incubator.apache.org` will be sent to your e-mail address. You have succeeded in subscribing Incubator mail-list.
-   
-   Until now, you can interact with community by your subscribed email or track email conversations by [Archived email list](https://lists.apache.org/list.html?general@incubator.apache.org).
+1. Send email to [general-subscribe@incubator.apache.org](mailto:general-subscribe@incubator.apache.org).
 
-**Vote procedure**
+2. Find history main via [address](https://lists.apache.org/list.html?general@incubator.apache.org).
 
-1. ShenYu community vote: send the vote e-mail to `dev@shenyu.apache.org`. 
-PPMC needs to check the rightness of the version according to the document before they vote. 
-After at least 72 hours and with at least 3 `+1 mentor` votes, it can come to the next stage of the vote.
+### ShenYu community vote
 
-2. Announce the vote result: send the result vote e-mail to `dev@shenyu.apache.org`.
-
-3. Incubator community vote: send the vote e-mail to `general@incubator.apache.org`. 
-After at least 72 hours and with at least 3 `+1 binding` votes, it can come to announce the vote.
-
-4. Announce the vote result: send the result vote e-mail to `general@incubator.apache.org`.
-
-
-**Vote Templates**
-
-1. ShenYu Community Vote Template
+**1. Voting lasts for at least 72 hours and receives 3 `+1 mentor` votes before incubator voting can begin**
 
 To:
 
@@ -405,27 +326,27 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
-Body:
+Content:
 
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu (incubating) version ${RELEASE.VERSION}
+This is a call for vote to release Apache ShenYu (incubating) version ${PUBLISH.VERSION}
 
 Release notes:
 https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION}/
+https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION}/
 
 Maven 2 staging repository:
-https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
+https://repository.apache.org/content/repositories/${STAGING.RELEASE}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -435,9 +356,6 @@ https://downloads.apache.org/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
 https://shenyu.apache.org/community/release-guide/#check-release
-
-GPG user ID:
-${YOUR.GPG.USER.ID}
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -464,7 +382,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-2. Announce the vote result
+**2. Announcement of voting results**
 
 To:
 
@@ -475,13 +393,13 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[RESULT][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
-Body:
+Content:
 
 ```
-We’ve received 7 +1 votes[1]:
+We’ve received 7 +1 votes:
 
 +1, xxx (mentor)
 +1, xxx (mentor)
@@ -491,12 +409,15 @@ We’ve received 7 +1 votes[1]:
 +1, xxx (ppmc)
 +1, xxx (ppmc)
 
-[1]: https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+Vote thread:
+https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-Thank you everyone for taking the time to review the release and help us. 
+Thanks everyone for taking the time to verify and vote for the release!
 ```
 
-3. Incubator Community Vote Template
+### Incubator community vote
+
+**1. Voting lasts for at least 72 hours and receives 3 `+1 binding` votes before continuing with the rest of the process**
 
 To:
 
@@ -507,39 +428,39 @@ general@incubator.apache.org
 Title:
 
 ```
-[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
-Body:
+Content:
 
 ```
 Hello Incubator Community,
 
-This is a call for vote to release Apache ShenYu (incubating) version ${RELEASE.VERSION}
+This is a call for vote to release Apache ShenYu (incubating) version ${PUBLISH.VERSION}
 
 The Apache ShenYu community has voted on and approved a proposal to release 
-Apache ShenYu (incubating) version ${RELEASE.VERSION}.
+Apache ShenYu (incubating) version ${PUBLISH.VERSION}.
 
 We now kindly request the Incubator PMC members review and vote on this
 incubator release.
 
 ShenYu community vote thread:
-https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Vote result thread:
-https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Release notes:
 https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION}/
+https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION}/
 
 Maven 2 staging repository:
-https://repository.apache.org/content/repositories/${STAGING.REPOSITORY}/org/apache/shenyu/
+https://repository.apache.org/content/repositories/${STAGING.RELEASE}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/v${RELEASE.VERSION}/
+https://github.com/apache/incubator-shenyu/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
 https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
@@ -549,9 +470,6 @@ https://downloads.apache.org/incubator/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
 https://shenyu.apache.org/community/release-guide/#check-release
-
-GPG user ID:
-${YOUR.GPG.USER.ID}
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -578,7 +496,7 @@ Checklist for reference:
 [ ] No compiled archives bundled in source archive.
 ```
 
-4. Announce the vote result
+**2. Announcement of voting results**
 
 To:
 
@@ -589,15 +507,15 @@ general@incubator.apache.org
 Title:
 
 ```
-[RESULT][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[RESULT][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
-Body:
+Content:
 
 ```
 Hi,
 
-The vote to release Apache ShenYu (incubating) ${RELEASE.VERSION} has passed with
+The vote to release Apache ShenYu (incubating) ${PUBLISH.VERSION} has passed with
 6 +1 binding and 1 +1 non-binding votes, no +0 or -1 votes.
 
 Binding votes:
@@ -612,61 +530,38 @@ Non-Binding votes:
 xxx
 
 Vote thread:
-https://lists.apache.org/thread.html/xxxxxxxxxxxxxxxxxxxxxxx
+https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Thanks a lot to everyone for taking your time to review our release candidate.
 We will proceed with publishing the approved artifacts and sending out the
 announcements in the coming days.
 ```
 
-## Finish the Release
+## Finish publishing
 
-**1. Move source packages and binary packages from the `dev` directory to `release` directory, and delete the previous version from the `release` directory**
+**1. Finish SVN release**
+
+Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${RELEASE.VERSION}"
+svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
 svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOUS.RELEASE.VERSION}
 ```
 
-**2. Find ShenYu in staging repository and click `Release`**
+**2. Finish Maven release**
 
-**3. Merge release branch to `master` and delete release branch on Github**
+Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
-Fork a copy of the code from GitHub and execute the following command:
+Back to [stagingRepositories](https://repository.apache.org/#stagingRepositories), find ${STAGING.RELEASE} and click `Release`.
 
-```shell
-git checkout master
-git merge origin/${RELEASE.VERSION}-release
-git pull
-git push origin master
-```
+**3. Finish Docker release**
 
-Create a pull request with the above changes.
-
-Execute the following command in the project's original repository:
+Install [Docker](https://docs.docker.com/get-docker/).
 
 ```shell
-git push --delete origin ${RELEASE.VERSION}-release
-git branch -d ${RELEASE.VERSION}-release
-```
-
-**4. Docker Release**
-
-4.1 Preparation
-
-Install and start docker service
-
-4.2 Compile Docker Image
-
-```shell
-git checkout v${RELEASE.VERSION}
+git checkout v${PUBLISH.VERSION}
 cd ~/shenyu/shenyu-dist/
 mvn clean package -Prelease,docker
-```
-
-4.3 Publish Docker Image
-
-```shell
 docker login
 docker push apache/shenyu-bootstrap:latest
 docker push apache/shenyu-bootstrap:${RELEASE_VERSION}
@@ -674,46 +569,78 @@ docker push apache/shenyu-admin:latest
 docker push apache/shenyu-admin:${RELEASE_VERSION}
 ```
 
-4.4 Confirm the successful release
+Login Docker Hub to verify [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) and [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) exist.
 
-Login Docker Hub to check whether there are published images in [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) and [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 
+**4. Finish GitHub release**
 
-**5. Publish release in GitHub**
+Edit [Releases](https://github.com/apache/incubator-shenyu/releases) `${PUBLISH.VERSION}` and click release.
+ 
+**5. Finish GitHub updating**
 
-Click `Edit` in [GitHub Releases](https://github.com/apache/incubator-shenyu/releases)'s `${RELEASE_VERSION}` version
+Fork a copy of the code from GitHub and run the following command.
 
-Edit version number and release notes, click `Publish release`
+```shell
+git checkout master
+git merge origin/${PUBLISH.VERSION}-release
+git pull
+git push origin master
+```
 
-**6. Update the download page**
+The above changes require the creation of a pull request. After the pr merged, execute the following command in the original repository.
 
-https://shenyu.apache.org/download/
+```shell
+git push --delete origin ${PUBLISH.VERSION}-release
+git branch -d ${PUBLISH.VERSION}-release
+```
 
-https://shenyu.apache.org/zh/download/
+**6. Update download page**
 
-Download links should use https://www.apache.org/dyn/closer.lua not closer.cgi or mirrors.cgi
+Follow [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15], [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] instructions.
 
-GPG signatures and hashes (SHA* etc) must use URL start with `https://downloads.apache.org/incubator/shenyu/`
+After the Apache mirror links take effect (at least one hour), update the download page for:
+[English version](https://shenyu.apache.org/download/) and
+[Chinese version](https://shenyu.apache.org/zh/download/)
 
-**7. Announce release completed by email**
+> Note: Project download links should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
+>
+> Note: Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/incubator/shenyu/`
 
-Send e-mail to `general@incubator.apache.org`, `dev@shenyu.apache.org` and `announce@apache.org` to announce the release is complete
+**7. Update documentation**
 
-> Note: The `announce@apache.org` address requires the email to be sent in plain text format. If you are using Gmail, you can check `Plain Text Mode` in the edit page.
+Archive the `${PUBLISH.VERSION}` version of the [document](https://github.com/apache/incubator-shenyu-website) and update the [version page](https://shenyu.apache.org/versions/).
 
-Announcement e-mail template:
+**8. Update event page**
+
+Add new release [event](https://shenyu.apache.org/event/${PUBLISH.VERSION}-release).
+
+**9. Update news page**
+
+Add new release [news](https://shenyu.apache.org/zh/news).
+
+## Release Announcement
+
+> Note: `announce@apache.org` address requires the email to be sent in plain text format. If you are using Gmail, you can check `Plain Text Mode` in the edit screen.
+
+To:
+
+```
+general@incubator.apache.org
+dev@shenyu.apache.org
+announce@apache.org
+```
 
 Title:
 
 ```
-[ANNOUNCE] Apache ShenYu (incubating) ${RELEASE.VERSION} available
+[ANNOUNCE] Apache ShenYu (incubating) ${PUBLISH.VERSION} available
 ```
 
-Body:
+Content:
 
 ```
 Hi,
 
-Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${RELEASE.VERSION}.
+Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${PUBLISH.VERSION}.
 
 Apache ShenYu (incubating) is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
@@ -746,16 +673,15 @@ Incubation is required of all newly accepted projects until a further review ind
 communications, and decision making process have stabilized in a manner consistent with other successful ASF projects.
 While incubation status is not necessarily a reflection of the completeness or stability of the code,
 it does indicate that the project has yet to be fully endorsed by the ASF.
-
 ```
 
-**8. 8. Re-releasing (not required)**
+## Reissue (not required)
 
-> Note: Re-releasing is only required if the vote did not pass.
+> Note: You only need to republish if the vote did not pass.
 
-8.1. Cancellation vote Email Template
+**1. Cancellation of voting email template**
 
-Initiate a vote cancel email at `dev@shenyu.apache.org` or `general@incubator.apache.org` as appropriate.
+According to the specific situation, send to `dev@shenyu.apache.org` or `general@incubator.apache.org`.
 
 To:
 
@@ -763,7 +689,7 @@ To:
 dev@shenyu.apache.org
 ```
 
-or
+Or
 
 ```
 general@incubator.apache.org
@@ -772,7 +698,7 @@ general@incubator.apache.org
 Title:
 
 ```
-[CANCEL][VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION}
+[CANCEL][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
 ```
 
 Content:
@@ -789,44 +715,51 @@ The detail of the modifications are as follows:
 Thanks a lot for all your help.
 ```
 
-8.2 Drop the staging repository
+**2. Clean stagingRepositories**
 
-Go to https://repository.apache.org/#stagingRepositories, log in with your Apache LDAP account, select the previous `Close` version and click `Drop`.
+Go to https://repository.apache.org/#stagingRepositories, After logging in with your Apache LDAP account, select the previous `Close` version and click `Drop`.
 
-8.3 Delete GitHub branches and tags
-
-```shell
-git push origin --delete ${RELEASE.VERSION}-release
-git branch -D ${RELEASE.VERSION}-release
-git push origin --delete tag v${RELEASE.VERSION}
-git tag -d v${RELEASE.VERSION}
-```
-
-8.4 Deleting SVN pending release content
+**3。Deleting GitHub branches and tags**
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${RELEASE.VERSION} -m "delete ${RELEASE.VERSION}"
+git push origin --delete ${PUBLISH.VERSION}-release
+git branch -D ${PUBLISH.VERSION}-release
+git push origin --delete tag v${PUBLISH.VERSION}
+git tag -d v${PUBLISH.VERSION}
 ```
 
-8.5 Update the email title
+**4. Deleting SVN content to be published**
 
-After completing the above steps, you can start the release procedure. The next vote email title needs to have the `[ROUND ${n}]` suffix added. For example:
-
-```
-[VOTE] Release Apache ShenYu (incubating) ${RELEASE.VERSION} [ROUND 2]
+```shell
+svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
 ```
 
-Vote results and announce emails do not need this suffix.
+**5. Update email title**
 
-**The content is referenced from the [Apache ShardingSphere docs](https://shardingsphere.apache.org/community/en/contribute/release/).**
+After completing the above steps, you can start the re-posting operation. The next poll email title needs to have the `[ROUND ${n}]` suffix added. For example.
 
-**The content refers to the ASF policy on releasing**
+```
+[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION} [ROUND 2]
+```
 
-https://incubator.apache.org/guides/releasemanagement.html
+Voting result and announcement emails do not need to be suffixed.
 
-https://incubator.apache.org/guides/distribution.html
 
-https://infra.apache.org/release-distribution
+**The content refers to**
 
-https://www.apache.org/legal/release-policy.html
-
+* [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
+* [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
+* [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
+* [4] https://infra.apache.org/publishing-maven-artifacts.html
+* [5] https://infra.apache.org/release-signing.html#signing-basics
+* [6] https://infra.apache.org/release-publishing.html#uploading
+* [7] https://infra.apache.org/release-distribution#sigs-and-sums
+* [8] https://www.apache.org/info/verification.html#CheckingHashes
+* [9] https://www.apache.org/info/verification.html#CheckingSignatures
+* [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+* [11] https://infra.apache.org/licensing-howto.html#binary
+* [12] https://www.apache.org/legal/release-policy.html#release-approval
+* [13] https://incubator.apache.org/policy/incubation.html#Releases
+* [14] https://www.apache.org/foundation/voting.html
+* [15] https://infra.apache.org/release-download-pages.html
+* [16] https://infra.apache.org/release-publishing.html#normal

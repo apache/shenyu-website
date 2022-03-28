@@ -185,26 +185,18 @@ shenyu:
 
 [下载地址](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) 解压进入 `bin` 目录然后双击 `grafana-server.exe` 运行 访问 `http://localhost:3000/?orgId=1` admin/admin 验证是否成功
 
-* 配置 `Prometheus` 数据源
-
-![](/img/shenyu/monitor/prometheus-datasource.png)
-
-* 配置 `JVM` 面板
-
-点击`Create` - `Import`，输入 `dashboards` 的 `id`（推荐`8563`）
-
-![](/img/shenyu/monitor/jvm-import.png)
-
-最终`JVM`监控面板效果如下：
-
-![](/img/shenyu/monitor/jvm.png)
-
 * 配置自定义metric面板`request_total`、`http_request_total`
 
 点击 `Create` - `Import` 输入`dashboards` 的 [面板json配置](https://shenyu.apache.org/img/shenyu/monitor/request_metric_dashboard.json)
 
 最终自定义 `Http` 请求监控面板效果如下：
 
-![](/img/shenyu/monitor/request-metric.png)
+![](/img/shenyu/monitor/request-metric-1.png)
 
+![](/img/shenyu/monitor/request-metric-2.png)
 
+![](/img/shenyu/monitor/request-metric-3.png)
+
+![](/img/shenyu/monitor/request-metric-4.png)
+
+![](/img/shenyu/monitor/request-metric-5.png)

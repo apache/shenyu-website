@@ -45,8 +45,6 @@ For example, add a selector to the `divide` plugin:
       * regEx : regex matching，match characters in regex expression.
       * like : string fuzzy matching.
       * contains: when it contains the specified value, it matches.
-      * SpEl: SpEl expression matches.
-      * Groovy: match through Groovy.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
   * Continued: whether the subsequent selector is still executed.
@@ -89,8 +87,6 @@ For example, add a selector to the `divide` plugin:
       * regEx : regex matching，match characters in regex expression.
       * like : string fuzzy matching.
       * contains: when it contains the specified value, it matches.
-      * SpEl: SpEl expression matches.
-      * Groovy: match through Groovy.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
       * exclude: Same function as `match`, flow selection is opposite.
@@ -279,18 +275,6 @@ Condition parameters allow you to retrieve the actual data of the request. How t
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-contains-en.png)
 
-* `SpEL` 
-
-  * `SpEL` means that the requested real data can satisfy the preset `SpEL` expression. Suppose your rule conditions are set as follows: request parameters contain `id` and `id` is greater than `100`. Request `/http/order/findById?id=101` will match.
-
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-spel-en.png)
-
-* `Groovy` 
-
-  * The `Groovy` way of expressing the request for real data can satisfy the preset `Groovy` expression. Suppose your rule conditions are set as follows: request parameters include `id`, and `id` equals `100`. Request `/http/order/findById?id=100` will match.
-
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-groovy-en.png)
-
 * `TimeBefore` 
 
   * `TimeBefore` indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are set as follows: request parameters contain `date` and `date` is less than `2021-09-26 06:12:10`. Request `/http/order/findById?id=100&date=2021-09-22 06:12:10` will match.
@@ -316,9 +300,7 @@ If you want to further understand conditions matching strategy, please read the 
 |`match`                   |`MatchPredicateJudge` |  
 |`=`                 |`EqualsPredicateJudge` |  
 |`regex`                 |`RegexPredicateJudge` |  
-|`contains`                  |`ContainsPredicateJudge` |  
-|`SpEL`                 |`SpELPredicateJudge` |  
-|`Groovy`                  |`GroovyPredicateJudge` |  
+|`contains`                  |`ContainsPredicateJudge` |
 |`TimeBefore`                    |`TimerBeforePredicateJudge` |  
 |`TimeAfter`                    |`TimerAfterPredicateJudge` |
 |`exclude`                    |`ExcludePredicateJudge` |

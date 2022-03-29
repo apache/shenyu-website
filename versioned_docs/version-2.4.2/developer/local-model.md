@@ -14,7 +14,7 @@ description: Local Model
 success
 ```
 
-* Common preFix ： `localhost:9095/shenyu`
+* Common preFix ： `localhost:9195/shenyu`
 
 ## Plugin
 

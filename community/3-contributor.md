@@ -89,7 +89,7 @@ git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #Recommended
 # You can also git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
 ````
 
-After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](./12-faq).
+After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](../faq).
 
 Then, you can refer to the following command to submit the code:
 
@@ -114,7 +114,7 @@ git push origin a-dev-branch
 
 Then you can initiate a new PR (Pull Request) on GitHub.
 
-Please note that the title of the PR needs to conform to our [spec](./2-issue-pr.md), and write the necessary description in the PR to facilitate code review by Committers and other contributors.
+Please note that the title of the PR needs to conform to our [spec](../issue-pr), and write the necessary description in the PR to facilitate code review by Committers and other contributors.
 
 ### Wait for the code to be merged
 
@@ -145,6 +145,6 @@ git pull upstream master
 
 ### How to become a Committer?
 
-With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](./committer)!
+With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](../committer)!
 
 In order to keep abreast of the development of Apache ShenYu, you can follow the mailing list, or you can participate in the biweekly meeting of the community (meeting invitation link will be sent on the mailing list).

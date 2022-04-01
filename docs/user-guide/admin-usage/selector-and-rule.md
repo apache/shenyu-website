@@ -43,17 +43,17 @@ For example, add a selector to the `divide` plugin:
       * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
       * = : matches only if they are equal.
       * regEx : regex matching，match characters in regex expression.
-      * like : string fuzzy matching.
       * contains: when it contains the specified value, it matches.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
+      * exclude: the inverse of the method of `match`.
   * Continued: whether the subsequent selector is still executed.
   * PrintLogs: it will print the matching log with the open option enabled.
   * Enable: whether to enable the plugin.
-  * Order：the smaller will have high priorty to execute among multi-selectors.
+  * Order：the smaller will have high priority to execute among multi-selectors.
   * Handler: The operation when the request matches the selector.
 * the above picture means: when the prefix of the request uri is `/http`, it will redirect to this service `127.0.0.1:8080`.
-* selector advice : combine `uri` conditon and `match` prefix（/contextPath）as the first request filter.
+* selector advice : combine `uri` condition and `match` prefix（/contextPath）as the first request filter.
 * selector(the same for rule) match condition fuzzy string matching rule:
   * `?` matches one character
   * `*` matches zero or more characters
@@ -63,7 +63,7 @@ For example, add a selector to the `divide` plugin:
 
 <img src="/img/shenyu/basicConfig/pluginHandle/plugin_rule_config_en.jpg" width="80%" height="80%" />
 
-* when the request was passed by the seletor, then it will be processed by the rule, the final filter.
+* when the request was passed by the selector, then it will be processed by the rule, the final filter.
 * rule is the final confirmation about how to execute request logically.
 * rule detailed explanation：
   * Name：create your rule with a distinguish name.
@@ -85,7 +85,6 @@ For example, add a selector to the `divide` plugin:
       * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
       * = : matches only if they are equal.
       * regEx : regex matching，match characters in regex expression.
-      * like : string fuzzy matching.
       * contains: when it contains the specified value, it matches.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
@@ -95,7 +94,7 @@ For example, add a selector to the `divide` plugin:
 
   * Enable: whether to enable the plugin.
 
-  * Order：the smaller will have high priorty to execute among multi-rules.
+  * Order：the smaller will have high priority to execute among multi-rules.
 
   * handle: The operation when the request matches the rule.
 * above picture means: when the request `uri` equals to `/http/order/save`, it will execute based on this rule，load strategy is `random`.

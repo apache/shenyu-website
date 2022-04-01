@@ -15,6 +15,14 @@ description: gRPC插件
 
 * `gRPC`应用客户端接入，请参考：[gRPC服务接入](../../user-guide/grpc-proxy) 。
 
+* 自`2.4.3版本`起grpc插件新增字段及含义：
+
+  * `threadpool`：业务线程池类型，有`cached`和`shared`共2种类型。
+    
+    `cached`相当于grpc官方提供的默认线程池；
+    
+    `shared`线程池，正如其名，`所有proxy插件`共用一个`shared`线程池，这样做的好处是能够减少线程池数量，进而降低内存、提高资源利用率。
+
 
 ## 插件讲解
 

@@ -76,7 +76,7 @@ description: contextPath plugin
 
 #### 2.5.1.4 Client project config contextPath.
 
-Client project can directly use [shenyu-examples-http]https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http), and config contextPath in application.yml.
+Client project can directly use [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http), and config contextPath in application.yml.
 
 ![](/img/shenyu/plugin/context-path/client-project-config.png)
 

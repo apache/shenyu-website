@@ -165,7 +165,7 @@ shenyu:
      # metrics_path defaults to '/metrics'
      # scheme defaults to 'http'.
      static_configs:
-     - targets: ['localhost:8090']
+     - targets: ['localhost:8090'] # metrics of apache shenyu are exposed on port 8090 by default
  ```
 
 **注：** `job_name`跟`monitor`插件配置的`metricsName`相对应

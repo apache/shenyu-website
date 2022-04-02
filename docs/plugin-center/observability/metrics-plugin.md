@@ -166,7 +166,7 @@ Users need to install `Prometheus` service to collect
      # metrics_path defaults to '/metrics'
      # scheme defaults to 'http'.
      static_configs:
-     - targets: ['localhost:8090']
+     - targets: ['localhost:8090'] # metrics of apache shenyu are exposed on port 8090 by default
  ```
 
 * After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`, Success can be verified at http://localhost:9090/

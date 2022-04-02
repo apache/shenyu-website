@@ -37,13 +37,13 @@ description: Metrics插件
 ```yml
 shenyu:
   metrics:
-    enabled: false  // 设置为 ture 表示开启
+    enabled: false  #设置为 true 表示开启
     name : prometheus 
-    host: 127.0.0.1 //暴露的ip
-    port: 8090 //暴露的端口
-    jmxConfig: //jmx配置
+    host: 127.0.0.1 #暴露的ip
+    port: 8090 #暴露的端口
+    jmxConfig: #jmx配置
     props:
-      jvm_enabled: ture //开启jvm的监控指标
+      jvm_enabled: true #开启jvm的监控指标
 ```
 
 ## metrics信息

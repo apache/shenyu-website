@@ -35,12 +35,13 @@ description: Metrics plugin
 ```yml
 shenyu:
   metrics:
-    enabled: false  //false is close， true is open
+    enabled: false #false is close, true is open
     name : prometheus 
     host: 127.0.0.1
     port: 8090
     jmxConfig:
     props:
+      jvm_enabled: true #enable jvm monitoring
 ```
 
 ## Metrics Detail

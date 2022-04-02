@@ -54,8 +54,6 @@ shenyu:
 
 | 名称                      | 类型                  |标签名称       | 说明                  |
 |:------------------------ |:--------------------- |:-------------|:-------------------- |
-| Name                                 |type                   |labels         | description                  |
-|:-----------------------------------  |:--------------------- |:------------- |:-------------------- |
 |shenyu_request_total                  |Counter                | none          |collecting all requests of Apache ShenYu Gateway |
 |shenyu_request_throw_total            |Counter                | none          |collecting all exception requests of Apache ShenYu Gateway |
 |shenyu_request_type_total             |Counter                | path,type     |collecting all matched requests of monitor|
@@ -163,12 +161,11 @@ shenyu:
 
  ```yaml
  scrape_configs:
-   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-   - job_name: 'prometheus'
+   - job_name: 'Apache ShenYu'
      # metrics_path defaults to '/metrics'
      # scheme defaults to 'http'.
      static_configs:
-     - targets: ['localhost:9190']
+     - targets: ['localhost:8090']
  ```
 
 **注：** `job_name`跟`monitor`插件配置的`metricsName`相对应

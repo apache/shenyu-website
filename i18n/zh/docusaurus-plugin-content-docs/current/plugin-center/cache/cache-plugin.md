@@ -1,12 +1,11 @@
 ---
-title: 缓存插件
-keywords: ["缓存"]
+title: 缓存插件 keywords: ["缓存"]
 description: 缓存插件
 ---
 
 ## 说明
 
-*   `Cache`插件能够缓存目标服务的结果，允许用户配置缓存结果的失效时间。
+* `Cache`插件能够缓存目标服务的结果，允许用户配置缓存结果的失效时间。
 
 ## 插件配置
 
@@ -16,9 +15,9 @@ description: 缓存插件
 
 Cache目前支持两种模式缓存数据：
 
-*   memory：本地内存模式
+* memory：本地内存模式
 
-*   redis：redis模式
+* redis：redis模式
 
 ![](/img/shenyu/plugin/cache/cache-plugin-handle-zh.png)
 
@@ -28,41 +27,41 @@ Cache目前支持两种模式缓存数据：
 
 如果使用的是`redis模式`，在cacheType中选择redis，参数介绍：
 
-*   database：缓存结果存储到哪个数据库中，默认是索引库0。
+* database：缓存结果存储到哪个数据库中，默认是索引库0。
 
-*   master：默认为master。
+* master：默认为master。
 
-*   mode：redis的工作模式，默认为单点模式：`standalone`，此外还有集群模式：`cluster`，哨兵模式：`sentinel`。
+* mode：redis的工作模式，默认为单点模式：`standalone`，此外还有集群模式：`cluster`，哨兵模式：`sentinel`。
 
-*   url:配置 redis 数据库的IP和端口，通过冒号连接配置，示例：`192.168.1.1:6379`。
+* url:配置 redis 数据库的IP和端口，通过冒号连接配置，示例：`192.168.1.1:6379`。
 
-*   password: redis 数据库的密码，如果没有的话，可以不配置。
+* password: redis 数据库的密码，如果没有的话，可以不配置。
 
-*   maxldle：连接池中最大空闲连接
+* maxldle：连接池中最大空闲连接
 
-*   minldle：连接池中最小空闲连接
+* minldle：连接池中最小空闲连接
 
-*   maxActive：连接池最大连接数
+* maxActive：连接池最大连接数
 
-*   maxWait：连接池最大阻塞等待时间（使用负值表示没有限制）默认 -1
+* maxWait：连接池最大阻塞等待时间（使用负值表示没有限制）默认 -1
 
 ## 插件使用
 
-*   在网关的 `pom.xml` 文件中添加 `Cache` 的支持。
+* 在网关的 `pom.xml` 文件中添加 `Cache` 的支持。
 
 ```xml
         <!--shenyu cache plugin start-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-cache</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-cache</artifactId>
+    <version>${project.version}</version>
+</dependency>
         <!--shenyu cache plugin end-->
 ```
 
-*   选择器和规则设置，请参考：[选择器和规则管理](https://shenyu.apache.org/zh/docs/user-guide/admin-usage/selector-and-rule "选择器和规则管理")。
+* 选择器和规则设置，请参考：[选择器和规则管理](https://shenyu.apache.org/zh/docs/user-guide/admin-usage/selector-and-rule "选择器和规则管理")。
 
-*   只有匹配的请求，`Cache`插件才会对目标服务的结果进行缓存。
+* 只有匹配的请求，`Cache`插件才会对目标服务的结果进行缓存。
 
 规则中参数 `timeoutSecods`，该值为目标服务结果数据缓存时间，默认是60，单位`秒`。
 
@@ -72,6 +71,6 @@ Cache目前支持两种模式缓存数据：
 
 ## 使用场景
 
-*   数据不会频繁更新，而且需要大量调用的场景。
+* 数据不会频繁更新，而且需要大量调用的场景。
 
-*   对于数据一致性要求不高的场景。
+* 对于数据一致性要求不高的场景。

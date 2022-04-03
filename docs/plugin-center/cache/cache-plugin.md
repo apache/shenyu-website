@@ -1,5 +1,6 @@
 ---
-title: Cache Plugin keywords: ["Cache"]
+title: Cache Plugin
+keywords: ["Cache"]
 description: Cache Plugin
 ---
 

@@ -5,7 +5,7 @@ description: Cache Plugin
 
 ## Description
 
-* The `Cache `plugin is able to cache theesults of the target service, allowing the user to configure the expiration
+* The `Cache`plugin is able to cache theesults of the target service, allowing the user to configure the expiration
   time of the cached results.
 
 ## Plugin Setting

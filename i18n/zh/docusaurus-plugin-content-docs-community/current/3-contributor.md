@@ -89,7 +89,7 @@ git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #推荐使用
 # 也可以 git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
 ```
 
-下载完成后，请参考目标仓库的入门指南或者 README 文件对项目进行初始化。Windows 环境下，如果克隆源码时，提示文件名过长，请参看[FAQ](./12-faq)。
+下载完成后，请参考目标仓库的入门指南或者 README 文件对项目进行初始化。Windows 环境下，如果克隆源码时，提示文件名过长，请参看[FAQ](../faq)。
 
 接着，您可以参考如下命令进行代码的提交：
 
@@ -114,7 +114,7 @@ git push origin a-dev-branch
 
 然后您就可以在 GitHub 上发起新的 PR (Pull Request)。
 
-请注意 PR 的标题需要符合我们的[规范](./2-issue-pr.md)，并且在 PR 中写上必要的说明，来方便 Committer 和其他贡献者进行代码审查。
+请注意 PR 的标题需要符合我们的[规范](../issue-pr)，并且在 PR 中写上必要的说明，来方便 Committer 和其他贡献者进行代码审查。
 
 ### 等待代码被合并
 
@@ -145,6 +145,6 @@ git pull upstream master
 
 ### 如何成为Committer？
 
-通过上述步骤，您就是 Apache ShenYu 的贡献者了。重复前面的步骤，在社区中保持活跃，坚持下去，您就能成为 [Committer](./committer)！
+通过上述步骤，您就是 Apache ShenYu 的贡献者了。重复前面的步骤，在社区中保持活跃，坚持下去，您就能成为 [Committer](../committer)！
 
 为了及时了解 Apache ShenYu 的发展动态，您可以关注邮件列表，也可以参与社区的双周会（会议邀请链接将会在邮件列表中发出）。

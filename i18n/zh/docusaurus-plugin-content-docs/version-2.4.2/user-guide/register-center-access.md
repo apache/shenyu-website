@@ -365,15 +365,18 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     registerType: nacos
     serverLists: localhost:8848
     props:
-      contextPath: /http
-      appName: http
-      port: 8188  
-      isFull: false
       nacosNameSpace: ShenyuRegisterCenter
+  client:
+    http:
+      props:
+        contextPath: /http
+        appName: http
+        port: 8188
+        isFull: false
 # registerType : 服务注册类型，填写 nacos
 # serverList: 为nacos注册类型时，填写nacos地址，多个地址用英文逗号分隔
 # port: 你本项目的启动端口,目前springmvc/tars/grpc需要进行填写

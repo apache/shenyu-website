@@ -763,6 +763,7 @@ Get a valid `URI` from the `URI` registered by the client, update the correspond
         return ShenyuResultMessage.SUCCESS;
     }
 ```
+
 The source code analysis on service registration is completed as well as the analysis flow chart is as follows.
 
 ![](/img/activities/code-analysis-divide-plugin/divide-register-zh.png)

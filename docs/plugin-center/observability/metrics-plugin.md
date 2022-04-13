@@ -35,12 +35,13 @@ description: Metrics plugin
 ```yml
 shenyu:
   metrics:
-    enabled: false  //false is close， true is open
+    enabled: false #false is close, true is open
     name : prometheus 
     host: 127.0.0.1
     port: 8090
     jmxConfig:
     props:
+      jvm_enabled: true #enable jvm monitoring
 ```
 
 ## Metrics Detail
@@ -161,14 +162,12 @@ Users need to install `Prometheus` service to collect
 
  ```yaml
  scrape_configs:
-   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-   - job_name: 'prometheus'
+   - job_name: 'Apache ShenYu'
      # metrics_path defaults to '/metrics'
      # scheme defaults to 'http'.
      static_configs:
-     - targets: ['localhost:9190']
+     - targets: ['localhost:8090'] # metrics of apache shenyu are exposed on port 8090 by default
  ```
-
 
 * After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`, Success can be verified at http://localhost:9090/
 

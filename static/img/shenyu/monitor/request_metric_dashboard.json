@@ -20,16 +20,15 @@
   },
   "description": "Complete dashboard using metrics from prometheus JMX exporter, with drill down per job > instance",
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "gnetId": 8563,
   "graphTooltip": 0,
   "id": 4,
   "iteration": 1647961989756,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -42,10 +41,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "$datasource"
-      },
+      "datasource": "prometheus",
       "description": "Start time of the process since unix epoch in seconds.",
       "fieldConfig": {
         "defaults": {
@@ -107,10 +103,7 @@
       "pluginVersion": "8.3.3",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "gUakAaE7z"
-          },
+          "datasource": "prometheus",
           "exemplar": false,
           "expr": "time() - process_start_time_seconds{job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
@@ -125,10 +118,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
+      "datasource": "prometheus",
       "description": "Api execute count.",
       "fieldConfig": {
         "defaults": {
@@ -173,12 +163,9 @@
       "pluginVersion": "8.3.3",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "gUakAaE7z"
-          },
+          "datasource": "prometheus",
           "exemplar": true,
-          "expr": "shenyu_execute_latency_millis_count{job=\"$job\",instance=\"$instance\"}",
+          "expr": "shenyu_request_type_total{job=\"$job\",instance=\"$instance\"}",
           "instant": false,
           "interval": "",
           "legendFormat": "{{path}}",
@@ -193,10 +180,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
+      "datasource": "prometheus",
       "description": "collecting all requests of Apache ShenYu Gateway",
       "fill": 1,
       "fillGradient": 0,
@@ -237,10 +221,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "gUakAaE7z"
-          },
+          "datasource": "prometheus",
           "exemplar": true,
           "expr": "shenyu_request_total{instance=\"$instance\",job=\"$job\"}",
           "interval": "",
@@ -248,10 +229,7 @@
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+          "datasource": "prometheus",
           "exemplar": true,
           "expr": "shenyu_request_throw_total{instance=\"$instance\",job=\"$job\"}",
           "hide": false,
@@ -309,17 +287,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "$datasource"
-          },
+          "datasource": "prometheus",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 10
+            "y": 2
           },
           "hiddenSeries": false,
           "id": 8,
@@ -344,7 +319,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "8.0.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -367,10 +342,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_memory_bytes_used{area=\"$memarea\",job=\"$job\",instance=\"$instance\"}",
               "format": "time_series",
@@ -380,10 +352,7 @@
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": " jvm_memory_bytes_max{area=\"$memarea\",job=\"$job\",instance=\"$instance\"}",
               "format": "time_series",
@@ -393,10 +362,7 @@
               "refId": "B"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_memory_bytes_used{area=\"$memarea\",job=\"$job\",instance=\"$instance\"} / jvm_memory_bytes_max >= 0",
               "format": "time_series",
@@ -446,17 +412,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "$datasource"
-          },
+          "datasource": "prometheus",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 19
+            "y": 11
           },
           "hiddenSeries": false,
           "id": 2,
@@ -494,10 +457,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_memory_pool_bytes_max{pool=\"$mempool\",job=\"$job\",instance=\"$instance\"}",
               "format": "time_series",
@@ -509,10 +469,7 @@
               "step": 5
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "expr": "jvm_memory_pool_bytes_used{pool=\"$mempool\",job=\"$job\",instance=\"$instance\"}",
               "format": "time_series",
               "interval": "",
@@ -588,10 +545,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+          "datasource": "prometheus",
           "description": "Bytes of a given JVM buffer pool.",
           "fill": 1,
           "fillGradient": 0,
@@ -599,7 +553,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 12
+            "y": 39
           },
           "hiddenSeries": false,
           "id": 104,
@@ -623,7 +577,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "8.0.5",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -633,10 +587,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_buffer_pool_used_bytes{job=\"$job\",instance=\"$instance\"}",
               "instant": false,
@@ -684,6 +635,7 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -697,10 +649,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "$datasource"
-          },
+          "datasource": "prometheus",
           "decimals": 0,
           "description": "Time spent in a given JVM garbage collector in seconds.",
           "fill": 1,
@@ -709,7 +658,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 5
+            "y": 40
           },
           "hiddenSeries": false,
           "id": 5,
@@ -742,10 +691,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "increase(jvm_gc_collection_seconds_sum{job=\"$job\",instance=~\"$instance\"}[$__interval])",
               "format": "time_series",
@@ -795,6 +741,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": null,
           "description": "Count of events that have been observed for the base metric (Time spent in a given JVM garbage collector in seconds.)",
           "fill": 1,
           "fillGradient": 0,
@@ -802,7 +749,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 5
+            "y": 40
           },
           "hiddenSeries": false,
           "id": 96,
@@ -833,10 +780,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "increase(jvm_gc_collection_seconds_count{job=\"$job\",instance=~\"$instance\"}[$__interval])",
               "interval": "60s",
@@ -884,6 +828,7 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -897,10 +842,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "$datasource"
-          },
+          "datasource": "prometheus",
           "decimals": 0,
           "description": "Thread JVM.",
           "fill": 1,
@@ -909,7 +851,7 @@
             "h": 11,
             "w": 24,
             "x": 0,
-            "y": 6
+            "y": 13
           },
           "hiddenSeries": false,
           "id": 3,
@@ -944,10 +886,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_threads_current{job=\"$job\",instance=\"$instance\"}",
               "format": "time_series",
@@ -959,10 +898,7 @@
               "step": 10
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_threads_daemon{job=\"$job\",instance=\"$instance\"}",
               "format": "time_series",
@@ -974,10 +910,7 @@
               "step": 10
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_threads_deadlocked{job=\"$job\",instance=\"$instance\"}",
               "format": "time_series",
@@ -987,10 +920,7 @@
               "refId": "C"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "$datasource"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_threads_deadlocked_monitor{job=\"$job\",instance=\"$instance\"}",
               "hide": false,
@@ -1052,10 +982,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "$datasource"
-          },
+          "datasource": "prometheus",
           "description": "The total number of classes that have been loaded or \n loaded since the JVM has started",
           "fill": 1,
           "fillGradient": 0,
@@ -1063,7 +990,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 7
+            "y": 6
           },
           "hiddenSeries": false,
           "id": 4,
@@ -1085,7 +1012,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "8.0.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1095,10 +1022,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gUakAaE7z"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_classes_loaded{job=\"$job\", instance=\"$instance\"}",
               "format": "time_series",
@@ -1110,10 +1034,7 @@
               "step": 10
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "$datasource"
-              },
+              "datasource": "prometheus",
               "exemplar": true,
               "expr": "jvm_classes_unloaded_total{job=\"$job\", instance=\"$instance\"}",
               "hide": false,
@@ -1162,8 +1083,8 @@
       "type": "row"
     }
   ],
-  "refresh": false,
-  "schemaVersion": 34,
+  "refresh": "10s",
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [
     "JVM",
@@ -1175,26 +1096,8 @@
       {
         "current": {
           "selected": false,
-          "text": "Prometheus",
-          "value": "Prometheus"
-        },
-        "hide": 0,
-        "includeAll": false,
-        "multi": false,
-        "name": "datasource",
-        "options": [],
-        "query": "prometheus",
-        "queryValue": "",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "shenyu",
-          "value": "shenyu"
+          "text": "Apache ShenYu",
+          "value": "Apache ShenYu"
         },
         "hide": 0,
         "label": "job",
@@ -1202,29 +1105,22 @@
         "options": [
           {
             "selected": true,
-            "text": "shenyu",
-            "value": "shenyu"
+            "text": "Apache ShenYu",
+            "value": "Apache ShenYu"
           }
         ],
-        "query": "shenyu",
+        "query": "Apache ShenYu",
         "skipUrlSync": false,
         "type": "textbox"
       },
       {
         "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "192.168.105.1:8081",
-          "value": "192.168.105.1:8081"
-        },
-        "datasource": {
-          "uid": "$datasource"
-        },
+        "datasource": "prometheus",
         "definition": "label_values(jvm_info{job=\"$job\"},instance)",
         "hide": 0,
         "includeAll": false,
         "label": "instance",
-        "multi": false,
+        "multi": true,
         "name": "instance",
         "options": [],
         "query": {
@@ -1246,9 +1142,7 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": {
-          "uid": "$datasource"
-        },
+        "datasource": "prometheus",
         "definition": "",
         "hide": 2,
         "includeAll": true,
@@ -1274,10 +1168,10 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": {
-          "uid": "$datasource"
-        },
-        "definition": "",
+        "datasource": "prometheus",
+        "definition": "label_values(jvm_memory_bytes_used{job=\"$job\", instance=\"$instance\"}, area)",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": true,
         "multi": true,
@@ -1285,7 +1179,7 @@
         "options": [],
         "query": {
           "query": "label_values(jvm_memory_bytes_used{job=\"$job\", instance=\"$instance\"}, area)",
-          "refId": "Prometheus-memarea-Variable-Query"
+          "refId": "StandardVariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -1322,9 +1216,8 @@
       "30d"
     ]
   },
-  "timezone": "",
-  "title": "shenyu dashboard",
-  "uid": "1XlU--P7k",
-  "version": 22,
-  "weekStart": ""
+  "timezone": "browser",
+  "title": "Apache ShenYu Dashboard",
+  "uid": "apache_shenyu_dashboard",
+  "version": 1
 }

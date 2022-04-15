@@ -10,13 +10,13 @@ description: Download
 
 The downloads are distributed via mirror sites and should be checked for tampering using GPG or SHA-512.
 
-##### `Apache ShenYu (incubating) - Version: 2.4.2 (Release Date: Jan 25, 2022)`
+##### `Apache ShenYu (incubating) - Version: 2.4.3 (Release Date: April 14, 2022)`
 
-- Source Codes [[zip]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-src.zip.sha512)
+- Source Codes [[zip]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip.sha512)
 
-- ShenYu-Admin Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-admin-bin.tar.gz.sha512)
+- ShenYu-Admin Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-admin-bin.tar.gz.sha512)
 
-- ShenYu-Bootstrap Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz.sha512)
+- ShenYu-Bootstrap Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz.sha512)
 
 ## All Releases
 

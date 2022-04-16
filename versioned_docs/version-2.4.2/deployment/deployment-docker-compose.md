@@ -29,5 +29,5 @@ The configuration file downloaded by the script can be modified.
 
 ```shell
 cd shenyu-${VERSION}
-docker-compose -f ./docker-compose.yaml up -d
+docker-compose -f ./shenyu-${VERSION}/docker-compose.yaml up -d
 ```

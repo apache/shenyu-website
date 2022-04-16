@@ -28,6 +28,5 @@ sh ./install.sh v2.4.2 #默认拉取最新配置，如果需要部署已发布�
 ### 执行 docker-compose
 
 ```shell
-cd shenyu-${VERSION}
-docker-compose -f ./docker-compose.yaml up -d
+docker-compose -f ./shenyu-${VERSION}/docker-compose.yaml up -d
 ```

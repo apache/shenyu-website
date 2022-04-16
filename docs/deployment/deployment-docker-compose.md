@@ -7,24 +7,27 @@ description: Docker-compose Deployment
 
 This article introduces the use of `docker-compose` to deploy the `Apache ShenYu` gateway.
 
-### start admin and bootstrap
-
-Choose one as the data source. It can be `h2` or `mysql` or `pg`.
-
-* use `h2`
+### Download shell script
 
 ```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master h2
-```
+curl -O https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
+````
 
-* use `mysql`
+### execute script
 
-```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master mysql
-```
-
-* use `pg`
+This script will download the required configuration files and mysql-connector, and can be executed repeatedly if the download fails.
 
 ```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master pg
-```
+sh ./install.sh #The latest configuration is pulled by default. If you need to deploy the released version, you can add a parameter to indicate the version number, such as: v2.4.2 or latest
+````
+
+### Modify the configuration file
+
+The configuration file downloaded by the script can be modified.
+
+### Execute docker-compose
+
+```shell
+cd shenyu-${VERSION}
+docker-compose -f ./docker-compose.yaml up -d
+````

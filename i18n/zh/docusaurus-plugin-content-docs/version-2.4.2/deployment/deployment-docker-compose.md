@@ -7,24 +7,27 @@ description: Docker-compose Deployment
 
 本文介绍使用 `docker-compose` 来部署 `Apache ShenYu` 网关。
 
-### 启动 admin 和 bootstrap
-
-选择一个作为数据源。可以是 `h2` 或者 `mysql` 或者 `pg`。
-
-* 利用 `h2`
+### 下载 shell 脚本
 
 ```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master h2
+curl -O https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
 ```
 
-* 利用 `mysql`
+### 执行脚本
+
+这个脚本会下载需要的配置文件、mysql-connector，如果发现下载失败可以重复执行。
 
 ```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master mysql
+sh ./install.sh v2.4.2 #默认拉取最新配置，如果需要部署已发布版本，可增加一个参数表示版本号，比如：v2.4.2 或 latest
 ```
 
-* 利用 `pg`
+### 修改配置文件
+
+可以修改脚本下载的配置文件。
+
+### 执行 docker-compose
 
 ```shell
-curl https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh | bash -s master pg
+cd shenyu-${VERSION}
+docker-compose -f ./docker-compose.yaml up -d
 ```

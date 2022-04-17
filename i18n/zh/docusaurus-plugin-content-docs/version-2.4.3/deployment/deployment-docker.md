@@ -20,7 +20,7 @@ description: docker部署
 > docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-* 使用 `MySQL` 来存储后台数据,将`mysql-connector.jar` 拷贝到 `/${your_work_dir}/ext-lib`：
+* 使用 `MySQL` 来存储后台数据,将 [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) 拷贝到 `/${your_work_dir}/ext-lib`：
 
 ```
 docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
@@ -55,28 +55,4 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
   -p 9195:9195 \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   apache/shenyu-bootstrap:${current.version}
-```
-
-### 启动 ShenYu Bootstrap 的同时，启动 ShenYu Agent
-
-> 2.4.2版本开始支持shenyu-agent
-
-* 编辑配置文件
-
-agent相关配置文件位于 [shenyu-dist/shenyu-agent-dist/src/main/resources/conf/](https://github.com/apache/incubator-shenyu/tree/master/shenyu-dist/shenyu-agent-dist/src/main/resources/conf) ，编辑好 `shenyu-agent.yaml` 和 `tracing-point.yaml` 后，将这两个文件放在同一目录下，记为 `$AGENT_CONF`。
-
-详细配置请参考 [可观测性](../user-guide/observability/observability.md)
-
-* 拉取docker镜像并启动
-
-附带参数 `agent` 表示启动 `shenyu-agent`。
-
-```shell
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:${current.version}
-> docker run -d \
-  -p 9195:9195 \
-  -v $AGENT_CONF:/opt/shenyu-bootstrap/agent/conf \
-  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
-  apache/shenyu-bootstrap:${current.version} agent
 ```

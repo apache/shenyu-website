@@ -78,3 +78,11 @@ shenyu:
   * `timeout`：调用`http`客户端的超时时间。
   * `headerMaxSize`：请求的`header`的最大值。
   * `requestMaxSize`：请求体的最大值。
+  * `retryStrategy`：从`2.4.3版本`开始支持，失败后的重试策略，默认`current`保持对低版本的兼容。
+    
+    比如下游有3个服务`http://localhost:1111`、`http://localhost:1112`和`http://localhost:1113`，假设第一次负载均衡到`http://localhost:1111`并且`调用失败`。
+    
+    使用`current`策略会继续重试调用`http://localhost:1111`；
+    
+    使用`failover`策略会通过`负载均衡`重试调用到其他服务如`http://localhost:1112`，此时如果又失败了，则调用到`http://localhost:1113`，直到没有可用的服务为止。
+  

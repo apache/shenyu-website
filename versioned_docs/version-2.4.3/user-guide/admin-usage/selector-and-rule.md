@@ -43,19 +43,17 @@ For example, add a selector to the `divide` plugin:
       * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
       * = : matches only if they are equal.
       * regEx : regex matching，match characters in regex expression.
-      * like : string fuzzy matching.
       * contains: when it contains the specified value, it matches.
-      * SpEl: SpEl expression matches.
-      * Groovy: match through Groovy.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
+      * exclude: the inverse of the method of `match`.
   * Continued: whether the subsequent selector is still executed.
   * PrintLogs: it will print the matching log with the open option enabled.
   * Enable: whether to enable the plugin.
-  * Order：the smaller will have high priorty to execute among multi-selectors.
+  * Order：the smaller will have high priority to execute among multi-selectors.
   * Handler: The operation when the request matches the selector.
 * the above picture means: when the prefix of the request uri is `/http`, it will redirect to this service `127.0.0.1:8080`.
-* selector advice : combine `uri` conditon and `match` prefix（/contextPath）as the first request filter.
+* selector advice : combine `uri` condition and `match` prefix（/contextPath）as the first request filter.
 * selector(the same for rule) match condition fuzzy string matching rule:
   * `?` matches one character
   * `*` matches zero or more characters
@@ -65,7 +63,7 @@ For example, add a selector to the `divide` plugin:
 
 <img src="/img/shenyu/basicConfig/pluginHandle/plugin_rule_config_en.jpg" width="80%" height="80%" />
 
-* when the request was passed by the seletor, then it will be processed by the rule, the final filter.
+* when the request was passed by the selector, then it will be processed by the rule, the final filter.
 * rule is the final confirmation about how to execute request logically.
 * rule detailed explanation：
   * Name：create your rule with a distinguish name.
@@ -87,10 +85,7 @@ For example, add a selector to the `divide` plugin:
       * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
       * = : matches only if they are equal.
       * regEx : regex matching，match characters in regex expression.
-      * like : string fuzzy matching.
       * contains: when it contains the specified value, it matches.
-      * SpEl: SpEl expression matches.
-      * Groovy: match through Groovy.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
       * exclude: Same function as `match`, flow selection is opposite.
@@ -99,7 +94,7 @@ For example, add a selector to the `divide` plugin:
 
   * Enable: whether to enable the plugin.
 
-  * Order：the smaller will have high priorty to execute among multi-rules.
+  * Order：the smaller will have high priority to execute among multi-rules.
 
   * handle: The operation when the request matches the rule.
 * above picture means: when the request `uri` equals to `/http/order/save`, it will execute based on this rule，load strategy is `random`.
@@ -279,18 +274,6 @@ Condition parameters allow you to retrieve the actual data of the request. How t
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-contains-en.png)
 
-* `SpEL` 
-
-  * `SpEL` means that the requested real data can satisfy the preset `SpEL` expression. Suppose your rule conditions are set as follows: request parameters contain `id` and `id` is greater than `100`. Request `/http/order/findById?id=101` will match.
-
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-spel-en.png)
-
-* `Groovy` 
-
-  * The `Groovy` way of expressing the request for real data can satisfy the preset `Groovy` expression. Suppose your rule conditions are set as follows: request parameters include `id`, and `id` equals `100`. Request `/http/order/findById?id=100` will match.
-
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-groovy-en.png)
-
 * `TimeBefore` 
 
   * `TimeBefore` indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are set as follows: request parameters contain `date` and `date` is less than `2021-09-26 06:12:10`. Request `/http/order/findById?id=100&date=2021-09-22 06:12:10` will match.
@@ -316,9 +299,7 @@ If you want to further understand conditions matching strategy, please read the 
 |`match`                   |`MatchPredicateJudge` |  
 |`=`                 |`EqualsPredicateJudge` |  
 |`regex`                 |`RegexPredicateJudge` |  
-|`contains`                  |`ContainsPredicateJudge` |  
-|`SpEL`                 |`SpELPredicateJudge` |  
-|`Groovy`                  |`GroovyPredicateJudge` |  
+|`contains`                  |`ContainsPredicateJudge` |
 |`TimeBefore`                    |`TimerBeforePredicateJudge` |  
 |`TimeAfter`                    |`TimerAfterPredicateJudge` |
 |`exclude`                    |`ExcludePredicateJudge` |

@@ -385,6 +385,8 @@ shenyu:
   register:
     registerType: nacos
     serverLists: localhost:8848
+    props:
+      nacosNameSpace: ShenyuRegisterCenter
   client:
     http:
     	props:
@@ -392,8 +394,6 @@ shenyu:
       		appName: http
       		port: 8188  
       		isFull: false
-    props:
-      nacosNameSpace: ShenyuRegisterCenter
 # registerType : register type, set nacos 
 # serverList: when register type is nacos, add nacos address list
 # port: your project port number; apply to springmvc/tars/grpc

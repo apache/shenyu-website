@@ -18,6 +18,18 @@ description: dubbo plugin
 
 * Set selector and rule, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 
+* Since `version 2.4.3`, the new fields and meanings of the dubbo plugin:
+
+<img src="/img/shenyu/plugin/dubbo/dubbo_plugin.png" width="80%" height="80%" />
+
+  * `corethreads`：The number of core threads in the business thread pool。
+
+  * `queues`：The length of the blocking queue of the business thread pool, 0 means `unbounded blocking queue`。
+
+  * `threadpool`：There are five types of business thread pools: `fixed`, `eager`, `cached`, `limited` and `shared`. The first 4 types correspond to the thread pools officially provided by dubbo. Let's talk about `shared`, as its name implies, `all proxy plugins` share a `shared` thread pool, the advantage of this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization。
+
+  * `threads`：The maximum number of threads in the business thread pool。
+
 ## Plugin Detail
 
 After the client accesses the `ShenYu` gateway, it will automatically register the selector and rule information. For details about the selector and rule configuration, see [Selector and Rule Config](../../user-guide/admin-usage/selector-and-rule) .

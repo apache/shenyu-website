@@ -16,6 +16,13 @@ description:  grpc-plugin
 
 * `gRPC` client access, please refer to: [gRPC Proxy](../../user-guide/grpc-proxy) .
 
+* New fields and meanings of grpc plugin since `2.4.3`:
+
+  * `threadpool`：There are two types of business thread pools, `cached` and `shared`. 
+    
+    `cached` is equivalent to the default thread pool officially provided by grpc; 
+    
+    `shared` thread pool, just as its name, `all proxy plugins` share a `shared` `Thread pool, the advantage of doing this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization.
 
 
 ## Plugin Detail

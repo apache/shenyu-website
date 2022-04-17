@@ -37,12 +37,10 @@ description: 选择器和规则管理
       * `match`：模糊匹配，建议和`uri`条件搭配，支持 `restful` 风格的匹配。（`/test/**`）
       * `=`：前后值相等，才能匹配。
       * `regEx`：正则匹配，表示前面一个值去匹配后面的正则表达式。
-      * `like`：字符串模糊匹配。
       * `contains`：请求包含指定的值，才能匹配。
-      * `SpEl`：`SpEl`表达式匹配。
-      * `Groovy`：通过`Groovy`脚本语言匹配。
       * `TimeBefore`：指定时间之前。
       * `TimeAfter`：指定时间之后。
+      * `exclude`： 是 `match` 方式的反选。
   * 继续后续选择器：后续选择器还是否执行。
   * 是否开启：打开才会生效。
   * 打印日志：打开时，当匹配上的时候，会打印匹配日志。
@@ -79,12 +77,10 @@ description: 选择器和规则管理
       * `match`：模糊匹配，建议和`uri`条件搭配，支持 `restful` 风格的匹配。（`/test/**`）
       * `=`：前后值相等，才能匹配。
       * `regEx`：正则匹配，表示前面一个值去匹配后面的正则表达式。
-      * `like`：字符串模糊匹配。
       * `contains`：请求包含指定的值，才能匹配。
-      * `SpEl`：`SpEl`表达式匹配。
-      * `Groovy`：通过`Groovy`脚本语言匹配。
       * `TimeBefore`：指定时间之前。
       * `TimeAfter`：指定时间之后。
+      * `exclude`： 是 `match` 方式的反选。
   * 是否开启：打开才会生效。
   * 打印日志：打开时，当匹配上的时候，才会打印匹配日志。
   * 执行顺序：当多个规则的时候，执行顺序小的优先执行。
@@ -264,18 +260,6 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-contains-zh.png)
 
-* `SpEL`
-
-  `SpEL` 的方式表示请求的真实数据能够满足预设的`SpEL`表达式。假如你的规则条件设置如下：请求参数中包含`id`，并且`id`大于`100`。那么请求 `/http/order/findById?id=101` 就可以匹配上。
-
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-spel-zh.png)
-
-* `Groovy`
-
-  `Groovy` 的方式表示请求的真实数据能够满足预设的`Groovy`表达式。假如你的规则条件设置如下：请求参数中包含`id`，并且`id`等`100`。那么请求 `/http/order/findById?id=100` 就可以匹配上。
-
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-groovy-zh.png)
-
 * `TimeBefore`
 
   `TimeBefore` 的方式表示请求时间在预设的条件时间之前才能匹配成功。假如你的规则条件设置如下：请求参数中包含`date`，并且`date`小于`2021-09-26 06:12:10`。那么请求 `/http/order/findById?id=100&date=2021-09-22 06:12:10` 就可以匹配上。
@@ -301,9 +285,7 @@ MyHeader: custom-header
 |`match`                   |`MatchPredicateJudge` |  
 |`=`                 |`EqualsPredicateJudge` |  
 |`regex`                 |`RegexPredicateJudge` |  
-|`contains`                  |`ContainsPredicateJudge` |  
-|`SpEL`                 |`SpELPredicateJudge` |  
-|`Groovy`                  |`GroovyPredicateJudge` |  
+|`contains`                  |`ContainsPredicateJudge` |
 |`TimeBefore`                    |`TimerBeforePredicateJudge` |  
 |`TimeAfter`                    |`TimerAfterPredicateJudge` |
 |`exclude`                    |`ExcludePredicateJudge` |

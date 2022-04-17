@@ -79,5 +79,11 @@ Rule Handler, corresponding to the `handle` field of [Selector And Rule Config](
   * `timeout`: timeout period for calling the `http` client.
   * `headerMaxSize`: maximum value of the requested `header`.
   * `requestMaxSize`: maximum size of the request body.
-
- 
+  * `retryStrategy`: supported since `2.4.3`, the retry strategy `after failure`, the default `current` remains compatible with lower versions. 
+    
+    For example, there are 3 downstream services `http:localhost:1111`, `http:localhost:1112` and `http:localhost:1113`, assuming the first load balancing to `http:localhost:1111` and `call failed`. 
+    
+    Using the `current` policy will continue to retry the call to `http:localhost:1111`; 
+    
+    Using the `failover` policy will retry the call to other services such as `http:localhost:1112` through the `loadStrategy`, if it fails again at this time , call to `http:localhost:1113` until no service is available.
+  

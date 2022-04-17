@@ -50,14 +50,20 @@ shenyu:
 #  httpclient:
 #    strategy: webClient
 #    connectTimeout: 45000
+#    responseTimeout: 3000
+#    readerIdleTime: 3000
+#    writerIdleTime: 3000
+#    allIdleTime: 3000
 #    readTimeout: 3000
 #    writeTimeout: 3000
 #    wiretap: false
+#    keepAlive: false
 #    pool:
 #      type: ELASTIC
 #      name: proxy
 #      maxConnections: 16
 #      acquireTimeout: 45000
+#      maxIdleTime: 3000  
 #    proxy:
 #      host:
 #      port:
@@ -69,6 +75,7 @@ shenyu:
 #      keyStoreType: PKCS12
 #      keyStorePath: classpath:keystore.p12
 #      keyStorePassword: 123456
+#      keyStoreProvider:   
 #      keyPassword: 123456
 #      trustedX509Certificates:
 #      handshakeTimeout:
@@ -211,13 +218,18 @@ shenyu:
 | Name           |  Type   |    Default    | Required | Description                                                  |
 | :------------- | :-----: | :-----------: | :------: | :----------------------------------------------------------- |
 | strategy       | String  |   webClient   |    No    | HttpClientPlugin实现策略（默认使用webClietnt）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
-| connectTimeout |   int   |     45000     |    No    | 连接超时时间 (毫秒)，默认值为 `45000`.                       |
-| readTimeout    |   int   |     3000      |    No    | 读取超时 (毫秒)，默认值为 `3000`.                            |
-| writeTimeout   |   int   |     3000      |    No    | 输出超时 (millisecond)，默认值为 `3000`.                     |
+| connectTimeout |   int   |     45000     |    No    | 连接超时时间 (毫秒)，默认值为 `45000`。                      |
+| responseTimeout|   int   |     3000      |    No    | 结果超时时间 (毫秒)，默认值为 `3000`。                       |
+| readerIdleTime |   int   |     3000      |    No    | 指定读空闲超时时间 (毫秒)，默认值为 `3000`。                  |
+| writerIdleTime |   int   |     3000      |    No    | 指定写空闲超时时间 (毫秒)，默认值为 `3000`。                  |
+| allIdleTime    |   int   |     3000      |    No    | 指定读和写超时时间 (毫秒)，默认值为 `3000`。                  |
+| readTimeout    |   int   |     3000      |    No    | 读取超时 (毫秒)，默认值为 `3000`。                           |
+| writeTimeout   |   int   |     3000      |    No    | 输出超时 (millisecond)，默认值为 `3000`。                   |
 | wiretap        | Boolean |     false     |    No    | 启用 Netty HttpClient 的窃听调试，默认值为 `false`。         |
-| pool           |         |               |          | HttpClient连接池配置                                         |
-| proxy          |         |               |          | HttpClient代理配置                                           |
-| ssl            |         |               |          | HttpClient SSL配置                                           |
+| keepAlive      | Boolean |     false     |    No    | 启用或禁用请求的 Keep-Alive 支持，默认值为 `false`。          |
+| pool           |         |               |          | HttpClient 连接池配置                                     |
+| proxy          |         |               |          | HttpClient 代理配置                                       |
+| ssl            |         |               |          | HttpClient SSL配置                                       |
 
 - `pool` config
 
@@ -229,6 +241,7 @@ HttpClient连接池配置：
 | name           | String |           proxy            |    No    | 连接池映射名称，默认为`proxy`。                              |
 | maxConnections |  int   | 2*可用处理器数，最小值为16 |    No    | 仅适用于 `FIXED` 类型，在现有连接上开始挂起获取之前的最大连接数。<br />默认值为可用处理器数*2。<br /> (最小值为 16) |
 | acquireTimeout |  int   |           45000            |    No    | 仅适用于 `FIXED` 类型，等待获取连接的最长时间（毫秒）。默认值为 45000 |
+| maxIdleTime    |  int   |           NULL             |    No    | Channel 空闲多久关闭，如果为空，没有最大空闲关闭时间。               |
 
 - `Proxy` config
 
@@ -248,15 +261,16 @@ Netty HttpClient 代理的相关配置：
 
 | Name                     |  Type   | Default | Required | Description                                                  |
 | :----------------------- | :-----: | :-----: | :------: | :----------------------------------------------------------- |
-| useInsecureTrustManager  | Boolean |  false  |    No    | 是否信任所有下游证书，默认`false`                            |
-| keyStoreType             | String  |  PKCS12 |    No    | SSL 证书类型. |
-| keyStorePath             | String  |         |    No    | SSL 证书路径，可以放在class path下.|
-| keyStorePassword         | String  |         |    No    | SSL 证书密码. |
-| keyPassword              | String  |         |    No    | SSL 证书Key的密码. |
+| useInsecureTrustManager  | Boolean |  false  |    No    | 是否信任所有下游证书，默认`false`。                          |
+| keyStoreType             | String  |  PKCS12 |    No    | SSL 证书类型。                                            |
+| keyStorePath             | String  |         |    No    | SSL 证书路径，可以放在 classpath 下。                       |
+| keyStorePassword         | String  |         |    No    | SSL 证书密码。                                            |
+| keyStoreProvider         | String  |         |    No    | SSL 证书提供者。                                           |
+| keyPassword              | String  |         |    No    | SSL 证书Key的密码。                                        |
 | trustedX509Certificates  |  Array  |  Null   |    No    | 配置自己的信任的证书列表。                                   |
-| handshakeTimeout         |   int   |  10000  |    No    | SSL握手超时时间（毫秒），默认值为10000                       |
-| closeNotifyFlushTimeout  |   int   |  3000   |    No    | SSL close_notify 刷新超时（毫秒）默认值为 3000.              |
-| closeNotifyReadTimeout   |   int   |    0    |    No    | SSL close_notify 读取超时（毫秒）默认值为 0.                 |
+| handshakeTimeout         |   int   |  10000  |    No    | SSL握手超时时间（毫秒），默认值为 `10000`。                   |
+| closeNotifyFlushTimeout  |   int   |  3000   |    No    | SSL close_notify 刷新超时（毫秒）默认值为 `3000`。           |
+| closeNotifyReadTimeout   |   int   |    0    |    No    | SSL close_notify 读取超时（毫秒）默认值为 `0`。              |
 | defaultConfigurationType | String  |   TCP   |    No    | SslContextBuilder 的默认配置， 默认为 TCP.<br />- H2: SslProvider 将根据 OpenSsl.isAlpnSupported()、SslProvider.HTTP2_CIPHERS、ALPN 支持、HTTP/1.1 和 HTTP/2 支持进行设置<br />- TCP: SslProvider 将根据 OpenSsl.isAvailable() 设置<br />- NONE: 不会有默认配置 |
 
 

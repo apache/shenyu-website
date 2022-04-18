@@ -6,7 +6,7 @@ description:  RequestPlugin
 
 ## 说明
 
-* `Apache ShenYu` 网关在对目标服务进行代理调用的时候，还容许用户使用 `request` 插件对请求参数、请求头以及 `Cookie` 来添加、修改、移除请求头。
+* `Apache ShenYu` 网关在对目标服务进行代理调用的时候，允许用户使用 `request` 插件对请求参数、请求头以及 `Cookie` 来添加、修改、移除请求头。
 
 ## 插件设置
 

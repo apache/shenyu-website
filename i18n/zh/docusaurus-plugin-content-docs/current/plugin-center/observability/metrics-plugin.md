@@ -170,7 +170,9 @@ shenyu:
 
 **注：** `job_name`跟`monitor`插件配置的`metricsName`相对应
 
-* 配置完成之后 `window` 下可以直接双击 `prometheus.exe` 启动即可，默认启动端口为 `9090` ，可通过http://localhost:9090/ 验证是否成功
+* 配置完成之后 `window` 下可以直接双击 `prometheus.exe` 启动即可，默认启动端口为 `9090` ，访问 http://localhost:9090/ ，点击`status`->`Targets`，验证是否成功。
+
+![](/img/shenyu/monitor/request-metric-6.png)
 
 ## 面板展示
 
@@ -181,6 +183,12 @@ shenyu:
 * 安装 `Grafana`
 
 [下载地址](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) 解压进入 `bin` 目录然后双击 `grafana-server.exe` 运行 访问 `http://localhost:3000/?orgId=1` admin/admin 验证是否成功
+
+* 配置数据源，选择prometheus，注意数据源名字为prometheus。
+
+![](/img/shenyu/monitor/request-metric-7.png)
+
+![](/img/shenyu/monitor/request-metric-8.png)
 
 * 配置自定义metric面板`request_total`、`http_request_total`
 

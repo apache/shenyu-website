@@ -169,7 +169,9 @@ Users need to install `Prometheus` service to collect
      - targets: ['localhost:8090'] # metrics of apache shenyu are exposed on port 8090 by default
  ```
 
-* After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`, Success can be verified at http://localhost:9090/
+* After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`,check `status`->`Targets` . Success can be verified at http://localhost:9090/
+
+![](/img/shenyu/monitor/request-metric-6.png)
 
 ## Panel Display
 
@@ -180,6 +182,12 @@ Here's how to install and deploy `Grafana for Windows`
 * Install Grafana
 
 [download](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) Unzip it and enter the `bin` directory and `double-click` `grafana-server.exe` to run it. Go to http://localhost:3000/?orgId=1 `admin/admin` to verify the success
+
+* Configure the data source, select prometheus, note that the data source name is prometheus.
+
+![](/img/shenyu/monitor/request-metric-7.png)
+
+![](/img/shenyu/monitor/request-metric-8.png)
 
 * Config Custom Metric Dashboard `request_total`、`http_request_total`
 

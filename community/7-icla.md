@@ -75,10 +75,13 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 ![](/img/shenyu/icla/email_template.png)
 
 addressee
+
 ```
 secretary@apache.org
 ```
+
 template
+
 ```
 Hello Apache Incubator,
     I am willing donate the ShenYu project to ASF. The attachment is my ICLA information. Github account: https://github.com/xxxx.

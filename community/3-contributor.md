@@ -56,9 +56,11 @@ Apache ShenYu is generally developed collaboratively on GitHub. Currently, there
 | [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | Main Repository                |
 | [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | Front-end Code of shenyu-admin |
 | [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | Official Website and Documents |
-| [apache/incubator-shenyu-client-python](https://github.com/apache/incubator-shenyu-client-python) | Python SDK                     |
-| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Code to integrate with nginx   |
 | [apache/incubator-shenyu-helm-chart](https://github.com/apache/incubator-shenyu-helm-chart) | Helm Chart for Apache ShenYu   |
+| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Code to integrate with nginx   |
+| [apache/incubator-shenyu-client-python](https://github.com/apache/incubator-shenyu-client-python) | Python SDK                     |
+| [apache/incubator-shenyu-client-dotnet](https://github.com/apache/incubator-shenyu-client-dotnet) | .Net SDK                       |
+| [apache/incubator-shenyu-client-golang](https://github.com/apache/incubator-shenyu-client-golang) | Golang SDK                     |
 
 ### Getting Apache ShenYu up and running
 

@@ -56,9 +56,11 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 | [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | 主仓库                       |
 | [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | shenyu-admin前端仓库         |
 | [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | 官网及文档                   |
-| [apache/incubator-shenyu-client-python](https://github.com/apache/incubator-shenyu-client-python) | Python SDK                   |
-| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Nginx集成仓库                |
 | [apache/incubator-shenyu-helm-chart](https://github.com/apache/incubator-shenyu-helm-chart) | Helm Chart for Apache ShenYu |
+| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Nginx集成仓库                |
+| [apache/incubator-shenyu-client-python](https://github.com/apache/incubator-shenyu-client-python) | Python SDK                   |
+| [apache/incubator-shenyu-client-dotnet](https://github.com/apache/incubator-shenyu-client-dotnet) | .Net SDK                     |
+| [apache/incubator-shenyu-client-golang](https://github.com/apache/incubator-shenyu-client-golang) | Golang SDK                   |
 
 ### 让 Apache ShenYu 运行起来
 

@@ -50,7 +50,7 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Signature
 > - Save and download signed pdf fils
 > - Send to the specified mailbox
-> - [icla Sign status document](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla签署状态表》，可复制链接后用石墨文档 App 或小程序打开)
+> - [icla Sign status document](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla Sign status document》, you can copy the link and open it with the Graphite Documents App or applet)
 
 ![](/img/shenyu/icla/example.png)
 
@@ -63,7 +63,7 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Handwritten signature
 > - Convert photos into **single pdf** file
 > - Send to the specified mailbox
-> - [icla Sign status document](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla签署状态表》，可复制链接后用石墨文档 App 或小程序打开)
+> - [icla Sign status document](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla Sign status document》, you can copy the link and open it with the Graphite Documents App or applet)
 
 ![](/img/shenyu/icla/doc_example.png)
 

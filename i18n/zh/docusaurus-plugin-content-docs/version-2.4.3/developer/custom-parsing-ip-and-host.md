@@ -38,10 +38,10 @@ public interface RemoteAddressResolver {
 * 把你新增的实现类注册成为spring的bean，如下
 
 ```java
-   @Bean
-public RemoteAddressResolver customRemoteAddressResolver() {
+    @Bean
+    public RemoteAddressResolver customRemoteAddressResolver() {
         return new CustomRemoteAddressResolver();
-        }
+    }
 ```
 
 

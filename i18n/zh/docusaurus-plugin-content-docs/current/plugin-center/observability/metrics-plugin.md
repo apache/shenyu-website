@@ -156,6 +156,8 @@ shenyu:
 
 用户需部署`Prometheus` 服务来采集
 
+### windows 环境下安装Prometheus
+
 * 选择对应环境的 [下载地址](https://prometheus.io/download/)安装
 * 修改配置文件：`prometheus.yml`
 
@@ -170,17 +172,63 @@ shenyu:
 
 **注：** `job_name`跟`monitor`插件配置的`metricsName`相对应
 
-* 配置完成之后 `window` 下可以直接双击 `prometheus.exe` 启动即可，默认启动端口为 `9090` ，可通过http://localhost:9090/ 验证是否成功
+* 配置完成之后，在 `windows` 下可以直接双击 `prometheus.exe` 启动即可，默认启动端口为 `9090` ，访问 http://localhost:9090/ ，点击`status`->`Targets`，验证是否成功。
+
+![](/img/shenyu/monitor/request-metric-6.png)
+
+### macos 环境下安装Prometheus
+
+* 使用brew 安装 prometheus，安装完成后`prometheus` 在`homebrew`下的 `Cellar` 文件夹中。
+
+```
+brew install prometheus
+```
+
+* 在prometheus.yml文件所在位置执行如下命令即可启动prometheus。
+ 
+```
+prometheus --config.file=prometheus.yml &
+```
+
+访问 `http://localhost:9090/` 验证是否正常启动。
 
 ## 面板展示
 
 推荐使用 `Grafana`，用户可以自定义查询来个性化显示面板盘。
 
-下面介绍 `Grafana` 部署（`windows`版）
+下面介绍如何安装 `Grafana` 
+
+### windows环境下安装Grafana
+
 
 * 安装 `Grafana`
 
 [下载地址](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) 解压进入 `bin` 目录然后双击 `grafana-server.exe` 运行 访问 `http://localhost:3000/?orgId=1` admin/admin 验证是否成功
+
+
+### macos环境下安装Grafana
+
+* 使用brew 安装 grafana 。
+
+```
+brew install grafana
+```
+
+* 以服务方式启动grafana
+
+```
+brew services start grafana
+```
+
+访问 `http://localhost:3000/` 验证是否正常启动。
+
+### 使用Grafana查看监控数据
+
+配置数据源，选择prometheus，注意数据源名字为prometheus。
+
+![](/img/shenyu/monitor/request-metric-7.png)
+
+![](/img/shenyu/monitor/request-metric-8.png)
 
 * 配置自定义metric面板`request_total`、`http_request_total`
 

@@ -157,6 +157,8 @@ shenyu:
 
 Users need to install `Prometheus` service to collect
 
+### Install Prometheus in windows 
+
 * Choose the corresponding environment [download address](https://prometheus.io/download/) to install
 * Modify configuration file: `prometheus.yml`
 
@@ -169,17 +171,62 @@ Users need to install `Prometheus` service to collect
      - targets: ['localhost:8090'] # metrics of apache shenyu are exposed on port 8090 by default
  ```
 
-* After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`, Success can be verified at http://localhost:9090/
+* After the configuration is completed, you can directly double-click `prometheus.exe` in the window to start. The default boot port is `9090`,check `status`->`Targets` . Success can be verified at http://localhost:9090/
+
+![](/img/shenyu/monitor/request-metric-6.png)
+
+### Install Prometheus in the macOS 
+
+* Install prometheus with brew，After installation `prometheus` is in the `Cellar` folder under `homebrew`。
+
+```
+brew install prometheus
+```
+
+* Execute the following command in the location of the prometheus.yml file to start prometheus。
+
+```
+prometheus --config.file=prometheus.yml &
+```
+
+Visit `http://localhost:9090/` to verify that it starts normally。
+
 
 ## Panel Display
 
 It is recommended to use `Grafana`, Users can customize the query to personalize the display panel.
 
-Here's how to install and deploy `Grafana for Windows`
+Here's how to install and deploy `Grafana`
+
+### Install Grafana in windows 
 
 * Install Grafana
 
 [download](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) Unzip it and enter the `bin` directory and `double-click` `grafana-server.exe` to run it. Go to http://localhost:3000/?orgId=1 `admin/admin` to verify the success
+
+### Install Grafana in macOS 
+
+* Install grafana using brew.
+
+```
+brew install grafana
+```
+
+* Start grafana as a service
+
+```
+brew services start grafana
+```
+
+Visit `http://localhost:3000/` to verify that it starts normally.
+
+### View monitoring data with Grafana
+
+* Configure the data source, select prometheus, note that the data source name is prometheus.
+
+![](/img/shenyu/monitor/request-metric-7.png)
+
+![](/img/shenyu/monitor/request-metric-8.png)
 
 * Config Custom Metric Dashboard `request_total`、`http_request_total`
 

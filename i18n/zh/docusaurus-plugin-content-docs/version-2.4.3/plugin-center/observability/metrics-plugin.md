@@ -179,11 +179,11 @@ shenyu:
 ### macos 环境下安装Prometheus
 
 * 使用brew 安装 prometheus，安装完成后`prometheus` 在`homebrew`下的 `Cellar` 文件夹中。
-```bash
+```
 brew install prometheus
 ```
 * 在prometheus.yml文件所在位置执行如下命令即可启动prometheus。
-```bash
+```
 prometheus --config.file=prometheus.yml &
 ```
 访问 `http://localhost:9090/` 验证是否正常启动。
@@ -201,12 +201,12 @@ prometheus --config.file=prometheus.yml &
 ### macos环境下安装Grafana
 
 * 使用brew 安装 grafana 。
-```bash
+```
 brew install grafana
 ```
 * 以服务方式启动grafana
 
-```bash
+```
 brew services start grafana
 ```
 

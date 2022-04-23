@@ -178,11 +178,11 @@ Users need to install `Prometheus` service to collect
 ### Install Prometheus in the macOS
 
 * Install prometheus with brew，After installation `prometheus` is in the `Cellar` folder under `homebrew`。
-```bash
+```
 brew install prometheus
 ```
 * Execute the following command in the location of the prometheus.yml file to start prometheus。
-```bash
+```
 prometheus --config.file=prometheus.yml &
 ```
 Visit `http://localhost:9090/` to verify that it starts normally。
@@ -203,12 +203,12 @@ Here's how to install and deploy `Grafana`
 ### Install Grafana in macOS
 
 * Install grafana using brew.
-```bash
+```
 brew install grafana
 ```
 * Start grafana as a service
 
-```bash
+```
 brew services start grafana
 ```
 

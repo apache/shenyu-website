@@ -157,6 +157,8 @@ shenyu:
 
 Users need to install `Prometheus` service to collect
 
+### Install Prometheus in windows 
+
 * Choose the corresponding environment [download address](https://prometheus.io/download/) to install
 * Modify configuration file: `prometheus.yml`
 
@@ -173,15 +175,46 @@ Users need to install `Prometheus` service to collect
 
 ![](/img/shenyu/monitor/request-metric-6.png)
 
+### Install Prometheus in the macOS 
+
+* Install prometheus with brew，After installation `prometheus` is in the `Cellar` folder under `homebrew`。
+```bash
+brew install prometheus
+```
+* Execute the following command in the location of the prometheus.yml file to start prometheus。
+```bash
+prometheus --config.file=prometheus.yml &
+```
+Visit `http://localhost:9090/` to verify that it starts normally。
+
+
 ## Panel Display
 
 It is recommended to use `Grafana`, Users can customize the query to personalize the display panel.
 
-Here's how to install and deploy `Grafana for Windows`
+Here's how to install and deploy `Grafana`
+
+### Install Grafana in windows 
 
 * Install Grafana
 
 [download](https://dl.grafana.com/oss/release/grafana-7.4.2.windows-amd64.zip) Unzip it and enter the `bin` directory and `double-click` `grafana-server.exe` to run it. Go to http://localhost:3000/?orgId=1 `admin/admin` to verify the success
+
+### Install Grafana in macOS 
+
+* Install grafana using brew.
+```bash
+brew install grafana
+```
+* Start grafana as a service
+
+```bash
+brew services start grafana
+```
+
+Visit `http://localhost:3000/` to verify that it starts normally.
+
+### View monitoring data with Grafana
 
 * Configure the data source, select prometheus, note that the data source name is prometheus.
 

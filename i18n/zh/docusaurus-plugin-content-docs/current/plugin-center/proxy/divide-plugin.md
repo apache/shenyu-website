@@ -29,10 +29,6 @@ description: divide插件
 * 核心模块 ```shenyu-plugin-divide```
 * 核心类 ```org.apache.shenyu.plugin.divide.DividePlugin```
 
-## 1.5 添加自哪个 shenyu 版本
-
-* 2.3.0
-
 # 2. 如何使用插件
 
 ## 2.1 插件使用流程图
@@ -59,16 +55,16 @@ description: divide插件
 
 ## 2.4 配置插件
 
-### 2.4.1 配置客户端项目，在客户端项目的配置文件中配置
+### 2.4.1 在客户端项目配置文件中配置接入参数
 
-  * 服务和接口注册方式以及注册服务器地址
-  * 客户端配置，包含协议名称以及服务的路由地址
+  * 客户端接入方式和服务器地址，下面的示例使用了 http 接入方式，目前客户端支持的接入的方式有以下几种：http、zookeeper、etcd、nacos、consul，详细的接入配置参数请参考[客户端接入配置](../../user-guide/register-center-access)。
+  * 客户端配置，包含协议名称以及服务的路由地址，这里请使用 http 协议，并且必须配置 contextPath 的值作为每个服务的路由地址。
   
 ```yaml
   shenyu:
     register:
-      registerType: http #zookeeper #etcd #nacos #consul
-      serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+      registerType: http
+      serverLists: http://localhost:9095
       props:
         username: admin
         password: 123456
@@ -80,11 +76,15 @@ description: divide插件
 
 ### 2.4.2 在 shenyu-admin 配置文件中配置 upstream 有效性的检测参数
 
+下面的示例使用了 http 接入方式，目前客户端支持的接入的方式有以下几种：http、zookeeper、etcd、nacos、consul，详细的接入配置参数请参考[客户端接入配置](../../user-guide/register-center-access)。
+
+> 只有 http 类型的注册中心才支持 upstream 检测
+
 ```yaml
   shenyu:
     register:
-      registerType: http #http #zookeeper #etcd #nacos #consul，只有 http 类型的注册中心才支持检测 upstream
-      serverLists: #localhost:2181 #http://localhost:2379 #localhost:8848
+      registerType: http # 只有 http 类型的注册中心才支持检测 upstream
+      serverLists: 
       props:
         checked: true # 默认为 ture，设置为 false，不检测
         zombieCheckTimes: 5 # 僵尸 upstream 最大检测次数，超过 5 次不再检测其有效性，默认为 5

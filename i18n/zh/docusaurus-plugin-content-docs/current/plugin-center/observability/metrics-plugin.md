@@ -154,7 +154,7 @@ shenyu:
 
 用户需部署`Prometheus` 服务来采集
 
-### windows 环境下安装Prometheus
+### Windows 环境下安装Prometheus
 
 * 选择对应环境的 [下载地址](https://prometheus.io/download/) 安装
 * 修改配置文件：`prometheus.yml`
@@ -174,7 +174,7 @@ shenyu:
 
 ![](/img/shenyu/monitor/request-metric-6.png)
 
-### macos 环境下安装Prometheus
+### MacOS 环境下安装Prometheus
 
 * 使用brew 安装 prometheus，安装完成后`prometheus` 在`homebrew`下的 `Cellar` 文件夹中。
 

@@ -54,23 +54,21 @@ shenyu:
 
 | 名称                      | 类型                  |标签名称       | 说明                  |
 |:------------------------ |:--------------------- |:-------------|:-------------------- |
-|shenyu_request_total                  |Counter                | none          |collecting all requests of Apache ShenYu Gateway |
-|shenyu_request_throw_total            |Counter                | none          |collecting all exception requests of Apache ShenYu Gateway |
-|shenyu_request_type_total             |Counter                | path,type     |collecting all matched requests of monitor|
-|shenyu_execute_latency_millis         |histogram              | none          | ShenYu gateway execute time interval                  |
+|shenyu_request_total                  |Counter                | none          | 收集ShenYu网关的所有请求 |
+|shenyu_request_throw_total            |Counter                | none          | 收集ShenYu网关的所有异常请求 |
+|shenyu_request_type_total             |Counter                | path,type     | 收集ShenYu网关监视器的所有匹配请求 |
+|shenyu_execute_latency_millis         |histogram              | none          | 收集ShenYu网关执行时间间隔  |
 
 ### jmx 指标
 
 | name                            | type    | labals | help                                                           |
 |:-------------------------------:|:-------:|:------:|:--------------------------------------------------------------:|
-| jmx_config_reload_success_total | counter |        | Number of times configuration have successfully been reloaded. |
-| jmx_config_reload_failure_total | counter |        | Number of times configuration have failed to be reloaded.      |
-| jmx_scrape_duration_seconds     | gauge   |        | Time this JMX scrape took, in seconds.                         |
-| jmx_scrape_error                | gauge   |        | Non-zero if this scrape failed.                                |
-| jmx_scrape_cached_beans         | gauge   |        | Number of beans with their matching rule cached                |
-| jmx_scrape_duration_seconds     | gauge   |        | Time this JMX scrape took, in seconds.                         |
-| jmx_scrape_error                | gauge   |        | Non-zero if this scrape failed.                                |
-| jmx_scrape_cached_beans         | gauge   |        | Number of beans with their matching rule cached                |
+| jmx_config_reload_success_total | counter |        | 成功重新加载配置的次数.                                          |
+| jmx_config_reload_failure_total | counter |        | 重新加载配置失败的次数.                                          |
+| jmx_scrape_duration_seconds     | gauge   |        | 此 JMX 抓取所用的秒数.                                          |
+| jmx_scrape_error                | gauge   |        | 如果此抓取失败,则非零.                                           |
+| jmx_scrape_cached_beans         | gauge   |        | 有缓存匹配规则的bean的数量                                       |
+| jmx_scrape_duration_seconds     | gauge   |        | 此 JMX 抓取所花费的秒数.                                         |
 
 ### jvm 指标
 
@@ -78,36 +76,36 @@ shenyu:
 
 | name                          | type    | labels | help                                                   |
 |:-----------------------------:|:-------:|:------:|:------------------------------------------------------:|
-| process_cpu_seconds_total     | counter |        | Total user and system CPU time spent in seconds.       |
-| process_start_time_seconds    | gauge   |        | Start time of the process since unix epoch in seconds. |
-| process_open_fds              | gauge   |        | Number of open file descriptors.                       |
-| process_max_fds               | gauge   |        | Maximum number of open file descriptors.               |
-| process_virtual_memory_bytes  | gauge   |        | Virtual memory size in bytes.                          |
-| process_resident_memory_bytes | gauge   |        | Resident memory size in bytes.                         |
+| process_cpu_seconds_total     | counter |        | 用户和系统CPU总计所用的秒数.                             |
+| process_start_time_seconds    | gauge   |        | 自 unix 元年(1970-01-01)以来进程的开始时间.              |
+| process_open_fds              | gauge   |        | 打开的文件描述符的数量.                                  |
+| process_max_fds               | gauge   |        | 打开的文件描述符的最大数量.                              |
+| process_virtual_memory_bytes  | gauge   |        | 虚拟内存的字节数.                                       |
+| process_resident_memory_bytes | gauge   |        | 常驻内存的字节数.                                       |
 
 #### MemoryPoolsExports
 
 | name                                       | type  | labels                 | help                                                              |
 |:------------------------------------------:|:-----:|:----------------------:|:-----------------------------------------------------------------:|
-| jvm_memory_objects_pending_finalization    | gauge | {area="heap\|nonheap"} | The number of objects waiting in the finalizer queue.             |
-| jvm_memory_bytes_used                      | gauge | {area="heap\|nonheap"} | Used bytes of a given JVM memory area.                            |
-| jvm_memory_bytes_committed                 | gauge | {area="heap\|nonheap"} | Committed (bytes) of a given JVM memory area.                     |
-| jvm_memory_bytes_max                       | gauge | {area="heap\|nonheap"} | Max (bytes) of a given JVM memory area.                           |
-| jvm_memory_bytes_init                      | gauge | {area="heap\|nonheap"} | Initial bytes of a given JVM memory area.                         |
-| jvm_memory_pool_bytes_used                 | gauge | {pool}                 | Used bytes of a given JVM memory pool.                            |
-| jvm_memory_pool_bytes_committed            | gauge | {pool}                 | Committed bytes of a given JVM memory pool.                       |
-| jvm_memory_pool_bytes_max                  | gauge | {pool}                 | Max bytes of a given JVM memory pool.                             |
-| jvm_memory_pool_bytes_init                 | gauge | {pool}                 | Initial bytes of a given JVM memory pool.                         |
-| jvm_memory_pool_collection_used_bytes      | gauge | {pool}                 | Used bytes after last collection of a given JVM memory pool.      |
-| jvm_memory_pool_collection_committed_bytes | gauge | {pool}                 | Committed after last collection bytes of a given JVM memory pool. |
-| jvm_memory_pool_collection_max_bytes       | gauge | {pool}                 | Max bytes after last collection of a given JVM memory pool.       |
-| jvm_memory_pool_collection_init_bytes      | gauge | {pool}                 | Initial after last collection bytes of a given JVM memory pool.   |
+| jvm_memory_objects_pending_finalization    | gauge | {area="heap\|nonheap"} | 在终结器队列中等待的对象数.                                         |  
+| jvm_memory_bytes_used                      | gauge | {area="heap\|nonheap"} | 给定 JVM 内存区域的已用字节数.                                      |
+| jvm_memory_bytes_committed                 | gauge | {area="heap\|nonheap"} | 给定 JVM 内存区域的已提交字节数.                                    |
+| jvm_memory_bytes_max                       | gauge | {area="heap\|nonheap"} | 给定 JVM 内存区域的最大字节数.                                      |
+| jvm_memory_bytes_init                      | gauge | {area="heap\|nonheap"} | 给定 JVM 内存区域的初始字节数.                                      |
+| jvm_memory_pool_bytes_used                 | gauge | {pool}                 | 给定 JVM 内存池的已用字节数.                                        |
+| jvm_memory_pool_bytes_committed            | gauge | {pool}                 | 给定 JVM 内存池的已提交字节数.                                      |
+| jvm_memory_pool_bytes_max                  | gauge | {pool}                 | 给定 JVM 内存池的最大字节数.                                        |
+| jvm_memory_pool_bytes_init                 | gauge | {pool}                 | 给定 JVM 内存池的初始字节数.                                        |
+| jvm_memory_pool_collection_used_bytes      | gauge | {pool}                 | 给定 JVM 内存池最后一次 GC 后的已用字节数.                           |
+| jvm_memory_pool_collection_committed_bytes | gauge | {pool}                 | 给定 JVM 内存池的最后一次 GC 后的已提交字节数.                       |
+| jvm_memory_pool_collection_max_bytes       | gauge | {pool}                 | 给定 JVM 内存池的最后一次 GC 后的最大字节数.                         |
+| jvm_memory_pool_collection_init_bytes      | gauge | {pool}                 | 给定 JVM 内存池的最后一次 GC 后的初始字节数.                         |
 
 #### MemoryAllocationExports
 
 | name                                  | type    | labels | help                                                                                       |
 |:-------------------------------------:|:-------:|:------:|:------------------------------------------------------------------------------------------:|
-| jvm_memory_pool_allocated_bytes_total | counter | {pool} | Total bytes allocated in a given JVM memory pool. Only updated after GC, not continuously. |
+| jvm_memory_pool_allocated_bytes_total | counter | {pool} | 给定 JVM 内存池中分配的总字节数.(只有 GC 的时候才会更新)                                      |
 |                                       |         |        |                                                                                            |
 |                                       |         |        |                                                                                            |
 
@@ -115,41 +113,41 @@ shenyu:
 
 | name                           | type  | labels | help                                       |
 |:------------------------------:|:-----:|:------:|:------------------------------------------:|
-| jvm_buffer_pool_used_bytes     | gauge | {pool} | Used bytes of a given JVM buffer pool.     |
-| jvm_buffer_pool_capacity_bytes | gauge | {pool} | Bytes capacity of a given JVM buffer pool. |
-| jvm_buffer_pool_used_buffers   | gauge | {pool} | Used buffers of a given JVM buffer pool.   |
+| jvm_buffer_pool_used_bytes     | gauge | {pool} | 给定 JVM 缓冲池的已用字节数.                 |
+| jvm_buffer_pool_capacity_bytes | gauge | {pool} | 给定 JVM 缓冲池的字节容量.                   |
+| jvm_buffer_pool_used_buffers   | gauge | {pool} | 给定 JVM 缓冲池的已用缓冲区.                 |
 
 #### GarbageCollectorExports
 
 | name                      | type    | labels | help                                                    |
 |:-------------------------:|:-------:|:------:|:-------------------------------------------------------:|
-| jvm_gc_collection_seconds | summary | {gc}   | Time spent in a given JVM garbage collector in seconds. |
+| jvm_gc_collection_seconds | summary | {gc}   | 在给定的 JVM 垃圾收集器中花费的秒数.                       |
 
 #### ThreadExports
 
 | name                           | type    | labels  | help                                                                                                   |
 |:------------------------------:|:-------:|:-------:|:------------------------------------------------------------------------------------------------------:|
-| jvm_threads_current            | gauge   |         | Current thread count of a JVM                                                                          |
-| jvm_threads_daemon             | gauge   |         | Daemon thread count of a JVM                                                                           |
-| jvm_threads_peak               | gauge   |         | Peak thread count of a JVM                                                                             |
-| jvm_threads_started_total      | counter |         | Started thread count of a JVM                                                                          |
-| jvm_threads_deadlocked         | gauge   |         | Cycles of JVM-threads that are in deadlock waiting to acquire object monitors or ownable synchronizers |
-| jvm_threads_deadlocked_monitor | gauge   |         | Cycles of JVM-threads that are in deadlock waiting to acquire object monitors                          |
-| jvm_threads_state              | gauge   | {state} | Current count of threads by state                                                                      |
+| jvm_threads_current            | gauge   |         | JVM 的当前线程数                                                                                        |
+| jvm_threads_daemon             | gauge   |         | JVM 的守护进程线程数                                                                                    |
+| jvm_threads_peak               | gauge   |         | JVM 的峰值线程数                                                                                        |
+| jvm_threads_started_total      | counter |         | JVM 的已启动的线程数                                                                                    |
+| jvm_threads_deadlocked         | gauge   |         | 处于死锁状态的 JVM 线程循环等待获取对象监视器或可拥有的同步器                                               |
+| jvm_threads_deadlocked_monitor | gauge   |         | 处于死锁等待获取对象监视器的 JVM 线程周期                                                                 |
+| jvm_threads_state              | gauge   | {state} | 状态为{state}的线程数                                                                                   |
 
 #### ClassLoadingExports
 
 | name                       | type    | labels | help                                                                                    |
 |:--------------------------:|:-------:|:------:|:---------------------------------------------------------------------------------------:|
-| jvm_classes_loaded         | gauge   |        | The number of classes that are currently loaded in the JVM                              |
-| jvm_classes_loaded_total   | counter |        | The total number of classes that have been loaded since the JVM has started execution   |
-| jvm_classes_unloaded_total | counter |        | The total number of classes that have been unloaded since the JVM has started execution |
+| jvm_classes_loaded         | gauge   |        | 当前在 JVM 中加载的类的数量                                                               |
+| jvm_classes_loaded_total   | counter |        | 自 JVM 开始执行以来已加载的类总数                                                          |
+| jvm_classes_unloaded_total | counter |        | 自 JVM 开始执行以来已卸载的类总数                                                          |
 
 #### VersionInfoExports
 
 | name | type | labels                                                                            | help            |
 |:----:|:----:|:---------------------------------------------------------------------------------:|:---------------:|
-| jvm  | info | {version(java.runtime.version),vendor(java.vm.vendor),runtime(java.runtime.name)} | VM version info |
+| jvm  | info | {version(java.runtime.version),vendor(java.vm.vendor),runtime(java.runtime.name)} | JVM 版本信息     |
 
 
 ## 收集 metrics
@@ -158,7 +156,7 @@ shenyu:
 
 ### windows 环境下安装Prometheus
 
-* 选择对应环境的 [下载地址](https://prometheus.io/download/)安装
+* 选择对应环境的 [下载地址](https://prometheus.io/download/) 安装
 * 修改配置文件：`prometheus.yml`
 
  ```yaml

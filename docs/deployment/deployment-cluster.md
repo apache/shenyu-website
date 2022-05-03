@@ -24,6 +24,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 * config your way of synchronization, go to the `/conf` directory, and modify `shenyu.sync` of configuration in `application.yaml` to `websocket`, `http`, `zookeeper`, `etcd`, `consul` or `nacos`.
 
 * start Apache ShenYu Admin in `bin` directory.
+
 ```
 > windows: start.bat 
 
@@ -31,6 +32,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 ```
 
 ### Start Apache ShenYu Boostrap
+
 * download and unzip `apache-shenyu-incubating-${current.version}-bootstrap-bin.tar.gz` in your Gateway Boostrap server.
 
 * config your synchronization, go to the `/conf` directory, and modify `shenyu.sync` of configuration in `application.yaml` to `websocket`, `http`, `zookeeper`, `etcd`, `consul` or `nacos`, this configuaration must remain the same of `ShenyYu Admin`.
@@ -44,6 +46,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 
 > linux : ./start.sh 
 ```
+
 > After completing these operations, you will deploy `ShenYu Boostrap` Cluster.
 >
 > For example. you will deploy `ShenYu Bootstrap` in `10.1.1.1` and `10.1.1.2` and deploy nginx in `10.1.1.3`.
@@ -74,6 +77,7 @@ server {
 ```
 
 * start nginx.
+
 ```
 > windows: ./nginx.exe
 
@@ -81,5 +85,3 @@ server {
 ```
 
 * verify nginx, looking at your `ShenYu Bootstrap` log or `Nginx` log, Where will the verification request go.
-
-

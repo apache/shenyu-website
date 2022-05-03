@@ -10,6 +10,7 @@ description: 集群部署
 > 在阅读本文档时，你可以先阅读[二进制包部署](./deployment-package.md)。
 
 ### 环境准备
+
 * 至少准备两台已经安装了JDK1.8+的服务器用于部署网关启动器。
 * 准备一台已经安装了mysql、pgsql、h2和JDK1.8+的服务器用于部署网关管理端。
 * 准备一台服务器用于部署Nginx。
@@ -23,6 +24,7 @@ description: 集群部署
 * 配置你的数据同步方式，进入`/conf`目录，在`application.yaml`文件中修改`shenyu.sync`节点为`websocket`, `http`, `zookeeper`, `etcd`, `consul` 或者 `nacos`。
 
 * 进入`bin`目录，启动ShenYu Bootstrap。
+
 ```
 > windows: start.bat 
 
@@ -30,11 +32,13 @@ description: 集群部署
 ```
 
 ### 启动 Apache ShenYu Boostrap
+
 * 在你的网关启动器服务器下载并解压`apache-shenyu-incubating-${current.version}-bootstrap-bin.tar.gz`。
 
 * 配置你的数据同步方式，进入`/conf`目录，在`application.yaml`文件中修改`shenyu.sync`节点为`websocket`, `http`, `zookeeper`, `etcd`, `consul` 或者 `nacos`，这个配置必须与`ShenyYu Admin`的配置保持相同。
 
 * 进入`bin`目录，启动ShenYu Admin。
+
 ```
 > windwos : start.bat 
 
@@ -71,6 +75,7 @@ server {
 ```
 
 * 启动 nginx.
+
 ```
 > windows: ./nginx.exe
 

@@ -1,6 +1,6 @@
 ---
 title: Team
-sidebar_position: 13
+sidebar_position: 0
 description: Apache ShenYu Team
 author: "hutaishi"
 categories: "Apache ShenYu"
@@ -9,6 +9,7 @@ tags: ["Team"]
 
 
 ## Apache ShenYu Team
+
 The project is growing and evolving. This cannot be achieved without the contribution of each and every member and contributor.
 The team always insists on community over code. We are looking forward to more people joining the team and growing together with the community。
 
@@ -28,6 +29,7 @@ The team always insists on community over code. We are looking forward to more p
 
 
 ### PPMC
+
 **the listing below excludes mentors**
 
 | ID                                       |     githubUsername	     | public name                                      |
@@ -56,6 +58,7 @@ The team always insists on community over code. We are looking forward to more p
 
 
 ### Committers
+
 **the listing excludes PPMC members above**
 
 | ID                                        |            githubUsername	            | public name               |

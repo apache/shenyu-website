@@ -1,6 +1,6 @@
 ---
 title: 团队
-sidebar_position: 13
+sidebar_position: 0
 description: Apache ShenYu 团队
 author: "hutaishi"
 categories: "Apache ShenYu"
@@ -9,6 +9,7 @@ tags: ["Team"]
 
 
 ## Apache ShenYu Team 
+
 项目正在不断的发展和壮大，这离不开每一位成员和贡献者的贡献。
 团队始终坚持社区大于代码，我们期待更多的人加入团队，和社区共同成长。
 
@@ -27,6 +28,7 @@ tags: ["Team"]
 
 
 ### 项目管理委员会成员(PPMC)
+
 **下面的列表不包含导师**
 
 | ID                                       |     githubUsername	     | public name                                      |
@@ -55,6 +57,7 @@ tags: ["Team"]
 
 
 ### 提交者(Committers)
+
 **下面的列表不包含导师和项目管理委员会成员**
 
 | ID                                        |            githubUsername	            | public name               |

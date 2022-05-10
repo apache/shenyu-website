@@ -22,6 +22,8 @@ First, introduce the following dependencies in the gateway's `pom.xml` file.
 
 ### Use zookeeper
 
+> Please pay attention! From ShenYu 2.5.0, ShenYu will no longer support Zookeeper 3.4.x or below version. If you're already using Zookeeper, You need to use Zookeeper with a higher version and initialize the data.
+
 Add the following configuration to the gateway's `yml` file:
 
 ```yaml
@@ -33,7 +35,7 @@ instance:
       sessionTimeout: 3000 #Optional, default 3000
       connectionTimeout: 3000 #Optional, default 3000
 ```
- 
+
 ### Use etcd
 
 Add the following configuration to the gateway's `yml` file:

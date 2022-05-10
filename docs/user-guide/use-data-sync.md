@@ -56,8 +56,9 @@ shenyu:
 
 After the connection is established, the data will be fully obtained once, and the subsequent data will be updated and added increments, with good performance. It also supports disconnection (default: `30` seconds). This mode is recommended for data synchronization and is the default data synchronization strategy of ShenYu.
 
-
 ### Zookeeper Synchronization Config
+
+> Please pay attention! From ShenYu 2.5.0, ShenYu will no longer support Zookeeper 3.4.x or below version. If you're already using Zookeeper, You need to use Zookeeper with a higher version and initialize the data.
 
 * `Apache ShenYu` gateway config
 

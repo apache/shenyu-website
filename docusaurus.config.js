@@ -33,6 +33,7 @@ module.exports = {
       logo: {
         alt: 'Apache ShenYu Logo',
         src: 'img/logo.svg',
+        srcDark: 'img/logo-light.svg'
       },
       items: [
         {to: '/download', label: 'Download', position: 'left'},

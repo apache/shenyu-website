@@ -9,7 +9,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
   organizationName: 'apache', // Usually your GitHub org/user name.
   projectName: 'incubator-shenyu', // Usually your repo name.
   i18n: {
@@ -32,7 +32,8 @@ module.exports = {
      // title: 'Apache ShenYu (Incubating)',
       logo: {
         alt: 'Apache ShenYu Logo',
-        src: 'img/logo.png',
+        src: 'img/logo.svg',
+        srcDark: 'img/logo-light.svg'
       },
       items: [
         {to: '/download', label: 'Download', position: 'left'},

@@ -61,14 +61,15 @@ The team always insists on community over code. We are looking forward to more p
 
 **the listing excludes PPMC members above**
 
-| ID                                        |            githubUsername	            | public name               |
-|:------------------------------------------|:-------------------------------------:|:--------------------------|
-| haiboduan                                 |              haibo-duan               | Haibo Duan                |
-| likeguo                                   |                likeguo                | Keguo Li                  |
-| impactcn                                  |               impactCn                | SiYing Zheng              |
-| dayu                                      |               daiwenyu                | WenYu Dai                 |
-| luoxiaolong                               |               lxl910128               | XiaoLong Luo              |
-| alextang                                  |      ttttangzhen	Zhen                 | Zhen Tang                 |
-| zhangzicheng                              |             dragon-zhang              | ZiCheng Zhang             |
+| ID           | githubUsername	  | public name               |
+|:-------------|:----------------:|:--------------------------|
+| haiboduan    |    haibo-duan    | Haibo Duan                |
+| likeguo      |     likeguo      | Keguo Li                  |
+| impactcn     |     impactCn     | SiYing Zheng              |
+| dayu         |     daiwenyu     | WenYu Dai                 |
+| luoxiaolong  |    lxl910128     | XiaoLong Luo              |
+| alextang     | ttttangzhen	Zhen | Zhen Tang                 |
+| zhangzicheng |   dragon-zhang   | ZiCheng Zhang             |
+| hutaishi     |     hutaishi     | TaiShi Hu             |
 
 

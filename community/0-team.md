@@ -55,7 +55,7 @@ The team always insists on community over code. We are looking forward to more p
 | yui                                      |      HessTina-YuI       | Yi Liu                                           |
 | zhangyonglun                             | tuohai666, zhangyonglun | Yonglun Zhang                                    |
 | fengzhenbing                             |      fengzhenbing       | Zhenbing Feng                                    |
-
+| impactcn                                 |     impactCn            | SiYing Zheng                                     |
 
 ### Committers
 
@@ -65,7 +65,6 @@ The team always insists on community over code. We are looking forward to more p
 |:-------------|:----------------:|:--------------------------|
 | haiboduan    |    haibo-duan    | Haibo Duan                |
 | likeguo      |     likeguo      | Keguo Li                  |
-| impactcn     |     impactCn     | SiYing Zheng              |
 | dayu         |     daiwenyu     | WenYu Dai                 |
 | luoxiaolong  |    lxl910128     | XiaoLong Luo              |
 | alextang     | ttttangzhen	Zhen | Zhen Tang                 |

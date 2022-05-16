@@ -558,15 +558,31 @@ Back to [stagingRepositories](https://repository.apache.org/#stagingRepositories
 
 Install [Docker](https://docs.docker.com/get-docker/).
 
+The Docker version needs to be greater than or equal to 19.03, and the `experimental` parameter in the docker configuration file is changed to `true`.
+
 ```shell
 git checkout v${PUBLISH.VERSION}
 cd ~/shenyu/shenyu-dist/
 mvn clean package -Prelease,docker
+
+docker buildx create --name shenyu
+docker buildx use shenyu
 docker login
-docker push apache/shenyu-bootstrap:latest
-docker push apache/shenyu-bootstrap:${RELEASE_VERSION}
-docker push apache/shenyu-admin:latest
-docker push apache/shenyu-admin:${RELEASE_VERSION}
+
+docker buildx build \ 
+  -t apache/shenyu-admin:latest \ 
+  -t apache/shenyu-admin:${PUBLISH.VERSION} \ 
+  --build-arg APP_NAME=apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin \ 
+  --platform=linux/arm64,linux/amd64 \ 
+  -f ./shenyu-admin-dist/Dockerfile --push
+
+docker buildx build \ 
+  -t apache/shenyu-bootstrap:latest \ 
+  -t apache/shenyu-bootstrap:${PUBLISH.VERSION} \ 
+  --build-arg APP_NAME=apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin \ 
+  --platform=linux/arm64,linux/amd64 \ 
+  -f ./shenyu-bootstrap-dist/Dockerfile --push
+  
 ```
 
 Login Docker Hub to verify [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) and [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) exist.

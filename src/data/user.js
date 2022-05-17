@@ -1,6 +1,6 @@
 export default [
     {name:"京东",src:"/img/users/jd_logo.png",link:"https://www.jd.com/"},
-    {name:"腾讯",src:"/img/users/tencent.png",link:"https://tencent.com/"},
+    {name:"腾讯",src:"/img/users/tencent.jpeg",link:"https://tencent.com/"},
     {name:"滴滴出行",src:"/img/users/dd.png",link:"https://www.didiglobal.com/"},
     {name:"欢聚时代",src:"/img/users/yy_logo.png",link:"http://www.huanju.cn/"},
     {name:"米哈游",src:"/img/users/mihayo_logo.png",link:"https://www.mihoyo.com/"},

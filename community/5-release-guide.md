@@ -563,7 +563,7 @@ The Docker version needs to be greater than or equal to 19.03, and the `experime
 ```shell
 git checkout v${PUBLISH.VERSION}
 cd ~/shenyu/shenyu-dist/
-mvn clean package -Prelease,docker
+mvn clean package -Prelease
 
 docker buildx create --name shenyu
 docker buildx use shenyu

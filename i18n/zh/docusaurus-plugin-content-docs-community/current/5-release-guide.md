@@ -563,7 +563,7 @@ Docker版本需要大于等于19.03，docker配置文件中 `experimental` 参�
 ```shell
 git checkout v${PUBLISH.VERSION}
 cd ~/shenyu/shenyu-dist/
-mvn clean package -Prelease,docker
+mvn clean package -Prelease
 
 docker buildx create --name shenyu
 docker buildx use shenyu

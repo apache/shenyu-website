@@ -14,7 +14,7 @@ description: 本地模式
 success
 ```
 
-* 统一请求前缀：`localhost:9095/shenyu`
+* 统一请求前缀：`localhost:9195/shenyu`
 
 * 统一请求头：`localKey: 123456`
 

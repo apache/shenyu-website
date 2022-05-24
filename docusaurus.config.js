@@ -4,7 +4,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Apache ShenYu (Incubating)',
-  tagline: 'High-performance, multi-protocol, extensible, responsive API Gateway',
+  tagline: 'Apache ShenYu (Incubating) - High-performance, multi-protocol, extensible, responsive API Gateway',
   url: 'https://shenyu.apache.org/',
   baseUrl: '/',
   onBrokenLinks: 'log',

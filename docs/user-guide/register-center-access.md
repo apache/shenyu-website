@@ -64,6 +64,8 @@ shenyu:
 
 ### Zookeeper Registry Config
 
+> Please pay attention! From ShenYu 2.5.0, ShenYu will no longer support Zookeeper 3.4.x or below version. If you're already using Zookeeper, You need to use Zookeeper with a higher version and initialize the data.
+
 #### shenyu-admin config
 
 First add the related dependencies to the `pom` file (already added by default) :
@@ -385,6 +387,8 @@ shenyu:
   register:
     registerType: nacos
     serverLists: localhost:8848
+    props:
+      nacosNameSpace: ShenyuRegisterCenter
   client:
     http:
     	props:
@@ -392,8 +396,6 @@ shenyu:
       		appName: http
       		port: 8188  
       		isFull: false
-    props:
-      nacosNameSpace: ShenyuRegisterCenter
 # registerType : register type, set nacos 
 # serverList: when register type is nacos, add nacos address list
 # port: your project port number; apply to springmvc/tars/grpc

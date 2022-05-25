@@ -1,35 +1,125 @@
 ---
 sidebar_position: 14
 title: Context Path插件
-keywords: ["context_path"]
-description: context_path插件
+keywords: ["contextPath"]
+description: contextPath插件
 ---
 
-## 说明
+# 1. 概述
 
-* soul网关在对目标服务调用的时候，还容许用户使用 `context_path` 插件来重写请求路径的contextPath
+## 1.1 插件名称
 
-## 插件设置
+* 上下文路径插件
 
-* 在 `soul-admin` --> 插件管理 --> `context_path` 设置为开启。
-* 在网关的 pom.xml 文件中添加 `context_path` 的支持。
-* 如果用户不需要，可以把插件禁用。
+## 1.2 适用场景
+
+* 不同的服务可以通过设置不同的上下文路径来做服务的流量治理
+
+## 1.3 插件功能
+
+* 设置服务的上下文路径
+* 在接口调用的时候插件统一给服务的接口地址加上前缀
+
+## 1.4 插件代码
+
+* 核心模块 ```shenyu-plugin-context-path```
+* 核心类 ```org.apache.shenyu.plugin.context.path.ContextPathPlugin```
+
+## 1.5 添加自哪个 shenyu 版本
+
+* 2.3.0
+
+# 2. 如何使用插件
+
+## 2.1 插件使用流程图
+
+![](/img/shenyu/plugin/context-path/procedure-cn.png)
+
+## 2.2 导入 pom
+
+- 在网关的 `pom.xml` 文件中添加插件 maven 配置。
 
 ```xml
-  <!-- soul context_path plugin start-->
   <dependency>
-      <groupId>org.dromara</groupId>
-      <artifactId>soul-spring-boot-starter-plugin-context-path</artifactId>
-     <version>${last.version}</version>
+      <groupId>org.apache.shenyu</groupId>
+      <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
+     <version>${project.version}</version>
   </dependency>
-  <!-- soul context_path plugin end-->
-``` 
+```
 
-* 选择器和规则，请详细看：[选择器规则](../admin/selector-and-rule)。
-* 只有匹配的请求，并且配置规则才会进行重写contextPath。
+## 2.3 启用插件
 
-## 场景
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `contextPath` 设置为开启。
 
-* 顾名思义，context_path插件就是对uri的`contextPath`重新定义。
-* 当匹配到请求后，设置自定义的`contextPath`，那么就会根据请求的Url截取自定义的`contextPath`获取真正的Url，例如请求路径为`/soul/http/order`，
-  配置的contextPath为`/soul/http`，那么真正请求的url为`/order`。
+![](/img/shenyu/plugin/context-path/enable-cn.png)
+
+## 2.4 配置插件
+
+- 配置客户端项目的 contextPath
+
+![](/img/shenyu/plugin/context-path/client-project-config.png)
+
+- 选择器和规则设置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
+- shenyu-admin contextPath 插件配置，可以配置 contextPath 和 addPrefix：contextPath 定义了 contextPath 的值，addPrefix 定义了接口调用时需要自动增加的的前缀。
+
+![](/img/shenyu/plugin/context-path/plugin-config-cn.png)
+
+## 2.5 示例
+
+### 2.5.1 示例 设置服务的上下文路径
+
+#### 2.5.1.1 参考[本地部署](https://shenyu.apache.org/zh/docs/deployment/deployment-local)启动 admin 和网关
+
+#### 2.5.1.2 参考 2.2 导入 pom 并重启网关
+
+#### 2.5.1.3 参考 2.3 启用插件
+
+#### 2.5.1.4 客户端项目配置 contextPath
+
+客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)，并在 application.yml 中配置 contextPath。
+
+![](/img/shenyu/plugin/context-path/client-project-config.png)
+
+配置完成后启动，可以看到 shenyu-admin 中多了一条 context 的 selector 和 rule 配置。
+
+![](/img/shenyu/plugin/context-path/context-path-selector-and-rule-cn.png)
+
+#### 2.5.1.5 接口调用
+
+![](/img/shenyu/plugin/context-path/invoke-interface.png)
+
+### 2.5.2 示例 增加前缀
+
+#### 2.5.2.1 参考[本地部署](https://shenyu.apache.org/zh/docs/deployment/deployment-local)启动 admin 和网关
+
+#### 2.5.2.2 参考 2.2 导入 pom 并重启网关
+
+#### 2.5.2.3 参考 2.3 启用插件
+
+#### 2.5.2.4 客户端项目配置 contextPath
+
+客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)，并在 application.yml 中配置 contextPath。
+
+![](/img/shenyu/plugin/context-path/client-project-config.png)
+
+配置完成后启动，可以看到 shenyu-admin 中多了一条 context 的 selector 和 rule 配置。
+
+![](/img/shenyu/plugin/context-path/context-path-selector-and-rule-cn.png)
+
+#### 2.5.2.5 修改 addPrefix 的值
+
+![](/img/shenyu/plugin/context-path/add-prefix-cn.png)
+
+#### 2.5.2.6 修改选择器和条件配置中 uri 的值，删除掉 addPrefix 部分，由于本例使用了 http 协议的服务，因此需要修改 divide 插件。
+
+![](/img/shenyu/plugin/context-path/remove-add-prefix-cn.png)
+
+#### 2.5.2.5 接口调用
+
+![](/img/shenyu/plugin/context-path/invoke-interface-add-prefix.png)
+
+# 3. 如何禁用插件
+
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `contextPath` 设置为禁用。
+
+![](/img/shenyu/plugin/context-path/disable-cn.png)

@@ -558,15 +558,31 @@ svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOU
 
 安装 [Docker](https://docs.docker.com/get-docker/)。
 
+Docker版本需要大于等于19.03，docker配置文件中 `experimental` 参数修改为 `true`。
+
 ```shell
 git checkout v${PUBLISH.VERSION}
 cd ~/shenyu/shenyu-dist/
-mvn clean package -Prelease,docker
+mvn clean package -Prelease
+
+docker buildx create --name shenyu
+docker buildx use shenyu
 docker login
-docker push apache/shenyu-bootstrap:latest
-docker push apache/shenyu-bootstrap:${RELEASE_VERSION}
-docker push apache/shenyu-admin:latest
-docker push apache/shenyu-admin:${RELEASE_VERSION}
+
+docker buildx build \ 
+  -t apache/shenyu-admin:latest \ 
+  -t apache/shenyu-admin:${PUBLISH.VERSION} \ 
+  --build-arg APP_NAME=apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin \ 
+  --platform=linux/arm64,linux/amd64,linux/arm/v6,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x \ 
+  -f ./shenyu-admin-dist/Dockerfile --push
+
+docker buildx build \ 
+  -t apache/shenyu-bootstrap:latest \ 
+  -t apache/shenyu-bootstrap:${PUBLISH.VERSION} \ 
+  --build-arg APP_NAME=apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin \ 
+  --platform=linux/arm64,linux/amd64,linux/arm/v6,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x \ 
+  -f ./shenyu-bootstrap-dist/Dockerfile --push
+  
 ```
 
 登录 Docker Hub 验证 [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) 和 [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 的镜像是否存在。

@@ -21,7 +21,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 **1、按照这个 [Committer 指南](https://community.apache.org/newcommitter.html) 完成投票**
 
-* 如果没有签署过 ICLA，请按照 [ICLA 签署指南](https://shenyu.apache.org/community/icla/) 完成签署
+* 如果没有签署过 ICLA，请按照 [ICLA 签署指南](https://shenyu.apache.org/zh/community/icla/) 完成签署
 
 * 如果曾经签署过 ICLA，请提供如下信息：
 

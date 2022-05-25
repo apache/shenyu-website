@@ -63,6 +63,8 @@ shenyu:
 
 ### Zookeeper方式注册配置
 
+> 请注意，从 ShenYu 2.5.0 起将不再支持 Zookeeper 3.4.x 或更低版本。如果您已经使用了 Zookeeper 3.4.x 或更低的版本，您需要使用更高的 Zookeeper 版本并重新初始化数据。
+
 #### shenyu-admin配置
 
 * 首先在 `pom` 文件中加入相关的依赖（默认已经引入）：

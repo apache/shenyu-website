@@ -70,3 +70,17 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 ## 邮件发送模板
 
 ![](/img/shenyu/icla/email.png)
+
+收件人
+
+```
+secretary@apache.org
+```
+
+模板
+
+```
+Hello Apache Incubator,
+    I am willing donate the ShenYu project to ASF. The attachment is my ICLA information. Github account: https://github.com/xxxx.
+Thanks !
+```

@@ -1,4 +1,6 @@
 export default [
+    {name:"京东",src:"/img/users/jd_logo.png",link:"https://www.jd.com/"},
+    {name:"腾讯",src:"/img/users/tencent.jpeg",link:"https://tencent.com/"},
     {name:"滴滴出行",src:"/img/users/dd.png",link:"https://www.didiglobal.com/"},
     {name:"欢聚时代",src:"/img/users/yy_logo.png",link:"http://www.huanju.cn/"},
     {name:"米哈游",src:"/img/users/mihayo_logo.png",link:"https://www.mihoyo.com/"},
@@ -42,4 +44,5 @@ export default [
     {name:"浙江百应科技",src:"/img/users/by_logo.png",link:"https://www.byai.com/"},
     {name:"ShipOut",src:"/img/users/shipout_logo.png",link:"https://www.ShipOut.com"},
     {name:"驿通科技",src:"/img/users/etcp.png",link:"https://www.etcp.cn"},
-]
+    {name:"铁骑力士集团",src:"/img/users/tql.png",link:"https://www.tqlsgroup.com/"},
+]    

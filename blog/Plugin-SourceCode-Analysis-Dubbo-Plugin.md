@@ -725,7 +725,7 @@ The next step is to analyze how the `dubbo` plugin initiates calls to the `http`
 
 The `dubbo` plugin is the core processing plugin used by the `ShenYu` gateway to convert `http` requests into the `dubbo protocol` and invoke the `dubbo` service.
 
-Take the case provided by the official website [Quick Start with Dubbo](https://shenyu.apache.org/docs/quick-start/quick-start-dubbo/) as an example, a `dubbo` service is registered with `shenyu-admin` through the registry, and then requested through the `ShenYu ` gateway proxy, the request is as follows.
+Take the case provided by the official website [Quick Start with Dubbo](https://shenyu.apache.org/docs/quick-start/quick-start-dubbo/) as an example, a `dubbo` service is registered with `shenyu-admin` through the registry, and then requested through the `ShenYu` gateway proxy, the request is as follows.
 
 
 ```

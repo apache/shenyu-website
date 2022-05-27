@@ -72,7 +72,7 @@ module.exports = {
             },
             {
               label: "Events",
-              to: "https://www.apache.org/events/",
+              to: "https://www.apache.org/events/current-event",
             },
             {
               label: "Security",

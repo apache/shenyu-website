@@ -83,6 +83,10 @@ module.exports = {
               to: "https://www.apache.org/foundation/sponsorship.html",
             },
             {
+              label: "Privacy",
+              to: "https://www.apache.org/foundation/policies/privacy.html",
+            },
+            {
               label: "Thanks",
               to: "https://www.apache.org/foundation/thanks.html",
             },

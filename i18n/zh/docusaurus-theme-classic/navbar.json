@@ -55,6 +55,10 @@
     "message": "Sponsorship",
     "description": "Navbar item with label Sponsorship"
   },
+  "item.label.Privacy": {
+    "message": "Privacy",
+    "description": "Navbar item with label Privacy"
+  },
   "item.label.Thanks": {
     "message": "Thanks",
     "description": "Navbar item with label Thanks"

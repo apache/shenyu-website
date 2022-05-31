@@ -17,7 +17,7 @@ description: 集群部署
 
 ### 启动 Apache ShenYu Admin
 
-* 在你的网关管理端服务器下载并解压[`apache-shenyu-incubating-2.4.1-admin-bin.tar.gz`](https://archive.apache.org/dist/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz) 。
+* 在你的网关管理端服务器下载并解压[apache-shenyu-incubating-2.4.1-admin-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz) 。
 
 * 配置你的数据库，进入`/conf`目录，在`application.yaml`文件中修改`spring.profiles.active`节点为`mysql`, `pg` or `h2`。
 
@@ -33,7 +33,7 @@ description: 集群部署
 
 ### 启动 Apache ShenYu Boostrap
 
-* 在你的网关启动器服务器下载并解压[`apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz`](https://archive.apache.org/dist/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz) 。
+* 在你的网关启动器服务器下载并解压 [apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz) 。
 
 * 配置你的数据同步方式，进入`/conf`目录，在`application.yaml`文件中修改`shenyu.sync`节点为`websocket`, `http`, `zookeeper`, `etcd`, `consul` 或者 `nacos`，这个配置必须与`ShenyYu Admin`的配置保持相同。
 

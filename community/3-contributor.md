@@ -78,9 +78,9 @@ At the same time, you can also participate in the writing of our [blog](../blog)
 
 If you are a student, you are also very welcome to apply for the topic of Apache ShenYu in open source internship activities such as GSoC. You can click the [link](https://community.apache.org/gsoc.html) to view the Apache Software Foundation Introduction to GSoC. You can also check Apache ShenYu's previous or ongoing GSoC issues through this [link](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc)!
 
-### Submit Pull Request
+### Submit Pull Request for the first time
 
-First you need to fork your target repository.
+If you are submitting a Pr for the first time, first you need to Fork the target repository. (If it has been forked, then no fork is required)
 
 ![fork](/img/community/fork.png)
 
@@ -117,6 +117,34 @@ git push origin a-dev-branch
 Then you can initiate a new PR (Pull Request) on GitHub.
 
 Please note that the title of the PR needs to conform to our [spec](../issue-pr), and write the necessary description in the PR to facilitate code review by Committers and other contributors.
+
+### Subsequent Pull Request submission
+
+#### Update master branch code
+
+First, switch to the master branch
+
+```shell
+git checkout master #May also be the main branch
+````
+
+Bind the upstream warehouse (you only need to bind it once), here is the main warehouse of shenyu as an example
+
+```shell
+git remote add upstream https://github.com/apache/incubator-shenyu.git
+````
+
+Pull remote code
+
+```shell
+git pull upstream master
+````
+
+#### New development branch for developing
+
+Then create a new development branch for development, submission and push. The process is the same as submitting Pull Request for the first time.
+
+In order to prevent the confusion of the master branch, it is recommended that the master branch be used to maintain synchronization with the upstream, and not develop and submit code on the master branch.
 
 ### Wait for the code to be merged
 

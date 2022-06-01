@@ -13,7 +13,7 @@ This article introduces how to quick start the `Apache ShenYu` gateway in the st
 
 ### Start Apache ShenYu Bootstrap
 
-* download `apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz`
+* download [apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.2/apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz)
 
 * unzip `apache-shenyu-incubating-2.4.2-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 

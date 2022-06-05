@@ -13,10 +13,11 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 ```yaml
 shenyu:
   netty:
-    tcp:
+    http:
       webServerFactoryEnabled: true
       selectCount: 1
       workerCount: 4
+      accessLog: false
       serverSocketChannel:
         soRcvBuf: 87380
         soBackLog: 128
@@ -25,8 +26,10 @@ shenyu:
         writeBufferHighWaterMark: 65536
         writeBufferLowWaterMark: 32768
         writeSpinCount: 16
-        autoRead: true
+        autoRead: false
         allocType: "pooled"
+        messageSizeEstimator: 8
+        singleEventExecutorPerGroup: true
       socketChannel:
         soKeepAlive: false
         soReuseAddr: false
@@ -40,8 +43,10 @@ shenyu:
         writeBufferHighWaterMark: 65536
         writeBufferLowWaterMark: 32768
         writeSpinCount: 16
-        autoRead: true
+        autoRead: false
         allocType: "pooled"
+        messageSizeEstimator: 8
+        singleEventExecutorPerGroup: true
   instance:
     enabled: false
     registerType: zookeeper #etcd #consul
@@ -151,36 +156,41 @@ shenyu:
 
 `ShenYu` Netty config
 
-|Name                      | Type  |  Default   | Required  | Description                        |
-|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-|webServerFactoryEnabled | Boolean | true | No | Whether to enable custom parameters. True-enable. False-NettyReactiveWebServerFactory Can be configured by yourself. |
-| selectCount | Integer |  1  |    No    | Number of netty selectors. |
-| workerCount | Integer | 4 | No | Number of netty workers. |
-| **ServerSocketChannelConfig** |  |  |  |  |
-| soRcvBuf                      | Integer |  87380  |    No    | Socket config, the size of the socket receive buffer.        |
-| soBackLog                     | Integer |   128   |    No    | Socket config, maximum length of the accept queue.           |
-| soReuseAddr                   | Boolean |  false  |    No    | Socket config, allow reuse of local addresses.               |
-| connectTimeoutMillis          | Integer |  10000  |    No    | Netty config, the connect timeout of the channel in milliseconds. |
-| writeBufferHighWaterMark      | Integer |  65536  |    No    | Netty config, the high water mark of the write buffer.       |
-| writeBufferLowWaterMark       | Integer |  32768  |    No    | Netty config, the low water mark of the write buffer.        |
-| writeSpinCount | Integer | 16 | No | Netty config, the maximum loop count for a write operation. |
-| autoRead | Boolean | true | No | Netty config,  channel read method will be invoked automatically so that a user application doesn't need to call it at all. |
-| allocType                     | String  | pooled  |    No    | Netty config, set the ByteBufAllocator which is used for the channel to allocate buffers. |
-| **SocketChannelConfig** |  |  |  |  |
-| soKeepAlive | Boolean | false | No | Socket config, enable tcp keepalive. |
-| soReuseAddr | Boolean | false | No | Socket config, allow reuse of local addresses. |
-| soLinger | Integer | -1 | No | Socket config, the delay time for closing the socket. |
-| tcpNoDelay | Boolean | true | No | Socket config, enable Nagle algorithm. |
-| soRcvBuf | Integer | 87380 | No | Socket config, the size of the socket receive buffer. |
-| soSndBuf | Integer | 128 | No | Socket config, the size of the socket send buffer. |
-| ipTos | Integer | 0 | No | IP config, the Type of Service (ToS) octet in the Internet Protocol (IP) header. |
-| allowHalfClosure | Boolean | false | No | Netty config, Sets whether the channel should not close itself when its remote peer shuts down output to make the connection half-closed. |
-| connectTimeoutMillis | Integer | 10000 | No | Netty config, the connect timeout of the channel in milliseconds. |
-| writeBufferHighWaterMark | Integer | 65536 | No | Netty config, the high water mark of the write buffer. |
-| writeBufferLowWaterMark | Integer | 32768 | No | Netty config, the low water mark of the write buffer. |
-| writeSpinCount | Integer | 16 | No | Netty config, the maximum loop count for a write operation. |
-| autoRead | Boolean | true | No | Netty config,  channel read method will be invoked automatically so that a user application doesn't need to call it at all. |
-| allocType | String | pooled | No | Netty config, set the ByteBufAllocator which is used for the channel to allocate buffers. |
+| Name                          | Type    | Default | Required | Description                                                                                                                               |
+|:------------------------------|:--------|:-------:|:--------:|:------------------------------------------------------------------------------------------------------------------------------------------|
+| webServerFactoryEnabled       | Boolean |  true   |    No    | Whether to enable custom parameters. True-enable. False-NettyReactiveWebServerFactory Can be configured by yourself.                      |
+| selectCount                   | Integer |    1    |    No    | Number of netty selectors.                                                                                                                |
+| workerCount                   | Integer |    4    |    No    | Number of netty workers.                                                                                                                  |
+| accessLog                     | Boolean |  false  |    No    | netty request parameters.                                                                                                                 |
+| **ServerSocketChannelConfig** |         |         |          |                                                                                                                                           |
+| soRcvBuf                      | Integer |  87380  |    No    | Socket config, the size of the socket receive buffer.                                                                                     |
+| soBackLog                     | Integer |   128   |    No    | Socket config, maximum length of the accept queue.                                                                                        |
+| soReuseAddr                   | Boolean |  false  |    No    | Socket config, allow reuse of local addresses.                                                                                            |
+| connectTimeoutMillis          | Integer |  10000  |    No    | Netty config, the connect timeout of the channel in milliseconds.                                                                         |
+| writeBufferHighWaterMark      | Integer |  65536  |    No    | Netty config, the high water mark of the write buffer.                                                                                    |
+| writeBufferLowWaterMark       | Integer |  32768  |    No    | Netty config, the low water mark of the write buffer.                                                                                     |
+| writeSpinCount                | Integer |   16    |    No    | Netty config, the maximum loop count for a write operation.                                                                               |
+| autoRead                      | Boolean |  true   |    No    | Netty config,  channel read method will be invoked automatically so that a user application doesn't need to call it at all.               |
+| allocType                     | String  | pooled  |    No    | Netty config, set the ByteBufAllocator which is used for the channel to allocate buffers.                                                 |
+| messageSizeEstimator          | Integer |    8    |    No    | Netty config, message size estimator, estimate ByteBuf,ByteBufHolder and FileRegion size.                                                 |
+| singleEventExecutorPerGroup   | Boolean |  true   |    No    | Netty config, single thread execute the event of ChannelPipeline.                                                                         |
+| **SocketChannelConfig**       |         |         |          |                                                                                                                                           |
+| soKeepAlive                   | Boolean |  false  |    No    | Socket config, enable tcp keepalive.                                                                                                      |
+| soReuseAddr                   | Boolean |  false  |    No    | Socket config, allow reuse of local addresses.                                                                                            |
+| soLinger                      | Integer |   -1    |    No    | Socket config, the delay time for closing the socket.                                                                                     |
+| tcpNoDelay                    | Boolean |  true   |    No    | Socket config, enable Nagle algorithm.                                                                                                    |
+| soRcvBuf                      | Integer |  87380  |    No    | Socket config, the size of the socket receive buffer.                                                                                     |
+| soSndBuf                      | Integer |   128   |    No    | Socket config, the size of the socket send buffer.                                                                                        |
+| ipTos                         | Integer |    0    |    No    | IP config, the Type of Service (ToS) octet in the Internet Protocol (IP) header.                                                          |
+| allowHalfClosure              | Boolean |  false  |    No    | Netty config, Sets whether the channel should not close itself when its remote peer shuts down output to make the connection half-closed. |
+| connectTimeoutMillis          | Integer |  10000  |    No    | Netty config, the connect timeout of the channel in milliseconds.                                                                         |
+| writeBufferHighWaterMark      | Integer |  65536  |    No    | Netty config, the high water mark of the write buffer.                                                                                    |
+| writeBufferLowWaterMark       | Integer |  32768  |    No    | Netty config, the low water mark of the write buffer.                                                                                     |
+| writeSpinCount                | Integer |   16    |    No    | Netty config, the maximum loop count for a write operation.                                                                               |
+| autoRead                      | Boolean |  true   |    No    | Netty config,  channel read method will be invoked automatically so that a user application doesn't need to call it at all.               |
+| allocType                     | String  | pooled  |    No    | Netty config, set the ByteBufAllocator which is used for the channel to allocate buffers.                                                 |
+| messageSizeEstimator          | Integer |    8    |    No    | Netty config, message size estimator, estimate ByteBuf,ByteBufHolder and FileRegion size.                                                 |
+| singleEventExecutorPerGroup   | Boolean |  true   |    No    | Netty config, single thread execute the event of ChannelPipeline.                                                                         |
 
 ##### shenyu.instance config
 

@@ -13,7 +13,7 @@ Before deploying the `Shenyu-admin` project, initialize the database it uses (da
 
 ### Mysql
 
-In [the mysql initialization scripts directory](https://github.com/apache/incubator-shenyu/tree/master/db/init/mysql) found in the initialization script ` schema.sql`, Use the client connection tool to connect to your Mysql service and execute, so you get a database named `shenyu`, which can later be used as the database for the `Shenyu-admin` project.
+In [the mysql initialization scripts directory](https://github.com/apache/incubator-shenyu/tree/master/db/init/mysql) found in the initialization script `schema.sql`, Use the client connection tool to connect to your Mysql service and execute, so you get a database named `shenyu`, which can later be used as the database for the `Shenyu-admin` project.
 
 ### PostgreSql
 

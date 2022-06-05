@@ -5,9 +5,9 @@ keywords: ["Gateway Cluster Enviroment", "Cluster Enviroment"]
 description: Cluster Delopyment
 ---
 
-This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment.
-
 > Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+
+This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment.
 
 > In this part, you can see  [ShenYu Binary Packages Deployment](./deployment-package.md) before deploying.
 

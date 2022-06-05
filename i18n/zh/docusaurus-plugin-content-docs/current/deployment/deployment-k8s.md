@@ -5,10 +5,9 @@ keywords: ["k8s"]
 description: k8s部署
 ---
 
-本文介绍使用 `k8s` 来部署 `Apache ShenYu` 网关。
-
 > 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署`shenyu`前的环境准备工作.
 
+本文介绍使用 `k8s` 来部署 `Apache ShenYu` 网关。
 
 > 目录
 >

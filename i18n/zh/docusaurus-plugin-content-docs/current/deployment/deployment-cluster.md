@@ -5,7 +5,9 @@ keywords: ["网关集群", "集群部署"]
 description: 集群部署
 ---
 
-文本是介绍在集群环境中快速部署`ShenYu`网关。
+> 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署`shenyu`前的环境准备工作.
+
+本文是介绍在集群环境中快速部署`ShenYu`网关。
 
 > 在阅读本文档时，你可以先阅读[二进制包部署](./deployment-package.md)。
 

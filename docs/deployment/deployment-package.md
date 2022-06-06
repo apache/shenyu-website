@@ -7,6 +7,7 @@ description: Binary Packages Deployment
 
 This article introduces the deployment of the `Apache ShenYu` gateway using the binary packages.
 
+> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
 
 ### Start Apache ShenYu Admin
 

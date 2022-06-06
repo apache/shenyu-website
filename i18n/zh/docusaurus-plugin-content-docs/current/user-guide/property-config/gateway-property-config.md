@@ -13,10 +13,11 @@ description: 网关属性配置
 ```yaml
 shenyu:
   netty:
-    tcp:
+    http:
       webServerFactoryEnabled: true
       selectCount: 1
       workerCount: 4
+      accessLog: false
       serverSocketChannel:
         soRcvBuf: 87380
         soBackLog: 128
@@ -25,8 +26,10 @@ shenyu:
         writeBufferHighWaterMark: 65536
         writeBufferLowWaterMark: 32768
         writeSpinCount: 16
-        autoRead: true
+        autoRead: false
         allocType: "pooled"
+        messageSizeEstimator: 8
+        singleEventExecutorPerGroup: true
       socketChannel:
         soKeepAlive: false
         soReuseAddr: false
@@ -40,8 +43,10 @@ shenyu:
         writeBufferHighWaterMark: 65536
         writeBufferLowWaterMark: 32768
         writeSpinCount: 16
-        autoRead: true
+        autoRead: false
         allocType: "pooled"
+        messageSizeEstimator: 8
+        singleEventExecutorPerGroup: true
   instance:
     enabled: false
     registerType: zookeeper #etcd #consul
@@ -151,36 +156,41 @@ shenyu:
 
 `ShenYu` Netty 配置
 
-|Name                      | Type  |  Default   | Required  | Description                        |
-|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-|webServerFactoryEnabled | Boolean | true | No | 是否开启自定义参数，true-开启，false-可以自行配置NettyReactiveWebServerFactory |
-| selectCount | Integer |  1  |    No    | Netty 选择器数 |
-| workerCount | Integer | 4 | No | Netty 工作线程数 |
-| **ServerSocketChannelConfig** |  |  |  |  |
-| soRcvBuf              | Integer | 87380 | No | Socket参数，TCP数据接收缓冲区大小 |
-| soBackLog            | Integer | 128 | No | Socket参数，服务端接受连接的队列长度 |
-| soReuseAddr | Boolean | false | No | Socket 参数，是否复用地址 |
-| connectTimeoutMillis | Integer | 10000 | No | Netty 参数，连接超时时间 |
-| writeBufferHighWaterMark | Integer | 65536 | No | Netty 参数，通道水位线上限 |
-| writeBufferLowWaterMark | Integer | 32768 | No | Netty 参数，通道水位线下限 |
-| writeSpinCount                | Integer |   16    |    No    | Netty参数，一个Loop写操作执行的最大次数         |
-| autoRead                      | Boolean |  true   |    No    | Netty参数，自动读取                             |
-| allocType                     | String  | pooled  |    No    | Netty参数，ByteBuf的分配器 |
-| **SocketChannelConfig** |  |  |  |  |
-| soKeepAlive | Boolean | false | No | Socket 参数，是否启用心跳保活机制 |
-| soReuseAddr | Boolean | false | No | Socket 参数，是否复用地址 |
-| soLinger | Integer | -1 | No | Socket 参数，关闭 Socket 的延迟时间 |
-| tcpNoDelay | Boolean | true | No | Socket 参数，是否启用 Nagle 算法 |
-| soRcvBuf | Integer | 87380 | No | Socket参数，TCP数据接收缓冲区大小 |
-| soSndBuf | Integer | 128 | No |  |
-| ipTos | Integer | 0 | No | IP参数，设置IP头部的Type-of-Service字段，用于描述IP包的优先级和QoS选项 |
-| allowHalfClosure | Boolean | false | No | Netty参数，一个连接的远端关闭时本地端是否关闭 |
-| connectTimeoutMillis | Integer | 10000 | No | Netty 参数，连接超时时间 |
-| writeBufferHighWaterMark | Integer | 65536 | No | Netty 参数，通道水位线上限 |
-| writeBufferLowWaterMark | Integer | 32768 | No | Netty 参数，通道水位线下限 |
-| writeSpinCount | Integer | 16 | No | Netty参数，一个Loop写操作执行的最大次数 |
-| autoRead | Boolean | true | No | Netty参数，自动读取 |
-| allocType | String | pooled | No | Netty参数，ByteBuf的分配器 |
+| Name                          | Type  | Default | Required | Description                                                 |
+|:------------------------------|:----- |:-------:|:--------:|:------------------------------------------------------------|
+| webServerFactoryEnabled       | Boolean |  true   |    No    | 是否开启自定义参数，true-开启，false-可以自行配置NettyReactiveWebServerFactory |
+| selectCount                   | Integer |    1    |    No    | Netty 选择器数                                                  |
+| workerCount                   | Integer |    4    |    No    | Netty 工作线程数                                                 |
+| accessLog                     | Boolean |  false  |    No    | netty request parameters.                                   |
+| **ServerSocketChannelConfig** |  |         |          |                                                             |
+| soRcvBuf                      | Integer |  87380  |    No    | Socket参数，TCP数据接收缓冲区大小                                       |
+| soBackLog                     | Integer |   128   |    No    | Socket参数，服务端接受连接的队列长度                                       |
+| soReuseAddr                   | Boolean |  false  |    No    | Socket 参数，是否复用地址                                            |
+| connectTimeoutMillis          | Integer |  10000  |    No    | Netty 参数，连接超时时间                                             |
+| writeBufferHighWaterMark      | Integer |  65536  |    No    | Netty 参数，通道水位线上限                                            |
+| writeBufferLowWaterMark       | Integer |  32768  |    No    | Netty 参数，通道水位线下限                                            |
+| writeSpinCount                | Integer |   16    |    No    | Netty参数，一个Loop写操作执行的最大次数                                    |
+| autoRead                      | Boolean |  true   |    No    | Netty参数，自动读取                                                |
+| allocType                     | String  | pooled  |    No    | Netty参数，ByteBuf的分配器                                         |
+| messageSizeEstimator          | Integer |    8    |    No    | Netty参数, 消息大小估算器, 用于估算ByteBuf,ByteBufHolder和FileRegion大小    |
+| singleEventExecutorPerGroup   | Boolean |  true   |    No    | Netty参数, 单线程执行ChannelPipeline中的事件                           |
+| **SocketChannelConfig**       |  |         |          |                                                             |
+| soKeepAlive                   | Boolean |  false  |    No    | Socket 参数，是否启用心跳保活机制                                        |
+| soReuseAddr                   | Boolean |  false  |    No    | Socket 参数，是否复用地址                                            |
+| soLinger                      | Integer |   -1    |    No    | Socket 参数，关闭 Socket 的延迟时间                                   |
+| tcpNoDelay                    | Boolean |  true   |    No    | Socket 参数，是否启用 Nagle 算法                                     |
+| soRcvBuf                      | Integer |  87380  |    No    | Socket参数，TCP数据接收缓冲区大小                                       |
+| soSndBuf                      | Integer |   128   |    No    |                                                             |
+| ipTos                         | Integer |    0    |    No    | IP参数，设置IP头部的Type-of-Service字段，用于描述IP包的优先级和QoS选项             |
+| allowHalfClosure              | Boolean |  false  |    No    | Netty参数，一个连接的远端关闭时本地端是否关闭                                   |
+| connectTimeoutMillis          | Integer |  10000  |    No    | Netty 参数，连接超时时间                                             |
+| writeBufferHighWaterMark      | Integer |  65536  |    No    | Netty 参数，通道水位线上限                                            |
+| writeBufferLowWaterMark       | Integer |  32768  |    No    | Netty 参数，通道水位线下限                                            |
+| writeSpinCount                | Integer |   16    |    No    | Netty参数，一个Loop写操作执行的最大次数                                    |
+| autoRead                      | Boolean |  true   |    No    | Netty参数，自动读取                                                |
+| allocType                     | String | pooled  |    No    | Netty参数，ByteBuf的分配器                                         |
+| messageSizeEstimator          | Integer |    8    |    No    | Netty参数, 消息大小估算器, 用于估算ByteBuf,ByteBufHolder和FileRegion大小    |
+| singleEventExecutorPerGroup   | Boolean |  true   |    No    | Netty参数, 单线程执行ChannelPipeline中的事件                           |
 
 ##### shenyu.instance 配置
 

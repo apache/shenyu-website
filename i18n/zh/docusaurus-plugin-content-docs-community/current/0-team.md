@@ -62,12 +62,12 @@ tags: ["Team"]
 
 **下面的列表不包含导师和项目管理委员会成员**
 
-| ID          | githubUsername	 | public name  |
-|:------------|:---------------:|:-------------|
-| sixh        |                 | Bin Chen     |
-| haiboduan   |   haibo-duan    | Haibo Duan   |
-| gaohan      |                 | Han Gao      |
-| hutaishi    |    hutaishi     | TaiShi Hu    |
-| dayu        |    daiwenyu     | WenYu Dai    |
-| luoxiaolong |    lxl910128    | XiaoLong Luo |
-| alextang    |   ttttangzhe    | Zhen Tang    |
+| ID          | githubUsername | public name  |
+| :---------- | :------------: | :----------- |
+| sixh        |     prFor      | Bin Chen     |
+| haiboduan   |   haibo-duan   | Haibo Duan   |
+| gaohan      |     hgaol      | Han Gao      |
+| hutaishi    |    hutaishi    | TaiShi Hu    |
+| dayu        |    daiwenyu    | WenYu Dai    |
+| luoxiaolong |   lxl910128    | XiaoLong Luo |
+| alextang    |   ttttangzhe   | Zhen Tang    |

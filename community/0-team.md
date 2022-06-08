@@ -63,12 +63,12 @@ The team always insists on community over code. We are looking forward to more p
 
 **the listing excludes PPMC members above**
 
-| ID          | githubUsername	 | public name  |
-|:------------|:---------------:|:-------------|
-| sixh        |                 | Bin Chen     |
-| haiboduan   |   haibo-duan    | Haibo Duan   |
-| gaohan      |                 | Han Gao      |
-| hutaishi    |    hutaishi     | TaiShi Hu    |
-| dayu        |    daiwenyu     | WenYu Dai    |
-| luoxiaolong |    lxl910128    | XiaoLong Luo |
-| alextang    |   ttttangzhe    | Zhen Tang    |
+| ID          | githubUsername | public name  |
+| :---------- | :------------: | :----------- |
+| sixh        |     prFor      | Bin Chen     |
+| haiboduan   |   haibo-duan   | Haibo Duan   |
+| gaohan      |     hgaol      | Han Gao      |
+| hutaishi    |    hutaishi    | TaiShi Hu    |
+| dayu        |    daiwenyu    | WenYu Dai    |
+| luoxiaolong |   lxl910128    | XiaoLong Luo |
+| alextang    |   ttttangzhe   | Zhen Tang    |

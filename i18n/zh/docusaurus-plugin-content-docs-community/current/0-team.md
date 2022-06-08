@@ -31,8 +31,8 @@ tags: ["Team"]
 
 **下面的列表不包含导师**
 
-| ID            |     githubUsername	     | public name    |
-|:--------------|:-----------------------:|:---------------|
+| ID            |     githubUsername      | public name    |
+| :------------ | :---------------------: | :------------- |
 | xiaoyu        |        yu199195         | Xiao Yu        |
 | asxing        |         asxing          | Asxing         |
 | qicz          |          qicz           | Congqi Zhu     |
@@ -44,10 +44,10 @@ tags: ["Team"]
 | sabersola     |        SaberSola        | Lei Zhang      |
 | midnight2104  |      midnight2104       | Liang Liu      |
 | dengliming    |       dengliming        | Liming Deng    |
-| zjntgao       |        Meng Gao         |                |
+| zjntgao       |                         | Meng Gao       |
 | kevinclair    |       KevinClair        | MingJie Song   |
 | nicholasjiang |       SteNicholas       | Nicholas Jiang |
-| impactcn	     |        impactCn         | SiYing Zheng   |
+| impactcn      |        impactCn         | SiYing Zheng   |
 | tydhot        |         tydhot          | Tang Yudong    |
 | fightingting  |      fightingting       | TingTing Wang  |
 | lw1243925457  |      lw1243925457       | Wei Liu        |

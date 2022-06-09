@@ -118,6 +118,15 @@ module.exports = {
       style: 'dark',
       links: [
         {
+          title: 'Events',
+          items: [
+            {
+              label: 'ApacheCon',
+              href: 'https://www.apachecon.com',
+            },
+          ],
+        },
+        {
           title: 'ShenYu',
           items: [
             {

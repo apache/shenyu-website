@@ -23,9 +23,13 @@ curl -O https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-
 sh ./install.sh #默认拉取最新配置，如果需要部署已发布版本，可增加一个参数表示版本号，比如：v2.4.2 或 latest
 ```
 
+### 初始化`shenyu-admin`存储数据源
+
+参考[数据库初始文档](./deployment-before.md#数据库环境准备) 初始化数据库环境 。
+
 ### 修改配置文件
 
-可以修改脚本下载的配置文件。
+修改脚本下载的配置文件来设置`JDBC`等配置。
 
 ### 执行 docker-compose
 

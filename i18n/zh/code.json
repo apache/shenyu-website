@@ -1,10 +1,6 @@
 {
   "homepage.hero.title": {
-    "message": "高性能，多协议，易扩展，响应式的API网关",
-    "description": "Home page hero title, can contain simple html tags"
-  },
-  "homepage.hero.desc": {
-    "message": "兼容各种主流框架体系，支持热插拔，用户可以定制化开发，满足用户各种场景的现状和未来需求，经历过大规模场景的锤炼",
+    "message": "易扩展，热插拔，动态的全生命周期JAVA API 网关",
     "description": "Home page hero title, can contain simple html tags"
   },
   "Get Started": {

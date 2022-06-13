@@ -36,25 +36,13 @@ function Home() {
                     __html: translate({
                       id: "homepage.hero.title",
                       message:
-                        "High-performance,<b>multi-protocol</b>,extensible,<b>responsive</b> API Gateway",
+                        "Easily scalable,<b>Hot-swappable</b>, dynamic full lifecycle JAVA API Gateway",
                       description:
                         "Home page hero title, can contain simple html tags",
                     }),
                   }}
                 />
               </h3>
-              <span
-                className={styles.heroDesc}
-                dangerouslySetInnerHTML={{
-                  __html: translate({
-                    id: "homepage.hero.desc",
-                    message:
-                      "Compatible with a variety of mainstream framework systems, support hot plug, users can customize the development, meet the current situation and future needs of users in a variety of scenarios, experienced the temper of large-scale scenes",
-                    description:
-                      "Home page hero title, can contain simple html tags",
-                  }),
-                }}
-              />
               <div className={styles.indexCtas}>
                 <Link className="button button--primary" to="/docs/index">
                   <Translate>Get Started</Translate>

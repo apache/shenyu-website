@@ -36,7 +36,7 @@ function Home() {
                     __html: translate({
                       id: "homepage.hero.title",
                       message:
-                        "Easily scalable,<b>Hot-swappable</b>, dynamic full lifecycle JAVA API Gateway",
+                        "<b> dynamic full lifecycle </b> JAVA API gateway with <b> easy scalability </b> and <b> hot-pluggble </b> features.",
                       description:
                         "Home page hero title, can contain simple html tags",
                     }),

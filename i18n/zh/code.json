@@ -1,6 +1,6 @@
 {
   "homepage.hero.title": {
-    "message": "易扩展，热插拔，动态的全生命周期JAVA API 网关",
+    "message": "动态的全生命周期的JAVA API网关，具有易于扩展和热插拔的特点。",
     "description": "Home page hero title, can contain simple html tags"
   },
   "Get Started": {

@@ -1,6 +1,6 @@
 ---
 title: 创建 Git 仓库
-sidebar_position: 11
+sidebar_position: 12
 description: 创建 Git 仓库
 cover: "/img/architecture/shenyu-framework.png"
 ---

@@ -1,6 +1,6 @@
 ---
 title: Sign ICLA Guide
-sidebar_position: 7
+sidebar_position: 4
 description: Sign ICLA Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"

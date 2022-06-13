@@ -41,6 +41,7 @@ When you become a committer, you will have an apache email. This tutorial uses a
 You should have an email from `root@apache.org` like this in your mailbox:
 * Titled `Welcome to the Apache Software Foundation`
 * The content is as follows
+  
     ```text
     Dear YYYY,
 
@@ -50,6 +51,7 @@ You should have an email from `root@apache.org` like this in your mailbox:
   
     ......
     ```
+  
 * Apparently your Apache email is `xxxx@apache.org`
 
 3. add apache email

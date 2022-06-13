@@ -41,6 +41,7 @@ date: 2022-06-13
 你的邮箱里应该有这样一封来自`root@apache.org`的邮件：
 * 标题为`Welcome to the Apache Software Foundation`
 * 内容如下
+  
     ```text
     Dear YYYY,
 
@@ -50,6 +51,7 @@ date: 2022-06-13
   
     ......
     ```
+  
 * 显然你的Apache邮箱为`xxxx@apache.org`
 
 3. 添加Apache邮箱

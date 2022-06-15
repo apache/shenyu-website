@@ -1,6 +1,6 @@
 ---
 title: Community
-sidebar_position: 10
+sidebar_position: 11
 description: QR Code
 author: "xiaoyu"
 categories: "Apache ShenYu"

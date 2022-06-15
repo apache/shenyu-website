@@ -1,6 +1,6 @@
 ---
 title: Committer
-sidebar_position: 4
+sidebar_position: 5
 description: Apache ShenYu Committer's Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"

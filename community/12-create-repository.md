@@ -1,6 +1,6 @@
 ---
 title: Create Git repository
-sidebar_position: 11
+sidebar_position: 12
 description: Create Git repository
 cover: "/img/architecture/shenyu-framework.png"
 ---

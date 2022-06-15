@@ -14,13 +14,7 @@ When you become a committer, you will have an apache email. This tutorial uses a
 
 **1、Build a VPN**
 
-* for macos：https://github.com/yanue/V2rayU/releases
-
-* for windows：https://github.com/2dust/v2rayN/releases
-
-* import VPN nodes：https://github.com/freefq/free
-
-**2、Find an available VPN node (recommended to use the US one)**
+**2、Find an available VPN node (recommended to use the US node)**
 
 **3、login to gmail**
 
@@ -57,9 +51,3 @@ You should have an email from `root@apache.org` like this in your mailbox:
 3. add apache email
 
 ![](/img/email/add-apache-email.png)
-
-![](/img/email/add-email-step1.png)
-
-![](/img/email/add-email-step2.png)
-
-![](/img/email/add-email-step3.png)

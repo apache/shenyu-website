@@ -14,12 +14,6 @@ date: 2022-06-13
 
 **1、搭建VPN**
 
-* mac版工具：https://github.com/yanue/V2rayU/releases
-
-* windows版工具：https://github.com/2dust/v2rayN/releases
-
-* 导入节点：https://github.com/freefq/free
-
 **2、找一个可用的VPN节点(建议找美国的)**
 
 **3、登录gmail**
@@ -57,9 +51,3 @@ date: 2022-06-13
 3. 添加Apache邮箱
 
 ![](/img/email/add-apache-email.png)
-
-![](/img/email/add-email-step1.png)
-
-![](/img/email/add-email-step2.png)
-
-![](/img/email/add-email-step3.png)

@@ -1,0 +1,57 @@
+.top{
+    height: 140px;
+    line-height: 140px;
+    text-align: center;
+    font-size: 28px;
+    color: var(--ifm-color-primary);
+}
+
+.content{
+    background-color: #F2F4F7;
+}
+
+.newsList{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cardItem{
+    margin: 5px;
+    display: flex;
+    height: 200px;
+    width: 800px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.cardItem :hover{
+    cursor:pointer;
+}
+
+.cardInfo{
+    margin: 20px 30px 20px 30px;
+    width: 500px;
+}
+
+.cardDate{
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+.cardTitle{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cardDesc{
+    font-size: 14px;
+    font-weight: bold;
+    color: #475467;
+
+}
+
+.cardImage{
+    margin: 20px 30px 20px 0px;
+}

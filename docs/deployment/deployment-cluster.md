@@ -65,10 +65,9 @@ upstream shenyu_gateway_cluster {
   server 10.1.1.1:9195 max_fails=3 fail_timeout=10s weight=50;
   server 10.1.1.2:9195 max_fails=3 fail_timeout=10s weight=50;
 }
-```
 
-```conf
 server {
+  listen 9195;
   location / {
 		proxy_pass http://shenyu_gateway_cluster;
 		proxy_set_header HOST $host;

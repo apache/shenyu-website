@@ -1,7 +1,7 @@
 {
   "version.label": {
-    "message": "2.3.0",
-    "description": "The label for version 2.3.0"
+    "message": "2.3.0(Legacy)",
+    "description": "The label for version 2.3.0(Legacy)"
   },
   "sidebar.tutorialSidebar.category.Design": {
     "message": "设计文档",

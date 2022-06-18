@@ -49,4 +49,18 @@ instance:
       etcdTTL: 5 #可选，默认5
 ```
 
+### 使用consul
+
+在网关的 `yml` 文件中添加如下配置：
+
+```yaml
+instance:
+    enabled: true
+    registerType: consul
+    serverLists: localhost:8848 #配置成你的 consul 地址，集群环境请使用（,）分隔。
+    props:
+      consulTimeout: 3000 #可选，默认3000
+      consulTTL: 3000 #可选，默认3000
+```
+
 > 配置完成后，启动网关，就会成功注册到相应注册中心。

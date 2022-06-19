@@ -8,28 +8,35 @@ description: JWT plugin
 # 1. Overview
 
 ## 1.1 Plugin Name
+
 * `jwt` plugin
 
 ## 1.2 Appropriate Scenario
+
 * Requires unified authentication by jwt at the gateway.
 
 
 ## 1.3 Plugin functionality
+
 * The `jwt` plug-in is for the `token` attribute or `authorization` of the http request header to carry the attribute value for authentication judgment and judge `OAuth2.0` .
 
 ## 1.4 Plugin code
-* Core module is ```shenyu-plugin-jwt```.
-* * Core class is ```org.apache.shenyu.plugin.jwt.JwtPlugin```.
+
+* Core module is `shenyu-plugin-jwt`.
+* Core class is `org.apache.shenyu.plugin.jwt.JwtPlugin`.
 
 ## 1.5 Added Since Which shenyu version
+
 * Since ShenYu 2.4.0
 
 # 2.How to use plugin
 
 ## 2.1 Plugin-use procedure chart
+
 ![](/img/shenyu/plugin/logging/logging-console/loggingConsole-use-en.png)
 
 ## 2.2 Import pom
+
 ```xml
 <dependency>
     <groupId>org.apache.shenyu</groupId>
@@ -39,6 +46,7 @@ description: JWT plugin
 ```
 
 ## 2.3 Enable plugin
+
 - In shenyu-admin --> BasicConfig --> Plugin --> jwt set Status enable.
 
 ## 2.4 Config plugin
@@ -111,6 +119,7 @@ public final class JwtPluginTest {
 ```
 
 #### 2.5.1.6 Request Service
+
 ##### 2.5.1.6.1 Request service with token
 
 * request your service with jwt token `token: eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoieGlhb21pbmciLCJpZCI6IjEifQ.LdRzGlB49alhq204chwF7pf3C0z8ZpuowPvoQdJmSRw` in your request header.
@@ -120,14 +129,18 @@ public final class JwtPluginTest {
 * request your service with Authorization `Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoieGlhb21pbmciLCJpZCI6IjEifQ.LdRzGlB49alhq204chwF7pf3C0z8ZpuowPvoQdJmSRw` in your request header.
 
 #### 2.5.1.7 Validate request result
+
 * error token request result
+
 ```
 {
   "code": 401,
   "message": "Illegal authorization"
 }
 ```
+
 * normal token request result
+
 ```
 {
   "id": "123",

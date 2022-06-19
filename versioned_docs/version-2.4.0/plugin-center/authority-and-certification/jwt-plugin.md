@@ -5,47 +5,138 @@ keywords: ["JWT"]
 description: JWT plugin
 ----------------------
 
-## Description
+# 1. Overview
 
+## 1.1 Plugin Name
+* `jwt` plugin
+
+## 1.2 Appropriate Scenario
+* Requires unified authentication by jwt at the gateway.
+
+
+## 1.3 Plugin functionality
 * The `jwt` plug-in is for the `token` attribute or `authorization` of the http request header to carry the attribute value for authentication judgment and judge `OAuth2.0` .
 
-## Plugin Setting
+## 1.4 Plugin code
+* Core module is ```shenyu-plugin-jwt```.
+* * Core class is ```org.apache.shenyu.plugin.jwt.JwtPlugin```.
 
-Please refer to the `deployment` document, choose a way to start `shenyu-admin`. For example, through [Local Deployment](../../deployment/deployment-local) to start the `Apache ShenYu` management system .
+## 1.5 Added Since Which shenyu version
+* Since ShenYu 2.4.0
 
-* In `shenyu-admin` BasicConfig --> plugin -> `jwt` set to enable. If you don't want to use this function, please disable this plugin in the `shenyu-admin`.
+# 2.How to use plugin
 
-  <img src="/img/shenyu/plugin/jwt/jwt_open_en.jpg" width="80%" height="80%" />
+## 2.1 Plugin-use procedure chart
+![](/img/shenyu/plugin/logging/logging-console/loggingConsole-use-en.png)
 
-* Add configuration mode in plugin editing.
-
-  * `{"secretKey":"","filterPath":[]}`
-
-  * `secretKey`: The private key when using `jwt` to generate `token`, it is required.
-
-  * `filterPath`：Authentication whitelist list, fill in the API path of the request interface.
-
-  * e.g. `http://127.0.0.1:8080/cloud/shenyu` , filterPath just add `/cloud/shenyu`.
-
-## Plugin Use
-
-* Add support for `jwt` in the `pom.xml` file of the gateway.
-
+## 2.2 Import pom
 ```xml
-  <!-- apache shenyu jwt plugin start-->
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-jwt</artifactId>
-      <version>${project.version}</version>
-  </dependency>
-  <!-- apache shenyu jwt plugin end-->
-  
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-jwt</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
-* For more instructions on selector and rule configuration, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule).
+## 2.3 Enable plugin
+- In shenyu-admin --> BasicConfig --> Plugin --> jwt set Status enable.
 
-## Situation
+## 2.4 Config plugin
 
-* Requires unified authentication at the gateway.
+### 2.4.1 Config plugin in ShenYu-Admin
 
+* Config secretKey of jwt-plugin in shenyu-admin, the secretKey must more than 256 bit.
+* `secretKey`: The private key when using `jwt` to generate `token`, it is required.
 
+![](/img/shenyu/plugin/jwt/jwt-plugin-config-en.jpg)
+
+### 2.4.2 Selector config
+
+* Selector and rule Config. Please refer: [Selector and rule config](../../user-guide/admin-usage/selector-and-rule.md).
+
+### 2.4.3 Rule Config
+
+![](/img/shenyu/plugin/jwt/jwt-plugin-rule-handle-en.jpg)
+
+* convert means jwt converter
+* jwtVal: jwt of body name
+* headerVal: jwt header name
+
+## 2.5 Examples
+
+### 2.5.1 Use jwt token for authentication judgment
+
+#### 2.5.1.1 Config jwt-plugin
+
+![](/img/shenyu/plugin/jwt/jwt-plugin-config-en.jpg)
+
+#### 2.5.1.2 Config selector match service
+
+![](/img/shenyu/plugin/jwt/jwt-plugin-selector-config-en.jpg)
+
+#### 2.5.1.3 Config rule match service
+
+![](/img/shenyu/plugin/jwt/jwt-plugin-rule-handle-en.jpg)
+
+#### 2.5.1.4 Generate json web token(jwt) with website
+
+* You can open `https://jwt.io/` in your browser and fill in the corresponding parameters.
+* Config jwt header `HEADER` in `https://jwt.io/`
+* Config jwt body `PAYLOAD` in `https://jwt.io/` 
+* Config jwt signature `VERIFY SIGNATURE` in `https://jwt.io/`
+
+![](/img/shenyu/plugin/jwt/jwt-web.jpg)
+
+#### 2.5.1.5 Generate json web token(jwt) with java code
+
+```java
+public final class JwtPluginTest {
+    
+  public void generateJwtCode() {
+    final String secreteKey = "shenyu-test-shenyu-test-shenyu-test";
+    Map<String, String> map = new HashMap<>();
+    map.put("id", "1");
+    map.put("name", "xiaoming");
+    Date date = new Date();
+    date.setTime(1655524800000L);
+    String token = Jwts.builder()
+            .setIssuedAt(date)
+            .setExpiration(new Date())
+            .setClaims(map)
+            .signWith(Keys.hmacShaKeyFor(secreteKey.getBytes(StandardCharsets.UTF_8)), SignatureAlgorithm.HS256)
+            .compact();
+    System.out.println(token);
+  }
+}
+```
+
+#### 2.5.1.6 Request Service
+##### 2.5.1.6.1 Request service with token
+
+* request your service with jwt token `token: eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoieGlhb21pbmciLCJpZCI6IjEifQ.LdRzGlB49alhq204chwF7pf3C0z8ZpuowPvoQdJmSRw` in your request header.
+
+##### 2.5.1.6.2 Request service Authorization
+
+* request your service with Authorization `Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoieGlhb21pbmciLCJpZCI6IjEifQ.LdRzGlB49alhq204chwF7pf3C0z8ZpuowPvoQdJmSRw` in your request header.
+
+#### 2.5.1.7 Validate request result
+* error token request result
+```json
+{
+  "code": 401,
+  "message": "Illegal authorization"
+}
+```
+* normal token request result
+```json
+{
+  "id": "123",
+  "name": "hello world save order"
+}
+```
+
+# 3. How to disable plugin
+
+- In `shenyu-admin` --> BasicConfig --> Plugin --> `jwt` set Status disable.
+
+![](/img/shenyu/plugin/jwt/jwt-plugin-close_en.jpg)

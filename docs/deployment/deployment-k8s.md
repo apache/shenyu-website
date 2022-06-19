@@ -284,7 +284,7 @@ data:
             org.apache.shenyu.lottery: info
             org.apache.shenyu: info
   application-mysql.yml: |
-    spring.datasource.url: jdbc:mysql://mysql.shenyu.svc.cluster.local:3306/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    spring.datasource.url: jdbc:mysql://mysql.shenyu.svc.cluster.local:3306/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
     spring.datasource.username: {your_mysql_user}
     spring.datasource.password: {your_mysql_password}
 ```

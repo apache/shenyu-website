@@ -121,14 +121,14 @@ public final class JwtPluginTest {
 
 #### 2.5.1.7 Validate request result
 * error token request result
-```json
+```
 {
   "code": 401,
   "message": "Illegal authorization"
 }
 ```
 * normal token request result
-```json
+```
 {
   "id": "123",
   "name": "hello world save order"

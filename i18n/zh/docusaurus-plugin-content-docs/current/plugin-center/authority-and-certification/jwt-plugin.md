@@ -4,6 +4,7 @@ title: JWT插件
 keywords: ["JWT"]
 description: JWT插件
 ----------------
+
 # 1.概述
 
 ## 1.1 插件名称
@@ -53,7 +54,7 @@ description: JWT插件
 ### 2.4.1 Config plugin in ShenYu-Admin
 
 * 在ShenYu-Admin配置jwt插件的私钥，该私钥必须大于256位 。
-* `secretKey`: 该私钥为使用jwt时生成token，并且他是必须的。
+* `secretKey` : 该私钥为使用jwt时生成token，并且他是必须的。
 
 ![](/img/shenyu/plugin/jwt/jwt-plugin-config-zh.jpg)
 

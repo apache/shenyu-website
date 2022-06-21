@@ -1,6 +1,6 @@
 {
   "homepage.hero.title": {
-    "message": "动态的全生命周期的JAVA API网关，具有易于扩展和热插拔的特点。",
+    "message": "Java 原生API网关,用于服务代理、协议转换和API治理",
     "description": "Home page hero title, can contain simple html tags"
   },
   "Get Started": {

@@ -25,6 +25,8 @@ description: 集群部署
 
 * 配置你的数据同步方式，进入`/conf`目录，在`application.yaml`文件中修改`shenyu.sync`节点为`websocket`, `http`, `zookeeper`, `etcd`, `consul` 或者 `nacos`。
 
+* 添加数据库驱动包，如使用`MySQL`进行持久化，将 mysql-connector.jar 拷贝到`ext-lib`目录。
+
 * 进入`bin`目录，启动ShenYu Admin。
 
 ```

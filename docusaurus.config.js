@@ -4,12 +4,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Apache ShenYu (Incubating)',
-  tagline: 'High-performance, multi-protocol, extensible, responsive API Gateway',
+  tagline: 'Apache ShenYu (Incubating) - High-performance, multi-protocol, extensible, responsive API Gateway',
   url: 'https://shenyu.apache.org/',
   baseUrl: '/',
   onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
   organizationName: 'apache', // Usually your GitHub org/user name.
   projectName: 'incubator-shenyu', // Usually your repo name.
   i18n: {
@@ -32,7 +32,8 @@ module.exports = {
      // title: 'Apache ShenYu (Incubating)',
       logo: {
         alt: 'Apache ShenYu Logo',
-        src: 'img/logo.png',
+        src: 'img/logo.svg',
+        srcDark: 'img/logo-light.svg'
       },
       items: [
         {to: '/download', label: 'Download', position: 'left'},
@@ -71,7 +72,7 @@ module.exports = {
             },
             {
               label: "Events",
-              to: "https://www.apache.org/events/",
+              to: "https://www.apache.org/events/current-event",
             },
             {
               label: "Security",
@@ -80,6 +81,10 @@ module.exports = {
             {
               label: "Sponsorship",
               to: "https://www.apache.org/foundation/sponsorship.html",
+            },
+            {
+              label: "Privacy",
+              to: "https://www.apache.org/foundation/policies/privacy.html",
             },
             {
               label: "Thanks",
@@ -112,6 +117,15 @@ module.exports = {
     footer: {
       style: 'dark',
       links: [
+        {
+          title: 'Events',
+          items: [
+            {
+              label: 'ApacheCon',
+              href: 'https://www.apachecon.com',
+            },
+          ],
+        },
         {
           title: 'ShenYu',
           items: [

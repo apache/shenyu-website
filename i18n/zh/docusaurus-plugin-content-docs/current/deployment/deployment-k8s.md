@@ -5,8 +5,9 @@ keywords: ["k8s"]
 description: k8s部署
 ---
 
-本文介绍使用 `k8s` 来部署 `Apache ShenYu` 网关。
+> 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署`shenyu`前的环境准备工作.
 
+本文介绍使用 `k8s` 来部署 `Apache ShenYu` 网关。
 
 > 目录
 >
@@ -283,7 +284,7 @@ data:
             org.apache.shenyu.lottery: info
             org.apache.shenyu: info
   application-mysql.yml: |
-    spring.datasource.url: jdbc:mysql://mysql.shenyu.svc.cluster.local:3306/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    spring.datasource.url: jdbc:mysql://mysql.shenyu.svc.cluster.local:3306/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
     spring.datasource.username: {your_mysql_user}
     spring.datasource.password: {your_mysql_password}
 ```

@@ -4,7 +4,7 @@ keywords: ["register center"]
 description: Register Instance
 ---
 
-This document will introduce how to register the gateway instance to the registry. The `Apache ShenYu` gateway currently supports registration to `zookeeper` and `etcd`.
+This document will introduce how to register the gateway instance to the registry. The `Apache ShenYu` gateway currently supports registration to `zookeeper` , `etcd` and `consul`.
 
 ### Add Maven dependency
 
@@ -22,6 +22,8 @@ First, introduce the following dependencies in the gateway's `pom.xml` file.
 
 ### Use zookeeper
 
+> Please pay attention! From ShenYu 2.5.0, ShenYu will no longer support Zookeeper 3.4.x or below version. If you're already using Zookeeper, You need to use Zookeeper with a higher version and initialize the data.
+
 Add the following configuration to the gateway's `yml` file:
 
 ```yaml
@@ -33,7 +35,7 @@ instance:
       sessionTimeout: 3000 #Optional, default 3000
       connectionTimeout: 3000 #Optional, default 3000
 ```
- 
+
 ### Use etcd
 
 Add the following configuration to the gateway's `yml` file:
@@ -46,6 +48,20 @@ instance:
     props:
       etcdTimeout: 3000 #Optional, default 3000
       etcdTTL: 5 #Optional, default 5
+```
+
+### Use consul
+
+Add the following configuration to the gateway's `yml` file:
+
+```yaml
+instance:
+    enabled: true
+    registerType: consul
+    serverLists: localhost:8848 #config with your consul address, used by the cluster environment, separated with (,).
+    props:
+      consulTimeout: 3000 #Optional, default 3000
+      consulTTL: 3000 #Optional, default 3000
 ```
 
 > After the configuration is complete, start the gateway and it will successfully register to the corresponding registration center.

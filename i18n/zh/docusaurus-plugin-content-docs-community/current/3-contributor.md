@@ -78,9 +78,9 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 如果您是学生，那么也非常欢迎在 GSoC 等开源实习活动中申请 Apache ShenYu 的议题，您可以点击 [链接](https://community.apache.org/gsoc.html) 来查看 Apache 软件基金会对 GSoC 的介绍。您也可以通过这个 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc) 来查看 Apache ShenYu 往年或者正在进行中的 GSoC 议题！
 
-### 提交Pull Request
+### 第一次提交 Pull Request
 
-首先您需要 Fork 目标仓库。
+如果您是第一次提交 Pr，首先您需要 Fork 目标仓库。（如果已经 Fork 则不需要再 Fork）
 
 ![fork](/img/community/fork.png)
 
@@ -117,6 +117,34 @@ git push origin a-dev-branch
 然后您就可以在 GitHub 上发起新的 PR (Pull Request)。
 
 请注意 PR 的标题需要符合我们的[规范](../issue-pr)，并且在 PR 中写上必要的说明，来方便 Committer 和其他贡献者进行代码审查。
+
+### 后续提交 Pull Request
+
+#### 更新主分支代码
+
+首先，切换到主分支
+
+```shell
+git checkout master #也可能是main分支
+```
+
+绑定上游仓库（只需要绑定一次），这里以 shenyu 的主仓库为例
+
+```shell
+git remote add upstream https://github.com/apache/incubator-shenyu.git
+```
+
+拉取远程代码
+
+```shell
+git pull upstream master
+```
+
+#### 新建开发分支，进行开发
+
+接着新建开发分支进行开发、提交和推送，流程与第一次提交 Pull Request 一样。
+
+为了防止 master 分支混乱，建议 master 分支用于保持跟上游的同步，不在 master 分支进行开发、提交代码。
 
 ### 等待代码被合并
 

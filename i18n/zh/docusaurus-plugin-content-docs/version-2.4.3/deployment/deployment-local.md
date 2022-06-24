@@ -7,6 +7,8 @@ description: 本地部署
 
 本文介绍本地环境启动 `Apache ShenYu` 网关。
 
+> 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署`shenyu`前的环境准备工作. 
+
 ### 环境准备
 
 * 本地正确安装JDK1.8+
@@ -26,11 +28,13 @@ description: 本地部署
 
 * 使用开发工具启动 `org.apache.shenyu.admin.ShenyuAdminBootstrap`，访问 http://localhost:9095 ， 默认用户名和密码分别为: `admin` 和 `123456`。
 
-  * 如果使用`h2`来存储，设置变量 `--spring.profiles.active = h2`
+  * 如果使用`h2`来存储，设置变量 `--spring.profiles.active = h2` 启动服务。
 
-  * 如果使用`MySQL`来存储，修改 `application.yaml` 中的 `mysql` 配置。
+  * 如果使用`MySQL`来存储，需按照 [指引文档](./deployment-before.md#mysql) 初始化数据库和修改 `application-mysql.yml` 中的 `jdbc` 相关配置，再设置变量 `--spring.profiles.active = mysql` 启动服务。
 
-  * 如果使用`PostgreSql`来存储，修改 `application.yaml` 中的 `spring.profiles.active` 配置为 `pg`。
+  * 如果使用`PostgreSql`来存储，需按照 [指引文档](./deployment-before.md#postgresql) 初始化数据库和修改 `application-pg.yml` 中的 `jdbc` 相关配置，再设置变量 `--spring.profiles.active = pg` 启动服务。
+
+  * 如果使用`Oracle`来存储，需按照 [指引文档](./deployment-before.md#oracle) 初始化数据库和修改 `application-oracle.yml` 中的 `jdbc` 相关配置，再设置变量 `--spring.profiles.active = oracle` 启动服务。
 
 * 使用开发工具启动 `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`。
 

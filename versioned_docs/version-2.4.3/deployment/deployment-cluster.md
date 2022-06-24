@@ -5,6 +5,8 @@ keywords: ["Gateway Cluster Enviroment", "Cluster Enviroment"]
 description: Cluster Delopyment
 ---
 
+> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+
 This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment.
 
 > In this part, you can see  [ShenYu Binary Packages Deployment](./deployment-package.md) before deploying.
@@ -17,7 +19,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 
 ### Start Apache ShenYu Admin
 
-* download and unzip `apache-shenyu-incubating-${current.version}-admin-bin.tar.gz` in your Gateway Admin server.
+* download and unzip [apache-shenyu-incubating-2.4.3-admin-bin.tar.gz](https://dlcdn.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-admin-bin.tar.gz) in your Gateway Admin server.
 
 * config your database, go to the `/conf` directory, and  modify `spring.profiles.active` of the configuration in `application.yaml` to `mysql`, `pg` or `h2`.
 
@@ -33,7 +35,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 
 ### Start Apache ShenYu Boostrap
 
-* download and unzip `apache-shenyu-incubating-${current.version}-bootstrap-bin.tar.gz` in your Gateway Boostrap server.
+* download and unzip [apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz) in your Gateway Boostrap server.
 
 * config your synchronization, go to the `/conf` directory, and modify `shenyu.sync` of configuration in `application.yaml` to `websocket`, `http`, `zookeeper`, `etcd`, `consul` or `nacos`, this configuaration must remain the same of `ShenyYu Admin`.
 

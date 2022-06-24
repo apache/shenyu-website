@@ -40,11 +40,12 @@ mvn protobuf:compile //编译消息对象
 mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 ```
 
-或者，如果你是通过 `IntelliJ IDEA` 打开 `Apache ShenYu` 工程，你可以在 `Maven` 工具栏中选中 `protobuf:compile` 和 `protobuf:compile-custom`，然后右键 `Run Maven Build` 一键生成 `proto` 文件对应的 `java`代码。
-
-
+或者，如果你是通过 `IntelliJ IDEA` 打开 `Apache ShenYu` 工程，首先在`maven root`下`install`整个项目
+<img src="/img/shenyu/quick-start/grpc/gen-install.png" width="40%" height="50%" />
+然后在 `Maven` 工具栏中选中 `protobuf:compile` 和 `protobuf:compile-custom`，然后右键 `Run Maven Build` 一键生成 `proto` 文件对应的 `java`代码。
 <img src="/img/shenyu/quick-start/grpc/gen-proto.png" width="40%" height="50%" />
-
+然后让`idea`识别生成的`target`文件夹
+<img src="/img/shenyu/quick-start/grpc/grpc-target.png" width="40%" height="50%" />
 
 运行 `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` 中的 `main` 方法启动项目。
 

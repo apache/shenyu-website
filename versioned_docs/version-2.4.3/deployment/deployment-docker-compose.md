@@ -7,6 +7,8 @@ description: Docker-compose Deployment
 
 This article introduces the use of `docker-compose` to deploy the `Apache ShenYu` gateway.
 
+> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+
 ### Download shell script
 
 ```shell
@@ -21,9 +23,13 @@ This script will download the required configuration files and mysql-connector, 
 sh ./install.sh #The latest configuration is pulled by default. If you need to deploy the released version, you can add a parameter to indicate the version number, such as: v2.4.2 or latest
 ```
 
+### Initialize the `shenyu-admin` database
+
+Refer to the [database initialization documentation](./deployment-before.md#database-initialize) to initialize the database.
+
 ### Modify the configuration file
 
-The configuration file downloaded by the script can be modified.
+Modify the configuration file downloaded by the script to set up configurations such as `JDBC`.
 
 ### Execute docker-compose
 

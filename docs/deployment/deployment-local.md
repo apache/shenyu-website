@@ -7,6 +7,8 @@ description: Local Deployment
 
 This article introduces how to start the `Apache ShenYu` gateway in the local environment.
 
+> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+
 ### Environmental preparation
 
 * Install JDK1.8+ locally
@@ -26,11 +28,13 @@ This article introduces how to start the `Apache ShenYu` gateway in the local en
 
 * use the development tool to start `org.apache.shenyu.admin.ShenyuAdminBootstrap`，Visit http://localhost:9095, the default username and password are: `admin` and `123456` respectively.
 
-  * If you use `h2` to store, set the variable `--spring.profiles.active = h2`.
+  * If you use `h2` for storage, set the variable `--spring.profiles.active = h2` and start the server.
 
-  * If you use `MySQL` for storage, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) to /$(your_work_dir)/ext-lib, and modify the `mysql` configuration in `application.yaml`.
-  
-  * If you use `PostgreSql` for storage, modify the `pg` of `spring.profiles.active` configuration in `application.yaml`.
+  * If you use `MySQL` for storage, follow the [guide document](./deployment-before.md#mysql) to initialize the database and modify the `JDBC` configuration in `application-mysql.yml`, set the variable `--spring.profiles.active = mysql` and start the server.
+
+  * If you use `PostgreSql` for storage, follow the [guide document](./deployment-before.md#postgresql) to initialize the database and modify the `JDBC` configuration in `application-pg.yml`, set the variable `--spring.profiles.active = pg` and start the server.
+
+  * If you use `Oracle` for storage, follow the [guide document](./deployment-before.md#oracle) to initialize the database and modify the `JDBC` configuration in `application-oracle.yml`, set the variable `--spring.profiles.active = oracle`.
 
 * use the development tool to start `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`.
 

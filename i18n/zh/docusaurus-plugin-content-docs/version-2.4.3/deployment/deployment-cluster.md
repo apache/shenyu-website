@@ -37,7 +37,8 @@ description: 集群部署
 
 * 在你的网关启动器服务器下载并解压[apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz) 。
 
-* 配置你的数据同步方式，进入`/conf`目录，在`application.yaml`文件中修改`shenyu.sync`节点为`websocket`, `http`, `zookeeper`, `etcd`, `consul` 或者 `nacos`，这个配置必须与`ShenyYu Admin`的配置保持相同。
+* 配置你的数据同步方式，进入`/conf`目录，在`application.yaml`文件中修改`shenyu.sync`节点为`websocket`, `http`, `zookeeper`, `etcd`, `consul` 或者 `nacos`，这个配置必须与`ShenyYu Admin`的配置保持相同。<br/>
+ **注：** 若设置nacos配置中心作为数据同步方式，需在ext-lib文件夹下引入 `shenyu-spring-boot-starter-sync-data-nacos.jar` `shenyu-sync-data-nacos.jar`
 
 * 进入`bin`目录，启动ShenYu Bootstrap。
 

@@ -4,6 +4,7 @@
     text-align: center;
     font-size: 28px;
     color: var(--ifm-color-primary);
+    font-weight: bold;
 }
 
 .content{
@@ -12,6 +13,7 @@
 
 .newsList{
     padding-top: 30px;
+    padding-bottom: 30px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -20,8 +22,9 @@
 .cardItem{
     margin: 5px;
     display: flex;
-    height: 200px;
-    width: 800px;
+    height: auto;
+    min-height: 200px;
+    width: 50%;
     background-color: #FFFFFF;
     border-radius: 10px;
 }
@@ -32,7 +35,7 @@
 
 .cardInfo{
     margin: 20px 30px 20px 30px;
-    width: 500px;
+    width: 70%;
 }
 
 .cardDate{
@@ -49,9 +52,11 @@
     font-size: 14px;
     font-weight: bold;
     color: #475467;
-
 }
 
 .cardImage{
-    margin: 20px 30px 20px 0px;
+    margin: 20px 0px 20px 30px;
+    /* height: auto;
+    max-height: 180px; */
+    width: 210px;
 }

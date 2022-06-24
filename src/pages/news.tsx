@@ -13,12 +13,13 @@ function News() {
         <div className={styles.newsList}>
           {newsInfo.map((newsItem, i) => {
             return (
-              <div key={i} className={styles.cardItem} onClick={() => window.location.href = 'https://shenyu.apache.org/news/' + newsItem.src}>
+              <div key={i} className={styles.cardItem} >
                 <img className={styles.cardImage} src={newsItem.cover} alt={'Apache Shenyu'} ></img>
                 <div className={styles.cardInfo}>
                   <div className={styles.cardDate}>{newsItem.date}</div>
                   <div className={styles.cardTitle}>{newsItem.title}</div>
                   <div className={styles.cardDesc}>{newsItem.description}</div>
+                  <button className={styles.readMore} onClick={() => window.location.href = 'https://shenyu.apache.org/news/' + newsItem.src}> >>Read More </button>
                 </div>
               </div>
             )

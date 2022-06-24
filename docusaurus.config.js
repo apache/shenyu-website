@@ -273,7 +273,7 @@ module.exports = {
         id: "news",
         routeBasePath: "news",
         path: "news",
-        blogSidebarCount:'ALL',
+        blogSidebarCount:0,
       },
     ],
   ]

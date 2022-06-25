@@ -28,7 +28,6 @@ function prepare {
 function generate_pdf {
     localDir="source"
     cp .github/scripts/Makefile .
-    mkdir -p ./public/pdf
     for lang in en zh
     do
         mkdir -p $localDir/img
@@ -62,7 +61,7 @@ function generate_pdf {
         python .github/scripts/generate-pdf.py
         make latexpdf
         mkdir -p pdf
-        cp _build/latex/*.pdf ./public/pdf/apache_$1_docs_$lang.pdf
+        cp _build/latex/*.pdf ./pdf/apache_$1_docs_$lang.pdf
         echo "apache_$1_docs_$lang.pdf"
         make clean
         rm -rf {_build,source}

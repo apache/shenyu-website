@@ -69,6 +69,6 @@ pgp apache-shenyu-********.asc
 
 `Apache ShenYu` 提供了打包下载的文档 `PDF` ，供使用者、开发者查阅。
 
-* [中文](/pdf/apache_shenyu_docs_zh.pdf)
+* [中文](https://shenyu.apache.org/pdf/apache_shenyu_docs_zh.pdf)
 
-* [English](/pdf/apache_shenyu_docs_en.pdf)
+* [English](https://shenyu.apache.org/pdf/apache_shenyu_docs_en.pdf)

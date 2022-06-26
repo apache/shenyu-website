@@ -6,10 +6,10 @@ function prepare {
     sudo apt-get install texlive-xetex latex-cjk-all
     sudo apt-get install pandoc
     sudo apt install dos2unix
-    wget https://github.com/adobe-fonts/source-han-sans/blob/c25f87e9cbaff422081e09f665bb7222d95fc6ff/OTF/SourceHanSansSC.zip
-    wget https://github.com/adobe-fonts/source-han-serif/blob/11f5ed33a61971e175f68df52ebd5951013ba643/OTF/SourceHanSerifSC_SB-H.zip
-    wget https://github.com/adobe-fonts/source-han-serif/blob/11f5ed33a61971e175f68df52ebd5951013ba643/OTF/SourceHanSerifSC_EL-M.zip
-    unzip SourceHanSansSC.zip -d SourceHanSansSC
+    wget https://github.com/wweir/source-han-sans-sc/archive/refs/heads/master.zip
+    wget https://github.com/adobe-fonts/source-han-serif/raw/11f5ed33a61971e175f68df52ebd5951013ba643/OTF/SourceHanSerifSC_SB-H.zip
+    wget https://github.com/adobe-fonts/source-han-serif/raw/11f5ed33a61971e175f68df52ebd5951013ba643/OTF/SourceHanSerifSC_EL-M.zip
+    unzip master.zip -d SourceHanSansSC
     unzip SourceHanSerifSC_EL-M.zip -d SourceHanSerifSC_EL-M
     unzip SourceHanSerifSC_SB-H.zip -d SourceHanSerifSC_SB-H
     sudo mv SourceHanSansSC SourceHanSerifSC_EL-M SourceHanSerifSC_SB-H /usr/share/fonts/opentype/
@@ -68,5 +68,5 @@ function generate_pdf {
     done
 }
 
-prepare
+#prepare
 generate_pdf "shenyu"

@@ -69,5 +69,5 @@ pgp apache-shenyu-********.asc
 
 `Apache ShenYu (incubating)` provides a packaged and downloaded `PDF` of the docs for users and developers to use.
 
-* [English](/pdf/apache_shenyu_docs_en.pdf)
+* [English](https://shenyu.apache.org/pdf/apache_shenyu_docs_en.pdf)
 

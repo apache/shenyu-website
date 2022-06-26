@@ -11,18 +11,34 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v2
+      -
+        name: Checkout Code
+        uses: actions/checkout@v2
         with:
           submodules: recursive
-      - name: Setup Node
+      - 
+        name: Setup Node
         uses: actions/setup-node@v2.4.0
         with:
           node-version: "16"
-      - name: Setup Dependencies
+      - 
+        name: Setup Dependencies
         run: yarn install
-      - name: Build Site
+      -
+        name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      -
+        name: Generate PDF
+        run: |
+          bash .github/scripts/generate-pdf.sh
+          cp -r pdf/ static/
+      - 
+        name: Build Site
         run: yarn build
-      - name: Deploy
+      - 
+        name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:

@@ -147,46 +147,6 @@ class Folder(Document):
             ] + docs_name)
 
 
-class TopDocument:
-    def __init__(self, path: str) -> None:
-        self.path = path
-        self.sections: List[Document] = []
-        self.documents: List[str] = []
-
-        files_name: List[str] = os.listdir(self.path)
-        files_full_name = [os.path.join(self.path, file_name) for file_name in files_name]
-        for full_name in files_full_name:
-            if os.path.isdir(full_name):
-                section = Folder(full_name)
-                self.sections.append(section)
-        
-
-class DocGenerator:
-    """
-    DocGenerator consists of several tools about document generation.
-    """
-
-    @classmethod
-    def getDocStructure(cls, root_path: str) -> Document:
-        """
-        Now document complies with a rule:
-            docs/
-                - chapter1/_category_.json
-                    - section1/_category_.json
-                        - md files
-                    - md files
-                - chapter2/_category_.json
-                    - md files
-        document is identical to Document
-        Dict: str(file name) -> TextIOWrapper(file descriptor)
-        """
-        os.walk()
-
-    @classmethod
-    def createFileIndexRst(cls, fin: TextIOWrapper):
-        fin.name
-
-
 doc = Folder("docs")
 print(json.dumps(doc.dumps(), indent=2))
 doc.writeIndexRst()

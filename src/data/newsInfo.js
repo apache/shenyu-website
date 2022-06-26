@@ -6,7 +6,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2022-04-20',
-        cover: "/static/img/logo.svg",
+        cover: "/img/logo.svg",
         src:'Apache-ShenYu-Committer-2022-04-20',
     },
     {
@@ -16,7 +16,7 @@ export default [
         categories: "Apache ShenYu",
         tags: ["Apache ShenYu"],
         date: '2022-04-18',
-        cover: "/static/img/news/helm-ci-pipeline.png",
+        cover: "/img/news/helm-ci-pipeline.png",
         src:'Apache-ShenYu-release-version-2.4.3',
     },
     {
@@ -26,7 +26,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: "2021-12-08",
-        cover: "/static/img/logo.svg",
+        cover: "/img/logo.svg",
         src:"Apache-ShenYu-Committer-2021-12-08",
     },
     {
@@ -36,7 +36,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2021-11-11',
-        cover: "/static/img/logo.svg",
+        cover: "/img/logo.svg",
         src:'Apache-ShenYu-Committer-2021-11-11',
     },
     {
@@ -46,7 +46,7 @@ export default [
         categories: "Apache ShenYu PPMC",
         tags: ["Apache ShenYu"],
         date: "2021-11-05",
-        cover: "/static/img/logo.svg",
+        cover: "/img/logo.svg",
         src:'Apache-ShenYu-PPMC-2021-11-05',
     },
     {
@@ -76,7 +76,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2021-09-08',
-        cover: "/static/img/logo.svg",
+        cover: "/img/logo.svg",
         src:'Apache-ShenYu-Committer-2021-07-27',
     },
     {
@@ -86,7 +86,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: "2021-02-28",
-        cover: "/static/img/logo.svg",
+        cover: "/img/logo.svg",
         src:'Apache-ShenYu-Committer-2022-02-28',
     },
     {
@@ -96,7 +96,7 @@ export default [
         categories: "Apache ShenYu",
         tags: ["Apache ShenYu"],
         date: "2020-07-05",
-        cover: "/static/img/logo.svg",
+        cover: "/img/logo.svg",
         src:'Soul-gateway-release-milestone-version-2.3.0',
     }
 ]

@@ -1,5 +1,5 @@
 function prepare {
-    # python3 -m pip install --upgrade pip
+    python -m pip install --upgrade pip
     pip install sphinx
     sudo apt-get update -y
     sudo apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
@@ -68,5 +68,5 @@ function generate_pdf {
     done
 }
 
-#prepare
+prepare
 generate_pdf "shenyu"

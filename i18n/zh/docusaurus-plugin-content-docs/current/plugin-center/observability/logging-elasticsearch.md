@@ -123,7 +123,7 @@ description: Logging-ElasticSearch插件
 
 #### 使用postman发起请求
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/postman-request.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/postman-request.png)
 
 #### 使用Kibaba查询数据
 

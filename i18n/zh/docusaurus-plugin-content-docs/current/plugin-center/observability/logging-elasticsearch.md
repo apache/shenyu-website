@@ -34,7 +34,7 @@ description: Logging-ElasticSearch插件
 
 #### 2.1开插件，并配置elasticsearch,配置如下：
 
-![](img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-config-cn.jpg)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-config-cn.png)
 
 * 各个配置项说明如下：
 

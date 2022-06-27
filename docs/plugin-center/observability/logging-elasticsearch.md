@@ -93,7 +93,7 @@ Users need to deploy the `ElasticSearch` service to collect
 
 - To [download address](https://www.elastic.co/downloads/elasticsearch) Select Windows version to download
 - After downloading the installation package, unzip it, enter the `bin` directory, and double-click to execute `elasticsearch.bat` to start
-- The default startup port is `9200`. Access` http://localhost:9200`, verify success
+- The default startup port is `9200`. Access`http://localhost:9200`, verify success
 
 ![](/img/shenyu/plugin/logging-elasticsearh/elasticsearch-success.png)
 
@@ -101,7 +101,7 @@ Users need to deploy the `ElasticSearch` service to collect
 
 - To [download address](https://www.elastic.co/downloads/elasticsearch) Select Windows version to download
 - After downloading the installation package, unzip it, enter the `bin` directory and execute the startup command on the terminal:  `./elasticsearch`
-- The default startup port is `9200`. Access ` http://localhost:9200`, verify success
+- The default startup port is `9200`. Access `http://localhost:9200`, verify success
 
 ![](/img/shenyu/plugin/logging-elasticsearh/elasticsearch-success.png)
 

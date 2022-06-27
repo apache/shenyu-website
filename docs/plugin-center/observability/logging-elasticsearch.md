@@ -15,7 +15,7 @@ description: Logging-ElasticSearch Plugin
 
 * Architecture Diagram
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/logging-elasticsearch-arch.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-arch.png)
 
 ## Plugin Usage
 
@@ -35,7 +35,7 @@ description: Logging-ElasticSearch Plugin
 
 #### 2.1Open the plugin and configure elasticsearch, configure it as follows.
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/logging-elasticsearch-config-en.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-config-en.png)
 
 - The individual configuration items are described as follows:
 
@@ -56,7 +56,7 @@ In addition sometimes a large gateway cluster corresponds to multiple applicatio
 then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
 The operation is shown below:
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/logging-elasticsearch-option.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-option.png)
 
 ## Logging information  
 
@@ -94,7 +94,7 @@ Users need to deploy the `ElasticSearch` service to collect
 - After downloading the installation package, unzip it, enter the `bin` directory, and double-click to execute `elasticsearch.bat` to start
 - The default startup port is `9200`. Access`http://localhost:9200`, verify success
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/elasticsearch-success.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/elasticsearch-success.png)
 
 ### Installing ElasticSearch in MacOS environment
 
@@ -102,7 +102,7 @@ Users need to deploy the `ElasticSearch` service to collect
 - After downloading the installation package, unzip it, enter the `bin` directory and execute the startup command on the terminal:  `./elasticsearch`
 - The default startup port is `9200`. Access `http://localhost:9200`, verify success
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/elasticsearch-success.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/elasticsearch-success.png)
 
 ### Installing Kibana under Windows Environment
 
@@ -110,7 +110,7 @@ Users need to deploy the `ElasticSearch` service to collect
 - After downloading the installation package, unzip it, enter the `bin` directory, and double-click to execute `kibana.bat` to start
 - The default startup port is `5601`. Access `http://localhost:5601`, verify success
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/kibana-success.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/kibana-success.png)
 
 ### Installing Kibana in MacOS environment
 
@@ -118,20 +118,20 @@ Users need to deploy the `ElasticSearch` service to collect
 - After downloading the installation package, unzip it, enter the `bin` directory and execute the startup command on the terminal: `./kibana`
 - The default startup port is `5601`. Access `http://localhost:5601`, verify success
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/kibana-success.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/kibana-success.png)
 
 ### Initiate a request, and the elasticsearch java client collects logs and stores them in the elasticsearch database
 
 #### Using postman to initiate a request
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/postman-request.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/postman-request.png)
 
 #### Querying data using kibaba
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/index.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/index.png)
 
 - The first time you use the plug-in, you will automatically create a `shenyu-access-logging` index
 
-![](/img/shenyu/plugin/logging/logging-elasticsearh/data.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/data.png)
 
 - Using ES query statement, the requested log information can be queried

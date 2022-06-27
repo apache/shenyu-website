@@ -47,7 +47,7 @@ tags: ["Contributor"]
 
 在讨论过程中，请保持礼貌，建议阅读 ASF 的 [行为准则](https://www.apache.org/foundation/policies/conduct.html)。
 
-如果你觉得邮件太多，打扰到你，或者你不再感兴趣。请发送邮件到 `dev-unsubscribe@shenyu.apache.org`。退订邮件列表。
+如果你觉得邮件太多，打扰到你，或者你不再感兴趣。请发送邮件到 `dev-unsubscribe@shenyu.apache.org`。退订邮件列表。（题目和内容任意，系统会自动处理）
 
 ### 目标仓库
 

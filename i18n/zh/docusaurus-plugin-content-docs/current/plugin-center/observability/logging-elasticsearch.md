@@ -14,7 +14,7 @@ description: Logging-ElasticSearch插件
 
 - 架构图
 
-![](/img/shenyu/plugin/logging-elasticsearh/logging-elasticsearch-arch.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearh/logging-elasticsearch-arch.png)
 
 ## 插件使用
 
@@ -34,7 +34,7 @@ description: Logging-ElasticSearch插件
 
 #### 2.1开插件，并配置elasticsearch,配置如下：
 
-<img src="/img/shenyu/plugin/logging-elasticsearh/logging-elasticsearch-config-cn.jpg" style="zoom:50%;" />
+<img src="/img/shenyu/plugin/logging/logging-elasticsearh/logging-elasticsearch-config-cn.jpg" style="zoom:50%;" />
 
 * 各个配置项说明如下：
 
@@ -55,7 +55,7 @@ description: Logging-ElasticSearch插件
 另外有时候一个大网关集群对应多个应用程序（业务），不同应用程序（业务）对应不同的主题，相关隔离，这时候可以按选择器配置不同的主题(可选)和采样率(可选)，配置项的含义如上表所示。  
 操作如下图：  
 
-![](/img/shenyu/plugin/logging-elasticsearh/logging-elasticsearch-option.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearh/logging-elasticsearch-option.png)
 
 ## Logging信息
 
@@ -93,7 +93,7 @@ description: Logging-ElasticSearch插件
 - 下载安装包后解压，进入`bin`目录下,双击执行`elasticsearch.bat`进行启动
 - 默认启动端口为 `9200`，访问 `http://localhost:9200`，验证是否成功
 
-![](/img/shenyu/plugin/logging-elasticsearh/elasticsearch-success.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearh/elasticsearch-success.png)
 
 ### macos 环境下安装ElasticSearch
 
@@ -101,7 +101,7 @@ description: Logging-ElasticSearch插件
 - 下载安装包后解压，进入`bin`目录下,在终端执行启动命令:  `./elasticsearch`
 - 默认启动端口为 `9200`，访问 `http://localhost:9200`，验证是否成功
 
-![](/static/img/shenyu/plugin/logging-elasticsearh/elasticsearch-success.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearh/elasticsearch-success.png)
 
 ### windows 环境下安装Kibana
 
@@ -109,7 +109,7 @@ description: Logging-ElasticSearch插件
 - 下载安装包后解压，进入`bin`目录下,双击执行`kibana.bat`进行启动
 - 默认启动端口为 `5601`，访问 `http://localhost:5601`，验证是否成功（前提是ElasticSearch已打开）
 
-![](/img/shenyu/plugin/logging-elasticsearh/kibana-success.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearh/kibana-success.png)
 
 ### macos 环境下安装Kibana
 
@@ -117,20 +117,20 @@ description: Logging-ElasticSearch插件
 - 下载安装包后解压，进入`bin`目录下,在终端执行启动命令: `./kibana`
 - 默认启动端口为 `5601`，访问 `http://localhost:5601`，验证是否成功（前提是ElasticSearch已打开）
 
-![](/img/shenyu/plugin/logging-elasticsearh/kibana-success.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearh/kibana-success.png)
 
 ### 发起请求，ElasticSearch的Java客户端收集日志并存储进ElasticSearch数据库
 
 #### 使用postman发起请求
 
-<img src="/img/shenyu/plugin/logging-elasticsearh/postman-request.png" style="zoom:50%;" />
+<img src="/img/shenyu/plugin/logging/logging-elasticsearh/postman-request.png" style="zoom:50%;" />
 
 #### 使用Kibaba查询数据
 
-![](/img/shenyu/plugin/logging-elasticsearh/index.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearh/index.png)
 
 - 第一次使用插件会自动创建`shenyu-access-logging`索引
 
-![](/img/shenyu/plugin/logging-elasticsearh/data.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearh/data.png)
 
 - 利用es查询语句可以查询到请求的日志信息

@@ -11,7 +11,7 @@ description: Logging-ElasticSearch Plugin
 >
 >Shenyu gateway can record access logs through logging-elasticsearch-plugin and send access logs to elasticsearch database.
 
-## **Technical Solutions** 
+## Technical Solutions 
 
 - Architecture Diagram
 
@@ -19,7 +19,7 @@ description: Logging-ElasticSearch Plugin
 
 ## Plugin Usage
 
-### 1.Add the dependency of logging-elasticsearch to the Shenyu-bootstrap-module 's **`pom.xml`** **file**.
+### 1.Add the dependency of logging-elasticsearch to the Shenyu-bootstrap-module 's `pom.xml` file.
 
 ```xml
  <!--shenyu logging-elasticsearch plugin start-->
@@ -31,7 +31,7 @@ description: Logging-ElasticSearch Plugin
         <!--shenyu logging-elasticsearch plugin end-->
 ```
 
-### 2.**In** **`shenyu-admin`** **--> Basic Configuration --> Plugin Management -->** `loggingElasticSearch`, configure the ElasticSearch parameter and set it to on.
+### 2.In `shenyu-admin` --> Basic Configuration --> Plugin Management --> `loggingElasticSearch`, configure the ElasticSearch parameter and set it to on.
 
 #### 2.1Open the plugin and configure elasticsearch, configure it as follows.
 
@@ -50,7 +50,7 @@ description: Logging-ElasticSearch Plugin
 | maxRequestBody  | Ingeter | Maximum request body size, above the threshold no request body will be collected | Optional, default 512KB             |
 Except for host, port, all others are optional, in most cases only these 3 items need to be configured.
 
-#### **2.2 Configuring Selectors and Rulers** 
+#### 2.2 Configuring Selectors and Rulers 
 
 For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
 In addition sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  

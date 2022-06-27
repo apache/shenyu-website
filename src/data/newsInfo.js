@@ -6,7 +6,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2022-04-20',
-        cover: "/img/logo.svg",
+        cover: "/img/news/0.png",
         src:'Apache-ShenYu-Committer-2022-04-20',
     },
     {
@@ -26,7 +26,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: "2021-12-08",
-        cover: "/img/logo.svg",
+        cover: "/img/news/zhunkunshuai.png",
         src:"Apache-ShenYu-Committer-2021-12-08",
     },
     {
@@ -36,7 +36,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2021-11-11',
-        cover: "/img/logo.svg",
+        cover: "/img/news/4.png",
         src:'Apache-ShenYu-Committer-2021-11-11',
     },
     {
@@ -46,7 +46,7 @@ export default [
         categories: "Apache ShenYu PPMC",
         tags: ["Apache ShenYu"],
         date: "2021-11-05",
-        cover: "/img/logo.svg",
+        cover: "/img/news/5.png",
         src:'Apache-ShenYu-PPMC-2021-11-05',
     },
     {
@@ -76,7 +76,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2021-09-08',
-        cover: "/img/logo.svg",
+        cover: "/img/news/0.png",
         src:'Apache-ShenYu-Committer-2021-07-27',
     },
     {

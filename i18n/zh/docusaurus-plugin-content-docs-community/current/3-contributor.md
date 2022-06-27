@@ -47,6 +47,8 @@ tags: ["Contributor"]
 
 在讨论过程中，请保持礼貌，建议阅读 ASF 的 [行为准则](https://www.apache.org/foundation/policies/conduct.html)。
 
+如果你觉得邮件太多，打扰到你，或者你不再感兴趣。请发送邮件到 `dev-unsubscribe@shenyu.apache.org`。退订邮件列表。
+
 ### 目标仓库
 
 Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个仓库：

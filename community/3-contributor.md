@@ -47,6 +47,8 @@ After the subscription is successful, you can participate in the discussion at [
 
 During the discussion, please be polite and suggest reading [Code of Conduct](https://www.apache.org/foundation/policies/conduct.html) of ASF.
 
+If you feel that there are too many emails, disturbing you, or you are no longer interested. Please send mail to `dev-unsubscribe@shenyu.apache.org`. Unsubscribe from the mailing list.
+
 ### Target Repository
 
 Apache ShenYu is generally developed collaboratively on GitHub. Currently, there are the following repositories:

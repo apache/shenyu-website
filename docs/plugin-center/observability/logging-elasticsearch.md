@@ -91,33 +91,33 @@ Users need to deploy the `ElasticSearch` service to collect
 
 ### Installing ElasticSearch under Windows Environment
 
-- To [download address ]( https://www.elastic.co/downloads/elasticsearch ) Select Windows version to download
+- To [download address](https://www.elastic.co/downloads/elasticsearch) Select Windows version to download
 - After downloading the installation package, unzip it, enter the `bin` directory, and double-click to execute `elasticsearch.bat` to start
-- The default startup port is`9200 `. Access` http://localhost:9200 `, verify success
+- The default startup port is  `9200 `. Access` http://localhost:9200 `, verify success
 
 ![](/img/shenyu/plugin/logging-elasticsearh/elasticsearch-success.png)
 
 ### Installing ElasticSearch in MacOS environment
 
-- To [download address ]( https://www.elastic.co/downloads/elasticsearch ) Select Windows version to download
-- After downloading the installation package, unzip it, enter the `bin` directory and execute the startup command on the terminal: `./elasticsearch`
-- The default startup port is`9200 `. Access` http://localhost:9200 `, verify success
+- To [download address](https://www.elastic.co/downloads/elasticsearch) Select Windows version to download
+- After downloading the installation package, unzip it, enter the `bin` directory and execute the startup command on the terminal:  `./elasticsearch`
+- The default startup port is  `9200 `. Access ` http://localhost:9200 `, verify success
 
 ![](/img/shenyu/plugin/logging-elasticsearh/elasticsearch-success.png)
 
 ### Installing Kibana under Windows Environment
 
-- To [download address ]( https://www.elastic.co/cn/downloads/kibana ) Select Windows version to download
+- To [download address](https://www.elastic.co/cn/downloads/kibana) Select Windows version to download
 - After downloading the installation package, unzip it, enter the `bin` directory, and double-click to execute `kibana.bat` to start
-- The default startup port is `5601`. Access` http://localhost:5601, verify success
+- The default startup port is  `5601`. Access `http://localhost:5601`, verify success
 
 ![](/img/shenyu/plugin/logging-elasticsearh/kibana-success.png)
 
 ### Installing Kibana in MacOS environment
 
-- To [download address ]( https://www.elastic.co/cn/downloads/kibana ) Select Windows version to download
+- To [download address](https://www.elastic.co/cn/downloads/kibana) Select Windows version to download
 - After downloading the installation package, unzip it, enter the `bin` directory and execute the startup command on the terminal: `./kibana`
-- The default startup port is `5601`. Access` http://localhost:5601, verify success
+- The default startup port is  `5601`. Access `http://localhost:5601`, verify success
 
 ![](/img/shenyu/plugin/logging-elasticsearh/kibana-success.png)
 

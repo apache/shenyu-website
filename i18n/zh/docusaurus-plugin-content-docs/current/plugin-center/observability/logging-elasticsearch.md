@@ -12,7 +12,7 @@ description: Logging-ElasticSearch插件
 
 ## 技术方案
 
--  架构图
+- 架构图
 
 ![](/img/shenyu/plugin/logging-elasticsearh/logging-elasticsearch-arch.png)
 
@@ -91,7 +91,7 @@ description: Logging-ElasticSearch插件
 
 - 到[下载地址](https://www.elastic.co/downloads/elasticsearch)选择windows版本进行下载
 - 下载安装包后解压，进入`bin`目录下,双击执行`elasticsearch.bat`进行启动
-- 默认启动端口为 `9200 `，访问 `http://localhost:9200`，验证是否成功
+- 默认启动端口为  `9200 `，访问 `http://localhost:9200`，验证是否成功
 
 ![](/img/shenyu/plugin/logging-elasticsearh/elasticsearch-success.png)
 
@@ -99,7 +99,7 @@ description: Logging-ElasticSearch插件
 
 - 到[下载地址](https://www.elastic.co/downloads/elasticsearch)选择macos版本进行下载
 - 下载安装包后解压，进入`bin`目录下,在终端执行启动命令:  `./elasticsearch`
-- 默认启动端口为 `9200 `，访问 `http://localhost:9200`，验证是否成功
+- 默认启动端口为  `9200 `，访问 `http://localhost:9200`，验证是否成功
 
 ![](/static/img/shenyu/plugin/logging-elasticsearh/elasticsearch-success.png)
 
@@ -107,7 +107,7 @@ description: Logging-ElasticSearch插件
 
 - 到[下载地址](https://www.elastic.co/cn/downloads/kibana)选择windows版本进行下载
 - 下载安装包后解压，进入`bin`目录下,双击执行`kibana.bat`进行启动
-- 默认启动端口为 `5601 `，访问 `http://localhost:5601`，验证是否成功（前提是ElasticSearch已打开）
+- 默认启动端口为  `5601 `，访问 `http://localhost:5601`，验证是否成功（前提是ElasticSearch已打开）
 
 ![](/img/shenyu/plugin/logging-elasticsearh/kibana-success.png)
 
@@ -115,7 +115,7 @@ description: Logging-ElasticSearch插件
 
 - 到[下载地址](https://www.elastic.co/cn/downloads/kibana)选择windows版本进行下载
 - 下载安装包后解压，进入`bin`目录下,在终端执行启动命令:  `./kibana`
-- 默认启动端口为 `5601 `，访问 `http://localhost:5601`，验证是否成功（前提是ElasticSearch已打开）
+- 默认启动端口为  `5601 `，访问 `http://localhost:5601`，验证是否成功（前提是ElasticSearch已打开）
 
 ![](/img/shenyu/plugin/logging-elasticsearh/kibana-success.png)
 

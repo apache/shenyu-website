@@ -117,8 +117,12 @@ shenyu:
     enabled: true
     allowedHeaders:
     allowedMethods: "*"
-    allowedOrigin: "*"
-    allowedExpose: "*"
+    allowedAnyOrigin: false
+    allowedOrigin:
+      domain: apache.org
+      prefixes:
+        - a # a.apache.org
+        - b # b.apache.org
     maxAge: "18000"
     allowCredentials: true
   switchConfig:
@@ -306,8 +310,9 @@ Netty HttpClient 代理的相关配置：
 | enabled | Boolean | false  |    否    | 是否支持跨域请求 |
 | allowedHeaders | String | x-requested-with, authorization, Content-Type, Authorization, credential,  X-XSRF-TOKEN, token, username, client |    No    | 允许的Header头，多个请用 "," 分割。新的"allowedHeaders"会在默认值基础上，去除重复的追加到"Access-Control-Allow-Headers"。 |
 | allowedMethods | String |   "*"  |    No    | 允许的方法 |
-| allowedOrigin | String |  "*"  |    No    | 允许的Origin，当取值为""时，使用`request.getHeaders().getOrigin()`设置`Access-Control-Allow-Origin` |
-| allowedExpose | String |  "*"  |    No    | 允许的Expose |
+| allowedAnyOrigin | Boolean |   false  |    No    | 是否允许任意Origin，为true时直接将`Access-Control-Allow-Origin`设置值与Origin相同，即`request.getHeaders().getOrigin()`，同时丢弃`allowedOrigin`配置 |
+| allowedOrigin | AllowedOriginConfig |  -  |    No    | 配置domain如apache.org及域名prefixes如a,b，如果`Origin`为a.apache.org或b.apache.org时`Access-Control-Allow-Origin`设置值与`Origin`相同，即`request.getHeaders().getOrigin()` |
+| allowedExpose | String |  ""  |    No    | 允许的Expose |
 | maxAge | String |  "18000"  |    No    | 最大年龄 (ms) |
 | allowCredentials | Boolean |  true  |    No    | 允许认证 |
 

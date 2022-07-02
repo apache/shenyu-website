@@ -4,35 +4,66 @@ keywords: ["Logging", "ElasticSearch"]
 description: Logging-ElasticSearch插件
 ---
 
-## 说明
+# 1. 概述
+
+## 1.1 插件名称
+
+* Logging-ElasticSearch
+
+## 1.2 适用场景
+
+* 通过shenyu网关收集http请求日志，通过其他平台(Kibana)查询或者展示日志。
+
+## 1.3 插件功能
 
 >`Apache ShenYu` 网关接收客户端请求，向服务端转发请求，并将服务端结果返回给客户端。网关可以记录下每次请求对应的详细信息，  
 > 列如： 请求时间、请求参数、请求路径、响应结果、响应状态码、耗时、上游IP、异常信息等待.  
 > ShenYu网关可以通过Logging-ElasticSearch插件记录访问日志并将访问日志发送到ElasticSearch数据库。
 
-## 技术方案
+## 1.4 插件代码
+
+* 核心模块 `shenyu-plugin-logging-elasticsearch`
+
+* 核心类 `org.apache.shenyu.plugin.logging.elasticsearch.LoggingElasticSearchPlugin`
+* 核心类 `org.apache.shenyu.plugin.logging.elasticsearch.client.ElasticSearchLogCollectClient`
+
+## 1.5 添加自哪个shenyu版本
+
+* ShenYu 2.5.0
+
+## 1.6 技术方案
 
 * 架构图
 
- ![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-arch.png)
+![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-arch.png)
 
-## 插件使用
+# 2. 如何使用插件
 
-### 1.在shenyu-bootstrap模块的 `pom.xml` 文件中添加 `Logging-ElasticSearch`的依赖。
+## 2.1 插件使用流程图
+
+![](/img/shenyu/plugin/logging/logging-console/loggingConsole-use-en.png)
+
+## 2.2 导入pom
+
+* 在shenyu-bootstrap模块的 `pom.xml` 文件中添加 `Logging-ElasticSearch`的依赖。
 
 ```xml
-        <!--shenyu logging-elasticsearch plugin start-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-logging-elasticsearch</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <!--shenyu logging-elasticsearch plugin end-->
+<!--shenyu logging-elasticsearch plugin start-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-logging-elasticsearch</artifactId>
+    <version>${project.version}</version>
+</dependency>
+<!--shenyu logging-elasticsearch plugin end-->
 ```
 
-### 2.在 `shenyu-admin`--> 基础配置 --> 插件管理-> `loggingElasticSearch` ，配置ElasticSearch参数，并设置为开启。
+## 2.3 启用插件
 
-#### 2.1开插件，并配置elasticsearch,配置如下：
+* 在 `shenyu-admin`--> 基础配置 --> 插件管理-> `loggingElasticSearch` ，配置ElasticSearch参数，并设置为开启。
+
+## 2.4 配置插件
+
+### 2.4.1 开启插件，并配置elasticsearch,配置如下：
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-config-cn.png)
 
@@ -49,17 +80,17 @@ description: Logging-ElasticSearch插件
 | maxRequestBody  | Ingeter | 最大请求体大小，超过阈值将不采集请求体             | 可选，默认512KB       |
 *除了host、port其它都是可选*，大部分情况下只需要配置这2项就可以了。
 
-#### 2.2 配置选择器和规则器  
+### 2.4.2 配置选择器和规则器
 
 选择器和规则详细配置，请参考: [选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 另外有时候一个大网关集群对应多个应用程序（业务），不同应用程序（业务）对应不同的主题，相关隔离，这时候可以按选择器配置不同的主题(可选)和采样率(可选)，配置项的含义如上表所示。  
-操作如下图：  
+操作如下图：
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-option.png)
 
-## Logging信息
+## 2.5 Logging信息
 
-采集的access log的字段如下：  
+采集的access log的字段如下：
 
 | 字段名称              |                             含义                             | 说明                                      | 备注 |
 | :-------------------- | :----------------------------------------------------------: | :---------------------------------------- | :--- |
@@ -83,11 +114,16 @@ description: Logging-ElasticSearch插件
 | path                  |                        请求的路径path                        |                                           |      |
 | traceId               |                       请求的链路追踪ID                       | 需要接入链路追踪插件，如skywalking,zipkin |      |
 
-## 收集Logging
+
+## 2.6 示例
+
+### 2.6.1 通过ElasticSearch收集http请求日志
+
+#### 2.6.1.1 安装ElasticSearch
 
 用户需要部署`ElasticSearch`服务来采集
 
-### windows 环境下安装ElasticSearch
+##### 2.6.1.1.1 windows 环境下安装ElasticSearch
 
 - 到[下载地址](https://www.elastic.co/downloads/elasticsearch)选择windows版本进行下载
 - 下载安装包后解压，进入`bin`目录下,双击执行`elasticsearch.bat`进行启动
@@ -95,7 +131,7 @@ description: Logging-ElasticSearch插件
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/elasticsearch-success.png)
 
-### macos 环境下安装ElasticSearch
+##### 2.6.1.1.2 macos 环境下安装ElasticSearch
 
 - 到[下载地址](https://www.elastic.co/downloads/elasticsearch)选择macos版本进行下载
 - 下载安装包后解压，进入`bin`目录下,在终端执行启动命令:  `./elasticsearch`
@@ -103,7 +139,9 @@ description: Logging-ElasticSearch插件
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/elasticsearch-success.png)
 
-### windows 环境下安装Kibana
+#### 2.6.1.2 安装Kibana
+
+##### 2.6.1.2.1 windows 环境下安装Kibana
 
 - 到[下载地址](https://www.elastic.co/cn/downloads/kibana)选择windows版本进行下载
 - 下载安装包后解压，进入`bin`目录下,双击执行`kibana.bat`进行启动
@@ -111,7 +149,7 @@ description: Logging-ElasticSearch插件
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/kibana-success.png)
 
-### macos 环境下安装Kibana
+##### 2.6.1.2.2 macos 环境下安装Kibana
 
 - 到[下载地址](https://www.elastic.co/cn/downloads/kibana)选择windows版本进行下载
 - 下载安装包后解压，进入`bin`目录下,在终端执行启动命令: `./kibana`
@@ -119,13 +157,19 @@ description: Logging-ElasticSearch插件
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/kibana-success.png)
 
-### 发起请求，ElasticSearch的Java客户端收集日志并存储进ElasticSearch数据库
+#### 2.6.1.3 插件配置
 
-#### 使用postman发起请求
+![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-config-cn.png)
+
+#### 2.6.1.4 选择器和规则的配置
+
+* 选择器和规则详细配置，请参考: [选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
+
+#### 2.6.1.5 使用postman发起请求
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/postman-request.png)
 
-#### 使用Kibaba查询数据
+#### 2.6.1.6 使用Kibana查询数据
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/index.png)
 
@@ -134,3 +178,7 @@ description: Logging-ElasticSearch插件
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/data.png)
 
 - 利用es查询语句可以查询到请求的日志信息
+
+# 3. 如何禁用插件
+
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理-> `LoggingElasticSearch` ，设置为关闭。

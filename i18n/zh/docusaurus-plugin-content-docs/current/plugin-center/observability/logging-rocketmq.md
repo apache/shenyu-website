@@ -143,7 +143,7 @@ description: Logging-RocketMQ插件
 
 #### 2.6.1.4 请求服务
 
-![](/img/shenyu/plugin/logging/logging-rocketmq/call-service.jpg)
+![](/img/shenyu/plugin/logging/logging-rocketmq/call-service.png)
 
 #### 2.6.1.5 消费以及展示Logging
 

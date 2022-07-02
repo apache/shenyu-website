@@ -147,7 +147,7 @@ The operation is shown below:
 
 #### 2.6.1.4 Request Service
 
-![](/img/shenyu/plugin/logging/logging-rocketmq/call-service.jpg)
+![](/img/shenyu/plugin/logging/logging-rocketmq/call-service.png)
 
 #### 2.6.1.5 Consumption and display of Logging
 

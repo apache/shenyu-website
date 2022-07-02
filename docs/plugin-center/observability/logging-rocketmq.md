@@ -123,6 +123,7 @@ collect request info as follows
 
 
 ## 2.6 Examples
+
 ### 2.6.1 Collect Http Log by RocketMQ
 
 #### 2.6.1.1 Plugin Configuration
@@ -132,6 +133,7 @@ Open the plugin and configure rocketmq, configure it as follows.
 ![](/img/shenyu/plugin/logging/logging-config-en.png)
 
 #### 2.6.1.2 Selector Configuration
+
 For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
 
 In addition sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  

@@ -26,7 +26,7 @@ description: logging plugin
 
 ## 1.5 Added Since Which shenyu version
 
-* Since shenyu 2.4.0
+* Since ShenYu 2.4.0
 
 # 2. How to use plugin
 

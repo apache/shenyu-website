@@ -1,0 +1,117 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: 0 calc(var(--ifm-spacing-horizontal)*-1);
+    flex-wrap: wrap;
+}
+
+.content{
+    display: flex;
+    --ifm-col-width:75%;
+    flex: 0 0 var(--ifm-col-width);
+    max-width: var(--ifm-col-width);
+    align-items: center;
+    flex-direction: column;
+    padding-left: 12.333%;
+}
+
+ .categray{
+   display: flex;
+   justify-content: flex-start;
+   flex-wrap: wrap;
+   width: 100%;
+}
+
+.darkAnchor{
+    height: 60px;
+    margin-top: -60px;
+}
+
+.title{
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--ifm-color-primary);
+    margin: 30px 0 30px 20px;
+}
+
+.card{
+    flex:1;
+    height: 300px;
+    margin: 0 20px 0 20px;
+    box-sizing: border-box;
+    width: calc(( 100% - 160px )/4);
+    min-width: calc(( 100% - 160px )/4);
+    max-width: calc(( 100% - 160px )/4);
+}
+
+.cardImage{
+    /* border: 1px solid #000; */
+    border-radius:10px;
+}
+
+.postTitle{
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: var(--ifm-color-primary);
+    min-height: 60px;
+}
+
+.author{
+    font-size: 2px;
+    margin: 8px 0 4px 0;
+}
+
+.read{
+    float: right;
+    color: var(--ifm-color-primary);
+    font-size: 6px;
+    margin-top: 4px;
+    background-color: #FFFFFF;
+    border: #FFFFFF;
+}
+
+.read:hover{
+    cursor:pointer;
+}
+
+.card :nth-child(4n + 4){
+    margin-right: 0px;
+}  
+
+.catalogue{
+    --ifm-col-width:16.66667%;
+    flex: 0 0 var(--ifm-col-width);
+    max-width: var(--ifm-col-width);
+    margin-left: 5%;
+}
+
+.catalogueBox{
+    max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+    overflow-y: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 1rem);
+    border-left: 1px solid var(--ifm-toc-border-color);
+}
+
+.catalogueBoxUl{
+    margin: 0 0 var(--ifm-list-margin);
+    list-style: none;
+}
+
+.catalogueBoxLi{
+    margin: var(--ifm-toc-padding-vertical) var(--ifm-toc-padding-horizontal);
+    font-size: .8rem;
+    color:var(--ifm-toc-link-color);
+}
+
+.catalogueBoxA{
+    color:var(--ifm-toc-link-color);
+}
+
+
+.catalogueBoxA:hover{
+    text-decoration: none;
+}

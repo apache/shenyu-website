@@ -44,14 +44,15 @@ function Blog() {
                             return (
                                 <div className={styles.categray} key={key}>
                                     <div className={styles.darkAnchor} id={item.categray}></div>
-                                    <div className={styles.title}>{item.categray} ————</div>
+                                    <div className={styles.title}>{item.categray} </div>
                                     {item.posts.map((post, key) => {
                                         return (
                                             <div className={styles.card} key={key}>
-                                                <img className={styles.cardImage} src={post.cover}  width='100%' height={140}></img>
-                                                <div className={styles.postTitle}>{post.title}</div>
+                                                {/* <img className={styles.cardImage} src={post.cover}  width='200' height={140}></img> */}
+                                                <div className={styles.postTitle} onClick={() => window.location.href = "http://localhost:3000/blog/" + post.src}>{post.title}</div>
                                                 <div className={styles.author}> {post.author}   &ensp; &ensp;     {post.date} </div>
-                                                <button className={styles.read} onClick={() => window.location.href = "http://localhost:3000/blog/" + post.src}> >>Read More </button>
+                                                <div className={styles.postAbs}>{post.abs}</div>
+                                                <div className={styles.read} onClick={() => window.location.href = "http://localhost:3000/blog/" + post.src}> Read More </div>
                                             </div>
                                         )
                                     })}

@@ -36,7 +36,7 @@ function Home() {
                     __html: translate({
                       id: "homepage.hero.title",
                       message:
-                        "<b> Java native API Gateway for </b> service proxy</b> protocol conversion </b> and <b> API governance.",
+                        "Java native API Gateway for <b> service proxy, protocol conversion and API governance.</b>",
                       description:
                         "Home page hero title, can contain simple html tags",
                     }),

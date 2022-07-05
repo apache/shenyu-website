@@ -119,10 +119,17 @@ shenyu:
     allowedMethods: "*"
     allowedAnyOrigin: false
     allowedOrigin:
+      # format : schema://prefix spacer domain
+      # Access-Control-Allow-Origin: "http://a.apache.org,http://b.apache.org"
+      spacer: "."
       domain: apache.org
       prefixes:
         - a # a.apache.org
         - b # b.apache.org
+      origins:
+        - c.apache.org
+        - d.apache.org
+        - http://e.apache.org
     allowedExpose: ""
     maxAge: "18000"
     allowCredentials: true
@@ -312,8 +319,8 @@ Cross filter properties:
 | allowedHeaders | String | x-requested-with, authorization, Content-Type, Authorization, credential,  X-XSRF-TOKEN, token, username, client |    No    | allowedHeaders, Use "," split in multiple cases. the new "allowedHeaders" will append to "Access-Control-Allow-Headers" based on the default value and remove the reduplicative header. |
 | allowedMethods | String |   "*"  |    No    | allowedMethods |
 | allowedAnyOrigin | Boolean |   false  |    No    | Whether to allow any Origin, if it is true, directly set the `Access-Control-Allow-Origin` to the same value as the Origin, that is, `request.getHeaders().getOrigin()`, and discard the `allowedOrigin` configuration. |
-| allowedOrigin | AllowedOriginConfig |  -  |    No    | Configure domain such as apache.org and domain name prefixes such as a, b. If `Origin` is a.apache.org or b.apache.org, the value of `Access-Control-Allow-Origin` is the same as `Origin`, that is, `request.getHeaders( ).getOrigin()` |
-| allowedExpose | String |  ""  |    No    | 允许的Expose |
+| allowedOrigin | AllowedOriginConfig |  -  |    No    | Configure `domain` such as apache.org, domain name `prefixes` such as a, b and `spacer` such as "." or directly use `origins` configuration such as c.apche.org, http://d.apache.org. If `Origin` is http://a.apache.org or http://b.apache.org or http://c.apache.org or http://d.apache.org, the value of `Access-Control-Allow-Origin` is the same as `Origin`, that is, `request.getHeaders( ).getOrigin()` |
+| allowedExpose | String |  ""  |    No    | allowedExpose |
 | maxAge | String |  "18000"  |    No    | maxAge (ms) |
 | allowCredentials | Boolean |  true  |    No    | allowCredentials |
 

@@ -23,10 +23,8 @@ function Blog() {
     useEffect(() => {
         window.addEventListener('scroll', ()=>{
             // let scrollDistance = parseInt(document.documentElement.scrollTop || document.body.scrollTop || 0, 10);
-            // console.log(scrollDistance)
             for(let i=0; i<contentList.length; i++){
                 let dist = contentList[i].getBoundingClientRect().y
-                // console.log('di',dist)
                 if(  dist >= 90 && dist <=300){
                     setActiveAnchor(i)
                 }

@@ -1,0 +1,120 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: 0 calc(var(--ifm-spacing-horizontal)*-1);
+    flex-wrap: wrap;
+}
+
+.content{
+    display: flex;
+    --ifm-col-width:78%;
+    flex: 0 0 var(--ifm-col-width);
+    max-width: var(--ifm-col-width);
+    align-items: center;
+    flex-direction: column;
+    padding-left: 12.333%;
+}
+
+.categray{
+   display: flex;
+   justify-content: flex-start;
+   flex-wrap: wrap;
+   width: 100%;
+}
+
+.darkAnchor{
+    height: 60px;
+    margin-top: -60px;
+}
+
+.title{
+    width: 100%;
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 30px 0 30px 20px;
+    border-bottom: 1px solid #eaecef;
+}
+
+
+.card{
+    flex:1;
+    margin: 0 20px 0 20px;
+    box-sizing: border-box;
+    width: calc( 100% - 160px );
+    min-width: calc( 100% - 160px );
+    max-width: calc( 100% - 160px );
+}
+
+.cardImage{
+    border-radius:10px;
+}
+
+.postTitle{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: var(--ifm-color-primary);
+}
+
+.postTitle:hover{
+    cursor: pointer;
+}
+
+.postAbs{
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.author{
+    font-size: 2px;
+    margin: 8px 0 8px 0;
+    color:#888;
+}
+
+.read{
+    color: var(--ifm-color-primary);
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 30px;
+}
+
+.read:hover{
+    cursor:pointer;
+}
+
+.catalogue{
+    --ifm-col-width:16.66667%;
+    flex: 0 0 var(--ifm-col-width);
+    max-width: var(--ifm-col-width);
+    margin-left: 3%;
+}
+
+.catalogueBox{
+    max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+    overflow-y: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 1rem);
+    border-left: 1px solid var(--ifm-toc-border-color);
+}
+
+.catalogueBoxUl{
+    margin: 0 0 var(--ifm-list-margin);
+    list-style: none;
+}
+
+.catalogueBoxLi{
+    margin: var(--ifm-toc-padding-vertical) var(--ifm-toc-padding-horizontal);
+    font-size: .8rem;
+    color:var(--ifm-toc-link-color);
+}
+
+.catalogueBoxA{
+    color:var(--ifm-toc-link-color);
+}
+
+
+.catalogueBoxA:hover{
+    text-decoration: none;
+}

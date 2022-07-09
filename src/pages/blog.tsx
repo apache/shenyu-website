@@ -37,10 +37,10 @@ function Blog() {
                                             return (
                                                 <div className={styles.card} key={key}>
                                                     {/* <img className={styles.cardImage} src={post.cover}  width='200' height={140}></img> */}
-                                                    <div className={styles.postTitle} onClick={() => window.location.href = "http://localhost:3000/blog/" + post.src}>{post.title}</div>
+                                                    <div className={styles.postTitle} onClick={() => window.location.href = "https://shenyu.apache.org/blog/" + post.src}>{post.title}</div>
                                                     <div className={styles.author}> {post.author}   &ensp; &ensp;     {post.date} </div>
                                                     <div className={styles.postAbs}>{post.abs}</div>
-                                                    <div className={styles.read} onClick={() => window.location.href = "http://localhost:3000/blog/" + post.src}> Read More </div>
+                                                    <div className={styles.read} onClick={() => window.location.href = "https://shenyu.apache.org/blog/" + post.src}> Read More </div>
                                                 </div>
                                             )
                                         })}

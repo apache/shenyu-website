@@ -1,5 +1,15 @@
 export default [
     {
+        title: "From CRUD Boy to Apache ShenYu Committer",
+        author: "Renzhu Yan",
+        description: "From CRUD Boy to Apache ShenYu Committer",
+        categories: "Apache ShenYu Committers",
+        tags: ["Apache ShenYu"],
+        date: '2022-07-04',
+        cover: "/img/news/renzhuyan.jpg",
+        src:'Apache-ShenYu-Committer-2022-07-04',
+    },
+    {
         title: "You can also be an Apache ShenYu Committer", 
         author: "Zicheng Zhang",
         description: "You can also be an Apache ShenYu Committer",

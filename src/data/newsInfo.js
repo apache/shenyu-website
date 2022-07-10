@@ -1,8 +1,8 @@
 export default [
     {
-        title: "From CRUD to Apache ShenYu Committer",
+        title: "From CRUD Boy to Apache ShenYu Committer",
         author: "Renzhu Yan",
-        description: "From CRUD to Apache ShenYu Committer",
+        description: "From CRUD Boy to Apache ShenYu Committer",
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2022-07-04',

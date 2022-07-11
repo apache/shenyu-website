@@ -3,9 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import styles from './blog.module.css';
 import blogInfo from '../data/blogInfo';
-// import BrowserOnly from '@docusaurus/BrowserOnly';
-import Translate, { translate } from "@docusaurus/Translate";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Translate from "@docusaurus/Translate";
+import { BrowserRouter as Link } from 'react-router-dom'
 
 
 function Blog() {

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import styles from './news.module.css';
 import newsInfo from '../data/newsInfo';
-import Translate, { translate } from "@docusaurus/Translate";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Translate from "@docusaurus/Translate";
+import { BrowserRouter as Link } from 'react-router-dom'
 
 
 function News() {

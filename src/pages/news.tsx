@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import styles from './news.module.css';
 import newsInfo from '../data/newsInfo';
 import Translate from "@docusaurus/Translate";
-import { BrowserRouter as Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 
 function News() {
@@ -32,11 +32,11 @@ function News() {
                   <div className={styles.cardDate}>{newsItem.date}</div>
                   <div className={styles.cardTitle}>{newsItem.title}</div>
                   <div className={styles.cardDesc}>{newsItem.description}</div>
-                  <div className={styles.readMore}>
+                  <button className={styles.readMore}>
                     {
-                      url ? <Link to={'news/' + newsItem.src}> >> <Translate>Read More</Translate></Link> : <Link to={newsItem.src}> >> <Translate>Read More</Translate></Link>
+                      url ? <Link className={styles.link} to={'news/' + newsItem.src}> >> <Translate>Read More</Translate></Link> : <Link className={styles.link} to={newsItem.src}> >> <Translate>Read More</Translate></Link>
                     }
-                  </div>
+                  </button>
                 </div>
               </div>
             )

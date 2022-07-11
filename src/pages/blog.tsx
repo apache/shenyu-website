@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import styles from './blog.module.css';
 import blogInfo from '../data/blogInfo';
 import Translate from "@docusaurus/Translate";
-import { BrowserRouter as Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 
 function Blog() {
@@ -47,14 +47,16 @@ function Blog() {
                                             <div className={styles.card} key={key}>
                                                 <div className={styles.postTitle}>
                                                     {
-                                                        url ? <Link to={'blog/' + post.src}>{post.title}</Link> : <Link to={post.src} >{post.title}</Link>
+                                                        url ? <Link className={styles.link} to={'blog/' + post.src}>{post.title}</Link> : <Link className={styles.link} to={post.src} >{post.title}</Link>
                                                     }
                                                 </div>
                                                 <div className={styles.author}> {post.author}   &ensp; &ensp;     {post.date} </div>
                                                 <div className={styles.postAbs}>{post.abs}</div>
-                                                <div className={styles.read}>                                                        {
-                                                    url ? <Link to={'blog/' + post.src}></Link> : <Link to={post.src} ></Link>
-                                                }<Translate>Read More</Translate></div>
+                                                <div className={styles.read}>
+                                                    {
+                                                        url ? <Link className={styles.link} to={'blog/' + post.src}><Translate>Read More</Translate></Link> : <Link className={styles.link} to={post.src} ><Translate>Read More</Translate></Link>
+                                                    }
+                                                </div>
                                             </div>
                                         )
                                     })}

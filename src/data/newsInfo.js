@@ -3,9 +3,9 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
-        title: "From CRUD Boy to Apache ShenYu Committer",
+        title: <Translate>From CRUD Boy to Apache ShenYu Committer</Translate>,
         author: "Renzhu Yan",
-        description: "From CRUD Boy to Apache ShenYu Committer",
+        description: <Translate>From CRUD Boy to Apache ShenYu Committer</Translate>,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2022-07-04',
@@ -13,7 +13,7 @@ export default [
         src:'Apache-ShenYu-Committer-2022-07-04',
     },
     {
-        title: "You can also be an Apache ShenYu Committer", 
+        title: <Translate>You can also be an Apache ShenYu Committer</Translate>, 
         author: "Zicheng Zhang",
         description: <Translate>You can also be an Apache ShenYu Committer</Translate>,
         categories: "Apache ShenYu Committers",

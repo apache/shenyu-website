@@ -215,7 +215,7 @@ module.exports = {
         },
         blog: {
           showReadingTime: true,
-          blogSidebarCount: 'ALL',
+          blogSidebarCount: 0,
           blogSidebarTitle: 'All Blog Posts',
           editLocalizedFiles: true,
           // Please change this to your repo.

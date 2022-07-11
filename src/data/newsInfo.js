@@ -93,7 +93,7 @@ export default [
         src:'Apache-ShenYu-Committer-2022-02-28',
     },
     {
-        title: <Translate>Soul gateway release milestone version 2.3.0   New support for grpc, tars and sofa protocols!</Translate>,
+        title: <Translate>Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols</Translate>,
         author: "xiaoyu",
         description: <Translate>Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols</Translate>,
         categories: "Apache ShenYu",

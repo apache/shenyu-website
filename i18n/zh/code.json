@@ -351,7 +351,7 @@
   "RateLimiter SPI code analysis":{
     "message":"RateLimiter SPI 代码分析"
   },
-  "RateLimiterRate limiter is a very important integral of gateway application, to deal with high traffic. When the system is attacked abnormally by a large number of traffic gathered in a short time; When there are a large number of lower priority request need to be slow down or else it will effect your high priority transactions; Or sometimes your system can not afford the regular traffic; in these scenarios, we need to start rate limiter component to protect our system, through rejection, wait, load shedding,etc, limit the requests to an acceptable quantities, or only certain domains (or services) requests can get through.":{
+  "Rate limiter is a very important integral of gateway application, to deal with high traffic. When the system is attacked abnormally by a large number of traffic gathered in a short time; When there are a large number of lower priority request need to be slow down or else it will effect your high priority transactions; Or sometimes your system can not afford the regular traffic; in these scenarios, we need to start rate limiter component to protect our system, through rejection, wait, load shedding,etc, limit the requests to an acceptable quantities, or only certain domains (or services) requests can get through.":{
     "message":"限流是网关必备的功能，用来应对高并发请求的场景。当系统受到异常攻击，短期内聚集了大量的流量；当有大量低级别的请求，处理这些请求会影响关键业务的处理，需要限制这些请求的访问速度; 或者系统内部出现一些异常，不能满负荷的服务整个应用请求等等。这些情况下，都需要启用限流来保护系统。可以拒绝服务、等待或降级处理，将流量限制到系统可接受的量，或者只允许某些域名(或某些业务)的请求优先处理。"
   },
   "Register Center Source Code Analysis of Http Register":{

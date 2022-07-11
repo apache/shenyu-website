@@ -4,6 +4,8 @@ import Layout from '@theme/Layout';
 import styles from './blog.module.css';
 import blogInfo from '../data/blogInfo';
 // import BrowserOnly from '@docusaurus/BrowserOnly';
+import Translate, { translate } from "@docusaurus/Translate";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 
 function Blog() {
@@ -12,15 +14,16 @@ function Blog() {
     let contentList = useRef([React.createRef(), React.createRef(),React.createRef(),React.createRef(),React.createRef(),React.createRef()])
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        let useAnchor = () => {
             for (let i = 0; i < contentList.current.length; i++) {
                 let dist = contentList.current[i].current.getBoundingClientRect().y
                 if (dist >= 90 && dist <= 300) {
                     setActiveAnchor(i)
                 }
             }
-        });
-        return () => window.removeEventListener('scroll', () => { });
+        }
+        window.addEventListener('scroll', useAnchor);
+        return () => window.removeEventListener('scroll', useAnchor);
     }, []);
 
     return (
@@ -36,11 +39,10 @@ function Blog() {
                                         {item.posts.map((post, key) => {
                                             return (
                                                 <div className={styles.card} key={key}>
-                                                    {/* <img className={styles.cardImage} src={post.cover}  width='200' height={140}></img> */}
-                                                    <div className={styles.postTitle} onClick={() => window.location.href = "https://shenyu.apache.org/blog/" + post.src}>{post.title}</div>
+                                                    <div className={styles.postTitle}><Link to={'blog/' + post.src}>{post.title}</Link></div>
                                                     <div className={styles.author}> {post.author}   &ensp; &ensp;     {post.date} </div>
                                                     <div className={styles.postAbs}>{post.abs}</div>
-                                                    <div className={styles.read} onClick={() => window.location.href = "https://shenyu.apache.org/blog/" + post.src}> Read More </div>
+                                                    <div className={styles.read}><Link to={'blog/' + post.src}><Translate>Read More</Translate></Link></div>
                                                 </div>
                                             )
                                         })}

@@ -321,5 +321,133 @@
   },
   "[Here].": {
     "message": "[这里]。"
+  },
+  "Recent Posts":{
+    "message":"近期新闻"
+  },
+  "Read More":{
+    "message":"阅读更多"
+  },
+
+
+  "MatchStrategy -- analyze the design based on SPI":{
+    "message":"MatchStrategy--基于SPI的代码分析"
+  },
+  "Gateway applications need to support a variety of load balancing strategies, including random,Hashing, RoundRobin and so on. In Apache Shenyu gateway, it not only realizes such traditional algorithms, but also makes smoother traffic processing for the entry of server nodes through detailed processing such as traffic warm-up, so as to obtain better overall stability. In this article, let's walk through how Apache Shenyu is designed and implemented this part of the function.":{
+    "message":"Apache Shenyu 网关的各个Plugin（包括Dubbo, gRPC,Spring-cloud等) 中，routing参数均设计为可以接受多个条件的组合。 为了实现这样的目的，遵循其SPI的机制进行将参数及行为抽象为如下三部分，这些SPI 在shenyu-plugin-base模组中实现。"
+  },
+  "PredicateJudge -- analyze the design based on SPI":{
+    "message":"PredicateJudge-- 基于SPI的设计实现分析"
+  },
+  "In most of the plugins ( such as Dubbo, gRPC,Spring-cloud, etc) of Apache Shenyu, the routingparameters are designed to support the combination of multiple conditions. In order to realize such requirements, the parameters and behaviors are abstracted to three parts according to its SPI mechanism, and implemented in shenyu-plugin-base module.":{
+    "message":"灵活的插件和规则定义，是Shenyu网关的一大特色。它以插件形式支持多种网络协议和多种流行的微服务框架，如Dubbo, gRPC和 Spring-Cloud 等。 为了实现对各种协议及插件的配置规则的解析，网关在规则策略解析方面，采用了优雅的SPI(Service Provider Interface)实现，当添加新的插件时，规则解析部分可以沿用现有实现或采用SPI机制快速实现，具有良好的可扩展性。"
+  },
+  "LoadBalance SPI Source Code Analysis":{
+    "message":"LoadBalance SPI 代码分析"
+  },
+  "Apache Shenyu has been identified as a gateway application which supports a variety of protocols and microservice frameworks such as Dubbo, gRPC, Spring-Cloud, etc. To do this, the product has accomplished an elegant SPI (Service Provider Interface) as its foundation, and make the Rule data parsing and predicting program very simple , resiliency and security. As to rule data parsing processing, the SPI design increases the product's scalability. When appending new plugin, in most cases, the existing module is enough for rule data parsing , otherwise it can be rapidly carry out with tiny effort.":{
+    "message":"网关应用需要支持多种负载均衡的方案，包括随机选择、Hash、轮询等方式。Apache Shenyu网关中不仅实现了传统网关的这些均衡策略，还通过流量预热(warmup)等细节处理，对服务器节点的加入，做了更平滑的流量处理，获得了更好的整体稳定性。让我们来看看Shenyu是是如何设计和实现这部分功能的。"
+  },
+  "RateLimiter SPI code analysis":{
+    "message":"RateLimiter SPI 代码分析"
+  },
+  "RateLimiterRate limiter is a very important integral of gateway application, to deal with high traffic. When the system is attacked abnormally by a large number of traffic gathered in a short time; When there are a large number of lower priority request need to be slow down or else it will effect your high priority transactions; Or sometimes your system can not afford the regular traffic; in these scenarios, we need to start rate limiter component to protect our system, through rejection, wait, load shedding,etc, limit the requests to an acceptable quantities, or only certain domains (or services) requests can get through.":{
+    "message":"限流是网关必备的功能，用来应对高并发请求的场景。当系统受到异常攻击，短期内聚集了大量的流量；当有大量低级别的请求，处理这些请求会影响关键业务的处理，需要限制这些请求的访问速度; 或者系统内部出现一些异常，不能满负荷的服务整个应用请求等等。这些情况下，都需要启用限流来保护系统。可以拒绝服务、等待或降级处理，将流量限制到系统可接受的量，或者只允许某些域名(或某些业务)的请求优先处理。"
+  },
+  "Register Center Source Code Analysis of Http Register":{
+    "message":"注册中心实现原理之Http注册"
+  },
+  "In ShenYu gateway, the registration center is used to register the client information to shenyu-admin, admin then synchronizes this information to the gateway through data synchronization, and the gateway completes traffic filtering through these data. The client information mainly includes interface information and URI information.":{
+    "message":"在ShenYu网关中，注册中心是用于将客户端信息注册到shenyu-admin，admin再通过数据同步将这些信息同步到网关，网关通过这些数据完成流量筛选。客户端信息主要包括接口信息和URI信息。"
+  },
+  "Apache ShenYu Start Demo":{
+    "message":"Apache ShenYu 启动示例"
+  },
+  "Etcd Data Synchronization Source Code Analysis":{
+    "message":"Etcd数据同步源码分析"
+  },
+  "In ShenYu gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for ZooKeeper, WebSocket, http long poll, Nacos, Etcd and Consul. The main content of this article is based on Etcd data synchronization source code analysis.":{
+    "message":"在ShenYu网关中，数据同步是指，当在后台管理系统中，数据发送了更新后，如何将更新的数据同步到网关中。Apache ShenYu 网关当前支持ZooKeeper、WebSocket、Http长轮询、Nacos 、Etcd 和 Consul 进行数据同步。本文的主要内容是基于Etcd的数据同步源码分析。"
+  },
+  "Http Long Polling Data Synchronization Source Code Analysis":{
+    "message":"Http长轮询数据同步源码分析"
+  },
+  "In ShenYu gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for ZooKeeper, WebSocket, http long poll, Nacos, etcd and Consul. The main content of this article is based on http long poll data synchronization source code analysis.":{
+    "message":"在ShenYu网关中，数据同步是指，当在后台管理系统中，数据发送了更新后，如何将更新的数据同步到网关中。Apache ShenYu 网关当前支持ZooKeeper、WebSocket、Http长轮询、Nacos 、Etcd 和 Consul 进行数据同步。本文的主要内容是基于Http长轮询的数据同步源码分析。"
+  },
+  "Nacos Data Synchronization Source Code Analysis":{
+    "message":"Nacos数据同步源码分析"
+  },
+  "In ShenYu gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for ZooKeeper, WebSocket, http long poll, Nacos, etcd and Consul. The main content of this article is based on Nacos data synchronization source code analysis.":{
+    "message":"在ShenYu网关中，数据同步是指，当在后台管理系统中，数据发送了更新后，如何将更新的数据同步到网关中。Apache ShenYu 网关当前支持ZooKeeper、WebSocket、Http长轮询、Nacos 、Etcd 和 Consul 进行数据同步。本文的主要内容是基于Nacos的数据同步源码分析。"
+  },
+  "WebSocket Data Synchronization Source Code Analysis":{
+    "message":"WebSocket数据同步源码分析"
+  },
+  "In ShenYu gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for ZooKeeper, WebSocket, http long poll, Nacos, etcd and Consul. The main content of this article is based on WebSocket data synchronization source code analysis.":{
+    "message":"在ShenYu网关中，数据同步是指，当在后台管理系统中，数据发送了更新后，如何将更新的数据同步到网关中。Apache ShenYu 网关当前支持ZooKeeper、WebSocket、Http长轮询、Nacos 、etcd 和 Consul 进行数据同步。本文的主要内容是基于WebSocket的数据同步源码分析。"
+  },
+  "ZooKeeper Data Synchronization Source Code Analysis":{
+    "message":"ZooKeeper数据同步源码分析"
+  },
+  "Integration Test Analysis":{
+    "message":"集成剖析测试"
+  },
+  "This article will provide an in-depth analysis of Apache ShenYu's integration tests.":{
+    "message":"这篇文章将会对Apache ShenYu的集成测试进行深入剖析。"
+  },
+  "Code Analysis For Context-Path Plugin":{
+    "message":"Context-Path插件源码分析"
+  },
+  "Code Analysis For Dubbo Plugin":{
+    "message":"Dubbo Plugin插件源码分析"
+  },
+  "The ShenYu gateway uses the divide plugin to handle http requests. You can see the official documentation Quick start with Http to learn how to use this plugin.":{
+    "message":"Apache ShenYu 网关使用 dubbo 插件完成对 dubbo服务的调用。你可以查看官方文档 Dubbo快速开始 了解如何使用该插件。"
+  },
+  "Code Analysis For Param-Mapping Plugin":{
+    "message":"Param-Mapping插件源码分析"
+  },
+  "The Apache ShenYu gateway uses the dubbo plugin to make calls to the dubbo service. You can see the official documentation Dubbo Quick Start to learn how to use the plugin.":{
+    "message":"Apache ShenYu 网关使用 dubbo 插件完成对 dubbo服务的调用。你可以查看官方文档 Dubbo快速开始 了解如何使用该插件。"
+  },
+  "Code Analysis For Divide Plugin":{
+    "message":"Divide插件源码分析"
+  },
+
+
+
+  "You can also be an Apache ShenYu Committer":{
+    "message":"你也可以成为Apache ShenYu Committer"
+  },
+  "Apache ShenYu 2.4.3 Version Release":{
+    "message":"Apache ShenYu 2.4.3 版本发布"
+  },
+  "The way from University Student to Apache Committer":{
+    "message":"从在校生到Apache Committer之路"
+  },
+  "From users to Committer, different experiences and gains":{
+    "message":"从用户到Committer，别样体验和收获"
+  },
+  "Apache ShenYu(incubating) newly promoted PPMC":{
+    "message":"Apache ShenYu(incubating）新晋PPMC"
+  },
+  "From users to Committer, participation in the Apache ShenYu community is not far away":{
+    "message":"从用户到Committer，参与Apache ShenYu社区并不遥远"
+  },
+  "Release the first version of Apache ShenYu(Incubating)2.4.0  Make API gateway easy":{
+    "message":"发布Apache首个版本-2.4.0】让API网关变得简单"
+  },
+  "How I became an Apache ShenYu Committer one year after graduation":{
+    "message":"毕业一年我是如何成为Apache ShenYu Committer"
+  },
+  "The Open Source Path for Tech Veterans":{
+    "message":"技术老兵的开源之路"
+  },
+  "Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols":{
+    "message":"[Soul 网关发布里程碑的2.3.0版本] 新增支持GRPC，Tars，Sofa协议"
   }
+
+
+
 }

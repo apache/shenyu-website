@@ -3,12 +3,14 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import styles from './news.module.css';
 import newsInfo from '../data/newsInfo';
+import Translate, { translate } from "@docusaurus/Translate";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 
 function News() {
   return (
     <Layout title="News">
-      <div className={styles.top}>Recent Posts</div>
+      <div className={styles.top}><Translate>Recent Posts</Translate></div>
       <div className={styles.content}>
         <div className={styles.newsList}>
           {newsInfo.map((newsItem, i) => {
@@ -19,7 +21,7 @@ function News() {
                   <div className={styles.cardDate}>{newsItem.date}</div>
                   <div className={styles.cardTitle}>{newsItem.title}</div>
                   <div className={styles.cardDesc}>{newsItem.description}</div>
-                  <button className={styles.readMore} onClick={() => window.location.href = 'https://shenyu.apache.org/news/' + newsItem.src}> >>Read More </button>
+                  <div className={styles.readMore}><Link to={'news/' + newsItem.src}> >> <Translate>Read More</Translate></Link></div>
                 </div>
               </div>
             )

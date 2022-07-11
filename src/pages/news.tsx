@@ -1,13 +1,24 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import styles from './news.module.css';
 import newsInfo from '../data/newsInfo';
 import Translate, { translate } from "@docusaurus/Translate";
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 
 function News() {
+  const [url, setUrl] = useState(true)
+
+  useEffect(() => {
+    let baseUrl = window.location.href
+    if (baseUrl[baseUrl.length - 1] == '/') {
+      setUrl(false)
+    } else {
+      setUrl(true)
+    }
+  }, []);
+
   return (
     <Layout title="News">
       <div className={styles.top}><Translate>Recent Posts</Translate></div>
@@ -21,7 +32,11 @@ function News() {
                   <div className={styles.cardDate}>{newsItem.date}</div>
                   <div className={styles.cardTitle}>{newsItem.title}</div>
                   <div className={styles.cardDesc}>{newsItem.description}</div>
-                  <div className={styles.readMore}><Link to={'news/' + newsItem.src}> >> <Translate>Read More</Translate></Link></div>
+                  <div className={styles.readMore}>
+                    {
+                      url ? <Link to={'news/' + newsItem.src}> >> <Translate>Read More</Translate></Link> : <Link to={newsItem.src}> >> <Translate>Read More</Translate></Link>
+                    }
+                  </div>
                 </div>
               </div>
             )

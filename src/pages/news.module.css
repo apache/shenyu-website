@@ -61,6 +61,10 @@
     cursor:pointer;
 }
 
+.link:hover{
+    text-decoration: none;
+}
+
 .readMore{
     font-size: 12px;
     color: var(--ifm-color-primary);

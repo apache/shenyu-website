@@ -1,8 +1,11 @@
+import React from 'react';
+import Translate from "@docusaurus/Translate";
+
 export default [
     {
-        title: "From CRUD Boy to Apache ShenYu Committer",
+        title: <Translate>From CRUD Boy to Apache ShenYu Committer</Translate>,
         author: "Renzhu Yan",
-        description: "From CRUD Boy to Apache ShenYu Committer",
+        description: <Translate>From CRUD Boy to Apache ShenYu Committer</Translate>,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2022-07-04',
@@ -10,9 +13,9 @@ export default [
         src:'Apache-ShenYu-Committer-2022-07-04',
     },
     {
-        title: "You can also be an Apache ShenYu Committer", 
+        title: <Translate>You can also be an Apache ShenYu Committer</Translate>, 
         author: "Zicheng Zhang",
-        description: "You can also be an Apache ShenYu Committer",
+        description: <Translate>You can also be an Apache ShenYu Committer</Translate>,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2022-04-20',
@@ -20,9 +23,9 @@ export default [
         src:'Apache-ShenYu-Committer-2022-04-20',
     },
     {
-        title: "Apache ShenYu 2.4.3 Version Release", 
+        title: <Translate>Apache ShenYu 2.4.3 Version Release</Translate>, 
         // author: "Liu Liang",
-        description: "Apache ShenYu 2.4.3 Version Release",
+        description: <Translate>Apache ShenYu 2.4.3 Version Release</Translate>,
         categories: "Apache ShenYu",
         tags: ["Apache ShenYu"],
         date: '2022-04-18',
@@ -30,9 +33,9 @@ export default [
         src:'Apache-ShenYu-release-version-2.4.3',
     },
     {
-        title: "The way from University Student to Apache Committer",
+        title: <Translate>The way from University Student to Apache Committer</Translate>,
         author: "Kunshuai Zhu",
-        description: "The way from College Student to Apache Committer",
+        description: <Translate>The way from University Student to Apache Committer</Translate>,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: "2021-12-08",
@@ -40,9 +43,9 @@ export default [
         src:"Apache-ShenYu-Committer-2021-12-08",
     },
     {
-        title: "From users to Committer, different experiences and gains", 
+        title: <Translate>From users to Committer, different experiences and gains</Translate>, 
         author: "qicz",
-        description: "From users to Committer, different experiences and gains",
+        description: <Translate>From users to Committer, different experiences and gains</Translate>,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2021-11-11',
@@ -50,9 +53,9 @@ export default [
         src:'Apache-ShenYu-Committer-2021-11-11',
     },
     {
-        title: "Apache ShenYu(incubating) newly promoted PPMC", 
+        title: <Translate>Apache ShenYu(incubating) newly promoted PPMC</Translate>, 
         author: "Liu Liang",
-        description: "Apache ShenYu(incubating) newly promoted PPMC", 
+        description: <Translate>Apache ShenYu(incubating) newly promoted PPMC</Translate>, 
         categories: "Apache ShenYu PPMC",
         tags: ["Apache ShenYu"],
         date: "2021-11-05",
@@ -60,9 +63,9 @@ export default [
         src:'Apache-ShenYu-PPMC-2021-11-05',
     },
     {
-        title: "From users to Committer, participation in the Apache ShenYu community is not far away",
+        title: <Translate>From users to Committer, participation in the Apache ShenYu community is not far away</Translate>,
         author: "Tang Zhen",
-        description: "From users to Committer, participation in the Apache ShenYu community is not far away" ,
+        description: <Translate>From users to Committer, participation in the Apache ShenYu community is not far away</Translate> ,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2021-09-08',
@@ -70,9 +73,9 @@ export default [
         src:'Apache-ShenYu-Committer-2021-09-08'
     },
     {
-        title: "Release the first version of Apache ShenYu(Incubating)2.4.0  Make API gateway easy",
+        title: <Translate>Release the first version of Apache ShenYu(Incubating)2.4.0  Make API gateway easy</Translate>,
         author: "xiaoyu",
-        description: "【Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy",
+        description: <Translate>Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy</Translate>,
         categories: "Apache ShenYu",
         tags: ["Apache ShenYu"],
         date: '2021-08-01',
@@ -80,9 +83,9 @@ export default [
         src:'Apache-ShenYu-release-milestone-version-2.4.0',
     },
     {
-        title: "How I became an Apache ShenYu Committer one year after graduation", 
+        title: <Translate>How I became an Apache ShenYu Committer one year after graduation</Translate>, 
         author: "Liu Liang",
-        description: "From users to Committer, participation in the Apache ShenYu community is not far away",
+        description: <Translate>From users to Committer, participation in the Apache ShenYu community is not far away</Translate>,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2021-09-08',
@@ -90,9 +93,9 @@ export default [
         src:'Apache-ShenYu-Committer-2021-07-27',
     },
     {
-        title: "The Open Source Path for Tech Veterans",
+        title: <Translate>The Open Source Path for Tech Veterans</Translate>,
         author: "Haibo Duan",
-        description: "The Open Source Path for Tech Veterans",
+        description: <Translate>The Open Source Path for Tech Veterans</Translate>,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: "2021-02-28",
@@ -100,9 +103,9 @@ export default [
         src:'Apache-ShenYu-Committer-2022-02-28',
     },
     {
-        title: "Soul gateway release milestone version 2.3.0   New support for grpc, tars and sofa protocols!",
+        title: <Translate>Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols</Translate>,
         author: "xiaoyu",
-        description: "Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols",
+        description: <Translate>Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols</Translate>,
         categories: "Apache ShenYu",
         tags: ["Apache ShenYu"],
         date: "2020-07-05",

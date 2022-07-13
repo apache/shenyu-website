@@ -76,7 +76,7 @@ data:
             parameter: multi
         sync:
             websocket:
-            urls: ws://shenyu-admin-svc.shenyu.svc.cluster.local:9095/websocket
+              urls: ws://shenyu-admin-svc.shenyu.svc.cluster.local:9095/websocket
         exclude:
             enabled: false
             paths:
@@ -260,7 +260,7 @@ data:
             parameter: multi
         sync:
             websocket:
-            urls: ws://shenyu-admin-svc.shenyu.svc.cluster.local:9095/websocket
+              urls: ws://shenyu-admin-svc.shenyu.svc.cluster.local:9095/websocket
         exclude:
             enabled: false
             paths:

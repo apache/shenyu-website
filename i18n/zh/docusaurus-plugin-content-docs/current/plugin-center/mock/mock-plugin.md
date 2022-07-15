@@ -49,6 +49,7 @@ description: mock插件
 ![](/img/shenyu/plugin/mock/enable-mock-plugin-zh.png)
 
 ## 2.3 配置插件
+
 - 选择器和规则设置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 - shenyu-admin mock 插件配置，支持配置 httpStatusCode 和 responseContent：
   - httpStatusCode:配置请求的响应码。
@@ -56,41 +57,40 @@ description: mock插件
 
 ![](/img/shenyu/plugin/mock/mock-rule-configuration-zh.png)
 
-## 2.4 ${} 支持的语法
+## 2.4 `${}` 支持的语法
 
 **`${int|min-max}`**  
- - **说明：**生成 `min` 到 `max` 的随机整数，包含 `min` 和 `max` 。 
- - **示例：**`${int|10-20}`
+ - **说明：** 生成 `min` 到 `max` 的随机整数，包含 `min` 和 `max` 。 
+ - **示例：** `${int|10-20}`
 
 **`${double|min-max|format}`**
-- **说明：**生成 `min` 到 `max` 的随机浮点数 ，包含 `min` 和 `max`，并按照 `format` 进行格式化。
-- **示例：**`${double|10-20}` , `${double|10-20.5|%.2f}`
+- **说明：** 生成 `min` 到 `max` 的随机浮点数 ，包含 `min` 和 `max`，并按照 `format` 进行格式化。
+- **示例：** `${double|10-20}` , `${double|10-20.5|%.2f}`
 
 **`${email}`**
-- **说明：**生成随机的邮箱地址。
+- **说明：** 生成随机的邮箱地址。
 
 **`${phone}`**
-- **说明：**生成随机的13位手机号码。
+- **说明：** 生成随机的13位手机号码。
 
 **`${zh|min-max}`**
-- **说明：**生成长度为 `min` 到 `max` （包含 `min` 和 `max`）的随机中文字符串。
-- **示例：**`${zh|10-20}`
+- **说明：** 生成长度为 `min` 到 `max` （包含 `min` 和 `max`）的随机中文字符串。
+- **示例：** `${zh|10-20}`
 
 **`${en|min-max}`**
-- **说明：**生成长度为 `min` 到 `max` （包含 `min` 和 `max`）的随机英文字符串。
-- **示例：**`${en|10-20}`
+- **说明：** 生成长度为 `min` 到 `max` （包含 `min` 和 `max`）的随机英文字符串。
+- **示例：** `${en|10-20}`
 
 **`${bool}`**
-- **说明：**生成随机的`boolean` 类型的值 即 `true` 或 `false`。
+- **说明：** 生成随机的`boolean` 类型的值 即 `true` 或 `false`。
 
 **`${list|[arg1,arg2...]}`**
-- **说明：**随机返回列表中的任意一个值
-- **示例：**`${list|[gril,boy]}` 会返回 girl 或 boy 中任意一个。
+- **说明：** 随机返回列表中的任意一个值
+- **示例：** `${list|[gril,boy]}` 会返回 girl 或 boy 中任意一个。
 
 **`${current|format}`**
-- **说明：**返回当前时间并使用 `format` 格式化，`format` 可缺省，默认是 `YYYY-MM-dd HH:mm:ss`。
-- **示例：**`${current}`，`${current|YYYY-MM-dd}`
-
+- **说明：** 返回当前时间并使用 `format` 格式化，`format` 可缺省，默认是 `YYYY-MM-dd HH:mm:ss`。
+- **示例：** `${current}`，`${current|YYYY-MM-dd}`
 
 **注意：尽量不要使用 `""` 包裹 `${}` ,mock插件会根据 `${}` 生成的内容来决定是否添加 `""`。**
 

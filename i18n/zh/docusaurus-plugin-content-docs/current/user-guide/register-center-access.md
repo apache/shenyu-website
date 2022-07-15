@@ -24,6 +24,7 @@ description: 客户端接入配置
 ```yaml
 shenyu:
   register:
+    enabled: true
     registerType: http
     props:
       checked: true  #是否开启检测
@@ -43,6 +44,7 @@ shenyu:
 ```yaml
 shenyu:
   client:
+    enabled: true
     registerType: http
     serverLists: http://localhost:9095
     props:
@@ -85,6 +87,7 @@ shenyu:
 ```yaml
 shenyu:
   register:
+    enabled: true
     registerType: zookeeper
     serverLists: localhost:2181
     props:
@@ -117,6 +120,7 @@ shenyu:
 ```yaml
 shenyu:
   client:
+    enabled: true
     registerType: zookeeper
     serverLists: localhost:2181
     props:
@@ -157,6 +161,7 @@ shenyu:
 ```yaml
 shenyu:
   register:
+    enabled: true
     registerType: etcd
     serverLists : http://localhost:2379
 ```
@@ -187,6 +192,7 @@ shenyu:
 ```yaml
 shenyu:
   client:
+    enabled: true
     registerType: etcd 
     serverLists: http://localhost:2379
     props:
@@ -233,6 +239,7 @@ shenyu:
 ```yaml
 shenyu:
   register:
+    enabled: true
     registerType: consul
     serverLists: localhost:8500
     props:
@@ -281,6 +288,7 @@ shenyu:
 ```yaml
 shenyu:
   register:
+    enabled: true
     registerType: consul
     serverLists: localhost:8500
     props:

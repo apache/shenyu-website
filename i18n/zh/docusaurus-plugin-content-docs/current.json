@@ -47,6 +47,10 @@
     "message": "权限认证",
     "description": "The label for category Authority-And-Certification in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Mock": {
+    "message": "Mock",
+    "description": "The label for mock"
+  },
   "sidebar.tutorialSidebar.category.Common": {
     "message": "通用组件",
     "description": "The label for category Common"

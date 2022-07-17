@@ -5,7 +5,8 @@ keywords: ["Apache shenyu"]
 description: Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的`API`网关。
 ---
 
-# 架构图 
+# 架构图
+
  ![](/img/architecture/shenyu-framework.png)  
 
 # 为什么叫ShenYu
@@ -26,12 +27,11 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 * 集群: NGINX、Docker、Kubernetes
 * 语言: 提供 .NET、Python、Go、Java客户端进行API注册
 
---- 
+---
 
 # 脑图
 
 ![](https://shenyu.apache.org/img/shenyu/activite/shenyu-xmind.png)
-
 
 # 快速开始 (docker)
 
@@ -49,11 +49,11 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 > docker network create shenyu
 > docker pull apache/shenyu-bootstrap
 > docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap
-```                       
+```
 
 ### 路由设置
 
-* Real requests  ：http://127.0.0.1:8080/helloworld,
+* Real requests  ：<http://127.0.0.1:8080/helloworld>,
 
 ```json
 {
@@ -89,7 +89,7 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
 }'
 ```
 
-* 代理请求 ：http://localhost:9195/helloworld 
+* 代理请求 ：<http://localhost:9195/helloworld>
 
 ```json
 {
@@ -97,6 +97,7 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
   "data" : "hello world"
 }
 ```
+
 ---
 
 # 插件
@@ -110,10 +111,10 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
   当然，用户也可以自定义插件来满足自己的需求。
 
   如果要自定义，见[自定义插件](https://shenyu.apache.org/docs/developer/custom-plugin/)
- 
+
 ---  
- 
-# Selector & Rule 
+
+# Selector & Rule
 
   根据您的HTTP请求头，Selector和Rule将用于路由您的请求。
 
@@ -122,11 +123,11 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
   Rule是你的第二层路由，你认为你的请求应该做什么。例如模块中的方法级别。
 
   Selector和Rule只匹配一次，然后返回匹配结果。因此最粗的粒度应该最后排序。
- 
+
 ---  
-   
+
 # Data Caching & Data Sync
- 
+
   因为所有数据都是使用JVM中的ConcurrentHashMap缓存的，所以速度非常快。
 
   Apache ShenYu通过监听ZooKeeper节点(或WebSocket push，HTTP long polling)，在后台管理中用户更改配置信息时动态更新缓存。
@@ -135,14 +136,14 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
   
   ![](/img/shenyu/dataSync/config-strategy-processor-en.png)
 
----    
+---
 
 # Prerequisite
- 
-   * JDK 1.8+
-   
---- 
-        
+
+* JDK 1.8+
+
+---
+
 # Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/apache/incubator-shenyu.svg)](https://starchart.cc/apache/incubator-shenyu.svg)

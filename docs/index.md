@@ -6,17 +6,19 @@ description: This is an asynchronous, high-performance, cross-language, responsi
 aliases: "/shenyu/docs/Home"
 ---
 
-# Architecture 
+# Architecture
+
  ![](/img/architecture/shenyu-framework.png)  
 
 # Why named Apache ShenYu
 
 ShenYu (神禹) is the honorific name of Chinese ancient monarch Xia Yu (also known in later times as Da Yu), who left behind the touching story of the three times he crossed the Yellow River for the benefit of the people and successfully managed the flooding of the river. He is known as one of the three greatest kings of ancient China, along with Yao and Shun.
+
 * Firstly, the name ShenYu is to promote the traditional virtues of our Chinese civilisation.
 * Secondly, the most important thing about the gateway is the governance of the traffic.
 * Finally, the community will do things in a fair, just, open and meritocratic way, paying tribute to ShenYu while also conforming to the Apache Way.
 
---- 
+---
 
 # Features
 
@@ -29,15 +31,15 @@ ShenYu (神禹) is the honorific name of Chinese ancient monarch Xia Yu (also kn
 * Cluster: NGINX, Docker, Kubernetes
 * Language: provides .NET, Python, Go, Java client for API register
 
---- 
+---
 
 # Mind maps
 
  ![](/img/shenyu/activite/shenyu-xmind.png)
 
- --- 
+ ---
 
- # Quick Start (docker)
+# Quick Start (docker)
 
 ### Run Apache ShenYu Admin
 
@@ -53,11 +55,11 @@ ShenYu (神禹) is the honorific name of Chinese ancient monarch Xia Yu (also kn
 > docker network create shenyu
 > docker pull apache/shenyu-bootstrap
 > docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap
-```                       
+```
 
 ### Set router
 
-* Real requests  ：http://127.0.0.1:8080/helloworld,
+* Real requests  ：<http://127.0.0.1:8080/helloworld>,
 
 ```json
 {
@@ -93,7 +95,7 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
 }'
 ```
 
-* Proxy request ：http://localhost:9195/helloworld 
+* Proxy request ：<http://localhost:9195/helloworld>
 
 ```json
 {
@@ -101,23 +103,24 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
   "data" : "hello world"
 }
 ```
+
 ---
 
 # Plugin
 
  Whenever a request comes in, Apache ShenYu will execute it by all enabled plugins through the chain of responsibility.
- 
+
  As the heart of Apache ShenYu, plugins are extensible and hot-pluggable.
- 
+
  Different plugins do different things.
- 
+
  Of course, users can also customize plugins to meet their own needs.
- 
+
  If you want to customize, see [custom-plugin](https://shenyu.apache.org/docs/developer/custom-plugin/) .
- 
+
 ---  
- 
-# Selector & Rule 
+
+# Selector & Rule
 
   According to your HTTP request headers, selectors and rules are used to route your requests.
   
@@ -126,11 +129,11 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
   Rule is your second route and what do you think your request should do. For example a method level in a module.
   
   The selector and the rule match only once, and the match is returned. So the coarsest granularity should be sorted last.
- 
+
 ---  
-   
+
 # Data Caching & Data Sync
- 
+
   Since all data have been cached using ConcurrentHashMap in the JVM, it's very fast.
   
   Apache ShenYu dynamically updates the cache by listening to the ZooKeeper node (or WebSocket push, HTTP long polling) when the user changes configuration information in the background management.
@@ -139,14 +142,14 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
   
   ![](/img/shenyu/dataSync/config-strategy-processor-en.png)
 
----    
+---
 
 # Prerequisite
- 
-   * JDK 1.8+
-   
---- 
-        
+
+* JDK 1.8+
+
+---
+
 # Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/apache/incubator-shenyu.svg)](https://starchart.cc/apache/incubator-shenyu.svg)

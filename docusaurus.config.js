@@ -37,11 +37,51 @@ module.exports = {
       },
       items: [
         {to: '/download', label: 'Download', position: 'left'},
+        // {
+        //   type: 'docsVersionDropdown',
+        //   label: 'doc',
+        //   position: 'left',
+        //   dropdownActiveClassDisabled: true,
+        //   dropdownItemsAfter: [
+        //     {
+        //       to: '/versions',
+        //       label: 'All versions',
+        //     },
+        //   ],
+        // },
         {
-          type: 'doc',
-          docId: 'index',
+          label: 'Docs',
           position: 'left',
-          label: 'Document',
+          items: [
+            {
+              label: "next",
+              to: "/docs/next/index",
+            },
+            {
+              label: "2.4.3",
+              to: "/docs/index",
+            },
+            {
+              label: "2.4.2",
+              to: "/docs/2.4.2/index",
+            },
+            {
+              label: "2.4.1",
+              to: "/docs/2.4.1/index",
+            },
+            {
+              label: "2.4.1",
+              to: "/docs/2.4.0/index",
+            },
+            {
+              label: "2.3.0-Legacy",
+              to: "/docs/2.3.0-Legacy/index",
+            },
+            {
+              label: "All Versions",
+              to: "/versions",
+            },
+          ],
         },
         {
           to: '/community/contributor-guide',
@@ -52,7 +92,7 @@ module.exports = {
         {
           label: 'Event',
           position: 'left',
-          to: '/event/2.4.2-release',
+          to: '/event',
           activeBaseRegex: `/event/`,
         },
         {to: '/news', label: 'News', position: 'left'},
@@ -89,17 +129,6 @@ module.exports = {
             {
               label: "Thanks",
               to: "https://www.apache.org/foundation/thanks.html",
-            },
-          ],
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-          dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
-            {
-              to: '/versions',
-              label: 'All versions',
             },
           ],
         },
@@ -276,7 +305,7 @@ module.exports = {
         },
         editCurrentVersion: true,
         editLocalizedFiles: true,
-        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        sidebarPath: false,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
       }

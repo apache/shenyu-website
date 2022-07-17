@@ -447,8 +447,26 @@
   },
   "Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols":{
     "message":"[Soul 网关发布里程碑的2.3.0版本] 新增支持GRPC，Tars，Sofa协议"
+  },
+  "Version List":{
+    "message":"版本列表"
+  },
+  "Release Apache Shenyu 2.4.3":{
+    "message":"Apache Shenyu 2.4.3 发布"
+  },
+  "Release Apache Shenyu 2.4.2":{
+    "message":"Apache Shenyu 2.4.2 发布"
+  },
+  "Release Apache Shenyu 2.4.1":{
+    "message":"Apache Shenyu 2.4.1 发布"
+  },
+  "Release Apache Shenyu 2.4.0":{
+    "message":"Apache Shenyu 2.4.0 发布"
+  },
+  "Release Apache Shenyu 2.3.0":{
+    "message":"Apache Shenyu 2.3.0 发布"
+  },
+  "Release Apache Shenyu 2.2.0":{
+    "message":"Apache Shenyu 2.2.0 发布"
   }
-
-
-
 }

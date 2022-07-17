@@ -99,7 +99,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: "2021-02-28",
-        cover: "/img/logo.svg",
+        cover: "/img/news/duanhaibo.jpg",
         src:'Apache-ShenYu-Committer-2022-02-28',
     },
     {
@@ -109,7 +109,7 @@ export default [
         categories: "Apache ShenYu",
         tags: ["Apache ShenYu"],
         date: "2020-07-05",
-        cover: "/img/logo.svg",
+        cover: "/img/news/flow.png",
         src:'Soul-gateway-release-milestone-version-2.3.0',
     }
 ]

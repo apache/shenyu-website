@@ -19,14 +19,14 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 
 # 特点
 
-* 代理: 支持Apache® Dubbo™, Spring Cloud, gRPC, Motan, SOFA, TARS, WebSocket, MQTT
-* 安全性: Sign、OAuth 2.0、JSON Web Token、WAF plugin
-* API治理: Request, response, parameter mapping, Hystrix, RateLimiter plugin
-* 可观察性: 跟踪、指标、日志插件
-* 仪表板: 动态流量控制，用户菜单权限的可视化后端
-* 扩展: 插件热插拔、动态加载
-* 集群: NGINX、Docker、Kubernetes
-* 语言: 提供 .NET、Python、Go、Java客户端进行API注册
+* Proxy: Support for Apache® Dubbo™, Spring Cloud, gRPC, Motan, SOFA, TARS, WebSocket, MQTT
+* Security: Sign, OAuth 2.0, JSON Web Tokens, WAF plugin
+* API governance: Request, response, parameter mapping, Hystrix, RateLimiter plugin
+* Observability: Tracing, metrics, logging plugin
+* Dashboard: Dynamic traffic control, visual backend for user menu permissions
+* Extensions: Plugin hot-swapping, dynamic loading
+* Cluster: NGINX, Docker, Kubernetes
+* Language: provides .NET, Python, Go, Java client for API register
 
 ---
 

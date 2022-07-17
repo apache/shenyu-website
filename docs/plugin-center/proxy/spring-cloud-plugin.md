@@ -4,6 +4,116 @@ keywords: ["SpringCloud"]
 description: SpringCloud Plugin
 ---
 
+# 1. Overview
+
+## 1.1 Plugin Name
+
+* SpringCloud Plugin
+
+## 1.2 Appropriate Scenario
+
+* transform http to springcloud
+* springcloud 
+
+## 1.3 Plugin functionality
+
+* transform http protocol into springCloud protocol.
+
+## 1.4 Plugin code
+
+* Core Module `shenyu-plugin-springcloud`
+
+* Core Class `org.apache.shenyu.plugin.springcloud.SpringCloudPlugin`
+
+## 1.5 Added Since Which shenyu version
+
+Since ShenYu 2.4.0
+
+
+# 2. How to use plugin
+
+## 2.1 Plugin-use procedure chart
+
+![](/img/shenyu/plugin/logging/logging-console/loggingConsole-use-en.png)
+
+## 2.2 Import pom
+
+* Eureka Register Center
+```xml
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
+  <version>${project.version}</version>
+</dependency>
+
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+  <version>${eureka-client.version}</version>
+</dependency>
+
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-commons</artifactId>
+  <version>${spring-cloud-commons.version}</version>
+</dependency>
+```
+
+* Nacos Register Center
+
+```xml
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
+  <version>${project.version}</version>
+</dependency>
+
+<dependency>
+  <groupId>com.alibaba.cloud</groupId>
+  <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+  <version>${nacos-discovery.version}</version>
+</dependency>
+
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-commons</artifactId>
+  <version>${spring-cloud-commons.version}</version>
+</dependency>
+```
+
+## 2.3 Enable plugin
+
+- In shenyu-admin --> BasicConfig --> Plugin --> `springCloud` set Status enable.
+
+## 2.4 Config plugin
+
+### 2.4.1 Plugin config
+
+### 2.4.2 Selector Config
+
+### 2.4.3 Rule Config
+
+## 2.5 Gray Routing 
+
+
+## 2.5 Examples
+
+### 2.5.1 examples1, text and snapshot, detail describe every page config item, request, result
+
+### 2.5.2 examples2, text and snapshot, detail describe every page config item, request, result
+
+# 3. How to disable plugin
+
+
+
+
+
+
+
+
+
+
+
 ## Explanation
 
 * This plugin is the core of transforming `http` protocol into `springCloud protocol`.

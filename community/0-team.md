@@ -90,7 +90,7 @@ The team always insists on community over code. We are looking forward to more p
         <td></td>
     </tr>
     <tr>
-        <td><a href="http://github.com/dengliming"><img width="64" src="https://avatars.githubusercontent.com/u/7796156?v=4/"></a></td>
+        <td><a href="http://github.com/dengliming"><img width="64" src="https://avatars.githubusercontent.com/u/7796156?v=4"/></a></td>
         <td>Liming Deng</td>
         <td><a href="https://people.apache.org/committer-index.html#dengliming">dengliming</a></td>
         <td><a href="http://github.com/dengliming">dengliming</a></td>

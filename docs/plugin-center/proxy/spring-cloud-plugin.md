@@ -131,6 +131,7 @@ spring:
 ```
 
 ### 2.3.3 Config SpringCloud LoadBalancer
+
 > *Notice*
 > 
 > After ShenYu 2.5.0(include), ShenYu use `shenyu-loadbalancer` as loadbalancer client, you just config loadbalance in springcloud plugin rule.

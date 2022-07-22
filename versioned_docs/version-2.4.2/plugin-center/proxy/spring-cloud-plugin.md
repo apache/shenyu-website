@@ -215,71 +215,71 @@ Rule Handler, the `handle` field, can be performed by the gateway after the fina
   * `path`：request path.
   * `timeout`：set time out.
 
-## 2.5 Examples
+## 2.6 Examples
 
-### 2.5.1 Use ShenYu Request SpringCloud Service
+### 2.6.1 Use ShenYu Request SpringCloud Service
 
-#### 2.5.1.1 Preparation
+#### 2.6.1.1 Preparation
 
 - Start `Eureka` or `Nacos` Registry, if you use eureka, start `shenyu-examples-eureka` in `shenyu-example`
 - Start `ShenYu Admin` application
 - Start `shenyu-examples-springcloud`
 
-#### 2.5.1.2 Plugin Config
+#### 2.6.1.2 Plugin Config
 
 - In shenyu-admin --> BasicConfig --> Plugin --> `springCloud` set Status enabled.
 
 - Config SpringCloud Registry in `ShenYu Bootstrap`, please read [2.3 Config SpringCloud in ShenYu-Boostrap](#2.3 Config SpringCloud in ShenYu-Boostrap)
 
-#### 2.5.1.3 Selector Config
+#### 2.6.1.3 Selector Config
 
 ![](/img/shenyu/plugin/springcloud/selector_en_2.png)
 
 if your want to use gray flow and the gray flow have registered to `ShenyYu`, you must config gray upstream as follows.
 
-![](/img/shenyu/plugin/springcloud/graycc_en_2.png)
+![](/img/shenyu/plugin/springcloud/gray_en_2.png)
 
-#### 2.5.1.4 Rule Config
+#### 2.6.1.4 Rule Config
 
 if you use `shenyu-client-springcloud` register service to `ShenYu`, you don't config rule, if you want to change rule config,
 please read [2.5.3 Rule Config](#2.5.3 Rule Config)
 
-#### 2.5.1.5 Request SpringCloud Service and Check Result
+#### 2.6.1.5 Request SpringCloud Service and Check Result
 
 ![](/img/shenyu/plugin/springcloud/springcloud-request.png)
 
-### 2.5.2 Use ShenYu Request Unregistered SpringCloud Service
+### 2.6.2 Use ShenYu Request Unregistered SpringCloud Service
 
-#### 2.5.2.1 Preparation
+#### 2.6.2.1 Preparation
 
 - Start `Eureka` or `Nacos` Registry, if you use eureka, start `shenyu-examples-eureka` in `shenyu-example`
 - Start `ShenYu Admin` application
 - Start `shenyu-examples-springcloud`
 
-#### 2.5.2.2 Plugin Config
+#### 2.6.2.2 Plugin Config
 
 - In shenyu-admin --> BasicConfig --> Plugin --> `springCloud` set Status enabled.
 
 - Config SpringCloud Registry in `ShenYu Bootstrap`, please read [2.3 Config SpringCloud in ShenYu-Boostrap](#2.3 Config SpringCloud in ShenYu-Boostrap)
 
-#### 2.5.2.3 Selector Config
+#### 2.6.2.3 Selector Config
 
 ![](/img/shenyu/plugin/springcloud/selector_en_2.png)
 
 if your want to use gray flow and the gray flow unregister to `ShenyYu`, you must config gray upstream as follows.
 
-![](/img/shenyu/plugin/springcloud/graycc_en_2.png)
+![](/img/shenyu/plugin/springcloud/gray_en_2.png)
 
-#### 2.5.2.4 Rule Config
+#### 2.6.2.4 Rule Config
 
 ![](/img/shenyu/plugin/springcloud/rule_en.png)
 
 you must config `path` in rule config, `path` is your service uri, for example: `/springcloud/new/feature/gateway/not`,
 `timeout` is your service allow timeout.
 
-#### 2.5.2.5 Access Unregistered Services Through Configuration
+#### 2.6.2.5 Access Unregistered Services Through Configuration
 
-##### 2.5.2.5.1 use the field `rpc_type` in http request header
+##### 2.6.2.5.1 use the field `rpc_type` in http request header
 
 ```
 ### shengyu getway proxy not support
@@ -289,11 +289,11 @@ Content-Type: application/json
 rpc_type: springCloud
 ```
 
-##### 2.5.2.5.2 add meta_data in ShenYu Admin
+##### 2.6.2.5.2 add meta_data in ShenYu Admin
 
 ![](/img/shenyu/plugin/springcloud/springcloud_metadata_en.png)
 
-#### 2.5.2.6 Request SpringCloud Service and Check Result
+#### 2.6.2.6 Request SpringCloud Service and Check Result
 
 ![](/img/shenyu/plugin/springcloud/springcloud-request-unregistered.png)
 

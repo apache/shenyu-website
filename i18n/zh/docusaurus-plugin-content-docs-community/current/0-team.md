@@ -26,7 +26,7 @@ tags: ["Team"]
         <th><b></b></th>
     </tr>
     <tr>
-        <td><a href="http://github.com/yu199195"><img width="64" src="https://avatars.githubusercontent.com/u/9673503?v=4"></a></td>
+        <td><a href="http://github.com/yu199195"><img width="64" src="https://avatars.githubusercontent.com/u/9673503?v=4"/></a></td>
         <td>Yu Xiao</td>
         <td><a href="https://people.apache.org/committer-index.html#xiaoyu">xiaoyu</a></td>
         <td><a href="http://github.com/yu199195">yu199195</a></td>

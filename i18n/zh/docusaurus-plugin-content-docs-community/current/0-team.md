@@ -31,7 +31,7 @@ tags: ["Team"]
         <td><a href="https://people.apache.org/committer-index.html#xiaoyu">xiaoyu</a></td>
         <td><a href="http://github.com/yu199195">yu199195</a></td>
         <td>Founder, V.P. and Chair </td>
-        <td><a href="https://twitter.com/yu199195"><img width="32" src="/img/community/twitterblue.png">yu199195</a></td>
+        <td><a href="https://twitter.com/yu199195"><img width="32" src="https://shenyu.apache.org/img/community/twitterblue.png">yu199195</a></td>
     </tr>
     <tr>
         <td><a href="http://github.com/tuohai666"><img width="64" src="https://avatars.githubusercontent.com/u/24643893?v=4"></a></td>

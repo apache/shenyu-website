@@ -47,13 +47,16 @@ For example, add a selector to the `divide` plugin:
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
       * exclude: the inverse of the method of `match`.
+      * startsWith: when its prefix is equal to the specified value, it matches. In certain scenarios, `match` can be replaced (such as `/test/` instead of `/test/**`) for better performance.
+      * endsWith: when its suffix is equal to the specified value, it matches.
+      * pathPatter: it's an optimized version of `match`, which has better performance than `match`, but does not support writing `**` in the middle of the path (such as `/api/**/xxx`).
   * Continued: whether the subsequent selector is still executed.
   * PrintLogs: it will print the matching log with the open option enabled.
   * Enable: whether to enable the plugin.
   * Order：the smaller will have high priority to execute among multi-selectors.
   * Handler: The operation when the request matches the selector.
 * the above picture means: when the prefix of the request uri is `/http`, it will redirect to this service `127.0.0.1:8080`.
-* selector advice : combine `uri` condition and `match` prefix（/contextPath）as the first request filter.
+* selector advice : combine `uri` condition and `startsWith` prefix（/contextPath/）as the first request filter.
 * selector(the same for rule) match condition fuzzy string matching rule:
   * `?` matches one character
   * `*` matches zero or more characters
@@ -89,6 +92,9 @@ For example, add a selector to the `divide` plugin:
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
       * exclude: Same function as `match`, flow selection is opposite.
+      * startsWith: when its prefix is equal to the specified value, it matches. In certain scenarios, `match` can be replaced (such as `/test/` instead of `/test/**`) for better performance.
+      * endsWith: when its suffix is equal to the specified value, it matches.
+      * pathPatter: it's an optimized version of `match`, which has better performance than `match`, but does not support writing `**` in the middle of the path (such as `/api/**/xxx`).
 
   * PrintLogs: it will print the matching log with the open option enabled.
 
@@ -252,37 +258,37 @@ Condition parameters allow you to retrieve the actual data of the request. How t
 
 * `match` 
 
-  * `match` supports fuzzy matching (`/**`). Request `/http/order/findById` will match if your selector condition is set as follows.
+  `match` supports fuzzy matching (`/**`). Request `/http/order/findById` will match if your selector condition is set as follows.
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-match-en.png)
 
 * `=` 
 
-  * `=` means that the requested real data is equal to the preset condition data. If your selector condition is set to request uri equal to `/http/order/findById`, then request`/http/order/findById?id=1` can match it.
+  `=` means that the requested real data is equal to the preset condition data. If your selector condition is set to request uri equal to `/http/order/findById`, then request`/http/order/findById?id=1` can match it.
   
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-equals-en.png)
 
 * `regex` 
 
-  * `regex` means that the requested real data can meet the preset condition of the regular expression to match successfully. Suppose your rule condition is set as follows: the request parameter contains an `id` and is a three-digit number. So request `/http/order/findById?id=900` will match.
+  `regex` means that the requested real data can meet the preset condition of the regular expression to match successfully. Suppose your rule conditions are sets as follows: the request parameter contains an `id` and is a three-digit number. So request `/http/order/findById?id=900` will match.
   
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-regex-en.png)
 
 * `contains` 
 
-  * `contains`  means that the requested real data contains the default condition data. Suppose your rule condition is set as follows: request uri contains `findById`. Request `/http/order/findById?id=1` will match.
+  `contains` means that the requested real data contains the default condition data. Suppose your rule condition is set as follows: request uri contains `findById`. Request `/http/order/findById?id=1` will match.
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-contains-en.png)
 
 * `TimeBefore` 
 
-  * `TimeBefore` indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are set as follows: request parameters contain `date` and `date` is less than `2021-09-26 06:12:10`. Request `/http/order/findById?id=100&date=2021-09-22 06:12:10` will match.
+  `TimeBefore` indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are sets as follows: request parameters contain `date` and `date` is less than `2021-09-26 06:12:10`. Request `/http/order/findById?id=100&date=2021-09-22 06:12:10` will match.
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timebefore-en.png)
 
 * `TimeAfter` 
 
-  * `TimeAfter` indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are set as follows: request parameters contain `date` and `date` is greater than `2021-09-26 06:12:10`. Request `/http/order/findById?id=100&date=2021-09-22 06:12:10` will match.
+  `TimeAfter` indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are sets as follows: request parameters contain `date` and `date` is greater than `2021-09-26 06:12:10`. Request `/http/order/findById?id=100&date=2021-09-22 06:12:10` will match.
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-timeafter-en.png)
 
@@ -292,16 +298,39 @@ Condition parameters allow you to retrieve the actual data of the request. How t
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-exclude-en.png)
 
+* `startsWith`
+
+  `startsWith` indicates that the prefix of the requested real data is equal to the preset condition data. Suppose your rule conditions are sets as follows: the prefix in the request `uri` is equal to `/http/`, the request `/http/order/findById?id=1` can be matched.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-startswith-en.png)
+
+* `endsWith`
+
+  `endsWith` indicates that the suffix of the requested real data is equal to the preset condition data. Suppose your rule conditions are sets as follows: request `uri` suffix equals `Id`. Then the request `/http/order/findById?id=1` can be matched.
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-endswith-en.png)
+
+* `pathPatter`
+
+  Like `match`, `pathPatter` supports fuzzy matching (`/**`). If your rule conditions are sets as follows, then the request `/http/order/findById` can be matched;
+
+  Notice: writing `**` in the middle of the path (such as `/api/**/xxx`) is not supported!
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-pathpatter-en.png)
+
 If you want to further understand conditions matching strategy, please read the source code, the package name is `org.apache.shenyu.plugin.base.condition.judge`:
 
 |Match Strategy                      | Class  | 
 |:------------------------ |:----- |
 |`match`                   |`MatchPredicateJudge` |  
-|`=`                 |`EqualsPredicateJudge` |  
-|`regex`                 |`RegexPredicateJudge` |  
-|`contains`                  |`ContainsPredicateJudge` |
-|`TimeBefore`                    |`TimerBeforePredicateJudge` |  
-|`TimeAfter`                    |`TimerAfterPredicateJudge` |
-|`exclude`                    |`ExcludePredicateJudge` |
+|`=`                       |`EqualsPredicateJudge` |  
+|`regex`                   |`RegexPredicateJudge` |  
+|`contains`                |`ContainsPredicateJudge` |
+|`TimeBefore`              |`TimerBeforePredicateJudge` |  
+|`TimeAfter`               |`TimerAfterPredicateJudge` |
+|`exclude`                 |`ExcludePredicateJudge` |
+|`startsWith`              |`StartsWithPredicateJudge` |
+|`endsWith`                |`EndsWithPredicateJudge` |
+|`pathPatter`              |`PathPatternPredicateJudge` |
 
 The examples in this article illustrate the use of selectors and rules. The Settings of specific conditions need to be selected according to actual conditions.

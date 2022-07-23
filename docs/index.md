@@ -152,7 +152,7 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
 
 # Stargazers over time
 
-<a href="https://starchart.cc/apache/incubator-shenyu.svg"><img src="https://starchart.cc/apache/incubator-shenyu.svg"/></a>
+[![](https://starchart.cc/apache/incubator-shenyu.svg)](https://starchart.cc/apache/incubator-shenyu.svg)
 
 ---  
 

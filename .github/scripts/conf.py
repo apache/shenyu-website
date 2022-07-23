@@ -90,7 +90,7 @@ latex_elements = {
 \usepackage[draft]{minted}
 \setcounter{tocdepth}{3}
 \usepackage{xurl}
-\usepackage[dvipdfm]{graphicx}
+\usepackage{bmpsize}
     ''',
     'fvset': r'''
 \fvset{fontsize=\small}

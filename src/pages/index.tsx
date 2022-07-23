@@ -27,7 +27,7 @@ function Home() {
                   src="/img/logo-light.svg"
                   className={styles.heroProjectLogo}
                 ></img>
-                <span className={styles.heroProjectSubTitle}>Incubating</span>
+                {/* <span className={styles.heroProjectSubTitle}>Incubating</span> */}
               </h1>
               <h3 className={styles.heroProjectTagline}>
                 <span
@@ -49,7 +49,7 @@ function Home() {
                 </Link>
                 <Link
                   className="button button--info"
-                  to="https://github.com/apache/incubator-shenyu"
+                  to="https://github.com/apache/shenyu"
                 >
                   <Translate>Github</Translate>
                 </Link>

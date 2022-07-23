@@ -55,14 +55,14 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 | 仓库                                                         | 说明                         |
 | ------------------------------------------------------------ | ---------------------------- |
-| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | 主仓库                       |
-| [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | shenyu-admin前端仓库         |
-| [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | 官网及文档                   |
-| [apache/incubator-shenyu-helm-chart](https://github.com/apache/incubator-shenyu-helm-chart) | Helm Chart for Apache ShenYu |
-| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Nginx集成仓库                |
-| [apache/incubator-shenyu-client-python](https://github.com/apache/incubator-shenyu-client-python) | Python SDK                   |
-| [apache/incubator-shenyu-client-dotnet](https://github.com/apache/incubator-shenyu-client-dotnet) | .Net SDK                     |
-| [apache/incubator-shenyu-client-golang](https://github.com/apache/incubator-shenyu-client-golang) | Golang SDK                   |
+| [apache/shenyu](https://github.com/apache/shenyu) | 主仓库                       |
+| [apache/shenyu-dashboard](https://github.com/apache/shenyu-dashboard) | shenyu-admin前端仓库         |
+| [apache/shenyu-website](https://github.com/apache/shenyu-website) | 官网及文档                   |
+| [apache/shenyu-helm-chart](https://github.com/apache/shenyu-helm-chart) | Helm Chart for Apache ShenYu |
+| [apache/shenyu-nginx](https://github.com/apache/shenyu-nginx) | Nginx集成仓库                |
+| [apache/shenyu-client-python](https://github.com/apache/shenyu-client-python) | Python SDK                   |
+| [apache/shenyu-client-dotnet](https://github.com/apache/shenyu-client-dotnet) | .Net SDK                     |
+| [apache/shenyu-client-golang](https://github.com/apache/shenyu-client-golang) | Golang SDK                   |
 
 ### 让 Apache ShenYu 运行起来
 
@@ -72,13 +72,13 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 ### 寻找任务
 
-寻找您感兴趣的Issue！在我们的GitHub仓库和邮件列表中，我们经常会发布一些带有 `good first issue` 或者 `status: volunteer wanted` 标签的issue，这些issue都欢迎贡献者的帮助。其中good first issue往往门槛较低、适合新手，您可以点击 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) 查看这些issue。
+寻找您感兴趣的Issue！在我们的GitHub仓库和邮件列表中，我们经常会发布一些带有 `good first issue` 或者 `status: volunteer wanted` 标签的issue，这些issue都欢迎贡献者的帮助。其中good first issue往往门槛较低、适合新手，您可以点击 [链接](https://github.com/apache/shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) 查看这些issue。
 
 当然，如果您有好的想法，也可以直接在 邮件列表(dev@shenyu.apache.org) 中提出，经过充分讨论后就可以开始行动。
 
-同时，您也可以参与编写我们的[博客](../blog)，并通过 Pull Request 的方式提交到 Apache ShenYu 官网的[博客模块](https://github.com/apache/incubator-shenyu-website/tree/main/blog) 。
+同时，您也可以参与编写我们的[博客](../blog)，并通过 Pull Request 的方式提交到 Apache ShenYu 官网的[博客模块](https://github.com/apache/shenyu-website/tree/main/blog) 。
 
-如果您是学生，那么也非常欢迎在 GSoC 等开源实习活动中申请 Apache ShenYu 的议题，您可以点击 [链接](https://community.apache.org/gsoc.html) 来查看 Apache 软件基金会对 GSoC 的介绍。您也可以通过这个 [链接](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc) 来查看 Apache ShenYu 往年或者正在进行中的 GSoC 议题！
+如果您是学生，那么也非常欢迎在 GSoC 等开源实习活动中申请 Apache ShenYu 的议题，您可以点击 [链接](https://community.apache.org/gsoc.html) 来查看 Apache 软件基金会对 GSoC 的介绍。您也可以通过这个 [链接](https://github.com/apache/shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc) 来查看 Apache ShenYu 往年或者正在进行中的 GSoC 议题！
 
 ### 第一次提交 Pull Request
 
@@ -133,7 +133,7 @@ git checkout master #也可能是main分支
 绑定上游仓库（只需要绑定一次），这里以 shenyu 的主仓库为例
 
 ```shell
-git remote add upstream https://github.com/apache/incubator-shenyu.git
+git remote add upstream https://github.com/apache/shenyu.git
 ```
 
 拉取远程代码
@@ -170,7 +170,7 @@ git push origin --delete a-dev-branch
 在主分支上，您可以执行以下操作来同步上游仓库：
 
 ```shell
-git remote add upstream https://github.com/apache/incubator-shenyu.git #绑定远程仓库，如果执行过就不需要再执行
+git remote add upstream https://github.com/apache/shenyu.git #绑定远程仓库，如果执行过就不需要再执行
 git checkout master #或main
 git pull upstream master
 ```

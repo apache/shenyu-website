@@ -53,9 +53,9 @@ export default [
         src:'Apache-ShenYu-Committer-2021-11-11',
     },
     {
-        title: <Translate>Apache ShenYu(incubating) newly promoted PPMC</Translate>, 
+        title: <Translate>Apache ShenYu newly promoted PPMC</Translate>, 
         author: "Liu Liang",
-        description: <Translate>Apache ShenYu(incubating) newly promoted PPMC</Translate>, 
+        description: <Translate>Apache ShenYu newly promoted PPMC</Translate>, 
         categories: "Apache ShenYu PPMC",
         tags: ["Apache ShenYu"],
         date: "2021-11-05",
@@ -73,9 +73,9 @@ export default [
         src:'Apache-ShenYu-Committer-2021-09-08'
     },
     {
-        title: <Translate>Release the first version of Apache ShenYu(Incubating)2.4.0  Make API gateway easy</Translate>,
+        title: <Translate>Release the first version of Apache ShenYu 2.4.0  Make API gateway easy</Translate>,
         author: "xiaoyu",
-        description: <Translate>Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy</Translate>,
+        description: <Translate>Release the first version of Apache ShenYu 2.4.0 Make API gateway easy</Translate>,
         categories: "Apache ShenYu",
         tags: ["Apache ShenYu"],
         date: '2021-08-01',

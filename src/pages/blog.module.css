@@ -67,10 +67,32 @@
     color: #2c3e50;
 }
 
-.author{
+.authorInfo{
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.authorImg{
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.authorName{
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.authorName:hover{
+    text-decoration: none;
+    color: #2c3e50;
+}
+
+.authorDate{
     font-size: 2px;
-    margin: 8px 0 8px 0;
-    color:#888;
+    /* margin: 8px 0 8px 0; */
+    /* color:#888; */
 }
 
 .read{

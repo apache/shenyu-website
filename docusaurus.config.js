@@ -3,8 +3,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Apache ShenYu (Incubating)',
-  tagline: 'Apache ShenYu (Incubating) - High-performance, multi-protocol, extensible, responsive API Gateway',
+  title: 'Apache ShenYu',
+  tagline: 'Apache ShenYu - High-performance, multi-protocol, extensible, responsive API Gateway',
   url: 'https://shenyu.apache.org/',
   baseUrl: '/',
   onBrokenLinks: 'log',
@@ -29,14 +29,14 @@ module.exports = {
   themeConfig: {
 
     navbar: {
-     // title: 'Apache ShenYu (Incubating)',
+     // title: 'Apache ShenYu',
       logo: {
         alt: 'Apache ShenYu Logo',
         src: 'img/logo.svg',
         srcDark: 'img/logo-light.svg'
       },
       items: [
-        {to: '/download', label: 'Download', position: 'left'},
+        {to: '/download', label: 'Download', position: 'right'},
         // {
         //   type: 'docsVersionDropdown',
         //   label: 'doc',
@@ -51,7 +51,7 @@ module.exports = {
         // },
         {
           label: 'Docs',
-          position: 'left',
+          position: 'right',
           items: [
             {
               label: "next",
@@ -86,21 +86,22 @@ module.exports = {
         {
           to: '/community/contributor-guide',
           label: 'Community',
-          position: 'left',
+          position: 'right',
           activeBaseRegex: `/community/`,
         },
+        {to: '/team', label: 'Team', position: 'right'},
         {
           label: 'Event',
-          position: 'left',
+          position: 'right',
           to: '/event',
           activeBaseRegex: `/event/`,
         },
-        {to: '/news', label: 'News', position: 'left'},
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/users', label: 'Users', position: 'left'},
+        {to: '/news', label: 'News', position: 'right'},
+        {to: '/blog', label: 'Blog', position: 'right'},
+        {to: '/users', label: 'Users', position: 'right'},
         {
           label: 'ASF',
-          position: 'left',
+          position: 'right',
           items: [
             {
               label: "Foundation",
@@ -133,7 +134,7 @@ module.exports = {
           ],
         },
         {
-          href: 'https://github.com/apache/incubator-shenyu',
+          href: 'https://github.com/apache/shenyu',
           label: 'GitHub',
           position: 'right',
         },
@@ -176,7 +177,7 @@ module.exports = {
             },
             {
               label: 'Releases',
-              href: 'https://github.com/apache/incubator-shenyu/releases',
+              href: 'https://github.com/apache/shenyu/releases',
             },
           ],
         },
@@ -189,11 +190,11 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/apache/incubator-shenyu',
+              href: 'https://github.com/apache/shenyu',
             },
             {
               label: 'Issue Tracker',
-              href: 'https://github.com/apache/incubator-shenyu/issues',
+              href: 'https://github.com/apache/shenyu/issues',
             },
           ],
         },
@@ -215,8 +216,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `<div><img style="height:50px" alt="Apache Software Foundation" src="/img/incubator-logo.png" /><p style="color:#ffffffcf;font-size:14px;text-align:left">Apache ShenYu is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p>
-      <p style="color:white;font-size:14px;"> Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache ShenYu, Apache Incubator, Apache, the Apache feather logo, the Apache ShenYu logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.</p>
+      copyright: `<div><img style="height:50px; margin-right:10px" src="/img/logo/support-apache.png" /> <img style="height:50px; margin-left:10px" alt="Apache Software Foundation" src="/img/logo/asf_logo.svg" /><p style="color:#ffffffcf;font-size:14px;text-align:center">Copyright © ${new Date().getFullYear()} The Apache Software Foundation, Licensed under the Apache License, Version 2.0. Apache ShenYu,  Apache, the Apache feather logo, the Apache ShenYu logo are trademarks of The Apache Software Foundation.</p>
       <div>`,
     },
     prism: {

@@ -1,28 +1,25 @@
 ---
-title: 团队
-sidebar_position: 0
-description: Apache ShenYu 团队
-author: "hutaishi"
-categories: "Apache ShenYu"
-tags: ["Team"]
+title: Team
+keywords: ["Team"]
+description: team
 ---
 
 
-## Apache ShenYu 团队 
+## Apache ShenYu Team
 
-项目正在不断的发展和壮大，这离不开每一位成员和贡献者的贡献。
-团队始终坚持社区大于代码，我们期待更多的人加入团队，和社区共同成长。
+The project is growing and evolving. This cannot be achieved without the contribution of each and every member and contributor.
+The team always insists on community over code. We are looking forward to more people joining the team and growing together with the community。
 
 
-## 成员
+## Members
 
-<table class="table table-hover">
+<table frame="above" style={{ textAlign: 'center', borderCollapse: 'collapse' }}>
     <tr>
-        <th><b></b></th>
-        <th><b>Public Name</b></th>
+        <th style={{ width: "11%" }}><b></b></th>
+        <th style={{ width: "21%" }}><b>Pulic Name</b></th>
         <th><b>Apache ID</b></th>
         <th><b>GitHub</b></th>
-        <th><b>Role</b></th>
+        <th style={{ width: "20%" }}><b>Role</b></th>
         <th><b></b></th>
     </tr>
     <tr>
@@ -30,7 +27,7 @@ tags: ["Team"]
         <td>Yu Xiao</td>
         <td><a href="https://people.apache.org/committer-index.html#xiaoyu">xiaoyu</a></td>
         <td><a href="http://github.com/yu199195">yu199195</a></td>
-        <td>Founder, V.P. and Chair </td>
+        <td>Founder, V.P. and Chair of PMC</td>
         <td><a href="https://twitter.com/yu199195"><img width="32" src="https://shenyu.apache.org/img/community/twitterblue.png"/>yu199195</a></td>
     </tr>
     <tr>

@@ -7,7 +7,9 @@ export default [
         posts: [
             {
                 title: <Translate>MatchStrategy -- analyze the design based on SPI</Translate>,
-                author: "Huihui Yin",
+                author: "Huihui Yin (Contributor)",
+                autPage:"https://github.com/changanjennifer",
+                autImg:'/img/blog/jennifer.png',
                 src: "SPI-SourceCode-Analysis-MatchStrategy-SPI",
                 cover: "/img/blog/4-1.png",
                 date: '2021-07-2',
@@ -15,7 +17,9 @@ export default [
             },
             {
                 title: <Translate>PredicateJudge -- analyze the design based on SPI</Translate>,
-                author: "Huihui Yin",
+                author: "Huihui Yin (Contributor)",
+                autPage:"https://github.com/changanjennifer",
+                autImg:'/img/blog/jennifer.png',
                 src: "SPI-SourceCode-Analysis-PredicateJudge-SPI",
                 cover: "/img/blog/4-2.png",
                 date: '2021-07-2',
@@ -24,7 +28,9 @@ export default [
             },
             {
                 title: <Translate>LoadBalance SPI Source Code Analysis</Translate>,
-                author: "Huihui Yin",
+                author: "Huihui Yin (Contributor)",
+                autPage:"https://github.com/changanjennifer",
+                autImg:'/img/blog/jennifer.png',
                 src: "SPI-SourceCode-Analysis-LoadBalance-SPI",
                 cover: "/img/blog/4-3.png",
                 date: '2021-07-2',
@@ -32,7 +38,9 @@ export default [
             },
             {
                 title: <Translate>RateLimiter SPI code analysis</Translate>,
-                author: "Huihui Yin",
+                author: "Huihui Yin (Contributor)",
+                autPage:"https://github.com/changanjennifer",
+                autImg:'/img/blog/jennifer.png',
                 src: "SPI-SourceCode-Analysis-RateLimiter-SPI",
                 cover: "/img/blog/4-4.png",
                 date: '2021-07-2',
@@ -45,7 +53,9 @@ export default [
         posts: [
             {
                 title: <Translate>Register Center Source Code Analysis of Http Register</Translate>,
-                author: "midnight2104",
+                author: "midnight2104 (PMC)",
+                autImg: "/img/blog/midnight2104.png",
+                autPage: "https://github.com/midnight2104",
                 src: "RegisterCenter-SourceCode-Analysis-Http-Register",
                 cover: "/img/blog/5-1.png",
                 date: '2021-07-2',
@@ -58,7 +68,9 @@ export default [
         posts: [
             {
                 title: <Translate>Apache ShenYu Start Demo</Translate>,
-                author: "Kunshuai Zhu",
+                author: "Kunshuai Zhu (PMC)",
+                autImg: "/img/blog/zhukunshuai.png",
+                autPage:"https://github.com/JooKS-me",
                 src: "Start-SourceCode-Analysis-Start-Demo",
                 cover: "/img/blog/6-1.png",
                 date: '2021-07-2',
@@ -71,7 +83,9 @@ export default [
         posts: [
             {
                 title: <Translate>Etcd Data Synchronization Source Code Analysis</Translate>,
-                author: "4zd",
+                author: "4zd (Contributor)",
+                autImg: "/img/blog/4zd.png",
+                autPage: "https://github.com/4zd",
                 src: "DataSync-SourceCode-Analysis-Etcd-Data-Sync",
                 cover: "/img/blog/1-1.png",
                 date: '2021-07-2',
@@ -79,7 +93,9 @@ export default [
             },
             {
                 title: <Translate>Http Long Polling Data Synchronization Source Code Analysis</Translate>,
-                author: "midnight2104",
+                author: "midnight2104 (PMC)",
+                autImg: "/img/blog/midnight2104.png",
+                autPage: "https://github.com/midnight2104",
                 src: "DataSync-SourceCode-Analysis-Http-Data-Sync",
                 cover: "/img/blog/1-2.png",
                 date: '2022-07-2',
@@ -87,7 +103,9 @@ export default [
             },
             {
                 title: <Translate>Nacos Data Synchronization Source Code Analysis</Translate>,
-                author: "4zd",
+                author: "4zd (Contributor)",
+                autImg: "/img/blog/4zd.png",
+                autPage: "https://github.com/4zd",
                 src: "DataSync-SourceCode-Analysis-Nacos-Data-Sync",
                 cover: "/img/blog/1-3.png",
                 date: '2022-07-2',
@@ -95,7 +113,9 @@ export default [
             },
             {
                 title: <Translate>WebSocket Data Synchronization Source Code Analysis</Translate>,
-                author: "midnight2104",
+                author: "midnight2104 (PMC)",
+                autImg: "/img/blog/midnight2104.png",
+                autPage: "https://github.com/midnight2104",
                 src: "DataSync-SourceCode-Analysis-WebSocket-Data-Sync",
                 cover: "/img/blog/1-4.png",
                 date: '2022-07-2',
@@ -103,7 +123,9 @@ export default [
             },
             {
                 title: <Translate>ZooKeeper Data Synchronization Source Code Analysis</Translate>,
-                author: "midnight2104",
+                author: "midnight2104 (PMC)",
+                autImg: "/img/blog/midnight2104.png",
+                autPage: "https://github.com/midnight2104",
                 src: "DataSync-SourceCode-Analysis-ZooKeeper-Data-Sync",
                 cover: "/img/blog/1-5.png",
                 date: '2022-07-2',
@@ -116,7 +138,9 @@ export default [
         posts: [
             {
                 title: <Translate>Integration Test Analysis</Translate>,
-                author: "Kunshuai Zhu",
+                author: "Kunshuai Zhu (PMC)",
+                autImg: "/img/blog/zhukunshuai.png",
+                autPage:"https://github.com/JooKS-me",
                 src: "IntegrationTest-Analysis",
                 cover: "/img/logo.svg",
                 date: '2022-07-2',
@@ -129,7 +153,9 @@ export default [
         posts: [
             {
                 title: <Translate>Code Analysis For Context-Path Plugin</Translate>,
-                author: "Kunshuai Zhu",
+                author: "Kunshuai Zhu (PMC)",
+                autImg: "/img/blog/zhukunshuai.png",
+                autPage:"https://github.com/JooKS-me",
                 src: "Plugin-SourceCode-Analysis-Context-Path-Plugin",
                 cover: "/img/logo.svg",
                 date: '2021-07-2',
@@ -137,7 +163,9 @@ export default [
             },
             {
                 title: <Translate>Code Analysis For Dubbo Plugin</Translate>,
-                author: "midnight2104",
+                author: "midnight2104 (PMC)",
+                autImg: "/img/blog/midnight2104.png",
+                autPage: "https://github.com/midnight2104",
                 src: "Plugin-SourceCode-Analysis-Dubbo-Plugin",
                 cover: "/img/blog/3-2.png",
                 date: '2021-07-2',
@@ -145,7 +173,9 @@ export default [
             },
             {
                 title: <Translate>Code Analysis For Param-Mapping Plugin</Translate>,
-                author: "Kunshuai Zhu",
+                author: "Kunshuai Zhu (PMC)",
+                autImg: "/img/blog/zhukunshuai.png",
+                autPage:"https://github.com/JooKS-me",
                 src: "Plugin-SourceCode-Analysis-Param-Mapping-Plugin",
                 cover: "/img/blog/3-3.jpg",
                 date: '2021-07-2',
@@ -153,7 +183,9 @@ export default [
             },
             {
                 title: <Translate>Code Analysis For Divide Plugin</Translate>,
-                author: "midnight2104",
+                author: "midnight2104 (PMC)",
+                autImg: "/img/blog/midnight2104.png",
+                autPage: "https://github.com/midnight2104",
                 src: "Plugin-SourceCode-Analysis-Divide-Plugin",
                 cover: "/img/blog/3-4.png",
                 date: '2021-07-2',

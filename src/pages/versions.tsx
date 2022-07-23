@@ -21,7 +21,7 @@ function Version() {
   return (
     <Layout
       title="Versions"
-      description="Apache ShenYu(Incubating)  Versions page listing all documented site versions">
+      description="Apache ShenYu  Versions page listing all documented site versions">
       <main className="container margin-vert--lg">
         <h1>Apache ShenYu(Incubating) documentation versions</h1>
 

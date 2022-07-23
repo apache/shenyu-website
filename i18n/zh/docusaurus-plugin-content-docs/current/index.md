@@ -160,7 +160,7 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
 
 # Known Users
 
-In order of registration, More access companies are welcome to register at [https://github.com/apache/incubator-shenyu/issues/68](https://github.com/apache/incubator-shenyu/issues/68) (For open source users only) .
+In order of registration, More access companies are welcome to register at [https://github.com/apache/shenyu/issues/68](https://github.com/apache/shenyu/issues/68) (For open source users only) .
 
 用户 : [已知用户](https://shenyu.apache.org/community/user-registration)
 

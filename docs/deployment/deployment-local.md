@@ -21,7 +21,7 @@ This article introduces how to start the `Apache ShenYu` gateway in the local en
 * Download
 
 ```
-> git clone https://github.com/apache/incubator-shenyu.git
+> git clone https://github.com/apache/shenyu.git
 > cd shenyu
 > mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```

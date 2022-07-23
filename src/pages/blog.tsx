@@ -50,7 +50,13 @@ function Blog() {
                                                         url ? <Link className={styles.link} to={'blog/' + post.src}>{post.title}</Link> : <Link className={styles.link} to={post.src} >{post.title}</Link>
                                                     }
                                                 </div>
-                                                <div className={styles.author}> {post.author}   &ensp; &ensp;     {post.date} </div>
+                                                <div  className={styles.authorInfo}>
+                                                    <a className={styles.authorA} href={post.autPage}><img className={styles.authorImg} width={38} src={post.autImg}></img></a>
+                                                    <div>
+                                                        <a className={styles.authorName} href={post.autPage}><div > {post.author} </div> </a>
+                                                        <div className={styles.authorDate}> {post.date} </div>
+                                                    </div>
+                                                </div>
                                                 <div className={styles.postAbs}>{post.abs}</div>
                                                 <div className={styles.read}>
                                                     {

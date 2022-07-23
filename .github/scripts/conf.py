@@ -16,7 +16,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Apache ShenYu document'
-copyright = '2021, Apache ShenYu'
+copyright = '2022, Apache ShenYu'
 author = 'Apache ShenYu'
 
 
@@ -90,7 +90,7 @@ latex_elements = {
 \usepackage[draft]{minted}
 \setcounter{tocdepth}{3}
 \usepackage{xurl}
-\usepackage{bmpsize}
+\usepackage{graphicx}
     ''',
     'fvset': r'''
 \fvset{fontsize=\small}

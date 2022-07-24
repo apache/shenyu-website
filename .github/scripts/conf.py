@@ -79,6 +79,7 @@ latex_elements = {
     ''',
     'preamble': r'''
 \usepackage{ctex}
+\usepackage[final]{graphicx}
 \makeatletter
 \let\old@sverb\@sverb
 \def\@sverb#1{\old@sverb{#1}\zz}

@@ -6,11 +6,11 @@ description: 下载
 
 ## 最新版本
 
-`Apache ShenYu (incubating)` 的发布版包括源码包及其对应的二进制包。
+`Apache ShenYu` 的发布版包括源码包及其对应的二进制包。
 
 由于下载内容分布在镜像服务器上，所以下载后应该进行 GPG 或 SHA-512 校验，以此来保证内容没有被篡改。
 
-##### `Apache ShenYu (incubating) - 版本: 2.4.3 (发布日期: April 14, 2022)`
+##### `Apache ShenYu - 版本: 2.4.3 (发布日期: April 14, 2022)`
 
 - 源码 [[zip]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip.sha512)
 

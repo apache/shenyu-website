@@ -561,7 +561,7 @@ Edit [Releases](https://github.com/apache/incubator-shenyu/releases) `${PUBLISH.
 **4. Finish Docker release**
 
 > Note: After clicking publish in Github, the Docker image will be automatically created in [Workflow](https://github.com/apache/shenyu/blob/master/.github/workflows/docker-publish.yml) (docker-publish-dockerhub).
-> We need to pay attention to whether the workflow is successfully executed. If it is successful, skip the following Docker release steps; if the execution is unsuccessful, you need to manually execute the following commands.
+> We just need to pay attention to whether the workflow is successfully executed. If it is successful, skip the following Docker release steps; if the execution is unsuccessful, you need to manually execute the following commands.
 
 Install [Docker](https://docs.docker.com/get-docker/).
 

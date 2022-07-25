@@ -554,7 +554,14 @@ svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOU
 
 回到 [预发仓库](https://repository.apache.org/#stagingRepositories) 的 ${STAGING.RELEASE}，点击 `Release`。
 
-**3. 完成 Docker 发布**
+**3. 完成 GitHub 发布**
+
+编辑 [Releases](https://github.com/apache/incubator-shenyu/releases) 中的 `${PUBLISH.VERSION}`，然后点击发布。
+
+**4. 完成 Docker 发布**
+
+> 注意：在 Github 中点击发布后，会在 [工作流](https://github.com/apache/shenyu/blob/master/.github/workflows/docker-publish.yml) 中自动进行 Docker 镜像的发布。
+> 我们需要关注工作流是否执行成功，若成功，则跳过下面的 Docker 发布步骤；若执行不成功，则需要手动进行执行下述命令。
 
 安装 [Docker](https://docs.docker.com/get-docker/)。
 
@@ -587,10 +594,6 @@ docker buildx build \
 
 登录 Docker Hub 验证 [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) 和 [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) 的镜像是否存在。
 
-**4. 完成 GitHub 发布**
-
-编辑 [Releases](https://github.com/apache/incubator-shenyu/releases) 中的 `${PUBLISH.VERSION}`，然后点击发布。
- 
 **5. 完成 GitHub 更新**
 
 从 GitHub Fork 一份代码，并执行以下命令：

@@ -554,7 +554,14 @@ Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-ar
 
 Back to [stagingRepositories](https://repository.apache.org/#stagingRepositories), find ${STAGING.RELEASE} and click `Release`.
 
-**3. Finish Docker release**
+**3. Finish GitHub release**
+
+Edit [Releases](https://github.com/apache/incubator-shenyu/releases) `${PUBLISH.VERSION}` and click release.
+
+**4. Finish Docker release**
+
+> Note: After clicking publish in Github, the Docker image will be automatically created in [Workflow](https://github.com/apache/shenyu/blob/master/.github/workflows/docker-publish.yml).
+> We need to pay attention to whether the workflow is successfully executed. If it is successful, skip the following Docker release steps; if the execution is unsuccessful, you need to manually execute the following commands.
 
 Install [Docker](https://docs.docker.com/get-docker/).
 
@@ -587,10 +594,6 @@ docker buildx build \
 
 Login Docker Hub to verify [shenyu-bootstrap](https://hub.docker.com/r/apache/shenyu-bootstrap/) and [shenyu-admin](https://hub.docker.com/r/apache/shenyu-admin/) exist.
 
-**4. Finish GitHub release**
-
-Edit [Releases](https://github.com/apache/incubator-shenyu/releases) `${PUBLISH.VERSION}` and click release.
- 
 **5. Finish GitHub updating**
 
 Fork a copy of the code from GitHub and run the following command.

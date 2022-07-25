@@ -560,7 +560,7 @@ svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOU
 
 **4. 完成 Docker 发布**
 
-> 注意：在 Github 中点击发布后，会在 [工作流](https://github.com/apache/shenyu/blob/master/.github/workflows/docker-publish.yml) 中自动进行 Docker 镜像的发布。
+> 注意：在 Github 中点击发布后，会在 [工作流](https://github.com/apache/shenyu/blob/master/.github/workflows/docker-publish-dockerhub.yml)（docker-publish-dockerhub）中自动进行 Docker 镜像的发布。
 > 我们需要关注工作流是否执行成功，若成功，则跳过下面的 Docker 发布步骤；若执行不成功，则需要手动进行执行下述命令。
 
 安装 [Docker](https://docs.docker.com/get-docker/)。

@@ -579,14 +579,14 @@ docker login
 docker buildx build \ 
   -t apache/shenyu-admin:latest \ 
   -t apache/shenyu-admin:${PUBLISH.VERSION} \ 
-  --build-arg APP_NAME=apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin \ 
+  --build-arg APP_NAME=apache-shenyu-${PUBLISH.VERSION}-admin-bin \ 
   --platform=linux/arm64,linux/amd64 \ 
   -f ./shenyu-admin-dist/Dockerfile --push
 
 docker buildx build \ 
   -t apache/shenyu-bootstrap:latest \ 
   -t apache/shenyu-bootstrap:${PUBLISH.VERSION} \ 
-  --build-arg APP_NAME=apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin \ 
+  --build-arg APP_NAME=apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin \ 
   --platform=linux/arm64,linux/amd64 \ 
   -f ./shenyu-bootstrap-dist/Dockerfile --push
   

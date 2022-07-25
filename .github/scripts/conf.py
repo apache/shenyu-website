@@ -16,7 +16,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Apache ShenYu document'
-copyright = '2021, Apache ShenYu'
+copyright = '2022, Apache ShenYu'
 author = 'Apache ShenYu'
 
 

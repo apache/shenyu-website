@@ -556,7 +556,7 @@ Back to [stagingRepositories](https://repository.apache.org/#stagingRepositories
 
 **3. Finish GitHub release**
 
-Edit [Releases](https://github.com/apache/incubator-shenyu/releases) `${PUBLISH.VERSION}` and click release.
+Edit [Releases](https://github.com/apache/shenyu/releases) `${PUBLISH.VERSION}` and click release.
 
 **4. Finish Docker release**
 

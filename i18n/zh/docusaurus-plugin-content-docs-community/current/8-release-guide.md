@@ -556,7 +556,7 @@ svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOU
 
 **3. 完成 GitHub 发布**
 
-编辑 [Releases](https://github.com/apache/incubator-shenyu/releases) 中的 `${PUBLISH.VERSION}`，然后点击发布。
+编辑 [Releases](https://github.com/apache/shenyu/releases) 中的 `${PUBLISH.VERSION}`，然后点击发布。
 
 **4. 完成 Docker 发布**
 

@@ -92,5 +92,9 @@ description: mock插件
 - **说明：** 返回当前时间并使用 `format` 格式化，`format` 可缺省，默认是 `YYYY-MM-dd HH:mm:ss`。
 - **示例：** `${current}`，`${current|YYYY-MM-dd}`
 
-**注意：尽量不要使用 `""` 包裹 `${}` ,mock插件会根据 `${}` 生成的内容来决定是否添加 `""`。**
+**`${array|item|length}`**
+- **说明：** 按照 `item` 格式定义生成长度为 `length` 的数组, `item` 中可以嵌套使用上述的所有数据生成规则，结果会自动添加`[]`。
+- **示例：** `${array|{"name":"test"}|3}` 会生成 `[{"name":"test"},{"name":"test"},{"name":"test"}]`，`${array|{"age":${int|18-65}}|3}`
+
+**注意：不要使用 `""` 包裹 `${}` ,mock插件会根据 `generator`的定义增加前缀和后缀。**
 

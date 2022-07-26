@@ -6,6 +6,7 @@ description: 自定义mock数据生成器
 
 1. 本文介绍如何对 `org.apache.shenyu.plugin.mock.generator.Generator` 进行自定义扩展。
 2. mock 数据生成表达式需要满足 `${name|param1|param2|...}` 的格式。
+
 ## 扩展实现
 
 * 新建一个工程，引入如下依赖：

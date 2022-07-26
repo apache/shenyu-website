@@ -96,5 +96,5 @@ description: mock插件
 - **说明：** 按照 `item` 格式定义生成长度为 `length` 的数组, `item` 中可以嵌套使用上述的所有数据生成规则，结果会自动添加`[]`。
 - **示例：** `${array|{"name":"test"}|3}` 会生成 `[{"name":"test"},{"name":"test"},{"name":"test"}]`，`${array|{"age":${int|18-65}}|3}`
 
-**注意：尽量不要使用 `""` 包裹 `${}` ,mock插件会根据 `generator`的定义增加前缀和后缀。**
+**注意：不要使用 `""` 包裹 `${}` ,mock插件会根据 `generator`的定义增加前缀和后缀。**
 

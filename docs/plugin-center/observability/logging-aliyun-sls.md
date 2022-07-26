@@ -34,7 +34,7 @@ ShenYu 2.5.0
 
 ## 2.1 Plugin-use procedure chart
 
-![](/img/shenyu/plugin/logging/logging-console/loggingConsole-use-en.png)
+![](/img/shenyu/plugin/plugin_use_en.jpg)
 
 ## 2.2 Import pom
 

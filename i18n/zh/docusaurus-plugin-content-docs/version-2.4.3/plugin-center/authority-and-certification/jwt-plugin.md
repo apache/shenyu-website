@@ -33,7 +33,7 @@ description: JWT插件
 
 ## 2.1 插件使用流程图
 
-![](/img/shenyu/plugin/logging/logging-console/loggingConsole-use-zh.jpg)
+![](/img/shenyu/plugin/plugin_use_zh.jpg)
 
 ## 2.2 导入pom
 

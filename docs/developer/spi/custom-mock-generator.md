@@ -4,10 +4,12 @@ keywords: ["Mock"]
 description: custom mock data generator
 ---
 ## Explanation
+
 1. This article describes how to make custom extensions to `org.apache.shenyu.plugin.mock.generator.Generator`.
 2. The mock data generation expression needs to satisfy the format of `${name|param1|param2|...}`
 
 ## Extension
+
 * Create a new project and introduce the following dependencies:
 
 ```xml

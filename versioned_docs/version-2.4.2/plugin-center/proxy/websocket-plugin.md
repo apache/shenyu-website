@@ -7,26 +7,32 @@ description: Websocket Plugin
 # 1. Overview
 
 ## 1.1 Plugin Name
+
 * Websocket Plugin.
 
 ## 1.2 Appropriate Scenario
+
 * Forwarding scenarios, processing websocket protocol requests and forwarding them to other websocket protocol services on the backend.
 * Service Load Balancing.
 
 ## 1.3 Plugin functionality
+
 * Support traffic management based on host, uri, query and other request information.
 * Supports setting load balancing policies for requests and also supports service warm-up, currently supports three policies: ip hash (consistent hashing with virtual nodes), round-robbin (weighted polling), random (weighted random).
 * Support setting interface level request timeout time.
 * Support setting the number of timeout retries.
 
 ## 1.4 Plugin code
+
 * Core Module ```shenyu-plugin-websocket```.
 * Core Class ```org.apache.shenyu.plugin.websocket.WebSocketPlugin```.
 
 ## 1.5 Added Since Which shenyu version
+
 - 2.4.1
 
 # 2. How to use plugin
+
 ## 2.1 Plugin-use procedure chart
 
 ![image-20220726223545558](/img/shenyu/plugin/websocket/procedure_chart_en.png)

@@ -5,27 +5,34 @@ description: Websocket插件
 ---
 
 # 1. 概述
+
 ## 1.1 插件名称
+
 * Websocket 插件
 
 ## 1.2 适用场景
+
 * 转发场景，处理 websocket协议 请求，将其转发到后端其他 websocket 协议的服务
 * 服务负载均衡
 
 ## 1.3 插件功能
+
 * 支持根据 host、uri、query 等请求信息做流量的治理
 * 支持设置请求的负载均衡策略，同时支持服务预热，目前支持三种策略：ip hash（带虚拟节点的一致性哈希）、round-robbin（加权轮询）、random（加权随机）
 * 支持设置接口级别请求超时时间
 * 支持设置超时重试次数
 
 ## 1.4 插件代码
+
 * 核心模块 ```shenyu-plugin-websocket```
 * 核心类 ```org.apache.shenyu.plugin.websocket.WebSocketPlugin```
 
 ## 1.5 添加自哪个shenyu版本
+
 - 2.4.1
 
 # 2. 如何使用插件
+
 ## 2.1 插件使用流程图
 
 ![image-20220725162054383](/img/shenyu/plugin/websocket/procedure_chart_zh.png)

@@ -150,7 +150,7 @@ Websocket 规则示例，通用规则配置请参考[选择器和规则](../../u
 
 ![image-20220725223225388](/img/shenyu/plugin/websocket/config_rules_zh.png)
 
-#####  2.4.2.2.1 规则处理信息配置
+##### 2.4.2.2.1 规则处理信息配置
 
 - `loadStrategy`：如果 websocket 客户端是一个集群，Apache ShenYu 网关调用时采取哪种负载均衡策略，当前支持 roundRobin、random 和 hash。
 - `timeout`：调用客户端的超时时间。
@@ -177,6 +177,7 @@ Websocket 规则示例，通用规则配置请参考[选择器和规则](../../u
 ![image-20220725141221131](/img/shenyu/plugin/websocket/close_websocket_zh.png)
 
 # 4. 常见问题
+
 **4.1 websocket 建立连接出现 1002 错误**
 
 可能原因：客户端服务不正常，shenyu 网关和客户端项目不能建立正常连接，请检查网关到客户端的网络、客户端服务是否正常

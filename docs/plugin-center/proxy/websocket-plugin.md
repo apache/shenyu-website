@@ -150,7 +150,7 @@ The example of websocket rule configuration, please refer to [selectors and rule
 
 ![image-20220725223225388](/img/shenyu/plugin/websocket/config_rules_en.png)
 
-#####  2.4.2.2.1 Rule handler configuration
+##### 2.4.2.2.1 Rule handler configuration
 
 - `loadStrategy`:  if the websocket client is a cluster, which load balancing strategy to take when the Apache ShenYu gateway is invoked, currently supports roundRobin, random and hash.
 - `timeout`: The timeout period for calling the client.

@@ -8,6 +8,7 @@ import Layout from "@theme/Layout";
 import clsx from "clsx";
 import styles from "./index.module.css";
 import Features from "../components/Features";
+import Footer from "../components/Footer";
 
 function Home() {
   const {
@@ -127,6 +128,7 @@ function Home() {
             <Features />
           </div>
         </div>
+        <div><Footer></Footer></div>
       </main>
     </Layout>
   );

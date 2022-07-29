@@ -7,7 +7,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 ## 更新发布公告
 
-按照如下格式更新[发布公告](https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md)：
+按照如下格式更新[发布公告](https://github.com/apache/shenyu/blob/master/RELEASE-NOTES.md)：
 
 ```
 ## ${PUBLISH.VERSION}
@@ -135,8 +135,8 @@ gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 创建并切换到 `${PUBLISH.VERSION}-release` 分支。
 
 ```shell
-git clone https://github.com/apache/incubator-shenyu.git ~/incubator-shenyu
-cd ~/incubator-shenyu/
+git clone https://github.com/apache/shenyu.git ~/shenyu
+cd ~/shenyu/
 git checkout -b ${PUBLISH.VERSION}-release
 git push origin ${PUBLISH.VERSION}-release
 ```
@@ -193,7 +193,7 @@ mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=
 ```shell
 mkdir -p ~/keys/release/
 cd ~/keys/release/
-svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/release/incubator/shenyu
+svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/release/shenyu
 cd ~/keys/release/shenyu
 gpg -a --export ${GPG 用户名} >> KEYS
 svn --username=${LDAP ID} commit -m "append to KEYS"
@@ -206,15 +206,15 @@ svn --username=${LDAP ID} commit -m "append to KEYS"
 ```shell
 mkdir -p ~/svn_release/dev/
 cd ~/svn_release/dev/
-svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/incubator/shenyu
+svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
 mkdir -p ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
 cd ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-src-dist/target/*.zip.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-src-dist/target/*.zip ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-src-dist/target/*.zip.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
 ```
 
 **3. 添加校验文件**
@@ -222,9 +222,9 @@ cp -f ~/incubator-shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/svn
 根据 [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] 的说明添加校验文件。
 
 ```shell
-shasum -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip > apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.sha512
-shasum -b -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz > apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
-shasum -b -a 512 apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz > apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
+shasum -a 512 apache-shenyu-${PUBLISH.VERSION}-src.zip > apache-shenyu-${PUBLISH.VERSION}-src.zip.sha512
+shasum -b -a 512 apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin.tar.gz > apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
+shasum -b -a 512 apache-shenyu-${PUBLISH.VERSION}-admin-bin.tar.gz > apache-shenyu-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
 ```
 
 **4. 提交新版本**
@@ -242,9 +242,9 @@ svn --username=${LDAP ID} commit -m "release ${PUBLISH.VERSION}"
 根据 [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] 的说明验证 sha512 校验和。
 
 ```shell
-shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.sha512
-shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
-shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
+shasum -c apache-shenyu-${PUBLISH.VERSION}-src.zip.sha512
+shasum -c apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
+shasum -c apache-shenyu-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
 ```
 
 **2. 验证 GPG 签名**
@@ -252,12 +252,12 @@ shasum -c apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
 根据 [Checking Signatures](https://www.apache.org/info/verification.html#CheckingSignatures) [9] 的说明验证 GPG 签名。
 
 ```shell
-curl https://downloads.apache.org/incubator/shenyu/KEYS >> KEYS
+curl https://downloads.apache.org/shenyu/KEYS >> KEYS
 gpg --import KEYS
 cd ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip.asc apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip
-gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.asc apache-shenyu-incubating-${PUBLISH.VERSION}-bootstrap-bin.tar.gz
-gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.asc apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz
+gpg --verify apache-shenyu-${PUBLISH.VERSION}-src.zip.asc apache-shenyu-${PUBLISH.VERSION}-src.zip
+gpg --verify apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.asc apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin.tar.gz
+gpg --verify apache-shenyu-${PUBLISH.VERSION}-admin-bin.tar.gz.asc apache-shenyu-${PUBLISH.VERSION}-admin-bin.tar.gz
 ```
 
 **3. 确保 SVN 与 GitHub 源码一致**
@@ -265,18 +265,17 @@ gpg --verify apache-shenyu-incubating-${PUBLISH.VERSION}-admin-bin.tar.gz.asc ap
 根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明确保 SVN 与 GitHub 源码一致。
 
 ```
-wget https://github.com/apache/incubator-shenyu/archive/v${PUBLISH.VERSION}.zip
+wget https://github.com/apache/shenyu/archive/v${PUBLISH.VERSION}.zip
 unzip v${PUBLISH.VERSION}.zip
-unzip apache-shenyu-incubating-${PUBLISH.VERSION}-src.zip
-diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" apache-shenyu-incubating-${PUBLISH.VERSION}-src incubator-shenyu-${PUBLISH.VERSION}
+unzip apache-shenyu-${PUBLISH.VERSION}-src.zip
+diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" apache-shenyu-${PUBLISH.VERSION}-src shenyu-${PUBLISH.VERSION}
 ```
 
 **4. 检查源码包**
 
 根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明检查源码包。
 
-- 文件夹包含单词 `incubating`
-- 存在 `LICENSE`，`NOTICE` 和 `DISCLAIMER` 文件
+- 存在 `LICENSE` 和 `NOTICE` 文件
 - `NOTICE` 文件中的年份正确
 - 所有文件的开头都有 ASF 许可证
 - 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
@@ -292,8 +291,7 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 根据 [Binary distributions](https://infra.apache.org/licensing-howto.html#binary) [11] 的说明检查二进制包。
 
-- 文件夹包含单词 `incubating`
-- 存在 `LICENSE`，`NOTICE` 和 `DISCLAIMER` 文件
+- 存在 `LICENSE` 和 `NOTICE` 文件
 - `NOTICE` 文件中的年份正确
 - 所有文本文件开头都有 ASF 许可证
 - 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
@@ -307,15 +305,9 @@ diff -r -x "shenyu-dashboard" -x "shenyu-examples" -x "shenyu-integrated-test" -
 
 根据 [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12]， [Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13]， [voting](https://www.apache.org/foundation/voting.html) [14] 的说明进行社区投票。
 
-### 订阅 Incubator 邮件列表
-
-1. 发送任意主题和内容邮件到 [general-subscribe@incubator.apache.org](mailto:general-subscribe@incubator.apache.org)，然后按照提示完成订阅。
-
-2. 可以通过这个[地址](https://lists.apache.org/list.html?general@incubator.apache.org)查看历史邮件。
-
 ### ShenYu 社区投票
 
-**1. 投票持续至少72小时并获得3个`+1 mentor`票后，才能开始孵化器投票**
+**1. 投票持续至少72小时并获得3个`+1 binding`票**
 
 发送至：
 
@@ -326,7 +318,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
+[VOTE] Release Apache ShenYu ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -334,25 +326,25 @@ dev@shenyu.apache.org
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu (incubating) version ${PUBLISH.VERSION}
+This is a call for vote to release Apache ShenYu version ${PUBLISH.VERSION}
 
 Release notes:
-https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
+https://github.com/apache/shenyu/blob/master/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION}/
+https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION}/
 
 Maven 2 staging repository:
 https://repository.apache.org/content/repositories/${STAGING.RELEASE}/org/apache/shenyu/
 
 Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/v${PUBLISH.VERSION}/
+https://github.com/apache/shenyu/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
-https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
+https://github.com/apache/shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 Keys to verify the Release Candidate:
-https://downloads.apache.org/incubator/shenyu/KEYS
+https://downloads.apache.org/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
 https://shenyu.apache.org/community/release-guide/#check-release
@@ -393,148 +385,24 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[RESULT][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
+[RESULT][VOTE] Release Apache ShenYu ${PUBLISH.VERSION}
 ```
 
 正文：
 
 ```
-We’ve received 7 +1 votes:
+We’ve received 3 +1 binding votes and 2 +1 non-binding votes:
 
-+1, xxx (mentor)
-+1, xxx (mentor)
-+1, xxx (mentor)
-+1, xxx (ppmc)
-+1, xxx (ppmc)
-+1, xxx (ppmc)
-+1, xxx (ppmc)
++1, xxx (binding)
++1, xxx (binding)
++1, xxx (binding)
++1, xxx (non-binding)
++1, xxx (non-binding)
 
 Vote thread:
 https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Thanks everyone for taking the time to verify and vote for the release!
-```
-
-### Incubator 社区投票
-
-**1. 投票持续至少72小时并获得3个`+1 binding`票后，才能继续接下来的流程**
-
-发送至：
-
-```
-general@incubator.apache.org
-```
-
-标题：
-
-```
-[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
-```
-
-正文：
-
-```
-Hello Incubator Community,
-
-This is a call for vote to release Apache ShenYu (incubating) version ${PUBLISH.VERSION}
-
-The Apache ShenYu community has voted on and approved a proposal to release 
-Apache ShenYu (incubating) version ${PUBLISH.VERSION}.
-
-We now kindly request the Incubator PMC members review and vote on this
-incubator release.
-
-ShenYu community vote thread:
-https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-Vote result thread:
-https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-Release notes:
-https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
-
-The release candidates:
-https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION}/
-
-Maven 2 staging repository:
-https://repository.apache.org/content/repositories/${STAGING.RELEASE}/org/apache/shenyu/
-
-Git tag for the release:
-https://github.com/apache/incubator-shenyu/tree/v${PUBLISH.VERSION}/
-
-Release Commit ID:
-https://github.com/apache/incubator-shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
-
-Keys to verify the Release Candidate:
-https://downloads.apache.org/incubator/shenyu/KEYS
-
-Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release-guide/#check-release
-
-The vote will be open for at least 72 hours or until necessary number of votes are reached.
-
-Please vote accordingly:
-
-[ ] +1 approve 
-
-[ ] +0 no opinion
- 
-[ ] -1 disapprove with the reason
-
-Checklist for reference:
-
-[ ] Download links are valid.
-
-[ ] Checksums and PGP signatures are valid.
-
-[ ] Source code distributions have correct names matching the current release.
-
-[ ] LICENSE and NOTICE files are correct for each ShenYu repo.
-
-[ ] All files have license headers if necessary.
-
-[ ] No compiled archives bundled in source archive.
-```
-
-**2. 宣布投票结果**
-
-发送至：
-
-```
-general@incubator.apache.org
-```
-
-标题：
-
-```
-[RESULT][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
-```
-
-正文：
-
-```
-Hi,
-
-The vote to release Apache ShenYu (incubating) ${PUBLISH.VERSION} has passed with
-6 +1 binding and 1 +1 non-binding votes, no +0 or -1 votes.
-
-Binding votes:
-xxx
-xxx
-xxx
-xxx
-xxx
-xxx
-
-Non-Binding votes:
-xxx
-
-Vote thread:
-https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-Thanks a lot to everyone for taking your time to review our release candidate.
-We will proceed with publishing the approved artifacts and sending out the
-announcements in the coming days.
 ```
 
 ## 完成发布
@@ -544,8 +412,8 @@ announcements in the coming days.
 根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从 dev 目录转移到 release 目录。
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/incubator/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete https://dist.apache.org/repos/dist/release/incubator/shenyu/${PREVIOUS.RELEASE.VERSION}
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. 完成 Maven 发布**
@@ -622,11 +490,11 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 
 > 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
 >
-> 注意：GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/incubator/shenyu/`
+> 注意：GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/shenyu/`
 
 **7. 更新文档**
 
-将 `${PUBLISH.VERSION}` 版本的[文档](https://github.com/apache/incubator-shenyu-website)进行归档，并更新[版本页面](https://shenyu.apache.org/zh/versions)。
+将 `${PUBLISH.VERSION}` 版本的[文档](https://github.com/apache/shenyu-website)进行归档，并更新[版本页面](https://shenyu.apache.org/zh/versions)。
 
 **8. 更新事件页面**
 
@@ -643,7 +511,6 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 发送至：
 
 ```
-general@incubator.apache.org
 dev@shenyu.apache.org
 announce@apache.org
 ```
@@ -651,7 +518,7 @@ announce@apache.org
 标题：
 
 ```
-[ANNOUNCE] Apache ShenYu (incubating) ${PUBLISH.VERSION} available
+[ANNOUNCE] Apache ShenYu ${PUBLISH.VERSION} available
 ```
 
 正文：
@@ -659,9 +526,9 @@ announce@apache.org
 ```
 Hi,
 
-Apache ShenYu (incubating) Team is glad to announce the new release of Apache ShenYu (incubating) ${PUBLISH.VERSION}.
+Apache ShenYu Team is glad to announce the new release of Apache ShenYu ${PUBLISH.VERSION}.
 
-Apache ShenYu (incubating) is an asynchronous, high-performance, cross-language, responsive API gateway.
+Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
 Plugin design idea, plugin hot swap, easy to expand.
 Flexible flow filtering to meet various flow control.
@@ -671,27 +538,18 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/incubator-shenyu/blob/master/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu/blob/master/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 
 ShenYu Resources:
-- Issue: https://github.com/apache/incubator-shenyu/issues
+- Issue: https://github.com/apache/shenyu/issues
 - Mailing list: dev@shenyu.apache.org
 - Documents: https://shenyu.apache.org/docs/index/
 
 
-- Apache ShenYu (incubating) Team
+- Apache ShenYu Team
 
---
-
-DISCLAIMER
-
-Apache ShenYu (incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator PMC.
-Incubation is required of all newly accepted projects until a further review indicates that the infrastructure,
-communications, and decision making process have stabilized in a manner consistent with other successful ASF projects.
-While incubation status is not necessarily a reflection of the completeness or stability of the code,
-it does indicate that the project has yet to be fully endorsed by the ASF.
 ```
 
 ## 重新发布（非必需）
@@ -700,24 +558,16 @@ it does indicate that the project has yet to be fully endorsed by the ASF.
 
 **1. 取消投票邮件模板**
 
-根据具体况向 `dev@shenyu.apache.org` 或 `general@incubator.apache.org` 发送取消投票邮件。
-
 发送至：
 
 ```
 dev@shenyu.apache.org
 ```
 
-或者
-
-```
-general@incubator.apache.org
-```
-
 标题：
 
 ```
-[CANCEL][VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION}
+[CANCEL][VOTE] Release Apache ShenYu ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -750,7 +600,7 @@ git tag -d v${PUBLISH.VERSION}
 **4. 删除 SVN 待发布内容**
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
 ```
 
 **5. 更新邮件标题**
@@ -758,7 +608,7 @@ svn delete https://dist.apache.org/repos/dist/dev/incubator/shenyu/${PUBLISH.VER
 完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加 `[ROUND ${n}]` 后缀。例如：
 
 ```
-[VOTE] Release Apache ShenYu (incubating) ${PUBLISH.VERSION} [ROUND 2]
+[VOTE] Release Apache ShenYu ${PUBLISH.VERSION} [ROUND 2]
 ```
 
 投票结果和通知邮件不需要加后缀。

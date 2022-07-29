@@ -43,8 +43,8 @@
     "message": "vote-committer",
     "description": "The label for category vote-committer in sidebar community"
   },
-  "sidebar.community.category.vote-ppmc-member": {
-    "message": "vote-ppmc-member",
-    "description": "The label for category vote-ppmc-member in sidebar community"
+  "sidebar.community.category.vote-pmc-member": {
+    "message": "vote-pmc-member",
+    "description": "The label for category vote-pmc-member in sidebar community"
   }
 }

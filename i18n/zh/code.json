@@ -468,5 +468,35 @@
   },
   "Release Apache Shenyu 2.2.0":{
     "message":"Apache Shenyu 2.2.0 发布"
+  },
+  "Events":{
+    "message":"事件"
+  },
+  "Download":{
+    "message":"下载"
+  },
+  "Document":{
+    "message":"文档"
+  },
+  "News":{
+    "message":"新闻"
+  },
+  "Release":{
+    "message":"发布"
+  },
+  "Community":{
+    "message":"社区"
+  },
+  "Subscribe mailing list":{
+    "message":"邮件订阅组"
+  },
+  "How to subscribe":{
+    "message":"如何订阅"
+  },
+  "Subscribe Mail":{
+    "message":"订阅邮件"
+  },
+  "Mail Archive":{
+    "message":"邮件归档"
   }
 }

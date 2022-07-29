@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import Translate, { translate } from "@docusaurus/Translate";
 
 const Footer = (): React.ReactElement => (
     <section className={styles.footer}>
@@ -16,34 +17,35 @@ const Footer = (): React.ReactElement => (
             <div className={styles.footerLinks}>
                 <nav className={styles.footerNav}>
                     <div className={styles.item}>
-                        <span>Events</span>
+                        <span className={styles.linkSpan}><Translate>Events</Translate></span>
                         <div className={styles.link}>
                             <div className={styles.linkItem}><a className={styles.linkA} href='https://www.apachecon.com'>ApacheCon</a></div>
                         </div>
                     </div>
                     <div className={styles.item}>
-                        <span>Shenyu</span>
+                        <span className={styles.linkSpan}>Shenyu</span>
                         <div className={styles.link}>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/download'>Download</a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/news'>News</a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/blog'>Blog</a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu/releases'>Release</a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='/download'><Translate>Download</Translate></a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='/docs/index/'><Translate>Document</Translate></a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='/news'><Translate>News</Translate></a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='/blog'><Translate>Blog</Translate></a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu/releases'><Translate>Release</Translate></a></div>
                         </div>
                     </div>
                     <div className={styles.item}>
-                        <span>Community</span>
+                        <span className={styles.linkSpan}><Translate>Community</Translate></span>
                         <div className={styles.link}>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/community/contributor-guide'>Community</a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='/community/contributor-guide'><Translate>Community</Translate></a></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu'>Github</a></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu/issues'>Issue Tracker</a></div>
                         </div>
                     </div>
                     <div className={styles.item}>
-                        <span>Subscribe mailing list</span>
+                        <span className={styles.linkSpan}><Translate>Subscribe mailing list</Translate></span>
                         <div className={styles.link}>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='./community/contributor-guide#join-the-discussion'>How to subscribe</a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='mailto://dev-subscribe@shenyu.apache.org'>Subscribe Mail</a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='https://lists.apache.org/list.html?dev@shenyu.apache.org'>Mail Archive</a></div>                            
+                            <div className={styles.linkItem}><a className={styles.linkA} href='./community/contributor-guide#join-the-discussion'><Translate>How to subscribe</Translate></a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='mailto://dev-subscribe@shenyu.apache.org'><Translate>Subscribe Mail</Translate></a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='https://lists.apache.org/list.html?dev@shenyu.apache.org'><Translate>Mail Archive</Translate></a></div>                            
                         </div>
                     </div>
                 </nav>

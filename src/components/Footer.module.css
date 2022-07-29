@@ -33,9 +33,10 @@
 
 .item{
     width: 165px;
+    padding-bottom: 30px;
 }
 
-span{
+.linkSpan{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;

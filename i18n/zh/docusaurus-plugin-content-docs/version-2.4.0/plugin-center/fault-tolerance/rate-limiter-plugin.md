@@ -4,21 +4,36 @@ keywords: ["rateLimiter"]
 description: rateLimiter插件
 ---
 
-## 说明
+# 1. 概述
 
-* 限流插件，是网关对流量管控限制核心的实现。
+## 1.1 插件名称
 
-* `Apache ShenYu` 网关提供了多种限流算法的实现，包括`令牌桶算法`、`并发的令牌桶算法`、`漏桶算法`、`滑动时间窗口算法`。
+* RateLimiter 插件
 
-* `Apache ShenYu` 网关的限流算法实现都是基于`redis`。
+## 1.2 适用场景
 
+* 在网关集群环境下进行流量控制
+* 根据特定规则进行流量控制
 * 可以到接口级别，也可以到参数级别。
 
+## 1.3 插件功能
 
+* 基于redis进行流量控制
 
-## 技术方案
+## 1.4 插件代码
 
-#### 采用redis令牌桶算法进行限流
+* 核心模块 `shenyu-plugin-ratelimiter`.
+
+* 核心类 `org.apache.shenyu.plugin.ratelimiter.RateLimiterPlugin`
+* 核心类 `org.apache.shenyu.plugin.ratelimiter.executor.RedisRateLimiter`
+
+## 1.5 添加自哪个shenyu版本
+
+* ShenYu 2.4.0
+
+## 1.6 技术方案
+
+### 1.6.1 采用redis令牌桶算法进行限流
 
 - 系统以恒定的速率产⽣令牌，然后将令牌放⼊令牌桶中。
 - 令牌桶有⼀个容量，当令牌桶满了的时候，再向其中放⼊的令牌就会被丢弃。
@@ -27,7 +42,7 @@ description: rateLimiter插件
 * 流程图：
   ![](/img/shenyu/plugin/ratelimiter/tokenbucket.png)
 
-#### 采用redis漏桶算法进行限流。
+### 1.6.2 采用redis漏桶算法进行限流。
 
 - ⽔（请求）先进⼊到漏桶⾥，漏桶以⼀定的速度出⽔，当⽔流⼊速度过⼤会直接溢出（拒绝服务）
 
@@ -35,7 +50,7 @@ description: rateLimiter插件
   ![](/img/shenyu/plugin/ratelimiter/leakybucket.png)
 
 
-#### 基于redis实现的滑动窗口算法
+### 1.6.3 基于redis实现的滑动窗口算法
 
 - 滑动时间窗口通过维护⼀个单位时间内的计数值，每当⼀个请求通过时，就将计数值加1，当计数值超过预先设定的阈值时，就拒绝单位时间内的其他请求。如果单位时间已经结束，则将计数器清零，开启下⼀轮的计数。
 
@@ -45,38 +60,51 @@ description: rateLimiter插件
 * 流程图：
   ![](/img/shenyu/plugin/ratelimiter/sldingwindow.png)
 
+# 2. 如何使用插件
 
-## 插件设置
+## 2.1 插件使用流程图
 
-* 在 基础配置 `-->`  插件管理 `-->` `resilience4j`，设置为开启。 如果用户不使用，可以将其关闭。
+![](/img/shenyu/plugin/plugin_use_zh.jpg)
 
-* 在插件中，对redis进行配置。
-
-* 目前支持redis的单机，哨兵，以及集群模式。
-
-* 如果是哨兵，集群等多节点的，在URL中的配置，请对每个实列使用 `;` 分割. 如 192.168.1.1:6379;192.168.1.2:6379。
-
-
-## 在网关中引入 rateLimiter的支持
+## 2.2 导入pom
 
 * 在网关的 `pom.xml` 文件中添加 `rateLimiter` 的依赖。
 
 ```xml
-        <!-- apache shenyu ratelimiter plugin start-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-ratelimiter</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <!-- apache shenyu ratelimiter plugin end-->
+<!-- apache shenyu ratelimiter plugin start-->
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-plugin-ratelimiter</artifactId>
+  <version>${project.version}</version>
+</dependency>
+<!-- apache shenyu ratelimiter plugin end-->
 ```
 
-关于选择器和规则配置的更多说明，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)， 这里只对部分字段进行了介绍。
+## 2.3 启用插件
 
-* 规则详细说明
+在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `Cache` 设置为开启。
 
-<img src="/img/shenyu/plugin/ratelimiter/ratelimiter-rule.png" width="80%" height="80%" />
+## 2.4 配置插件
 
+### 2.4.1 插件配置
+
+![](/img/shenyu/plugin/ratelimiter/ratelimiter-plugin-zh.png)
+
+* `mode`：redis的工作模式，默认为单点模式：`standalone`，此外还有集群模式：`cluster`，哨兵模式：`sentinel`。
+
+* `master`：默认为master。
+
+* `url` :配置 redis 数据库的IP和端口，通过冒号连接配置，示例：`192.168.1.1:6379`。
+
+* `password`: redis 数据库的密码，如果没有的话，可以不配置。
+
+### 2.4.2 选择器配置
+
+* 选择器和规则设置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
+
+### 2.4.3 规则配置
+
+![](/img/shenyu/plugin/ratelimiter/ratelimiter-plugin-rule-zh.png)
 
 * 令牌桶算法/并发令牌桶算法
 
@@ -107,3 +135,61 @@ description: rateLimiter插件
   * `burstCapacity`（容量）：时间窗口内（单位时间内）最大的请求数量。
 
   * `keyResolverName`（限流依据）：`whole`表示按网关每秒限流，`remoteAddress`表示按IP每秒限流。
+
+
+## 2.5 示例
+
+### 2.5.1 使用`RateLimiter`插件在网关集群环境中进行流量控制
+
+#### 2.5.1.1 准备工作
+
+- 在`10.10.10.10:9095`启动`ShenYu Admin`
+- 在`10.10.10.20:9195`和`10.10.10.30:9195`启动`ShenYu Bootstrap`, 配置`ShenYu Bootstrap`配置同步`10.10.10.10:9095`
+- 配置nginx，例如：
+
+```conf
+upstream shenyu_gateway_cluster {
+  ip_hash;
+  server 10.1.1.1:9195 max_fails=3 fail_timeout=10s weight=50;
+  server 10.1.1.2:9195 max_fails=3 fail_timeout=10s weight=50;
+}
+
+server {
+  location / {
+        proxy_pass http://shenyu_gateway_cluster;
+        proxy_set_header HOST $host;
+        proxy_read_timeout 10s;
+        proxy_connect_timeout 10s;
+  }
+}
+```
+
+#### 2.5.1.2 插件、选择器、规则配置
+
+- 配置ratelimiter插件的redis的配置
+
+- 配置插件的选择器
+
+- 配置规则
+
+![](/img/shenyu/plugin/ratelimiter/rule-example-zh.png)
+
+replenishRate为3, burstCapacity为10
+
+#### 2.5.1.3 使用`Apache Jmeter`发送请求到Nginx
+
+* jmeter线程组配置
+
+![](/img/shenyu/plugin/ratelimiter/jmeter-thread-group.png)
+
+* jmeter http request配置
+
+![](/img/shenyu/plugin/ratelimiter/jmeter-http-request.png)
+
+#### 2.5.1.4 验证结果
+
+![](/img/shenyu/plugin/ratelimiter/jmeter-result.png)
+
+# 3. 如何禁用插件
+
+在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `Cache` 设置为关闭。

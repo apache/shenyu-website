@@ -4,6 +4,7 @@
 
 .section {
   padding: 72px 0;
+  width: 100%;
 }
 
 .sectionAlt {
@@ -166,89 +167,86 @@
   text-shadow: 4px 6px 0 rgb(0 0 0 / 7%);
 }
 
-.userSwiperContent {
+.blockDescription{
+  margin-top: 40px;
+}
+
+.userPart{
+  display: block;
+  position: relative;
   height: 360px;
-}
-
-
-.swiper-slide {
-  width: 160px;
-  height: 65px;
-  margin-right: 10px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  border: 1px solid #eaecef;
-  border-radius: 2px;
-  padding: 10px;
-  box-shadow: #f8f9fa 0px 1px 2px 0px; 
-}
-
-.swiper-slide a {
   width: 100%;
-  height: 100%;
+  overflow: hidden;
+}
+
+.scrollView{
+  margin-top: 40px;
+  animation: 45s linear 0s infinite alternate none running animation-autoplay;
+  position:absolute;
+}
+
+@keyframes animation-autoplay {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  100% {
+    transform: translate3d(-4500px, 0px, 0px);
+  }
+}
+
+.scrollLine1{
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-.swiper-slide  img {
-  max-height: 90%;
-  max-width: 90%;
-  transition: opacity 0.5s;
+.scrollLine2{
+  display: flex;
+  /* padding-left: 130px; */
+  align-items: center;
 }
 
-@media only screen and (max-width: 768px) {
-  .hero {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+.scrollLine3{
+  display: flex;
+  align-items: center;
+}
 
-  .heroInner {
-    padding: 0;
-  }
 
-  .heroProjectTagline {
-    font-size: 36px;
-    text-align: center;
-  }
+.scrollItem{
+  flex-shrink: 0;
+  width: 320px;
+  padding: 15px 30px;
+  height: 100px;
+}
 
-  .heroLogo {
-    display: block;
-    float: none;
-    margin: 0 auto;
-  }
+.scrollImage{
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
 
-  .indexCtas {
-    justify-content: center;
-  }
+.scrollItemLeft{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
 
-  .indexCtas a {
-    margin: 20px 36px;
-  }
+.scrollItemRight{
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 
-  .indexCtasGitHubButton {
-    display: none;
-  }
+.scrollItemLeftInner{
+  background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+  width: 88px;
+  height: 100%;
+}
 
-  .userSwiperContent {
-    height: 250px;
-  }
-
-  .swiper-slide {
-    width: 45px;
-    height: 35px;
-    margin-right: 2px;
-    margin-bottom: 2px;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    border: 1px solid #eaecef;
-    border-radius: 2px;
-    padding: 10px;
-    box-shadow: #f8f9fa 0px 1px 2px 0px; 
-  }
+.scrollItemRightInner{
+  background: linear-gradient(-90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    width: 88px;
+    height: 100%;
 }

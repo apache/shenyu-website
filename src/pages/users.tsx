@@ -24,8 +24,8 @@ function group(array, subGroupLength) {
   var index = 0;
   var newArray = [];
 
-  while(index < array.length) {
-      newArray.push(array.slice(index, index += subGroupLength));
+  while (index < array.length) {
+    newArray.push(array.slice(index, index += subGroupLength));
   }
   return newArray;
 }
@@ -37,17 +37,66 @@ function Users() {
       tagline,
     },
   } = useDocusaurusContext();
-  const userGroups = group(users,4);
+  const userGroups = group(users, (users.length) / 3);
   return (
     <Layout title={tagline} description={description as string}>
       <main>
-          <div className={clsx(styles.section, styles.userSwiperContainer)}>
+        <div className={clsx(styles.section, styles.userSwiperContainer)}>
           <div className="container">
             <h1 className={styles.blockTitle}><Translate>Our Users</Translate></h1>
-            <p>
+            <p className={styles.blockDescription}>
               <Translate>Here is a list of companies or organizations that we know have used all or some of Apache ShenYu’s components in production.This list is in no particular order.</Translate>
-            </p>
-            <Swiper navigation={{
+            </p >
+            <div className={styles.userPart}>
+              <div className={styles.scrollView}>
+                <div className={styles.scrollLine1}>
+                  {
+                    userGroups[0].map((user, i) => {
+                      return (
+                        <div className={styles.scrollItem} key={i}>
+                          < a href="noopener noreferrer" target="_blank">
+                            < img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
+                          </ a>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+                <div className={styles.scrollLine2}>
+                  {
+                    userGroups[1].map((user, i) => {
+                      return (
+                        <div className={styles.scrollItem} key={i}>
+                          < a href={user.link} rel="noopener noreferrer" target="_blank">
+                            < img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
+                          </ a>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+                <div className={styles.scrollLine3}>
+                  {
+                    userGroups[2].map((user, i) => {
+                      return (
+                        <div className={styles.scrollItem} key={i}>
+                          < a href={user.link} rel="noopener noreferrer" target="_blank">
+                            < img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
+                          </ a>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+              </div>
+              <div className={styles.scrollItemLeft}>
+                <div className={styles.scrollItemLeftInner}></div>
+              </div>
+              <div className={styles.scrollItemRight}>
+                <div className={styles.scrollItemRightInner}></div>
+              </div>
+            </div>
+            {/* <Swiper navigation={{
               nextEl: '.user-swiper-button-next',
               prevEl: '.user-swiper-button-prev',
             }}
@@ -63,20 +112,20 @@ function Users() {
                     {
                       userList.map((user, j) => {
                         return <div key={j} className={styles["swiper-slide"]}>
-                          <a href={user.link} rel="noopener noreferrer" target="_blank">
-                            <img src={user.src&&(user.src.startsWith("http")?user.src:useBaseUrl(user.src))} alt={user.name} />
-                          </a>
+                          < a href={user.link} rel="noopener noreferrer" target="_blank">
+                            < img src={user.src&&(user.src.startsWith("http")?user.src:useBaseUrl(user.src))} alt={user.name} />
+                          </ a>
                         </div>
                       })
                     }
                   </SwiperSlide>
                 })
               }
-            </Swiper>
-            <p><Translate>To better serve you, please register</Translate><a target="_blank" href="https://github.com/apache/incubator-shenyu/issues/68"><Translate>[Here].</Translate></a></p>
+            </Swiper> */}
+            <p><Translate>To better serve you, please register</Translate><a target="_blank" href="https://github.com/apache/incubator-shenyu/issues/68"><Translate>[Here].</Translate></ a></p >
           </div>
-          <div className="swiper-button-prev user-swiper-button-prev" style={{ left: "50px" }}></div>
-          <div className="swiper-button-next user-swiper-button-next" style={{ right: "50px" }}></div>
+          {/* <div className="swiper-button-prev user-swiper-button-prev" style={{ left: "50px" }}></div>
+          <div className="swiper-button-next user-swiper-button-next" style={{ right: "50px" }}></div> */}
         </div>
       </main>
     </Layout>

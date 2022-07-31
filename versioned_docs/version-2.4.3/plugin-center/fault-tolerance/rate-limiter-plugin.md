@@ -174,7 +174,7 @@ server {
 
 replenishRate is 3, burstCapacity is 10
 
-#### 2.5.1.3 Send Request to `Ngin`x by `Apache Jmeter`
+#### 2.5.1.3 Send Request to `Nginx` by `Apache Jmeter`
 
 * jmeter thread group configuration
 

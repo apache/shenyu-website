@@ -43,7 +43,7 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 
 ![](/img/shenyu/icla/hand_write.png)
 
-**5.After signing, send the icla.pdf command as `username-icla.pdf` to the email address `secretary@apache.org`. Do not copy any other person or list.**
+**5.After signing, send the icla.pdf command as `username-icla.pdf` to the email address `secretary@apache.org` and copy to `private@shenyu.apache.org`, Do not copy any other person or list.**
 
 **6.After the email is sent successfully, Apache ShenYu official community informs**
 
@@ -75,13 +75,13 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 
 Note: Handwritten signature due to document upgrade, content reference PDF
 
-![](/img/shenyu/icla/doc_example_v2.0.png)
+![](/img/shenyu/icla/example_v2.0.png)
 
-![](/img/shenyu/icla/doc_content_v2.0.png)
+![](/img/shenyu/icla/pls_sign_v2.0.png)
 
 ## Email Template {#email-template}
 
-![](/img/shenyu/icla/email_template_file_v2.0.png)
+![](/img/shenyu/icla/email_v2.0.png)
 ![](/img/shenyu/icla/email_template.png)
 
 addressee

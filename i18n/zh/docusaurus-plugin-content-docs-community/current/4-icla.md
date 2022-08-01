@@ -41,7 +41,7 @@ Apache CLA 全称 Apache Contributor License Agreement，签署 ICLA 的目的�
 
 ![](/img/shenyu/icla/sign_v2.0.png)
 
-**5.签署完之后将 icla.pdf 命令为 `姓名拼音-icla.pdf` 并电子邮件发送到 `secretary@apache.org` 地址。注:不要复制其他人的签署单**。
+**5.签署完之后将 icla.pdf 命令为 `姓名拼音-icla.pdf` 并电子邮件发送到 `secretary@apache.org` 同时抄送到 `private@shenyu.apache.org`地址。注:不要复制其他人的签署单**。
 
 **6.邮箱发送成功之后 Apache ShenYu 官方社区告知下**
 
@@ -71,14 +71,14 @@ Apache CLA 全称 Apache Contributor License Agreement，签署 ICLA 的目的�
 > - 发送到指定邮箱
 > - 更新石墨[icla 签署状态文档](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla 签署状态表》，可复制链接后用石墨文档 App 或小程序打开)
 
-注: 手写签名由于文档升级原因,内容参考 PDF
-![](/img/shenyu/icla/doc_example_v2.0.png)
+![](/img/shenyu/icla/example_v2.0.png)
 
-![](/img/shenyu/icla/doc_content_v2.0.png)
+![](/img/shenyu/icla/pls_sign_v2.0.png)
 
 ## 邮件发送模板
 
 ![](/img/shenyu/icla/email_v2.0.png)
+![](/img/shenyu/icla/email_template.png)
 
 收件人
 

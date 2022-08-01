@@ -53,13 +53,13 @@ If you feel that there are too many emails, disturbing you, or you are no longer
 
 Apache ShenYu is generally developed collaboratively on GitHub. Currently, there are the following repositories:
 
-| REPOSITORY                                                   | DESCRIPTION                    |
-| ------------------------------------------------------------ | ------------------------------ |
-| [apache/shenyu](https://github.com/apache/shenyu) | Main Repository                |
-| [apache/shenyu-dashboard](https://github.com/apache/shenyu-dashboard) | Front-end Code of shenyu-admin |
-| [apache/shenyu-website](https://github.com/apache/shenyu-website) | Official Website and Documents |
-| [apache/shenyu-helm-chart](https://github.com/apache/shenyu-helm-chart) | Helm Chart for Apache ShenYu   |
-| [apache/shenyu-nginx](https://github.com/apache/shenyu-nginx) | Code to integrate with nginx   |
+| REPOSITORY                                                                    | DESCRIPTION                    |
+| ----------------------------------------------------------------------------- | ------------------------------ |
+| [apache/shenyu](https://github.com/apache/shenyu)                             | Main Repository                |
+| [apache/shenyu-dashboard](https://github.com/apache/shenyu-dashboard)         | Front-end Code of shenyu-admin |
+| [apache/shenyu-website](https://github.com/apache/shenyu-website)             | Official Website and Documents |
+| [apache/shenyu-helm-chart](https://github.com/apache/shenyu-helm-chart)       | Helm Chart for Apache ShenYu   |
+| [apache/shenyu-nginx](https://github.com/apache/shenyu-nginx)                 | Code to integrate with nginx   |
 | [apache/shenyu-client-python](https://github.com/apache/shenyu-client-python) | Python SDK                     |
 | [apache/shenyu-client-dotnet](https://github.com/apache/shenyu-client-dotnet) | .Net SDK                       |
 | [apache/shenyu-client-golang](https://github.com/apache/shenyu-client-golang) | Golang SDK                     |
@@ -91,7 +91,7 @@ Then download the code locally **with git command**:
 ```shell
 git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #Recommended
 # You can also git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
-````
+```
 
 After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](../faq).
 
@@ -128,19 +128,19 @@ First, switch to the master branch
 
 ```shell
 git checkout master #May also be the main branch
-````
+```
 
 Bind the upstream warehouse (you only need to bind it once), here is the main warehouse of shenyu as an example
 
 ```shell
 git remote add upstream https://github.com/apache/shenyu.git
-````
+```
 
 Pull remote code
 
 ```shell
 git pull upstream master
-````
+```
 
 #### New development branch for developing
 
@@ -165,7 +165,7 @@ After the code has been merged, you can delete the development branch on both th
 ```shell
 git branch -d a-dev-branch
 git push origin --delete a-dev-branch
-````
+```
 
 On the master/main branch, you can do the following to sync the upstream repository:
 
@@ -173,9 +173,11 @@ On the master/main branch, you can do the following to sync the upstream reposit
 git remote add upstream https://github.com/apache/shenyu.git #Bind the remote warehouse, if it has been executed, it does not need to be executed again
 git checkout master # or main
 git pull upstream master
-````
+```
 
 ### How to become a Committer?
+
+how to become a committer.
 
 With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](../committer)!
 

@@ -177,8 +177,6 @@ git pull upstream master
 
 ### How to become a Committer?
 
-how to become a committer.
-
 With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](../committer)!
 
 In order to keep abreast of the development of Apache ShenYu, you can follow the mailing list, or you can participate in the biweekly meeting of the community (meeting invitation link will be sent on the mailing list).

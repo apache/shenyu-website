@@ -97,7 +97,7 @@ description: 缓存插件
 
 ### 2.4.2 选择器配置
 
-* 选择器和规则设置，请参考：[选择器和规则管理](https://shenyu.apache.org/zh/docs/user-guide/admin-usage/selector-and-rule "选择器和规则管理")。
+* 选择器和规则设置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)
 
 ### 2.4.3 规则配置
 

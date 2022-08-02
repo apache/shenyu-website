@@ -118,7 +118,7 @@ git push origin a-dev-branch
 
 然后您就可以在 GitHub 上发起新的 PR (Pull Request)。
 
-请注意 PR 的标题需要符合我们的[规范](../issue-pr)，并且在 PR 中写上必要的说明，来方便 Committer 和其他贡献者进行代码审查。
+请注意 PR 的标题需要符合我们的[规范](/zh/community/issue-pr)，并且在 PR 中写上必要的说明，来方便 Committer 和其他贡献者进行代码审查。
 
 ### 后续提交 Pull Request
 

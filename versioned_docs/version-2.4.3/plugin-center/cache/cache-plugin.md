@@ -100,7 +100,7 @@ If you are using `redis mode`, select redis in cacheType, and the parameters are
 
 ### 2.4.2 Selector Config
 
-* Selectors and rules, please refer to: [Selector And Rule Config](https://shenyu.apache.org/docs/plugin-center/user-guide/admin-usage/selector-and-rule "Selector And Rule Config") .
+* Selectors and rules, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule)
 
 ### 2.4.3 Rule Config
 

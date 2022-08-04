@@ -118,7 +118,7 @@ git push origin a-dev-branch
 
 Then you can initiate a new PR (Pull Request) on GitHub.
 
-Please note that the title of the PR needs to conform to our [spec](../issue-pr), and write the necessary description in the PR to facilitate code review by Committers and other contributors.
+Please note that the title of the PR needs to conform to our [spec](/community/issue-pr), and write the necessary description in the PR to facilitate code review by Committers and other contributors.
 
 ### Subsequent Pull Request submission
 

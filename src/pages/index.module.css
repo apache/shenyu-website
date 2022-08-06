@@ -45,8 +45,9 @@
 }
 
 .hero {
-  background-color: #2b3137;
+  background-color: #F5F6F7;
   padding: 48px;
+  border-radius: 8px;
 }
 
 .heroInner {
@@ -78,19 +79,52 @@
 }
 
 .heroProjectTagline {
-  color: #fff;
+  color: #000;
   font-size: 25px;
   margin: 0;
 }
 
 .heroTitleTextHtml b {
-  color: var(--ifm-color-primary);
+  color: #FF5C00;
 }
 
 .heroDesc{
-  color: #fff;
+  color: #000033;
   font-size: 20px;
   margin: 0;
+}
+
+.buttonGetStarted{
+  width: 160px;
+  background-color: #000033;
+  text-align: center;
+  height: 40px;
+  color: #fff;
+  line-height: 40px;
+  box-shadow: 6px 6px 22px 2px rgb(0 0 51 / 20%);
+  border-radius: 8px;
+}
+
+.buttonGithub{
+  width: 160px;
+  background-color: #fff;
+  text-align: center;
+  height: 40px;
+  color: #000033;;
+  line-height: 40px;
+  box-shadow: 6px 6px 22px 2px rgb(0 0 51 / 20%);
+  border-radius: 8px;
+}
+
+.containerCenter{
+  text-align: center;
+}
+
+.dividingLineBorder{
+  display: inline-block;
+  width: 60%;
+  height: 1px;
+  background: -webkit-linear-gradient(left,#fff -4%,#ccc 50%,#fff 100%);
 }
 
 @keyframes jackInTheBox {
@@ -114,13 +148,18 @@
   }
 }
 
-.heroLogo {
+.logoContainer{
+  border-radius: 8px;
+  box-shadow: 6px 6px 22px 2px  rgb(0 0 51 / 20%);
   animation-duration: 2s;
   animation-name: jackInTheBox;
   float: right;
   padding: 0 20px 20px;
   width: 600px;
   height: 400px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(245,246,247);
 }
 
 .indexCtas {

@@ -25,7 +25,7 @@ function Home() {
             <div className="col col--5  col--offset-1">
               <h1 className={styles.heroProjectTitle}>
                 <img
-                  src="/img/logo-light.svg"
+                  src="/img/logo.svg"
                   className={styles.heroProjectLogo}
                 ></img>
                 {/* <span className={styles.heroProjectSubTitle}>Incubating</span> */}
@@ -45,23 +45,25 @@ function Home() {
                 />
               </h3>
               <div className={styles.indexCtas}>
-                <Link className="button button--primary" to="/docs/index">
+                <Link className={styles.buttonGetStarted} to="/docs/index">
                   <Translate>Get Started</Translate>
                 </Link>
                 <Link
-                  className="button button--info"
+                  className={styles.buttonGithub}
                   to="https://github.com/apache/shenyu"
                 >
                   <Translate>Github</Translate>
                 </Link>
               </div>
             </div>
-            <div className="col col--5 ">
+            <div className="col col--5 col--offset-1">
+              <div className={styles.logoContainer}>
               <img
                 alt={translate({ message: "Docusaurus with Keytar" })}
                 className={styles.heroLogo}
-                src={useBaseUrl("/img/architecture/shenyu-framework.png")}
+                src={useBaseUrl("/img/architecture/apa_grey.png")}
               />
+              </div>
             </div>
           </div>
         </div>

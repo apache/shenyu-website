@@ -105,15 +105,25 @@
   border-radius: 8px;
 }
 
+.buttonGetStarted:hover{
+  text-decoration: none;
+  color: #fff;
+}
+
 .buttonGithub{
   width: 160px;
   background-color: #fff;
   text-align: center;
   height: 40px;
-  color: #000033;;
+  color: #000033;
   line-height: 40px;
   box-shadow: 6px 6px 22px 2px rgb(0 0 51 / 20%);
   border-radius: 8px;
+}
+
+.buttonGithub:hover{
+  text-decoration: none;
+  color: #000033;
 }
 
 .containerCenter{

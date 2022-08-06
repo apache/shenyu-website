@@ -31,7 +31,7 @@ Forwarding email address(sign icla send eamil):
 What time to receive the reply signed by icla:
 ```
 
-**2. Add the new committer to [roster](https://whimsy.apache.org/roster/ppmc/shenyu)**
+**2. Add the new committer to [roster](https://whimsy.apache.org/roster/committee/shenyu)**
 
 **3. Complete the [GitBox Setup](https://gitbox.apache.org/setup/)**
 

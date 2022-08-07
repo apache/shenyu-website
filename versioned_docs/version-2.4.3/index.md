@@ -21,7 +21,7 @@ This is an asynchronous, high-performance, cross-language, responsive API gatewa
 
 # Architecture Diagram
 
-![](/img/architecture/shenyu-framework.png)
+![](/img/architecture/shenyu-architecture-3d.png)
 
 
 # Mind maps

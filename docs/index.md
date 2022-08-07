@@ -8,7 +8,7 @@ aliases: "/shenyu/docs/Home"
 
 # Architecture
 
- ![](/img/architecture/shenyu-framework.png)  
+ ![](/img/architecture/shenyu-architecture-3d.png)  
 
 # Why named Apache ShenYu
 

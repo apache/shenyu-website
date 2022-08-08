@@ -81,7 +81,7 @@ description: Logging-kafka插件
 | compressAlg        | String                 | 压缩算法，默认不压缩，目前支持LZ4压缩              | 可选，默认不压缩                             |
 | maxResponseBody        | Ingeter                | 最大响应体大小，超过阈值将不采集响应体               | 可选，默认512KB                           |
 | maxRequestBody       | Ingeter              | 最大请求体大小，超过阈值将不采集请求体               | 可选，默认512KB  |
-*除了topic、namesrvAddr其它都是可选*，大部分情况下只需要配置这2项就可以了。
+*除了topic、namesrvAddr其它都是可选*，大部分情况下只需要配置这2项就可以了。默认的Group-id是"shenyu-access-logging"。
 
 ### 2.4.2 配置选择器和规则器
 

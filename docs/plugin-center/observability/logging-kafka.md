@@ -79,12 +79,11 @@ description: Logging-Kafka Plugin
 | config-item                       | type                 | description                       | remarks     |
 | topic                             | String               | Message Queue Topics                            | must        |
 | namesrvAddr                       | String               | Message queue nameserver address                        | must          |
-| producerGroup                     | String               | Log Message Producer Group                          | must           |
 | sampleRate                        | String               | Sampling rate, range 0~1, 0: off, 0.01: acquisition 1%, 1: acquisition 100% | Optional, default 1, all collection |
 | compressAlg                       | String               | Compression algorithm, no compression by default, currently supports LZ4 compression               | Optional, no compression by default    |
 | maxResponseBody                   | Ingeter              | Maximum response size, above the threshold no response will be collected                | Optional, default 512KB |
 | maxRequestBody                    | Ingeter              | Maximum request body size, above the threshold no request body will be collected               | Optional, default 512KB  |
-Except for topic, namesrvAddr, producerGroup, all others are optional, in most cases only these 3 items need to be configured.
+Except for topic, namesrvAddr, all others are optional, in most cases only these 3 items need to be configured. The default group id is "shenyu-access-logging"
 
 ### 2.4.2 Configuring Selectors and Rulers
 

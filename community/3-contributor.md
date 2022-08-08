@@ -54,7 +54,7 @@ If you feel that there are too many emails, disturbing you, or you are no longer
 Apache ShenYu is generally developed collaboratively on GitHub. Currently, there are the following repositories:
 
 | REPOSITORY                                                                    | DESCRIPTION                    |
-| ----------------------------------------------------------------------------- | ------------------------------ |
+|-------------------------------------------------------------------------------|--------------------------------|
 | [apache/shenyu](https://github.com/apache/shenyu)                             | Main Repository                |
 | [apache/shenyu-dashboard](https://github.com/apache/shenyu-dashboard)         | Front-end Code of shenyu-admin |
 | [apache/shenyu-website](https://github.com/apache/shenyu-website)             | Official Website and Documents |
@@ -66,7 +66,7 @@ Apache ShenYu is generally developed collaboratively on GitHub. Currently, there
 
 ### Getting Apache ShenYu up and running
 
-To get Apache ShenYu code running on your development tools, see [Local Deployment](../docs/deployment/deployment-local) or [Apache ShenYu Startup Example](../blog/Start-SourceCode-Analysis-Start-Demo), and able to debug with breakpoints.
+To get Apache ShenYu code running on your development tools, see [Local Deployment](/docs/deployment/deployment-local.md) or [Apache ShenYu Startup Example](/blog/Start-SourceCode-Analysis-Start-Demo.md), and able to debug with breakpoints.
 
 After running, you can read the [source code analysis article](../blog) included in our official website to have a deeper understanding of Apache ShenYu.
 
@@ -93,7 +93,7 @@ git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #Recommended
 # You can also git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
 ```
 
-After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](../faq).
+After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](13-faq.md).
 
 Then, you can refer to the following command to submit the code:
 

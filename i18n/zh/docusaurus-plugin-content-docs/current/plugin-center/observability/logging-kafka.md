@@ -68,7 +68,7 @@ description: Logging-kafka插件
 
 ### 2.4.1 开启插件，并配置Kafka，配置如下
 
-![](/img/shenyu/plugin/logging/logging-kafka/logging-kafka-config-cn.png)
+![](/img/shenyu/plugin/logging/logging-kafka/logging-kafka-config.png)
 
 * 各个配置项说明如下：
 

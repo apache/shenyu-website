@@ -68,7 +68,7 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 让 Apache ShenYu 的代码在您的开发工具上运行起来，请参阅 [本地部署](../docs/deployment/deployment-local) 或者 [Apache ShenYu 启动示例](../blog/Start-SourceCode-Analysis-Start-Demo)，并且能够断点调试。
 
-在运行起来之后，可以阅读我们官网收录的[源码分析文章](../blog)，来对 Apache ShenYu 有更深入的理解。
+在运行起来之后，可以阅读我们官网收录的[源码分析文章](https://shenyu.apache.org/zh/blog)，来对 Apache ShenYu 有更深入的理解。
 
 ### 寻找任务
 
@@ -76,7 +76,7 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 当然，如果您有好的想法，也可以直接在 邮件列表(dev@shenyu.apache.org) 中提出，经过充分讨论后就可以开始行动。
 
-同时，您也可以参与编写我们的[博客](../blog)，并通过 Pull Request 的方式提交到 Apache ShenYu 官网的[博客模块](https://github.com/apache/shenyu-website/tree/main/blog) 。
+同时，您也可以参与编写我们的[博客](https://shenyu.apache.org/zh/blog)，并通过 Pull Request 的方式提交到 Apache ShenYu 官网的[博客模块](https://github.com/apache/shenyu-website/tree/main/blog) 。
 
 如果您是学生，那么也非常欢迎在 GSoC 等开源实习活动中申请 Apache ShenYu 的议题，您可以点击 [链接](https://community.apache.org/gsoc.html) 来查看 Apache 软件基金会对 GSoC 的介绍。您也可以通过这个 [链接](https://github.com/apache/shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc) 来查看 Apache ShenYu 往年或者正在进行中的 GSoC 议题！
 

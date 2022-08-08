@@ -68,7 +68,7 @@ Apache ShenYu is generally developed collaboratively on GitHub. Currently, there
 
 To get Apache ShenYu code running on your development tools, see [Local Deployment](../docs/deployment/deployment-local) or [Apache ShenYu Startup Example](../blog/Start-SourceCode-Analysis-Start-Demo), and able to debug with breakpoints.
 
-After running, you can read the [source code analysis article](../blog) included in our official website to have a deeper understanding of Apache ShenYu.
+After running, you can read the [source code analysis article](https://shenyu.apache.org/blog) included in our official website to have a deeper understanding of Apache ShenYu.
 
 ### Find tasks
 
@@ -76,7 +76,7 @@ Find the issue you are interested in! On our GitHub repo and mailing list, we of
 
 Of course, if you have a good idea, you can also propose it directly on the mailing list(dev@shenyu.apache.org), and after a thorough discussion, you can start to act.
 
-At the same time, you can also participate in the writing of our [blog](../blog) and submit them to [the blog module](https://github.com/apache/shenyu-website/tree/main/blog) of the Apache ShenYu official website through Pull Request.
+At the same time, you can also participate in the writing of our [blog](https://shenyu.apache.org/blog) and submit them to [the blog module](https://github.com/apache/shenyu-website/tree/main/blog) of the Apache ShenYu official website through Pull Request.
 
 If you are a student, you are also very welcome to apply for the topic of Apache ShenYu in open source internship activities such as GSoC. You can click the [link](https://community.apache.org/gsoc.html) to view the Apache Software Foundation Introduction to GSoC. You can also check Apache ShenYu's previous or ongoing GSoC issues through this [link](https://github.com/apache/shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc)!
 

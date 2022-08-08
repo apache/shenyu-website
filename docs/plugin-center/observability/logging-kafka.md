@@ -138,7 +138,7 @@ For detailed configuration of selectors and rules, please refer to: [Selector an
 In addition sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
 then you can configure different topics (optional) and samplingf rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
 The operation is shown below:
-![](/img/shenyu/plugin/logging/logging-option-topic-en.png)
+![](/img/shenyu/plugin/logging/logging-kafka/logging-option-topic.png)
 
 #### 2.6.1.3 Rule Configuration
 
@@ -146,7 +146,7 @@ The operation is shown below:
 
 #### 2.6.1.4 Request Service
 
-![](/img/shenyu/plugin/logging/logging-kafka/call-service.png)
+![](/img/shenyu/plugin/logging/logging-rocketmq/call-service.png)
 
 #### 2.6.1.5 Consumption and display of Logging
 

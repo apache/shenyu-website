@@ -134,15 +134,15 @@ description: Logging-kafka插件
 
 另外有时候一个大网关集群对应多个应用程序（业务），不同应用程序（业务）对应不同的主题，相关隔离，这时候可以按选择器配置不同的主题(可选)和采样率(可选)，配置项的含义如上表所示。  
 操作如下图：  
-![](/img/shenyu/plugin/logging/logging-option-topic.png)
+![](/img/shenyu/plugin/logging/logging-kafka/logging-option-topic.png)
 
 #### 2.6.1.3 规则配置
 
-![](/img/shenyu/plugin/logging/logging-kafka/log-rule-zh.jpg)
+![](/img/shenyu/plugin/logging/logging-kafka/log-rule-zh.png)
 
 #### 2.6.1.4 请求服务
 
-![](/img/shenyu/plugin/logging/logging-kafka/call-service.png)
+![](/img/shenyu/plugin/logging/logging-rocketmq/call-service.png)
 
 #### 2.6.1.5 消费以及展示Logging
 

@@ -126,7 +126,7 @@ description: Logging-kafka插件
 
 开启插件，并配置Kafka,配置如下：
 
-![](/img/shenyu/plugin/logging/logging-config.png)
+![](/img/shenyu/plugin/logging/logging-kafka/logging-config-cn.png)
 
 #### 2.6.1.2 选择器配置
 

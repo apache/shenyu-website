@@ -129,7 +129,7 @@ collect request info as follows
 
 Open the plugin and configure kafka, configure it as follows.
 
-![](/img/shenyu/plugin/logging/logging-config-en.png)
+![](/img/shenyu/plugin/logging/logging-kafka/logging-config.png)
 
 #### 2.6.1.2 Selector Configuration
 

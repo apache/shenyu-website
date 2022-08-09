@@ -66,7 +66,7 @@ Apache ShenYu 一般是在 GitHub 上进行协作开发。目前有以下几个�
 
 ### 让 Apache ShenYu 运行起来
 
-让 Apache ShenYu 的代码在您的开发工具上运行起来，请参阅 [本地部署](../docs/deployment/deployment-local) 或者 [Apache ShenYu 启动示例](../blog/Start-SourceCode-Analysis-Start-Demo)，并且能够断点调试。
+让 Apache ShenYu 的代码在您的开发工具上运行起来，请参阅 [本地部署](/zh/docs/deployment/deployment-local) 或者 [Apache ShenYu 启动示例](/zh/blog/Start-SourceCode-Analysis-Start-Demo)，并且能够断点调试。
 
 在运行起来之后，可以阅读我们官网收录的[源码分析文章](https://shenyu.apache.org/zh/blog)，来对 Apache ShenYu 有更深入的理解。
 

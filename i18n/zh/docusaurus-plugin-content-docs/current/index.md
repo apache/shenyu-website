@@ -7,7 +7,7 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 
 # 架构图
 
- ![](/img/architecture/shenyu-framework.png)
+ ![](/img/architecture/shenyu-architecture-3d.png)
 
 # 为什么叫ShenYu
 

@@ -109,7 +109,7 @@ ShenYu 2.4.0
 
 * 以下图片的规则仅为测试使用，实际情况取决于特定的场景而定。
 
-![](/img/shenyu/plugin/hystrix/hystrix-example-rule-en.png)
+![](/img/shenyu/plugin/hystrix/hystrix-example-rule-zh.png)
 
 * 测试案例
 

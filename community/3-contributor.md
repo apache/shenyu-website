@@ -66,7 +66,7 @@ Apache ShenYu is generally developed collaboratively on GitHub. Currently, there
 
 ### Getting Apache ShenYu up and running
 
-To get Apache ShenYu code running on your development tools, see [Local Deployment](/docs/deployment/deployment-local.md) or [Apache ShenYu Startup Example](/blog/Start-SourceCode-Analysis-Start-Demo.md), and able to debug with breakpoints.
+To get Apache ShenYu code running on your development tools, see [Local Deployment](/docs/deployment/deployment-local) or [Apache ShenYu Startup Example](/blog/Start-SourceCode-Analysis-Start-Demo), and able to debug with breakpoints.
 
 After running, you can read the [source code analysis article](https://shenyu.apache.org/blog) included in our official website to have a deeper understanding of Apache ShenYu.
 

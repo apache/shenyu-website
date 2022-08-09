@@ -326,4 +326,12 @@ The team always insists on community over code. We are looking forward to more p
         <td>Committer</td>
         <td></td>
     </tr>
+    <tr>
+        <td><a href="http://github.com/moremind"><img width="64" src="https://avatars.githubusercontent.com/u/20184263?v=4"/></a></td>
+        <td>Fengen He</td>
+        <td><a href="https://people.apache.org/committer-index.html#hefengen">hefengen</a></td>
+        <td><a href="http://github.com/moremind">moremind</a></td>
+        <td>Committer</td>
+        <td></td>
+    </tr>
 </table>

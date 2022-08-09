@@ -3,6 +3,16 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>From Apache ShenYu User to Apache ShenYu Committer</Translate>,
+        author: "Fengen He",
+        description: <Translate>From Apache ShenYu User Boy to Apache ShenYu Committer</Translate>,
+        categories: "Apache ShenYu Committers",
+        tags: ["Apache ShenYu"],
+        date: '2022-08-04',
+        cover: "/img/news/hefengen.jpg",
+        src:'Apache-ShenYu-Committer-2022-08-04',
+    },
+    {
         title: <Translate>From CRUD Boy to Apache ShenYu Committer</Translate>,
         author: "Renzhu Yan",
         description: <Translate>From CRUD Boy to Apache ShenYu Committer</Translate>,

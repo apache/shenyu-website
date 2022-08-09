@@ -414,7 +414,9 @@
   "Code Analysis For Divide Plugin":{
     "message":"Divide插件源码分析"
   },
-
+  "From Apache ShenYu User to Apache ShenYu Committer": {
+    "message": "从用户到Apache ShenYu Committer"
+  },
   "From CRUD Boy to Apache ShenYu Committer":{
     "message":"从CRUD Boy到Apache ShenYu Committer"
   },

@@ -54,7 +54,7 @@ If you feel that there are too many emails, disturbing you, or you are no longer
 Apache ShenYu is generally developed collaboratively on GitHub. Currently, there are the following repositories:
 
 | REPOSITORY                                                                    | DESCRIPTION                    |
-| ----------------------------------------------------------------------------- | ------------------------------ |
+|-------------------------------------------------------------------------------|--------------------------------|
 | [apache/shenyu](https://github.com/apache/shenyu)                             | Main Repository                |
 | [apache/shenyu-dashboard](https://github.com/apache/shenyu-dashboard)         | Front-end Code of shenyu-admin |
 | [apache/shenyu-website](https://github.com/apache/shenyu-website)             | Official Website and Documents |
@@ -66,9 +66,9 @@ Apache ShenYu is generally developed collaboratively on GitHub. Currently, there
 
 ### Getting Apache ShenYu up and running
 
-To get Apache ShenYu code running on your development tools, see [Local Deployment](../docs/deployment/deployment-local) or [Apache ShenYu Startup Example](../blog/Start-SourceCode-Analysis-Start-Demo), and able to debug with breakpoints.
+To get Apache ShenYu code running on your development tools, see [Local Deployment](/docs/deployment/deployment-local) or [Apache ShenYu Startup Example](/blog/Start-SourceCode-Analysis-Start-Demo), and able to debug with breakpoints.
 
-After running, you can read the [source code analysis article](../blog) included in our official website to have a deeper understanding of Apache ShenYu.
+After running, you can read the [source code analysis article](https://shenyu.apache.org/blog) included in our official website to have a deeper understanding of Apache ShenYu.
 
 ### Find tasks
 
@@ -76,7 +76,7 @@ Find the issue you are interested in! On our GitHub repo and mailing list, we of
 
 Of course, if you have a good idea, you can also propose it directly on the mailing list(dev@shenyu.apache.org), and after a thorough discussion, you can start to act.
 
-At the same time, you can also participate in the writing of our [blog](../blog) and submit them to [the blog module](https://github.com/apache/shenyu-website/tree/main/blog) of the Apache ShenYu official website through Pull Request.
+At the same time, you can also participate in the writing of our [blog](https://shenyu.apache.org/blog) and submit them to [the blog module](https://github.com/apache/shenyu-website/tree/main/blog) of the Apache ShenYu official website through Pull Request.
 
 If you are a student, you are also very welcome to apply for the topic of Apache ShenYu in open source internship activities such as GSoC. You can click the [link](https://community.apache.org/gsoc.html) to view the Apache Software Foundation Introduction to GSoC. You can also check Apache ShenYu's previous or ongoing GSoC issues through this [link](https://github.com/apache/shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc)!
 
@@ -93,7 +93,7 @@ git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #Recommended
 # You can also git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
 ```
 
-After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](../faq).
+After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](./faq).
 
 Then, you can refer to the following command to submit the code:
 
@@ -177,6 +177,6 @@ git pull upstream master
 
 ### How to become a Committer?
 
-With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](../committer)!
+With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](/community/committer/)!
 
 In order to keep abreast of the development of Apache ShenYu, you can follow the mailing list, or you can participate in the biweekly meeting of the community (meeting invitation link will be sent on the mailing list).

@@ -7,7 +7,7 @@ author_image_url: https://avatars1.githubusercontent.com/u/62384022?v=4
 tags: [Param-Mapping, Apache ShenYu]
 ---
 
-> 开始前，可以参考 [这篇文章](./start-demo) 运行shenyu网关
+> 开始前，可以参考 [这篇文章](./Start-SourceCode-Analysis-Start-Demo) 运行shenyu网关
 
 ### 正文
 

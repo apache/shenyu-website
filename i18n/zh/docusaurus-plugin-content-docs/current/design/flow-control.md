@@ -1,7 +1,7 @@
 ---
-title: 流量控制
+title: 流量控制设计
 keywords: ["flow-control"]
-description:  介绍ShenYu网关如何对流量进行控制
+description:  Apache ShenYu 流量控制设计
 ---
 
 `Apache ShenYu`网关通过插件、选择器和规则完成流量控制。相关数据结构可以参考之前的 [ShenYu Admin数据结构](./database-design) 。

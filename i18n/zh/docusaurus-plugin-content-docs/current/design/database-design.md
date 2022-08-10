@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: ShenYu Admin数据结构
+title: 管理后台数据结构设计
 keywords: ["db"]
 description: ShenYu Admin数据结构
 ---

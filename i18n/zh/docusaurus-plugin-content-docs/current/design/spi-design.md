@@ -1,5 +1,5 @@
 ---
-title: SPI扩展
+title: SPI扩展设计
 keywords: ["spi design"]
 description:  对ShenYu网关中SPI的使用进行介绍
 ---
@@ -39,4 +39,4 @@ description:  对ShenYu网关中SPI的使用进行介绍
 
 ### 条件策略扩展
 
-在添加选择器和规则时，使用哪种条件策略，当前支持`Match`、`Contains`、`Equals`、`Groovy`、`Regex`、`SpEL`、`TimerAfter`、`TimerBefore`和`Exclude`，扩展接口是 `PredicateJudge` 。
+在添加选择器和规则时，使用哪种条件策略，当前支持`Match`、`Contains`、`Equals`、`Regex`、`TimerAfter`、`TimerBefore`和`Exclude`，扩展接口是 `PredicateJudge` 。

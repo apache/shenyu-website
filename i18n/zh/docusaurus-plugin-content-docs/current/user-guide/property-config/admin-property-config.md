@@ -24,13 +24,11 @@ shenyu:
       zombieCheckTimes: 5
       scheduledTime: 10
       nacosNameSpace: ShenyuRegisterCenter
-  database:
-    dialect: mysql
-    init_script: "META-INF/schema.sql"
-    init_enable: true
   sync:
     websocket:
       enabled: true
+      messageMaxSize: 10240
+      allowOrigins: ws://localhost:9095;ws://localhost:9195;
 #      zookeeper:
 #        url: localhost:2181
 #        sessionTimeout: 5000
@@ -86,7 +84,6 @@ shenyu:
       - /csrf
   swagger:
     enable: true
-
 ```
 
 
@@ -94,7 +91,7 @@ shenyu:
 
 ##### shenyu.register 配置
 
-这是客户端接入的相关配置，客户端接入原理请参考：[客户端接入原理](../../design/register-center-design) ，客户端接入配置请参考： [客户端接入配置](../register-center-access) 。
+这是客户端接入的相关配置，客户端接入原理请参考：[客户端接入原理](../../design/register-center-design) ，客户端接入配置请参考： [客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md) 。
 
 |名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
@@ -145,16 +142,6 @@ shenyu:
 |metadata-path                | String |  `shenyu/register`    |  否  |`Metadata`路径名称，默认是`shenyu/register`。|
 
 
-##### shenyu.database 配置
-
-`shenyu-admin`启动时，数据库的相关配置。
-
-|名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
-|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-|dialect            | String |  h2      | 否     |admin启动时，使用哪种数据库。|
-|init_script               | String | `META-INF/schema.h2.sql`   |  否  |数据库初始化脚本|
-|init_enable                | boolean |  true    |  否  |是否进行初始化|
-
 
 ##### shenyu.sync 配置
 
@@ -166,8 +153,10 @@ shenyu:
 |名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 |enabled                | boolean |  true    |  否  |是否启用`websocket`进行数据同步|
+|messageMaxSize | int | 0 | 否 |设置`websocket`缓冲区大小，单位为bytes|
+|allowOrigins | String | 空字符串 | 否 |设置允许的 `origins`, 多个参数以`;`分隔|
 
-使用`zookeeper`进行数据同步的属性配置如下：
+使用`zookeeper`进行数据同步的属性配置如下：/
 
 
 |名称                      | 类型  |  默认值   | 是否必填  | 说明                        |

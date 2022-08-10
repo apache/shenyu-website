@@ -12,9 +12,9 @@ description: Dubbo服务接入
 * 接入前，请正确启动 `shenyu-admin`，并开启`dubbo`插件，在网关端和`Dubbo`服务端引入相关依赖。可以参考前面的 [Dubbo快速开始](../quick-start/quick-start-dubbo)。
 
 
-应用客户端接入的相关配置请参考：[客户端接入配置](./register-center-access)。
+应用客户端接入的相关配置请参考：[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
 
-数据同步的相关配置请参考：[数据同步配置](./use-data-sync)。
+数据同步的相关配置请参考：[数据同步配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/use-data-sync.md)。
 
 ## 在网关中引入 dubbo 插件
 

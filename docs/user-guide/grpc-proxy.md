@@ -8,9 +8,9 @@ This document is intended to help the `gRPC` service access the `Apache ShenYu` 
 
 Before the connection, start `shenyu-admin` correctly, start `gRPC` plugin, and add related dependencies on the gateway and `gRPC` application client. Refer to the previous [Quick start with gRPC](../quick-start/quick-start-grpc) .
 
-For details about client access configuration, see [Application Client Access Config](./register-center-access) .
+For details about client access configuration, see [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
+For details about data synchronization configurations, see [Data Synchronization Config](docs/user-guide/property-config/use-data-sync.md) .
 
 ## Add gRPC plugin in gateway
 

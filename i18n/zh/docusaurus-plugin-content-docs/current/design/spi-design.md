@@ -1,5 +1,5 @@
 ---
-title: SPI扩展
+title: SPI扩展设计
 keywords: ["spi design"]
 description:  对ShenYu网关中SPI的使用进行介绍
 ---

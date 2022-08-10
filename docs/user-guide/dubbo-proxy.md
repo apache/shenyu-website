@@ -10,9 +10,9 @@ Support Alibaba Dubbo(< 2.7.x) and Apache Dubbo (>=2.7.x).
 
 Before the connection, start `shenyu-admin` correctly, start `Dubbo` plugin, and add related dependencies on the gateway and `Dubbo` application client. Refer to the previous [Quick start with Dubbo](../quick-start/quick-start-dubbo) .
 
-For details about client access configuration, see [Application Client Access Config](./register-center-access) .
+For details about client access configuration, see [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
+For details about data synchronization configurations, see [Data Synchronization Config](docs/user-guide/property-config/use-data-sync.md) .
 
 ## Add dubbo plugin in gateway
 

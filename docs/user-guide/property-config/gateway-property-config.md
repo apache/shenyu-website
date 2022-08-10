@@ -252,7 +252,7 @@ The apache shenyu netty config.
 
 ##### shenyu.instance config
 
-This is the relevant configuration for the `ShenYu` gateway to register to the registration center. For the configuration of the registration center, please refer to [Register Center Instance Config](../register-center-instance.md).
+This is the relevant configuration for the `ShenYu` gateway to register to the registration center. For the configuration of the registration center, please refer to [Register Center Instance Config](docs/user-guide/property-config/register-center-instance.md).
 
 | Name         |  Type   |    Default     | Required | Description                                                  |
 | :----------- | :-----: | :------------: | :------: | :----------------------------------------------------------- |

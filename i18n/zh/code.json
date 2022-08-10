@@ -414,6 +414,10 @@
   "Code Analysis For Divide Plugin":{
     "message":"Divide插件源码分析"
   },
+
+  "From company gateway framework selection to Apache ShenYu Committer":{
+    "message":"从公司网关选型到Apache ShenYu Committer"
+  },
   "From Apache ShenYu User to Apache ShenYu Committer": {
     "message": "从用户到Apache ShenYu Committer"
   },

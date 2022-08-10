@@ -14,6 +14,7 @@ Hello everyone, my name is [Shuo Li](https://github.com/lishuo5263) , java archi
 ### Meet the Apache Shenyu community for the first time
 
 The story starts from 2020. In the early stage, I used SpringCloud Gateway + Nacos Config Event to realize the dynamic routing of gateway by myself. Because there was no dashboard of Gateway at that time, it was very painful. My team made a dashboard based on Micro Enterprise, which has a lot of functionality and limitations. From then on, I started to pursue a good gateway. One day, I found ShenYu, and saw that ShenYu's overall architecture was in sharper contrast to SpringCloud Gateway. ShenYu outperforms Gateway in terms of overall architecture design, function design, plug-in design, etc. ShenYu can be said to be the next generation gateway product. After that, I started to have a certain understanding of Apache ShenYu from building environment to running example project, and then to read plug-in chain and data synchronization, SPI mechanism and other source code.
+
 ### Start submitting PR
 
 It was not until January 2022 that I started to submit my first PR, which was to fix a problem that caused null Pointers when the Admin module started the default load instance. The function was small, but its significance was remarkable. It meant that I had a good start on the open source road from learning to contributing.
@@ -40,6 +41,7 @@ Thanks to my friends who helped me or inspired me for free (in no particular ord
 3.Feel free to submit an issue to the community if you have any ideas
 
 Attend ShenYu biweekly meetings to keep up with the community and meet with developers one-on-one to ask questions
+
 ### How to join Apache ShenYu
 
 1. How to become a Contributor

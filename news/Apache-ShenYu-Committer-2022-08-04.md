@@ -32,7 +32,7 @@ I contributed the following functions:
 
 Special thanks to everyone who helped me (in no particular order):yu199195，qicz，li-keguo，dragon-zhang，renzhuyan，hutaishi，impactCn，yunlongn。
 
-### 对于开源开发者的话
+### A few words for open source developers
 
 Open source development is actually a very meaningful and painful thing. It tests a person's endurance. After countless PRs, they may give up due to certain difficulties and problems, but those who persist, whether in terms of technology or communication skills , or open source contributions, there will be certain gains.
 

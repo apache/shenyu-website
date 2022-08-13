@@ -3,6 +3,25 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>From company gateway framework selection to Apache ShenYu Committer</Translate>,
+        author: "Shuo Li",
+        description: <Translate>From company gateway framework selection to Apache ShenYu Committer</Translate>,
+        categories: "Apache ShenYu Committers",
+        tags: ["Apache ShenYu"],
+        date: '2022-08-08',
+        cover: "/img/news/lishuo.png",
+        src:'Apache-ShenYu-Committer-2022-08-08',
+    },{
+        title: <Translate>From Apache ShenYu User to Apache ShenYu Committer</Translate>,
+        author: "Fengen He",
+        description: <Translate>From Apache ShenYu User Boy to Apache ShenYu Committer</Translate>,
+        categories: "Apache ShenYu Committers",
+        tags: ["Apache ShenYu"],
+        date: '2022-08-04',
+        cover: "/img/news/hefengen.jpg",
+        src:'Apache-ShenYu-Committer-2022-08-04',
+    },
+    {
         title: <Translate>From CRUD Boy to Apache ShenYu Committer</Translate>,
         author: "Renzhu Yan",
         description: <Translate>From CRUD Boy to Apache ShenYu Committer</Translate>,
@@ -13,7 +32,7 @@ export default [
         src:'Apache-ShenYu-Committer-2022-07-04',
     },
     {
-        title: <Translate>You can also be an Apache ShenYu Committer</Translate>, 
+        title: <Translate>You can also be an Apache ShenYu Committer</Translate>,
         author: "Zicheng Zhang",
         description: <Translate>You can also be an Apache ShenYu Committer</Translate>,
         categories: "Apache ShenYu Committers",
@@ -23,7 +42,7 @@ export default [
         src:'Apache-ShenYu-Committer-2022-04-20',
     },
     {
-        title: <Translate>Apache ShenYu 2.4.3 Version Release</Translate>, 
+        title: <Translate>Apache ShenYu 2.4.3 Version Release</Translate>,
         // author: "Liu Liang",
         description: <Translate>Apache ShenYu 2.4.3 Version Release</Translate>,
         categories: "Apache ShenYu",
@@ -43,7 +62,7 @@ export default [
         src:"Apache-ShenYu-Committer-2021-12-08",
     },
     {
-        title: <Translate>From users to Committer, different experiences and gains</Translate>, 
+        title: <Translate>From users to Committer, different experiences and gains</Translate>,
         author: "qicz",
         description: <Translate>From users to Committer, different experiences and gains</Translate>,
         categories: "Apache ShenYu Committers",
@@ -53,9 +72,9 @@ export default [
         src:'Apache-ShenYu-Committer-2021-11-11',
     },
     {
-        title: <Translate>Apache ShenYu newly promoted PPMC</Translate>, 
+        title: <Translate>Apache ShenYu newly promoted PPMC</Translate>,
         author: "Liu Liang",
-        description: <Translate>Apache ShenYu newly promoted PPMC</Translate>, 
+        description: <Translate>Apache ShenYu newly promoted PPMC</Translate>,
         categories: "Apache ShenYu PPMC",
         tags: ["Apache ShenYu"],
         date: "2021-11-05",
@@ -83,7 +102,7 @@ export default [
         src:'Apache-ShenYu-release-milestone-version-2.4.0',
     },
     {
-        title: <Translate>How I became an Apache ShenYu Committer one year after graduation</Translate>, 
+        title: <Translate>How I became an Apache ShenYu Committer one year after graduation</Translate>,
         author: "Liu Liang",
         description: <Translate>From users to Committer, participation in the Apache ShenYu community is not far away</Translate>,
         categories: "Apache ShenYu Committers",

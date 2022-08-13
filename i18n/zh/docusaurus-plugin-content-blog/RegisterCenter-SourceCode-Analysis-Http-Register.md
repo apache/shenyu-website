@@ -31,7 +31,7 @@ tags: [http,register center,Apache ShenYu]
 
 
 
-如图所示，注册中心分为两个部分，一是注册中心客户端`register-client`，负载处理客户端数据读取。另一个是注册中心服务端`register-server`，负载处理服务端（就是`shenyu-admin`）数据写入。通过指定注册类型进行数据发送和接收。
+如图所示，注册中心分为两个部分，一是注册中心客户端`register-client`，负责处理客户端数据读取。另一个是注册中心服务端`register-server`，负责处理服务端（就是`shenyu-admin`）数据写入。通过指定注册类型进行数据发送和接收。
 
 - 客户端：通常来说就是一个微服务，可以是`springmvc`，`spring-cloud`，`dubbo`，`grpc`等。
 - `register-client`：注册中心客户端，读取客户接口和`uri`信息。

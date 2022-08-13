@@ -3,10 +3,7 @@
     border-radius: 15px;
     padding: 1rem;
     box-shadow: var(--ifm-navbar-shadow);
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: 0.3fr 1fr;
+    height: 200px;
     text-align: center;
   }
 
@@ -17,18 +14,13 @@
 
   .featureCard h3 {
     color: var(--verdaccio-color);
-    font-weight: normal;
+    font-weight: bold;
     font-size: 1.375rem;
   }
 
   .featureCard p {
     color: var(--p-color);
+    /* font-size: 0.5rem; */
     font-size: var(--font-size);
   }
   
-  @media only screen and (max-width: 600px) {
-    .featureCard {
-      text-align: left;
-      column-gap: 2rem;
-    }
-  }

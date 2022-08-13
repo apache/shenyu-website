@@ -13,6 +13,7 @@
 
 .sectionInner {
   margin: 0 auto;
+  user-select: none;
 }
 
 .featureImage {
@@ -298,4 +299,10 @@
   background: linear-gradient(-90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
     width: 88px;
     height: 100%;
+}
+
+.contentImg{
+  display: table;
+  margin: 0 auto;
+  width: 80%;
 }

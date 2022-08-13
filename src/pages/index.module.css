@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.sectionDashboard{
+  width: 100%;
+}
+
 .sectionAlt {
   background-color: var(--ifm-color-emphasis-100);
 }
@@ -304,5 +308,5 @@
 .contentImg{
   display: table;
   margin: 0 auto;
-  width: 80%;
+  /* width: 80%; */
 }

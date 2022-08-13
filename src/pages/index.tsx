@@ -75,22 +75,28 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className={styles.section}>
+        <div className={styles.sectionDashboard}>
           <Swiper
-            modules={[EffectFade, Navigation, Autoplay]}
+            modules={[Autoplay, EffectFade, Navigation]}
+            watchSlidesProgress={true}
             navigation={{
               nextEl: '.user-swiper-button-next',
               prevEl: '.user-swiper-button-prev',
             }}
-            effect={'fade'}
-            fadeEffect={{
-              crossFade: true
-            }}
-            speed={1000}
-            slidesPerView={1}
             grabCursor
+            // 轮播下用这个效果会失效
+            // effect={'fade'}
+            // fadeEffect={{
+            //   crossFade: true
+            // }}
+            // slidesPerView={1}
+            // 自动轮播
+            loop={true}
+            speed={0}
             autoplay={{
-              delay: 3000,
+                delay: 3000,
+                disableOnInteraction: false,
+                waitForTransition: false,
             }}
           >
             <SwiperSlide>
@@ -127,6 +133,18 @@ function Home() {
               <img
                 className={styles.contentImg}
                 src={useBaseUrl("/img/home/2_6.jpg")}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_7.jpg")}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_8.jpg")}
               />
             </SwiperSlide>
           </Swiper>

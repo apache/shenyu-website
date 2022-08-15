@@ -412,8 +412,8 @@ Thanks everyone for taking the time to verify and vote for the release!
 Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/${PREVIOUS.RELEASE.VERSION}
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/release/shenyu/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. Finish Maven release**

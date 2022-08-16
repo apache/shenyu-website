@@ -288,6 +288,7 @@ public class Test1 {
   }
 }
 ```
+
 * signature without body: `path/http/order/savetimestamp1571711067186version1.0.02D47C325AE5B4A4C926C23FD4395C719`
 * sign without body result is: `9696D3E549A6AEBE763CCC2C7952DDC1`
 
@@ -317,9 +318,8 @@ public class Test2 {
 }
 ```
 
-signature with body:`id123nameorderpath/http/order/savetimestamp1660659201000version1.0.02D47C325AE5B4A4C926C23FD4395C719`
-
-sign with body result is:`35FE61C21F73E9AAFC46954C14F299D7`
+*signature with body:`id123nameorderpath/http/order/savetimestamp1660659201000version1.0.02D47C325AE5B4A4C926C23FD4395C719`
+*sign with body result is:`35FE61C21F73E9AAFC46954C14F299D7`
 
 ![](/img/shenyu/plugin/sign/result-with-body.png)
 

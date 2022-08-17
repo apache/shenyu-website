@@ -78,5 +78,3 @@ tags: ["use-apache-email"]
 ![](/img/email/126-send-email.png)
 
 你可以选择邮件的发件人
-
-

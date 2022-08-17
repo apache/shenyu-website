@@ -78,4 +78,3 @@ after set this step, you can receive your apache email
 ![](/img/email/126-send-email.png)
 
 you can choose your email sender
-

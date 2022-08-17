@@ -235,7 +235,7 @@
 
 .scrollView{
   margin-top: 40px;
-  animation: 45s linear 0s infinite alternate none running animation-autoplay;
+  animation: 25s linear 0s infinite alternate none running animation-autoplay;
   position:absolute;
 }
 
@@ -245,7 +245,7 @@
   }
 
   100% {
-    transform: translate3d(-4500px, 0px, 0px);
+    transform: translate3d(-3000px, 0px, 0px);
   }
 }
 
@@ -268,8 +268,8 @@
 
 .scrollItem{
   flex-shrink: 0;
-  width: 320px;
-  padding: 15px 30px;
+  width: 240px;
+  padding: 15px 15px;
   height: 100px;
 }
 

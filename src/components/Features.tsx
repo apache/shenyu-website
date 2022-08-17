@@ -8,7 +8,8 @@ import styles from './Features.module.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Autoplay,
-  EffectCoverflow
+  EffectCoverflow,
+  Navigation
 } from 'swiper';
 import "swiper/css";
 import "swiper/css/navigation";
@@ -86,7 +87,11 @@ const Features = (): React.ReactElement => (
     <h1 className={styles.blockTitle}><Translate>Feature List</Translate></h1>
     <div className={styles['features--wrap']}>
       <Swiper
-        modules={[Autoplay, EffectCoverflow]}
+        modules={[Autoplay, EffectCoverflow, Navigation]}
+        navigation={{
+          nextEl: '.user-swiper-button-nextPage',
+          prevEl: '.user-swiper-button-previous',
+        }}
         watchSlidesProgress={true}
         slidesPerView={3.3}
         centeredSlides={true}
@@ -112,6 +117,8 @@ const Features = (): React.ReactElement => (
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="swiper-button-prev user-swiper-button-previous" style={{ top:"1545px", left: "50px", color:'#000033'}}></div>
+      <div className="swiper-button-next user-swiper-button-nextPage" style={{ top:"1545px", right: "50px", color:'#000033' }}></div>
     </div>
   </section>
 );

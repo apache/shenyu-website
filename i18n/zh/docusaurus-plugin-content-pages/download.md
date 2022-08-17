@@ -20,11 +20,11 @@ description: 下载
 
 ## 全部版本
 
-全部版本请到 [Archive repository](https://archive.apache.org/dist/incubator/shenyu/) 查看。
+全部版本请到 [Archive repository](https://archive.apache.org/dist/shenyu/) 查看。
 
 ## 校验版本
 
-[PGP签名文件](https://downloads.apache.org/incubator/shenyu/KEYS)
+[PGP签名文件](https://downloads.apache.org/shenyu/KEYS)
 
 使用 PGP 或 SHA 签名验证下载文件的完整性至关重要。
 可以使用 GPG 或 PGP 验证 PGP 签名。

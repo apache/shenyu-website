@@ -20,11 +20,11 @@ The downloads are distributed via mirror sites and should be checked for tamperi
 
 ## All Releases
 
-Find all releases in the [Archive repository](https://archive.apache.org/dist/incubator/shenyu/).
+Find all releases in the [Archive repository](https://archive.apache.org/dist/shenyu/).
 
 ## Verify the Releases
 
-[PGP signatures KEYS](https://downloads.apache.org/incubator/shenyu/KEYS)
+[PGP signatures KEYS](https://downloads.apache.org/shenyu/KEYS)
 
 It is essential that you verify the integrity of the downloaded files using the PGP or SHA signatures.
 The PGP signatures can be verified using GPG or PGP.

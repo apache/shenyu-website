@@ -11,7 +11,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.svg',
   organizationName: 'apache', // Usually your GitHub org/user name.
-  projectName: 'incubator-shenyu', // Usually your repo name.
+  projectName: 'shenyu', // Usually your repo name.
   i18n: {
     defaultLocale: "en",
     locales: ["en", "zh"],
@@ -240,7 +240,7 @@ module.exports = {
           editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-shenyu-website/edit/main/',
+            'https://github.com/apache/shenyu-website/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -249,7 +249,7 @@ module.exports = {
           editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-shenyu-website/edit/main/',
+            'https://github.com/apache/shenyu-website/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -266,9 +266,9 @@ module.exports = {
         routeBasePath: 'community',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/docusaurus-plugin-content-docs-community/current/${docPath}`;
+            return `https://github.com/apache/shenyu-website/edit/main/i18n/${locale}/docusaurus-plugin-content-docs-community/current/${docPath}`;
           }
-          return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
         },
         editCurrentVersion: true,
         editLocalizedFiles: true,
@@ -299,9 +299,9 @@ module.exports = {
         routeBasePath: 'event',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/docusaurus-plugin-content-docs-event/current/${docPath}`;
+            return `https://github.com/apache/shenyu-website/edit/main/i18n/${locale}/docusaurus-plugin-content-docs-event/current/${docPath}`;
           }
-          return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
         },
         editCurrentVersion: true,
         editLocalizedFiles: true,

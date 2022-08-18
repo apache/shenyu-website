@@ -122,7 +122,7 @@ function Users() {
                 })
               }
             </Swiper> */}
-            <p><Translate>To better serve you, please register</Translate><a target="_blank" href="https://github.com/apache/incubator-shenyu/issues/68"><Translate>[Here].</Translate></ a></p >
+            <p><Translate>To better serve you, please register</Translate><a target="_blank" href="https://github.com/apacheshenyu/issues/68"><Translate>[Here].</Translate></ a></p >
           </div>
           {/* <div className="swiper-button-prev user-swiper-button-prev" style={{ left: "50px" }}></div>
           <div className="swiper-button-next user-swiper-button-next" style={{ right: "50px" }}></div> */}

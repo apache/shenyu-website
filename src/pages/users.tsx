@@ -54,9 +54,9 @@ function Users() {
                     userGroups[0].map((user, i) => {
                       return (
                         <div className={styles.scrollItem} key={i}>
-                          < a href="noopener noreferrer" target="_blank">
-                            < img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
-                          </ a>
+                          <a href="noopener noreferrer" target="_blank">
+                            <img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
+                          </a>
                         </div>
                       )
                     })
@@ -67,9 +67,9 @@ function Users() {
                     userGroups[1].map((user, i) => {
                       return (
                         <div className={styles.scrollItem} key={i}>
-                          < a href={user.link} rel="noopener noreferrer" target="_blank">
-                            < img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
-                          </ a>
+                          <a href={user.link} rel="noopener noreferrer" target="_blank">
+                            <img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
+                          </a>
                         </div>
                       )
                     })
@@ -80,9 +80,9 @@ function Users() {
                     userGroups[2].map((user, i) => {
                       return (
                         <div className={styles.scrollItem} key={i}>
-                          < a href={user.link} rel="noopener noreferrer" target="_blank">
-                            < img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
-                          </ a>
+                          <a href={user.link} rel="noopener noreferrer" target="_blank">
+                            <img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
+                          </a>
                         </div>
                       )
                     })

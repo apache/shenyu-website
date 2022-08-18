@@ -149,8 +149,8 @@ function Home() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="swiper-button-prev user-swiper-button-prev" style={{ top:"880px", left: "50px" }}></div>
-        <div className="swiper-button-next user-swiper-button-next" style={{ top:"880px", right: "50px" }}></div>
+        <div className="swiper-button-prev user-swiper-button-prev" style={{ top:"880px", left: "50px", color:'#000033' }}></div>
+        <div className="swiper-button-next user-swiper-button-next" style={{ top:"880px", right: "50px", color:'#000033' }}></div>
         <div className={clsx(styles.section, styles.sectionAlt)}>
           <div className="container">
             <Features />

@@ -99,7 +99,7 @@ description: sign插件
 * 采用鉴权插件，责任链的模式来完成。
 * 当鉴权插件开启，并配置所有接口鉴权时候生效。
 
-## 2.4.3 鉴权使用指南
+### 2.4.3 鉴权使用指南
 
 * 第一步：AK/SK由网关来进行分配，比如分配给你的AK为: `1TEST123456781`  	SK为：`506EEB535CF740D7A755CB4B9F4A1536`
 
@@ -189,7 +189,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 * 最后得到的值为: `35FE61C21F73E9AAFC46954C14F299D7`.
 
-## 2.4.4 请求网关
+### 2.4.4 请求网关
 
 * 假如你访问的路径为：`/api/service/abc`。
 

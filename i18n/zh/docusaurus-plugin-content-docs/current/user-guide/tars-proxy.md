@@ -8,9 +8,9 @@ description: Tars服务接入
 接入前，请正确启动 `shenyu-admin`，并开启`tars`插件，在网关端和`tars`服务端引入相关依赖。可以参考前面的 [Tars快速开始](../quick-start/quick-start-tars) 。
 
 
-应用客户端接入的相关配置请参考：[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
+应用客户端接入的相关配置请参考：[客户端接入配置](property-config/register-center-access.md)。
 
-数据同步的相关配置请参考：[数据同步配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/use-data-sync.md)。
+数据同步的相关配置请参考：[数据同步配置](property-config/use-data-sync.md)。
 
 ## 在网关中引入 tars 插件
 
@@ -50,7 +50,7 @@ description: Tars服务接入
 ```
 
 
-在`Tasr`服务接口实现类上加上 `@ShenyuTarsService` 注解，在方法上加上注解`@ShenyuTarsClient`，启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> tars`，会看到自动注册的选择器和规则信息。
+在`Tars`服务接口实现类上加上 `@ShenyuTarsService` 注解，在方法上加上注解`@ShenyuTarsClient`，启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> tars`，会看到自动注册的选择器和规则信息。
 
 示例：
 

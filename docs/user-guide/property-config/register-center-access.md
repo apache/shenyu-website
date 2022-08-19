@@ -9,7 +9,7 @@ Application client access means to access your microservice to ShenYu gateway, c
 
 Connecting the application client to ShenYu gateway is realized through the registration center, which involves the registration of the client and the synchronization of the server data. The registry supports HTTP, ZooKeeper, Etcd, Consul, and Nacos.
 
-This article describes how to configure the application client to access the Apache ShenYu gateway. For related principles, see [Application Client Access](../design/register-center-design) in the design document .
+This article describes how to configure the application client to access the Apache ShenYu gateway. For related principles, see [Application Client Access](../../design/register-center-design) in the design document .
 
 <img src="/img/shenyu/register/app-client-access-config-en.png" width="70%" height="60%" />
 

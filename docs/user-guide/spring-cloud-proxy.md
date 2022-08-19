@@ -8,9 +8,9 @@ This document is intended to help the `Spring Cloud` service access the `Apache 
 
 Before the connection, start `shenyu-admin` correctly, start `springCloud` plugin, and add related dependencies on the gateway and `springCloud` application client. Refer to the previous [Quick start with Spring Cloud](../quick-start/quick-start-springcloud) .
 
-For details about client access configuration, see [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
+For details about client access configuration, see [Application Client Access Config](property-config/register-center-access.md) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](docs/user-guide/property-config/use-data-sync.md) .
+For details about data synchronization configurations, see [Data Synchronization Config](property-config/use-data-sync.md) .
 
 
 ## Add springcloud plugin in gateway

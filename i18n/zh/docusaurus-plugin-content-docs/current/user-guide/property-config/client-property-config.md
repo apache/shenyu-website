@@ -30,7 +30,7 @@ shenyu:
 
 ##### shenyu.client 配置
 
-这是客户端接入的相关配置，客户端接入原理请参考：[客户端接入原理](../../design/register-center-design) ，客户端接入配置请参考： [客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md) 。
+这是客户端接入的相关配置，客户端接入原理请参考：[客户端接入原理](../../design/register-center-design) ，客户端接入配置请参考： [客户端接入配置](register-center-access.md) 。
 
 |名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|

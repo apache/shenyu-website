@@ -8,9 +8,9 @@ This document is intended to help the `Sofa` service access the `Apache ShenYu` 
 
 Before the connection, start `shenyu-admin` correctly, start `Sofa` plugin, and add related dependencies on the gateway and `Sofa` application client. Refer to the previous [Quick start with Sofa](../quick-start/quick-start-sofa) .
 
-For details about client access configuration, see [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
+For details about client access configuration, see [Application Client Access Config](property-config/register-center-access.md) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](docs/user-guide/property-config/use-data-sync.md) .
+For details about data synchronization configurations, see [Data Synchronization Config](property-config/use-data-sync.md) .
 
 ## Add sofa plugin in gateway
 

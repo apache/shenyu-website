@@ -29,7 +29,7 @@ description: Websocket插件
 
 ## 1.5 添加自哪个shenyu版本
 
-- 2.4.1
+- 2.4.3
 
 # 2. 如何使用插件
 

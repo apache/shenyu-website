@@ -29,7 +29,7 @@ description: Websocket Plugin
 
 ## 1.5 Added Since Which shenyu version
 
-- 2.4.1
+- 2.4.3
 
 # 2. How to use plugin
 

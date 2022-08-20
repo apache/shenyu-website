@@ -1,6 +1,6 @@
 ---
 title: Tars Proxy
-description: Tars服务接入
+description: Tars Proxy
 ---
 
 This document is intended to help the `Tars` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `tars` plugin to handle `tars` service.

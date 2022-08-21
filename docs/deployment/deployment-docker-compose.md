@@ -12,7 +12,7 @@ This article introduces the use of `docker-compose` to deploy the `Apache ShenYu
 ### Download shell script
 
 ```shell
-curl -O https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
+curl -O https://raw.githubusercontent.com/apache/shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
 ```
 
 ### execute script

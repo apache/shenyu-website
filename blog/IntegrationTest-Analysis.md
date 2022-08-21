@@ -17,7 +17,7 @@ Apache ShenYu puts integration tests in continuous integration, using GitHub Act
 
 ### How to automate integration testing?
 
-In Apache ShenYu, the main steps of integration testing are embodied in the script of the GitHub Action workflow, as shown below, which is located at [~/.github/workflows](https://github.com/apache/incubator-shenyu/tree /master/.github/workflows) directory.
+In Apache ShenYu, the main steps of integration testing are embodied in the script of the GitHub Action workflow, as shown below, which is located at [~/.github/workflows](https://github.com/apache/shenyu/tree/master/.github/workflows) directory.
 
 ```yaml
 name: it
@@ -84,7 +84,7 @@ When something unrelated to functionality occurs (such as changing documentation
 
 In the above command, -P is followed by `release,docker`, which means that the relevant profile configuration in the pom file will be activated.
 
-The two profiles, release and docker, currently only exist in several submodules under `shenyu-dist`. The following will take the [shenyu-dist-admin](https://github.com/apache/incubator-shenyu/tree/master/shenyu-dist/shenyu-admin-dist) module as an example to introduce profiles as release and docker The specific content of the configuration. Also, integration tests only use the `shenyu-admin` image built in this step.
+The two profiles, release and docker, currently only exist in several submodules under `shenyu-dist`. The following will take the [shenyu-dist-admin](https://github.com/apache/shenyu/tree/master/shenyu-dist/shenyu-admin-dist) module as an example to introduce profiles as release and docker The specific content of the configuration. Also, integration tests only use the `shenyu-admin` image built in this step.
 
 - First is release
 
@@ -123,7 +123,7 @@ The two profiles, release and docker, currently only exist in several submodules
 
   When -P is followed by release, the above `maven-assembly-plugin` plugin is activated. In executions, the execution timing of the plugin is bound to the maven life cycle package, which means that it will be triggered when we execute `mvn install`.
 
-  The `binary.xml` we wrote is specified in the configuration, and the `maven-assembly-plugin` plugin will copy the required files and package them according to this file. You can click the link to view the file: [shenyu-dist/shenyu-admin-dist/src/main/assembly/binary.xml](https://github.com/apache/incubator-shenyu/blob/master/shenyu- dist/shenyu-admin-dist/src/main/assembly/binary.xml)
+  The `binary.xml` we wrote is specified in the configuration, and the `maven-assembly-plugin` plugin will copy the required files and package them according to this file. You can click the link to view the file: [shenyu-dist/shenyu-admin-dist/src/main/assembly/binary.xml](https://github.com/apache/shenyu/blob/master/shenyu- dist/shenyu-admin-dist/src/main/assembly/binary.xml)
 
   According to this file, the plugin will "copy" the packaged jar packages, configuration files, startup scripts, etc. under other modules, and finally make them into a compressed package in `tar.gz` format.
 

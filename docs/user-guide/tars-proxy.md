@@ -1,15 +1,15 @@
 ---
 title: Tars Proxy
-description: Tars服务接入
+description: Tars Proxy
 ---
 
 This document is intended to help the `Tars` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `tars` plugin to handle `tars` service.
 
 Before the connection, start `shenyu-admin` correctly, start `tars` plugin, and add related dependencies on the gateway and `tars` application client. Refer to the previous [Quick start with Tars](../quick-start/quick-start-tars) .
 
-For details about client access configuration, see [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
+For details about client access configuration, see [Application Client Access Config](property-config/register-center-access.md) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](docs/user-guide/property-config/use-data-sync.md)).
+For details about data synchronization configurations, see [Data Synchronization Config](property-config/use-data-sync.md)).
 
 
 ## Add tars plugin in gateway

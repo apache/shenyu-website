@@ -57,7 +57,7 @@ description: divide插件
 
 ### 2.4.1 在客户端项目配置文件中配置接入参数
 
-  * 客户端接入方式和服务器地址，下面的示例使用了 http 接入方式，目前客户端支持的接入的方式有以下几种：http、zookeeper、etcd、nacos、consul，详细的接入配置参数请参考[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
+  * 客户端接入方式和服务器地址，下面的示例使用了 http 接入方式，目前客户端支持的接入的方式有以下几种：http、zookeeper、etcd、nacos、consul，详细的接入配置参数请参考[客户端接入配置](../../user-guide/property-config/register-center-access.md)。
   * 客户端配置，包含协议名称以及服务的路由地址，这里请使用 http 协议，并且必须配置 contextPath 的值作为每个服务的路由地址。
   
 ```yaml
@@ -76,7 +76,7 @@ description: divide插件
 
 ### 2.4.2 在 shenyu-admin 配置文件中配置 upstream 有效性的检测参数
 
-下面的示例使用了 http 接入方式，目前客户端支持的接入的方式有以下几种：http、zookeeper、etcd、nacos、consul，详细的接入配置参数请参考[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
+下面的示例使用了 http 接入方式，目前客户端支持的接入的方式有以下几种：http、zookeeper、etcd、nacos、consul，详细的接入配置参数请参考[客户端接入配置](../../user-guide/property-config/register-center-access.md)。
 
 > 只有 http 类型的注册中心才支持 upstream 检测
 

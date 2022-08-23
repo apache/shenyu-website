@@ -8,9 +8,9 @@ description: Motan服务接入
 接入前，请正确启动 `shenyu-admin`，并开启`motan`插件，在网关端和`motan`服务端引入相关依赖。可以参考前面的 [Motan快速开始](../quick-start/quick-start-motan) 。
 
 
-应用客户端接入的相关配置请参考：[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
+应用客户端接入的相关配置请参考：[客户端接入配置](property-config/register-center-access.md)。
 
-数据同步的相关配置请参考：[数据同步配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/use-data-sync.md)。
+数据同步的相关配置请参考：[数据同步配置](property-config/use-data-sync.md)。
 
 ## 在网关中引入 motan 插件
 
@@ -18,36 +18,36 @@ description: Motan服务接入
 引入网关对`Motan`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-  <!-- apache shenyu motan plugin -->
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
-    <version>${project.version}</version>
-</dependency>
+        <!-- apache shenyu motan plugin -->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-<dependency>
-<groupId>com.weibo</groupId>
-<artifactId>motan-core</artifactId>
-<version>1.1.9</version>
-</dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-core</artifactId>
+            <version>1.1.9</version>
+        </dependency>
 
-<dependency>
-<groupId>com.weibo</groupId>
-<artifactId>motan-registry-zookeeper</artifactId>
-<version>1.1.9</version>
-</dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-registry-zookeeper</artifactId>
+            <version>1.1.9</version>
+        </dependency>
 
-<dependency>
-<groupId>com.weibo</groupId>
-<artifactId>motan-transport-netty4</artifactId>
-<version>1.1.9</version>
-</dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-transport-netty4</artifactId>
+            <version>1.1.9</version>
+        </dependency>
 
-<dependency>
-<groupId>com.weibo</groupId>
-<artifactId>motan-springsupport</artifactId>
-<version>1.1.9</version>
-</dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-springsupport</artifactId>
+            <version>1.1.9</version>
+        </dependency>
 ```
 
 * 重启你的网关服务。

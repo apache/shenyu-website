@@ -12,7 +12,7 @@ description: 客户端接入原理
 
 <img src="/img/shenyu/register/register-center-dir-zh.png" width="70%" height="60%" />
 
-客户端接入的相关配置请参考用户文档中的 [客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md) 。
+客户端接入的相关配置请参考用户文档中的 [客户端接入配置](../user-guide/property-config/register-center-access.md) 。
 
 
 ## 设计原理

@@ -31,7 +31,7 @@ shenyu:
 
 ##### shenyu.client config
 
-This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../../design/register-center-design) , for client access configuration, see: [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
+This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../../design/register-center-design) , for client access configuration, see: [Application Client Access Config](register-center-access.md) .
 
 
 

@@ -29,7 +29,7 @@ description: Websocket插件
 
 ## 1.5 添加自哪个shenyu版本
 
-- 2.4.1
+- 2.4.3
 
 # 2. 如何使用插件
 
@@ -160,15 +160,15 @@ Websocket 规则示例，通用规则配置请参考[选择器和规则](../../u
 
 ### 2.5.1 Spring Annotation Websocket使用示例
 
-[shenyu-example-spring-annotation-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-annotation-websocket)
+[shenyu-example-spring-annotation-websocket](https://github.com/apache/shenyu/tree/2.4.3-release/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-annotation-websocket)
 
 ### 2.5.2 Spring Native Websocket 使用示例
 
-[shenyu-example-spring-native-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-native-websocket)
+[shenyu-example-spring-native-websocket](https://github.com/apache/shenyu/tree/2.4.3-release/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-native-websocket)
 
 ### 2.5.3 Spring Reactive Websocket 使用示例
 
-[shenyu-example-spring-reactive-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-reactive-websocket)
+[shenyu-example-spring-reactive-websocket](https://github.com/apache/shenyu/tree/2.4.3-release/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-reactive-websocket)
 
 # 3. 如何禁用插件
 

@@ -38,7 +38,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Tars service access gateway
 
-Please refer to： [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-tars)
+Please refer to： [shenyu-examples-tars](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
 
 1. In the microservice built by `Tars`, add the following dependencies:
 

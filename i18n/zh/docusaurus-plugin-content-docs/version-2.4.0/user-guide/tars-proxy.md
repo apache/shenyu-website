@@ -37,7 +37,7 @@ description: Tars服务接入
 
 ## Tars服务接入网关
 
-可以参考： [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-tars)
+可以参考： [shenyu-examples-tars](https://github.com/apache/shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-tars)
 
 1. 在由`Tars`构建的微服务中，引入如下依赖：
 

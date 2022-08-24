@@ -27,7 +27,7 @@ description: Websocket服务接入
 
 ## Websocket服务接入网关
 
-> 参考示例： [shenyu-examples-websocket](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-websocket)，包含 `annotation websocket`、`spring native websocket`、`spring reactive websocket`三种实现方式的示例
+> 参考示例： [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket)，包含 `annotation websocket`、`spring native websocket`、`spring reactive websocket`三种实现方式的示例
 
 1. 在由 `Websocket`构建的服务中，引入如下依赖：
 

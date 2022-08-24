@@ -14,65 +14,82 @@ description: Motan服务接入
 
 ## 在网关中引入 motan 插件
 
-
 引入网关对`Motan`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-  <!-- apache shenyu motan plugin -->
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
-    <version>${project.version}</version>
-</dependency>
-
-<dependency>
-<groupId>com.weibo</groupId>
-<artifactId>motan-core</artifactId>
-<version>1.1.9</version>
-</dependency>
-
-<dependency>
-<groupId>com.weibo</groupId>
-<artifactId>motan-registry-zookeeper</artifactId>
-<version>1.1.9</version>
-</dependency>
-
-<dependency>
-<groupId>com.weibo</groupId>
-<artifactId>motan-transport-netty4</artifactId>
-<version>1.1.9</version>
-</dependency>
-
-<dependency>
-<groupId>com.weibo</groupId>
-<artifactId>motan-springsupport</artifactId>
-<version>1.1.9</version>
-</dependency>
+        <!-- apache shenyu motan plugin -->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-core</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-registry-zookeeper</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-transport-netty4</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-springsupport</artifactId>
+            <version>1.1.9</version>
+        </dependency>
 ```
 
 * 重启你的网关服务。
 
 ## Motan服务接入网关
 
-可以参考： [shenyu-examples-motan](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-motan)
+可以参考： [shenyu-examples-motan](https://github.com/apache/shenyu/tree/v2.4.3/shenyu-examples/shenyu-examples-motan)
 
-* 在由`Motan`构建的微服务中，引入如下依赖：
+1. 在由`Motan`构建的微服务中，引入如下依赖：
 
 ```xml
         <dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-client-motan</artifactId>
-    <version>${shenyu.version}</version>
-</dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-client-motan</artifactId>
+            <version>${shenyu.version}</version>
+        </dependency>
 ```
 
+2. 在 `application.yaml` 配置文件增加如下配置：
 
-在`Motan`服务接口实现类的方法上加上注解`@ShenyuMotanClient`，启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> motan`，会看到自动注册的选择器和规则信息。
+```yaml
+shenyu:
+  register:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
+      username: admin
+      password: 123456
+  client:
+    motan:
+      props:
+        contextPath: /motan
+        ipAndPort: motan
+        appName: motan
+        port: 8081
+motan:
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+```
+
+3. 在`Motan`服务接口实现类的方法上加上注解`@ShenyuMotanClient`，启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> motan`，会看到自动注册的选择器和规则信息。
 
 示例：
 
 ```java
-    @MotanService(export = "demoMotan:8002")
+@MotanService(export = "demoMotan:8002")
 public class MotanDemoServiceImpl implements MotanDemoService {
     @Override
     @ShenyuMotanClient(path = "/hello")

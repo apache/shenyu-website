@@ -37,7 +37,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 Please refer to： [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-tars)
 
-* In the microservice built by `Tars`, add the following dependencies:
+1. In the microservice built by `Tars`, add the following dependencies:
 
 ```xml
         <dependency>
@@ -47,7 +47,22 @@ Please refer to： [shenyu-examples-tars](https://github.com/apache/incubator-sh
         </dependency>
 ```
 
-Add `@ShenyuTarsService` Annotation on the tars service interface implementation class and `@ShenyuTarsClient` on the method, start your service provider, and register successfully. In the background management system, enter PluginList -> rpc proxy -> tars, you will see the automatic registration of selectors and rules information.
+2. Add the following configuration to the `application.yaml` configuration file:
+
+```yaml
+shenyu:
+  client:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
+      contextPath: /tars
+      appName: tars
+      port: 21715
+      host: 192.168.41.103
+      nacosNameSpace: ShenyuRegisterCenter
+```
+
+3. Add `@ShenyuTarsService` Annotation on the tars service interface implementation class and `@ShenyuTarsClient` on the method, start your service provider, and register successfully. In the background management system, enter PluginList -> rpc proxy -> tars, you will see the automatic registration of selectors and rules information.
 
 Example:
 

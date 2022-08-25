@@ -29,9 +29,9 @@ Add the following dependencies to the gateway's `pom.xml` file , which is introd
 
 ## Websocket service access gateway
 
-> Please refer to： [shenyu-examples-websocket](https://github.com/apache/incubator-shenyu/tree/2.4.3-release/shenyu-examples/shenyu-examples-websocket), Contains examples of the three implementations of  `annotation websocket`、`spring native websocket`、`spring reactive websocket`
+> Please refer to： [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/2.4.3-release/shenyu-examples/shenyu-examples-websocket), Contains examples of the three implementations of  `annotation websocket`、`spring native websocket`、`spring reactive websocket`
 
-* In the `Websocket` service, add the following dependencies:
+1. In the `Websocket` service, add the following dependencies:
 
 ```xml
         <dependency>
@@ -41,7 +41,25 @@ Add the following dependencies to the gateway's `pom.xml` file , which is introd
         </dependency>
 ```
 
-Add `@ShenyuSpringWebSocketClient` annotation to the `Websocket` service interface implementation class, start your service and after successful registration, go to `Client List -> Proxy -> Websocket` in the `shenyu-admin` management system and you will see the auto-registered selector and rule information.
+2. Add the following configuration to the `application.yaml` configuration file:
+
+```yaml
+shenyu:
+  register:
+    registerType: http
+    serverLists: http://localhost:9095 # shenyu-admin ip and port
+    props:
+      username: admin
+      password: 123456
+  client:
+    websocket:
+      props:
+        contextPath: /ws-annotation
+        appName: ws-annotation
+        port: 8001 # need to be consistent with the service port
+```
+
+3. Add `@ShenyuSpringWebSocketClient` annotation to the `Websocket` service interface implementation class, start your service and after successful registration, go to `Client List -> Proxy -> Websocket` in the `shenyu-admin` management system and you will see the auto-registered selector and rule information.
 
 示例：
 

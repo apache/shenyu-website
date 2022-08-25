@@ -137,7 +137,7 @@ description: Dubbo服务接入
     <property name="props">
       <map>
         <entry key="contextPath" value="/你的contextPath"/>
-        <entry key="appName" value="你的名字"/>
+        <entry key="appName" value="你的应用名字"/>
       </map>
     </property>
 </bean>

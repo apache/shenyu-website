@@ -7,7 +7,7 @@ description: 自定义指标监控
 
 * 在自定义开发前，请先自定义搭建好网关环境，请参考: [自定义部署](../../deployment/deployment-custom)
 
-* 本文介绍如何对 `org.apache.shenyu.metrics.spi.MetricsBootService` 进行自定义扩展。
+* 本文介绍如何对 `org.apache.shenyu.plugin.metrics.spi.MetricsService` 进行自定义扩展。
 
 ## 扩展实现
 
@@ -23,10 +23,10 @@ description: 自定义指标监控
 </dependencies>
 ```
 
-* 新增一个类 `${you class}`，实现 `org.apache.shenyu.metrics.spi.MetricsBootService`
+* 新增一个类 `${you class}`，实现 `org.apache.shenyu.plugin.metrics.spi.MetricsService`
 
 ```java
-public class ${you class} implements MetricsBootService {
+public class ${you class} implements MetricsService {
    
    	/**
      * Start metrics tracker.
@@ -47,7 +47,7 @@ public class ${you class} implements MetricsBootService {
 }
 ```
 
-* 在项目 `resources` 目录下，新建 `META-INF/shenyu` 目录， 并且新增文件名为 : `org.apache.shenyu.metrics.spi.MetricsBootService`.
+* 在项目 `resources` 目录下，新建 `META-INF/shenyu` 目录， 并且新增文件名为 : `org.apache.shenyu.plugin.metrics.spi.MetricsService`.
 内容新增 `${you spi name}` = `${you class path}`:
 
 ```

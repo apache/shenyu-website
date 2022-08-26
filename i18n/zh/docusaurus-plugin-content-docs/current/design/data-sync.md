@@ -9,7 +9,7 @@ description: 数据同步
 
 <img src="/img/shenyu/dataSync/data-sync-dir-zh.png" width="60%" height="50%" />
 
-数据同步的相关配置请参考用户文档中的 [数据同步配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/use-data-sync.md) 。
+数据同步的相关配置请参考用户文档中的 [数据同步配置](../user-guide/property-config/use-data-sync.md) 。
 
 ### 背景
 

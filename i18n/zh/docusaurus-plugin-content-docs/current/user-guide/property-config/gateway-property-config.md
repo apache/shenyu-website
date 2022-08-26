@@ -254,7 +254,7 @@ Apache ShenYu Netty 配置
 
 ##### shenyu.instance 配置
 
-Apache ShenYu 网关注册到注册中心的相关配置，注册中心配置请参考 [注册中心配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-instance.md) 
+Apache ShenYu 网关注册到注册中心的相关配置，注册中心配置请参考 [注册中心配置](register-center-instance.md) 
 
 | 名称         |  类型   |     默认值     | 是否必填 | 说明                                      |
 | :----------- | :-----: | :------------: | :------: | :---------------------------------------- |

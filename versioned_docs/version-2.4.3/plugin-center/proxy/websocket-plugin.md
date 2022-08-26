@@ -29,7 +29,7 @@ description: Websocket Plugin
 
 ## 1.5 Added Since Which shenyu version
 
-- 2.4.1
+- 2.4.3
 
 # 2. How to use plugin
 
@@ -104,7 +104,7 @@ description: Websocket Plugin
 
 ### 2.4.1 Configure access parameters in the configuration file in the client service
 
-* Client access method and server address, the parameters are: `shenyu.register.*`, the following example uses the http access method, currently the client supports the following access methods: http, zookeeper, etcd, nacos, consul, please refer to [client access configuration](.../.../user-guide/register-center-access) for detailed access configuration parameters.
+* Client access method and server address, the parameters are: `shenyu.register.*`, the following example uses the http access method, currently the client supports the following access methods: http, zookeeper, etcd, nacos, consul, please refer to [client access configuration](../../user-guide/register-center-access) for detailed access configuration parameters.
 * Client configuration with the parameter: `shenyu.client.websocket.*`, containing the service name, routing address and port, and the contextPath value must be configured as the routing address for each service.
 
 ```yaml

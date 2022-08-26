@@ -29,7 +29,7 @@ description: Websocket插件
 
 ## 1.5 添加自哪个shenyu版本
 
-- 2.4.1
+- 2.4.3
 
 # 2. 如何使用插件
 
@@ -104,7 +104,7 @@ description: Websocket插件
 
 ### 2.4.1 在客户端项目中配置文件中配置接入参数
 
-* 客户端接入方式和服务器地址，参数为: `shenyu.register.*`，下面的示例使用了 http 接入方式，目前客户端支持的接入的方式有以下几种：http、zookeeper、etcd、nacos、consul，详细的接入配置参数请参考[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
+* 客户端接入方式和服务器地址，参数为: `shenyu.register.*`，下面的示例使用了 http 接入方式，目前客户端支持的接入的方式有以下几种：http、zookeeper、etcd、nacos、consul，详细的接入配置参数请参考[客户端接入配置](../../user-guide/property-config/register-center-access.md)。
 * 客户端配置，参数为: `shenyu.client.websocket.*`，包含服务的名称、路由地址以及端口，必须配置 contextPath 的值作为每个服务的路由地址。
 
 ```yaml

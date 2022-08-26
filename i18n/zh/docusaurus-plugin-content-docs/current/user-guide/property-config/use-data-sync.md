@@ -8,7 +8,7 @@ description: 使用不同的数据同步策略
 <img src="/img/shenyu/dataSync/data-sync-config-dir-zh.png" width="60%" height="50%" />
 
 
-数据同步原理请参考设计文档中的  [数据同步原理](../design/data-sync)  。
+数据同步原理请参考设计文档中的  [数据同步原理](../../design/data-sync)  。
 
 ### WebSocket同步配置（默认方式，推荐）
 

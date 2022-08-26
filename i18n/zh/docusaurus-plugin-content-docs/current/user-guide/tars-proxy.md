@@ -8,9 +8,9 @@ description: Tars服务接入
 接入前，请正确启动 `shenyu-admin`，并开启`tars`插件，在网关端和`tars`服务端引入相关依赖。可以参考前面的 [Tars快速开始](../quick-start/quick-start-tars) 。
 
 
-应用客户端接入的相关配置请参考：[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
+应用客户端接入的相关配置请参考：[客户端接入配置](property-config/register-center-access.md)。
 
-数据同步的相关配置请参考：[数据同步配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/use-data-sync.md)。
+数据同步的相关配置请参考：[数据同步配置](property-config/use-data-sync.md)。
 
 ## 在网关中引入 tars 插件
 
@@ -37,9 +37,9 @@ description: Tars服务接入
 
 ## Tars服务接入网关
 
-可以参考： [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-tars)
+可以参考： [shenyu-examples-tars](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-tars)
 
-* 在由`Tars`构建的微服务中，引入如下依赖：
+1. 在由`Tars`构建的微服务中，引入如下依赖：
 
 ```xml
         <dependency>
@@ -49,8 +49,26 @@ description: Tars服务接入
         </dependency>
 ```
 
+2. 在 `application.yaml` 配置文件增加如下配置：
 
-在`Tasr`服务接口实现类上加上 `@ShenyuTarsService` 注解，在方法上加上注解`@ShenyuTarsClient`，启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> tars`，会看到自动注册的选择器和规则信息。
+```yaml
+shenyu:
+  register:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
+      username: admin
+      password: 123456
+  client:
+    tars:
+      props:
+        contextPath: /tars
+        appName: tars
+        port: 21715
+        host: 192.168.41.103
+```
+
+3. 在`Tars`服务接口实现类上加上 `@ShenyuTarsService` 注解，在方法上加上注解`@ShenyuTarsClient`，启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> tars`，会看到自动注册的选择器和规则信息。
 
 示例：
 

@@ -10,13 +10,13 @@ description: Download
 
 The downloads are distributed via mirror sites and should be checked for tampering using GPG or SHA-512.
 
-##### `Apache ShenYu - Version: 2.4.3 (Release Date: April 14, 2022)`
+##### `Apache ShenYu - Version: 2.5.0 (Release Date: August 26, 2022)`
 
-- Source Codes [[zip]](https://www.apache.org/dyn/closer.lua/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip.sha512)
+- Source Codes [[zip]](https://www.apache.org/dyn/closer.lua/shenyu/2.5.0/apache-shenyu-2.5.0-src.zip) [[asc]](https://downloads.apache.org/shenyu/2.5.0/apache-shenyu-2.5.0-src.zip.asc) [[sha512]](https://downloads.apache.org/shenyu/2.5.0/apache-shenyu-2.5.0-src.zip.sha512)
 
-- ShenYu-Admin Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-admin-bin.tar.gz.sha512)
+- ShenYu-Admin Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/shenyu/2.5.0/apache-shenyu-2.5.0-admin-bin.tar.gz) [[asc]](https://downloads.apache.org/shenyu/2.5.0/apache-shenyu-2.5.0-admin-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/shenyu/2.5.0/apache-shenyu-2.5.0-admin-bin.tar.gz.sha512)
 
-- ShenYu-Bootstrap Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz.sha512)
+- ShenYu-Bootstrap Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/shenyu/2.5.0/apache-shenyu-2.5.0-bootstrap-bin.tar.gz) [[asc]](https://downloads.apache.org/shenyu/2.5.0/apache-shenyu-2.5.0-bootstrap-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/shenyu/2.5.0/apache-shenyu-2.5.0-bootstrap-bin.tar.gz.sha512)
 
 ## All Releases
 

@@ -58,8 +58,12 @@ module.exports = {
               to: "/docs/next/index",
             },
             {
+              label: "2.5.0",
+              to: "/docs/2.5.0/index",
+            },
+            {
               label: "2.4.3",
-              to: "/docs/index",
+              to: "/docs/2.4.3/index",
             },
             {
               label: "2.4.2",

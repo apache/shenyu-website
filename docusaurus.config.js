@@ -54,7 +54,7 @@ module.exports = {
           position: 'right',
           items: [
             {
-              label: "next",
+              label: "master",
               to: "/docs/next/index",
             },
             {

@@ -59,7 +59,7 @@ module.exports = {
             },
             {
               label: "2.5.0",
-              to: "/docs/2.5.0/index",
+              to: "/docs/index",
             },
             {
               label: "2.4.3",

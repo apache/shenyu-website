@@ -3,11 +3,15 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>Release Apache Shenyu 2.5.0</Translate>,
+        description: "New Features  \n  1. Add logging-aliyun-sls plugin. \n  2. Add mock plugin. \n  3. Add logging-es plugin. \n  ......",
+        src:'2.5.0-release',
+    },
+    {
         title: <Translate>Release Apache Shenyu 2.4.3</Translate>,
         description: "New Features  \n  1. Add http register client retry. \n  2. Support octet-stream context-type. \n  3. Support redirecting to URIs outside of bootstrap and refactoring code. \n  ......",
         src:'2.4.3-release',
     },
-
     {
         title: <Translate>Release Apache Shenyu 2.4.2</Translate>, 
         description: "New Features  \n  1. Add Mqtt plugin.  \n  2. Add Shenyu-Agent module support observability.  \n  3. Add opentelemetry plugin on Shenyu-Agent module.  \n  ......",

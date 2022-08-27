@@ -442,6 +442,9 @@
   "Release Apache Shenyu 2.2.0":{
     "message":"Apache Shenyu 2.2.0 发布"
   },
+  "Release Apache Shenyu 2.5.0": {
+    "message":"Apache Shenyu 2.5.0 发布"
+  },
   "Events":{
     "message":"事件"
   },

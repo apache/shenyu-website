@@ -13,6 +13,7 @@
     align-items: center;
     flex-direction: column;
     padding-left: 12.333%;
+    text-align: justify;
 }
 
 .categray{
@@ -51,7 +52,7 @@
 }
 
 .postTitle{
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
     margin-top: 5px;
     color: var(--ifm-color-primary);
@@ -91,8 +92,6 @@
 
 .authorDate{
     font-size: 2px;
-    /* margin: 8px 0 8px 0; */
-    /* color:#888; */
 }
 
 .read{
@@ -144,4 +143,38 @@
 
 .link:hover{
     text-decoration: none;
+}
+
+@media screen and (max-width: 996px) {
+    .catalogue {
+      display: none;
+    }
+
+    .content{
+        display: flex;
+        --ifm-col-width:100%;
+        flex: 0 0 var(--ifm-col-width);
+        max-width: var(--ifm-col-width);
+        align-items: center;
+        flex-direction: column;
+        text-align: justify;
+    }
+
+    .title{
+        width: 100%;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin: 30px 6rem 30px 20px;
+        border-bottom: 1px solid #eaecef;
+    }
+    
+    .card{
+        flex:1;
+        margin: 0 20px 0 20px;
+        box-sizing: border-box;
+        width: calc( 100% - 6rem );
+        min-width: calc( 100% - 6rem );
+        max-width: calc( 100% - 6rem );
+    }
 }

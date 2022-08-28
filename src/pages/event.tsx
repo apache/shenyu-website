@@ -30,11 +30,11 @@ function Event() {
                 <div className={styles.cardInfo}>
                   <div className={styles.cardTitle}>{eventItem.title}</div>
                   <div className={styles.cardDesc}>{eventItem.description}</div>
-                  <button className={styles.readMore}>
+                  <div className={styles.readMore}>
                     {
                       url ? <Link className={styles.link} to={'event/' + eventItem.src}> >> <Translate>Read More</Translate></Link> : <Link className={styles.link} to={eventItem.src}> >> <Translate>Read More</Translate></Link>
                     }
-                  </button>
+                  </div>
                 </div>
               </div>
             )

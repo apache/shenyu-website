@@ -32,11 +32,11 @@ function News() {
                   <div className={styles.cardDate}>{newsItem.date}</div>
                   <div className={styles.cardTitle}>{newsItem.title}</div>
                   <div className={styles.cardDesc}>{newsItem.description}</div>
-                  <button className={styles.readMore}>
+                  <div className={styles.readMore}>
                     {
                       url ? <Link className={styles.link} to={'news/' + newsItem.src}> >> <Translate>Read More</Translate></Link> : <Link className={styles.link} to={newsItem.src}> >> <Translate>Read More</Translate></Link>
                     }
-                  </button>
+                  </div>
                 </div>
               </div>
             )

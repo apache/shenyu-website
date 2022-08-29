@@ -17,7 +17,7 @@ SPI, called Service Provider Interface, is a built-in JDK Service that provides 
 
 ### Metrics Center
 
-Responsible for service monitoring, loading concrete implementation through `SPI`, currently support `Prometheus`, service interface is `MetricsBootService`.
+Responsible for service monitoring, loading concrete implementation through `SPI`, currently support `Prometheus`, service interface is `MetricsService`.
 
 
 

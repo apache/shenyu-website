@@ -11,9 +11,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Admin
 
-* download [apache-shenyu-incubating-${current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-admin-bin.tar.gz)
+* download [apache-shenyu-${current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.0/apache-shenyu-2.5.0-admin-bin.tar.gz)
 
-* unzip `apache-shenyu-incubating-${current.version}-admin-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-${current.version}-admin-bin.tar.gz`。 go to the `bin` directory.
 
 * use `h2` to store data：
 
@@ -49,9 +49,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Bootstrap
 
-* download [apache-shenyu-incubating-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz)
+* download [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.0/apache-shenyu-2.5.0-bootstrap-bin.tar.gz)
 
-* unzip `apache-shenyu-incubating-${current.version}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-${current.version}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 
 ```
 > windwos : start.bat 

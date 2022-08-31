@@ -44,6 +44,10 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 > docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
 ```
 
+默认账号: **admin**
+
+默认密码: **123456**
+
 ### 运行 Apache ShenYu Bootstrap
 
 ```

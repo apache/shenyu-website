@@ -41,13 +41,16 @@ description: 选择器和规则管理
       * `TimeBefore`：指定时间之前。
       * `TimeAfter`：指定时间之后。
       * `exclude`： 是 `match` 方式的反选。
+      * `startsWith`：请求前缀等于指定的值，才能匹配。在特定场景下，可替换 `match` （如用`/test/`来替换`/test/**`）以获得更好的性能。
+      * `endsWith`：请求后缀等于指定的值，才能匹配。
+      * `pathPatter`：是 `match` 的优化版，性能比`match`更好，但是不支持将`**`写在path中间（如`/api/**/xxx`）。
   * 继续后续选择器：后续选择器还是否执行。
   * 是否开启：打开才会生效。
   * 打印日志：打开时，当匹配上的时候，会打印匹配日志。
   * 执行顺序：当多个选择器的时候，执行顺序小的优先执行，值越小优先级越高。
   * 处理：即`handle`字段，在 [插件处理管理](./plugin-handle-explanation) 中进行设置。作用是：当请求流量匹配上该选择器时，做什么样的处理操作。
 * 上述图片中表示: 当请求的 `uri` 前缀是 `/http`，会转发到 `127.0.0.1:8080` 这个服务上。
-* 选择器建议：可以通过设置 `uri` 条件， `match` 前缀（`/contextPath`）匹配，进行第一道流量筛选。
+* 选择器建议：可以通过设置 `uri` 条件， `startsWith` 前缀（`/contextPath/`）匹配，进行第一道流量筛选。
 * 选择器(同规则)模糊匹配条件规则：
   * `?` 匹配1个字符
   * `*` 匹配0个或多个字符
@@ -81,6 +84,9 @@ description: 选择器和规则管理
       * `TimeBefore`：指定时间之前。
       * `TimeAfter`：指定时间之后。
       * `exclude`： 是 `match` 方式的反选。
+      * `startsWith`：请求前缀等于指定的值，才能匹配。在特定场景下，可替换 `match` （如用`/test/`来替换`/test/**`）以获得更好的性能。
+      * `endsWith`：请求后缀等于指定的值，才能匹配。
+      * `pathPatter`：是 `match` 的优化版，性能比`match`更好，但是不支持将`**`写在path中间（如`/api/**/xxx`）。
   * 是否开启：打开才会生效。
   * 打印日志：打开时，当匹配上的时候，才会打印匹配日志。
   * 执行顺序：当多个规则的时候，执行顺序小的优先执行。
@@ -278,16 +284,39 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-exclude-zh.png)
 
+* `startsWith`
+
+  `startsWith` 的方式表示请求的真实数据的前缀和预设的条件数据相等。假如你的规则条件设置如下：请求`uri`中前缀等于`/http/`。那么请求 `/http/order/findById?id=1` 就可以匹配上。
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-startswith-zh.png)
+
+* `endsWith`
+
+  `endsWith` 的方式表示请求的真实数据的后缀和预设的条件数据相等。假如你的规则条件设置如下：请求`uri`中后缀等于`Id`。那么请求 `/http/order/findById?id=1` 就可以匹配上。
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-endswith-zh.png)
+
+* `pathPatter`
+
+  跟 `match` 类似， `pathPatter` 支持模糊匹配（`/**`）。假如你的规则条件设置如下，那么请求 `/http/order/findById` 就可以匹配上；
+  
+  但是注意：不支持将`**`写在path中间（如`/api/**/xxx`）!
+
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-pathpatter-zh.png)
+
 如果想更深入理解条件匹配策略，请阅读相关源码，包名是`org.apache.shenyu.plugin.base.condition.judge`：
 
 |匹配策略                      | 源码类  | 
 |:------------------------ |:----- |
 |`match`                   |`MatchPredicateJudge` |  
-|`=`                 |`EqualsPredicateJudge` |  
-|`regex`                 |`RegexPredicateJudge` |  
-|`contains`                  |`ContainsPredicateJudge` |
-|`TimeBefore`                    |`TimerBeforePredicateJudge` |  
-|`TimeAfter`                    |`TimerAfterPredicateJudge` |
-|`exclude`                    |`ExcludePredicateJudge` |
+|`=`                       |`EqualsPredicateJudge` |  
+|`regex`                   |`RegexPredicateJudge` |  
+|`contains`                |`ContainsPredicateJudge` |
+|`TimeBefore`              |`TimerBeforePredicateJudge` |  
+|`TimeAfter`               |`TimerAfterPredicateJudge` |
+|`exclude`                 |`ExcludePredicateJudge` |
+|`startsWith`              |`StartsWithPredicateJudge` |
+|`endsWith`                |`EndsWithPredicateJudge` |
+|`pathPatter`              |`PathPatternPredicateJudge` |
 
 文中的示例是为了说明选择器和规则的使用，具体条件的设置需要根据实际情况选择。

@@ -53,32 +53,32 @@ If you feel that there are too many emails, disturbing you, or you are no longer
 
 Apache ShenYu is generally developed collaboratively on GitHub. Currently, there are the following repositories:
 
-| REPOSITORY                                                   | DESCRIPTION                    |
-| ------------------------------------------------------------ | ------------------------------ |
-| [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu) | Main Repository                |
-| [apache/incubator-shenyu-dashboard](https://github.com/apache/incubator-shenyu-dashboard) | Front-end Code of shenyu-admin |
-| [apache/incubator-shenyu-website](https://github.com/apache/incubator-shenyu-website) | Official Website and Documents |
-| [apache/incubator-shenyu-helm-chart](https://github.com/apache/incubator-shenyu-helm-chart) | Helm Chart for Apache ShenYu   |
-| [apache/incubator-shenyu-nginx](https://github.com/apache/incubator-shenyu-nginx) | Code to integrate with nginx   |
-| [apache/incubator-shenyu-client-python](https://github.com/apache/incubator-shenyu-client-python) | Python SDK                     |
-| [apache/incubator-shenyu-client-dotnet](https://github.com/apache/incubator-shenyu-client-dotnet) | .Net SDK                       |
-| [apache/incubator-shenyu-client-golang](https://github.com/apache/incubator-shenyu-client-golang) | Golang SDK                     |
+| REPOSITORY                                                                    | DESCRIPTION                    |
+|-------------------------------------------------------------------------------|--------------------------------|
+| [apache/shenyu](https://github.com/apache/shenyu)                             | Main Repository                |
+| [apache/shenyu-dashboard](https://github.com/apache/shenyu-dashboard)         | Front-end Code of shenyu-admin |
+| [apache/shenyu-website](https://github.com/apache/shenyu-website)             | Official Website and Documents |
+| [apache/shenyu-helm-chart](https://github.com/apache/shenyu-helm-chart)       | Helm Chart for Apache ShenYu   |
+| [apache/shenyu-nginx](https://github.com/apache/shenyu-nginx)                 | Code to integrate with nginx   |
+| [apache/shenyu-client-python](https://github.com/apache/shenyu-client-python) | Python SDK                     |
+| [apache/shenyu-client-dotnet](https://github.com/apache/shenyu-client-dotnet) | .Net SDK                       |
+| [apache/shenyu-client-golang](https://github.com/apache/shenyu-client-golang) | Golang SDK                     |
 
 ### Getting Apache ShenYu up and running
 
-To get Apache ShenYu code running on your development tools, see [Local Deployment](../docs/deployment/deployment-local) or [Apache ShenYu Startup Example](../blog/Start-SourceCode-Analysis-Start-Demo), and able to debug with breakpoints.
+To get Apache ShenYu code running on your development tools, see [Local Deployment](/docs/deployment/deployment-local) or [Apache ShenYu Startup Example](/blog/Start-SourceCode-Analysis-Start-Demo), and able to debug with breakpoints.
 
-After running, you can read the [source code analysis article](../blog) included in our official website to have a deeper understanding of Apache ShenYu.
+After running, you can read the [source code analysis article](https://shenyu.apache.org/blog) included in our official website to have a deeper understanding of Apache ShenYu.
 
 ### Find tasks
 
-Find the issue you are interested in! On our GitHub repo and mailing list, we often publish some issues with the label `good first issue` or `status: volunteer wanted`. These issues welcome the help of contributors. Among them, good first issues tend to have low thresholds and are suitable for novices. You can click the [link](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) to check out these issues.
+Find the issue you are interested in! On our GitHub repo and mailing list, we often publish some issues with the label `good first issue` or `status: volunteer wanted`. These issues welcome the help of contributors. Among them, good first issues tend to have low thresholds and are suitable for novices. You can click the [link](https://github.com/apache/shenyu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22%2C%22status%3A+volunteer+wanted%22) to check out these issues.
 
 Of course, if you have a good idea, you can also propose it directly on the mailing list(dev@shenyu.apache.org), and after a thorough discussion, you can start to act.
 
-At the same time, you can also participate in the writing of our [blog](../blog) and submit them to [the blog module](https://github.com/apache/incubator-shenyu-website/tree/main/blog) of the Apache ShenYu official website through Pull Request.
+At the same time, you can also participate in the writing of our [blog](https://shenyu.apache.org/blog) and submit them to [the blog module](https://github.com/apache/shenyu-website/tree/main/blog) of the Apache ShenYu official website through Pull Request.
 
-If you are a student, you are also very welcome to apply for the topic of Apache ShenYu in open source internship activities such as GSoC. You can click the [link](https://community.apache.org/gsoc.html) to view the Apache Software Foundation Introduction to GSoC. You can also check Apache ShenYu's previous or ongoing GSoC issues through this [link](https://github.com/apache/incubator-shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc)!
+If you are a student, you are also very welcome to apply for the topic of Apache ShenYu in open source internship activities such as GSoC. You can click the [link](https://community.apache.org/gsoc.html) to view the Apache Software Foundation Introduction to GSoC. You can also check Apache ShenYu's previous or ongoing GSoC issues through this [link](https://github.com/apache/shenyu/issues?q=is%3Aopen+is%3Aissue+label%3Agsoc)!
 
 ### Submit Pull Request for the first time
 
@@ -91,9 +91,9 @@ Then download the code locally **with git command**:
 ```shell
 git clone git@github.com:${YOUR_USERNAME}/${TARGET_REPO}.git #Recommended
 # You can also git clone https://github.com/${YOUR_USERNAME}/${TARGET_REPO}.git
-````
+```
 
-After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](../faq).
+After the download is complete, please refer to the getting started guide or README file of the target repository to initialize the project. In Windows environment, if the file name is too long when cloning the source code, please refer to [FAQ](./faq).
 
 Then, you can refer to the following command to submit the code:
 
@@ -118,7 +118,7 @@ git push origin a-dev-branch
 
 Then you can initiate a new PR (Pull Request) on GitHub.
 
-Please note that the title of the PR needs to conform to our [spec](../issue-pr), and write the necessary description in the PR to facilitate code review by Committers and other contributors.
+Please note that the title of the PR needs to conform to our [spec](/community/issue-pr), and write the necessary description in the PR to facilitate code review by Committers and other contributors.
 
 ### Subsequent Pull Request submission
 
@@ -128,19 +128,19 @@ First, switch to the master branch
 
 ```shell
 git checkout master #May also be the main branch
-````
+```
 
 Bind the upstream warehouse (you only need to bind it once), here is the main warehouse of shenyu as an example
 
 ```shell
-git remote add upstream https://github.com/apache/incubator-shenyu.git
-````
+git remote add upstream https://github.com/apache/shenyu.git
+```
 
 Pull remote code
 
 ```shell
 git pull upstream master
-````
+```
 
 #### New development branch for developing
 
@@ -165,18 +165,18 @@ After the code has been merged, you can delete the development branch on both th
 ```shell
 git branch -d a-dev-branch
 git push origin --delete a-dev-branch
-````
+```
 
 On the master/main branch, you can do the following to sync the upstream repository:
 
 ```shell
-git remote add upstream https://github.com/apache/incubator-shenyu.git #Bind the remote warehouse, if it has been executed, it does not need to be executed again
+git remote add upstream https://github.com/apache/shenyu.git #Bind the remote warehouse, if it has been executed, it does not need to be executed again
 git checkout master # or main
 git pull upstream master
-````
+```
 
 ### How to become a Committer?
 
-With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](../committer)!
+With the above steps, you are a contributor to Apache ShenYu. Repeat the previous steps to stay active in the community, keep at it and you can become a [Committer](/community/committer/)!
 
 In order to keep abreast of the development of Apache ShenYu, you can follow the mailing list, or you can participate in the biweekly meeting of the community (meeting invitation link will be sent on the mailing list).

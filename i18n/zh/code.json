@@ -274,39 +274,6 @@
   "Plug-in design idea, plug-in hot plug, easy to expand.Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.": {
     "message": "插件化设计思想，插件热插拔，易扩展。内置丰富的插件，支持鉴权、限流、熔断、防火墙等"
   },
-  "Rich protocols": {
-    "message": "丰富的协议"
-  },
-  "Supports Dubbo, Tars, Spring-Cloud, gRPC.": {
-    "message": "支持 Dubbo，Tars，Spring-Cloud，gRPC。"
-  },
-  "Plug-in design idea, plug-in hot plug, easy to expand.": {
-    "message": "插件化设计思想，插件热插拔，易扩展。"
-  },
-  "Flow Control": {
-    "message": "流控"
-  },
-  "Flexible flow filtering to meet various flow control.": {
-    "message": "灵活的流量筛选，能满足各种流量控制。"
-  },
-  "Built-in Plug-ins": {
-    "message": "内置插件"
-  },
-  "Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.": {
-    "message": "内置丰富的插件支持，鉴权，限流，熔断，防火墙等。"
-  },
-  "High Performance": {
-    "message": "高性能"
-  },
-  "Dynamic flow configuration, high performance, gateway consumption is 1~2ms.": {
-    "message": "流量配置动态化，性能极高，网关消耗在 1~2ms。"
-  },
-  "Cluster Deployment": {
-    "message": "集群部署"
-  },
-  "Support cluster deployment, A/B Test, blue-green release.": {
-    "message": "支持集群部署，支持 A/B Test，蓝绿发布。"
-  },
   "Feature List": {
     "message": "特性一览"
   },
@@ -415,6 +382,12 @@
     "message":"Divide插件源码分析"
   },
 
+  "From company gateway framework selection to Apache ShenYu Committer":{
+    "message":"从公司网关选型到Apache ShenYu Committer"
+  },
+  "From Apache ShenYu User to Apache ShenYu Committer": {
+    "message": "从用户到Apache ShenYu Committer"
+  },
   "From CRUD Boy to Apache ShenYu Committer":{
     "message":"从CRUD Boy到Apache ShenYu Committer"
   },
@@ -430,14 +403,14 @@
   "From users to Committer, different experiences and gains":{
     "message":"从用户到Committer，别样体验和收获"
   },
-  "Apache ShenYu(incubating) newly promoted PPMC":{
-    "message":"Apache ShenYu(incubating）新晋PPMC"
+  "Apache ShenYu newly promoted PPMC":{
+    "message":"Apache ShenYu 新晋PPMC"
   },
   "From users to Committer, participation in the Apache ShenYu community is not far away":{
     "message":"从用户到Committer，参与Apache ShenYu社区并不遥远"
   },
-  "Release the first version of Apache ShenYu(Incubating)2.4.0  Make API gateway easy":{
-    "message":"发布Apache首个版本-2.4.0】让API网关变得简单"
+  "Release the first version of Apache ShenYu 2.4.0  Make API gateway easy":{
+    "message":"发布Apache首个版本-2.4.0 让API网关变得简单"
   },
   "How I became an Apache ShenYu Committer one year after graduation":{
     "message":"毕业一年我是如何成为Apache ShenYu Committer"
@@ -447,8 +420,56 @@
   },
   "Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols":{
     "message":"[Soul 网关发布里程碑的2.3.0版本] 新增支持GRPC，Tars，Sofa协议"
+  },
+  "Version List":{
+    "message":"版本列表"
+  },
+  "Release Apache Shenyu 2.4.3":{
+    "message":"Apache Shenyu 2.4.3 发布"
+  },
+  "Release Apache Shenyu 2.4.2":{
+    "message":"Apache Shenyu 2.4.2 发布"
+  },
+  "Release Apache Shenyu 2.4.1":{
+    "message":"Apache Shenyu 2.4.1 发布"
+  },
+  "Release Apache Shenyu 2.4.0":{
+    "message":"Apache Shenyu 2.4.0 发布"
+  },
+  "Release Apache Shenyu 2.3.0":{
+    "message":"Apache Shenyu 2.3.0 发布"
+  },
+  "Release Apache Shenyu 2.2.0":{
+    "message":"Apache Shenyu 2.2.0 发布"
+  },
+  "Events":{
+    "message":"事件"
+  },
+  "Download":{
+    "message":"下载"
+  },
+  "Document":{
+    "message":"文档"
+  },
+  "News":{
+    "message":"新闻"
+  },
+  "Release":{
+    "message":"发布"
+  },
+  "Community":{
+    "message":"社区"
+  },
+  "Subscribe mailing list":{
+    "message":"邮件订阅组"
+  },
+  "How to subscribe":{
+    "message":"如何订阅"
+  },
+  "Subscribe Mail":{
+    "message":"订阅邮件"
+  },
+  "Mail Archive":{
+    "message":"邮件归档"
   }
-
-
-
 }

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: 数据同步原理
+title: 数据同步设计
 keywords: ["Apache ShenYu"]
 description: 数据同步
 ---
@@ -9,7 +9,7 @@ description: 数据同步
 
 <img src="/img/shenyu/dataSync/data-sync-dir-zh.png" width="60%" height="50%" />
 
-数据同步的相关配置请参考用户文档中的 [数据同步配置](../user-guide/use-data-sync) 。
+数据同步的相关配置请参考用户文档中的 [数据同步配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/use-data-sync.md) 。
 
 ### 背景
 
@@ -38,19 +38,19 @@ description: 数据同步
 
  ![](/img/shenyu/dataSync/plugin-data.png)
 
-在最初的版本中，配置服务依赖 `Zookeeper` 实现，管理后台将变更信息 `push` 给网关。而现在可以支持 `WebSocket`、`Http长轮询`、`Zookeeper`、`Nacos`、`Etcd` 和 `Consul`，通过在配置文件中设置 `shenyu.sync.${strategy}` 指定对应的同步策略，默认使用 `webosocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`Apache ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。
+在最初的版本中，配置服务依赖 `Zookeeper` 实现，管理后台将变更信息 `push` 给网关。而现在可以支持 `WebSocket`、`Http长轮询`、`Zookeeper`、`Nacos`、`Etcd` 和 `Consul`，通过在配置文件中设置 `shenyu.sync.${strategy}` 指定对应的同步策略，默认使用 `WebSocket` 同步策略，可以做到秒级数据同步。但是，有一点需要注意的是，`Apache ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。
 
-如下图所示，`shenyu-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(`http、weboscket、zookeeper、naocs、etcd、consul`)，将配置发送给对应的事件处理器。
+如下图所示，`shenyu-admin` 在用户发生配置变更之后，会通过 `EventPublisher` 发出配置变更通知，由 `EventDispatcher` 处理该变更通知，然后根据配置的同步策略(`Http、WebSocket、Zookeeper、Nacos、Etcd、Consul`)，将配置发送给对应的事件处理器。
 
-- 如果是 `websocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketDataHandler` 处理器来处理 `shenyu-admin` 的数据推送。
-- 如果是 `zookeeper` 同步策略，将变更数据更新到 `zookeeper`，而 `ZookeeperSyncCache` 会监听到 `zookeeper` 的数据变更，并予以处理。
-- 如果是 `http` 同步策略，由网关主动发起长轮询请求，默认有 `90s` 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 `http` 请求，如果有数据发生变更则响应变更的数据信息，如果超过 `60s` 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 `http` 请求，反复同样的请求。
+- 如果是 `WebSocket` 同步策略，则将变更后的数据主动推送给 `shenyu-web`，并且在网关层，会有对应的 `WebsocketDataHandler` 处理器来处理 `shenyu-admin` 的数据推送。
+- 如果是 `Zookeeper` 同步策略，将变更数据更新到 `Zookeeper`，而 `ZookeeperSyncCache` 会监听到 `Zookeeper` 的数据变更，并予以处理。
+- 如果是 `Http` 同步策略，由网关主动发起长轮询请求，默认有 `90s` 超时时间，如果 `shenyu-admin` 没有数据变更，则会阻塞 `Http` 请求，如果有数据发生变更则响应变更的数据信息，如果超过 `60s` 仍然没有数据变更则响应空数据，网关层接到响应后，继续发起 `Http` 请求，反复同样的请求。
 
 <img src="/img/shenyu/dataSync/config-strategy-processor-zh.png" width="90%" height="80%" />
 
 ### Zookeeper同步原理
 
-基于 `zookeeper` 的同步原理很简单，主要是依赖 `zookeeper` 的 `watch` 机制。`Apache ShenYu`网关会监听配置的节点，`shenyu-admin` 在启动的时候，会将数据全量写入 `zookeeper`，后续数据发生变更时，会增量更新 `zookeeper` 的节点，与此同时，`Apache ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
+基于 `Zookeeper` 的同步原理很简单，主要是依赖 `Zookeeper` 的 `watch` 机制。`Apache ShenYu`网关会监听配置的节点，`shenyu-admin` 在启动的时候，会将数据全量写入 `Zookeeper`，后续数据发生变更时，会增量更新 `Zookeeper` 的节点，与此同时，`Apache ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
 ![zookeeper节点设计](https://yu199195.github.io/images/soul/soul-zookeeper.png)
 
@@ -58,9 +58,9 @@ description: 数据同步
 
 ### WebSocket同步原理
 
-`websocket` 和 `zookeeper` 机制有点类似，将网关与 `shenyu-admin` 建立好 `websocket` 连接时，`shenyu-admin` 会推送一次全量数据，后续如果配置数据发生变更，则以增量形式将变更数据通过 `websocket` 主动推送给 `Apache ShenYu`网关。
+`WebSocket` 和 `Zookeeper` 机制有点类似，将网关与 `shenyu-admin` 建立好 `WebSocket` 连接时，`shenyu-admin` 会推送一次全量数据，后续如果配置数据发生变更，则以增量形式将变更数据通过 `WebSocket` 主动推送给 `Apache ShenYu`网关。
 
-使用 `websocket` 同步的时候，特别要注意断线重连，也就是要保持心跳。`Apache ShenYu`使用`java-websocket` 这个第三方库来进行`websocket`连接。
+使用 `WebSocket` 同步的时候，特别要注意断线重连，也就是要保持心跳。`Apache ShenYu`使用`java-websocket` 这个第三方库来进行`websocket`连接。
 如果您想深入了解代码实现，请参考源码 `WebsocketSyncDataService`。
 
 

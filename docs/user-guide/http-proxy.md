@@ -9,9 +9,9 @@ This document is intended to help the `Http` service access the `Apache ShenYu` 
 
 Before the connection, start `shenyu-admin` correctly, start `Divide` plugin, and add related dependencies on the gateway and `Http` application client. Refer to the previous [Quick start with Http](../quick-start/quick-start-http) .
 
-For details about client access configuration, see [Application Client Access Config](./register-center-access) .
+For details about client access configuration, see [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
+For details about data synchronization configurations, see [Data Synchronization Config](docs/user-guide/property-config/use-data-sync.md) .
 
 ## Add divide plugin in gateway
 

@@ -8,6 +8,8 @@
 # Generated files
 .docusaurus
 .cache-loader
+yarn.lock
+package-lock.json
 
 # Misc
 .DS_Store
@@ -25,4 +27,3 @@ yarn-error.log*
 *.ipr
 *.iml
 *.iws
-yarn.lock

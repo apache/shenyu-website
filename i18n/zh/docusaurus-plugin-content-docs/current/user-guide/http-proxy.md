@@ -8,9 +8,9 @@ description: Http服务接入
 
 接入前，请正确启动 `shenyu-admin`，并开启`divide`插件，在网关端和`Http`服务端引入相关依赖。可以参考前面的 [Http快速开始](../quick-start/quick-start-http)。
 
-应用客户端接入的相关配置请参考：[客户端接入配置](./register-center-access)。
+应用客户端接入的相关配置请参考：[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
 
-数据同步的相关配置请参考：[数据同步配置](./use-data-sync)。
+数据同步的相关配置请参考：[数据同步配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/use-data-sync.md)。
 
 ## 在网关中引入 divide 插件
 
@@ -220,9 +220,9 @@ description: Http服务接入
 
 * 首先在 `shenyu-admin` 找到 `divide` 插件，进行选择器，和规则的添加，进行流量的匹配筛选。
 
-* 如果不懂怎么配置，请参考 [选择器和规则管理](../selector-and-rule)。
+* 如果不懂怎么配置，请参考 [选择器和规则管理](../user-guide/admin-usage/selector-and-rule)。
 
-* 您也可以自定义开发属于你的 `http-client`，参考 [多语言 Http 客户端开发](../developer-shenyu-client)。
+* 您也可以自定义开发属于你的 `http-client`，参考 [多语言 Http 客户端开发](../developer/developer-shenyu-client)。
 
 ## 用户请求
 

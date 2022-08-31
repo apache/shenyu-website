@@ -7,7 +7,7 @@ author_image_url: https://avatars1.githubusercontent.com/u/62384022?v=4
 tags: [Param-Mapping, Apache ShenYu]
 ---
 
-> Before starting, you can refer to [this article](./start-demo) to start the gateway
+> Before starting, you can refer to [this article](./Start-SourceCode-Analysis-Start-Demo) to start the gateway
 
 ### Body
 

@@ -6,11 +6,11 @@ description: 下载
 
 ## 最新版本
 
-`Apache ShenYu (incubating)` 的发布版包括源码包及其对应的二进制包。
+`Apache ShenYu` 的发布版包括源码包及其对应的二进制包。
 
 由于下载内容分布在镜像服务器上，所以下载后应该进行 GPG 或 SHA-512 校验，以此来保证内容没有被篡改。
 
-##### `Apache ShenYu (incubating) - 版本: 2.4.3 (发布日期: April 14, 2022)`
+##### `Apache ShenYu - 版本: 2.4.3 (发布日期: April 14, 2022)`
 
 - 源码 [[zip]](https://www.apache.org/dyn/closer.lua/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip) [[asc]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip.asc) [[sha512]](https://downloads.apache.org/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-src.zip.sha512)
 
@@ -20,11 +20,11 @@ description: 下载
 
 ## 全部版本
 
-全部版本请到 [Archive repository](https://archive.apache.org/dist/incubator/shenyu/) 查看。
+全部版本请到 [Archive repository](https://archive.apache.org/dist/shenyu/) 查看。
 
 ## 校验版本
 
-[PGP签名文件](https://downloads.apache.org/incubator/shenyu/KEYS)
+[PGP签名文件](https://downloads.apache.org/shenyu/KEYS)
 
 使用 PGP 或 SHA 签名验证下载文件的完整性至关重要。
 可以使用 GPG 或 PGP 验证 PGP 签名。

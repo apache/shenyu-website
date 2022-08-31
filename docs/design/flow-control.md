@@ -1,7 +1,7 @@
 ---
-title: Flow Control
+title: Flow Control Design
 keywords: ["flow-control"]
-description:  flow-control
+description:  ShenYu Flow Control Design
 ---
 
 ShenYu gateway realizes flow control through plugins, selectors and rules. For related data structure, please refer to the previous [Apache ShenYu Admin Database Design](./database-design) .

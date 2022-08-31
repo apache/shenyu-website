@@ -43,9 +43,13 @@
     "message": "熔断限流",
     "description": "The label for category Fault-Tolerance in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Authority And Certification": {
-    "message": "权限认证",
-    "description": "The label for category Authority-And-Certification in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Security": {
+    "message": "安全性",
+    "description": "The label for category Security in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Mock": {
+    "message": "Mock",
+    "description": "The label for mock"
   },
   "sidebar.tutorialSidebar.category.Common": {
     "message": "通用组件",
@@ -55,7 +59,7 @@
     "message": "可观测性",
     "description": "The label for category Observability in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Developer Documentation": {
+  "sidebar.tutorialSidebar.category.Developer": {
     "message": "开发者文档",
     "description": "The label for category Developer-Documentation in sidebar tutorialSidebar"
   },

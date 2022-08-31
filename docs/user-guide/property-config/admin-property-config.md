@@ -23,13 +23,11 @@ shenyu:
       zombieCheckTimes: 5
       scheduledTime: 10
       nacosNameSpace: ShenyuRegisterCenter
-  database:
-    dialect: mysql
-    init_script: "META-INF/schema.sql"
-    init_enable: true
   sync:
     websocket:
       enabled: true
+      messageMaxSize: 10240
+      allowOrigins: ws://localhost:9095;ws://localhost:9195;
 #      zookeeper:
 #        url: localhost:2181
 #        sessionTimeout: 5000
@@ -85,7 +83,6 @@ shenyu:
       - /csrf
   swagger:
     enable: true
-
 ```
 
 
@@ -94,7 +91,7 @@ shenyu:
 ##### shenyu.register config
 
 
-This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../../design/register-center-design) , for client access configuration, see: [Application Client Access Config](../register-center-access) .
+This section describes configurations related to client access. For details about client access principles, see: [Application Client Access](../../design/register-center-design) , for client access configuration, see: [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
 
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
@@ -144,17 +141,6 @@ When the registerType is `consul`, the supported properties are as follows.
 |metadata-path                | String |  `shenyu/register`    |  No  |Metadata path name, default is `shenyu/register`.|
 
 
-##### shenyu.database config
-
-Database configuration when `shenyu-admin` is started.
-
-
-|Name                      | Type  |  Default   | Required  | Description                        |
-|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-|dialect            | String |  h2      | No     |which database is used when admin is started.|
-|init_script               | String | `META-INF/schema.h2.sql`   |  No  |database initialization script.|
-|init_enable                | boolean |  true    |  No  |whether to initialize.|
-
 
 ##### shenyu.sync config
 
@@ -166,6 +152,8 @@ The following properties are configured for data synchronization using `websocke
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 |enabled                | boolean |  true    |  No  |whether to enable websocket for data synchronization.|
+|messageMaxSize | int | 0 | No |Set the `websocket` max buffer size in bytes.|
+|allowOrigins | String | "" | No |Set allowed `origins`, multiple parameters separated by `;`.|
 
 The following properties are configured for data synchronization using `zookeeper` :
 

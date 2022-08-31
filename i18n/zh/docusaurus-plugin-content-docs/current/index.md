@@ -5,61 +5,163 @@ keywords: ["Apache shenyu"]
 description: Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的`API`网关。
 ---
 
-# 什么是 Apache ShenYu
-
-这是一个异步的，高性能的，跨语言的，响应式的 `API` 网关。
-
-# 功能
-
-* 支持各种语言(http 协议)，支持 Dubbo、 Spring Cloud、 gRPC、 Motan、 Sofa、 Tars 等协议。
-* 插件化设计思想，插件热插拔，易扩展。
-* 灵活的流量筛选，能满足各种流量控制。
-* 内置丰富的插件支持，鉴权，限流，熔断，防火墙等等。
-* 流量配置动态化，性能极高。
-* 支持集群部署，支持 A/B Test，蓝绿发布。
-
 # 架构图
 
-![](/img/architecture/shenyu-framework.png)
+ ![](/img/architecture/shenyu-architecture-3d.png)
+
+# 为什么叫ShenYu
+
+ ShenYu(神禹)是中国古代君主夏禹(后世亦称大禹)的尊称，他留下了三渡黄河造福人民并成功治理黄河洪水的感人故事。他和尧、舜一起被认为是中国古代三大帝王之一。
+
+* 首先，ShenYu这个名字是为了弘扬我们中华文明的传统美德。
+* 其次，对于网关来说最重要的是流量管理。
+* 最后，社区将以公平、公正、公开、择优的方式做事，在向神禹致敬的同时，也符合 Apache Way。
+
+# 特点
+
+* Proxy: Support for Apache® Dubbo™, Spring Cloud, gRPC, Motan, SOFA, TARS, WebSocket, MQTT
+* Security: Sign, OAuth 2.0, JSON Web Tokens, WAF plugin
+* API governance: Request, response, parameter mapping, Hystrix, RateLimiter plugin
+* Observability: Tracing, metrics, logging plugin
+* Dashboard: Dynamic traffic control, visual backend for user menu permissions
+* Extensions: Plugin hot-swapping, dynamic loading
+* Cluster: NGINX, Docker, Kubernetes
+* Language: provides .NET, Python, Go, Java client for API register
+
+---
 
 # 脑图
 
 ![](https://shenyu.apache.org/img/shenyu/activite/shenyu-xmind.png)
 
+# 快速开始 (docker)
 
-# 模块
+### 运行 Apache ShenYu Admin
 
- * shenyu-admin : 插件和其他信息配置的管理后台
+```
+> docker pull apache/shenyu-admin
+> docker network create shenyu
+> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
+```
 
- * shenyu-bootstrap : 用于启动项目，用户可以参考
+### 运行 Apache ShenYu Bootstrap
 
- * shenyu-client : 用户可以使用 Spring MVC，Dubbo，Spring Cloud 快速访问
- 
- * shenyu-disruptor : 基于disruptor的封装
+```
+> docker network create shenyu
+> docker pull apache/shenyu-bootstrap
+> docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap
+```
+
+### 路由设置
+
+* Real requests  ：<http://127.0.0.1:8080/helloworld>,
+
+```json
+{
+  "name" : "Shenyu",
+  "data" : "hello world"
+}
+```
+
+* 设置路由规则 (Standalone)
+
+将`localKey: 123456`添加到Headers中。如果需要自定义localKey，可以使用sha512工具基于明文生成密钥，并更新`shenyu.local.sha512Key`属性。
+
+```
+curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndRules' \
+--header 'Content-Type: application/json' \
+--header 'localKey: 123456' \
+--data-raw '{
+    "pluginName": "divide",
+    "selectorHandler": "[{\"upstreamUrl\":\"127.0.0.1:8080\"}]",
+    "conditionDataList": [{
+        "paramType": "uri",
+        "operator": "match",
+        "paramValue": "/**"
+    }],
+    "ruleDataList": [{
+        "ruleHandler": "{\"loadBalance\":\"random\"}",
+        "conditionDataList": [{
+            "paramType": "uri",
+            "operator": "match",
+            "paramValue": "/**"
+        }]
+    }]
+}'
+```
+
+* 代理请求 ：<http://localhost:9195/helloworld>
+
+```json
+{
+  "name" : "Shenyu",
+  "data" : "hello world"
+}
+```
+
+---
+
+# 插件
+
+  每当有请求进来，Apache ShenYu将基于责任链模式由所有启用的插件来执行它。
+
+  作为Apache ShenYu的核心，插件是可扩展和可热插拔的。
+
+  不同的插件做不同的事情。
+
+  当然，用户也可以自定义插件来满足自己的需求。
+
+  如果要自定义，见[自定义插件](https://shenyu.apache.org/docs/developer/custom-plugin/)
+
+---  
+
+# Selector & Rule
+
+  根据您的HTTP请求头，Selector和Rule将用于路由您的请求。
+
+  Selector是您的第一层路由，它是粗粒度的，例如模块级。
+
+  Rule是你的第二层路由，你认为你的请求应该做什么。例如模块中的方法级别。
+
+  Selector和Rule只匹配一次，然后返回匹配结果。因此最粗的粒度应该最后排序。
+
+---  
+
+# Data Caching & Data Sync
+
+  因为所有数据都是使用JVM中的ConcurrentHashMap缓存的，所以速度非常快。
+
+  Apache ShenYu通过监听ZooKeeper节点(或WebSocket push，HTTP long polling)，在后台管理中用户更改配置信息时动态更新缓存。
   
- * shenyu-register-center : shenyu-client提供各种rpc接入注册中心的支持
+  ![](/img/shenyu/dataSync/shenyu-config-processor-en.png)
   
- * shenyu-common : 框架的通用类
+  ![](/img/shenyu/dataSync/config-strategy-processor-en.png)
 
- * shenyu-dist : 构建项目
+---
 
- * shenyu-metrics : prometheus（普罗米修斯）实现的 metrics
+# Prerequisite
 
- * shenyu-plugin : ShenYu 支持的插件集合
+* JDK 1.8+
 
- * shenyu-spi : 定义 ShenYu spi
+---
 
- * shenyu-spring-boot-starter : 支持 spring boot starter
+# Stargazers over time
 
- * shenyu-sync-data-center : 提供 ZooKeeper，HTTP，WebSocket，Nacos 的方式同步数据
+<a href="https://starchart.cc/apache/incubator-shenyu.svg"><img src="https://starchart.cc/apache/incubator-shenyu.svg"/></a>
 
- * shenyu-examples : RPC 示例项目
+---  
 
- * shenyu-web : 包括插件、请求路由和转发等的核心处理包
+# 贡献与支持
 
+* [贡献方式](https://shenyu.apache.org/community/contributor-guide)
+* [邮件我们](mailto:dev@shenyu.apache.org)
 
-# 关于
+---  
 
-Apache ShenYu 已经被很多公司广泛使用在越来越多的业务系统，它能以高性能和灵活性让我们方便快捷的集成自己的服务和 API 。
+# Known Users
 
-在中国的双 11 购物狂欢节中，Apache ShenYu集群成功支撑了海量的互联网业务。
+In order of registration, More access companies are welcome to register at [https://github.com/apache/shenyu/issues/68](https://github.com/apache/shenyu/issues/68) (For open source users only) .
+
+用户 : [已知用户](https://shenyu.apache.org/community/user-registration)
+
+---

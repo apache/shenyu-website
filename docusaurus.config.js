@@ -3,8 +3,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Apache ShenYu (Incubating)',
-  tagline: 'Apache ShenYu (Incubating) - High-performance, multi-protocol, extensible, responsive API Gateway',
+  title: 'Apache ShenYu',
+  tagline: 'Apache ShenYu - High-performance, multi-protocol, extensible, responsive API Gateway',
   url: 'https://shenyu.apache.org/',
   baseUrl: '/',
   onBrokenLinks: 'log',
@@ -29,38 +29,79 @@ module.exports = {
   themeConfig: {
 
     navbar: {
-     // title: 'Apache ShenYu (Incubating)',
+     // title: 'Apache ShenYu',
       logo: {
         alt: 'Apache ShenYu Logo',
         src: 'img/logo.svg',
         srcDark: 'img/logo-light.svg'
       },
       items: [
-        {to: '/download', label: 'Download', position: 'left'},
+        {to: '/download', label: 'Download', position: 'right'},
+        // {
+        //   type: 'docsVersionDropdown',
+        //   label: 'doc',
+        //   position: 'left',
+        //   dropdownActiveClassDisabled: true,
+        //   dropdownItemsAfter: [
+        //     {
+        //       to: '/versions',
+        //       label: 'All versions',
+        //     },
+        //   ],
+        // },
         {
-          type: 'doc',
-          docId: 'index',
-          position: 'left',
-          label: 'Document',
+          label: 'Docs',
+          position: 'right',
+          items: [
+            {
+              label: "next",
+              to: "/docs/next/index",
+            },
+            {
+              label: "2.4.3",
+              to: "/docs/index",
+            },
+            {
+              label: "2.4.2",
+              to: "/docs/2.4.2/index",
+            },
+            {
+              label: "2.4.1",
+              to: "/docs/2.4.1/index",
+            },
+            {
+              label: "2.4.0",
+              to: "/docs/2.4.0/index",
+            },
+            {
+              label: "2.3.0-Legacy",
+              to: "/docs/2.3.0-Legacy/index",
+            },
+            {
+              label: "All Versions",
+              to: "/versions",
+            },
+          ],
         },
         {
           to: '/community/contributor-guide',
           label: 'Community',
-          position: 'left',
+          position: 'right',
           activeBaseRegex: `/community/`,
         },
+        {to: '/team', label: 'Team', position: 'right'},
         {
           label: 'Event',
-          position: 'left',
-          to: '/event/2.4.2-release',
+          position: 'right',
+          to: '/event',
           activeBaseRegex: `/event/`,
         },
-        {to: '/news', label: 'News', position: 'left'},
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/users', label: 'Users', position: 'left'},
+        {to: '/news', label: 'News', position: 'right'},
+        {to: '/blog', label: 'Blog', position: 'right'},
+        {to: '/users', label: 'Users', position: 'right'},
         {
           label: 'ASF',
-          position: 'left',
+          position: 'right',
           items: [
             {
               label: "Foundation",
@@ -93,18 +134,7 @@ module.exports = {
           ],
         },
         {
-          type: 'docsVersionDropdown',
-          position: 'right',
-          dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
-            {
-              to: '/versions',
-              label: 'All versions',
-            },
-          ],
-        },
-        {
-          href: 'https://github.com/apache/incubator-shenyu',
+          href: 'https://github.com/apache/shenyu',
           label: 'GitHub',
           position: 'right',
         },
@@ -114,82 +144,81 @@ module.exports = {
         },
       ],
     },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Events',
-          items: [
-            {
-              label: 'ApacheCon',
-              href: 'https://www.apachecon.com',
-            },
-          ],
-        },
-        {
-          title: 'ShenYu',
-          items: [
-            {
-              label: 'Download',
-              to: '/download',
-            },
-            {
-              label: 'Document',
-              to: '/docs/index',
-            },
-            {
-              label: 'News',
-              to: '/news',
-            },
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'Releases',
-              href: 'https://github.com/apache/incubator-shenyu/releases',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Community',
-              to: '/community/contributor-guide',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/apache/incubator-shenyu',
-            },
-            {
-              label: 'Issue Tracker',
-              href: 'https://github.com/apache/incubator-shenyu/issues',
-            },
-          ],
-        },
-        {
-          title: 'Subscribe mailing list',
-          items: [
-            {
-              label: 'How to subscribe',
-              to: '/community/contributor-guide#join-the-discussion',
-            },
-            {
-              label: 'Subscribe Mail',
-              href: 'mailto://dev-subscribe@shenyu.apache.org',
-            },
-            {
-              label: 'Mail Archive',
-              href: 'https://lists.apache.org/list.html?dev@shenyu.apache.org',
-            },
-          ],
-        },
-      ],
-      copyright: `<div><img style="height:50px" alt="Apache Software Foundation" src="/img/incubator-logo.png" /><p style="color:#ffffffcf;font-size:14px;text-align:left">Apache ShenYu is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p>
-      <p style="color:white;font-size:14px;"> Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache ShenYu, Apache Incubator, Apache, the Apache feather logo, the Apache ShenYu logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.</p>
-      <div>`,
-    },
+    // footer: {
+    //   style: 'dark',
+    //   links: [
+    //     {
+    //       title: 'Events',
+    //       items: [
+    //         {
+    //           label: 'ApacheCon',
+    //           href: 'https://www.apachecon.com',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: 'ShenYu',
+    //       items: [
+    //         {
+    //           label: 'Download',
+    //           to: '/download',
+    //         },
+    //         {
+    //           label: 'Document',
+    //           to: '/docs/index',
+    //         },
+    //         {
+    //           label: 'News',
+    //           to: '/news',
+    //         },
+    //         {
+    //           label: 'Blog',
+    //           to: '/blog',
+    //         },
+    //         {
+    //           label: 'Releases',
+    //           href: 'https://github.com/apache/shenyu/releases',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: 'Community',
+    //       items: [
+    //         {
+    //           label: 'Community',
+    //           to: '/community/contributor-guide',
+    //         },
+    //         {
+    //           label: 'GitHub',
+    //           href: 'https://github.com/apache/shenyu',
+    //         },
+    //         {
+    //           label: 'Issue Tracker',
+    //           href: 'https://github.com/apache/shenyu/issues',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: 'Subscribe mailing list',
+    //       items: [
+    //         {
+    //           label: 'How to subscribe',
+    //           to: '/community/contributor-guide#join-the-discussion',
+    //         },
+    //         {
+    //           label: 'Subscribe Mail',
+    //           href: 'mailto://dev-subscribe@shenyu.apache.org',
+    //         },
+    //         {
+    //           label: 'Mail Archive',
+    //           href: 'https://lists.apache.org/list.html?dev@shenyu.apache.org',
+    //         },
+    //       ],
+    //     },
+    //   ],
+    //   copyright: `<div>< img style="height:50px; margin-right:10px" src="/img/logo/support-apache.png" /> < img style="height:50px; margin-left:10px" alt="Apache Software Foundation" src="/img/logo/asf_logo.svg" /><p style="color:#ffffffcf;font-size:14px;text-align:center">Copyright  ${new Date().getFullYear()} The Apache Software Foundation, Licensed under the Apache License, Version 2.0. Apache ShenYu,  Apache, the Apache feather logo, the Apache ShenYu logo are trademarks of The Apache Software Foundation.</p >
+    //   <div>`,
+    // },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
@@ -276,7 +305,7 @@ module.exports = {
         },
         editCurrentVersion: true,
         editLocalizedFiles: true,
-        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        sidebarPath: false,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
       }

@@ -5,53 +5,78 @@ import FeatureCard from './FeatureCard';
 
 import styles from './Features.module.css';
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, {
+  Autoplay,
+  EffectCoverflow
+} from 'swiper';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 const FEATURES = [
   {
-    image: '/img/home/rich-protocol.svg',
-    title: translate({ message: 'Rich protocols' }),
+    image: '/img/home/proxy.svg',
+    title: translate({ message: 'Proxy' }),
     subtitle: translate({
       message:
-        'Supports Dubbo, Tars, Spring-Cloud, gRPC.',
+        'Support for Apache® Dubbo™, Spring Cloud, gRPC, Motan, SOFA, TARS, WebSocket, MQTT.',
     }),
   },
   {
-    image: '/img/home/extended.svg',
-    title: translate({ message: 'Pluggable' }),
+    image: '/img/home/security.svg',
+    title: translate({ message: 'Security' }),
     subtitle: translate({
       message:
-        'Plug-in design idea, plug-in hot plug, easy to expand.',
+        'Sign, OAuth 2.0, JSON Web Tokens, WAF plugin.',
     }),
   },
   {
-    image: '/img/home/flow.svg',
-    title: translate({ message: 'Flow Control' }),
+    image: '/img/home/apiGovernance.svg',
+    title: translate({ message: 'API governance' }),
     subtitle: translate({
       message:
-        'Flexible flow filtering to meet various flow control.',
+        'Request, response, parameter mapping, Hystrix, RateLimiter plugin.',
     }),
   },
   {
-    image: '/img/home/multi-plugins.svg',
-    title: translate({ message: 'Built-in Plug-ins' }),
+    image: '/img/home/observability.svg',
+    title: translate({ message: 'Observability' }),
     subtitle: translate({
       message:
-        'Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.',
+        'Tracing, metrics, logging plugin',
     }),
   },
   {
-    image: '/img/home/performance.svg',
-    title: translate({ message: 'High Performance' }),
+    image: '/img/home/dashboard.svg',
+    title: translate({ message: 'Dashboard' }),
     subtitle: translate({
       message:
-        'Dynamic flow configuration, high performance, gateway consumption is 1~2ms.',
+        'Dynamic traffic control, visual backend for user menu permissions',
+    }),
+  },
+  {
+    image: '/img/home/extensions.svg',
+    title: translate({ message: 'Extensions' }),
+    subtitle: translate({
+      message:
+        'Plugin hot-swapping, dynamic loading',
     }),
   },
   {
     image: '/img/home/clusters.svg',
-    title: translate({ message: 'Cluster Deployment' }),
+    title: translate({ message: 'Cluster' }),
     subtitle: translate({
       message:
-        'Support cluster deployment, A/B Test, blue-green release.',
+        'NGINX, Docker, Kubernetes',
+    }),
+  },
+  {
+    image: '/img/home/language.svg',
+    title: translate({ message: 'Language' }),
+    subtitle: translate({
+      message:
+        'provides .NET, Python, Go, Java client for API register',
     }),
   },
 ];
@@ -60,9 +85,33 @@ const Features = (): React.ReactElement => (
   <section className={styles.features}>
     <h1 className={styles.blockTitle}><Translate>Feature List</Translate></h1>
     <div className={styles['features--wrap']}>
-      {FEATURES.map(({ image, title, subtitle }) => (
-        <FeatureCard key={title} image={useBaseUrl(image)} title={title} subtitle={subtitle} />
-      ))}
+      <Swiper
+        modules={[Autoplay, EffectCoverflow]}
+        watchSlidesProgress={true}
+        slidesPerView={3.3}
+        centeredSlides={true}
+        slideToClickedSlide={true}
+        loop={true}
+        loopedSlides={3}
+        autoplay={{
+          delay: 2000,
+        }}
+        effect={"coverflow"}
+        grabCursor
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+      >
+        {FEATURES.map(({ image, title, subtitle }) => (
+          <SwiperSlide className={styles.swiperSlide}>
+            <FeatureCard key={title} image={useBaseUrl(image)} title={title} subtitle={subtitle} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   </section>
 );

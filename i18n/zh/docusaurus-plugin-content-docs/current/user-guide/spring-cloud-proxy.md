@@ -116,7 +116,7 @@ public class ShenyuBootstrapApplication {
 
 ## SpringCloud服务接入网关
 
-可以参考：[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-springcloud)
+可以参考：[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
 
 
 * 在由`SpringCloud`构建的微服务中，引入如下依赖：
@@ -188,13 +188,18 @@ public class ShenyuBootstrapApplication {
 
 ```yaml
 shenyu:
-  client:
-    registerType: http
-    serverLists: http://localhost:9095
+  register:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
     props:
-      contextPath: /http
-      appName: http
-      isFull: true
+      username: admin
+      password: 123456
+  client:
+    springCloud:
+      props:
+        contextPath: /springcloud
+        isFull: true
+#        port: 8884
 # registerType : 服务注册类型，请参考应用客户端接入文档
 # serverList: 服务列表，请参考应用客户端接入文档
 # contextPath: 为你的项目在shenyu网关的路由前缀。 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由。

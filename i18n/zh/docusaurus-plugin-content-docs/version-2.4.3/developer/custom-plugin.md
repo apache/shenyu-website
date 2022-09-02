@@ -10,7 +10,7 @@ description: 插件扩展
 * 在 `Apache ShenYu` 网关里面，插件分为两类。
   * 一类是单一职责的调用链，不能对流量进行自定义的筛选。
   * 一类是能对匹配的流量，执行自己的职责调用链。
-* 用户可以参考 [shenyu-plugin](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-plugin) 模块，新增自己的插件处理，如果有好的公用插件，可以向官网提交`pr`。
+* 用户可以参考 [shenyu-plugin](https://github.com/apache/shenyu/tree/v2.4.3/shenyu-plugin) 模块，新增自己的插件处理，如果有好的公用插件，可以向官网提交`pr`。
 
 ## 单一职责插件
 

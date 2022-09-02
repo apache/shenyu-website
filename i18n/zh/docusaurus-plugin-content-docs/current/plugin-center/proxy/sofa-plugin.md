@@ -57,7 +57,7 @@ description: sofa插件
 
 ## 2.3 在客户端项目中配置
 
-- 在 application.yml 中配置 sofa 的配置
+1. 在 application.yml 中配置 sofa 的配置
 
 ```yaml
 com:
@@ -82,7 +82,7 @@ shenyu:
         port: 8888
 ```
 
-- 在 resources 目录下xml 文件中配置 sofa 服务暴露的服务接口
+2. 在 resources 目录下xml 文件中配置 sofa 服务暴露的服务接口
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -100,6 +100,21 @@ shenyu:
         <sofa:binding.bolt/>
     </sofa:service>
 </beans>
+```
+
+3. 在接口上添加`@ShenyuSofaClient`注解
+
+```java
+@ShenyuSofaClient("/demo")
+@Service
+public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamService {
+    
+    @Override
+    @ShenyuSofaClient("/findByIdsAndName")
+    public SofaSimpleTypeBean findByIdsAndName(final List<Integer> ids, final String name) {
+        return new SofaSimpleTypeBean(ids.toString(), "hello world shenyu sofa param findByIdsAndName ：" + name);
+    }
+}
 ```
 
 ## 2.4 启用插件

@@ -3,7 +3,7 @@ title: Http快速开始
 description: Http快速开始
 ---
 
-本文档演示如何将`Http`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http) 。
+本文档演示如何将`Http`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) 。
 
 ## 环境准备
 
@@ -39,7 +39,7 @@ description: Http快速开始
 
 ## 运行shenyu-examples-http项目
 
-下载 [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http)
+下载 [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
 运行`org.apache.shenyu.examples.http.ShenyuTestHttpApplication`main方法启动项目。
 

@@ -57,7 +57,7 @@ description: Sofa Plugin
 
 ## 2.3 Configure in the client project
 
-- Configure the sofa configuration in application.yml.
+1. Configure the sofa configuration in application.yml.
 
 ```yaml
 com:
@@ -82,7 +82,7 @@ shenyu:
         port: 8888
 ```
 
-- Configure the service interface exposed by the sofa service in the xml file in the resources directory.
+2. Configure the service interface exposed by the sofa service in the xml file in the resources directory.
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -100,6 +100,21 @@ shenyu:
         <sofa:binding.bolt/>
     </sofa:service>
 </beans>
+```
+
+3. Add the `@ShenyuSofaClient` annotation to the interface.
+
+```java
+@ShenyuSofaClient("/demo")
+@Service
+public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamService {
+    
+    @Override
+    @ShenyuSofaClient("/findByIdsAndName")
+    public SofaSimpleTypeBean findByIdsAndName(final List<Integer> ids, final String name) {
+        return new SofaSimpleTypeBean(ids.toString(), "hello world shenyu sofa param findByIdsAndName ：" + name);
+    }
+}
 ```
 
 ## 2.4 Enable plugin

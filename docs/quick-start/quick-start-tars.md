@@ -3,7 +3,7 @@ title: Quick start with Tars
 description: Quick start with Tars
 ---
 
-This document introduces how to quickly access the Apache ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-tars) .
+This document introduces how to quickly access the Apache ShenYu Gateway using Tars. You can get the code example of this document by clicking [here](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-tars) .
 
 ## Environment to prepare
 
@@ -38,7 +38,7 @@ If you are a startup gateway by means of source, can be directly run the ShenyuB
 
 ## Run the shenyu-examples-tars project
 
-Download [shenyu-examples-tars](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-tars) .
+Download [shenyu-examples-tars](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-tars) .
 
 Modify `host` in `application.yml` to be your local IP
 

@@ -87,7 +87,7 @@ description: SpringCloud接入ShenYu网关
 
 ## SpringCloud服务接入网关
 
-可以参考：[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-springcloud)
+可以参考：[shenyu-examples-springcloud](https://github.com/apache/shenyu/tree/v2.4.1/shenyu-examples/shenyu-examples-springcloud)
 
 
 * 在由`SpringCloud`构建的微服务中，引入如下依赖：

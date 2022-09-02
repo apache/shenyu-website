@@ -57,7 +57,7 @@ description: sofa 接入 Apache ShenYu 网关
 
 ## sofa服务接入网关
 
-可以参考：[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa)
+可以参考：[shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.4.3/shenyu-examples/shenyu-examples-sofa)
 
 如果是`springboot`构建，引入以下依赖：
 
@@ -130,7 +130,7 @@ description: sofa 接入 Apache ShenYu 网关
 * 参数传递：
 
   * 通过 `http`协议， `post` 方式访问网关，通过在`http body`中传入`json`类型参数。
-  * 更多参数类型传递，可以参考 [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa) 中的接口定义，以及参数传递方式。
+  * 更多参数类型传递，可以参考 [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.4.3/shenyu-examples/shenyu-examples-sofa) 中的接口定义，以及参数传递方式。
 
 * 单个`java bean`参数类型 （默认）
 * 自定义实现多参数支持：

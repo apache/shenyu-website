@@ -3,7 +3,7 @@ title: gRPC快速开始
 description: gRPC快速开始
 ---
 
-本文档演示如何将`gRPC`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-grpc) 。
+本文档演示如何将`gRPC`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/shenyu/tree/v2.5.0/shenyu-examples/shenyu-examples-grpc) 。
 
 ## 环境准备
 
@@ -31,7 +31,7 @@ description: gRPC快速开始
 
 ## 运行 shenyu-examples-grpc 项目
 
-下载 [shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-grpc)
+下载 [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.5.0/shenyu-examples/shenyu-examples-grpc)
 
 在 `shenyu-examples-grpc` 下执行以下命令生成 `java` 代码:
 

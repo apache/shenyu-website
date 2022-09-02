@@ -7,7 +7,7 @@ description: Client Property Config
 This paper mainly explains how to configure the properties of Apache ShenYu when the client accesses the gateway.
 
 
-Set the `shenyu` property in your microservice, for example, in [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http) :
+Set the `shenyu` property in your microservice, for example, in [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) :
 
 <img src="/img/shenyu/config/shenyu_client_application_config.png" width="80%" height="70%" />
 
@@ -23,7 +23,6 @@ shenyu:
       appName: http
       port: 8189
       nacosNameSpace: ShenyuRegisterCenter
-
 ```
 
 

@@ -56,7 +56,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 ## Sofa service access gateway
 
-you can refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa)
+you can refer to：[shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.4.1/shenyu-examples/shenyu-examples-sofa)
 
 * SpringBoot
 
@@ -132,7 +132,7 @@ ShenYu gateway needs to have a routing prefix, this routing prefix is for you to
 * Parameter passing：
 
   * Access the gateway through http post，and pass through body and json.
-  * For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
+  * For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.4.1/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:

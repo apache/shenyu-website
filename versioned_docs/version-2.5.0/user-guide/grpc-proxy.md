@@ -30,7 +30,7 @@ Add the following dependencies in the gateway's `pom.xml` file:
 
 ## gRPC service access gateway
 
-You can refer to：[shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-grpc) .
+You can refer to：[shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.5.0/shenyu-examples/shenyu-examples-grpc) .
 
 * In the microservice built by `gRPC`, add the following dependencies:
 

@@ -3,7 +3,7 @@ title:  Quick start with Motan
 description: Motan quick start
 ---
 
-This document introduces how to quickly access the Apache ShenYu gateway using Motan RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-motan).
+This document introduces how to quickly access the Apache ShenYu gateway using Motan RPC. You can get the code example of this document by clicking [here](https://github.com/apache/shenyu/tree/v2.5.0/shenyu-examples/shenyu-examples-motan).
 
 
 ## Environment to prepare
@@ -60,7 +60,7 @@ Import the gateway proxy plugin for `Motan` and add the following dependencies t
 
 ## Run the shenyu-examples-motan project
 
-Download [shenyu-examples-motan](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-motan) .
+Download [shenyu-examples-motan](https://github.com/apache/shenyu/tree/v2.5.0/shenyu-examples/shenyu-examples-motan) .
 
 Run main method of `org.apache.shenyu.examples.motan.service.TestMotanApplication` to start this project.
 

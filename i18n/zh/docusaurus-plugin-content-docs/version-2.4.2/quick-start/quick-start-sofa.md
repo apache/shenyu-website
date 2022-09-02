@@ -3,7 +3,7 @@ title: Sofa快速开始
 description: Sofa快速开始
 ---
 
-本文档演示如何将`Sofa`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa) 。
+本文档演示如何将`Sofa`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu/tree/v2.4.2/shenyu-examples/shenyu-examples-sofa) 。
 
 ## 环境准备
 
@@ -53,7 +53,7 @@ description: Sofa快速开始
 
 ## 运行shenyu-examples-sofa项目
 
-下载 [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa)
+下载 [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.4.2/shenyu-examples/shenyu-examples-sofa)
 
 设置`application.yml`的`zk`注册地址，如：
 

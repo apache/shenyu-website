@@ -102,7 +102,7 @@ Apache dubbo user, configure the dubbo version and registry center with yours.
 
 ## Dubbo service access gateway
 
-Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) .
+Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https://github.com/apache/shenyu/tree/v2.4.3/shenyu-examples/shenyu-examples-dubbo) .
 
 * Alibaba Dubbo User
   * SpringBoot
@@ -276,7 +276,7 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
 
 * parameter deliver:
   * communicate with gateway through body or json of http post request.
-  * more parameter types, please refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) and parameter passing
+  * more parameter types, please refer to the interface definition in  [shenyu-examples-dubbo](https://github.com/apache/shenyu/tree/v2.4.3/shenyu-examples/shenyu-examples-dubbo) and parameter passing
       method.
 * Single java bean parameter type (`default`).
 * Multi-parameter type support, add this config value in gateway's yaml file:

@@ -6,7 +6,7 @@ description: Client属性配置
 
 本篇主要讲解如何在客户端接入时配置 `ShenYu` 的相关属性。
 
-在你的微服务中设置`shenyu`属性，比如，在[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http) 中相关配置如下：
+在你的微服务中设置`shenyu`属性，比如，在[shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) 中相关配置如下：
 
 <img src="/img/shenyu/config/shenyu_client_application_config.png" width="80%" height="70%" />
 

@@ -3,7 +3,7 @@ title: Quick start with Sofa
 description: Quick start with Sofa
 ---
 
-This document introduces how to quickly access the Apache ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa).
+This document introduces how to quickly access the Apache ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/shenyu/tree/v2.4.1/shenyu-examples/shenyu-examples-sofa).
 
 ## Environment to prepare
 
@@ -57,7 +57,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
 
 ## Run the shenyu-examples-sofa project
 
-Download [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+Download [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.4.1/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
 
 ```xml
 com:

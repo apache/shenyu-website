@@ -12,7 +12,7 @@ description: Docker-compose Deployment
 ### 下载 shell 脚本
 
 ```shell
-curl -O https://raw.githubusercontent.com/apache/incubator-shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
+curl -O https://raw.githubusercontent.com/apache/shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
 ```
 
 ### 执行脚本

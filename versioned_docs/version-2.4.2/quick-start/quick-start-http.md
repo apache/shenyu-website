@@ -3,7 +3,7 @@ title: Quick start with Http
 description: Quick start with http
 ---
 
-This document introduces how to quickly access the Apache ShenYu gateway using Http. You can get the code example of this document by clicking [here](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http).
+This document introduces how to quickly access the Apache ShenYu gateway using Http. You can get the code example of this document by clicking [here](https://github.com/apache/shenyu/tree/v2.4.2/shenyu-examples/shenyu-examples-http).
 
 ## Environment to prepare
 
@@ -39,7 +39,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Run the shenyu-examples-http project
 
-Download [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http)
+Download [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.4.2/shenyu-examples/shenyu-examples-http)
 
 Execute the `org.apache.shenyu.examples.http.ShenyuTestHttpApplication` main method to start project.
 

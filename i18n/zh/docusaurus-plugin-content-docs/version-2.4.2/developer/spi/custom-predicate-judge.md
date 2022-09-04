@@ -9,7 +9,7 @@ description: 自定义条件策略
 * 本文介绍如何对 `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` 进行自定义扩展。
 * 条件谓语是选择器中连接数据和规则的桥梁，作用是筛选出符合条件的请求。
 * 目前已经存在包括 match, =, regex, contains, TimeBefore, TimeAfter, exclude 共七个条件谓语。
-* 用户可以参考 [judge](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-plugin/shenyu-plugin-base/src/main/java/org/apache/shenyu/plugin/base/condition/judge) 模块，新增自己的条件谓语，如果有好的公用插件，可以向官网提交 `pr`。
+* 用户可以参考 [judge](https://github.com/apache/shenyu/tree/v2.4.2/shenyu-plugin/shenyu-plugin-base/src/main/java/org/apache/shenyu/plugin/base/condition/judge) 模块，新增自己的条件谓语，如果有好的公用插件，可以向官网提交 `pr`。
 
 ## 扩展
 

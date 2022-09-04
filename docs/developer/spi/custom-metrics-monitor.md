@@ -9,7 +9,7 @@ description: custom Metrics Monitor
 
 * Before custom development, please customize and build the gateway environment first, please refer to: [custom deployment](../deployment-custom)
 
-* This article describes how to customize the extension of  `org.apache.shenyu.metrics.spi.MetricsBootService`.
+* This article describes how to customize the extension of  `org.apache.shenyu.plugin.metrics.spi.MetricsService`.
 
 ## Extension
 
@@ -25,10 +25,10 @@ description: custom Metrics Monitor
 </dependencies>
 ```
 
-* Create a new class `${you class}`，implements `org.apache.shenyu.metrics.spi.MetricsBootService`
+* Create a new class `${you class}`，implements `org.apache.shenyu.plugin.metrics.spi.MetricsService`
 
 ```
-public class ${you class} implements MetricsBootService {
+public class ${you class} implements MetricsService {
    
    	/**
      * Start metrics tracker.
@@ -49,7 +49,7 @@ public class ${you class} implements MetricsBootService {
 }
 ```
 
-* In the project  `resources` directory，Create a new `META-INF/shenyu` directory， and the new file name is : `org.apache.shenyu.metrics.spi.MetricsBootService`.
+* In the project  `resources` directory，Create a new `META-INF/shenyu` directory， and the new file name is : `org.apache.shenyu.plugin.metrics.spi.MetricsService`.
 add `${you spi name}` = `${you class path}`:
 
 ```

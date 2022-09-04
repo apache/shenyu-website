@@ -3,7 +3,7 @@ title: Spring Cloud快速开始
 description: Spring Cloud快速开始
 ---
 
-本文档演示如何将`Spring Cloud`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-springcloud) 。
+本文档演示如何将`Spring Cloud`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu/tree/v2.4.3/shenyu-examples/shenyu-examples-springcloud) 。
 
 ## 环境准备
 
@@ -95,7 +95,7 @@ public class ShenyuBootstrapApplication {
 
 示例项目中我们使用 `eureka` 作为 `Spring Cloud`的注册中心。你可以使用本地的`eureka`，也可以使用示例中提供的应用。
 
-下载 [shenyu-examples-eureka](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-eureka) 、[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
+下载 [shenyu-examples-eureka](https://github.com/apache/shenyu/tree/v2.4.3/shenyu-examples/shenyu-examples-eureka) 、[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
 
 启动`eureka`服务，运行`org.apache.shenyu.examples.eureka.EurekaServerApplication`main方法启动项目。
 

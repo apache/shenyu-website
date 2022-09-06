@@ -36,7 +36,7 @@ description: Http服务接入
   
   可以参考：[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
-  在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
+  1. 在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
 
   ```xml
       <dependency>
@@ -46,7 +46,21 @@ description: Http服务接入
       </dependency>
    ```
 
-  在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
+  2. 在 application.yaml 增加如下配置：
+
+  ```yaml
+  shenyu:
+    client:
+      registerType: http #zookeeper #etcd #nacos #consul
+      serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+      props:
+        contextPath: /http
+        appName: http
+        port: 8189
+        nacosNameSpace: ShenyuRegisterCenter
+  ```
+
+  3. 在你的 `controller` 的接口上加上 `@ShenyuSpringMvcClient` 注解。
 
   你可以把注解加到 `Controller` 类上面，里面的`path`属性则为前缀，如果含有 `/**` 代表你的整个接口需要被网关代理。
 

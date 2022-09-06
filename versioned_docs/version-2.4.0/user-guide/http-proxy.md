@@ -42,15 +42,29 @@ Please refer this：[shenyu-examples-http](https://github.com/apache/incubator-s
 
 * SpringBoot
 
-  Add the following dependencies to the `pom.xml` file in your `Http` service:
+  1. Add the following dependencies to the `pom.xml` file in your `Http` service:
 
-```xml
+  ```xml
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
         <version>${shenyu.version}</version>
     </dependency>
- ```
+  ```
+
+  2. Add the following configuration to application.yaml:
+
+  ```yaml
+  shenyu:
+    client:
+      registerType: http #zookeeper #etcd #nacos #consul
+      serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+      props:
+        contextPath: /http
+        appName: http
+        port: 8189
+        nacosNameSpace: ShenyuRegisterCenter
+  ```
 
 
 * SpringMvc

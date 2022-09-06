@@ -33,7 +33,7 @@ description: gRPC服务接入
 
 可以参考： [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.5.0/shenyu-examples/shenyu-examples-grpc)
 
-* 在由`gRPC`构建的微服务中，引入如下依赖：
+1. 在由`gRPC`构建的微服务中，引入如下依赖：
 
 ```xml
         <dependency>
@@ -56,8 +56,26 @@ mvn protobuf:compile //编译消息对象
 mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 ```
 
+2. 在 application.yaml 增加如下配置：
 
-在`gRPC`服务接口实现类上加上 `@ShenyuGrpcClient` 注解。启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> grpc`，会看到自动注册的选择器和规则信息。
+```yaml
+shenyu:
+  register:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
+      username: admin
+      password: 123456
+  client:
+    grpc:
+      props:
+        contextPath: /grpc
+        appName: grpc
+        ipAndPort: 127.0.0.1:38080
+        port: 38080
+```
+
+3. 在`gRPC`服务接口实现类上加上 `@ShenyuGrpcClient` 注解。启动你的服务提供者，成功注册后，在后台管理系统进入`插件列表 -> rpc proxy -> grpc`，会看到自动注册的选择器和规则信息。
 
 示例：
 

@@ -37,16 +37,29 @@ description: Http服务接入
 
 * `SpringBoot` 用户
 
-  在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
+  1. 在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
 
-```xml
+  ```xml
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-client-springmvc</artifactId>
         <version>${shenyu.version}</version>
     </dependency>
- ```
+  ```
 
+  2. 在 application.yaml 增加如下配置：
+
+  ```yaml
+  shenyu:
+    client:
+      registerType: http #zookeeper #etcd #nacos #consul
+      serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+      props:
+        contextPath: /http
+        appName: http
+        port: 8189
+        nacosNameSpace: ShenyuRegisterCenter
+  ```
 
 * `SpringMvc` 用户
 

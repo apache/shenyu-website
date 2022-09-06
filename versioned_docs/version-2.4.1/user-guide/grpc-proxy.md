@@ -32,8 +32,7 @@ Add the following dependencies in the gateway's `pom.xml` file:
 
 You can refer to：[shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.4.1/shenyu-examples/shenyu-examples-grpc) .
 
-* In the microservice built by `gRPC`, add the following dependencies:
-
+1. In the microservice built by `gRPC`, add the following dependencies:
 
 ```xml
         <dependency>
@@ -56,8 +55,22 @@ mvn protobuf:compile
 mvn protobuf:compile-custom 
 ```
 
-Add `@ShenyuGrpcClient` Annotation on the `gRPC` service interface implementation class. Start your service provider, after successful registration, in the background management system go to PluginList -> rpc proxy -> gRPC, you will see automatic registration of selectors and rules information.
+2. Add the following configuration to application.yaml:
 
+```yaml
+shenyu:
+  client:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
+      contextPath: /grpc
+      appName: grpc
+      ipAndPort: 127.0.0.1:8080
+      nacosNameSpace: ShenyuRegisterCenter
+      port: 8080
+```
+
+3. Add `@ShenyuGrpcClient` Annotation on the `gRPC` service interface implementation class. Start your service provider, after successful registration, in the background management system go to PluginList -> rpc proxy -> gRPC, you will see automatic registration of selectors and rules information.
 
 Example:
 

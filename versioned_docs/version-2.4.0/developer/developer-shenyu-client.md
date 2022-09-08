@@ -26,7 +26,7 @@ description: A multilingual HTTP client
 
     - `query` parameter, the account password is the username and password of the admin service.
 
-      | Field     | Type   | Not Null | Desc                  |
+      | Field     | Type   | Required | Desc                  |
             | -------- | ------ | --------- | --------------------- |
       | userName | String | Yes       | shenyu admin account  |
       | password | String | Yes       | shenyu admin password |
@@ -90,7 +90,7 @@ description: A multilingual HTTP client
 
     - `Body`，`json` format
 
-      | Field        | Type    | Not Null | Desc                                                                                                                                                                                                                 |
+      | Field        | Type    | Required | Desc                                                                                                                                                                                                                 |
                             | ----------- | ------- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------ |
       | protocol    | String  | Yes       | protocol type                                                                                                                                                                                                      |
       | appName     | String  | Yes       | app name                                                                                                                                                                                                           |
@@ -139,7 +139,7 @@ description: A multilingual HTTP client
 
     - `Body`，`json` format.
 
-      | Field             | Type    | Not Null | Desc                                                                                                                                                                         |
+      | Field             | Type    | Required | Desc                                                                                                                                                                         |
                             | ---------------- | ------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------ |
       | appName          | String  | Yes       | app name                                                                                                                                                                   |
       | contextPath      | String  | Yes       | service path                                                                                                                                                               |

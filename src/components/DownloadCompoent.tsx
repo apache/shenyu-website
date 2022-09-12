@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect } from 'react';
 import { useState } from 'react';
+import Translate, { translate } from '@docusaurus/Translate';
 import styles from './DownloadCompoent.module.css';
 
 const data = [
     {
-        title: 'Source Codes',
+        title: translate({ message: 'Source Codes' }),
         versions: [
             {
                 versionTitle: '2.5.0',
@@ -33,7 +34,7 @@ const data = [
         ],
     },
     {
-        title: 'ShenYu-Admin Binary Distribution',
+        title: translate({ message: 'ShenYu-Admin Binary Distribution' }), 
         versions: [
             {
                 versionTitle: '2.5.0',
@@ -62,7 +63,7 @@ const data = [
         ],
     },
     {
-        title: 'ShenYu-Bootstrap Binary Distribution',
+        title: translate({ message: 'ShenYu-Bootstrap Binary Distribution' }), 
         versions: [
             {
                 versionTitle: '2.5.0',
@@ -128,7 +129,7 @@ function DownloadCompoent() {
                 return (
                     <div className={styles.downloadCard}>
                         <div className={styles.downloadCardTitle}>{title}</div>
-                        <button id= 'dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(index) }}>Source</button>
+                        <button id= 'dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(index) }}><Translate>Source</Translate></button>
                         {
                             showItem[index] &&
                             (

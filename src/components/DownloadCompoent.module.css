@@ -21,21 +21,19 @@
     user-select: none;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
     padding: .25rem .5rem;
-    background-color: #eee;
-    background-image: linear-gradient(to bottom,#fcfcfc 0,#eee 100%);
-    background-repeat: no-repeat;
+    background-color: #fff;
     border: 1px solid #d5d5d5;
     border-radius: 4px;
     height: 30px;
-    font-weight: 700;
     font-size: 14px;
+    margin-right: 20px;
 }
 
 .downloadCardButton::after {
     display: inline-block;
     width: 0;
     height: 0;
-    margin-left: 0.255em;
+    margin-left: 1.255em;
     vertical-align: 0.255em;
     content: "";
     border-top: 0.3em solid;
@@ -50,7 +48,11 @@
     border: 1px solid rgba(0,0,0,.15);
     border-radius: .25rem;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 18%);
-    width: 85%;
+    width: 230px;
+    background-color: #FFF;
+    position: absolute;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 
 .versionTitle{

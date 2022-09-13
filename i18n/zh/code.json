@@ -498,5 +498,17 @@
   },
   "Language":{
     "message":"语言"
-  }  
+  },
+  "Source Codes":{
+    "message":"源码"
+  },
+  "Source":{
+    "message":"源码"
+  },
+  "ShenYu-Admin Binary Distribution":{
+    "message": "ShenYu-Admin 二进制包"
+  },
+  "ShenYu-Bootstrap Binary Distribution":{
+    "message": "ShenYu-Bootstrap 二进制包"
+  }
 }

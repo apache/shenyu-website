@@ -23,7 +23,7 @@ description: logging plugin
 
 * Core Module `shenyu-plugin-logging-tencent-cls`
 
-* Core Class `org.apache.shenyu.plugin.tencent.cls.LoggingAliYunSlsPlugin`
+* Core Class `org.apache.shenyu.plugin.tencent.cls.LoggingTencentClsPlugin`
 * Core Class `org.apache.shenyu.plugin.tencent.cls.client.TencentClsLogCollectClient`
 
 ## 1.5 Added Since Which shenyu version

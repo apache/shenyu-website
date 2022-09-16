@@ -1,6 +1,6 @@
 ---
-title: Tencent cls日志插件
-keywords: ["logging"]
+title: Logging-Tencent cls日志插件
+keywords: ["Logging"]
 description: logging插件
 ---
 

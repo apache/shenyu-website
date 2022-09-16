@@ -442,6 +442,9 @@
   "Release Apache Shenyu 2.2.0":{
     "message":"Apache Shenyu 2.2.0 发布"
   },
+  "Release Apache Shenyu 2.5.0": {
+    "message":"Apache Shenyu 2.5.0 发布"
+  },
   "Events":{
     "message":"事件"
   },
@@ -471,5 +474,41 @@
   },
   "Mail Archive":{
     "message":"邮件归档"
+  },
+  "Proxy":{
+    "message":"服务代理"
+  },
+  "Security":{
+    "message":"安全性"
+  },
+  "API governance":{
+    "message":"API 治理"
+  },
+  "Observability":{
+    "message":"可观测性"
+  },
+  "Dashboard":{
+    "message":"控制面板"
+  },
+  "Extensions":{
+    "message":"拓展"
+  },
+  "Cluster":{
+    "message":"集群"
+  },
+  "Language":{
+    "message":"语言"
+  },
+  "Source Codes":{
+    "message":"源码"
+  },
+  "Source":{
+    "message":"源码"
+  },
+  "ShenYu-Admin Binary Distribution":{
+    "message": "ShenYu-Admin 二进制包"
+  },
+  "ShenYu-Bootstrap Binary Distribution":{
+    "message": "ShenYu-Bootstrap 二进制包"
   }
 }

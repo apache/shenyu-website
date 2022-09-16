@@ -6,6 +6,16 @@ export default [
         categray: 'SPI',
         posts: [
             {
+                title: "SPI Source Code Analysis",
+                author: "Throwable (Contributor)",
+                autPage:"https://github.com/zjcscut/",
+                autImg:'/img/blog/throwable.jpeg',
+                src: "SPI-SourceCode-Analysis-SPI",
+                cover: "/img/blog/4-1.png",
+                date: '2022-09-12',
+                abs: "Recently,when I read the source code of open source project Apache Shenyu API gateway,I find and many core components of the gateway are loaded with the SPI module. Here I will analyzes the source code of SPI module in Shenyu gateway."
+            },
+            {
                 title: <Translate>MatchStrategy -- analyze the design based on SPI</Translate>,
                 author: "Huihui Yin (Contributor)",
                 autPage:"https://github.com/changanjennifer",

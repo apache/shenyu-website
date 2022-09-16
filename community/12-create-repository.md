@@ -9,13 +9,13 @@ cover: "/img/architecture/shenyu-framework.png"
 
 ## Create Git repository
 
-Fill in the new repository information in [GitBox](https://gitbox.apache.org/setup/newrepo.html) [1]. Take incubator-shenyu-helm-chart as an example.
+Fill in the new repository information in [GitBox](https://gitbox.apache.org/setup/newrepo.html) [1]. Take shenyu-helm-chart as an example.
 
 ![GitBox](/img/community/create_repo.png)
 
 * `PMC`: choose shenyu
 * `Repository name`: helm-chart (the suffix, not the full name)
-* `Generated name`: incubator-shenyu-helm-chart.git (full name automatically generated, no need to fill in)
+* `Generated name`: shenyu-helm-chart.git (full name automatically generated, no need to fill in)
 * `Commit notification list` and `GitHub notification list`: notifications@shenyu.apache.org
 
 > Click `Yes` to complete the creation. The GitHub repository creation process will take about an hour.

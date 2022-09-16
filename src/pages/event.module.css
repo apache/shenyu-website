@@ -2,7 +2,7 @@
     height: 140px;
     line-height: 140px;
     text-align: center;
-    font-size: 28px;
+    font-size: 1.75rem;
     color: var(--ifm-color-primary);
     font-weight: bold;
 }
@@ -42,8 +42,9 @@
 .cardDesc{
     font-size: 14px;
     color: #475467;
-    white-space: pre;
+    white-space: pre-wrap;
     margin-top: 12px;
+    max-width: 100%;
 }
 
 .readMore:hover{
@@ -57,11 +58,20 @@
 .readMore{
     font-size: 12px;
     color: var(--ifm-color-primary);
-    /* margin-left: 78%;
-     */
     float: right;
     margin-top: 30px;
     background-color: #FFFFFF;
     border: #FFFFFF;
-    /* font-weight: bold; */
+}
+
+@media screen and (max-width: 996px) {
+    .cardItem{
+        margin: 5px;
+        display: flex;
+        height: auto;
+        min-height: 200px;
+        width: 90%;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+    }
 }

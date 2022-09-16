@@ -15,7 +15,7 @@ description:  对ShenYu网关中SPI的使用进行介绍
 
 ### 监控中心扩展
 
-负责服务的监控，通过`SPI`加载具体实现，当前支持`Prometheus` ，服务接口是 `MetricsBootService` 。
+负责服务的监控，通过`SPI`加载具体实现，当前支持`Prometheus` ，服务接口是 `MetricsService` 。
 
 ### 负载均衡扩展
 

@@ -15,7 +15,6 @@
 
 .text{
     max-width: 450px;
-    /* font-family: 'Inter'; */
     font-style: normal;
     font-weight: 440;
     font-size: 13px;
@@ -32,7 +31,7 @@
 }
 
 .item{
-    width: 165px;
+    width: 11rem;
     padding-bottom: 30px;
 }
 
@@ -40,7 +39,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 24px;
     color: #9c9da7;
 }
@@ -64,4 +63,38 @@
     margin-right: 24px;
     height: 48px;
     width: auto;
+}
+
+@media screen and (max-width: 996px) {
+    .containerContent{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .text{
+        font-style: normal;
+        font-weight: 440;
+        font-size: 13px;
+        line-height: 24px;
+        color: #9c9da7;
+        display: block;
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    .footerNav{
+        display: flex;
+        flex-direction: column;
+    }
+
+    :global(.user-swiper-button-previous){
+        top:1350px !important; 
+        left: 0px !important;
+      }
+
+    :global(.user-swiper-button-nextPage){
+        top:1350px !important; 
+        right: 0px !important;
+      } 
 }

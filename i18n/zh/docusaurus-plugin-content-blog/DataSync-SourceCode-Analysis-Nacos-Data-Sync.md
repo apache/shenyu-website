@@ -24,7 +24,7 @@ tags: [nacos,data sync,Apache ShenYu]
 
 #### 2.1 接收数据
 
-- SelectorController.createSelector()
+- SelectorController.updateSelector()
 
 进入`SelectorController`类中的`updateSelector()`方法，它负责数据的校验，添加或更新数据，返回结果信息。
 
@@ -584,7 +584,7 @@ public class NacosProperties {
 
 - NacosDataChangedListener.onSelectorChanged()
 
-  在`onSelectorChanged()`方法中，判断操作类型，是刷新同步还是更新或创建同步。根据当前选择器数据信息判断节点是否在`etcd`中。
+  在`onSelectorChanged()`方法中，判断操作类型，是刷新同步还是更新或创建同步。根据当前选择器数据信息判断节点是否在`nacos`中。
 
 ```java
 /**

@@ -35,9 +35,9 @@ For details about data synchronization configurations, see [Data Synchronization
 
 * SpringBoot  
 
-  Please refer this：[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-http)
+  Please refer this：[shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.4.2/shenyu-examples/shenyu-examples-http)
 
-  Add the following dependencies to the `pom.xml` file in your `Http` service:
+  1. Add the following dependencies to the `pom.xml` file in your `Http` service:
 
   ```xml
       <dependency>
@@ -46,6 +46,24 @@ For details about data synchronization configurations, see [Data Synchronization
           <version>${shenyu.version}</version>
       </dependency>
    ```
+
+  2. Add the following configuration to application.yaml:
+
+  ```yaml
+  shenyu:
+    register:
+      registerType: http #zookeeper #etcd #nacos #consul
+      serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+      props:
+        username: admin
+        password: 123456
+    client:
+      http:
+        props:
+          contextPath: /http
+          appName: http
+    #      port: 8189
+  ```
 
 * SpringMvc
 

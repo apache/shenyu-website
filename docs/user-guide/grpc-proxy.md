@@ -8,9 +8,9 @@ This document is intended to help the `gRPC` service access the `Apache ShenYu` 
 
 Before the connection, start `shenyu-admin` correctly, start `gRPC` plugin, and add related dependencies on the gateway and `gRPC` application client. Refer to the previous [Quick start with gRPC](../quick-start/quick-start-grpc) .
 
-For details about client access configuration, see [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
+For details about client access configuration, see [Application Client Access Config](property-config/register-center-access.md) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](docs/user-guide/property-config/use-data-sync.md) .
+For details about data synchronization configurations, see [Data Synchronization Config](property-config/use-data-sync.md) .
 
 ## Add gRPC plugin in gateway
 
@@ -30,9 +30,9 @@ Add the following dependencies in the gateway's `pom.xml` file:
 
 ## gRPC service access gateway
 
-You can refer to：[shenyu-examples-grpc](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-grpc) .
+You can refer to：[shenyu-examples-grpc](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) .
 
-* In the microservice built by `gRPC`, add the following dependencies:
+1. In the microservice built by `gRPC`, add the following dependencies:
 
 
 ```xml
@@ -56,8 +56,26 @@ mvn protobuf:compile
 mvn protobuf:compile-custom 
 ```
 
-Add `@ShenyuGrpcClient` Annotation on the `gRPC` service interface implementation class. Start your service provider, after successful registration, in the background management system go to PluginList -> rpc proxy -> gRPC, you will see automatic registration of selectors and rules information.
+2. Add the following configuration to application.yaml:
 
+```yaml
+shenyu:
+  register:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
+      username: admin
+      password: 123456
+  client:
+    grpc:
+      props:
+        contextPath: /grpc
+        appName: grpc
+        ipAndPort: 127.0.0.1:38080
+        port: 38080
+```
+
+3. Add `@ShenyuGrpcClient` Annotation on the `gRPC` service interface implementation class. Start your service provider, after successful registration, in the background management system go to PluginList -> rpc proxy -> gRPC, you will see automatic registration of selectors and rules information.
 
 Example:
 

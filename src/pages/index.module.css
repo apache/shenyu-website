@@ -3,7 +3,7 @@
 }
 
 .section {
-  padding: 72px 0;
+  padding: 4.5rem 0;
   width: 100%;
 }
 
@@ -20,51 +20,15 @@
   user-select: none;
 }
 
-.featureImage {
-  max-width: 60%;
-  max-height: 128px;
-  margin: 0 auto;
-}
-
-.featureHeading {
-  font-size: var(--ifm-h3-font-size);
-  padding-top: 1rem;
-}
-
-.announcement {
-  font-weight: bold;
-  font-size: 24px;
-  padding: 48px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.announcementDark {
-  background-color: #20232a;
-  color: #fff;
-}
-
-.announcementInner {
-  margin: 0 auto;
-  max-width: 768px;
-}
-
 .hero {
   background-color: #F5F6F7;
-  padding: 48px;
-  border-radius: 8px;
+  padding: 3rem;
+  border-radius: 0.5rem;
 }
-
-.heroInner {
-  margin: 0 auto;
-  max-width: 1100px;
-  padding: 0 20px;
-}
-
 
 .heroProjectTitle {
   color: #fff;
-  font-size: 60px;
+  font-size: 3.75rem;
   margin: 0;
   display: flex;
   align-items: center;
@@ -77,30 +41,12 @@
   margin-right: .25em;
 }
 
-.heroProjectSubTitle {
-  color: #fff;
-  font-size: 40px;
-  margin: 0;
-}
-
-.heroProjectTagline {
-  color: #000;
-  font-size: 25px;
-  margin: 0;
-}
-
 .heroTitleTextHtml b {
   color: #FF5C00;
 }
 
-.heroDesc{
-  color: #000033;
-  font-size: 20px;
-  margin: 0;
-}
-
 .buttonGetStarted{
-  width: 160px;
+  width: 10rem;
   background-color: #000033;
   text-align: center;
   height: 40px;
@@ -116,7 +62,7 @@
 }
 
 .buttonGithub{
-  width: 160px;
+  width: 10rem;
   background-color: #fff;
   text-align: center;
   height: 40px;
@@ -170,7 +116,7 @@
   animation-name: jackInTheBox;
   float: right;
   /* padding: 0 20px 20px; */
-  width: 600px;
+  width: 37.5rem;
   height: 400px;
   display: flex;
   align-items: center;
@@ -180,7 +126,6 @@
 .indexCtas {
   --ifm-button-size-multiplier: 1.6;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   margin-top: 24px;
 }
@@ -211,7 +156,7 @@
 .blockTitle:before {
   content: "";
   display: block;
-  width: 50px;
+  width: 3rem;
   height: 3px;
   background-color: var(--ifm-color-primary);
   margin: 0 auto 8px;
@@ -235,7 +180,7 @@
 
 .scrollView{
   margin-top: 40px;
-  animation: 45s linear 0s infinite alternate none running animation-autoplay;
+  animation: 15s linear 0s infinite alternate none running animation-autoplay;
   position:absolute;
 }
 
@@ -245,7 +190,7 @@
   }
 
   100% {
-    transform: translate3d(-4500px, 0px, 0px);
+    transform: translate3d(-2000px, 0px, 0px);
   }
 }
 
@@ -256,7 +201,6 @@
 
 .scrollLine2{
   display: flex;
-  /* padding-left: 130px; */
   align-items: center;
 }
 
@@ -268,14 +212,14 @@
 
 .scrollItem{
   flex-shrink: 0;
-  width: 320px;
-  padding: 15px 30px;
+  width: 170px;
+  padding: 15px 0px;
   height: 100px;
 }
 
 .scrollImage{
-  width: 55%;
-  height: 55%;
+  width: 68%;
+  height: 68%;
   object-fit: contain;
 }
 
@@ -308,5 +252,37 @@
 .contentImg{
   display: table;
   margin: 0 auto;
-  /* width: 80%; */
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+
+  .heroProjectTagline{
+    font-size: 20px;
+  }
+
+  .logoContainer{
+    border-radius: 8px;
+    box-shadow: 6px 6px 22px 2px  rgb(0 0 51 / 20%);
+    animation-duration: 2s;
+    animation-name: jackInTheBox;
+    width: 85vw;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(245,246,247);
+  }
+
+
+  :global(.user-swiper-button-prev){
+    top:950px !important; 
+    left: 0px !important;
+  }
+
+  :global(.user-swiper-button-next){
+    top:950px !important;
+    right: 0px !important;
+  }
 }

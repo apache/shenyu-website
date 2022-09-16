@@ -773,7 +773,7 @@ public final class BaseDataCache {
 
 ![](/img/activities/code-analysis-websocket-data-sync/handler-selector.png)
 
-经过以上的源码追踪，并通过一个实际的案例，在`admin`端新增一条选择器数据，就将`websocket`数据同步的流程分析清除了。
+经过以上的源码追踪，并通过一个实际的案例，在`admin`端新增一条选择器数据，就将`websocket`数据同步的流程分析清楚了。
 
 我们还是用下面的一张图将网关端的数据同步流程串联一下：
 

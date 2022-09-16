@@ -8,9 +8,9 @@ description: SpringCloud接入ShenYu网关
 
 接入前，请正确启动 `shenyu-admin`，并开启`springCloud`插件，在网关端和`springCloud`服务端引入相关依赖。可以参考前面的 [Spring Cloud快速开始](../quick-start/quick-start-springcloud)。
 
-应用客户端接入的相关配置请参考：[客户端接入配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/register-center-access.md)。
+应用客户端接入的相关配置请参考：[客户端接入配置](property-config/register-center-access.md)。
 
-数据同步的相关配置请参考：[数据同步配置](i18n/zh/docusaurus-plugin-content-docs/current/user-guide/property-config/use-data-sync.md)。
+数据同步的相关配置请参考：[数据同步配置](property-config/use-data-sync.md)。
 
 ## 在网关中引入 springCloud 插件
 
@@ -116,7 +116,7 @@ public class ShenyuBootstrapApplication {
 
 ## SpringCloud服务接入网关
 
-可以参考：[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-springcloud)
+可以参考：[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
 
 
 * 在由`SpringCloud`构建的微服务中，引入如下依赖：
@@ -188,13 +188,18 @@ public class ShenyuBootstrapApplication {
 
 ```yaml
 shenyu:
-  client:
-    registerType: http
-    serverLists: http://localhost:9095
+  register:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
     props:
-      contextPath: /http
-      appName: http
-      isFull: true
+      username: admin
+      password: 123456
+  client:
+    springCloud:
+      props:
+        contextPath: /springcloud
+        isFull: true
+#        port: 8884
 # registerType : 服务注册类型，请参考应用客户端接入文档
 # serverList: 服务列表，请参考应用客户端接入文档
 # contextPath: 为你的项目在shenyu网关的路由前缀。 比如/order ，/product 等等，网关会根据你的这个前缀来进行路由。

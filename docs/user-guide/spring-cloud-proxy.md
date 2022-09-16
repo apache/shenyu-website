@@ -8,9 +8,9 @@ This document is intended to help the `Spring Cloud` service access the `Apache 
 
 Before the connection, start `shenyu-admin` correctly, start `springCloud` plugin, and add related dependencies on the gateway and `springCloud` application client. Refer to the previous [Quick start with Spring Cloud](../quick-start/quick-start-springcloud) .
 
-For details about client access configuration, see [Application Client Access Config](docs/user-guide/property-config/register-center-access.md) .
+For details about client access configuration, see [Application Client Access Config](property-config/register-center-access.md) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](docs/user-guide/property-config/use-data-sync.md) .
+For details about data synchronization configurations, see [Data Synchronization Config](property-config/use-data-sync.md) .
 
 
 ## Add springcloud plugin in gateway
@@ -118,7 +118,7 @@ public class ShenyuBootstrapApplication {
 
 ## SpringCloud service access gateway
 
-Please refer to [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-springcloud)
+Please refer to [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
 
 * Add the following dependencies to your `Spring Cloud` microservice :
 
@@ -184,17 +184,21 @@ example (3)：  `isFull`：`true`  represents that all service will be represent
 
 ```yaml
 shenyu:
-  client:
-    registerType: http
-    serverLists: http://localhost:9095
+  register:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
     props:
-      contextPath: /http
-      appName: http
-      isFull: true
+      username: admin
+      password: 123456
+  client:
+    springCloud:
+      props:
+        contextPath: /springcloud
+        isFull: true
+#        port: 8884
 # registerType : service registre type, see the application client access document
 # serverList: server list, see the application client access document
 # contextPath: route prefix for your project in ShenYu gateway.
-# appName：your application name
 # isFull: set true to proxy your all service and false to proxy some of your controllers
 ```
 

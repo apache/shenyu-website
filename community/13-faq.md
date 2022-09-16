@@ -20,7 +20,7 @@ He is known as one of the three greatest kings of ancient China, along with Yao 
 
 * 2018, Create projects and open source. Excellent architectural ideas and code style, leading reactor programming, once opened sourced, it has attracted much attention.
 * 2020, Community development. Continuous release of versions and open community governance have attracted a large number of community members to join.
-* 2021, Donate to the Apache Foundation. The Apache Foundation passed the unanimous vote and entered the incubator smoothly.
+* 2021, Donate to the Apache Foundation. The Apache Foundation passed the unanimous vote and entered the smoothly.
 
 ### 3. In Windows environment,when cloning Apache Shenyu source code through Git, why prompt filename too long and how to solve it?
 

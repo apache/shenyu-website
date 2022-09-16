@@ -2,7 +2,7 @@
     height: 140px;
     line-height: 140px;
     text-align: center;
-    font-size: 28px;
+    font-size: 1.75rem;
     color: var(--ifm-color-primary);
     font-weight: bold;
 }
@@ -23,7 +23,7 @@
     margin: 5px;
     display: flex;
     height: auto;
-    min-height: 200px;
+    min-height: 12.5rem;
     width: 50%;
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -32,15 +32,18 @@
 .cardInfo{
     margin: 20px 30px 20px 30px;
     width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .cardDate{
-    font-size: 10px;
+    font-size: 0.625rem;
     margin-bottom: 15px;
 }
 
 .cardTitle{
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
 }
 
@@ -52,9 +55,7 @@
 
 .cardImage{
     margin: 20px 0px 20px 30px;
-    /* height: auto;
-    max-height: 180px; */
-    width: 210px;
+    width: 13rem;
 }
 
 .readMore:hover{
@@ -66,11 +67,39 @@
 }
 
 .readMore{
-    font-size: 12px;
+    align-self: flex-end;
+    display: flex;
+    justify-content: end;
+    font-size: 0.75rem;
     color: var(--ifm-color-primary);
-    margin-left: 78%;
     margin-top: 30px;
     background-color: #FFFFFF;
     border: #FFFFFF;
-    /* font-weight: bold; */
+}
+
+
+@media screen and (max-width: 996px) {
+    .cardItem{
+        margin: 5px;
+        display: flex;
+        height: auto;
+        min-height: 200px;
+        width: 90%;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+    }
+
+    .cardImage{
+        margin: 10px 0px 20px 10px;
+        width: 13rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cardImage{
+        display: none;
+    }
+    .cardInfo{
+        width: 100%;
+    }
 }

@@ -35,7 +35,7 @@ description: Logging-Kafka Plugin
 
 * Architecture Diagram
 
-![](/img/shenyu/plugin/logging/shenyu-agent-logging-arch.png)
+![](/img/shenyu/plugin/logging/logging-kafka/logging-kafka-arch.jpg)
 
 * Full asynchronous collection and delivery of `Logging` inside the `Apache ShenYu` gateway
 

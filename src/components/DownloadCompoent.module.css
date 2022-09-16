@@ -1,0 +1,75 @@
+.downloadContainer{
+    display: flex;
+    margin-left: -24px;
+    margin-bottom: 20px;
+}
+
+.downloadCard{
+    width: 40%;
+    border-right: 1px solid #dadde0;
+    margin: 0 24px;
+}
+
+.downloadCardTitle{
+    height: 60px;
+    font-weight: 600;
+}
+
+.downloadCardButton {
+    font-family: inherit;
+    vertical-align: middle;
+    user-select: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    padding: .25rem .5rem;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    height: 30px;
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.downloadCardButton::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 1.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.dropDownContainer{
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 18%);
+    width: 230px;
+    background-color: #FFF;
+    position: absolute;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.versionTitle{
+    text-align: left;
+    list-style: none;
+    box-sizing: border-box;
+    margin-top: 0;
+    font-weight: 600;
+    line-height: 1.5;
+    display: block;
+    margin-bottom: 0;
+    white-space: nowrap;
+    color: #222;
+    font-size: 16px;
+    padding: .5rem 1.5rem 0;
+}
+
+.downloadLinks{
+    padding: .5rem 1.5rem 0;
+}

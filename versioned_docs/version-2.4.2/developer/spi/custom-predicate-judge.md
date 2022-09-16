@@ -9,7 +9,7 @@ description: Custom Predicate Judge
 * This paper describes how to customize the extension of  `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge`.
 * The conditional predicate is the bridge between data and rules in the selector and serves to filter out requests that match the conditions.
 * There are already seven conditional predicates including match, =, regex, contains, TimeBefore, TimeAfter, exclude.
-* Please refer to [judge](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-plugin/shenyu-plugin-base/src/main/java/org/apache/shenyu/plugin/base/condition/judge) module, add your own conditional predicates, or submit `pr` to the official website if you have a good common plugin.
+* Please refer to [judge](https://github.com/apache/shenyu/tree/v2.4.2/shenyu-plugin/shenyu-plugin-base/src/main/java/org/apache/shenyu/plugin/base/condition/judge) module, add your own conditional predicates, or submit `pr` to the official website if you have a good common plugin.
 
 ## Extension
 

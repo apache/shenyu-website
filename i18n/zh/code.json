@@ -295,8 +295,12 @@
   "Read More":{
     "message":"阅读更多"
   },
-
-
+  "SPI Source Code Analysis":{
+    "message":"SPI设计实现源码分析"
+  },
+  "Recently,when I read the source code of open source project Apache Shenyu API gateway,I find and many core components of the gateway are loaded with the SPI module. Here I will analyzes the source code of SPI module in Shenyu gateway.":{
+    "message":"最近研读Apache开源项目Shenyu网关的源码，网关的多个核心组件加载都用到了SPI模块。本文就Shenyu中的SPI设计和源码实现进行分析。"
+  },
   "MatchStrategy -- analyze the design based on SPI":{
     "message":"MatchStrategy--基于SPI的代码分析"
   },

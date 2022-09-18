@@ -207,6 +207,7 @@ openresty -s reload
 Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) working with Nacos.
 
 ## Greeting Zookeeper
+
 Modify the Nginx configure, create and initialize the ShenYu register to connect to target register center.
 Listen for changes to the node via the zookeeper watch event. Here is an example of the zookeeper configuration.
 
@@ -234,6 +235,7 @@ Modify the upstream to enable to update upstream servers dynamically. This case 
         }
     }
 ```
+
 Finally, restart OpenResty.
 
 ```

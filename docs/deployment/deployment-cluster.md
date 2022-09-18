@@ -88,6 +88,7 @@ server {
 * verify nginx, looking at your `ShenYu Bootstrap` log or `Nginx` log, Where will the verification request go.
 
 Apache ShenYu Nginx Module
+
 ---
 
 This module provided SDK to watch available ShenYu instance list as upstream nodes by Service Register Center for OpenResty.
@@ -207,6 +208,7 @@ openresty -s reload
 Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) working with Nacos.
 
 ## Greeting Zookeeper
+
 Modify the Nginx configure, create and initialize the ShenYu register to connect to target register center.
 Listen for changes to the node via the zookeeper watch event. Here is an example of the zookeeper configuration.
 

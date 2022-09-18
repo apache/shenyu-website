@@ -103,6 +103,7 @@ server {
 2. OpenResty
 
 #### 从源码构建
+
 首先，从GitHub clone源码。
 
 ```
@@ -184,6 +185,7 @@ upstream shenyu {
 ```
 openresty -s reload
 ```
+
 这就是一个完整的Nacos的使用[example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) 。
 
 #### Zookeeper开始
@@ -203,6 +205,7 @@ init_worker_by_lua_block {
         });
     }
 ```
+
 1. `servers` zookeeper 集群地址。
 2. `balancer_type`指定负载均衡模式。它支持chash和round robin。
 
@@ -216,9 +219,11 @@ upstream shenyu {
         }
     }
 ```
+
 最后，重启 OpenResty。
 
 ```
 openresty -s reload
 ```
+
 这是一个使用 Zookeeper的完整[示例](https://github.com/apache/incubator-shenyu-nginx/blob/main/example/zookeeper/nginx.conf) 。

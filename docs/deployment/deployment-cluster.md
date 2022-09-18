@@ -109,13 +109,15 @@ Currently, Apache ShenYu Bootstrap already supports Apache Zookeeper, Nacos, Etc
 ### Build from source
 
 The first, clone the source from GitHub.
+
 ```
-git clone https://github.com/apache/incubator-shenyu-nginx
+git clone https://github.com/apache/shenyu-nginx
 ```
 
 Then, build from source and install.
+
 ```
-cd incubator-shenyu-nginx
+cd shenyu-nginx
 luarocks make rockspec/shenyu-nginx-main-0.rockspec
 ```
 
@@ -126,6 +128,7 @@ The module will fetch the all of ShenYu instances which are registered to Etcd i
 It works like Etcd client to watch(based on long polling) ShenYu instance lists.
 
 Here is an example for Etcd.
+
 ```
 init_worker_by_lua_block {
     local register = require("shenyu.register.etcd")
@@ -141,6 +144,7 @@ init_worker_by_lua_block {
 
 Add an `upstream block` for ShenYu and enable to update upstream servers dynamically. This case will synchronize the ShenYu instance list with register center.
 And then pick one up for handling the request.
+
 ```
 upstream shenyu {
     server 0.0.0.1; -- bad 
@@ -152,6 +156,7 @@ upstream shenyu {
 ```
 
 Finally, restart OpenResty.
+
 ```
 openresty -s reload
 ```
@@ -161,6 +166,7 @@ Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/e
 ### Greeting Nacos
 
 Modify the Nginx configure, create and initialize the ShenYu Register to connect to target register center.  Here is an example for Nacos.
+
 ```
 init_worker_by_lua_block {
     local register = require("shenyu.register.nacos")
@@ -181,6 +187,7 @@ init_worker_by_lua_block {
 
 Modify the `upstream` to enable to update upstream servers dynamically. This case will synchronize the ShenYu instance list with register center.
 And then pick one up for handling the request.
+
 ```
 upstream shenyu {
     server 0.0.0.1; -- bad 
@@ -192,6 +199,7 @@ upstream shenyu {
 ```
 
 Finally, restart OpenResty.
+
 ```
 openresty -s reload
 ```
@@ -201,6 +209,7 @@ Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/e
 ## Greeting Zookeeper
 Modify the Nginx configure, create and initialize the ShenYu register to connect to target register center.
 Listen for changes to the node via the zookeeper watch event. Here is an example of the zookeeper configuration.
+
 ```
 init_worker_by_lua_block {
         local register = require("shenyu.register.zookeeper")
@@ -211,10 +220,12 @@ init_worker_by_lua_block {
         });
     }
 ```
+
 1. `servers` zookeeper cluster address.
 2. ``balancer_type`` specify the balancer. It has supported `chash` and `round robin`.
 
 Modify the upstream to enable to update upstream servers dynamically. This case will synchronize the ShenYu instance list with register center. And then pick one up for handling the request.
+
 ```
  upstream shenyu {
         server 0.0.0.1;
@@ -223,8 +234,11 @@ Modify the upstream to enable to update upstream servers dynamically. This case 
         }
     }
 ```
+
 Finally, restart OpenResty.
+
 ```
 openresty -s reload
 ```
+
 Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/zookeeper/nginx.conf) working with Zookeeper.

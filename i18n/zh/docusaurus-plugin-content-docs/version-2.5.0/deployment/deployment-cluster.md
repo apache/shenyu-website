@@ -100,18 +100,23 @@ server {
 2. OpenResty
 #### 从源码构建
 首先，从GitHub clone源码。
+
 ```
 git clone https://github.com/apache/shenyu-nginx
 ```
+
 然后，从源代码构建并安装。
+
 ```
 cd shenyu-nginx
 luarocks make rockspec/shenyu-nginx-main-0.rockspec
 ```
+
 #### Etcd开始
 修改Nginx配置，创建并初始化Shenyu register模块,连接至目标注册中心。该模块将获取在同一个集群中注册到Etcd的
 所有Shenyu实例。它与Etcd客户端一样监视(基于长轮询)Shenyu实例列表。
 *Etcd示例：*
+
 ```
 init_worker_by_lua_block {
     local register = require("shenyu.register.etcd")
@@ -121,18 +126,22 @@ init_worker_by_lua_block {
     })
 }
 ```
+
 1. `balancer_type`指定负载均衡模式。它支持`chash`和`round` `robin`。
 2. `etcd_base_url`指定 `Etcd` 服务器。（目前不支持身份验证）。
 
 最后，重启OpenResty。
+
 ```
 openresty -s reload
 ```
+
 这就是一个完整的Etcd的使用[示例](https://github.com/apache/shenyu-nginx/blob/main/example/etcd/nginx.conf) 。
 #### Nacos开始
 修改Nginx配置，创建并初始化Shenyu register模块，连接至目标注册中心。以下是Nacos的示例：
 
 **Nacos示例:**
+
 ```
 init_worker_by_lua_block {
     local register = require("shenyu.register.nacos")
@@ -145,12 +154,14 @@ init_worker_by_lua_block {
     })
 }
 ```
+
 1. `balancer_type`指定负载均衡模式。它支持`chash`和`round` `robin`。
 2. `nacos_base_url`指定 `Nacos` 服务器地址。
 3. `username`指定登录 `Nacos` 的用户名。（仅在启用 Nacos auth 时才需要）
 4. `password`指定登录 `Nacos` 的密码。
 
 修改`upstream`启用动态更新shenyu实例列表。本案例将Shenyu实例列表与注册中心同步。
+
 ```
 upstream shenyu {
     server 0.0.0.1; -- bad 
@@ -160,7 +171,9 @@ upstream shenyu {
     }
 }
 ```
+
 最后，重启OpenResty。
+
 ```
 openresty -s reload
 ```
@@ -170,6 +183,7 @@ openresty -s reload
 通过 zookeeper watch 事件监听Shenyu实例列表的变化。下面是 zookeeper 配置的示例。
 
 **Zookeeper示例:**
+
 ```
 init_worker_by_lua_block {
         local register = require("shenyu.register.zookeeper")
@@ -194,6 +208,7 @@ upstream shenyu {
     }
 ```
 最后，重启 OpenResty。
+
 ```
 openresty -s reload
 ```

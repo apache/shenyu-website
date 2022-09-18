@@ -19,33 +19,39 @@ description: 二进制包部署
 * 使用 `h2` 来存储后台数据：
 
 ```
-> windows: start.bat --spring.profiles.active = h2
+> windows: start.bat
 
-> linux: ./start.sh --spring.profiles.active = h2
+> linux: ./start.sh
 ```
 
 * 使用 `MySQL` 来存储后台数据，需按照 [指引文档](./deployment-before.md#mysql) 初始化数据库，将 [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) 拷贝到 `/${your_work_dir}/ext-lib`， 进入 `/conf` 目录修改 `application-mysql.yaml` 中 `jdbc` 的配置。
 
-```
-> windows: start.bat --spring.profiles.active = mysql
+* 将 `conf/application.yml` 中的 `spring.profiles.active` 修改成 `mysql`
 
-> linux: ./start.sh --spring.profiles.active = mysql
+```
+> windows: start.bat
+
+> linux: ./start.sh
 ```
 
 * 使用 `PostgreSql` 来存储后台数据，需按照 [指引文档](./deployment-before.md#postgresql) 初始化数据库， 进入 `/conf` 目录修改 `application-pg.yaml` 中 `jdbc` 的配置。
 
-```
-> windows: start.bat --spring.profiles.active = pg
+* 将 `conf/application.yml` 中的 `spring.profiles.active` 修改成 `pg`
 
-> linux: ./start.sh --spring.profiles.active = pg
+```
+> windows: start.bat
+
+> linux: ./start.sh
 ```
 
 * 使用 `Oracle` 来存储后台数据，需按照 [指引文档](./deployment-before.md#oracle) 初始化数据库， 进入 `/conf` 目录修改 `application-oracle.yaml` 中 `jdbc` 的配置。
 
-```
-> windows: start.bat --spring.profiles.active = oracle
+* 将 `conf/application.yml` 中的 `spring.profiles.active` 修改成 `oracle`
 
-> linux: ./start.sh --spring.profiles.active = oracle
+```
+> windows: start.bat
+
+> linux: ./start.sh
 ```
 
 ### 启动 Apache ShenYu Bootstrap

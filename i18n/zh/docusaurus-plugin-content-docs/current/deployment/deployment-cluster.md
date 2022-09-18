@@ -101,11 +101,11 @@ server {
 2. OpenResty
 #### 从源码构建
 首先，从GitHub clone源码。
-```shell
+```
 git clone https://github.com/apache/shenyu-nginx
 ```
 然后，从源代码构建并安装。
-```shell
+```
 cd shenyu-nginx
 luarocks make rockspec/shenyu-nginx-main-0.rockspec
 ```
@@ -113,7 +113,7 @@ luarocks make rockspec/shenyu-nginx-main-0.rockspec
 修改Nginx配置，创建并初始化Shenyu register模块,连接至目标注册中心。该模块将获取在同一个集群中注册到Etcd的
 所有Shenyu实例。它与Etcd客户端一样监视(基于长轮询)Shenyu实例列表。
 *Etcd示例：*
-```shell
+```
 init_worker_by_lua_block {
     local register = require("shenyu.register.etcd")
     register.init({
@@ -126,7 +126,7 @@ init_worker_by_lua_block {
 2. `etcd_base_url`指定 `Etcd` 服务器。（目前不支持身份验证）。
 
 最后，重启OpenResty。
-```shell
+```
 openresty -s reload
 ```
 这就是一个完整的Etcd的使用[示例](https://github.com/apache/shenyu-nginx/blob/main/example/etcd/nginx.conf) 。
@@ -134,7 +134,7 @@ openresty -s reload
 修改Nginx配置，创建并初始化Shenyu register模块，连接至目标注册中心。以下是Nacos的示例：
 
 **Nacos示例:**
-```shell
+```
 init_worker_by_lua_block {
     local register = require("shenyu.register.nacos")
     register.init({
@@ -152,7 +152,7 @@ init_worker_by_lua_block {
 4. `password`指定登录 `Nacos` 的密码。
 
 修改`upstream`启用动态更新shenyu实例列表。本案例将Shenyu实例列表与注册中心同步。
-```shell
+```
 upstream shenyu {
     server 0.0.0.1; -- bad 
     
@@ -162,7 +162,7 @@ upstream shenyu {
 }
 ```
 最后，重启OpenResty。
-```shell
+```
 openresty -s reload
 ```
 这就是一个完整的Nacos的使用[example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) 。
@@ -171,7 +171,7 @@ openresty -s reload
 通过 zookeeper watch 事件监听Shenyu实例列表的变化。下面是 zookeeper 配置的示例。
 
 **Zookeeper示例:**
-```shell
+```
 init_worker_by_lua_block {
         local register = require("shenyu.register.zookeeper")
         register.init({
@@ -186,7 +186,7 @@ init_worker_by_lua_block {
 
 修改`upstream`启用动态更新Shenyu实例列表。本案例将Shenyu实例列表与注册中心同步。
 
-```shell
+```
 upstream shenyu {
         server 0.0.0.1;
         balancer_by_lua_block {
@@ -195,7 +195,7 @@ upstream shenyu {
     }
 ```
 最后，重启 OpenResty。
-```shell
+```
 openresty -s reload
 ```
 这是一个使用 Zookeeper的完整[示例](https://github.com/apache/incubator-shenyu-nginx/blob/main/example/zookeeper/nginx.conf) 。

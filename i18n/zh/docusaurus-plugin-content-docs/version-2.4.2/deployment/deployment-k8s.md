@@ -1,18 +1,18 @@
 ---
 sidebar_position: 4
-title: k8s部署
+title: K8s部署
 keywords: ["k8s"]
-description: k8s部署
+description: K8s部署
 ---
 
-本文介绍使用 `k8s` 来部署 `Apache ShenYu` 网关。
+本文介绍使用 `K8s` 来部署 `Apache ShenYu` 网关。
 
 
 > 目录
 >
 > 示例一. 使用 h2 作为数据库
 >
-> 	1. 创建 nameSpace 和 configMap
+> 	1. 创建 Namespace 和 ConfigMap
 > 	2. 部署 shenyu-admin
 > 	3. 部署 shenyu-bootstrap
 > 
@@ -21,20 +21,20 @@ description: k8s部署
 > 和 h2 过程类似，需要额外注意的两个地方：
 > 
 > 	1. 需要下载 mysql-connector.jar，容器启动时会执行下载命令
-> 	2. 需要指定外部 mysql 数据库配置，通过 endpoint 来代理外部 mysql 数据库
+> 	2. 需要指定外部 mysql 数据库配置，通过 Endpoints 来代理外部 mysql 数据库
 > 
 > 具体流程如下：
 > 
-> 	1. 创建 nameSpace和 configMap
-> 	2. 创建 endpoint 代理外部 mysql
+> 	1. 创建 Namespace和 ConfigMap
+> 	2. 创建 Endpoints 代理外部 mysql
 > 	3. 部署 shenyu-admin
 > 	4. 部署 shenyu-bootstrap
 
 ## 示例一：使用 h2 作为数据库
 
-### 1. 创建 nameSpace 和 configMap
+### 1. 创建 Namespace 和 ConfigMap
 
-> 创建 nameSpace 和网关用到的配置文件
+> 创建 Namespace 和网关用到的配置文件
 
 - 创建文件 shenyu-ns.yaml
 
@@ -388,7 +388,7 @@ spec:
 
 ## 示例二：使用 mysql 作为数据库
 
-### 1. 创建 nameSpace和 configMap
+### 1. 创建 Namespace和 ConfigMap
 
 - 创建文件 shenyu-ns.yaml
 
@@ -606,7 +606,7 @@ data:
 
 - 执行 `kubectl apply -f shenyu-ns.yaml`
 
-### 2. 创建 endpoint 代理外部 mysql
+### 2. 创建 Endpoints 代理外部 mysql
 
 - 创建文件 shenyu-ep.yaml
 

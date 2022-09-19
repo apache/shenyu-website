@@ -15,17 +15,17 @@ description: K8s部署
 > 	1. 创建 Namespace和 ConfigMap
 > 	2. 部署 shenyu-admin
 > 	3. 部署 shenyu-bootstrap
-> 二. 使用 mysql 作为数据库
+> 二. 使用 MySQL 作为数据库
 >
 >	和 h2 过程类似，需要注意的两个地方
 >
 > 	1. 需要加载 mysql-connector.jar，所以需要一个文件存储的地方
-> 	2. 需要指定外部 mysql 数据库配置，通过 Endpoints 来代理外部 mysql 数据库
+> 	2. 需要指定外部 MySQL 数据库配置，通过 Endpoints 来代理外部 MySQL 数据库
 > 	
 >	具体流程如下：
 >
 > 	1. 创建 Namespace和 ConfigMap
-> 	2. 创建 Endpoints 代理外部 mysql
+> 	2. 创建 Endpoints 代理外部 MySQL
 > 	3. 创建 PV 存储 mysql-connector.jar
 > 	4. 部署 shenyu-admin
 > 	5. 部署 shenyu-bootstrap
@@ -222,7 +222,7 @@ spec:
 
 
 
-## 二. 使用 mysql 作为数据库
+## 二. 使用 MySQL 作为数据库
 
 ### 1. 创建 Namespace和 ConfigMap
 
@@ -302,7 +302,7 @@ data:
 
 - 执行 `kubectl apply -f shenyu-ns.yaml`
 
-### 2. 创建 Endpoints 代理外部 mysql
+### 2. 创建 Endpoints 代理外部 MySQL
 
 - 创建文件 shenyu-ep.yaml
 

@@ -603,7 +603,7 @@ data:
 
 - execute `kubectl apply -f shenyu-ns.yaml`
 
-### 2. Create Endpoints to represent mysql
+### 2. Create Endpoints to represent MySQL
 
 - create shenyu-ep.yaml
 

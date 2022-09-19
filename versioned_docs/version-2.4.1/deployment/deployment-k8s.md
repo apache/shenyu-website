@@ -222,7 +222,7 @@ spec:
 
 
 
-## II. Use mysql as the database
+## II. Use MySQL as the database
 
 ### 1. Create Namespace and ConfigMap
 
@@ -302,7 +302,7 @@ data:
 
 - execute `kubectl apply -f shenyu-ns.yaml`
 
-### 2. Create Endpoints to represent mysql
+### 2. Create Endpoints to represent MySQL
 
 - create shenyu-ep.yaml
 

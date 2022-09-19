@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: K8S Deployment
+title: K8s Deployment
 keywords: ["k8s"]
 description: K8s Deployment
 ---

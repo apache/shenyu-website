@@ -85,7 +85,7 @@ description: 数据同步
 
 `Nacos`的同步原理与Zookeeper基本类似，主要依赖于`Nacos`的`配置管理`,各个配置节点的路径与Zookeeper类似。
 
-`Apache ShenYu`网关会监听配置的节点，启动时，如果`Nacos`中不存在配置节点，将同步全量的数据写入`Nacos`中，后序数据发送变更时，全量更新`Nacos`中的配置节点，与此同时，`Apache ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
+`Apache ShenYu`网关会监听配置的节点，启动时，如果`Nacos`中不存在配置节点，将同步全量的数据写入`Nacos`中，后续数据发生变更时，全量更新`Nacos`中的配置节点，与此同时，`Apache ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
 如果您想深入了解代码实现，请参考源码 `NacosSyncDataService`和`Nacos`的[官方文档](https://nacos.io/zh-cn/docs/sdk.html)。
 
@@ -96,7 +96,7 @@ description: 数据同步
 
 `Etcd`的原生API使用稍有点复杂，所有对其进行了一定的封装。
 
-`Apache ShenYu`网关会监听配置的节点，启动时，如果`Etcd`中不存在配置节点，将同步全量的数据写入`Etcd`中，后序数据发送变更时，增量更新`Etcd`中的配置节点，与此同时，`Apache ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
+`Apache ShenYu`网关会监听配置的节点，启动时，如果`Etcd`中不存在配置节点，将同步全量的数据写入`Etcd`中，后续数据发生变更时，增量更新`Etcd`中的配置节点，与此同时，`Apache ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
 如果您想深入了解代码实现，请参考源码 `EtcdSyncDataService`。
 
@@ -104,7 +104,7 @@ description: 数据同步
 
 `Consul` 数据同步原理是网关定时轮询 `Consul` 的配置中心，获取配置版本号与本地进行比对。
 
-`Apache ShenYu`网关会定时轮询配置的节点，默认间隔时间为1s。启动时，如果 `Consul` 中不存在配置节点，将同步全量的数据写入`Consul`中，后续数据发送变更时，增量更新 `Consul` 中的配置节点，与此同时，`Apache ShenYu`网关会定时轮询配置信息的节点，拉取配置版本号与本地进行比对，若发现版本号变更时，会更新本地缓存。
+`Apache ShenYu`网关会定时轮询配置的节点，默认间隔时间为1s。启动时，如果 `Consul` 中不存在配置节点，将同步全量的数据写入`Consul`中，后续数据发生变更时，增量更新 `Consul` 中的配置节点，与此同时，`Apache ShenYu`网关会定时轮询配置信息的节点，拉取配置版本号与本地进行比对，若发现版本号变更时，会更新本地缓存。
 
 如果您想深入了解代码实现，请参考源码 `ConsulSyncDataService`。
 

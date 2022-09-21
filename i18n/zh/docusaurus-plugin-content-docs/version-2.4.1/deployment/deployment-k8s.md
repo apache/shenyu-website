@@ -1,32 +1,32 @@
 ---
 sidebar_position: 4
-title: k8s部署
+title: K8s部署
 keywords: ["k8s"]
-description: k8s部署
+description: K8s部署
 ---
 
-本文介绍使用 `k8s` 来部署 `Apache ShenYu` 网关。
+本文介绍使用 `K8s` 来部署 `Apache ShenYu` 网关。
 
 
 > 目录
 >
 > 一. 使用 h2 作为数据库
 >
-> 	1. 创建 nameSpace和 configMap
+> 	1. 创建 Namespace和 ConfigMap
 > 	2. 部署 shenyu-admin
 > 	3. 部署 shenyu-bootstrap
-> 二. 使用 mysql 作为数据库
+> 二. 使用 MySQL 作为数据库
 >
 >	和 h2 过程类似，需要注意的两个地方
 >
 > 	1. 需要加载 mysql-connector.jar，所以需要一个文件存储的地方
-> 	2. 需要指定外部 mysql 数据库配置，通过 endpoint 来代理外部 mysql 数据库
+> 	2. 需要指定外部 MySQL 数据库配置，通过 Endpoints 来代理外部 MySQL 数据库
 > 	
 >	具体流程如下：
 >
-> 	1. 创建 nameSpace和 configMap
-> 	2. 创建 endpoint 代理外部 mysql
-> 	3. 创建 pv 存储 mysql-connector.jar
+> 	1. 创建 Namespace和 ConfigMap
+> 	2. 创建 Endpoints 代理外部 MySQL
+> 	3. 创建 PV 存储 mysql-connector.jar
 > 	4. 部署 shenyu-admin
 > 	5. 部署 shenyu-bootstrap
 
@@ -34,7 +34,7 @@ description: k8s部署
 
 ## 一. 使用 h2 作为数据库
 
-### 1. 创建 nameSpace 和 configMap
+### 1. 创建 Namespace 和 ConfigMap
 
 - 创建文件 shenyu-ns.yaml
 
@@ -222,9 +222,9 @@ spec:
 
 
 
-## 二. 使用 mysql 作为数据库
+## 二. 使用 MySQL 作为数据库
 
-### 1. 创建 nameSpace和 configMap
+### 1. 创建 Namespace和 ConfigMap
 
 - 创建文件 shenyu-ns.yaml
 
@@ -302,7 +302,7 @@ data:
 
 - 执行 `kubectl apply -f shenyu-ns.yaml`
 
-### 2. 创建 endpoint 代理外部 mysql
+### 2. 创建 Endpoints 代理外部 MySQL
 
 - 创建文件 shenyu-ep.yaml
 
@@ -333,12 +333,12 @@ subsets:
 
 - 执行 `kubectl apply -f shenyu-ep.yaml`
 
-### 3. 创建 pv 存储 mysql-connector.jar
+### 3. 创建 PV 存储 mysql-connector.jar
 
 - 创建文件 shenyu-store.yaml
 
 ```yaml
-# 示例使用 pvc、pv、storageClass 来存储文件
+# 示例使用 PVc、PV、StorageClass 来存储文件
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -384,7 +384,7 @@ volumeBindingMode: WaitForFirstConsumer
 ```
 
 - 执行 `kubectl apply -f shenyu-store.yaml`
-- pv挂载目录下上传 `mysql-connector.jar`
+- PV挂载目录下上传 `mysql-connector.jar`
 
 
 ### 4. 部署 shenyu-admin

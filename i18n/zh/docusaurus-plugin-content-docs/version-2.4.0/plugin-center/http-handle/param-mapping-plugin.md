@@ -82,9 +82,9 @@ description:  Param-mapping插件
 
 * 使用该插件时应先开启插件！
 
-#### 2.5.1.2 Selector Config
+#### 2.5.1.2 选择器配置
 
-#### 2.5.1.3 Rule Config
+#### 2.5.1.3 规则配置
 
 ![](/img/shenyu/plugin/param-mapping/param-mapping.png)
 
@@ -94,7 +94,7 @@ description:  Param-mapping插件
 {"id":3,"data":{"value":"18","age":"36"}}
 ```
 
-#### 2.5.1.4 Check Result
+#### 2.5.1.4 验证结果
 
 插件开启后，请求内容为
 

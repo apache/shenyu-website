@@ -421,7 +421,7 @@ protected Mono<Void> doExecute(final ServerWebExchange exchange, final ShenyuPlu
 
 ## Summary
 
-`RateLimiter` plugin is based on `Spring WebFlux`,and with `Apache Shen SPI`, with Redis and Lua script to responsible for the critical algorithm and logic process, make it with characteristic of high concurrency and elastic.  As for the `RateLimiter SPI`.
+`RateLimiter` plugin is based on `Spring WebFlux`,and with `Apache Shen SPI`, with Redis and Lua script to responsible for the critical algorithm and logic process, make it with characteristics of high concurrency and elastic.  As for the `RateLimiter SPI`.
 
 1. `RateLimiter` `SPI` provides two `SPI` interface, with interface oriented design and various design patterns, it's easy to develop new rate limiter algorithm and key resolver rule.
 2. `RateLimiterAlgorithm` `SPI` supplies four rate limiter algorithms, token bucket,concurrency rate limiter, leaky bucket and sliding window rate limiter. When designing rate limiter algorithm, the KEY generation need to be carefully designed according to the algorithm characteristic.  Using Lua script to realize the logic of the algorithm, and  design callback()  method for asynchronous processing when needed.

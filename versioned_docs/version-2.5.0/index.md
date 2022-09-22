@@ -33,7 +33,7 @@ ShenYu (神禹) is the honorific name of Chinese ancient monarch Xia Yu (also kn
 
 ---
 
-# Mind maps
+# Mind map
 
  ![](/img/shenyu/activite/shenyu-xmind.png)
 

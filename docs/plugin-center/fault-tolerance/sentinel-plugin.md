@@ -74,6 +74,18 @@ For the final filtering of traffic, there is a rule handler logic.
 
   * `flowRuleControlBehavior`: effect(reject directly/ queue/ slow start up), it do not support flow control by invocation relation.
 
+    * direct rejection by default 
+
+    * warm up 
+
+    * constant speed queuing 
+
+    * preheating uniformly queued 
+
+  * `flowRuleMaxQueueingTimeMs`：Maximum queuing time (valid in "preheating uniformly queued", "constant speed queuing" mode).
+
+  * `flowRuleWarmUpPeriodSec`: Cold start warm-up time (seconds) (valid in "preheating uniformly queued" "warm up" mode)
+
   * `flowRuleCount`:  sentinel flow control count.
 
   * `flowRuleEnable (1 or 0)`: whether enable sentinel flow control function.

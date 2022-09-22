@@ -87,7 +87,7 @@ Note: Handwritten signature due to document upgrade, content reference PDF
 addressee
 
 ```
-secretary@apache.org
+secretary@apache.org, private@shenyu.apache.org
 ```
 
 template

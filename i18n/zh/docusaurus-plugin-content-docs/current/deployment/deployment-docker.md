@@ -16,6 +16,8 @@ description: docker部署
 > docker network create shenyu
 ```
 
+> 在 2.5.1 版本之后，在 `docker run` 时，可以通过添加 `-e ADMIN_JVM="xxxx"` 来自定义 JVM 启动参数
+
 * 使用 `h2` 来存储后台数据：
 
 ```
@@ -59,6 +61,8 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 ```
 
 ### 启动Apache ShenYu Bootstrap
+
+> 在 2.5.1 版本之后，在 `docker run` 时，可以通过添加 `-e BOOT_JVM="xxxx"` 来自定义 JVM 启动参数
 
 宿主机中，bootstrap的[配置文件](https://github.com/apache/incubator-shenyu/tree/master/shenyu-bootstrap/src/main/resources)所在目录记为 `$BOOTSTRAP_CONF`。
 

@@ -156,6 +156,7 @@ public class ShenyuBootstrapApplication {
    }
 ```
 
+
 * 示例二：
   代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
 
@@ -230,7 +231,7 @@ shenyu:
 ```
 
 
-示例四：这是一种简化的使用方式，只需要一个简单的注解，使用元数据注册到网关。
+* 示例四：这是一种简化的使用方式，只需要一个简单的注解，使用元数据注册到网关。
 特别说明：目前只支持`@RequestMapping、@GetMapping、@PostMapping、@DeleteMapping、@PutMapping`注解，并且只对`@XXXMapping`中的第一个路径有效。
 
 ```java

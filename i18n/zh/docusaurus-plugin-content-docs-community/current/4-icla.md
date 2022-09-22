@@ -83,7 +83,7 @@ Apache CLA 全称 Apache Contributor License Agreement，签署 ICLA 的目的�
 收件人
 
 ```
-secretary@apache.org
+secretary@apache.org, private@shenyu.apache.org
 ```
 
 模板

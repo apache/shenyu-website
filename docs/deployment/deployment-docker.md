@@ -16,6 +16,8 @@ This article introduces the use of `docker` to deploy the `Apache ShenYu` gatewa
 > docker network create shenyu
 ```
 
+> After version 2.5.1, when `docker run`, we can customize JVM startup parameters by adding `-e ADMIN_JVM="xxxx"`
+
 * use `h2` to store data:
 
 ```
@@ -59,6 +61,8 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 ```
 
 ### Start Apache ShenYu Bootstrap
+
+> After version 2.5.1, when `docker run`, we can customize JVM startup parameters by adding `-e BOOT_JVM="xxxx"`
 
 In the host, the directory where the bootstrap [configuration file](https://github.com/apache/shenyu/tree/master/shenyu-bootstrap/src/main/resources) is located is recorded as `$BOOTSTRAP_CONF`.
 

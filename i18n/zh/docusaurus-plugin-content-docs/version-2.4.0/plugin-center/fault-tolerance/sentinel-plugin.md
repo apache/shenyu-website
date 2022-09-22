@@ -24,12 +24,12 @@ description: sentinel插件
 * 在网关的 `pom.xml` 文件中添加 `sentinel` 依赖。
 
 ```xml
-        <!-- apache shenyu sentinel plugin start-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-sentinel</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!-- apache shenyu sentinel plugin start-->
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-plugin-sentinel</artifactId>
+  <version>${project.version}</version>
+</dependency>
         <!-- apache shenyu sentinel plugin end-->
 ``` 
 
@@ -54,19 +54,26 @@ description: sentinel插件
 
 * `sentinel`处理详解：
 
-  * 是否开启流控(1或0) ：是否开启`sentinel`的流控。
+  * `degradeRuleCount`:临界点
 
-  * 流控效果 ： 流控效果（直接拒绝 / 排队等待 / 慢启动模式），不支持按调用关系限流。
+  * `degradeRuleEnable`(是否开启流控 (1或0) ) ：是否开启`sentinel`的流控。
 
-  * 限流阈值类型 ： 限流阈值类型，`QPS` 或线程数模式。
+  * `degradeRuleGrade`(断路器策略): 支持秒级RT/秒级Error Ratio/分钟级Error Count策略。
 
-  * 是否开启熔断(1或0) ：是否开启`sentinel`熔断。
+  * `degradeRuleMinRequestAmount`：断路器最小请求量。
 
-  * 熔断类型： 熔断策略，支持秒级 `RT`/秒级异常比例/分钟级异常数。
+  * `degradeRuleSlowRatioThreshold`：退化的慢比率阈值。
 
-  * 熔断阈值: 阈值。
+  * `getDegradeRuleStatIntervals`: 降级的状态间隔。
 
-  * 熔断窗口大小: 降级的时间，单位为 s。
+  * `degradeRuleTimeWindow`：退化时间（单位：秒）。
 
-  * 熔断`URI`: 熔断后的降级`uri`。
+  * `flowRuleControlBehavior`：效果（直接拒绝/排队/慢启动），不支持调用关系流控。
 
+  * `flowRuleCount`：哨兵流控制计数。
+
+  * `flowRuleEnable (1 or 0)`：是否开启哨兵流控功能。
+
+  * `flowRuleGrade`: 限流阈值的类型（QPS 或 Thread Count）。
+
+  * `fallbackUri`：断路后降级的uri。

@@ -68,7 +68,19 @@ description: sentinel插件
 
   * `degradeRuleTimeWindow`：退化时间（单位：秒）。
 
-  * `flowRuleControlBehavior`：效果（直接拒绝/排队/慢启动），不支持调用关系流控。
+  * `flowRuleControlBehavior`：效果（直接拒绝/排队/慢启动/冷启动+匀速器），不支持调用关系流控。
+
+    * direct rejection by default （直接拒绝）
+
+    * warm up （冷启动）
+
+    * constant speed queuing （匀速排队，漏桶算法 ）
+
+    * preheating uniformly queued （冷启动+匀速器，除了让流量缓慢增加，还还控制的了请求的间隔时间，让请求均匀速度通过。）
+
+  * `flowRuleMaxQueueingTimeMs`：最大排队等待时长（在 “preheating uniformly queued“, “constant speed queuing“ 模式生效）。
+
+  * `flowRuleWarmUpPeriodSec`: 冷启动预热时长（秒）  (在 “preheating uniformly queued” “warm up” 模式下生效)
 
   * `flowRuleCount`：哨兵流控制计数。
 

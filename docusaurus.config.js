@@ -27,9 +27,7 @@ module.exports = {
     },
   },
   themeConfig: {
-
     navbar: {
-     // title: 'Apache ShenYu',
       logo: {
         alt: 'Apache ShenYu Logo',
         src: 'img/logo.svg',
@@ -37,56 +35,7 @@ module.exports = {
       },
       items: [
         {to: '/download', label: 'Download', position: 'right'},
-        // {
-        //   type: 'docsVersionDropdown',
-        //   label: 'doc',
-        //   position: 'left',
-        //   dropdownActiveClassDisabled: true,
-        //   dropdownItemsAfter: [
-        //     {
-        //       to: '/versions',
-        //       label: 'All versions',
-        //     },
-        //   ],
-        // },
-        {
-          label: 'Docs',
-          position: 'right',
-          items: [
-            {
-              label: "master",
-              to: "/docs/next/index",
-            },
-            {
-              label: "2.5.0",
-              to: "/docs/index",
-            },
-            {
-              label: "2.4.3",
-              to: "/docs/2.4.3/index",
-            },
-            {
-              label: "2.4.2",
-              to: "/docs/2.4.2/index",
-            },
-            {
-              label: "2.4.1",
-              to: "/docs/2.4.1/index",
-            },
-            {
-              label: "2.4.0",
-              to: "/docs/2.4.0/index",
-            },
-            {
-              label: "2.3.0-Legacy",
-              to: "/docs/2.3.0-Legacy/index",
-            },
-            {
-              label: "All Versions",
-              to: "/versions",
-            },
-          ],
-        },
+        {to: '/document', label: 'Docs', position: 'right'},
         {
           to: '/community/contributor-guide',
           label: 'Community',
@@ -148,81 +97,6 @@ module.exports = {
         },
       ],
     },
-    // footer: {
-    //   style: 'dark',
-    //   links: [
-    //     {
-    //       title: 'Events',
-    //       items: [
-    //         {
-    //           label: 'ApacheCon',
-    //           href: 'https://www.apachecon.com',
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: 'ShenYu',
-    //       items: [
-    //         {
-    //           label: 'Download',
-    //           to: '/download',
-    //         },
-    //         {
-    //           label: 'Document',
-    //           to: '/docs/index',
-    //         },
-    //         {
-    //           label: 'News',
-    //           to: '/news',
-    //         },
-    //         {
-    //           label: 'Blog',
-    //           to: '/blog',
-    //         },
-    //         {
-    //           label: 'Releases',
-    //           href: 'https://github.com/apache/shenyu/releases',
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: 'Community',
-    //       items: [
-    //         {
-    //           label: 'Community',
-    //           to: '/community/contributor-guide',
-    //         },
-    //         {
-    //           label: 'GitHub',
-    //           href: 'https://github.com/apache/shenyu',
-    //         },
-    //         {
-    //           label: 'Issue Tracker',
-    //           href: 'https://github.com/apache/shenyu/issues',
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: 'Subscribe mailing list',
-    //       items: [
-    //         {
-    //           label: 'How to subscribe',
-    //           to: '/community/contributor-guide#join-the-discussion',
-    //         },
-    //         {
-    //           label: 'Subscribe Mail',
-    //           href: 'mailto://dev-subscribe@shenyu.apache.org',
-    //         },
-    //         {
-    //           label: 'Mail Archive',
-    //           href: 'https://lists.apache.org/list.html?dev@shenyu.apache.org',
-    //         },
-    //       ],
-    //     },
-    //   ],
-    //   copyright: `<div>< img style="height:50px; margin-right:10px" src="/img/logo/support-apache.png" /> < img style="height:50px; margin-left:10px" alt="Apache Software Foundation" src="/img/logo/asf_logo.svg" /><p style="color:#ffffffcf;font-size:14px;text-align:center">Copyright  ${new Date().getFullYear()} The Apache Software Foundation, Licensed under the Apache License, Version 2.0. Apache ShenYu,  Apache, the Apache feather logo, the Apache ShenYu logo are trademarks of The Apache Software Foundation.</p >
-    //   <div>`,
-    // },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
@@ -281,20 +155,21 @@ module.exports = {
         showLastUpdateTime: true,
       },
     ],
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'download',
-    //     path: 'download',
-    //     routeBasePath: 'download',
-    //     editUrl: ({locale, versionDocsDirPath, docPath}) => {
-    //       if (locale !== 'en') {
-    //         return `https://github.com/apache/incubator-shenyu-website/edit/main/i18n/${locale}/docusaurus-plugin-content-docs-event/current/${docPath}`;
-    //       }
-    //       return `https://github.com/apache/incubator-shenyu-website/edit/main/${versionDocsDirPath}/${docPath}`;
-    //     },
-    //   }
-    // ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'shenyuNginx',
+        path: 'shenyuNginx',
+        routeBasePath: 'shenyuNginx',
+        disableVersioning: false,
+        includeCurrentVersion: true,
+        editCurrentVersion: true,
+        editLocalizedFiles: true,
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      }
+    ],
     [
       '@docusaurus/plugin-content-docs',
       {

@@ -70,13 +70,6 @@ function Event() {
     [showItem]
   );
 
-  const linkToDoc = useCallback(
-    link => {
-      window.location.href=link;
-    },
-    []
-  );
-
   return (
     <Layout title="Document">
       <div className={styles.top}>
@@ -116,7 +109,7 @@ function Event() {
                                   }
                                 })
                                 return (
-                                  <div key={listArr[0].title} className={styles.linkItem} onClick={()=>{linkToDoc(listArr[0].link)}}>
+                                  <div key={listArr[0].title} className={styles.linkItem} onClick={()=>{ window.location.href=listArr[0].link }} >
                                     <div className={styles.linkItemA}>{listArr[0].title}</div>
                                   </div>
                                 )

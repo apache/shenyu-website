@@ -122,6 +122,7 @@ openresty -s reload
 Here is a completed [example](https://github.com/apache/incubator-shenyu-nginx/blob/main/example/nacos/nginx.conf) working with Nacos.
 
 ## Greeting Zookeeper 
+
 Modify the Nginx configure, create and initialize the ShenYu register to connect to target register center.
 Listen for changes to the node via the zookeeper watch event. Here is an example of the zookeeper configuration.
 
@@ -135,6 +136,7 @@ init_worker_by_lua_block {
         });
     }
 ```
+
 1. `servers` zookeeper cluster address.
 2. ``balancer_type`` specify the balancer. It has supported `chash` and `round robin`.
 

@@ -2,35 +2,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Layout from '@theme/Layout';
 import styles from './document.module.css';
 import Translate from "@docusaurus/Translate";
-
-const data = [
-  {
-    'docsTitle': <Translate>Apache ShenYu Docs</Translate>,
-    'projectName': 'Apache ShenYu',
-    'description': <Translate>The document for Apache ShenYu</Translate>,
-    'latestVersion': './docs/index',
-    'nextVersion': './docs/next/index',
-    'versionsList': [
-      { 'next': './docs/next/index' },
-      { '2.5.0': './docs/index' },
-      { '2.4.3': './docs/2.4.3/index' },
-      { '2.4.2': './docs/2.4.2/index' },
-      { '2.4.1': './docs/2.4.1/index' },
-      { '2.4.0': './docs/2.4.0/index' },
-      { '2.3.0-Legacy': './docs/2.3.0-Legacy/index' },
-    ]
-  },
-  {
-    'docsTitle': <Translate>ShenYu Nginx Docs</Translate>,
-    'projectName': 'ShenYu Nginx',
-    'description': <Translate>This module provided SDK to watch available ShenYu instance list as upstream nodes by Service Register Center for OpenResty.</Translate>,
-    'latestVersion': './shenyuNginx/index',
-    'nextVersion': './shenyuNginx/next/index',
-    'versionsList': [
-      { 'current': './shenyuNginx/index' }
-    ]
-  }
-]
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import data from '../data/docsInfo';
 
 function Event() {
   const defaultState = Array(data.length).fill(false)
@@ -90,9 +63,9 @@ function Event() {
                   <div className={styles.descriptionCardTitle}>{item.projectName}</div>
                   <div className={styles.descriptionCardDescription}>{item.description}</div>
                   <div className={styles.descriptionCardLinks}>
-                    <a href={item.latestVersion}><Translate>Latest Version</Translate></a>
+                    <Link to={item.latestVersion}><Translate>Latest Version</Translate></Link>
                     <span className={styles.descriptionCardLinksSpan}> | </span>
-                    <a href={item.nextVersion}><Translate>Next Version</Translate></a>
+                    <Link to={item.nextVersion}><Translate>Next Version</Translate></Link>
                     <span className={styles.descriptionCardLinksSpan}> | </span>
                     <div>
                       <button id='dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(i) }}><Translate>All Versions</Translate></button>
@@ -109,8 +82,8 @@ function Event() {
                                   }
                                 })
                                 return (
-                                  <div key={listArr[0].title} className={styles.linkItem} onClick={()=>{ window.location.href=listArr[0].link }} >
-                                    <div className={styles.linkItemA}>{listArr[0].title}</div>
+                                  <div className={styles.linkItem} >
+                                    <Link className={styles.linkItemA} to={listArr[0].link}>{listArr[0].title}</Link>
                                   </div>
                                 )
                               })

@@ -125,4 +125,11 @@
 .linkItemA{
     color: #000;
     margin: 2px 10px 2px 10px;
+    display: block;
+    width: 100%;
+}
+
+.linkItemA:hover{
+    text-decoration: none;
+    color: #000;
 }

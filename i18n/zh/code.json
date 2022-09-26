@@ -514,5 +514,38 @@
   },
   "ShenYu-Bootstrap Binary Distribution":{
     "message": "ShenYu-Bootstrap 二进制包"
-  }
+  },
+  "Document List":{
+    "message": "文档列表"
+  },
+  "This directory presents the official Apache ShenYu repositories and some ecosystem projects developed by community.":{
+    "message": "本页面展示了Apache ShenYu及其生态项目的使用文档。"
+  },
+  "The downloadable releases can be find in the":{
+    "message": "可下载的已发布版本下载地址："
+  },
+  "download page":{
+    "message": "下载地址"
+  },
+  "Apache ShenYu Docs":{
+    "message": "Apache ShenYu 文档"
+  },
+  "ShenYu Nginx Docs":{
+    "message": "ShenYu Nginx 文档"
+  },
+  "The document for Apache ShenYu":{
+    "message": "Apache ShenYu官方文档"
+  },
+  "This module provided SDK to watch available ShenYu instance list as upstream nodes by Service Register Center for OpenResty.":{
+    "message": "该模块提供了SDK来监视OpenResty的服务注册中心作为上游节点的可用ShenYu实例列表"
+  },
+  "All Versions":{
+    "message": "所有版本"
+  },
+  "Latest Version":{
+    "message": "最新版本"
+  },
+  "Next Version":{
+    "message": "下一版本"
+  } 
 }

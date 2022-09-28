@@ -161,6 +161,19 @@ module.exports = {
         id: 'shenyuNginx',
         path: 'shenyuNginx',
         routeBasePath: 'shenyuNginx',
+        editCurrentVersion: true,
+        editLocalizedFiles: true,
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      }
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'shenyuClientGolang',
+        path: 'shenyuClientGolang',
+        routeBasePath: 'shenyuClientGolang',
         disableVersioning: false,
         includeCurrentVersion: true,
         editCurrentVersion: true,

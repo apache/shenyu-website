@@ -1,6 +1,6 @@
 ---
 title: 多语言客户端发布指南
-sidebar_position: 8
+sidebar_position: 14
 description: Apache ShenYu 多语言客户端发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---

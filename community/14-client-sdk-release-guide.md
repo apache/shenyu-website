@@ -10,6 +10,7 @@ cover: "/img/architecture/shenyu-framework.png"
 Take Golang SDK as an example: https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/blob/master/RELEASE-NOTES.md
 
 Update [RELEASE-NOTES](https://github.com/apache/shenyu/blob/master/RELEASE-NOTES.md) in the following format:
+
 ```
 ## ${PUBLISH.VERSION}
 

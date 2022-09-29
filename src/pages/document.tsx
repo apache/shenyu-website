@@ -55,7 +55,7 @@ function Event() {
       <div className={styles.content}>
         <div className={styles.documentList}>
           {data.map((item, i) => {
-            const { versionsList } = item;
+            const { latestVersion, nextVersion, versionsList } = item;
             return (
               <div key={i} className={styles.docItem} >
                 <div className={styles.docsTitle}>{item.docsTitle}</div>
@@ -63,34 +63,42 @@ function Event() {
                   <div className={styles.descriptionCardTitle}>{item.projectName}</div>
                   <div className={styles.descriptionCardDescription}>{item.description}</div>
                   <div className={styles.descriptionCardLinks}>
-                    <Link to={item.latestVersion}><Translate>Latest Version</Translate></Link>
-                    <span className={styles.descriptionCardLinksSpan}> | </span>
-                    <Link to={item.nextVersion}><Translate>Next Version</Translate></Link>
-                    <span className={styles.descriptionCardLinksSpan}> | </span>
+                    <Link to={latestVersion}><Translate>Latest Version</Translate></Link>
+                    {nextVersion && <span className={styles.descriptionCardLinksSpan}> | </span>}
+                    {nextVersion && <Link to={nextVersion}><Translate>Next Version</Translate></Link>}
+                    {versionsList && <span className={styles.descriptionCardLinksSpan}> | </span>}
                     <div>
-                      <button id='dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(i) }}><Translate>All Versions</Translate></button>
                       {
-                        showItem[i] &&
+                        versionsList &&
                         (
-                          <div className={styles.dropDownContainer}>
+                          <>
+                            <button id='dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(i) }}><Translate>All Versions</Translate></button>
                             {
-                              versionsList.map((item2, index2) => {
-                                const listArr = Object.keys(item2).map(list => {
-                                  return {
-                                    title: list,
-                                    link: item2[list],
+                              showItem[i] &&
+                              (
+                                <div className={styles.dropDownContainer}>
+                                  {
+                                    versionsList?.map((item2, index2) => {
+                                      const listArr = Object.keys(item2).map(list => {
+                                        return {
+                                          title: list,
+                                          link: item2[list],
+                                        }
+                                      })
+                                      return (
+                                        <div className={styles.linkItem} >
+                                          <Link className={styles.linkItemA} to={listArr[0].link}>{listArr[0].title}</Link>
+                                        </div>
+                                      )
+                                    })
                                   }
-                                })
-                                return (
-                                  <div className={styles.linkItem} >
-                                    <Link className={styles.linkItemA} to={listArr[0].link}>{listArr[0].title}</Link>
-                                  </div>
-                                )
-                              })
+                                </div>
+                              )
                             }
-                          </div>
+                          </>
                         )
                       }
+
                     </div>
                   </div>
                 </div>

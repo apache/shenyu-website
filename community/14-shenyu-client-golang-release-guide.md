@@ -1,15 +1,13 @@
 ---
-title: 多语言客户端发布指南
+title: Apache client Golang Release Guide
 sidebar_position: 14
-description: Apache ShenYu 多语言客户端发布指南
+description: Apache ShenYu-client-golang Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-## 更新发布公告
+## Update release notes
 
-以 golang sdk 为例: https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/blob/master/RELEASE-NOTES.md
-
-按照如下格式更新[发布公告](https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md)：
+Update [RELEASE-NOTES](https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md) in the following format:
 
 ```
 ## ${PUBLISH.VERSION}
@@ -45,21 +43,21 @@ cover: "/img/architecture/shenyu-framework.png"
 ...
 ```
 
-## 创建 GPG KEY
+## Create GPG KEY
 
-> 每个发布经理只在第一次发布时创建 GPG KEY，以后发布可复用此 KEY。
+> Each release manager only creates a GPG KEY for the first release, which can be reused for subsequent releases.
 
-**1. 创建 KEY**
+**1. Create KEY**
 
-安装 [GnuPG](https://www.gnupg.org/download/index.html)。
+Install [GnuPG](https://www.gnupg.org/download/index.html).
 
-按照 [OpenPGP KEY Management](https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management) [1] 的说明创建 KEY：
+Follow [OpenPGP KEY Management](https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management) [1] instructions.
 
 ```shell
 gpg --full-gen-key
 ```
 
-创建步骤（以下内容来自控制台输出）：
+Steps (the following are from console output).
 
 ```shell
 gpg (GnuPG) 2.2.4; Copyright (C) 2017 Free Software Foundation, Inc.
@@ -87,65 +85,66 @@ Is this correct? (y/N) y
 
 GnuPG needs to construct a user ID to identify your key.
 
-Real name: （设置用户名）
-Email address: （设置邮件地址）
-Comment: （填写注释）
+Real name: （Set username）
+Email address: （Set email address）
+Comment: （Fill in the comments）
 You selected this USER-ID:
-   "用户名 (注释) <邮件地址>"
+   "username (comments) <email>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
-You need a Passphrase to protect your secret key. （设置密码）
+You need a Passphrase to protect your secret key. （Set password）
 ```
 
-**2. 检查 KEY**
+**2. Verify KEY**
 
-按照 [Operational GPG Commands](https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands) [2] 的说明检查 KEY：
+Follow [Operational GPG Commands](https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands) [2] instructions.
 
 ```shell
 gpg --list-keys
 ```
 
-命令输出：
+Output：
 
 ```shell
 pub   rsa4096 2019-03-11 [SC]
       095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
-uid           用户名 (注释) <邮件地址>
+uid           username (comments) <email>
 sub   rsa4096 2019-03-11 [E]
 ```
 
-公钥为 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C。
+Public key is `095E0D21BC28CFC7A8B8076DF7DF28D237A8048C`.
 
-**3. 上传公钥**
+**3. Upload public key**
 
-按照 [Dirmngr Options](https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options) [3] 的说明上传公钥：
+Follow [Dirmngr Options](https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options) [3] instructions.
 
 ```shell
 gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 ```
 
-## 发布到 SVN 预发仓库
 
-下载并安装[SVN](https://tortoisesvn.net/downloads.html)。
+## Publish to SVN dev repository
 
-**1. 更新 KEYS 文件**
+Install [SVN](https://tortoisesvn.net/downloads.html).
 
-> 如果发布经理还没有将自己的公钥追加到 KEYS 文件中，请执行以下操作。否则，跳过此步骤。
+**1. Update KEYS file**
 
-根据 [signing basics](https://infra.apache.org/release-signing.html#signing-basics) [5] 的说明更新 KEYS 文件。
+> If the release manager has not yet appended his or her public key to the KEYS file, do the following. Otherwise, skip this step.
+
+Follow [signing basics](https://infra.apache.org/release-signing.html#signing-basics) [5] instructions.
 
 ```shell
 mkdir -p ~/keys/release/
 cd ~/keys/release/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/release/shenyu
 cd ~/keys/release/shenyu
-gpg -a --export ${GPG 用户名} >> KEYS
+gpg -a --export ${GPG username} >> KEYS
 svn --username=${LDAP ID} commit -m "append to KEYS"
 ```
 
-**2. 添加源码包和二进制文件包**
+**2. Adding source code packages and binary packages**
 
-根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明添加源码包和二进制文件包。
+Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
 mkdir -p ~/svn_release/dev/
@@ -157,15 +156,15 @@ cp -f ~/shenyu/shenyu-client-${CLIENT.LANGUAGE}/target/*.zip ~/svn_release/dev/s
 cp -f ~/shenyu/shenyu-client-${CLIENT.LANGUAGE}/target/*.zip.asc ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION}
 ```
 
-**3. 添加校验文件**
+**3. Adding hashes**
 
-根据 [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] 的说明添加校验文件。
+Follow [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] instructions.
 
 ```shell
 shasum -a 512 shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip > shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip.sha512
 ```
 
-**4. 提交新版本**
+**4. Submit the new release**
 
 ```shell
 cd ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}
@@ -173,19 +172,19 @@ svn add ${PUBLISH.VERSION}/
 svn --username=${LDAP ID} commit -m "release shenyu-client-${CLIENT.LANGUAGE} ${PUBLISH.VERSION}"
 ```
 
-## 预发版本验证
+## Check Release
 
-**1. 验证 sha512 校验和**
+**1. Verify sha512 checksum**
 
-根据 [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] 的说明验证 sha512 校验和。
+Follow [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] instructions.
 
 ```shell
 shasum -c shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip.sha512
 ```
 
-**2. 验证 GPG 签名**
+**2. Verifying GPG Signatures**
 
-根据 [Checking Signatures](https://www.apache.org/info/verification.html#CheckingSignatures) [9] 的说明验证 GPG 签名。
+Follow [Checking Signatures](https://www.apache.org/info/verification.html#CheckingSignatures) [9] instructions.
 
 ```shell
 curl https://downloads.apache.org/shenyu/KEYS >> KEYS
@@ -194,9 +193,9 @@ cd ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION}
 gpg --verify shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip.asc shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip
 ```
 
-**3. 确保 SVN 与 GitHub 源码一致**
+**3. Ensure that SVN is consistent with GitHub source code**
 
-根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明确保 SVN 与 GitHub 源码一致。
+Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] instructions.
 
 ```
 wget https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/archive/v${PUBLISH.VERSION}.zip
@@ -205,59 +204,61 @@ unzip shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip
 diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}
 ```
 
-**4. 检查源码包**
+**4. Check the source code package**
 
-根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明检查源码包。
+Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] instructions.
 
-- 存在 `LICENSE` 和 `NOTICE` 文件
-- `NOTICE` 文件中的年份正确
-- 所有文件的开头都有 ASF 许可证
-- 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
-- 不存在不符合预期的二进制文件
-- 编译通过 (./mvnw install) (目前支持 JAVA 8)
-- 如果存在第三方代码依赖：
-  - 第三方代码依赖的许可证兼容
-  - 所有第三方代码依赖的许可证都在 `LICENSE` 文件中声名
-  - 第三方代码依赖许可证的完整版全部在 `license` 目录
-  - 如果依赖的是 Apache 许可证并且有 `NOTICE` 文件，那么这些 `NOTICE` 文件需要加入到项目的 `NOTICE` 文件中
+- `LICENSE` and `NOTICE` files exist
+- The year in the `NOTICE` file is correct
+- All files have ASF licenses at the beginning
+- There are no `LICENSE` and `NOTICE` that do not depend on the software
+- There are no binaries that do not meet expectations
+- Compilation passes (. /mvnw install) (JAVA 8 is currently supported)
+- If there are third-party code dependencies.
+  - License compatibility for third-party code dependencies
+  - All licenses of third-party code dependencies are named in the `LICENSE` file
+  - The full version of the third-party code dependency license is in the `license` directory
+  - If the dependency is an Apache license and there are `NOTICE` files, then these `NOTICE` files need to be added to the project's `NOTICE` file
 
-**5. 检查二进制包**
+**5. Check the binary package**
 
-根据 [Binary distributions](https://infra.apache.org/licensing-howto.html#binary) [11] 的说明检查二进制包。
+Follow [Binary distributions](https://infra.apache.org/licensing-howto.html#binary) [11] instructions.
 
-- 存在 `LICENSE` 和 `NOTICE` 文件
-- `NOTICE` 文件中的年份正确
-- 所有文本文件开头都有 ASF 许可证
-- 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
-- 如果存在第三方代码依赖：
-  - 第三方代码依赖的许可证兼容
-  - 所有第三方代码依赖的许可证都在 `LICENSE` 文件中声名
-  - 第三方代码依赖许可证的完整版全部在 `license` 目录
-  - 如果依赖的是 Apache 许可证并且有 `NOTICE` 文件，那么这些 `NOTICE` 文件需要加入到项目的 `NOTICE` 文件中
+- `LICENSE` and `NOTICE` files exist
+- The year in the `NOTICE` file is correct
+- All text files start with an ASF license
+- No `LICENSE` and `NOTICE` for undependent software
+- If third-party code dependencies exist.
+  - Third-party code dependent licenses are compatible
+  - All licenses of third-party code dependencies are named in the `LICENSE` file
+  - The full version of the third-party code dependency license is in the `LICENSE` directory
+  - If the dependency is an Apache license and there are `NOTICE` files, then these `NOTICE` files need to be added to the project's `NOTICE` file
 
-## 投票流程
+## Voting Process
 
-根据 [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12]， [Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13]， [voting](https://www.apache.org/foundation/voting.html) [14] 的说明进行社区投票。
+Follow [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12], [Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13], [voting](https://www.apache.org/foundation/voting.html) [14] instructions.
 
-### ShenYu 社区投票
+### ShenYu community vote
 
-**1. 投票持续至少72小时并获得3个`+1 binding`票**
+**1. Voting lasts for at least 72 hours and receives 3 `+1 binding` votes**
 
-发送至：
+To:
 
 ```
 dev@shenyu.apache.org
 ```
 
-标题：
+Title:
 
 ```
 [VOTE] Release Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION}
 ```
 
-正文：
+Content:
 
 ```
+Hello ShenYu Community,
+
 This is a call for vote to release Apache ShenYu Client ${CLIENT.LANGUAGE} version ${PUBLISH.VERSION}
 
 Release notes:
@@ -271,7 +272,6 @@ https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/tree/v${PUBLIS
 
 Release Commit ID:
 https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/commit/xxxxxxxxxxxxxxxxxxxxxxx
-
 
 Keys to verify the Release Candidate:
 https://downloads.apache.org/shenyu/KEYS
@@ -297,28 +297,28 @@ Checklist for reference:
 
 [ ] Source code distributions have correct names matching the current release.
 
-[ ] LICENSE and NOTICE files are correct for each ShenYu repo.
+[ ] LICENSE and NOTICE files are correct for each ShenYu Client ${CLIENT.LANGUAGE} repo.
 
 [ ] All files have license headers if necessary.
 
 [ ] No compiled archives bundled in source archive.
 ```
 
-**2. 宣布投票结果**
+**2. Announcement of voting results**
 
-发送至：
+To:
 
 ```
 dev@shenyu.apache.org
 ```
 
-标题：
+Title:
 
 ```
 [RESULT][VOTE] Release Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION}
 ```
 
-正文：
+Content:
 
 ```
 We’ve received 3 +1 binding votes and 2 +1 non-binding votes:
@@ -335,25 +335,25 @@ https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Thanks everyone for taking the time to verify and vote for the release!
 ```
 
-## 完成发布
+## Finish publishing
 
-**1. 完成 SVN 发布**
+**1. Finish SVN release**
 
-根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从 dev 目录转移到 release 目录。
+Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
 svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PREVIOUS.RELEASE.VERSION}
 ```
 
-**2. 完成 GitHub 发布**
+**2. Finish GitHub release**
 
 Edit [Releases](https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/releases) `${PUBLISH.VERSION}` and click release.
 
 
-**3. 完成 GitHub 更新**
+**3. Finish GitHub updating**
 
-从 GitHub Fork 一份代码，并执行以下命令：
+Fork a copy of the code from GitHub and run the following command.
 
 ```shell
 git checkout master
@@ -362,55 +362,56 @@ git pull
 git push origin master
 ```
 
-以上修改需要创建一个 pull request。pr 合并后，在原始仓库执行以下命令：
+The above changes require the creation of a pull request. After the pr merged, execute the following command in the original repository.
 
 ```shell
 git push --delete origin ${PUBLISH.VERSION}-release
 git branch -d ${PUBLISH.VERSION}-release
 ```
 
-**4. 更新下载页面**
+**4. Update download page**
 
-根据 [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15]， [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 的说明更新下载页面。
+Follow [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15], [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] instructions.
 
-Apache 镜像连接生效后（至少一小时），更新下载页面：
-[英文版](https://shenyu.apache.org/download/) 和
-[中文版](https://shenyu.apache.org/zh/download/)
+After the Apache mirror links take effect (at least one hour), update the download page for:
+[English version](https://shenyu.apache.org/download/) and
+[Chinese version](https://shenyu.apache.org/zh/download/)
 
-> 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
+> Note: Project download links should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
 >
-> 注意：GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/shenyu/`
+> Note: Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/shenyu/shenyu-client-${CLIENT.LANGUAGE}`
 
-**5. 更新文档**
+**5. Update documentation**
 
-将 `${PUBLISH.VERSION}` 版本的[文档](https://github.com/apache/shenyu-website)进行归档，并更新[版本页面](https://shenyu.apache.org/zh/versions)。
+Archive the `${PUBLISH.VERSION}` version of the [document](https://github.com/apache/shenyu-website) and update the [version page](https://shenyu.apache.org/versions/).
 
-**6. 更新事件页面**
+**6. Update event page**
 
-添加新版本[事件](https://shenyu.apache.org/zh/event/${PUBLISH.VERSION}-release)。
+Add new release [event](https://shenyu.apache.org/event/${PUBLISH.VERSION}-release).
 
-**7. 更新新闻页面**
+**7. Update news page**
 
-添加新版本[新闻](https://shenyu.apache.org/zh/news)。
+Add new release [news](https://shenyu.apache.org/zh/news).
 
-## 发布公告
 
-> 注意：`announce@apache.org` 地址要求以纯文本格式发送邮件。如果你使用的是Gmail，可以在编辑界面勾选`纯文本模式`。
+## Release Announcement
 
-发送至：
+> Note: `announce@apache.org` address requires the email to be sent in plain text format. If you are using Gmail, you can check `Plain Text Mode` in the edit screen.
+
+To:
 
 ```
 dev@shenyu.apache.org
 announce@apache.org
 ```
 
-标题：
+Title:
 
 ```
 [ANNOUNCE] Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION} available
 ```
 
-正文：
+Content:
 
 ```
 Hi,
@@ -441,25 +442,25 @@ ShenYu Resources:
 
 ```
 
-## 重新发布（非必需）
+## Reissue (not required)
 
-> 注意：只有在投票没有通过的情况下才需要重新发布。
+> Note: You only need to republish if the vote did not pass.
 
-**1. 取消投票邮件模板**
+**1. Cancellation of voting email template**
 
-发送至：
+To:
 
 ```
 dev@shenyu.apache.org
 ```
 
-标题：
+Title:
 
 ```
 [CANCEL][VOTE] Release Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION}
 ```
 
-正文：
+Content:
 
 ```
 Hi,
@@ -473,11 +474,11 @@ The detail of the modifications are as follows:
 Thanks a lot for all your help.
 ```
 
-**2. 清理预发仓库**
+**2. Clean stagingRepositories**
 
-访问 https://repository.apache.org/#stagingRepositories, 使用 Apache 的 LDAP 账户登录后，选中之前 `Close` 的版本，点击 `Drop`。
+Go to https://repository.apache.org/#stagingRepositories, After logging in with your Apache LDAP account, select the previous `Close` version and click `Drop`.
 
-**3. 删除 GitHub 分支和标签**
+**3。Deleting GitHub branches and tags**
 
 ```shell
 git push origin --delete ${PUBLISH.VERSION}-release
@@ -486,24 +487,24 @@ git push origin --delete tag v${PUBLISH.VERSION}
 git tag -d v${PUBLISH.VERSION}
 ```
 
-**4. 删除 SVN 待发布内容**
+**4. Deleting SVN content to be published**
 
 ```shell
 svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
 ```
 
-**5. 更新邮件标题**
+**5. Update email title**
 
-完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加 `[ROUND ${n}]` 后缀。例如：
+After completing the above steps, you can start the re-posting operation. The next poll email title needs to have the `[ROUND ${n}]` suffix added. For example.
 
 ```
 [VOTE] Release Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION} [ROUND 2]
 ```
 
-投票结果和通知邮件不需要加后缀。
+Voting result and announcement emails do not need to be suffixed.
 
 
-**以上内容参考**
+**The content refers to**
 
 * [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
 * [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
@@ -521,3 +522,4 @@ svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-${CLIENT.
 * [14] https://www.apache.org/foundation/voting.html
 * [15] https://infra.apache.org/release-download-pages.html
 * [16] https://infra.apache.org/release-publishing.html#normal
+

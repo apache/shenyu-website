@@ -1,5 +1,5 @@
 ---
-title: Apache go语言客户端发布指南
+title: ShenYu go语言客户端发布指南
 sidebar_position: 14
 description: Apache ShenYu go语言客户端发布指南
 cover: "/img/architecture/shenyu-framework.png"

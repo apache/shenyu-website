@@ -1,5 +1,5 @@
 ---
-title: Apache client Golang Release Guide
+title: ShenYu client Golang Release Guide
 sidebar_position: 14
 description: Apache ShenYu-client-golang Release Guide
 cover: "/img/architecture/shenyu-framework.png"

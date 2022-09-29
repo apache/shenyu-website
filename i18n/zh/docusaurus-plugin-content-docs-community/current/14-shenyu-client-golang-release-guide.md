@@ -1,13 +1,11 @@
 ---
-title: 多语言客户端发布指南
+title: ShenYu go语言客户端发布指南
 sidebar_position: 14
-description: Apache ShenYu 多语言客户端发布指南
+description: Apache ShenYu go语言客户端发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## 更新发布公告
-
-以 golang sdk 为例: https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/blob/master/RELEASE-NOTES.md
 
 按照如下格式更新[发布公告](https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md)：
 

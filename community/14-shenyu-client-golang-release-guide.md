@@ -1,15 +1,13 @@
 ---
-title: Release Guide
+title: ShenYu client Golang Release Guide
 sidebar_position: 14
-description: Apache ShenYu-client-sdk Release Guide
+description: Apache ShenYu-client-golang Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## Update release notes
 
-Take Golang SDK as an example: https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/blob/master/RELEASE-NOTES.md
-
-Update [RELEASE-NOTES](https://github.com/apache/shenyu/blob/master/RELEASE-NOTES.md) in the following format:
+Update [RELEASE-NOTES](https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md) in the following format:
 
 ```
 ## ${PUBLISH.VERSION}

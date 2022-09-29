@@ -129,7 +129,7 @@ collect request info as follows
 
 Open the plugin and configure pulsar, configure it as follows.
 
-![](/img/shenyu/plugin/logging/logging-pulsar/logging-config.png)
+![](/img/shenyu/plugin/logging/logging-pulsar/logging-pulsar-config.png)
 
 #### 2.6.1.2 Selector Configuration
 

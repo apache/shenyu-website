@@ -1,5 +1,5 @@
 ---
-title: Release Guide
+title: Client-sdk Release Guide
 sidebar_position: 14
 description: Apache ShenYu-client-sdk Release Guide
 cover: "/img/architecture/shenyu-framework.png"

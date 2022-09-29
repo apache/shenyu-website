@@ -142,7 +142,7 @@ The operation is shown below:
 
 #### 2.6.1.3 Rule Configuration
 
-![](/img/shenyu/plugin/logging/logging-pulsar/log-rule-en.jpg)
+![](/img/shenyu/plugin/logging/logging-pulsar/log-rule.jpg)
 
 #### 2.6.1.4 Request Service
 

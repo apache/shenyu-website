@@ -79,14 +79,14 @@ Please specify how long the key should be valid.
      <n>w = key expires in n weeks
      <n>m = key expires in n months
      <n>y = key expires in n years
-Key is valid for? (0) 
+Key is valid for? (0)
 Key does not expire at all
 Is this correct? (y/N) y
 
 GnuPG needs to construct a user ID to identify your key.
 
-Real name: （Set username）
-Email address: （Set email address）
+Real name: （Set username）(use your apache id)
+Email address: （Set email address） (use your apache email)
 Comment: （Fill in the comments）
 You selected this USER-ID:
    "username (comments) <email>"
@@ -121,7 +121,6 @@ Follow [Dirmngr Options](https://www.gnupg.org/documentation/manuals/gnupg/Dirmn
 ```shell
 gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 ```
-
 
 ## Publish to SVN dev repository
 
@@ -283,10 +282,10 @@ The vote will be open for at least 72 hours or until necessary number of votes a
 
 Please vote accordingly:
 
-[ ] +1 approve 
+[ ] +1 approve
 
 [ ] +0 no opinion
- 
+
 [ ] -1 disapprove with the reason
 
 Checklist for reference:
@@ -350,7 +349,6 @@ svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-${CL
 
 Edit [Releases](https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/releases) `${PUBLISH.VERSION}` and click release.
 
-
 **3. Finish GitHub updating**
 
 Fork a copy of the code from GitHub and run the following command.
@@ -392,7 +390,6 @@ Add new release [event](https://shenyu.apache.org/event/${PUBLISH.VERSION}-relea
 **7. Update news page**
 
 Add new release [news](https://shenyu.apache.org/zh/news).
-
 
 ## Release Announcement
 
@@ -503,23 +500,21 @@ After completing the above steps, you can start the re-posting operation. The ne
 
 Voting result and announcement emails do not need to be suffixed.
 
-
 **The content refers to**
 
-* [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
-* [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
-* [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
-* [4] https://infra.apache.org/publishing-maven-artifacts.html
-* [5] https://infra.apache.org/release-signing.html#signing-basics
-* [6] https://infra.apache.org/release-publishing.html#uploading
-* [7] https://infra.apache.org/release-distribution#sigs-and-sums
-* [8] https://www.apache.org/info/verification.html#CheckingHashes
-* [9] https://www.apache.org/info/verification.html#CheckingSignatures
-* [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
-* [11] https://infra.apache.org/licensing-howto.html#binary
-* [12] https://www.apache.org/legal/release-policy.html#release-approval
-* [13] https://incubator.apache.org/policy/incubation.html#Releases
-* [14] https://www.apache.org/foundation/voting.html
-* [15] https://infra.apache.org/release-download-pages.html
-* [16] https://infra.apache.org/release-publishing.html#normal
-
+- [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
+- [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
+- [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
+- [4] https://infra.apache.org/publishing-maven-artifacts.html
+- [5] https://infra.apache.org/release-signing.html#signing-basics
+- [6] https://infra.apache.org/release-publishing.html#uploading
+- [7] https://infra.apache.org/release-distribution#sigs-and-sums
+- [8] https://www.apache.org/info/verification.html#CheckingHashes
+- [9] https://www.apache.org/info/verification.html#CheckingSignatures
+- [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+- [11] https://infra.apache.org/licensing-howto.html#binary
+- [12] https://www.apache.org/legal/release-policy.html#release-approval
+- [13] https://incubator.apache.org/policy/incubation.html#Releases
+- [14] https://www.apache.org/foundation/voting.html
+- [15] https://infra.apache.org/release-download-pages.html
+- [16] https://infra.apache.org/release-publishing.html#normal

@@ -79,14 +79,14 @@ Please specify how long the key should be valid.
      <n>w = key expires in n weeks
      <n>m = key expires in n months
      <n>y = key expires in n years
-Key is valid for? (0) 
+Key is valid for? (0)
 Key does not expire at all
 Is this correct? (y/N) y
 
 GnuPG needs to construct a user ID to identify your key.
 
-Real name: （设置用户名）
-Email address: （设置邮件地址）
+Real name: （设置用户名）(使用apache id)
+Email address: （设置邮件地址）(使用apache邮箱)
 Comment: （填写注释）
 You selected this USER-ID:
    "用户名 (注释) <邮件地址>"
@@ -239,7 +239,7 @@ diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-clie
 
 ### ShenYu 社区投票
 
-**1. 投票持续至少72小时并获得3个`+1 binding`票**
+**1. 投票持续至少 72 小时并获得 3 个`+1 binding`票**
 
 发送至：
 
@@ -281,10 +281,10 @@ The vote will be open for at least 72 hours or until necessary number of votes a
 
 Please vote accordingly:
 
-[ ] +1 approve 
+[ ] +1 approve
 
 [ ] +0 no opinion
- 
+
 [ ] -1 disapprove with the reason
 
 Checklist for reference:
@@ -348,7 +348,6 @@ svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-${CL
 
 Edit [Releases](https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/releases) `${PUBLISH.VERSION}` and click release.
 
-
 **3. 完成 GitHub 更新**
 
 从 GitHub Fork 一份代码，并执行以下命令：
@@ -377,7 +376,7 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 
 > 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
 >
-> 注意：GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/shenyu/`
+> 注意：GPG 签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/shenyu/`
 
 **5. 更新文档**
 
@@ -393,7 +392,7 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 
 ## 发布公告
 
-> 注意：`announce@apache.org` 地址要求以纯文本格式发送邮件。如果你使用的是Gmail，可以在编辑界面勾选`纯文本模式`。
+> 注意：`announce@apache.org` 地址要求以纯文本格式发送邮件。如果你使用的是 Gmail，可以在编辑界面勾选`纯文本模式`。
 
 发送至：
 
@@ -500,22 +499,21 @@ svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-${CLIENT.
 
 投票结果和通知邮件不需要加后缀。
 
-
 **以上内容参考**
 
-* [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
-* [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
-* [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
-* [4] https://infra.apache.org/publishing-maven-artifacts.html
-* [5] https://infra.apache.org/release-signing.html#signing-basics
-* [6] https://infra.apache.org/release-publishing.html#uploading
-* [7] https://infra.apache.org/release-distribution#sigs-and-sums
-* [8] https://www.apache.org/info/verification.html#CheckingHashes
-* [9] https://www.apache.org/info/verification.html#CheckingSignatures
-* [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
-* [11] https://infra.apache.org/licensing-howto.html#binary
-* [12] https://www.apache.org/legal/release-policy.html#release-approval
-* [13] https://incubator.apache.org/policy/incubation.html#Releases
-* [14] https://www.apache.org/foundation/voting.html
-* [15] https://infra.apache.org/release-download-pages.html
-* [16] https://infra.apache.org/release-publishing.html#normal
+- [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
+- [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
+- [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
+- [4] https://infra.apache.org/publishing-maven-artifacts.html
+- [5] https://infra.apache.org/release-signing.html#signing-basics
+- [6] https://infra.apache.org/release-publishing.html#uploading
+- [7] https://infra.apache.org/release-distribution#sigs-and-sums
+- [8] https://www.apache.org/info/verification.html#CheckingHashes
+- [9] https://www.apache.org/info/verification.html#CheckingSignatures
+- [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+- [11] https://infra.apache.org/licensing-howto.html#binary
+- [12] https://www.apache.org/legal/release-policy.html#release-approval
+- [13] https://incubator.apache.org/policy/incubation.html#Releases
+- [14] https://www.apache.org/foundation/voting.html
+- [15] https://infra.apache.org/release-download-pages.html
+- [16] https://infra.apache.org/release-publishing.html#normal

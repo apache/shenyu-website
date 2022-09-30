@@ -44,7 +44,7 @@ description: Logging-pulsar插件
 
 ## 2.1 插件使用流程图
 
-![](/img/shenyu/plugin/logging/logging-console/loggingConsole-use-zn.png)
+![](/img/shenyu/plugin/logging/logging-console/loggingConsole-use-zn.jpg)
 
 ## 2.2 导入pom
 

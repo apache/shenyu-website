@@ -71,4 +71,25 @@ description: ShenYu Admin数据结构
 
 <img src="/img/shenyu/db/shenyu_dict.png" width="30%" height="30%" />
 
+## API文档
 
+* API文档表用来维护和管理API文档。
+* 常见规范(如OpenApi3.0规范、yapi规范)的api doc(如json、md、html等)可以导入`shenyu-admin`，并最终存储到API文档表。
+* 通过API文档表可以生成其他常见规范的api doc。
+* 数据库 `UML` 类图：
+
+  <img src="/img/shenyu/db/shenyu-api-doc-table.png" width="30%" height="30%" />
+
+* 设计详解：
+  * 一个tag可以有多个子tag，tag的层级无限，最下面的叶子节点是API。
+  * 相同path、支持多种http_method的接口，算多个API。
+  * 一个API有多个请求参数、多个响应字段。
+  * 一个参数/字段有它自己的类型(也就是model)，每个类型由多个字段构成。
+  * 一个字段有它自己的类型，对应多个值。
+  * 一个值既可以作为请求示例值，也可以描述响应示例值(比如200表示OK、400表示非法参数)。
+  * `mock_request_record`表的`query`、`header`、`body`都存储json，但是`body`不支持存储特殊类型(比如文件)。
+  * `tag`表的`ext`存储它父tag(包括父tag的父tag，以此类推)的全量json数据。
+  * `api`表的`ext`可能存储ip列表、SpringCloud的service name。
+  * `parameter`表的`type`主要包括`requestUrlParam`、`requestHeader`、`requestBody`、`requestPathVariable`、`responseHeader`和`responseBody`；如果返回的类型是特殊类型(如文件)，则不用关联`model_id`。
+  * `field`表的`ext`以json格式(方便后续扩展)存储泛型，如`{"genericTypes":[model_id1,model_id2]}`；`model_id`表示该字段属于哪个类型，`self_model_id`表示该字段自身是什么类型。
+  * `detail`表的`is_example`表示一个值是否是请求示例值，true是请求示例值，false是响应值。

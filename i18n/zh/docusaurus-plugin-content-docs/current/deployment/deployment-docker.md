@@ -70,7 +70,6 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 > docker network create shenyu
 > docker pull apache/shenyu-bootstrap:${current.version}
 > docker run -d \
-  -p 9195:9195 \
-  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
+  -p 9195:9195 \  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   apache/shenyu-bootstrap:${current.version}
 ```

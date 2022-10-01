@@ -78,7 +78,7 @@ description: ShenYu Admin数据结构
 * 通过API文档表可以生成其他常见规范的api doc。
 * 数据库 `UML` 类图：
 
-  <img src="/img/shenyu/db/shenyu-api-doc-table.png" width="30%" height="30%" />
+<img src="/img/shenyu/db/shenyu-api-doc-table.png" width="105%" height="105%" />
 
 * 设计详解：
   * 一个tag可以有多个子tag，tag的层级无限，最下面的叶子节点是API。

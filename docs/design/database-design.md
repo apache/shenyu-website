@@ -78,7 +78,7 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
 * API documents of other common specifications can be generated through the API document tables.
 * The Database Table UML Diagram:
 
-  <img src="/img/shenyu/db/shenyu-api-doc-table.png" width="30%" height="30%" />
+<img src="/img/shenyu/db/shenyu-api-doc-table.png" width="105%" height="105%" />
 
 * Detailed design:
   * A tag can have multiple child tags, the level of tags is unlimited, the lowest leaf node is API.

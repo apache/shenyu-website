@@ -71,6 +71,7 @@ In the host, the directory where the bootstrap [configuration file](https://gith
 > docker pull apache/shenyu-bootstrap:${current.version}
 > docker run -d \
   -p 9195:9195 \
+  --net shenyu \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   apache/shenyu-bootstrap:${current.version}
 ```

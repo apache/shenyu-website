@@ -71,4 +71,25 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
 
 <img src="/img/shenyu/db/shenyu_dict.png" width="30%" height="30%" />
 
+## API Documentation {#API-documentation}
 
+* The API document tables used to maintain and manage API documents.
+* The API document (such as json, md, html, etc.) of common specifications (such as OpenApi3.0 and yapi) can be imported into `shenyu-admin` and finally stored in the API document tables.
+* API documents of other common specifications can be generated through the API document tables.
+* The Database Table UML Diagram:
+
+<img src="/img/shenyu/db/shenyu-api-doc-table.png" width="105%" height="105%" />
+
+* Detailed design:
+  * A tag can have multiple child tags, the level of tags is unlimited, the lowest leaf node is API.
+  * Interfaces with the same path but supporting multiple http methods, they are counted as multiple APIs.
+  * An API has multiple request parameters and response fields.
+  * A parameter/field has its own type (model), and each type have multiple fields.
+  * A field has its own type, which corresponds to multiple values.
+  * A value can be used as either a request example value, or a response example value (for example, 200 indicates OK, and 400 indicates illegal parameters).
+  * The `query`, `header` and `body`, all of them are `json` stored in `mock_request_record`，but `body` does not support special types such as file。
+  * The `ext` of the `tag` table stores the full amount of json data of its parent tag (including the parent tag of the parent tag, and so on).
+  * The `ext` of the `api` table may store the IP list and the service name of `SpringCloud`.
+  * The `type` of the `parameter` table mainly includes `requestUrlParam`, `requestHeader`, `requestBody`, `requestPathVariable`, `responseHeader`, and `responseBody`; If the returned type is a special type (such as file), do not associate `model_id`.
+  * The `ext` of the `field` table stores generic type in json format (convenient for subsequent expansion), such as `{"genericTypes": [model_id1, model_id2]}`; `model_id` indicates which type has this field, `self_model_id` indicates which type of this field.
+  * The `is_example` of `detail` table indicates whether a value is a request sample value, true is a request sample value, and false is a response value.

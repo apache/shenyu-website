@@ -52,8 +52,7 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 > docker network create shenyu
 > docker pull apache/shenyu-bootstrap:2.4.2
 > docker run -d \
-  -p 9195:9195 \
-  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
+  -p 9195:9195 \  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   apache/shenyu-bootstrap:2.4.2
 ```
 
@@ -76,6 +75,7 @@ agent相关配置文件位于 [shenyu-dist/shenyu-agent-dist/src/main/resources/
 > docker pull apache/shenyu-bootstrap:2.4.2
 > docker run -d \
   -p 9195:9195 \
+  --net shenyu \
   -v $AGENT_CONF:/opt/shenyu-bootstrap/agent/conf \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   apache/shenyu-bootstrap:2.4.2 agent

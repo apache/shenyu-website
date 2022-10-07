@@ -145,7 +145,7 @@ description: rateLimiter plugin
 - Start two ShenYu Bootstrap on `10.10.10.20:9195` and `10.10.10.30:9195`, and config data sync center on `10.10.10.10:9095`
 - config nginx, for example:
 
-```conf
+```nginx
 upstream shenyu_gateway_cluster {
   ip_hash;
   server 10.1.1.1:9195 max_fails=3 fail_timeout=10s weight=50;

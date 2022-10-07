@@ -57,7 +57,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 
 * modify `upstream` and `server` of configuration in `nginx.conf`.
 
-```conf
+```nginx
 upstream shenyu_gateway_cluster {
   ip_hash;
   server 10.1.1.1:9195 max_fails=3 fail_timeout=10s weight=50;
@@ -65,7 +65,7 @@ upstream shenyu_gateway_cluster {
 }
 ```
 
-```conf
+```nginx
 server {
   location / {
 		proxy_pass http://shenyu_gateway_cluster;

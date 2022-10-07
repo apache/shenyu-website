@@ -37,13 +37,13 @@ public class CustomMatchStrategy extends AbstractMatchStrategy implements MatchS
 
 * In the project's META-INF/services directory, create `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy` file.
 
-```shell script
+```shell title="script"
 ${spi name} = ${custom class path}
 ``` 
 
 `${spi name}` represents the name of `spi` and `${custom class path}` represents the fully qualified name of the class. Such as:
 
-```shell script
+```shell title="script"
 custom = xxx.xxx.xxx.CustomMatchStrategy
 ```
 

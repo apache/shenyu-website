@@ -29,14 +29,14 @@ public class CustomPredicateJudge implements PredicateJudge {
 
 * In `org.apache.shenyu.plugin.base.condition.judge.PredicateJudge` file, add key-value as following:
 
-```shell script
+```shell title="script"
 ${spi name} = ${custom class path}
 ``` 
 
 `${spi name}` represents the name of `spi` and `${custom class path}` represents the fully qualified name of the class. Such as:
 
 
-```shell script
+```shell title="script"
 custom=org.apache.shenyu.examples.http.judge.CustomPredicateJudge
 ```
 

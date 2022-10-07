@@ -62,13 +62,13 @@ public class CustomGenerator implements Generator<String> {
 
 * 在工程的 META-INF/shenyu 目录创建 `org.apache.shenyu.plugin.mock.generator.Generator`文件中添加如下内容：
 
-```shell script
+```shell title="script"
 ${spi name}=${custom class path}
 ``` 
 
 `${spi name}`表示`spi`的名称，`${spi name }` 需要与 Generator 实现类中 getName() 方法定义的一致 `${custom class path}`表示该类的全限定名。比如：
 
-```shell script
+```shell title="script"
 custom=xxx.xxx.xxx.CustomGenerator
 ```
 

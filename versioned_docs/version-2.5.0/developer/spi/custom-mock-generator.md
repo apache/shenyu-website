@@ -64,13 +64,13 @@ public class CustomGenerator implements Generator<String> {
 * In the project  `resources` directory，Create a new `META-INF/shenyu` directory， and the new file name is : `org.apache.shenyu.plugin.mock.generator.Generator`.
   add `${you spi name}` = `${you class path}`:
 
-```shell script
+```shell title="script"
 ${spi name}=${custom class path}
 ``` 
 
 `${spi name}` represents the name of `spi`, `${spi name }` needs to be consistent with the definition of the getName() method in the Generator implementation class, `${custom class path}` represents the fully qualified name of the class. for example:
 
-```shell script
+```shell title="script"
 custom=xxx.xxx.xxx.CustomGenerator
 ```
 

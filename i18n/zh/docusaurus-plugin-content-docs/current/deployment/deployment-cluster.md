@@ -57,7 +57,7 @@ description: 集群部署
 
 * 在`nginx.conf`文件中修改`upstream`和`server`节点的配置。
 
-```conf
+```nginx
 upstream shenyu_gateway_cluster {
   ip_hash;
   server 10.1.1.1:9195 max_fails=3 fail_timeout=10s weight=50;

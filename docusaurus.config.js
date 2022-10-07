@@ -100,7 +100,7 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['java'],
+      additionalLanguages: ['java', 'properties', 'nginx', 'http', 'lua', 'json5', 'protobuf'],
     },
     algolia: {
       apiKey: '5f882bef2dfc81f5f1b4e5ea87b2f165',

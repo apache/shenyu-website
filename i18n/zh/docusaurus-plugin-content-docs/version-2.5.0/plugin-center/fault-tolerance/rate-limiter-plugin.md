@@ -147,7 +147,7 @@ description: rateLimiter插件
 - 在`10.10.10.20:9195`和`10.10.10.30:9195`启动`ShenYu Bootstrap`, 配置`ShenYu Bootstrap`配置同步`10.10.10.10:9095`
 - 配置nginx，例如：
 
-```conf
+```nginx
 upstream shenyu_gateway_cluster {
   ip_hash;
   server 10.1.1.1:9195 max_fails=3 fail_timeout=10s weight=50;

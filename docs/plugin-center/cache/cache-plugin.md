@@ -134,7 +134,7 @@ select redis cache type, config redis database, url, mode, password
 
 * send http request to cache result.
 
-```http request
+```http title="request"
 ### shengyu getway proxy orderSave
 GET http://localhost:9195/http/order/findById?id=123
 Accept: application/json

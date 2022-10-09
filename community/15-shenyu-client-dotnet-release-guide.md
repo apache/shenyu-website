@@ -122,6 +122,27 @@ Follow [Dirmngr Options](https://www.gnupg.org/documentation/manuals/gnupg/Dirmn
 gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 ```
 
+## Before Release
+
+**1. Publish a new tag**
+
+Download and install [Git](https://git-scm.com/downloads).
+
+Create a new tag called `${PUBLISH.VERSION}`.
+
+```shell
+git clone https://github.com/apache/shenyu-client-dotnet.git ~/shenyu-client-dotnet
+cd ~/shenyu-client-dotnet/
+git checkout main
+git tag -a v${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client dotnet"
+```
+
+Push new created tag to github.
+
+```shell
+git push origin v${PUBLISH.VERSION}
+```
+
 ## Publish to SVN dev repository
 
 Install [SVN](https://tortoisesvn.net/downloads.html).

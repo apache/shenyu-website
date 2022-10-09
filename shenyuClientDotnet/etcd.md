@@ -8,7 +8,7 @@ title: Etcd Example
 
 ## ASP.NET Core project
 
-For ASP.NET Core project, we can refer to the example code at `examples/AspNetCoreExample`. What you need to do is quite
+For ASP.NET Core project, we can refer to the example code at [example code](https://github.com/apache/shenyu-client-dotnet/tree/main/examples/AspNetCoreExample). What you need to do is quite
 simple and straightforward.
 
 1. add the Shenyu ASP.NET Core dependency into project.

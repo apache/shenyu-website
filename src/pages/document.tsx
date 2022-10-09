@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Layout from '@theme/Layout';
 import styles from './document.module.css';
 import Translate from "@docusaurus/Translate";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Link from '@docusaurus/Link';
 import data from '../data/docsInfo';
 
 function Event() {
@@ -49,7 +49,7 @@ function Event() {
         <div className={styles.title}><Translate>Document List</Translate></div>
         <div className={styles.description}>
           <p className={styles.descriptionLine}><Translate>This directory presents the official Apache ShenYu repositories and some ecosystem projects developed by community.</Translate></p>
-          <p className={styles.descriptionLine}><Translate>The downloadable releases can be find in the</Translate><a className={styles.descriptionLineHref} href='./download'><Translate>download page</Translate></a></p>
+          <p className={styles.descriptionLine}><Translate>The downloadable releases can be find in the</Translate><Link className={styles.descriptionLineHref} to="./download"><Translate>download page</Translate></Link></p>
         </div>
       </div>
       <div className={styles.content}>

@@ -28,48 +28,45 @@ ShenYu 有Casdoor插件去使用Casdoor
 
 ### 2.添加我们的回调url
 
-  ![](/img/shenyu/plugin/casdoor/casdoor_config.png)
+  ![casdoor_config](/img/shenyu/plugin/casdoor/casdoor_config.png)
 
 ### 3.在证书的编辑页面，我们能看到我们的`Certificate`
-  ![](/img/shenyu/plugin/casdoor/casdoor_config.png)
 
+  ![casdoor_cert](/img/shenyu/plugin/casdoor/casdoor_cert.png)
 
 ## 第三步.运用Casdoor插件在Shenyu
 
 ### 1.设置Casdoor插件在Shenyu
-  ![](/img/shenyu/plugin/casdoor/casdoor_configPlugin.png)
 
-
+  ![casdoor_configPlugin](/img/shenyu/plugin/casdoor/casdoor_configPlugin.png)
 
 注意:因为Shenyu只有单行输入框所以我们需要增加\n在每一行的证书.
-  ![](/img/shenyu/plugin/casdoor/casdoor_cert2.png)
 
-
+  ![casdoor_cert2](/img/shenyu/plugin/casdoor/casdoor_cert2.png)
 
 我们可以在复制他们并将它们粘贴到Shenyu的Casdoor配置中的certificate这一项中
 
 **我们不需要保存我们加\n的内容在Casdoor的证书设置处**,因为这只是为了复制方便.
 
 #### 2.设置Shenyu Casdoor的插件配置
-   ![](/img/shenyu/plugin/casdoor/casdoor_casdoor.png)
 
-
+  ![casdoor_casdoor](/img/shenyu/plugin/casdoor/casdoor_casdoor.png)
 
 ​我们可以设置你所拥有的casdoor配置在Shenyu配置中
 
 ### 3.得到服务和运用
 
 #### 3.1 直接访问页面
-   ![](/img/shenyu/plugin/casdoor/casdoor_faillogin.png)
 
+  ![casdoor_faillogin](/img/shenyu/plugin/casdoor/casdoor_faillogin.png)
 
 #### 3.2 使用Casdoor登录
-   ![](/img/shenyu/plugin/casdoor/casdoor_login.png)
-   ![](/img/shenyu/plugin/casdoor/casdoor_successlogin.png)
+
+  ![casdoor_login](/img/shenyu/plugin/casdoor/casdoor_login.png)
+  ![casdoor_successlogin](/img/shenyu/plugin/casdoor/casdoor_successlogin.png)
 
 #### 3.3携带token在Headers,你可以访问该页面
 
-   ![](/img/shenyu/plugin/casdoor/casdoor_token.png)
-
+  ![casdoor_token](/img/shenyu/plugin/casdoor/casdoor_token.png)
 
 #### 3.4 我们可以保存name,id和organization在Headers以至于你可以运用他们在下一次

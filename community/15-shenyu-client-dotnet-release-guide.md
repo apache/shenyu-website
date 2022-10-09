@@ -1,6 +1,6 @@
 ---
 title: ShenYu client .NET Release Guide
-sidebar_position: 14
+sidebar_position: 15
 description: Apache ShenYu-client-dotnet Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---

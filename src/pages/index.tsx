@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Link from "@docusaurus/Link";
 import Translate, { translate } from "@docusaurus/Translate";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,6 +26,8 @@ function Home() {
       tagline,
     },
   } = useDocusaurusContext();
+  useEffect(() => autoRedirect(), []);
+
   return (
     <Layout title={tagline} description={description as string}>
       <main>
@@ -160,6 +162,17 @@ function Home() {
       </main>
     </Layout>
   );
+}
+
+function autoRedirect() {
+  let lang = global.navigator?.language || navigator?.language
+  if (lang != null && lang.toLowerCase() === 'zh-cn') {
+    if (sessionStorage.getItem('auto_detect_redirect') !== 'true') {
+      console.log('Current lang is ' + lang);
+      sessionStorage.setItem('auto_detect_redirect', 'true')
+      window.location.href = '/zh/';
+    }
+  }
 }
 
 export default Home;

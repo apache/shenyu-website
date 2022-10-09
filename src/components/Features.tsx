@@ -111,8 +111,8 @@ const Features = (): React.ReactElement => (
           slideShadows: true,
         }}
       >
-        {FEATURES.map(({ image, title, subtitle }) => (
-          <SwiperSlide className={styles.swiperSlide}>
+        {FEATURES.map(({ image, title, subtitle }, index) => (
+          <SwiperSlide className={styles.swiperSlide} key={index}>
             <FeatureCard key={title} image={useBaseUrl(image)} title={title} subtitle={subtitle} />
           </SwiperSlide>
         ))}

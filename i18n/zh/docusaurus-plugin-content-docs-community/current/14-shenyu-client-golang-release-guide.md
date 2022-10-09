@@ -79,14 +79,14 @@ Please specify how long the key should be valid.
      <n>w = key expires in n weeks
      <n>m = key expires in n months
      <n>y = key expires in n years
-Key is valid for? (0) 
+Key is valid for? (0)
 Key does not expire at all
 Is this correct? (y/N) y
 
 GnuPG needs to construct a user ID to identify your key.
 
-Real name: （设置用户名）
-Email address: （设置邮件地址）
+Real name: （设置用户名）(使用apache id)
+Email address: （设置邮件地址）(使用apache邮箱)
 Comment: （填写注释）
 You selected this USER-ID:
    "用户名 (注释) <邮件地址>"
@@ -122,6 +122,27 @@ sub   rsa4096 2019-03-11 [E]
 gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 ```
 
+## 发布前的准备工作
+
+**1. 发布一个新标签**
+
+下载并安装 [Git](https://git-scm.com/downloads).
+
+创建并切换到 `${PUBLISH.VERSION}` 标签.
+
+```shell
+git clone https://github.com/apache/shenyu-client-golang.git ~/shenyu-client-golang
+cd ~/shenyu-client-golang/
+git checkout master
+git tag -a ${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client golang"
+```
+
+提交更新版本号后的代码和新标签。
+
+```shell
+git push origin --tags
+```
+
 ## 发布到 SVN 预发仓库
 
 下载并安装[SVN](https://tortoisesvn.net/downloads.html)。
@@ -149,10 +170,10 @@ svn --username=${LDAP ID} commit -m "append to KEYS"
 mkdir -p ~/svn_release/dev/
 cd ~/svn_release/dev/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
-mkdir -p ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION}
-cd ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-${CLIENT.LANGUAGE}/target/*.zip ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-${CLIENT.LANGUAGE}/target/*.zip.asc ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION}
+mkdir -p ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+cd ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-golang/target/*.zip ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-golang/target/*.zip.asc ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
 ```
 
 **3. 添加校验文件**
@@ -160,15 +181,15 @@ cp -f ~/shenyu/shenyu-client-${CLIENT.LANGUAGE}/target/*.zip.asc ~/svn_release/d
 根据 [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] 的说明添加校验文件。
 
 ```shell
-shasum -a 512 shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip > shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip.sha512
+shasum -a 512 shenyu-client-golang-${PUBLISH.VERSION}-src.zip > shenyu-client-golang-${PUBLISH.VERSION}-src.zip.sha512
 ```
 
 **4. 提交新版本**
 
 ```shell
-cd ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}
+cd ~/svn_release/dev/shenyu/shenyu-client-golang
 svn add ${PUBLISH.VERSION}/
-svn --username=${LDAP ID} commit -m "release shenyu-client-${CLIENT.LANGUAGE} ${PUBLISH.VERSION}"
+svn --username=${LDAP ID} commit -m "release shenyu-client-golang ${PUBLISH.VERSION}"
 ```
 
 ## 预发版本验证
@@ -178,7 +199,7 @@ svn --username=${LDAP ID} commit -m "release shenyu-client-${CLIENT.LANGUAGE} ${
 根据 [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] 的说明验证 sha512 校验和。
 
 ```shell
-shasum -c shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip.sha512
+shasum -c shenyu-client-golang-${PUBLISH.VERSION}-src.zip.sha512
 ```
 
 **2. 验证 GPG 签名**
@@ -188,8 +209,8 @@ shasum -c shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip.sha512
 ```shell
 curl https://downloads.apache.org/shenyu/KEYS >> KEYS
 gpg --import KEYS
-cd ~/svn_release/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION}
-gpg --verify shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip.asc shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip
+cd ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+gpg --verify shenyu-client-golang-${PUBLISH.VERSION}-src.zip.asc shenyu-client-golang-${PUBLISH.VERSION}-src.zip
 ```
 
 **3. 确保 SVN 与 GitHub 源码一致**
@@ -197,10 +218,10 @@ gpg --verify shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip.asc she
 根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明确保 SVN 与 GitHub 源码一致。
 
 ```
-wget https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/archive/v${PUBLISH.VERSION}.zip
+wget https://github.com/apache/shenyu/shenyu-client-golang/archive/v${PUBLISH.VERSION}.zip
 unzip v${PUBLISH.VERSION}.zip
-unzip shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src.zip
-diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}-src shenyu-client-${CLIENT.LANGUAGE}-${PUBLISH.VERSION}
+unzip shenyu-client-golang-${PUBLISH.VERSION}-src.zip
+diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-client-golang-${PUBLISH.VERSION}-src shenyu-client-golang-${PUBLISH.VERSION}
 ```
 
 **4. 检查源码包**
@@ -239,7 +260,7 @@ diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-clie
 
 ### ShenYu 社区投票
 
-**1. 投票持续至少72小时并获得3个`+1 binding`票**
+**1. 投票持续至少 72 小时并获得 3 个`+1 binding`票**
 
 发送至：
 
@@ -250,25 +271,27 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[VOTE] Release Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION}
+[VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
 ```
 
 正文：
 
 ```
-This is a call for vote to release Apache ShenYu Client ${CLIENT.LANGUAGE} version ${PUBLISH.VERSION}
+Hello ShenYu Community,
+
+This is a call for vote to release Apache ShenYu Client Golang version ${PUBLISH.VERSION}
 
 Release notes:
-https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/blob/master/RELEASE-NOTES.md
+https://github.com/apache/shenyu/shenyu-client-golang/blob/master/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION}/
+https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}/
 
 Git tag for the release:
-https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/tree/v${PUBLISH.VERSION}/
+https://github.com/apache/shenyu/shenyu-client-golang/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
-https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/commit/xxxxxxxxxxxxxxxxxxxxxxx
+https://github.com/apache/shenyu/shenyu-client-golang/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 
 Keys to verify the Release Candidate:
@@ -281,10 +304,10 @@ The vote will be open for at least 72 hours or until necessary number of votes a
 
 Please vote accordingly:
 
-[ ] +1 approve 
+[ ] +1 approve
 
 [ ] +0 no opinion
- 
+
 [ ] -1 disapprove with the reason
 
 Checklist for reference:
@@ -295,7 +318,7 @@ Checklist for reference:
 
 [ ] Source code distributions have correct names matching the current release.
 
-[ ] LICENSE and NOTICE files are correct for each ShenYu repo.
+[ ] LICENSE and NOTICE files are correct for each ShenYu Client Golang repo.
 
 [ ] All files have license headers if necessary.
 
@@ -313,7 +336,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[RESULT][VOTE] Release Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION}
+[RESULT][VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -340,34 +363,23 @@ Thanks everyone for taking the time to verify and vote for the release!
 根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从 dev 目录转移到 release 目录。
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PREVIOUS.RELEASE.VERSION}
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. 完成 GitHub 发布**
 
-Edit [Releases](https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/releases) `${PUBLISH.VERSION}` and click release.
-
-
-**3. 完成 GitHub 更新**
+Edit [Releases](https://github.com/apache/shenyu/shenyu-client-golang/releases) `${PUBLISH.VERSION}` and click release.
 
 从 GitHub Fork 一份代码，并执行以下命令：
 
 ```shell
-git checkout master
-git merge origin/${PUBLISH.VERSION}-release
-git pull
-git push origin master
+git tag -d ${PUBLISH.VERSION}
+git push origin :refs/tags/${PUBLISH.VERSION}
 ```
 
-以上修改需要创建一个 pull request。pr 合并后，在原始仓库执行以下命令：
 
-```shell
-git push --delete origin ${PUBLISH.VERSION}-release
-git branch -d ${PUBLISH.VERSION}-release
-```
-
-**4. 更新下载页面**
+**3. 更新下载页面**
 
 根据 [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15]， [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 的说明更新下载页面。
 
@@ -377,23 +389,23 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 
 > 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
 >
-> 注意：GPG签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/shenyu/`
+> 注意：GPG 签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/shenyu/`
 
-**5. 更新文档**
+**4. 更新文档**
 
 将 `${PUBLISH.VERSION}` 版本的[文档](https://github.com/apache/shenyu-website)进行归档，并更新[版本页面](https://shenyu.apache.org/zh/versions)。
 
-**6. 更新事件页面**
+**5. 更新事件页面**
 
 添加新版本[事件](https://shenyu.apache.org/zh/event/${PUBLISH.VERSION}-release)。
 
-**7. 更新新闻页面**
+**6. 更新新闻页面**
 
 添加新版本[新闻](https://shenyu.apache.org/zh/news)。
 
 ## 发布公告
 
-> 注意：`announce@apache.org` 地址要求以纯文本格式发送邮件。如果你使用的是Gmail，可以在编辑界面勾选`纯文本模式`。
+> 注意：`announce@apache.org` 地址要求以纯文本格式发送邮件。如果你使用的是 Gmail，可以在编辑界面勾选`纯文本模式`。
 
 发送至：
 
@@ -405,7 +417,7 @@ announce@apache.org
 标题：
 
 ```
-[ANNOUNCE] Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION} available
+[ANNOUNCE] Apache ShenYu Client Golang ${PUBLISH.VERSION} available
 ```
 
 正文：
@@ -413,7 +425,7 @@ announce@apache.org
 ```
 Hi,
 
-Apache ShenYu Team is glad to announce the new release of Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION}.
+Apache ShenYu Team is glad to announce the new release of Apache ShenYu Client Golang ${PUBLISH.VERSION}.
 
 Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
@@ -425,7 +437,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu/shenyu-client-${CLIENT.LANGUAGE}/blob/master/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu/shenyu-client-golang/blob/master/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 
@@ -454,7 +466,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[CANCEL][VOTE] Release Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION}
+[CANCEL][VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -487,7 +499,7 @@ git tag -d v${PUBLISH.VERSION}
 **4. 删除 SVN 待发布内容**
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-${CLIENT.LANGUAGE}/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
 ```
 
 **5. 更新邮件标题**
@@ -495,27 +507,26 @@ svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-${CLIENT.
 完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加 `[ROUND ${n}]` 后缀。例如：
 
 ```
-[VOTE] Release Apache ShenYu Client ${CLIENT.LANGUAGE} ${PUBLISH.VERSION} [ROUND 2]
+[VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION} [ROUND 2]
 ```
 
 投票结果和通知邮件不需要加后缀。
 
-
 **以上内容参考**
 
-* [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
-* [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
-* [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
-* [4] https://infra.apache.org/publishing-maven-artifacts.html
-* [5] https://infra.apache.org/release-signing.html#signing-basics
-* [6] https://infra.apache.org/release-publishing.html#uploading
-* [7] https://infra.apache.org/release-distribution#sigs-and-sums
-* [8] https://www.apache.org/info/verification.html#CheckingHashes
-* [9] https://www.apache.org/info/verification.html#CheckingSignatures
-* [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
-* [11] https://infra.apache.org/licensing-howto.html#binary
-* [12] https://www.apache.org/legal/release-policy.html#release-approval
-* [13] https://incubator.apache.org/policy/incubation.html#Releases
-* [14] https://www.apache.org/foundation/voting.html
-* [15] https://infra.apache.org/release-download-pages.html
-* [16] https://infra.apache.org/release-publishing.html#normal
+- [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
+- [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
+- [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
+- [4] https://infra.apache.org/publishing-maven-artifacts.html
+- [5] https://infra.apache.org/release-signing.html#signing-basics
+- [6] https://infra.apache.org/release-publishing.html#uploading
+- [7] https://infra.apache.org/release-distribution#sigs-and-sums
+- [8] https://www.apache.org/info/verification.html#CheckingHashes
+- [9] https://www.apache.org/info/verification.html#CheckingSignatures
+- [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+- [11] https://infra.apache.org/licensing-howto.html#binary
+- [12] https://www.apache.org/legal/release-policy.html#release-approval
+- [13] https://incubator.apache.org/policy/incubation.html#Releases
+- [14] https://www.apache.org/foundation/voting.html
+- [15] https://infra.apache.org/release-download-pages.html
+- [16] https://infra.apache.org/release-publishing.html#normal

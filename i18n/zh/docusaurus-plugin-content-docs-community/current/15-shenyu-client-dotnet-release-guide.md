@@ -131,16 +131,16 @@ gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 创建并切换到 `${PUBLISH.VERSION}` 标签.
 
 ```shell
-git clone https://github.com/apache/shenyu-client-golang.git ~/shenyu-client-golang
-cd ~/shenyu-client-golang/
-git checkout master
-git tag -a ${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client golang"
+git clone https://github.com/apache/shenyu-client-dotnet.git ~/shenyu-client-dotnet
+cd ~/shenyu-client-dotnet/
+git checkout main
+git tag -a v${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client dotnet"
 ```
 
 提交更新版本号后的代码和新标签。
 
 ```shell
-git push origin --tags
+git push origin v${PUBLISH.VERSION}
 ```
 
 ## 发布到 SVN 预发仓库

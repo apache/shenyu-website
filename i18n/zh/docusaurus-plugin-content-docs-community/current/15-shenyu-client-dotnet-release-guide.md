@@ -1,13 +1,13 @@
 ---
-title: ShenYu go语言客户端发布指南
-sidebar_position: 14
-description: Apache ShenYu go语言客户端发布指南
+title: ShenYu .NET 语言客户端发布指南
+sidebar_position: 15
+description: Apache ShenYu .NET 语言客户端发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## 更新发布公告
 
-按照如下格式更新[发布公告](https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md)：
+按照如下格式更新[发布公告](https://github.com/apache/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md)：
 
 ```
 ## ${PUBLISH.VERSION}
@@ -131,16 +131,16 @@ gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 创建并切换到 `${PUBLISH.VERSION}` 标签.
 
 ```shell
-git clone https://github.com/apache/shenyu-client-golang.git ~/shenyu-client-golang
-cd ~/shenyu-client-golang/
-git checkout master
-git tag -a ${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client golang"
+git clone https://github.com/apache/shenyu-client-dotnet.git ~/shenyu-client-dotnet
+cd ~/shenyu-client-dotnet/
+git checkout main
+git tag -a v${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client dotnet"
 ```
 
 提交更新版本号后的代码和新标签。
 
 ```shell
-git push origin --tags
+git push origin v${PUBLISH.VERSION}
 ```
 
 ## 发布到 SVN 预发仓库
@@ -167,13 +167,25 @@ svn --username=${LDAP ID} commit -m "append to KEYS"
 根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明添加源码包和二进制文件包。
 
 ```shell
+# create release folder and check out svn dev repo
 mkdir -p ~/svn_release/dev/
 cd ~/svn_release/dev/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
-mkdir -p ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
-cd ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-golang/target/*.zip ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-golang/target/*.zip.asc ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+mkdir -p ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+
+# generate sign file for each files
+gpg -u <id>@apache.org --armor --output shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.asc --detach-sign shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip
+gpg -u <id>@apache.org --armor --output Apache.ShenYu.Client.dll.asc --detach-sign client/Apache.ShenYu.Client/bin/Release/netstandard2.0/Apache.ShenYu.Client.dll
+gpg -u <id>@apache.org --armor --output Apache.ShenYu.AspNetCore.dll.asc --detach-sign client/Apache.ShenYu.AspNetCore/bin/Release/netstandard2.0/Apache.ShenYu.AspNetCore.dll
+
+# copy source files and
+cd ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-dotnet/shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-dotnet/shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.asc ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-dotnet/client/Apache.ShenYu.Client/bin/Release/netstandard2.0/Apache.ShenYu.Client.dll ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-dotnet/Apache.ShenYu.Client.dll.asc ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-dotnet/client/Apache.ShenYu.AspNetCore/bin/Release/netstandard2.0/Apache.ShenYu.AspNetCore.dll ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-dotnet/Apache.ShenYu.AspNetCore.dll.asc ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
 ```
 
 **3. 添加校验文件**
@@ -181,15 +193,19 @@ cp -f ~/shenyu/shenyu-client-golang/target/*.zip.asc ~/svn_release/dev/shenyu/sh
 根据 [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] 的说明添加校验文件。
 
 ```shell
-shasum -a 512 shenyu-client-golang-${PUBLISH.VERSION}-src.zip > shenyu-client-golang-${PUBLISH.VERSION}-src.zip.sha512
+# go to release folder
+cd ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+shasum -a 512 shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip > shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.sha512
+shasum -a 512 Apache.ShenYu.Client.dll > Apache.ShenYu.Client.dll.sha512
+shasum -a 512 Apache.ShenYu.AspNetCore.dll > Apache.ShenYu.AspNetCore.dll.sha512
 ```
 
 **4. 提交新版本**
 
 ```shell
-cd ~/svn_release/dev/shenyu/shenyu-client-golang
+cd ~/svn_release/dev/shenyu/shenyu-client-dotnet
 svn add ${PUBLISH.VERSION}/
-svn --username=${LDAP ID} commit -m "release shenyu-client-golang ${PUBLISH.VERSION}"
+svn --username=${LDAP ID} commit -m "release dotnet client ${PUBLISH.VERSION}"
 ```
 
 ## 预发版本验证
@@ -199,7 +215,9 @@ svn --username=${LDAP ID} commit -m "release shenyu-client-golang ${PUBLISH.VERS
 根据 [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] 的说明验证 sha512 校验和。
 
 ```shell
-shasum -c shenyu-client-golang-${PUBLISH.VERSION}-src.zip.sha512
+shasum -c Apache.ShenYu.AspNetCore.dll.sha512
+shasum -c Apache.ShenYu.Client.dll.sha512
+shasum -c shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.sha512
 ```
 
 **2. 验证 GPG 签名**
@@ -209,8 +227,9 @@ shasum -c shenyu-client-golang-${PUBLISH.VERSION}-src.zip.sha512
 ```shell
 curl https://downloads.apache.org/shenyu/KEYS >> KEYS
 gpg --import KEYS
-cd ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
-gpg --verify shenyu-client-golang-${PUBLISH.VERSION}-src.zip.asc shenyu-client-golang-${PUBLISH.VERSION}-src.zip
+gpg --verify Apache.ShenYu.AspNetCore.dll.asc Apache.ShenYu.AspNetCore.dll
+gpg --verify Apache.ShenYu.Client.dll.asc Apache.ShenYu.Client.dll
+gpg --verify shenyu-client-dotnet-source.zip.asc shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip
 ```
 
 **3. 确保 SVN 与 GitHub 源码一致**
@@ -218,10 +237,11 @@ gpg --verify shenyu-client-golang-${PUBLISH.VERSION}-src.zip.asc shenyu-client-g
 根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明确保 SVN 与 GitHub 源码一致。
 
 ```
-wget https://github.com/apache/shenyu/shenyu-client-golang/archive/v${PUBLISH.VERSION}.zip
+wget https://github.com/apache/shenyu/archive/v${PUBLISH.VERSION}.zip
 unzip v${PUBLISH.VERSION}.zip
-unzip shenyu-client-golang-${PUBLISH.VERSION}-src.zip
-diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-client-golang-${PUBLISH.VERSION}-src shenyu-client-golang-${PUBLISH.VERSION}
+mv shenyu-client-dotnet-${PUBLISH.VERSION} shenyu-client-dotnet-src
+unzip apache-shenyu-${PUBLISH.VERSION}-source.zip
+diff -r shenyu-client-dotnet-${PUBLISH.VERSION} shenyu-client-dotnet-src
 ```
 
 **4. 检查源码包**
@@ -233,7 +253,7 @@ diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-clie
 - 所有文件的开头都有 ASF 许可证
 - 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
 - 不存在不符合预期的二进制文件
-- 编译通过 (./mvnw install) (目前支持 JAVA 8)
+- 编译通过 (dotnet build) (目前支持 .NET 3 或更高版本)
 - 如果存在第三方代码依赖：
   - 第三方代码依赖的许可证兼容
   - 所有第三方代码依赖的许可证都在 `LICENSE` 文件中声名
@@ -271,7 +291,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
+[VOTE] Release Apache ShenYu .NET ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -318,7 +338,7 @@ Checklist for reference:
 
 [ ] Source code distributions have correct names matching the current release.
 
-[ ] LICENSE and NOTICE files are correct for each ShenYu Client Golang repo.
+[ ] LICENSE and NOTICE files are correct for each ShenYu Client .NET repo.
 
 [ ] All files have license headers if necessary.
 
@@ -336,7 +356,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[RESULT][VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
+[RESULT][VOTE] Release Apache ShenYu Client .NET ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -367,19 +387,43 @@ svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBL
 svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PREVIOUS.RELEASE.VERSION}
 ```
 
-**2. 完成 GitHub 发布**
+**2. 完成 NuGet 发布**
 
-Edit [Releases](https://github.com/apache/shenyu/shenyu-client-golang/releases) `${PUBLISH.VERSION}` and click release.
+将`Apache.ShenYu.Client` and `Apache.ShenYu.AspNetCore`发布到 NuGet 中央仓库。
 
-从 GitHub Fork 一份代码，并执行以下命令：
+```
+# goto client folder
+cd client/Apache.ShenYu.Client
 
-```shell
-git tag -d ${PUBLISH.VERSION}
-git push origin :refs/tags/${PUBLISH.VERSION}
+# package
+dotnet pack -c Release
+
+# goto AspNetCore folder
+cd client/Apache.ShenYu.AspNetCore
+
+# package
+dotnet pack -c Release
 ```
 
+Publish them to NuGet website.
 
-**3. 更新下载页面**
+```shell
+# publish client package
+cd client/Apache.ShenYu.Client/bin/Release
+
+dotnet nuget push Apache.ShenYu.Client.<version>.nupkg --api-key <push_api_key> --source https://api.nuget.org/v3/index.json
+
+# publish asp.net core package
+cd client/Apache.ShenYu.AspNetCore/bin/Release
+
+dotnet nuget push Apache.ShenYu.AspNetCore.<version>.nupkg --api-key <push_api_key> --source https://api.nuget.org/v3/index.json
+```
+
+**3. 完成 GitHub release**
+
+编辑 [Releases](https://github.com/apache/shenyu-client-dotnet/releases) `${PUBLISH.VERSION}`点击 Release.
+
+**4. 更新下载页面**
 
 根据 [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15]， [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 的说明更新下载页面。
 
@@ -391,15 +435,15 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 >
 > 注意：GPG 签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/shenyu/`
 
-**4. 更新文档**
+**5. 更新文档**
 
 将 `${PUBLISH.VERSION}` 版本的[文档](https://github.com/apache/shenyu-website)进行归档，并更新[版本页面](https://shenyu.apache.org/zh/versions)。
 
-**5. 更新事件页面**
+**6. 更新事件页面**
 
 添加新版本[事件](https://shenyu.apache.org/zh/event/${PUBLISH.VERSION}-release)。
 
-**6. 更新新闻页面**
+**7. 更新新闻页面**
 
 添加新版本[新闻](https://shenyu.apache.org/zh/news)。
 
@@ -417,7 +461,7 @@ announce@apache.org
 标题：
 
 ```
-[ANNOUNCE] Apache ShenYu Client Golang ${PUBLISH.VERSION} available
+[ANNOUNCE] Apache ShenYu Client .NET ${PUBLISH.VERSION} available
 ```
 
 正文：
@@ -425,7 +469,7 @@ announce@apache.org
 ```
 Hi,
 
-Apache ShenYu Team is glad to announce the new release of Apache ShenYu Client Golang ${PUBLISH.VERSION}.
+Apache ShenYu Team is glad to announce the new release of Apache ShenYu Client .NET ${PUBLISH.VERSION}.
 
 Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
@@ -466,7 +510,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[CANCEL][VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
+[CANCEL][VOTE] Release Apache ShenYu Client .NET ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -499,7 +543,7 @@ git tag -d v${PUBLISH.VERSION}
 **4. 删除 SVN 待发布内容**
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
 ```
 
 **5. 更新邮件标题**
@@ -507,7 +551,7 @@ svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${
 完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加 `[ROUND ${n}]` 后缀。例如：
 
 ```
-[VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION} [ROUND 2]
+[VOTE] Release Apache ShenYu Client .NET ${PUBLISH.VERSION} [ROUND 2]
 ```
 
 投票结果和通知邮件不需要加后缀。

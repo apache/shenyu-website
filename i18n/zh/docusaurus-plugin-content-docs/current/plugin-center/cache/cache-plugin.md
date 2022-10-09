@@ -131,7 +131,7 @@ description: 缓存插件
 
 * 发送请求并且缓存结果
 
-```http request
+```http title="request"
 ### shengyu getway proxy orderSave
 GET http://localhost:9195/http/order/findById?id=123
 Accept: application/json

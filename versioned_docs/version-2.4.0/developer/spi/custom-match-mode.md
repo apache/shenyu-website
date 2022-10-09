@@ -26,14 +26,14 @@ public class CustomMatchStrategy extends AbstractMatchStrategy implements MatchS
 
 * Add key-value as following in  `org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy` file.
 
-```shell script
+```shell title="script"
 ${spi name} = ${custom class path}
 ``` 
 
 `${spi name}` represents the name of `spi` and `${custom class path}` represents the fully qualified name of the class. Such as:
 
 
-```shell script
+```shell title="script"
 custom = org.apache.shenyu.examples.http.strategy.CustomMatchStrategy
 ```
 

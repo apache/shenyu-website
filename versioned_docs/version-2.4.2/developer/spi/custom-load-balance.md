@@ -32,13 +32,13 @@ public class CustomLoadBalancer extends AbstractLoadBalancer {
 
 * In the project's META-INF/services directory, create key-value as following in `org.apache.shenyu.loadbalancer.spi.LoadBalancer` file.
 
-```shell script
+```shell title="script"
 ${spi name}=${custom class path}
 ``` 
 
 `${spi name}` represents the name of `spi` and `${custom class path}` represents the fully qualified name of the class. Such as:
 
-```shell script
+```shell title="script"
 custom=xxx.xxx.xxx.CustomLoadBalancer
 ```
 

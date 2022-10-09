@@ -32,7 +32,7 @@ The `Http long polling` data synchronization configuration is loaded through `sp
 
 Introduce dependencies in the `pom` file.
 
-```xm
+```xml
         <!--shenyu data sync start use http-->
         <dependency>
         	<groupId>org.apache.shenyu</groupId>

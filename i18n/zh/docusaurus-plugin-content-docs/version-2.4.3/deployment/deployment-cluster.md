@@ -5,7 +5,7 @@ keywords: ["网关集群", "集群部署"]
 description: 集群部署
 ---
 
-> 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署`shenyu`前的环境准备工作.
+> 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署 `shenyu` 前的环境准备工作。
 
 本文是介绍在集群环境中快速部署`ShenYu`网关。
  
@@ -60,7 +60,7 @@ description: 集群部署
 
 * 在`nginx.conf`文件中修改`upstream`和`server`节点的配置。
 
-```conf
+```nginx
 upstream shenyu_gateway_cluster {
   ip_hash;
   server 10.1.1.1:9195 max_fails=3 fail_timeout=10s weight=50;
@@ -68,7 +68,7 @@ upstream shenyu_gateway_cluster {
 }
 ```
 
-```conf
+```nginx
 server {
   location / {
 		proxy_pass http://shenyu_gateway_cluster;

@@ -36,13 +36,13 @@ public class CustomParameterData implements ParameterData {
 
 * 在工程的META-INF/services目录创建 `org.apache.shenyu.plugin.base.condition.data.ParameterData` 文件中添加如下内容：
 
-```shell script
+```shell title="script"
 ${spi name}=${custom class path}
 ``` 
 
 `${spi name}`表示`spi`的名称，`${custom class path}`表示该类的全限定名。比如：
 
-```shell script
+```shell title="script"
 custom=xxx.xxx.xxx.CustomParameterData
 ```
 

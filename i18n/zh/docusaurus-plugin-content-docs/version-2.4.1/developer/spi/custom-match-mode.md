@@ -25,13 +25,13 @@ public class CustomMatchStrategy extends AbstractMatchStrategy implements MatchS
 
 * 在`org.apache.shenyu.plugin.base.condition.strategy.MatchStrategy`文件中添加如下内容：
 
-```shell script
+```shell title="script"
 ${spi name}=${custom class path}
 ``` 
 
 `${spi name}`表示`spi`的名称，`${custom class path}`表示该类的全限定名。比如：
 
-```shell script
+```shell title="script"
 custom=org.apache.shenyu.examples.http.strategy.CustomMatchStrategy
 ```
 

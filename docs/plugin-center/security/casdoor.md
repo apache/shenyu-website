@@ -26,21 +26,21 @@ Then you can quickly implement a Casdoor based login page in your own app with t
 
 ### 2. Add Your redirect url
 
-   <img src="/img/shenyu/plugin/casdoor/casdoor_config.png" width="80%" height="80%" />
+  ![casdoor_config](/img/shenyu/plugin/casdoor/casdoor_config.png)
 
 ### 3. On the certificate editing page, you can see your `certificate`
 
-   <img src="/img/shenyu/plugin/casdoor/casdoor_cert.png" width="80%" height="80%" />
+  ![casdoor_cert](/img/shenyu/plugin/casdoor/casdoor_cert.png)
 
 ## Step3. Use Casdoor plugin in Shenyu
 
 ### 1. Config Casdoor plugin in Shenyu
 
-   <img src="/img/shenyu/plugin/casdoor/casdoor_configPlugin.png" width="80%" height="80%" />
+  ![casdoor_configPlugin](/img/shenyu/plugin/casdoor/casdoor_configPlugin.png)
 
 note: because the shenyu only have Single line input box so we need add \n in every line of cert.
 
-   <img src="/img/shenyu/plugin/casdoor/casdoor_cert2.png" width="80%" height="80%" />
+  ![casdoor_cert2](/img/shenyu/plugin/casdoor/casdoor_cert2.png)
 
 You can copy it and paste it on the certificate of shenyu casdoor config.
 
@@ -48,22 +48,23 @@ You can copy it and paste it on the certificate of shenyu casdoor config.
 
 ### 2. Confing Shenyu Casdoor's plugin
 
-   <img src="/img/shenyu/plugin/casdoor/casdoor_casdoor.png" width="80%" height="80%" />
+  ![casdoor_casdoor](/img/shenyu/plugin/casdoor/casdoor_casdoor.png)
+
    You can config what you need to use Casdoor config
 
 ### 3. Get the service and use
 
 #### 3.1 Visit the Web directly like
 
-   <img src="/img/shenyu/plugin/casdoor/casdoor_faillogin.png" width="80%" height="80%" />
+  ![casdoor_faillogin](/img/shenyu/plugin/casdoor/casdoor_faillogin.png)
 
 #### 3.2 Use Casdoor login like this
 
-   <img src="/img/shenyu/plugin/casdoor/casdoor_login.png" width="80%" height="80%" />
-   <img src="/img/shenyu/plugin/casdoor/casdoor_successlogin.png" width="80%" height="80%" />
+  ![casdoor_login](/img/shenyu/plugin/casdoor/casdoor_login.png)
+  ![casdoor_successlogin](/img/shenyu/plugin/casdoor/casdoor_successlogin.png)
 
 #### 3.3 Carry token in Headers,you also can visit it
 
-   <img src="/img/shenyu/plugin/casdoor/casdoor_token.png" width="80%" height="80%" />
+  ![casdoor_token](/img/shenyu/plugin/casdoor/casdoor_token.png)
 
 #### 3.4 It also can save name,id and organization in Headers so that you can use them in next time

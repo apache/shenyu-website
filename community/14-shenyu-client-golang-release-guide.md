@@ -171,9 +171,10 @@ mkdir -p ~/svn_release/dev/
 cd ~/svn_release/dev/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
 mkdir -p ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+git archive --format=tar  --prefix=shenyu-client-golang-${PUBLISH.VERSION}/ ${PUBLISH.VERSION} | gzip > shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz
 cd ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-golang/target/*.zip ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-golang/target/*.zip.asc ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-golang/*.src.tar.gz ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-golang/*.src.tar.gz.asc ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
 ```
 
 **3. Adding hashes**
@@ -181,7 +182,7 @@ cp -f ~/shenyu/shenyu-client-golang/target/*.zip.asc ~/svn_release/dev/shenyu/sh
 Follow [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] instructions.
 
 ```shell
-shasum -a 512 shenyu-client-golang-${PUBLISH.VERSION}-src.zip > shenyu-client-golang-${PUBLISH.VERSION}-src.zip.sha512
+shasum -a 512 shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz  > shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```
 
 **4. Submit the new release**
@@ -199,7 +200,7 @@ svn --username=${LDAP ID} commit -m "release shenyu-client-golang ${PUBLISH.VERS
 Follow [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] instructions.
 
 ```shell
-shasum -c shenyu-client-golang-${PUBLISH.VERSION}-src.zip.sha512
+shasum -c shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```
 
 **2. Verifying GPG Signatures**
@@ -210,7 +211,7 @@ Follow [Checking Signatures](https://www.apache.org/info/verification.html#Check
 curl https://downloads.apache.org/shenyu/KEYS >> KEYS
 gpg --import KEYS
 cd ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
-gpg --verify shenyu-client-golang-${PUBLISH.VERSION}-src.zip.asc shenyu-client-golang-${PUBLISH.VERSION}-src.zip
+gpg --verify shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz.asc shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz
 ```
 
 **3. Ensure that SVN is consistent with GitHub source code**
@@ -220,7 +221,8 @@ Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display
 ```
 wget https://github.com/apache/shenyu/shenyu-client-golang/archive/v${PUBLISH.VERSION}.zip
 unzip v${PUBLISH.VERSION}.zip
-unzip shenyu-client-golang-${PUBLISH.VERSION}-src.zip
+mv shenyu-client-golang-${PUBLISH.VERSION} shenyu-client-golang-${PUBLISH.VERSION}-src
+unzip shenyu-client-golang-${PUBLISH.VERSION}.zip
 diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-client-golang-${PUBLISH.VERSION}-src shenyu-client-golang-${PUBLISH.VERSION}
 ```
 

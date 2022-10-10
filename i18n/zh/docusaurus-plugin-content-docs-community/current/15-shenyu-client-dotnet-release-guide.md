@@ -299,19 +299,19 @@ dev@shenyu.apache.org
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu Client .NET version 1.0.0.
+This is a call for vote to release Apache ShenYu Client .NET version ${PUBLISH.VERSION}.
 
 Release notes:
 https://github.com/apache/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/1.0.0/
+https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}/
 
 Git tag for the release:
-https://github.com/apache/shenyu-client-dotnet/tree/v1.0.0
+https://github.com/apache/shenyu-client-dotnet/tree/v${PUBLISH.VERSION}
 
 Release Commit ID:
-https://github.com/apache/shenyu-client-dotnet/commit/fa42f8c571e227ee42eb3f0e9326dcc74d5294a6
+https://github.com/apache/shenyu-client-dotnet/commit/xxxxxxxxxxxxxxx
 
 
 Keys to verify the Release Candidate:

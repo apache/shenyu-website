@@ -299,7 +299,7 @@ Content:
 ```
 Hello ShenYu Community,
 
-This is a call for voting to release Apache ShenYu Client .NET version 1.0.0.
+This is a call for vote to release Apache ShenYu Client .NET version 1.0.0.
 
 Release notes:
 https://github.com/apache/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md

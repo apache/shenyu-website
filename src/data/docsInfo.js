@@ -6,16 +6,16 @@ export default [
     docsTitle: <Translate>Apache ShenYu Docs</Translate>,
     projectName: "Apache ShenYu",
     description: <Translate>The document for Apache ShenYu</Translate>,
-    latestVersion: "docs/index",
-    nextVersion: "docs/next/index",
+    latestVersion: "/docs/index",
+    nextVersion: "/docs/next/index",
     versionsList: [
-      { next: "docs/next/index" },
-      { "2.5.0": "docs/index" },
-      { "2.4.3": "docs/2.4.3/index" },
-      { "2.4.2": "docs/2.4.2/index" },
-      { "2.4.1": "docs/2.4.1/index" },
-      { "2.4.0": "docs/2.4.0/index" },
-      { "2.3.0-Legacy": "docs/2.3.0-Legacy/index" },
+      { next: "/docs/next/index" },
+      { "2.5.0": "/docs/index" },
+      { "2.4.3": "/docs/2.4.3/index" },
+      { "2.4.2": "/docs/2.4.2/index" },
+      { "2.4.1": "/docs/2.4.1/index" },
+      { "2.4.0": "/docs/2.4.0/index" },
+      { "2.3.0-Legacy": "/docs/2.3.0-Legacy/index" },
     ],
   },
   {
@@ -27,7 +27,7 @@ export default [
         upstream nodes by Service Register Center for OpenResty.
       </Translate>
     ),
-    latestVersion: "shenyuNginx/index",
+    latestVersion: "/shenyuNginx/index",
   },
   {
     docsTitle: <Translate>ShenYu-client-golang Docs</Translate>,
@@ -38,7 +38,7 @@ export default [
         Gateway,it supports registory go service to ShenYu Gateway.
       </Translate>
     ),
-    latestVersion: "shenyuClientGolang/http",
+    latestVersion: "/shenyuClientGolang/http",
   },
   {
     docsTitle: <Translate>ShenYu .NET Client Docs</Translate>,
@@ -49,6 +49,6 @@ export default [
         automatically and use ShenYu as gateway easily.
       </Translate>
     ),
-    latestVersion: "shenyuClientDotnet/http",
+    latestVersion: "/shenyuClientDotnet/http",
   },
 ];

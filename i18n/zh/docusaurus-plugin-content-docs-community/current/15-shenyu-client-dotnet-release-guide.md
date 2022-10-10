@@ -291,7 +291,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[VOTE] Release Apache ShenYu .NET ${PUBLISH.VERSION}
+[VOTE] Release Apache ShenYu .NET client ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -299,26 +299,26 @@ dev@shenyu.apache.org
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu Client Golang version ${PUBLISH.VERSION}
+This is a call for vote to release Apache ShenYu Client .NET version ${PUBLISH.VERSION}.
 
 Release notes:
-https://github.com/apache/shenyu/shenyu-client-golang/blob/master/RELEASE-NOTES.md
+https://github.com/apache/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}/
+https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}/
 
 Git tag for the release:
-https://github.com/apache/shenyu/shenyu-client-golang/tree/v${PUBLISH.VERSION}/
+https://github.com/apache/shenyu-client-dotnet/tree/v${PUBLISH.VERSION}
 
 Release Commit ID:
-https://github.com/apache/shenyu/shenyu-client-golang/commit/xxxxxxxxxxxxxxxxxxxxxxx
+https://github.com/apache/shenyu-client-dotnet/commit/xxxxxxxxxxxxxxx
 
 
 Keys to verify the Release Candidate:
 https://downloads.apache.org/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release-guide/#check-release
+https://shenyu.apache.org/community/shenyu-client-dotnet-release-guide/#check-release
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -461,7 +461,7 @@ announce@apache.org
 标题：
 
 ```
-[ANNOUNCE] Apache ShenYu Client .NET ${PUBLISH.VERSION} available
+[ANNOUNCE] Apache ShenYu .NET client ${PUBLISH.VERSION} available
 ```
 
 正文：
@@ -469,7 +469,7 @@ announce@apache.org
 ```
 Hi,
 
-Apache ShenYu Team is glad to announce the new release of Apache ShenYu Client .NET ${PUBLISH.VERSION}.
+Apache ShenYu Team is glad to announce the new release of Apache ShenYu .NET client ${PUBLISH.VERSION}.
 
 Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.

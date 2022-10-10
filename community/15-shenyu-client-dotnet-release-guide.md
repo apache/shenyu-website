@@ -556,7 +556,7 @@ svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${
 After completing the above steps, you can start the re-posting operation. The next poll email title needs to have the `[ROUND ${n}]` suffix added. For example.
 
 ```
-[VOTE] Release Apache ShenYu .NET ${PUBLISH.VERSION} [ROUND 2]
+[VOTE] Release Apache ShenYu .NET client ${PUBLISH.VERSION} [ROUND 2]
 ```
 
 Voting result and announcement emails do not need to be suffixed.

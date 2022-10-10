@@ -291,7 +291,7 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[VOTE] Release Apache ShenYu .NET ${PUBLISH.VERSION}
+[VOTE] Release Apache ShenYu .NET client ${PUBLISH.VERSION}
 ```
 
 Content:
@@ -299,28 +299,26 @@ Content:
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu .NET version ${PUBLISH.VERSION}
+This is a call for voting to release Apache ShenYu Client .NET version 1.0.0.
 
 Release notes:
-https://github.com/apache/shenyu/blob/master/RELEASE-NOTES.md
+https://github.com/apache/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION}/
-
-Maven 2 staging repository:
-https://repository.apache.org/content/repositories/${STAGING.RELEASE}/org/apache/shenyu/
+https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/1.0.0/
 
 Git tag for the release:
-https://github.com/apache/shenyu/tree/v${PUBLISH.VERSION}/
+https://github.com/apache/shenyu-client-dotnet/tree/v1.0.0
 
 Release Commit ID:
-https://github.com/apache/shenyu/commit/xxxxxxxxxxxxxxxxxxxxxxx
+https://github.com/apache/shenyu-client-dotnet/commit/fa42f8c571e227ee42eb3f0e9326dcc74d5294a6
+
 
 Keys to verify the Release Candidate:
 https://downloads.apache.org/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release-guide/#check-release
+https://shenyu.apache.org/community/shenyu-client-dotnet-release-guide/#check-release
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -340,7 +338,7 @@ Checklist for reference:
 
 [ ] Source code distributions have correct names matching the current release.
 
-[ ] LICENSE and NOTICE files are correct for each ShenYu .NET repo.
+[ ] LICENSE and NOTICE files are correct for each ShenYu Client .NET repo.
 
 [ ] All files have license headers if necessary.
 

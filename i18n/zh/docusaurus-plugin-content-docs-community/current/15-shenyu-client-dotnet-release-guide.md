@@ -173,19 +173,16 @@ cd ~/svn_release/dev/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
 mkdir -p ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
 
+# generate source file
+git archive --format=tar --prefix=shenyu-client-dotnet-${PUBLISH.VERSION}/ v${PUBLISH.VERSION} | gzip > shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz
+
 # generate sign file for each files
-gpg -u <id>@apache.org --armor --output shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.asc --detach-sign shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip
-gpg -u <id>@apache.org --armor --output Apache.ShenYu.Client.dll.asc --detach-sign client/Apache.ShenYu.Client/bin/Release/netstandard2.0/Apache.ShenYu.Client.dll
-gpg -u <id>@apache.org --armor --output Apache.ShenYu.AspNetCore.dll.asc --detach-sign client/Apache.ShenYu.AspNetCore/bin/Release/netstandard2.0/Apache.ShenYu.AspNetCore.dll
+gpg -u <id>@apache.org --armor --output shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.asc --detach-sign shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz
 
 # copy source files and
 cd ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-dotnet/shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-dotnet/shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.asc ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-dotnet/client/Apache.ShenYu.Client/bin/Release/netstandard2.0/Apache.ShenYu.Client.dll ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-dotnet/Apache.ShenYu.Client.dll.asc ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-dotnet/client/Apache.ShenYu.AspNetCore/bin/Release/netstandard2.0/Apache.ShenYu.AspNetCore.dll ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-dotnet/Apache.ShenYu.AspNetCore.dll.asc ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-dotnet/shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-dotnet/shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.asc ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
 ```
 
 **3. 添加校验文件**
@@ -195,9 +192,7 @@ cp -f ~/shenyu/shenyu-client-dotnet/Apache.ShenYu.AspNetCore.dll.asc ~/svn_relea
 ```shell
 # go to release folder
 cd ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-shasum -a 512 shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip > shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.sha512
-shasum -a 512 Apache.ShenYu.Client.dll > Apache.ShenYu.Client.dll.sha512
-shasum -a 512 Apache.ShenYu.AspNetCore.dll > Apache.ShenYu.AspNetCore.dll.sha512
+shasum -a 512 shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz > shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```
 
 **4. 提交新版本**
@@ -215,9 +210,7 @@ svn --username=${LDAP ID} commit -m "release dotnet client ${PUBLISH.VERSION}"
 根据 [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] 的说明验证 sha512 校验和。
 
 ```shell
-shasum -c Apache.ShenYu.AspNetCore.dll.sha512
-shasum -c Apache.ShenYu.Client.dll.sha512
-shasum -c shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.sha512
+shasum -c shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```
 
 **2. 验证 GPG 签名**
@@ -227,9 +220,7 @@ shasum -c shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip.sha512
 ```shell
 curl https://downloads.apache.org/shenyu/KEYS >> KEYS
 gpg --import KEYS
-gpg --verify Apache.ShenYu.AspNetCore.dll.asc Apache.ShenYu.AspNetCore.dll
-gpg --verify Apache.ShenYu.Client.dll.asc Apache.ShenYu.Client.dll
-gpg --verify shenyu-client-dotnet-source.zip.asc shenyu-client-dotnet-${PUBLISH.VERSION}-source.zip
+gpg --verify shenyu-client-dotnet-source.zip.asc shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz
 ```
 
 **3. 确保 SVN 与 GitHub 源码一致**
@@ -238,10 +229,9 @@ gpg --verify shenyu-client-dotnet-source.zip.asc shenyu-client-dotnet-${PUBLISH.
 
 ```
 wget https://github.com/apache/shenyu/archive/v${PUBLISH.VERSION}.zip
-unzip v${PUBLISH.VERSION}.zip
-mv shenyu-client-dotnet-${PUBLISH.VERSION} shenyu-client-dotnet-src
-unzip apache-shenyu-${PUBLISH.VERSION}-source.zip
-diff -r shenyu-client-dotnet-${PUBLISH.VERSION} shenyu-client-dotnet-src
+unzip v${PUBLISH.VERSION}.zip -d source
+tar xzf shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz
+diff -r shenyu-client-dotnet-${PUBLISH.VERSION} source/shenyu-client-dotnet-${PUBLISH.VERSION}
 ```
 
 **4. 检查源码包**
@@ -383,8 +373,8 @@ Thanks everyone for taking the time to verify and vote for the release!
 根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从 dev 目录转移到 release 目录。
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PREVIOUS.RELEASE.VERSION}
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-dotnet -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. 完成 NuGet 发布**
@@ -481,7 +471,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu/shenyu-client-golang/blob/master/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 

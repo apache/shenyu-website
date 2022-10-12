@@ -374,7 +374,7 @@ Thanks everyone for taking the time to verify and vote for the release!
 
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-dotnet -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PREVIOUS.RELEASE.VERSION}
+svn delete https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-dotnet/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. 完成 NuGet 发布**

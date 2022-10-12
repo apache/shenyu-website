@@ -228,10 +228,10 @@ gpg --verify shenyu-client-dotnet-source.zip.asc shenyu-client-dotnet-${PUBLISH.
 Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] instructions.
 
 ```
-wget https://github.com/apache/shenyu/archive/v${PUBLISH.VERSION}.zip
-unzip v${PUBLISH.VERSION}.zip -d source
-tar xzf shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz
-diff -r shenyu-client-dotnet-${PUBLISH.VERSION} source/shenyu-client-dotnet-${PUBLISH.VERSION}
+wget https://github.com/apache/shenyu-client-dotnet/archive/v${PUBLISH.VERSION}.zip
+unzip v${PUBLISH.VERSION}.zip
+tar xzf shenyu-client-dotnet-v${PUBLISH.VERSION}-src.tar.gz
+diff -r shenyu-client-dotnet-${PUBLISH.VERSION} shenyu-client-dotnet-v${PUBLISH.VERSION}
 ```
 
 **4. Check the source code package**

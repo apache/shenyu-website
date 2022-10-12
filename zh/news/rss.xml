@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Apache ShenYu Blog</title>
+        <link>https://shenyu.apache.org/zh/news</link>
+        <description>Apache ShenYu Blog</description>
+        <lastBuildDate>Mon, 08 Aug 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[【From company gateway framework selection to Apache ShenYu Committer】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08</link>
+            <guid>【From company gateway framework selection to Apache ShenYu Committer】</guid>
+            <pubDate>Mon, 08 Aug 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[From company gateway framework selection to Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【从用户到Apache ShenYu Committer】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-04</link>
+            <guid>【从用户到Apache ShenYu Committer】</guid>
+            <pubDate>Thu, 04 Aug 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[从用户到Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【从CRUD Boy到Apache ShenYu Committer】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04</link>
+            <guid>【从CRUD Boy到Apache ShenYu Committer】</guid>
+            <pubDate>Mon, 04 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[从CRUD Boy到Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【你也可以成为Apache ShenYu Committer】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20</link>
+            <guid>【你也可以成为Apache ShenYu Committer】</guid>
+            <pubDate>Wed, 20 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[你也可以成为Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【Apache ShenYu 2.4.3 版本发布】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3</link>
+            <guid>【Apache ShenYu 2.4.3 版本发布】</guid>
+            <pubDate>Mon, 18 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Apache ShenYu 2.4.3 版本发布]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【从在校生到Apache Committer之路】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2021-12-08</link>
+            <guid>【从在校生到Apache Committer之路】</guid>
+            <pubDate>Wed, 08 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[The way from College Student to Apache Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【从用户到Committer，别样体验和收获】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2021-11-11</link>
+            <guid>【从用户到Committer，别样体验和收获】</guid>
+            <pubDate>Thu, 11 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[从用户到Committer，别样体验和收获]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【Apache ShenYu(incubating）新晋PPMC】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-PPMC-2021-11-05</link>
+            <guid>【Apache ShenYu(incubating）新晋PPMC】</guid>
+            <pubDate>Fri, 05 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Apache ShenYu(incubating）新晋PPMC]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【从用户到Committer，参与Apache ShenYu社区并不遥远】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2021-09-08</link>
+            <guid>【从用户到Committer，参与Apache ShenYu社区并不遥远】</guid>
+            <pubDate>Wed, 08 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[从用户到Committer，参与Apache ShenYu社区并不遥远]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【发布Apache首个版本-2.4.0】让API网关变得简单]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-milestone-version-2.4.0</link>
+            <guid>【发布Apache首个版本-2.4.0】让API网关变得简单</guid>
+            <pubDate>Sun, 01 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[发布Apache首个版本-2.4.0，让API网关变得简单]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【毕业一年我是如何成为Apache ShenYu Committer】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2021-07-27</link>
+            <guid>【毕业一年我是如何成为Apache ShenYu Committer】</guid>
+            <pubDate>Tue, 27 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[毕业一年成长成为Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【技术老兵的开源之路】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-02-28</link>
+            <guid>【技术老兵的开源之路】</guid>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Open Source Path for Tech Veterans]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【Soul 网关发布里程碑的2.3.0版本】新增支持GRPC，Tars，Sofa协议]]></title>
+            <link>https://shenyu.apache.org/zh/news/Soul-gateway-release-milestone-version-2.3.0</link>
+            <guid>【Soul 网关发布里程碑的2.3.0版本】新增支持GRPC，Tars，Sofa协议</guid>
+            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Soul 网关发布里程碑的2.3.0版本，新增支持GRPC，Tars，Sofa协议]]></description>
+        </item>
+    </channel>
+</rss>

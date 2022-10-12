@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[15476],{77794:s=>{s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"nacos","name":"nacos","count":1,"permalink":"/blog/tags/nacos"}')}}]);

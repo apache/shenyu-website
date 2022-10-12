@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Apache ShenYu Blog</title>
+        <link>https://shenyu.apache.org/news</link>
+        <description>Apache ShenYu Blog</description>
+        <lastBuildDate>Mon, 08 Aug 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[【From company gateway framework selection to Apache ShenYu Committer】]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-08-08</link>
+            <guid>【From company gateway framework selection to Apache ShenYu Committer】</guid>
+            <pubDate>Mon, 08 Aug 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[From company gateway framework selection to Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[From Apache ShenYu User to Apache ShenYu Committer]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-08-04</link>
+            <guid>[From Apache ShenYu User to Apache ShenYu Committer]</guid>
+            <pubDate>Thu, 04 Aug 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[From Apache ShenYu User Boy to Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【From CRUD Boy to Apache ShenYu Committer】]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04</link>
+            <guid>【From CRUD Boy to Apache ShenYu Committer】</guid>
+            <pubDate>Mon, 04 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[From CRUD Boy to Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【You can also be an Apache ShenYu Committer】]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-04-20</link>
+            <guid>【You can also be an Apache ShenYu Committer】</guid>
+            <pubDate>Wed, 20 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[You can also be an Apache ShenYu Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Apache ShenYu 2.4.3 Version Release]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3</link>
+            <guid>[Apache ShenYu 2.4.3 Version Release]</guid>
+            <pubDate>Mon, 18 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Apache ShenYu 2.4.3 Version Release]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[The way from University Student to Apache Committer]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-12-08</link>
+            <guid>[The way from University Student to Apache Committer]</guid>
+            <pubDate>Wed, 08 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[The way from College Student to Apache Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[From users to Committer, different experiences and gains]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-11-11</link>
+            <guid>[From users to Committer, different experiences and gains]</guid>
+            <pubDate>Thu, 11 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[From users to Committer, different experiences and gains]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Apache ShenYu(incubating) newly promoted PPMC]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-PPMC-2021-11-05</link>
+            <guid>[Apache ShenYu(incubating) newly promoted PPMC]</guid>
+            <pubDate>Fri, 05 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Apache ShenYu(incubating) newly promoted PPMC]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[From users to Committer, participation in the Apache ShenYu community is not far away]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-09-08</link>
+            <guid>[From users to Committer, participation in the Apache ShenYu community is not far away]</guid>
+            <pubDate>Wed, 08 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[From users to Committer, participation in the Apache ShenYu community is not far away]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-release-milestone-version-2.4.0</link>
+            <guid>【Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy</guid>
+            <pubDate>Sun, 01 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[【Release the first version of Apache ShenYu(Incubating)2.4.0】 Make API gateway easy]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[How I became an Apache ShenYu Committer one year after graduation]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-07-27</link>
+            <guid>[How I became an Apache ShenYu Committer one year after graduation]</guid>
+            <pubDate>Tue, 27 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[How I became an Apache ShenYu Committer one year after graduation]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[The Open Source Path for Tech Veterans]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-02-28</link>
+            <guid>[The Open Source Path for Tech Veterans]</guid>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Open Source Path for Tech Veterans]]></description>
+        </item>
+        <item>
+            <title><![CDATA[【Soul gateway release milestone version 2.3.0】New support for grpc, tars and sofa protocols!]]></title>
+            <link>https://shenyu.apache.org/news/Soul-gateway-release-milestone-version-2.3.0</link>
+            <guid>【Soul gateway release milestone version 2.3.0】New support for grpc, tars and sofa protocols!</guid>
+            <pubDate>Sun, 05 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Soul gateway release milestone version 2.3.0 New support for grpc, tars and sofa protocols]]></description>
+        </item>
+    </channel>
+</rss>

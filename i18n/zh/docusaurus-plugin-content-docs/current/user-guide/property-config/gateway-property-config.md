@@ -252,7 +252,7 @@ Apache ShenYu Netty 配置
 
 
 
-##### shenyu.instance 配置
+##### shenyu.register 配置
 
 Apache ShenYu 网关注册到注册中心的相关配置，注册中心配置请参考 [注册中心配置](register-center-instance.md) 
 

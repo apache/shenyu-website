@@ -208,6 +208,21 @@ module.exports = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "helm",
+        path: "helm",
+        routeBasePath: "helm",
+        disableVersioning: false,
+        includeCurrentVersion: true,
+        editCurrentVersion: true,
+        editLocalizedFiles: true,
+        sidebarPath: require.resolve("./sidebarsCommunity.js"),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "event",
         path: "event",
         routeBasePath: "event",

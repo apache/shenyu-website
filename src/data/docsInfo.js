@@ -30,7 +30,7 @@ export default [
     latestVersion: "/shenyuNginx/index",
   },
   {
-    docsTitle: <Translate>ShenYu-client-golang Docs</Translate>,
+    docsTitle: <Translate>Shenyu Golang Client Docs</Translate>,
     projectName: "Shenyu-client-golang",
     description: (
       <Translate>
@@ -50,5 +50,13 @@ export default [
       </Translate>
     ),
     latestVersion: "/shenyuClientDotnet/http",
+  },
+  {
+    docsTitle: <Translate>ShenYu Helm Chart Docs</Translate>,
+    projectName: "ShenYu Helm Chart",
+    description: (
+      <Translate>Helm deployment documentation written for ShenYu</Translate>
+    ),
+    latestVersion: "/helm/index",
   },
 ];

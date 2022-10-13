@@ -533,11 +533,17 @@
   "ShenYu Nginx Docs": {
     "message": "ShenYu Nginx 文档"
   },
-  "Shenyu-client-golang Docs": {
-    "message": "Shenyu-client-golang 文档"
+  "Shenyu Golang Client Docs": {
+    "message": "ShenYu Golang 客户端文档"
   },
   "ShenYu .NET Client Docs": {
     "message": "ShenYu .NET 客户端文档"
+  },
+  "ShenYu Helm Chart Docs": {
+    "message": "ShenYu Helm Chart 文档"
+  },
+  "Helm deployment documentation written for ShenYu": {
+    "message": "ShenYu 的 Helm 部署方式文档"
   },
   "The document for Apache ShenYu": {
     "message": "Apache ShenYu官方文档"

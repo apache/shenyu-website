@@ -9,7 +9,7 @@ description: docker部署
 
 > 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署 `shenyu` 前的环境准备工作。
 
-### 创建 Docket Network
+### 创建 Docker Network
 
 ```
 > docker network create shenyu

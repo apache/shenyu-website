@@ -113,34 +113,80 @@ description: sign插件
 | path       | /api/service/abc  | 就是你需要访问的接口路径(根据你访问网关接口自己变更) |
 | version       | 1.0.0  | 目前定为1.0.0 写死，String类型 |
 
-对上述3个字段进行 `key` 的自然排序，然后进行字段与字段值拼接最后再拼接上 `SK` ，代码示例。
+对上述3个字段进行字段与字段值拼接最后再拼接上 `SK`作为`extSignKey` ，代码示例。
 
-#### 2.4.3.1 无请求体的签名参数验证
+#### 2.4.3.1 无请求体且无uri请求参数的签名参数验证
 
-第一步：首先构造一个 `Map` 。
+第一步：首先构造一个 `extSignKey` 。
 
 ```java
-Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
 //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-map.put("timestamp","1571711067186");  //值应该为毫秒数的字符串形式
-map.put("path", "/api/service/abc");
-map.put("version", "1.0.0");
+String timestamp = "1571711067186"; //值应该为毫秒数的字符串形式
+String path = "/api/service/abc";
+String version = "1.0.0";
+String extSignKey = String.join("", "timestamp", timestamp, "path", path, "version", version, "506EEB535CF740D7A755CB4B9F4A1536");
 ```
 
-第二步：进行 `Key` 的自然排序，然后 `Key`，`Value`值拼接最后再拼接分配给你的 `SK`。
+* 你得到的 `extSignKey` 值应该为：`timestamp1571711067186path/api/service/abcversion1.0.0506EEB535CF740D7A755CB4B9F4A1536`
+
+第二步：进行 `MD5` 加密后转成大写。
 
 ```java
-List<String> storedKeys = Arrays.stream(map.keySet()
-                .toArray(new String[]{}))
-                .sorted(Comparator.naturalOrder())
-                .collect(Collectors.toList());
-final String sign = storedKeys.stream()
-                .map(key -> String.join("", key, params.get(key)))
-                .collect(Collectors.joining()).trim()
-                .concat("506EEB535CF740D7A755CB4B9F4A1536");
+DigestUtils.md5DigestAsHex(extSignKey.getBytes()).toUpperCase()
 ```
 
-* 你得到的 `sign` 值应该为：`path/api/service/abctimestamp1571711067186version1.0.0506EEB535CF740D7A755CB4B9F4A1536`
+* 最后得到的值为：`F6A9EE877F1C017AF60D8F1200517AA5`
+
+#### 2.4.3.2 有请求体或有`uri`请求参数，请求头的签名参数验证
+
+第一步：首先构造一个 `extSignKey` 。
+
+```java
+//timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
+String timestamp = "1571711067186"; //值应该为毫秒数的字符串形式
+String path = "/api/service/abc";
+String version = "1.0.0";
+String extSignKey = String.join("", "timestamp", timestamp, "path", path, "version", version, "506EEB535CF740D7A755CB4B9F4A1536");
+```
+
+* 你得到的 `extSignKey` 值应该为：`timestamp1571711067186path/api/service/abcversion1.0.0506EEB535CF740D7A755CB4B9F4A1536`
+
+第二步: 构造一个 `Map` 名为 `jsonMap` 。并且该`jsonMap`必须存储请求体的每个节点信息
+
+```java
+  //无请求体跳过此步
+  Map<String, String> jsonMap = Maps.newHashMapWithExpectedSize(2);
+  // if your request body is:{"id":123,"name":"order"}
+  jsonMap.put("id", "123");
+  jsonMap.put("name", "order");
+```
+
+第三步: 构造一个 `Map` 名为 `queryMap` 。并且该`queryMap`必须存储uri请求参数的每个节点信息
+
+```java
+  //无url请求参数跳过此步
+  Map<String, String> queryMap = Maps.newHashMapWithExpectedSize(2);
+  // if your request uri is:/api/service/abc?code=10&desc="desc"
+  queryMap.put("code", "10");
+  queryMap.put("desc", "desc");
+```
+
+第四步： `jsonMap` 和 `queryMap` 分别进行 `Key` 的自然排序，然后 `Key`，`Value`值拼接得到`jsonSign` 和 `querySign`，最后拼接`jsonSign` 、 `querySign` 、`extSignKey` 为 `sign` 。
+
+```java
+  Map<String, String> empityMap = new HashMap();
+  String jsonSign = Optional.ofNullable(jsonMap).orElse(empityMap).keySet().stream()
+          .sorted(Comparator.naturalOrder())
+          .map(key -> String.join("", key, jsonMap.get(key)))
+          .collect(Collectors.joining()).trim();
+  String querySign = Optional.ofNullable(queryMap).orElse(empityMap).keySet().stream()
+          .sorted(Comparator.naturalOrder())
+          .map(key -> String.join("", key, queryMap.get(key)))
+          .collect(Collectors.joining()).trim();
+  String sign = String.join("", jsonSign, querySign, signKey);
+```
+
+* 你得到的 `sign` 值应该为:`id123nameordercode10descdesctimestamp1571711067186path/api/service/abcversion1.0.0506EEB535CF740D7A755CB4B9F4A1536`
 
 第三步：进行 `MD5` 加密后转成大写。
 
@@ -148,46 +194,7 @@ final String sign = storedKeys.stream()
 DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```
 
-* 最后得到的值为：`A021BF82BE342668B78CD9ADE593D683`
-
-#### 2.4.3.2 有请求体，请求头的签名参数验证
-
-第一步: 首先构造一个 `Map` 。并且该`map`必须存储请求体的每个节点信息
-
-```java
-
-   Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
-   //timestamp is string format of millisecond. String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-   map.put("timestamp","1660659201000");  // Value should be string format of milliseconds
-   map.put("path", "/http/order/save");
-   map.put("version", "1.0.0");
-   // if your request body is:{"id":123,"name":"order"}
-   map.put("id", "1");
-   map.put("name", "order")
-```
-
-第二步：进行 `Key` 的自然排序，然后 `Key`，`Value`值拼接最后再拼接分配给你的 `SK`。
-
-```java
-List<String> storedKeys = Arrays.stream(map.keySet()
-                .toArray(new String[]{}))
-                .sorted(Comparator.naturalOrder())
-                .collect(Collectors.toList());
-final String sign = storedKeys.stream()
-                .map(key -> String.join("", key, params.get(key)))
-                .collect(Collectors.joining()).trim()
-                .concat("2D47C325AE5B4A4C926C23FD4395C719");
-```
-
-* 你得到的 `sign` 值应该为:`id123nameorderpath/http/order/savetimestamp1660659201000version1.0.02D47C325AE5B4A4C926C23FD4395C719`
-
-第三步：进行 `MD5` 加密后转成大写。
-
-```java
-DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
-```
-
-* 最后得到的值为: `35FE61C21F73E9AAFC46954C14F299D7`.
+* 最后得到的值为: `AC8EB7C4E0DAC57C4FCF8A9C58A3E445`.
 
 ### 2.4.4 请求网关
 
@@ -201,7 +208,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 | --------   | -----:  | :----: |
 | timestamp  |   `1571711067186`  |  上述你进行签名的时候使用的时间值   |
 | appKey     | `1TEST123456781`  | 分配给你的AK值 |
-| sign       | `A90E66763793BDBC817CF3B52AAAC041`  | 上述得到的签名值 |
+| sign       | `AC8EB7C4E0DAC57C4FCF8A9C58A3E445`  | 上述得到的签名值 |
 | version       | `1.0.0`  | 写死，就为这个值 |
 
 * 签名插件会默认过滤 `5` 分钟之前的请求
@@ -262,60 +269,65 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```java
 public class Test1 {
   public static void main(String[] args) {
-    Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
     //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-    map.put("timestamp","1660658725000");  //值应该为毫秒数的字符串形式
-    map.put("path", "/http/order/save");
-    map.put("version", "1.0.0");
-
-    List<String> storedKeys = Arrays.stream(map.keySet()
-                    .toArray(new String[]{}))
-            .sorted(Comparator.naturalOrder())
-            .collect(Collectors.toList());
-    final String sign = storedKeys.stream()
-            .map(key -> String.join("", key, map.get(key)))
-            .collect(Collectors.joining()).trim()
-            .concat("2D47C325AE5B4A4C926C23FD4395C719");
-    System.out.println(sign);
-
-    System.out.println(DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase());
+    String timestamp = "1660658725000"; //值应该为毫秒数的字符串形式
+    String path = "/http/order/save";
+    String version = "1.0.0";
+    String extSignKey = String.join("", "timestamp", timestamp, "path", path, "version", version, "2D47C325AE5B4A4C926C23FD4395C719");
+    
+    System.out.println(extSignKey);
+    
+    System.out.println(DigestUtils.md5DigestAsHex(extSignKey.getBytes()).toUpperCase());
   }
 }
 ```
 
-* 无请求体签名: `path/http/order/savetimestamp1571711067186version1.0.02D47C325AE5B4A4C926C23FD4395C719`
-* 无请求体签名结果: `9696D3E549A6AEBE763CCC2C7952DDC1`
+* 无请求体签名: `timestamp1660658725000path/http/order/saveversion1.0.02D47C325AE5B4A4C926C23FD4395C719`
+* 无请求体签名结果: `A2D81371D99DD4ECB0D5EC6298E3C2EB`
 
 ![](/img/shenyu/plugin/sign/result.png)
 
 ```java
 public class Test2 {
   public static void main(String[] args) {
-    Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
     //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-    map.put("timestamp","1660659201000");  //值应该为毫秒数的字符串形式
-    map.put("path", "/http/order/save");
-    map.put("version", "1.0.0");
-    map.put("id", "123");
-    map.put("name", "order");
-
-    List<String> storedKeys = Arrays.stream(map.keySet()
-                    .toArray(new String[]{}))
-            .sorted(Comparator.naturalOrder())
-            .collect(Collectors.toList());
-    final String sign = storedKeys.stream()
-            .map(key -> String.join("", key, map.get(key)))
-            .collect(Collectors.joining()).trim()
-            .concat("2D47C325AE5B4A4C926C23FD4395C719");
+    String timestamp = "1660659201000"; //值应该为毫秒数的字符串形式
+    String path = "/http/order/save";
+    String version = "1.0.0";
+    String extSignKey = String.join("", "timestamp", timestamp, "path", path, "version", version, "2D47C325AE5B4A4C926C23FD4395C719");
+    
+    Map<String, String> jsonMap = Maps.newHashMapWithExpectedSize(2);
+    // if your request body is:{"id":123,"name":"order"}
+    jsonMap.put("id", "123");
+    jsonMap.put("name", "order");
+    
+    Map<String, String> queryMap =null;
+    /* if you have uri params
+    Map<String, String> queryMap = Maps.newHashMapWithExpectedSize(2);
+    // if your request uri is:/api/service/abc?code=10&desc="desc"
+    queryMap.put("code", "10");
+    queryMap.put("desc", "desc");
+    */
+    Map<String, String> empityMap = new HashMap();
+    String jsonSign = Optional.ofNullable(jsonMap).orElse(empityMap).keySet().stream()
+          .sorted(Comparator.naturalOrder())
+          .map(key -> String.join("", key, jsonMap.get(key)))
+          .collect(Collectors.joining()).trim();
+          
+    String querySign = Optional.ofNullable(queryMap).orElse(empityMap).keySet().stream()
+          .sorted(Comparator.naturalOrder())
+          .map(key -> String.join("", key, queryMap.get(key)))
+          .collect(Collectors.joining()).trim();
+    String sign = String.join("", jsonSign, querySign, signKey);    
+    
     System.out.println(sign);
-
     System.out.println(DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase());
   }
 }
 ```
 
-* 有请求体签名为:`id123nameorderpath/http/order/savetimestamp1660659201000version1.0.02D47C325AE5B4A4C926C23FD4395C719`
-* 附带请求体签名结果:`35FE61C21F73E9AAFC46954C14F299D7`
+* 有请求体签名为:`id123nameordertimestamp1660659201000path/http/order/saveversion1.0.02D47C325AE5B4A4C926C23FD4395C719`
+* 附带请求体签名结果:`BF485842D2C08A3378308BA9992A309F`
 
 ![](/img/shenyu/plugin/sign/result-with-body.png)
 

@@ -364,7 +364,7 @@ Thanks everyone for taking the time to verify and vote for the release!
 Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
 svn delete hhttps://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PREVIOUS.RELEASE.VERSION}
 ```
 

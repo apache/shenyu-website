@@ -1,11 +1,11 @@
 ---
-title: shenyu client golang 1.0.0
-sidebar_position: 2
+title: shenyu client .NET 1.0.0
+sidebar_position: 1
 keywords: ["release-notes"]
 description: release-notes
 ---
 
-# shenyu go 语言客户端 1.0.0
+# shenyu .NET 语言客户端 1.0.0
 
 ### 新的功能
 

@@ -509,7 +509,7 @@
   "Language": {
     "message": "语言"
   },
-  "Source Codes": {
+  "ShenYu Source Codes": {
     "message": "源码"
   },
   "Source": {
@@ -520,6 +520,12 @@
   },
   "ShenYu-Bootstrap Binary Distribution": {
     "message": "ShenYu-Bootstrap 二进制包"
+  },
+  "ShenYu client golang Source Codes": {
+    "message": "golang 源码"
+  },
+  "ShenYu client .NET Source Codes": {
+    "message": ".NET 源码"
   },
   "Document List": {
     "message": "文档列表"

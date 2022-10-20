@@ -47,7 +47,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
       --set dataSource.mysql.password=123456 
 ```
 
-## PostgreSQL as database(Version of ShenYu > 2.5.0)
+### PostgreSQL as database(Version of ShenYu > 2.5.0)
 
 Modify the following command and copy it to execute.
 
@@ -62,7 +62,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 ## Q&A
 
-### 1. you need to modify a lot of configuration information, such as modify the application.yaml, how to install
+### 1. you need to modify a lot of configuration information, such as modify the application.yml, how to install
 
 1. download the complete values.yaml
 * Latest chart version: `helm show values shenyu/shenyu > values.yaml`
@@ -70,6 +70,10 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 2. modify the values.yaml file
 3. Change the corresponding configuration and execute the `helm install` command with the format `-f values.yaml`.
    For example: `helm install shenyu shenyu/shenyu -n=shenyu --create-namespace -f values.yaml`
+
+> P.S.
+> [bootstrap configuration description](https://shenyu.apache.org/zh/docs/user-guide/property-config/gateway-property-config)
+> [admin configuration description](https://shenyu.apache.org/zh/docs/user-guide/property-config/admin-property-config)
 
 ### 2. How to install only admin or bootstrap
 
@@ -184,3 +188,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 |-----------------------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | applicationConfig.bootstrap | string | slightly | bootstrap configuration, [bootstrap configuration description](https://shenyu.apache.org/zh/docs/user-guide/property-config/gateway-property-config) |
 | applicationConfig.admin     | string | omit     | admin configuration, [admin configuration description](https://shenyu.apache.org/zh/docs/user-guide/property-config/admin-property-config)           |
+
+## GitHub Repository
+
+Welcome to contribute to [shenyu-helm-chart](https://github.com/apache/shenyu-helm-chart).

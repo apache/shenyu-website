@@ -14,7 +14,7 @@ simple and straightforward.
 1. add the Shenyu ASP.NET Core dependency into project.
 
 ```shell
-dotnet add package <todo-shenyu-asp.net-core package>
+dotnet add package Apache.ShenYu.AspNetCore
 ```
 
 2. in `Startup.ConfigureServices` method, add the `ShenyuRegister` service.

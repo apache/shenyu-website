@@ -39,6 +39,11 @@ export default [
       </Translate>
     ),
     latestVersion: "/shenyuClientGolang/http",
+    nextVersion: "/shenyuClientGolang/next/http",
+    versionsList: [
+      { next: "/shenyuClientGolang/next/http" },
+      { "1.0.0": "/shenyuClientGolang/http" },
+    ],
   },
   {
     docsTitle: <Translate>ShenYu .NET Client Docs</Translate>,

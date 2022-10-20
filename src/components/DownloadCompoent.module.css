@@ -1,19 +1,14 @@
 .downloadContainer {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   margin-left: -24px;
   margin-bottom: 20px;
 }
 
-.downloadRowContainer {
-  display: flex;
-  margin: 10px 0;
-}
-
 .downloadCard {
-  width: 40%;
+  width: 27%;
   border-right: 1px solid #dadde0;
-  margin: 0 24px;
+  margin: 5px 24px;
 }
 
 .downloadCardTitle {

@@ -522,10 +522,10 @@
     "message": "ShenYu-Bootstrap 二进制包"
   },
   "ShenYu client golang Source Codes": {
-    "message": "golang 源码"
+    "message": "golang 客户端源码"
   },
   "ShenYu client .NET Source Codes": {
-    "message": ".NET 源码"
+    "message": ".NET 客户端源码"
   },
   "Document List": {
     "message": "文档列表"

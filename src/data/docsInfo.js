@@ -55,6 +55,11 @@ export default [
       </Translate>
     ),
     latestVersion: "/shenyuClientDotnet/http",
+    nextVersion: "/shenyuClientDotnet/next/http",
+    versionsList: [
+      { next: "/shenyuClientDotnet/next/http" },
+      { "1.0.0": "/shenyuClientDotnet/http" },
+    ],
   },
   {
     docsTitle: <Translate>ShenYu Helm Chart Docs</Translate>,

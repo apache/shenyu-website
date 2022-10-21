@@ -387,7 +387,7 @@ After the Apache mirror links take effect (at least one hour), update the downlo
 
 > Note: Project download links should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
 >
-> Note: Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/shenyu/shenyu-client-golang`
+> Note: Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/shenyu/`
 
 **4. Update documentation**
 
@@ -435,7 +435,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu/shenyu-client-golang/blob/master/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 

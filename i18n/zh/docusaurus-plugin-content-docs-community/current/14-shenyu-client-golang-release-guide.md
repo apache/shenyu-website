@@ -439,7 +439,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu/shenyu-client-golang/blob/master/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 

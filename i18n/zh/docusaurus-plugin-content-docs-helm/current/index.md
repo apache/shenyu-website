@@ -44,7 +44,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
       --set dataSource.mysql.password=123456 
 ```
 
-## PostgreSQL 作为数据库(ShenYu 版本 > 2.5.0)
+### PostgreSQL 作为数据库(ShenYu 版本 > 2.5.0)
 
 修改以下命令并复制，执行：
 
@@ -59,7 +59,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 ## Q&A
 
-### 1. 需要大量修改配置信息，如修改 application.yaml ，如何安装
+### 1. 需要大量修改配置信息，如修改 application.yml ，如何安装
 
 1. 下载完整 values.yaml
 * 最新 chart 版本：`helm show values shenyu/shenyu > values.yaml`
@@ -67,6 +67,10 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 2. 修改 values.yaml 文件
 3. 更改相应配置，使用 `-f values.yaml` 的格式执行 `helm install` 命令。
    如：`helm install shenyu shenyu/shenyu -n=shenyu --create-namespace -f values.yaml`
+
+> 附：
+> [bootstrap 配置说明](https://shenyu.apache.org/zh/docs/user-guide/property-config/gateway-property-config)
+> [admin 配置说明](https://shenyu.apache.org/zh/docs/user-guide/property-config/admin-property-config)
 
 ### 2. 如何只安装 admin 或 bootstrap
 
@@ -182,3 +186,6 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 | applicationConfig.bootstrap | string | 略    | bootstrap 配置，[bootstrap 配置说明](https://shenyu.apache.org/zh/docs/user-guide/property-config/gateway-property-config) |
 | applicationConfig.admin     | string | 略    | admin 配置，[admin 配置说明](https://shenyu.apache.org/zh/docs/user-guide/property-config/admin-property-config)           |
 
+## GitHub 仓库
+
+欢迎贡献！代码仓库地址：[shenyu-helm-chart](https://github.com/apache/shenyu-helm-chart) 。

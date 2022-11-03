@@ -6,7 +6,7 @@ description: Helm部署
 
 本文介绍使用 `helm` 来部署 `Apache ShenYu` 网关。
 
-> 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署 `shenyu` 前的环境准备工作。
+> 在阅读本文档前，你需要先阅读[部署先决条件](https://shenyu.apache.org/zh/docs/deployment/deployment-before)文档来完成部署 `shenyu` 前的环境准备工作。
 
 ## 添加 Helm 仓库
 
@@ -21,7 +21,7 @@ helm repo update
 
 * **安装应用**：默认同时安装 admin 与 bootstrap。
 * **服务暴露**：使用 NodePort 暴露服务，admin 默认端口为 `31095`, bootstrap 为 `31195`。
-* **数据库**：目前支持 h2, MySQL, PostgreSQL 作为数据库。默认使用 h2。
+* **数据库**：目前支持 h2, MySQL, PostgreSQL, Oracle 作为数据库。默认使用 h2。
 
 ### h2 作为数据库
 
@@ -55,6 +55,20 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
       --set dataSource.pg.port=5432 \
       --set dataSource.pg.username=postgres \
       --set dataSource.pg.password=123456
+```
+
+### Oracle 作为数据库
+
+修改以下命令并复制，执行：
+
+```shell
+helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
+      --set dataSource.active=oracle \
+      --set dataSource.oracle.ip=127.0.0.1 \
+      --set dataSource.oracle.port=1521 \
+      --set dataSource.oracle.serviceName=shenyu \
+      --set dataSource.oracle.username=root \
+      --set dataSource.oracle.password=123456
 ```
 
 ## Q&A
@@ -131,7 +145,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 |-----------------|--------|------------------------------------------------------------------------------------------------------------|--------------|
 | admin.nodePort  | int    | `31095`                                                                                                    | NodePort 端口 |
 | admin.javaOpts  | string | [详见这里](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-admin-dist/docker/entrypoint.sh) | JVM 参数      |
-| admin.resources | dict   | `{}`                                                                                                         | K8s 资源配额  |
+| admin.resources | dict   | `{}`                                                                                                       | K8s 资源配额  |
 
 ### shenyu-bootstrap 配置
 
@@ -178,6 +192,18 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 | dataSource.pg.password         | string | `""`                      | 密码                                                                                              |
 | dataSource.pg.driverClass      | string | `"org.postgresql.Driver"` | PostgreSQL driver class 名字                                                                      |
 | dataSource.pg.connectorVersion | string | `"42.2.18"`               | connector 版本([maven connector 列表](https://repo1.maven.org/maven2/org/postgresql/postgresql/)) |
+
+### Oracle
+
+| 配置项                              | 类型    | 默认值                        | 描述                                                                                            |
+|------------------------------------|--------|------------------------------|------------------------------------------------------------------------------------------------|
+| dataSource.oracle.ip               | string | `""`                         | IP                                                                                             |
+| dataSource.oracle.port             | int    | `1521`                       | 端口                                                                                            |
+| dataSource.oracle.username         | string | `"root"`                     | 用户名                                                                                          |
+| dataSource.oracle.password         | string | `""`                         | 密码                                                                                            |
+| dataSource.oracle.serviceName      | string | `"shenyu"`                   | 服务名                                                                                          |
+| dataSource.oracle.driverClass      | string | `"oracle.jdbc.OracleDriver"` | Oracle driver class 名字                                                                        |
+| dataSource.oracle.connectorVersion | string | `"19.3.0.0"`                 | connector 版本([maven connector 列表](https://repo1.maven.org/maven2/com/oracle/ojdbc/ojdbc8/)) |
 
 ### application.yml 配置
 

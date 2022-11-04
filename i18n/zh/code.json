@@ -455,6 +455,9 @@
   "Release Apache Shenyu client .NET 1.0.0": {
     "message": "Apache Shenyu .NET 语言客户端 1.0.0 发布"
   },
+  "Release Apache Shenyu Nginx 1.0.0-1": {
+    "message": "Apache Shenyu Ningx 1.0.0-1 发布"
+  },
   "Events": {
     "message": "事件"
   },

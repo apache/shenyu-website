@@ -442,7 +442,7 @@ Release Notes: https://github.com/apache/shenyu-nginx/blob/main/RELEASE-NOTES.md
 Website: https://shenyu.apache.org/
 
 ShenYu Resources:
-- Issue: https://github.com/apache/shenyu-nginx/issues
+- Issue: https://github.com/apache/shenyu/issues
 - Mailing list: dev@shenyu.apache.org
 - Documents: https://shenyu.apache.org/docs/index/
 

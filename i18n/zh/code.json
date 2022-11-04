@@ -527,6 +527,9 @@
   "ShenYu client .NET Source Codes": {
     "message": ".NET 客户端源码"
   },
+  "ShenYu Nginx Source Codes": {
+    "message": "ShenYu Nginx 源码"
+  },
   "Document List": {
     "message": "文档列表"
   },

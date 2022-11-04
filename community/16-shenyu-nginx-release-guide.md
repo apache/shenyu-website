@@ -437,12 +437,12 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu/blob/master/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu-nginx/blob/main/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 
 ShenYu Resources:
-- Issue: https://github.com/apache/shenyu/issues
+- Issue: https://github.com/apache/shenyu-nginx/issues
 - Mailing list: dev@shenyu.apache.org
 - Documents: https://shenyu.apache.org/docs/index/
 

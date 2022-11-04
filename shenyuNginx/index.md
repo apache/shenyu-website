@@ -12,7 +12,9 @@ Hence, Apache ShenYu introduces Service Discovery modules to help client to dete
 Currently, Apache ShenYu Bootstrap already supports Apache Zookeeper, Nacos, Etcd, and consul. Client or LoadBalancer can get the available ShenYu instances by those Service register center.
 
 Here provides a completed [examples](https://github.com/apache/shenyu-nginx/tree/main/example).
+
 =======
+
 Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/etcd/nginx.conf) working with ETCD.
 
 Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) working with Nacos.
@@ -49,6 +51,7 @@ The module will fetch the all of ShenYu instances which are registered to Etcd i
 It works like Etcd client to watch(based on long polling) ShenYu instance lists.
 
 Here is an example for Etcd.
+
 ```
 init_worker_by_lua_block {
     local register = require("shenyu.register.etcd")
@@ -79,6 +82,7 @@ upstream shenyu {
 ### Greeting Nacos
 
 Modify the Nginx configure, create and initialize the ShenYu Register to connect to target register center.  Here is an example for Nacos.
+
 ```
 init_worker_by_lua_block {
     local register = require("shenyu.register.nacos")
@@ -111,6 +115,7 @@ upstream shenyu {
 ```
 
 ## Greeting Zookeeper
+
 Modify the Nginx configure, create and initialize the ShenYu register to connect to target register center.
 Listen for changes to the node via the zookeeper watch event. Here is an example of the zookeeper configuration.
 
@@ -124,6 +129,7 @@ init_worker_by_lua_block {
         });
     }
 ```
+
 1. `servers` zookeeper cluster address.
 2. ``balancer_type`` specify the balancer. It has supported `chash` and `round robin`.
 
@@ -154,6 +160,7 @@ init_worker_by_lua_block {
     })
 }
 ```
+
 1. ``balancer_type`` specify the balancer. It has supported `chash` and `round robin`.
 2. `uri` consul server address.
 3. `path` path of service.

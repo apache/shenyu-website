@@ -124,8 +124,8 @@ const data = [
                 versionTitle: '1.0.0-1',
                 targets: {
                     'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/shenyu-nginx/1.0.0-1/shenyu-nginx-1.0.0-1-src.tar.gz',
-                    'asc': 'https://www.apache.org/dyn/closer.lua/shenyu/shenyu-nginx/1.0.0-1/shenyu-nginx-1.0.0-1-src.tar.gz.asc',
-                    'sha512': 'https://www.apache.org/dyn/closer.lua/shenyu/shenyu-nginx/1.0.0-1/shenyu-nginx-1.0.0-1-src.tar.gz.sha512',
+                    'asc': 'https://downloads.apache.org/shenyu/shenyu-nginx/1.0.0-1/shenyu-nginx-1.0.0-1-src.tar.gz.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/shenyu-nginx/1.0.0-1/shenyu-nginx-1.0.0-1-src.tar.gz.sha512',
                 }
             }
         ],

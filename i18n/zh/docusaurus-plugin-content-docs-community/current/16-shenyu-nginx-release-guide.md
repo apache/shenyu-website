@@ -434,7 +434,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu/shenyu-nginx/blob/main/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu-nginx/blob/main/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 

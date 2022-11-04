@@ -3,6 +3,12 @@ import Translate from "@docusaurus/Translate";
 
 export default [
   {
+    title: <Translate>Release Apache Shenyu Nginx 1.0.0-1</Translate>,
+    description:
+        "New Features  \n  1. Support for listening to Apache ShenYu node changes using Zookeeper. \n  2. Support for listening to Apache ShenYu node changes using ETCD. \n  3. Support for listening to Apache ShenYu node changes using Nacos. \n  ......",
+    src: "nginx-1.0.0-1-release",
+  },
+    {
     title: <Translate>Release Apache Shenyu client .NET 1.0.0</Translate>,
     description:
       "New Features  \n  1. Support ShenYu Admin with http type Register to ShenYu. \n  2. Support use Nacos type Register to ShenYu. \n  3. Support use Consul type Register to ShenYu. \n  ......",

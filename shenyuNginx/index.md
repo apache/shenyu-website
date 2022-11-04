@@ -4,12 +4,24 @@ Apache ShenYu Nginx Module
 This module provided SDK to watch available ShenYu instance list as upstream nodes by Service Register Center for OpenResty.
 1. [ETCD](#greeting-etcd) (Supported)
 2. [Nacos](#greeting-nacos) (Supported)
-3. [Zookeeper](#greeting-zookeeper) (Supported)
-4. Consul (TODO)
+3. [Zookeeper](#greeting-zookeeper) (Supported)k
+4. [Consul](#greeting-consul) (Supported)
 
 In the cluster mode, Apache ShenYu supports the deployment of multiple ShenYu instances, which may have new instances joining or leaving at any time.
 Hence, Apache ShenYu introduces Service Discovery modules to help client to detect the available instances.
 Currently, Apache ShenYu Bootstrap already supports Apache Zookeeper, Nacos, Etcd, and consul. Client or LoadBalancer can get the available ShenYu instances by those Service register center.
+
+Here provides a completed [examples](https://github.com/apache/shenyu-nginx/tree/main/example).
+
+=======
+
+Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/etcd/nginx.conf) working with ETCD.
+
+Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) working with Nacos.
+
+Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/consul/nginx.conf) working with Consul.
+
+Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/zookeeper/nginx.conf) working with Zookeeper.
 
 ## Getting Started
 
@@ -66,17 +78,6 @@ upstream shenyu {
 }
 ```
 
-Finally, restart OpenResty.
-
-```shell
-openresty -s reload
-```
-
-Here provides a completed [examples](https://github.com/apache/shenyu-nginx/tree/main/example).
-
-=======
-
-Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/etcd/nginx.conf) working with ETCD.
 
 ### Greeting Nacos
 
@@ -113,14 +114,6 @@ upstream shenyu {
 }
 ```
 
-Finally, restart OpenResty.
-
-```shell
-openresty -s reload
-```
-
-Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) working with Nacos.
-
 ## Greeting Zookeeper
 
 Modify the Nginx configure, create and initialize the ShenYu register to connect to target register center.
@@ -151,13 +144,47 @@ Modify the upstream to enable to update upstream servers dynamically. This case 
     }
 ```
 
+### Greeting Consul
+
+Modify the Nginx configure, create and initialize the ShenYu register to connect to target register center.
+Listen for changes to the node via the consul watch event. Here is an example of the consul configuration.
+
+```shell
+init_worker_by_lua_block {
+    local register = require "shenyu.register.consul";
+    register.init({
+        uri = "http://127.0.0.1:8500",
+        path = "/v1/catalog/service/demo",
+        shenyu_storage = ngx.shared.shenyu_storage,
+        balancer_type = "chash",
+    })
+}
+```
+
+1. ``balancer_type`` specify the balancer. It has supported `chash` and `round robin`.
+2. `uri` consul server address.
+3. `path` path of service.
+
+Modify the upstream to enable to update upstream servers dynamically. This case will synchronize the ShenYu instance list with register center. And then pick one up for handling the request.
+
+```shell
+
+ upstream shenyu {
+        server 0.0.0.1;
+        balancer_by_lua_block {
+            require("shenyu.register.consul").pick_and_set_peer()
+        }
+    }
+```
+
+## Finally
+
 Finally, restart OpenResty.
 
 ```shell
 openresty -s reload
 ```
 
-Here is a completed [example](https://github.com/apache/shenyu-nginx/blob/main/example/zookeeper/nginx.conf) working with Zookeeper.
 
 ## Contributor and Support
 

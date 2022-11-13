@@ -145,6 +145,10 @@
     text-decoration: none;
 }
 
+[data-theme='dark'] .title{
+    border-bottom: 1px solid #272a36;
+}
+
 @media screen and (max-width: 996px) {
     .catalogue {
       display: none;

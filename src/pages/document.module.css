@@ -133,3 +133,29 @@
     text-decoration: none;
     color: #000;
 }
+
+[data-theme='dark'] .documentList{
+    background-color: #1C1E21;
+}
+
+[data-theme='dark'] .cardItem{
+    background-color: #272A36;
+}
+
+[data-theme='dark'] .downloadCardButton{
+    background-color: #272a36;
+}
+  
+[data-theme='dark'] .dropDownContainer{
+    background-color: #272a36;
+    color: #fff;
+}
+
+[data-theme='dark'] .linkItemA{
+    color: #fff;
+}
+
+[data-theme='dark'] .linkItem:hover{
+    background-color: var(--ifm-color-primary);
+}
+

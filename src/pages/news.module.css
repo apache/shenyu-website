@@ -77,6 +77,18 @@
     border: #FFFFFF;
 }
 
+[data-theme='dark'] .content{
+    background-color: #1C1E21;
+}
+
+[data-theme='dark'] .cardItem{
+    background-color: #272a36;
+}
+
+[data-theme='dark'] .readMore{
+    background-color: #272a36;
+}
+
 
 @media screen and (max-width: 996px) {
     .cardItem{

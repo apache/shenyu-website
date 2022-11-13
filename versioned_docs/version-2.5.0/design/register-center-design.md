@@ -141,12 +141,12 @@ The subscriber side continues to listen for all Metadata configurations, trigger
 
 | *SPI Name*                       | *Description*                 |
 | -------------------------------- | ----------------------------- |
-| ShenyuServerRegisterRepository     | ShenYu server register SPI      |
+| ShenyuClientServerRegisterRepository     | ShenYu server register SPI      |
 
 | *Implementation Class*           | *Description*                 |
 | -------------------------------- | ----------------------------- |
-| ShenyuHttpRegistryController       | Http server repository        |
-| ZookeeperServerRegisterRepository| Zookeeper server registry repository |
-| EtcdServerRegisterRepository     | Etcd server registry repository |
-| ConsulServerRegisterRepository   | Consul server registry repository |
-| NacosServerRegisterRepository    | Nacos server registry repository |
+| ShenyuClientHttpRegistryController       | Http server repository        |
+| ZookeeperClientServerRegisterRepository| Zookeeper server registry repository |
+| EtcdClientServerRegisterRepository     | Etcd server registry repository |
+| ConsulClientServerRegisterRepository   | Consul server registry repository |
+| NacosClientServerRegisterRepository    | Nacos server registry repository |

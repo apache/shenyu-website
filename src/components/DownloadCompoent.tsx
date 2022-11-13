@@ -116,11 +116,24 @@ const data = [
                 }
             }
         ],
+    },
+    {
+        title: translate({ message: 'ShenYu Nginx Source Codes' }),
+        versions: [
+            {
+                versionTitle: '1.0.0-1',
+                targets: {
+                    'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/shenyu-nginx/1.0.0-1/shenyu-nginx-1.0.0-1-src.tar.gz',
+                    'asc': 'https://downloads.apache.org/shenyu/shenyu-nginx/1.0.0-1/shenyu-nginx-1.0.0-1-src.tar.gz.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/shenyu-nginx/1.0.0-1/shenyu-nginx-1.0.0-1-src.tar.gz.sha512',
+                }
+            }
+        ],
     }
 ]
 
 function DownloadCompoent() {
-    const [showItem, setShowItem] = useState([false, false, false, false, false]);
+    const [showItem, setShowItem] = useState([false, false, false, false, false,false]);
 
     const closeList = useCallback((e) => {
         const { target } = e;

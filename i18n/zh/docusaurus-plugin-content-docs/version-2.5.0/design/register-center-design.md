@@ -141,13 +141,13 @@ shenyu.register.service.${rpcType}.${contextPath}
 
 | *SPI 名称*                       | *详细说明*                 |
 | -------------------------------- | ----------------------------- |
-| ShenyuServerRegisterRepository     | ShenYu网关客户端注册的后台服务资源      |
+| ShenyuClientServerRegisterRepository     | ShenYu网关客户端注册的后台服务资源      |
 
 | *已知实现类*                       | *详细说明*                 |
 | -------------------------------- | ----------------------------- |
-| ShenyuHttpRegistryController       | 使用Http服务接口来处理客户端注册请求        |
-| ZookeeperServerRegisterRepository| 使用Zookeeper来处理客户端注册节点 |
-| EtcdServerRegisterRepository     | 使用Etcd来处理客户端注册节点 |
-| ConsulServerRegisterRepository   | 使用Consul来处理客户端注册节点 |
-| NacosServerRegisterRepository    | 使用Nacos来处理客户端注册节点 |
+| ShenyuClientHttpRegistryController       | 使用Http服务接口来处理客户端注册请求        |
+| ZookeeperClientServerRegisterRepository  | 使用Zookeeper来处理客户端注册节点 |
+| EtcdClientServerRegisterRepository       | 使用Etcd来处理客户端注册节点 |
+| ConsulClientServerRegisterRepository     | 使用Consul来处理客户端注册节点 |
+| NacosClientServerRegisterRepository      | 使用Nacos来处理客户端注册节点 |
 

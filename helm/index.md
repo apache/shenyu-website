@@ -5,7 +5,7 @@ description: Helm Deployment
 
 This article introduces the use of `helm` to deploy the `Apache ShenYu` gateway.
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](https://shenyu.apache.org/docs/deployment/deployment-before/).
 
 ## Add Helm repository
 
@@ -24,7 +24,7 @@ Before reading this document, you need to read [Deployment prerequisites](https:
 
 * **Install the application**: By default, both admin and bootstrap are installed.
 * **Service Exposure**: Use NodePort to expose the service, the default port is `31095` for admin and `31195` for bootstrap.
-* **Database**: Currently supports h2, MySQL, PostgreSQL as database. Default is h2.
+* **Database**: Currently supports h2, MySQL, PostgreSQL, Oracle as database. Default is h2.
 
 ### h2 as database
 
@@ -36,7 +36,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace
 
 ### MySQL as database
 
-Modify and copy the following command and execute.
+Modify and copy the following command and execute:
 
 ```shell
 helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
@@ -47,9 +47,9 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
       --set dataSource.mysql.password=123456 
 ```
 
-## PostgreSQL as database(Version of ShenYu > 2.5.0)
+### PostgreSQL as database(Version of ShenYu > 2.5.0)
 
-Modify the following command and copy it to execute.
+Modify the following command and copy it to execute:
 
 ```shell
 helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
@@ -60,9 +60,23 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
       --set dataSource.pg.password=123456
 ```
 
+### Oracle as database
+
+Modify the following command and copy it to execute:
+
+```shell
+helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
+      --set dataSource.active=oracle \
+      --set dataSource.oracle.ip=127.0.0.1 \
+      --set dataSource.oracle.port=1521 \
+      --set dataSource.oracle.serviceName=shenyu \
+      --set dataSource.oracle.username=root \
+      --set dataSource.oracle.password=123456
+```
+
 ## Q&A
 
-### 1. you need to modify a lot of configuration information, such as modify the application.yaml, how to install
+### 1. you need to modify a lot of configuration information, such as modify the application.yml, how to install
 
 1. download the complete values.yaml
 * Latest chart version: `helm show values shenyu/shenyu > values.yaml`
@@ -70,6 +84,10 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 2. modify the values.yaml file
 3. Change the corresponding configuration and execute the `helm install` command with the format `-f values.yaml`.
    For example: `helm install shenyu shenyu/shenyu -n=shenyu --create-namespace -f values.yaml`
+
+> P.S.
+> [bootstrap configuration description](https://shenyu.apache.org/zh/docs/user-guide/property-config/gateway-property-config)
+> [admin configuration description](https://shenyu.apache.org/zh/docs/user-guide/property-config/admin-property-config)
 
 ### 2. How to install only admin or bootstrap
 
@@ -144,7 +162,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 #### General database configuration
 
-| configuration-item     | type   | default | description                                     |
+| configuration item     | type   | default | description                                     |
 |------------------------|--------|---------|-------------------------------------------------|
 | dataSource.active      | string | `"h2"`  | Database to use, supports `h2`, `mysql`, `pg`   |
 | dataSource.initEnabled | bool   | `true`  | Initialize the database, only `h2` is available |
@@ -158,7 +176,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 #### MySQL
 
-| Configuration Item                | Type   | Default                      | Description                                                                                           |
+| configuration item                | Type   | Default                      | Description                                                                                           |
 |-----------------------------------|--------|------------------------------|-------------------------------------------------------------------------------------------------------|
 | dataSource.mysql.ip               | string | `""`                         | IP                                                                                                    |
 | dataSource.mysql.port             | int    | `3306`                       | port                                                                                                  |
@@ -169,7 +187,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 ### PostgreSQL
 
-| configuration-item             | type   | default                   | description                                                                                           |
+| configuration item             | type   | default                   | description                                                                                           |
 |--------------------------------|--------|---------------------------|-------------------------------------------------------------------------------------------------------|
 | dataSource.pg.ip               | string | `""`                      | IP                                                                                                    |
 | dataSource.pg.port             | int    | `5432`                    | port                                                                                                  |
@@ -178,9 +196,25 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 | dataSource.pg.driverClass      | string | `"org.postgresql.Driver"` | PostgreSQL driver class name                                                                          |
 | dataSource.pg.connectorVersion | string | `"42.2.18"`               | connector version ([maven connector list](https://repo1.maven.org/maven2/org/postgresql/postgresql/)) |
 
+### Oracle
+
+| configuration item                 | type   | default                      | description                                                                                        |
+|------------------------------------|--------|------------------------------|----------------------------------------------------------------------------------------------------|
+| dataSource.oracle.ip               | string | `""`                         | IP                                                                                                 |
+| dataSource.oracle.port             | int    | `1521`                       | port                                                                                               |
+| dataSource.oracle.username         | string | `"root"`                     | username                                                                                           |
+| dataSource.oracle.password         | string | `""`                         | password                                                                                           |
+| dataSource.oracle.serviceName      | string | `"shenyu"`                   | Oracle service name                                                                                |
+| dataSource.oracle.driverClass      | string | `"oracle.jdbc.OracleDriver"` | Oracle driver class name                                                                           |
+| dataSource.oracle.connectorVersion | string | `"19.3.0.0"`                 | connector version([maven connector list](https://repo1.maven.org/maven2/com/oracle/ojdbc/ojdbc8/)) |
+
 ### application.yml configuration
 
 | configuration-item          | type   | default  | description                                                                                                                                          |
 |-----------------------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | applicationConfig.bootstrap | string | slightly | bootstrap configuration, [bootstrap configuration description](https://shenyu.apache.org/zh/docs/user-guide/property-config/gateway-property-config) |
 | applicationConfig.admin     | string | omit     | admin configuration, [admin configuration description](https://shenyu.apache.org/zh/docs/user-guide/property-config/admin-property-config)           |
+
+## GitHub Repository
+
+Welcome to contribute to [shenyu-helm-chart](https://github.com/apache/shenyu-helm-chart).

@@ -76,3 +76,16 @@
 .downloadLinks {
   padding: 0.5rem 1.5rem 0;
 }
+
+[data-theme='dark'] .downloadCardButton{
+  background-color: #272a36;
+}
+
+[data-theme='dark'] .dropDownContainer{
+  color: #fff;
+  background-color: #272a36;
+}
+
+[data-theme='dark'] .versionTitle{
+  color: #fff;
+}

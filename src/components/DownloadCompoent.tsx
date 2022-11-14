@@ -133,7 +133,8 @@ const data = [
 ]
 
 function DownloadCompoent() {
-    const [showItem, setShowItem] = useState([false, false, false, false, false,false]);
+    const defaultShowItemArray = Array(data.length).fill(false);
+    const [showItem, setShowItem] = useState(defaultShowItemArray);
 
     const closeList = useCallback((e) => {
         const { target } = e;
@@ -141,7 +142,7 @@ function DownloadCompoent() {
         if (value && value === 'dropDownButton') {
             return
         } else {
-            setShowItem([false, false, false, false, false]);
+            setShowItem(defaultShowItemArray);
         }
     }, [])
 
@@ -166,7 +167,7 @@ function DownloadCompoent() {
             {data.map((item, index) => {
                 const { versions, title } = item;
                 return (
-                    <div className={styles.downloadCard}>
+                    <div className={styles.downloadCard} key={index}>
                         <div className={styles.downloadCardTitle}>{title}</div>
                         <button id='dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(index) }}><Translate>Source</Translate></button>
                         {
@@ -174,7 +175,7 @@ function DownloadCompoent() {
                             (
                                 <div className={styles.dropDownContainer}>
                                     {
-                                        versions.map(item2 => {
+                                        versions.map((item2, index2) => {
                                             const { versionTitle, targets } = item2;
                                             const listArr = Object.keys(targets).map(list => {
                                                 return {
@@ -183,13 +184,13 @@ function DownloadCompoent() {
                                                 }
                                             })
                                             return (
-                                                <div>
+                                                <div key={index2}>
                                                     <div className={styles.versionTitle}>{versionTitle}</div>
                                                     <div className={styles.downloadLinks}>
-                                                        {listArr.map(url => {
+                                                        {listArr.map((url, index3) => {
                                                             const title = '[' + url.title + ']'
                                                             return (
-                                                                <a href={url.link}>{title}</a>
+                                                                <a href={url.link} key={index3}>{title}</a>
                                                             )
                                                         })}
                                                     </div>

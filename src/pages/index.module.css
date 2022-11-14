@@ -254,6 +254,18 @@
   margin: 0 auto;
 }
 
+[data-theme='dark'] .hero{
+  background-color: #1C1E21;
+}
+
+[data-theme='dark'] .scrollItemLeftInner{
+  background: linear-gradient(90deg, #272a36 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+[data-theme='dark'] .scrollItemRightInner{
+  background: linear-gradient(-90deg, #272a36 0%, rgba(255, 255, 255, 0) 100%);
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;

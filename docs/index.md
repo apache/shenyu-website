@@ -10,6 +10,10 @@ aliases: "/shenyu/docs/Home"
 
  ![](/img/architecture/shenyu-architecture-3d.png)  
 
+# What is the Apache ShenYu?
+
+This is an asynchronous, high-performance, cross-language, responsive API gateway.
+
 # Why named Apache ShenYu
 
 ShenYu (神禹) is the honorific name of Chinese ancient monarch Xia Yu (also known in later times as Da Yu), who left behind the touching story of the three times he crossed the Yellow River for the benefit of the people and successfully managed the flooding of the river. He is known as one of the three greatest kings of ancient China, along with Yao and Shun.

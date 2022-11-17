@@ -71,12 +71,11 @@ agent相关配置文件位于 [shenyu-dist/shenyu-agent-dist/src/main/resources/
 附带参数 `agent` 表示启动 `shenyu-agent`。
 
 ```shell
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:2.4.2
 > docker run -d \
   -p 9195:9195 \
-  --net shenyu \
-  -v $AGENT_CONF:/opt/shenyu-bootstrap/agent/conf \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
-  apache/shenyu-bootstrap:2.4.2 agent
+  --name shenyu-bootstrap \
+  --net shenyu \
+  --env SHENYU_SYNC_WEBSOCKET_URLS=ws://shenyu-admin:9095/websocket \
+  apache/shenyu-bootstrap:${current.version}
 ```

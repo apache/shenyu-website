@@ -63,9 +63,11 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 宿主机中，bootstrap的[配置文件](https://github.com/apache/incubator-shenyu/tree/master/shenyu-bootstrap/src/main/resources)所在目录记为 `$BOOTSTRAP_CONF`。
 
 ```shell
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:${current.version}
 > docker run -d \
-  -p 9195:9195 \  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
+  -p 9195:9195 \
+  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
+  --name shenyu-bootstrap \
+  --net shenyu \
+  --env SHENYU_SYNC_WEBSOCKET_URLS=ws://shenyu-admin:9095/websocket \
   apache/shenyu-bootstrap:${current.version}
 ```

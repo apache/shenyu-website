@@ -48,9 +48,13 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 ### 启动Apache ShenYu Bootstrap
 
 ```
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:2.4.1
-> docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap:2.4.1
+> docker run -d \
+  -p 9195:9195 \
+  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
+  --name shenyu-bootstrap \
+  --net shenyu \
+  --env SHENYU_SYNC_WEBSOCKET_URLS=ws://shenyu-admin:9095/websocket \
+  apache/shenyu-bootstrap:${current.version}
 ```                       
 
 

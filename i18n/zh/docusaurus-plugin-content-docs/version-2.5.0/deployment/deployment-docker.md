@@ -35,7 +35,7 @@ docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib \
 -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`、`application-pg.yml`、`application-oracle.yml` 配置放到`${your_work_dir}/conf` ， 调整`application.yml`中的配置`spring.profiles.active = mysql`，然后执行以下语句：
+另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`配置放到`${your_work_dir}/conf` ， 调整`application.yml`中的配置`spring.profiles.active = mysql`，然后执行以下语句：
 
 ```          
 docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf \
@@ -53,7 +53,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=pg" \
 -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`、`application-pg.yml`、`application-oracle.yml` 配置放到`${your_work_dir}/conf`， 调整`application.yml`中的配置`spring.profiles.active = pg`，然后执行以下语句：
+另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-pg.yml`配置放到`${your_work_dir}/conf`， 调整`application.yml`中的配置`spring.profiles.active = pg`，然后执行以下语句：
 
 ```
 docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf \
@@ -70,7 +70,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=oracle" \
 -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`、`application-pg.yml`、`application-oracle.yml` 配置放到`${your_work_dir}/conf`， 调整`application.yml`中的配置`spring.profiles.active = oracle`，然后执行以下语句：
+另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-oracle.yml` 配置放到`${your_work_dir}/conf`， 调整`application.yml`中的配置`spring.profiles.active = oracle`，然后执行以下语句：
 
 ```
 docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf \

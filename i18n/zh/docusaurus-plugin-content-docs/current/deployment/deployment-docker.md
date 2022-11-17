@@ -35,7 +35,7 @@ description: docker部署
 docker run --name shenyu-admin -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-另外一种方式, 从 [配置文件地址](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`、`application-pg.yml`、`application-oracle.yml` 配置放到`${your_work_dir}/conf` ， 调整`application.yml`中的配置`spring.profiles.active = mysql`，然后执行以下语句：
+另外一种方式, 从 [配置文件地址](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`配置放到`${your_work_dir}/conf` ， 调整`application.yml`中的配置`spring.profiles.active = mysql`，然后执行以下语句：
 
 ```          
 docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
@@ -47,7 +47,7 @@ docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -
 docker run --name shenyu-admin -e "SPRING_PROFILES_ACTIVE=pg" -e "spring.datasource.url=jdbc:postgresql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-另外一种方式, 从 [配置文件地址](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`、`application-pg.yml`、`application-oracle.yml` 配置放到`${your_work_dir}/conf`， 调整`application.yml`中的配置`spring.profiles.active = pg`，然后执行以下语句：
+另外一种方式, 从 [配置文件地址](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-pg.yml`配置放到`${your_work_dir}/conf`， 调整`application.yml`中的配置`spring.profiles.active = pg`，然后执行以下语句：
 
 ```
 docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}

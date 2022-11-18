@@ -9,6 +9,10 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 
  ![](/img/architecture/shenyu-architecture-3d.png)
 
+# 什么是 Apache ShenYu
+
+这是一个异步的，高性能的，跨语言的，响应式的 `API` 网关。
+
 # 为什么叫ShenYu
 
  ShenYu(神禹)是中国古代君主夏禹(后世亦称大禹)的尊称，他留下了三渡黄河造福人民并成功治理黄河洪水的感人故事。他和尧、舜一起被认为是中国古代三大帝王之一。
@@ -19,14 +23,14 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 
 # 特点
 
-* Proxy: Support for Apache® Dubbo™, Spring Cloud, gRPC, Motan, SOFA, TARS, WebSocket, MQTT
-* Security: Sign, OAuth 2.0, JSON Web Tokens, WAF plugin
-* API governance: Request, response, parameter mapping, Hystrix, RateLimiter plugin
-* Observability: Tracing, metrics, logging plugin
-* Dashboard: Dynamic traffic control, visual backend for user menu permissions
-* Extensions: Plugin hot-swapping, dynamic loading
-* Cluster: NGINX, Docker, Kubernetes
-* Language: provides .NET, Python, Go, Java client for API register
+* 代理：支持Apache Dubbo，Spring Cloud，gRPC，Motan，SOFA，TARS，WebSocket，MQTT
+* 安全性：签名，OAuth 2.0，JSON Web令牌，WAF插件
+* API治理：请求、响应、参数映射、Hystrix、RateLimiter插件
+* 可观测性：跟踪、指标、日志记录插件
+* 仪表板：动态流量控制，用户菜单权限的可视化后端
+* 扩展：插件热插拔，动态加载
+* 集群：NGINX、Docker、Kubernetes
+* 语言：提供.NET，Python，Go，Java客户端用于API注册
 
 ---
 
@@ -162,10 +166,10 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
 
 ---  
 
-# Known Users
+# 已知用户
 
-In order of registration, More access companies are welcome to register at [https://github.com/apache/shenyu/issues/68](https://github.com/apache/shenyu/issues/68) (For open source users only) .
+按注册顺序，欢迎更多接入公司在 https://github.com/apache/shenyu/issues/68 注册（仅限开源用户）。
 
-用户 : [已知用户](https://shenyu.apache.org/community/user-registration)
+用户 : [已知用户](https://shenyu.apache.org/community/user-registration)  
 
 ---

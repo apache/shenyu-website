@@ -34,7 +34,7 @@ docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib \
 -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-another way is to put the `application.yml`、`application-mysql.yml`、`application-pg.yml`、`application-oracle.yml` configuration in  ${your_work_dir}/conf from [Configure address](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/) , modify the configuration `spring.profiles.active = mysql` in `application.yml`, and then execute the following statement：
+another way is to put the `application.yml`、`application-mysql.yml` configuration in  ${your_work_dir}/conf from [Configure address](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/) , modify the configuration `spring.profiles.active = mysql` in `application.yml`, and then execute the following statement：
 
 ```          
 docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf \
@@ -52,7 +52,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=pg" \
 -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-another way is to put the `application.yml`、`application-mysql.yml`、`application-pg.yml`、`application-oracle.yml` configuration in ${your_work_dir}/conf, modify the configuration `spring.profiles.active = pg` in `application.yml`,and then execute the following statement：
+another way is to put the `application.yml`、`application-pg.yml` configuration in ${your_work_dir}/conf, modify the configuration `spring.profiles.active = pg` in `application.yml`,and then execute the following statement：
 
 ```
 docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf \
@@ -69,7 +69,7 @@ docker run -e "SPRING_PROFILES_ACTIVE=oracle"
 -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
-another way is to put the `application.yml`、`application-mysql.yml`、`application-pg.yml`、`application-oracle.yml` configuration in ${your_work_dir}/conf, modify the configuration `spring.profiles.active = oracle` in `application.yml`, and then execute the following statement：
+another way is to put the `application.yml`、`application-oracle.yml` configuration in ${your_work_dir}/conf, modify the configuration `spring.profiles.active = oracle` in `application.yml`, and then execute the following statement：
 
 ```
 docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf 

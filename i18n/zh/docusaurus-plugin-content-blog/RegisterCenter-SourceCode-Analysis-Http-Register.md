@@ -69,7 +69,7 @@ tags: [http,register center,Apache ShenYu]
 
 
 
-![](/img/activities/code-analysis-http-register/client-register-init-2.5.0-zh.png)
+![](/img/activities/code-analysis-http-register/client-register-init-zh.png)
 
 
 
@@ -173,7 +173,7 @@ public class ShenyuClientCommonBeanConfiguration {
 
 上面的配置文件中生成的`ShenyuClientRegisterRepository`是客户端注册的具体实现，它是一个接口，它的实现类如下。
 
-![](/img/activities/code-analysis-http-register/shenyu-client-register-repository-2.5.0.png)
+![](/img/activities/code-analysis-http-register/shenyu-client-register-repository.png)
 
 - `HttpClientRegisterRepository`：通过`http`进行注册；
 - `ConsulClientRegisterRepository`：通过`Consul`进行注册；
@@ -263,7 +263,7 @@ public class HttpClientRegisterRepository implements ShenyuClientRegisterReposit
 public class ShenyuSpringMvcClientConfiguration {
      // ......
     
-    //  创建 ContextRegisterListener
+    //  创建 SpringMvcClientEventListener
     @Bean
     public SpringMvcClientEventListener springHttpClientEventListener(final ShenyuClientConfig clientConfig,
                                                                       final ShenyuClientRegisterRepository shenyuClientRegisterRepository) {
@@ -1085,11 +1085,6 @@ public class ShenyuClientHttpRegistryController implements ShenyuClientServerReg
         publisher.publish(uriRegisterDTO);
         return ShenyuResultMessage.SUCCESS;
     }
-
-    // 发布注册事件
-    private <T> void publish(final T t) {
-        publisher.publish(Collections.singletonList(t));
-    }
 }
 
 ```
@@ -1392,11 +1387,6 @@ public class URIRegisterExecutorSubscriber implements ExecutorTypeSubscriber<URI
         if (CollectionUtils.isEmpty(dataList)) {
             return;
         }
-        
-        findService(dataList).ifPresent(service -> {
-            Map<String, List<URIRegisterDTO>> listMap = buildData(dataList);
-            listMap.forEach(service::registerURI);
-        });
         // 根据rpc调用类型聚集数据
         final Map<String, List<URIRegisterDTO>> groupByRpcType = dataList.stream()
                 .filter(data -> StringUtils.isNotBlank(data.getRpcType()))
@@ -1423,7 +1413,7 @@ public class URIRegisterExecutorSubscriber implements ExecutorTypeSubscriber<URI
 
 `ShenyuClientRegisterService`是注册方法接口，它有多个实现类：
 
-![](/img/activities/code-analysis-http-register/client-register-service-2.5.0.png)
+![](/img/activities/code-analysis-http-register/client-register-service.png)
 
 
 
@@ -1436,7 +1426,7 @@ public class URIRegisterExecutorSubscriber implements ExecutorTypeSubscriber<URI
 - `ShenyuClientRegisterSofaServiceImpl`：`Sofa`类，处理`Sofa`注册类型；
 - `ShenyuClientRegisterSpringCloudServiceImpl`：`SpringCloud`类，处理`SpringCloud`注册类型；
 - `ShenyuClientRegisterTarsServiceImpl`：`Tars`类，处理`Tars`注册类型；
-- `ShenyuClientRegisterWebSocketServiceImpl`： `Websocket`类，处理`Websocket`注册类型；
+- `ShenyuClientRegisterWebSocketServiceImpl`： `Websocket`类，处理`Websocket`注册类型；rWebSocketServiceImpl`： `Websocket`类，处理`Websocket`注册类型；
 
 
 

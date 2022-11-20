@@ -6,12 +6,12 @@ author_url: https://github.com/midnight2104
 tags: [http,register center,Apache ShenYu]
 ---
 
-> [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) is an asynchronous, high-performance, cross-language, responsive API gateway.
+> [Apache ShenYu](https://shenyu.apache.org/docs/index) is an asynchronous, high-performance, cross-language, responsive API gateway.
 
 
 In `ShenYu` gateway, the registration center is used to register the client information to `shenyu-admin`, `admin` then synchronizes this information to the gateway through data synchronization, and the gateway completes traffic filtering through these data. The client information mainly includes `interface information` and `URI information`.
 
-> This article is based on `shenyu-2.4.1` version for source code analysis, please refer to [Client Access Principles](https://shenyu.apache.org/zh/docs/design/register-center-design) for the introduction of the official website.
+> This article is based on `shenyu-2.5.0` version for source code analysis, please refer to [Client Access Principles](https://shenyu.apache.org/docs/design/register-center-design) for the introduction of the official website.
 
 ### 1. Registration Center Principle
 
@@ -20,7 +20,7 @@ When the client starts, it reads the interface information and `uri information`
 ![](/img/activities/code-analysis-http-register/register-center-en.png)
 
 
-The registration center in the figure requires the user to specify which registration type to use. `ShenYu` currently supports `Http`, `Zookeeper`, `Etcd`, `Consul` and `Nacos` for registration. Please refer to [Client Access Configuration](https://shenyu.apache.org/zh/docs/user-guide/register-center-access) for details on how to configure them.
+The registration center in the figure requires the user to specify which registration type to use. `ShenYu` currently supports `Http`, `Zookeeper`, `Etcd`, `Consul` and `Nacos` for registration. Please refer to [Client Access Configuration](https://shenyu.apache.org/docs/user-guide/property-config/register-center-access) for details on how to configure them.
 
 
 `ShenYu` introduces `Disruptor` in the principle design of the registration center, in which the `Disruptor` queue plays a role in decoupling data and operations, which is conducive to expansion. If too many registration requests lead to registration exceptions, it also has a data buffering role.
@@ -48,7 +48,7 @@ On the client side, after the data is out of the queue, the data is transferred 
 
 ### 2. Client Registration Process
 
-When the client starts, it reads the attribute information according to the relevant configuration, and then writes it to the queue. Let's take the official [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http) as an example and start the source code analysis . The official example is a microservice built by `springboot`. For the configuration of the registration center, please refer to the official website [client access configuration](https://shenyu.apache.org/zh/docs/user-guide/register-center-access) .
+When the client starts, it reads the attribute information according to the relevant configuration, and then writes it to the queue. Let's take the official [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http) as an example and start the source code analysis . The official example is a microservice built by `springboot`. For the configuration of the registration center, please refer to the official website [client access configuration](https://shenyu.apache.org/docs/user-guide/property-config/register-center-access) .
 
 #### 2.1 Load configuration, read properties
 
@@ -58,11 +58,14 @@ Let's start with a diagram that ties together the initialization process of the 
 
 We are analyzing registration by means of `http`, so the following configuration is required.
 
-```xml
+```yaml
 shenyu:
   register:
     registerType: http
     serverLists: http://localhost:9095
+  props:
+    username: admin
+    password: 123456
   client:
     http:
         props:
@@ -76,6 +79,8 @@ Each attribute indicates the following meaning.
 
 - `registerType`: the service registration type, fill in `http`.
 - `serverList`: The address of the `Shenyu-Admin` project to fill in for the `http` registration type, note the addition of `http://` and separate multiple addresses with English commas.
+- `username`: The username of the `Shenyu-Admin`
+- `password`: The password of the `Shenyu-Admin`
 - `port`: the start port of your project, currently `springmvc/tars/grpc` needs to be filled in.
 - `contextPath`: the routing prefix for your `mvc` project in `shenyu` gateway, such as `/order`, `/product`, etc. The gateway will route according to your prefix.
 - `appName`: the name of your application, if not configured, it will take the value of `spring.application.name` by default.
@@ -83,7 +88,7 @@ Each attribute indicates the following meaning.
 
 After the project starts, it will first load the configuration file, read the property information and generate the corresponding `Bean`.
 
-The first configuration file read is `ShenyuSpringMvcClientConfiguration`, which is the `http` registration configuration class for the `shenyu` client, indicated by `@Configuration` which is a configuration class, and by `@ImportAutoConfiguration` which is a configuration class. to introduce other configuration classes. Create `SpringMvcClientBeanPostProcessor`, which mainly handles metadata. Create `ContextRegisterListener`, which mainly handles `URI` information.
+The first configuration file read is `ShenyuSpringMvcClientConfiguration`, which is the `http` registration configuration class for the `shenyu` client, indicated by `@Configuration` which is a configuration class, and by `@ImportAutoConfiguration` which is a configuration class. to introduce other configuration classes. Create `SpringMvcClientEventListener`, which mainly handles metadata and `URI` information.
 
 ```java
 /**
@@ -91,18 +96,14 @@ The first configuration file read is `ShenyuSpringMvcClientConfiguration`, which
  */
 @Configuration
 @ImportAutoConfiguration(ShenyuClientCommonBeanConfiguration.class)
+@ConditionalOnProperty(value = "shenyu.register.enabled", matchIfMissing = true, havingValue = "true")
 public class ShenyuSpringMvcClientConfiguration {
 
-    //create SpringMvcClientBeanPostProcessor to handle metadata
+    // create SpringMvcClientEventListener to handle metadata and URI
     @Bean
-    public SpringMvcClientBeanPostProcessor springHttpClientBeanPostProcessor(final ShenyuClientConfig clientConfig,final ShenyuClientRegisterRepository shenyuClientRegisterRepository) {
-        return new SpringMvcClientBeanPostProcessor(clientConfig.getClient().get(RpcTypeEnum.HTTP.getName()), shenyuClientRegisterRepository);
-    }
-    
-   //create ContextRegisterListener to handle URI
-    @Bean
-    public ContextRegisterListener contextRegisterListener(final ShenyuClientConfig clientConfig) {
-        return new ContextRegisterListener(clientConfig.getClient().get(RpcTypeEnum.HTTP.getName()));
+    public SpringMvcClientEventListener springHttpClientEventListener(final ShenyuClientConfig clientConfig,
+                                                                      final ShenyuClientRegisterRepository shenyuClientRegisterRepository) {
+        return new SpringMvcClientEventListener(clientConfig.getClient().get(RpcTypeEnum.HTTP.getName()), shenyuClientRegisterRepository);
     }
 }
 
@@ -190,7 +191,7 @@ public final class ShenyuClientRegisterRepositoryFactory {
 
 The load type is specified by `registerType`, which is the type we specify in the configuration file at
 
-```xml
+```yaml
 shenyu:
   register:
     registerType: http
@@ -202,209 +203,308 @@ We specified `http`, so it will go to load `HttpClientRegisterRepository`. After
 ```java
 @Join
 public class HttpClientRegisterRepository implements ShenyuClientRegisterRepository {
-    
+
     @Override
     public void init(final ShenyuRegisterCenterConfig config) {
+        this.username = config.getProps().getProperty(Constants.USER_NAME);
+        this.password = config.getProps().getProperty(Constants.PASS_WORD);
         this.serverList = Lists.newArrayList(Splitter.on(",").split(config.getServerLists()));
+        this.setAccessToken();
     }
   
   // ......
 }
 ```
 
-Read `serverLists` from the configuration file, the address of `sheenyu-admin`, in preparation for subsequent data sending. The class annotation `@Join` is used for `SPI` loading.
+Read `username`, `password` and `serverLists` from the configuration file, the username, password and address of `sheenyu-admin`, in preparation for subsequent data sending. The class annotation `@Join` is used for `SPI` loading.
 
 
 > `SPI`, known as `Service Provider Interface`, is a service provider discovery feature built into the `JDK`, a mechanism for dynamic replacement discovery.
 >
 > [shenyu-spi](https://github.com/apache/incubator-shenyu/tree/master/shenyu-spi) is a custom `SPI` extension implementation for the `Apache ShenYu` gateway, designed and implemented with reference to Dubbo [SPI extension implementation](https://dubbo.apache.org/zh/docs/v2.7/dev/impls/).
 
-#### 2.3 SpringMvcClientBeanPostProcessor
 
-Create `SpringMvcClientBeanPostProcessor`, which is responsible for metadata construction and registration, with the following constructor logic.
+#### 2.3 SpringMvcClientEventListener
+
+Create `SpringMvcClientEventListener`, which is responsible for the construction and registration of client-side metadata and `URI` data, and its creation is done in the configuration file.
+
 
 ```java
+@Configuration
+@ImportAutoConfiguration(ShenyuClientCommonBeanConfiguration.class)
+public class ShenyuSpringMvcClientConfiguration {
+     // ......
+    
+    // create SpringMvcClientEventListener
+    @Bean
+    public SpringMvcClientEventListener springHttpClientEventListener(final ShenyuClientConfig clientConfig,
+                                                                      final ShenyuClientRegisterRepository shenyuClientRegisterRepository) {
+        return new SpringMvcClientEventListener(clientConfig.getClient().get(RpcTypeEnum.HTTP.getName()), shenyuClientRegisterRepository);
+    }
+}
+```
 
-/**
- *  spring mvc client BeanPostProcessor
- */
-public class SpringMvcClientBeanPostProcessor implements BeanPostProcessor {
 
-    /**
-     * Instantiation by constructor
-     */
-    public SpringMvcClientBeanPostProcessor(final PropertiesConfig clientConfig,
-                                            final ShenyuClientRegisterRepository shenyuClientRegisterRepository) {
-        // read Properties
+`SpringMvcClientEventListener` implements the `AbstractContextRefreshedEventListener`
+
+![](/img/activities/code-analysis-http-register/shenyu-client-event-listener.png)
+
+The `AbstractContextRefreshedEventListener` is an abstract class. it implements the `ApplicationListener` interface and overrides the `onApplicationEvent()` method, which is executed when a Spring event occurs. It has several implementation classes, which support different kind of `RPC` styles.
+
+- `AlibabaDubboServiceBeanListener`：handles `Alibaba Dubbo` protocol.
+- `ApacheDubboServiceBeanListener`：handles `Apache Dubbo` protocol.
+- `GrpcClientEventListener`：handles `grpc` protocol.
+- `MotanServiceEventListener`：handles `Motan` protocol.
+- `SofaServiceEventListener`：handles `Sofa` protocol.
+- `SpringMvcClientEventListener`：handles `http` protocol.
+- `SpringWebSocketClientEventListener`：handles `Websocket` protocol.
+- `TarsServiceBeanEventListener`：handles `Tars` protocol.
+
+```java
+public abstract class AbstractContextRefreshedEventListener<T, A extends Annotation> implements ApplicationListener<ContextRefreshedEvent> {
+
+    //......
+
+    // Instantiation is done through the constructor
+    public AbstractContextRefreshedEventListener(final PropertiesConfig clientConfig,
+                                                 final ShenyuClientRegisterRepository shenyuClientRegisterRepository) {
+        // read shenyu.client.http properties
         Properties props = clientConfig.getProps();
-        // get port information and verify
-        int port = Integer.parseInt(props.getProperty(ShenyuClientConstants.PORT));
-        if (port <= 0) {
-            String errorMsg = "http register param must config the port must > 0";
-            LOG.error(errorMsg);
-            throw new ShenyuClientIllegalArgumentException(errorMsg);
-        }
-        // get appName
+        // appName 
         this.appName = props.getProperty(ShenyuClientConstants.APP_NAME);
-        // get contextPath
-        this.contextPath = props.getProperty(ShenyuClientConstants.CONTEXT_PATH);
-        // check appName and contextPath
+        // contextPath
+        this.contextPath = Optional.ofNullable(props.getProperty(ShenyuClientConstants.CONTEXT_PATH)).map(UriUtils::repairData).orElse("");
         if (StringUtils.isBlank(appName) && StringUtils.isBlank(contextPath)) {
-            String errorMsg = "http register param must config the appName or contextPath";
+            String errorMsg = "client register param must config the appName or contextPath";
             LOG.error(errorMsg);
             throw new ShenyuClientIllegalArgumentException(errorMsg);
         }
-        // get isFull
-        this.isFull = Boolean.parseBoolean(props.getProperty(ShenyuClientConstants.IS_FULL, Boolean.FALSE.toString()));
-        // start publisher
+        this.ipAndPort = props.getProperty(ShenyuClientConstants.IP_PORT);
+        // host
+        this.host = props.getProperty(ShenyuClientConstants.HOST);
+        // port
+        this.port = props.getProperty(ShenyuClientConstants.PORT);
+        // publish event
         publisher.start(shenyuClientRegisterRepository);
     }
 
-    // ......
+    // This method is executed when a context refresh event(ContextRefreshedEvent), occurs
     @Override
-    public Object postProcessAfterInitialization(@NonNull final Object bean, @NonNull final String beanName) throws BeansException {
-      // ......
+    public void onApplicationEvent(@NonNull final ContextRefreshedEvent event) {
+        // The contents of the method are guaranteed to be executed only once
+        if (!registered.compareAndSet(false, true)) {
+            return;
+        }
+        final ApplicationContext context = event.getApplicationContext();
+        // get the specific beans 
+        Map<String, T> beans = getBeans(context);
+        if (MapUtils.isEmpty(beans)) {
+            return;
+        }
+        // build URI data and register it
+        publisher.publishEvent(buildURIRegisterDTO(context, beans));
+        // build metadata and register it
+        beans.forEach(this::handle);
+    }
+    
+    @SuppressWarnings("all")
+    protected abstract URIRegisterDTO buildURIRegisterDTO(ApplicationContext context,
+                                                          Map<String, T> beans);
+
+
+    protected void handle(final String beanName, final T bean) {
+        Class<?> clazz = getCorrectedClass(bean);
+        final A beanShenyuClient = AnnotatedElementUtils.findMergedAnnotation(clazz, getAnnotationType());
+        final String superPath = buildApiSuperPath(clazz, beanShenyuClient);
+        if (Objects.nonNull(beanShenyuClient) && superPath.contains("*")) {
+            handleClass(clazz, bean, beanShenyuClient, superPath);
+            return;
+        }
+        final Method[] methods = ReflectionUtils.getUniqueDeclaredMethods(clazz);
+        for (Method method : methods) {
+            handleMethod(bean, clazz, beanShenyuClient, method, superPath);
+        }
     }
 
+    // default implementation. build URI data and register it
+    protected void handleClass(final Class<?> clazz,
+                               final T bean,
+                               @NonNull final A beanShenyuClient,
+                               final String superPath) {
+        publisher.publishEvent(buildMetaDataDTO(bean, beanShenyuClient, pathJoin(contextPath, superPath), clazz, null));
+    }
+
+    // default implementation. build metadata and register it
+    protected void handleMethod(final T bean,
+                                final Class<?> clazz,
+                                @Nullable final A beanShenyuClient,
+                                final Method method,
+                                final String superPath) {
+        // get the annotation
+        A methodShenyuClient = AnnotatedElementUtils.findMergedAnnotation(method, getAnnotationType());
+        if (Objects.nonNull(methodShenyuClient)) {
+            // 构建元数据，发送注册事件
+            publisher.publishEvent(buildMetaDataDTO(bean, methodShenyuClient, buildApiPath(method, superPath, methodShenyuClient), clazz, method));
+        }
+    }
+    
+    protected abstract MetaDataRegisterDTO buildMetaDataDTO(T bean,
+                                                            @NonNull A shenyuClient,
+                                                            String path,
+                                                            Class<?> clazz,
+                                                            Method method);
 }
 
 ```
 
 In the constructor, the main purpose is to read the property information and then perform the checksum.
 
-```xml
+```yaml
 shenyu:
   client:
     http:
-        props:
-          contextPath: /http
-          appName: http
-          port: 8189  
-          isFull: false
+      props:
+        contextPath: /http
+        appName: http
+        port: 8189
+        isFull: false
 ```
 
-Finally, `publisher.start()` is executed to start event publishing and prepare for registration.
+Finally, publisher.start() is executed to start event publishing and prepare for registration.
 
-- ShenyuClientRegisterEventPublisher
-
-`ShenyuClientRegisterEventPublisher` is implemented via singleton pattern, mainly generating `metadata` and `URI` subscribers (subsequently used for data publishing), and then starting the `Disruptor` queue. A common method `publishEvent()` is provided to publish events and send data to the Disruptor queue.
+ShenyuClientRegisterEventPublisher is implemented via singleton pattern, mainly generating metadata and URI subscribers (subsequently used for data publishing), and then starting the Disruptor queue. A common method publishEvent() is provided to publish events and send data to the Disruptor queue.
 
 ```java
 
 public class ShenyuClientRegisterEventPublisher {
+    
     private static final ShenyuClientRegisterEventPublisher INSTANCE = new ShenyuClientRegisterEventPublisher();
-    
-    private DisruptorProviderManage providerManage;
-    
-    private RegisterClientExecutorFactory factory;
+
+    private DisruptorProviderManage<DataTypeParent> providerManage;
     
     public static ShenyuClientRegisterEventPublisher getInstance() {
         return INSTANCE;
     }
     
     public void start(final ShenyuClientRegisterRepository shenyuClientRegisterRepository) {
-        factory = new RegisterClientExecutorFactory();
+        RegisterClientExecutorFactory factory = new RegisterClientExecutorFactory();
         factory.addSubscribers(new ShenyuClientMetadataExecutorSubscriber(shenyuClientRegisterRepository));
         factory.addSubscribers(new ShenyuClientURIExecutorSubscriber(shenyuClientRegisterRepository));
         providerManage = new DisruptorProviderManage(factory);
         providerManage.startup();
     }
     
-    public <T> void publishEvent(final T data) {
-        DisruptorProvider<Object> provider = providerManage.getProvider();
-        provider.onData(f -> f.setData(data));
+    public <T> void publishEvent(final DataTypeParent data) {
+        DisruptorProvider<DataTypeParent> provider = providerManage.getProvider();
+        provider.onData(data);
     }
 }
 ```
 
-The logic of the constructor of `SpringMvcClientBeanPostProcessor` is analyzed, it mainly reads the property configuration, creates metadata and `URI` subscribers, and starts the `Disruptor` queue. It is important to note that it implements `BeanPostProcessor`, an interface provided by `Spring` that executes the `postProcessAfterInitialization()` method of the post-processor before it actually starts to be used in the `Bean` lifecycle.
+The logic of the constructor of `AbstractContextRefreshedEventListener` is analyzed, it mainly reads the property configuration, creates metadata and URI subscribers, and starts the Disruptor queue.
+
+The `onApplicationEvent()` method is executed when a `Spring` event occurs, the parameter here is `ContextRefreshedEvent`, which means the context refresh event. 
 
 
-- postProcessAfterInitialization() 
+> `ContextRefreshedEvent` is a `Spring` built-in event. It is fired when the `ApplicationContext` is initialized or refreshed. This can also happen in the `ConfigurableApplicationContext` interface using the `refresh()` method. Initialization here means that all `Bean`s have been successfully loaded, post-processing `Bean`s have been detected and activated, all `Singleton Bean`s have been pre-instantiated, and the `ApplicationContext` container is ready to be used.
 
-`SpringMvcClientBeanPostProcessor` acts as a post-processor which does the following: reads the metadata in the annotation and registers it with `admin`.
+
+- `SpringMvcClientEventListener`: the `http` implementation of `AbstractContextRefreshedEventListener`:
 
 ```java
-public class SpringMvcClientBeanPostProcessor implements BeanPostProcessor {
-   // ......
+public class SpringMvcClientEventListener extends AbstractContextRefreshedEventListener<Object, ShenyuSpringMvcClient> {
     
-    // reads the metadata in the annotation and registers it with admin
-    @Override
-    public Object postProcessAfterInitialization(@NonNull final Object bean, @NonNull final String beanName) throws BeansException {
-        // Configuration attribute, if isFull=true, means register the whole microservice
-        if (isFull) {
-            return bean;
-        }
-        // get Controller annotation
-        Controller controller = AnnotationUtils.findAnnotation(bean.getClass(), Controller.class);
-         // get RequestMapping annotation
-        RequestMapping requestMapping = AnnotationUtils.findAnnotation(bean.getClass(), RequestMapping.class);
-        if (controller != null || requestMapping != null) {
-             // get the ShenyuSpringMvcClient annotation for the current bean
-            ShenyuSpringMvcClient clazzAnnotation = AnnotationUtils.findAnnotation(bean.getClass(), ShenyuSpringMvcClient.class);
-            String prePath = "";
-            // If there is no ShenyuSpringMvcClient annotation, it is returned, indicating that the interface does not need to be registered
-            if (Objects.isNull(clazzAnnotation)) {
-                return bean;
-            }
-             // If the path attribute of the ShenyuSpringMvcClient annotation includes *, it means that the entire interface is registered
-            if (clazzAnnotation.path().indexOf("*") > 1) {
-                // build metadata, publish registration event
-                publisher.publishEvent(buildMetaDataDTO(clazzAnnotation, prePath));
-                return bean;
-            }
-            
-            prePath = clazzAnnotation.path();
-            // get all methods of the current bean
-            final Method[] methods = ReflectionUtils.getUniqueDeclaredMethods(bean.getClass());
-            for (Method method : methods) {
-                // get ShenyuSpringMvcClient annotation
-                ShenyuSpringMvcClient shenyuSpringMvcClient = AnnotationUtils.findAnnotation(method, ShenyuSpringMvcClient.class);
-                // If the method has the annotation ShenyuSpringMvcClient, it means that the method needs to be registered
-                if (Objects.nonNull(shenyuSpringMvcClient)) {
-                    // build metadata, publish registration event
-                    publisher.publishEvent(buildMetaDataDTO(shenyuSpringMvcClient, prePath));
-                }
-            }
-        }
-        return bean;
+    private final List<Class<? extends Annotation>> mappingAnnotation = new ArrayList<>(3);
+    
+    private final Boolean isFull;
+    
+    private final String protocol;
+    
+    // 构造函数
+    public SpringMvcClientEventListener(final PropertiesConfig clientConfig,
+                                        final ShenyuClientRegisterRepository shenyuClientRegisterRepository) {
+        super(clientConfig, shenyuClientRegisterRepository);
+        Properties props = clientConfig.getProps();
+        // get isFull
+        this.isFull = Boolean.parseBoolean(props.getProperty(ShenyuClientConstants.IS_FULL, Boolean.FALSE.toString()));
+        // http protocol
+        this.protocol = props.getProperty(ShenyuClientConstants.PROTOCOL, ShenyuClientConstants.HTTP);
+        mappingAnnotation.add(ShenyuSpringMvcClient.class);
+        mappingAnnotation.add(RequestMapping.class);
     }
-
-    // build metadata
-    private MetaDataRegisterDTO buildMetaDataDTO(final ShenyuSpringMvcClient shenyuSpringMvcClient, final String prePath) {
-        // contextPath
-        String contextPath = this.contextPath;
-        // appName
-        String appName = this.appName;
-        // path
-        String path;
-        if (StringUtils.isEmpty(contextPath)) {
-            path = prePath + shenyuSpringMvcClient.path();
-        } else {
-            path = contextPath + prePath + shenyuSpringMvcClient.path();
+    
+    @Override
+    protected Map<String, Object> getBeans(final ApplicationContext context) {
+        // Configuration attribute, if isFull=true, means register the whole microservice
+        if (Boolean.TRUE.equals(isFull)) {
+            getPublisher().publishEvent(MetaDataRegisterDTO.builder()
+                    .contextPath(getContextPath())
+                    .appName(getAppName())
+                    .path(PathUtils.decoratorPathWithSlash(getContextPath()))
+                    .rpcType(RpcTypeEnum.HTTP.getName())
+                    .enabled(true)
+                    .ruleName(getContextPath())
+                    .build());
+            return null;
         }
-        // desc info
-        String desc = shenyuSpringMvcClient.desc();
-        // ruleName
-        String configRuleName = shenyuSpringMvcClient.ruleName();
-        String ruleName = StringUtils.isBlank(configRuleName) ? path : configRuleName;
-        return MetaDataRegisterDTO.builder()
-                .contextPath(contextPath)
-                .appName(appName)
-                .path(path)
-                .pathDesc(desc)
-                .rpcType(RpcTypeEnum.HTTP.getName())
-                .enabled(shenyuSpringMvcClient.enabled())
-                .ruleName(ruleName)
-                .registerMetaData(shenyuSpringMvcClient.registerMetaData())
-                .build();
+        // get bean with Controller annotation
+        return context.getBeansWithAnnotation(Controller.class);
+    }
+    
+    @Override
+    protected URIRegisterDTO buildURIRegisterDTO(final ApplicationContext context,
+                                                 final Map<String, Object> beans) {
+        // ...
+    }
+    
+    @Override
+    protected String buildApiSuperPath(final Class<?> clazz, @Nullable final ShenyuSpringMvcClient beanShenyuClient) {
+        if (Objects.nonNull(beanShenyuClient) && StringUtils.isNotBlank(beanShenyuClient.path())) {
+            return beanShenyuClient.path();
+        }
+        RequestMapping requestMapping = AnnotationUtils.findAnnotation(clazz, RequestMapping.class);
+        // Only the first path is supported temporarily
+        if (Objects.nonNull(requestMapping) && ArrayUtils.isNotEmpty(requestMapping.path()) && StringUtils.isNotBlank(requestMapping.path()[0])) {
+            return requestMapping.path()[0];
+        }
+        return "";
+    }
+    
+    @Override
+    protected Class<ShenyuSpringMvcClient> getAnnotationType() {
+        return ShenyuSpringMvcClient.class;
+    }
+    
+    @Override
+    protected void handleMethod(final Object bean, final Class<?> clazz,
+                                @Nullable final ShenyuSpringMvcClient beanShenyuClient,
+                                final Method method, final String superPath) {
+        // get RequestMapping annotation
+        final RequestMapping requestMapping = AnnotatedElementUtils.findMergedAnnotation(method, RequestMapping.class);
+        // get ShenyuSpringMvcClient annotation
+        ShenyuSpringMvcClient methodShenyuClient = AnnotatedElementUtils.findMergedAnnotation(method, ShenyuSpringMvcClient.class);
+        methodShenyuClient = Objects.isNull(methodShenyuClient) ? beanShenyuClient : methodShenyuClient;
+        // the result of ReflectionUtils#getUniqueDeclaredMethods contains method such as hashCode, wait, toSting
+        // add Objects.nonNull(requestMapping) to make sure not register wrong method
+        if (Objects.nonNull(methodShenyuClient) && Objects.nonNull(requestMapping)) {
+            getPublisher().publishEvent(buildMetaDataDTO(bean, methodShenyuClient, buildApiPath(method, superPath, methodShenyuClient), clazz, method));
+        }
+    }
+    
+    //...
+    
+    // 构造元数据
+    @Override
+    protected MetaDataRegisterDTO buildMetaDataDTO(final Object bean,
+                                                   @NonNull final ShenyuSpringMvcClient shenyuClient,
+                                                   final String path, final Class<?> clazz,
+                                                   final Method method) {
+        //...
     }
 }
-
 ```
 
-In the post-processor, you need to read the configuration property, if `isFull=true`, it means register the whole microservice. Get the `Controller` annotation, `RequestMapping` annotation, `ShenyuSpringMvcClient` annotation of the current `bean` and determine if the current `bean` is an interface by reading these annotations? Does the interface need to be registered? Does the method need to be registered? Then build metadata based on the properties in the `ShenyuSpringMvcClient` annotation, and finally publish the event for registration via `publisher.publishEvent()`.
-
+The registration logic is done through `publisher.publishEvent()`. 
 
 The `Controller` annotation and the `RequestMapping` annotation are provided by `Spring`, which you should be familiar with, so I won't go into details. The `ShenyuSpringMvcClient` annotation is provided by `Apache ShenYu` to register the `SpringMvc` client, which is defined as follows.
 
@@ -416,10 +516,16 @@ The `Controller` annotation and the `RequestMapping` annotation are provided by 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})
 public @interface ShenyuSpringMvcClient {
-    // path 
+
+    // path
+    @AliasFor(attribute = "path")
+    String value() default "";
+    
+    // path
+    @AliasFor(attribute = "value")
     String path();
     
-    // ruleName 
+    // ruleName
     String ruleName() default "";
     
     // desc info
@@ -443,7 +549,7 @@ It is used as follows.
 @RequestMapping("/test")
 @ShenyuSpringMvcClient(path = "/test/**")  // register the entire interface
 public class HttpTestController {
- //......
+    //......
 }
 ```
 
@@ -469,8 +575,9 @@ public class OrderController {
     }
 ```
 
-- publisher.publishEvent() 
 
+
+- publisher.publishEvent()
 
 This method sends the data to the `Disruptor` queue. More details about the `Disruptor` queue are not described here, which does not affect the flow of analyzing the registration.
 
@@ -478,16 +585,17 @@ When the data is sent, the consumers of the `Disruptor` queue will process the d
 
 This method sends the data to the `Disruptor` queue. More details about the `Disruptor` queue are not described here, which does not affect the flow of analyzing the registration.
 
-- QueueConsumer 
 
-`QueueConsumer` is a consumer that implements the `WorkHandler` interface, which is created in the `providerManage.startup()` logic. The `WorkHandler` interface is the data consumption interface for `disruptor`, and the only method is `onEvent()`.
 
+- QueueConsumer
+
+`QueueConsumer` is a consumer that implements the `WorkHandler` interface, which is created in the `providerManage.startup()` logic. The `WorkHandler` interface is the data consumption interface for `Disruptor`, and the only method is `onEvent()`.
 
 ```java
 package com.lmax.disruptor;
 
 public interface WorkHandler<T> {
-    void onEvent(T var1) throws Exception;
+    void onEvent(T event) throws Exception;
 }
 ```
 
@@ -506,6 +614,8 @@ public class QueueConsumer<T> implements WorkHandler<DataEvent<T>> {
     @Override
     public void onEvent(final DataEvent<T> t) {
         if (t != null) {
+            // Use different thread pools based on DataEvent type
+            ThreadPoolExecutor executor = orderly(t);
             // create queue consumption tasks via factory
             QueueConsumerExecutor<T> queueConsumerExecutor = factory.create();
             // set data
@@ -521,31 +631,30 @@ public class QueueConsumer<T> implements WorkHandler<DataEvent<T>> {
 
 `QueueConsumerExecutor` is the task that is executed in the thread pool, it implements the `Runnable` interface, and there are two specific implementation classes.
 
-- `RegisterClientConsumerExecutor`: the client-side consumer executor.
-- `RegisterServerConsumerExecutor`: server-side consumer executor.
+- `RegisterClientConsumerExecutor`：the client-side consumer executor.
+- `RegisterServerConsumerExecutor`：server-side consumer executor.
 
 As the name implies, one is responsible for handling client-side tasks, and one is responsible for handling server-side tasks (the server side is `admin`, which is analyzed below).
 
 ![](/img/activities/code-analysis-http-register/consumer-executor.png)
 
 
-
-- RegisterClientConsumerExecutor 
+- RegisterClientConsumerExecutor
 
 The logic of the rewritten `run()` is as follows.
 
 ```java
 
-public final class RegisterClientConsumerExecutor extends QueueConsumerExecutor<DataTypeParent> {
+public final class RegisterClientConsumerExecutor<T extends DataTypeParent> extends QueueConsumerExecutor<T> {
     
 	//...... 
 
     @Override
     public void run() {
         // get data
-        DataTypeParent dataTypeParent = getData();
+        final T data = getData();
         // call the appropriate processor for processing according to the data type
-        subscribers.get(dataTypeParent.getType()).executor(Lists.newArrayList(dataTypeParent));
+        subscribers.get(data.getType()).executor(Lists.newArrayList(data));
     }
     
 }
@@ -555,19 +664,20 @@ Different processors are called to perform the corresponding tasks based on diff
 
 ```java
 public enum DataType {
- 
+   
     META_DATA,
-  
+    
     URI,
 }
 ```
 
-- ExecutorSubscriber#executor() 
+- ExecutorSubscriber#executor()
 
-The actuator subscribers are also divided into two categories, one that handles metadata and one that handles `URIs`. There are two on the client side and two on the server side, so there are four in total.
+The actuator subscribers are divided into two categories, one that handles metadata and one that handles `URIs`. There are two on the client side and two on the server side, so there are four in total.
 
 ![](/img/activities/code-analysis-http-register/executor-subscriber.png)
 
+Here is the registration metadata information, so the execution class is `ShenyuClientMetadataExecutorSubscriber`.
 
 
 - ShenyuClientMetadataExecutorSubscriber#executor()
@@ -581,7 +691,7 @@ public class ShenyuClientMetadataExecutorSubscriber implements ExecutorTypeSubsc
     
     @Override
     public DataType getType() {
-        return DataType.META_DATA; 
+        return DataType.META_DATA;
     }
     
     @Override
@@ -594,22 +704,23 @@ public class ShenyuClientMetadataExecutorSubscriber implements ExecutorTypeSubsc
 }
 ```
 
+The two registration interfaces get the data well and call the `publish()` method to publish the data to the `Disruptor` queue.
 
-- ShenyuClientRegisterRepository#persistInterface()
+- `ShenyuServerRegisterRepository`
 
-`ShenyuClientRegisterRepository` is an interface to represent client-side data registration, and it has five implementation classes at present, each of which represents a registration method.
+The `ShenyuServerRegisterRepository` interface is a service registration interface, which has five implementation classes, indicating five types of registration.
 
-- `ConsulClientRegisterRepository`: client registration is achieved through `Consul`.
-- `EtcdClientRegisterRepository`: client registration through `Etcd`.
-- `HttpClientRegisterRepository`: client registration via `Http`; `NacosClientRegisterRepository`: client registration via `Http`.
-- `NacosClientRegisterRepository`: client registration via `Nacos`; `ZookeeperClientRegisterRepository`: client registration via `Nacos`.
-- `ZookeeperClientRegisterRepository`: client registration via `Zookeeper`.
+- `ConsulServerRegisterRepository`: registration is achieved through `Consul`;
+- `EtcdServerRegisterRepository`: registration through `Etcd`.
+- `NacosServerRegisterRepository`: registration through `Nacos`.
+- `ShenyuHttpRegistryController`: registration via `Http`; `ShenyuHttpRegistryController`: registration via `Http`.
+- `ZookeeperServerRegisterRepository`: registration through `Zookeeper`.
 
 
 ![](/img/activities/code-analysis-http-register/client-register-repository.png)
 
-As you can see from the diagram, the loading of the registry is done by means of `SPI`. This was mentioned earlier, and the specific class loading is done in the client-side generic configuration file by specifying the properties in the configuration file.
 
+As you can see from the diagram, the loading of the registry is done by means of SPI. This was mentioned earlier, and the specific class loading is done in the client-side generic configuration file by specifying the properties in the configuration file.
 
 ```java
 
@@ -638,52 +749,116 @@ public final class ShenyuClientRegisterRepositoryFactory {
 }
 ```
 
-The source code analysis in this article is based on the `Http` way of registration, so we first analyze the `HttpClientRegisterRepository`, and the other registration methods will be analyzed afterwards.
+The source code analysis in this article is based on the Http way of registration, so we first analyze the HttpClientRegisterRepository, and the other registration methods will be analyzed afterwards.
 
+Registration by way of `http` is very simple, it is to call the tool class to send http requests. The registration metadata and URI are both called by the same method `doRegister()`, specifying the interface and type.
 
-Registration by way of `http` is very simple, it is to call the tool class to send `http` requests. The registration metadata and URI are both called by the same method `doRegister()`, specifying the interface and type.
-
-- `/shenyu-client/register-metadata`: the interface provided by the server for registering metadata.
-- `/shenyu-client/register-uri`: Server-side interface for registering URIs.
+- `Constants.URI_PATH` = `/shenyu-client/register-metadata`: the interface provided by the server for registering metadata.
+- `Constants.META_PATH` = `/shenyu-client/register-uri`: Server-side interface for registering URIs.
 
 
 ```java
 @Join
-public class HttpClientRegisterRepository implements ShenyuClientRegisterRepository {
-    // server-side provided interface for registering metadata    
-    private static final String META_PATH = "/shenyu-client/register-metadata";
+public class HttpClientRegisterRepository extends FailbackRegistryRepository {
 
-    // the interface provided by the server for registering URIs
-    private static final String URI_PATH = "/shenyu-client/register-uri";
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientRegisterRepository.class);
 
-    @Override
-    public void persistURI(final URIRegisterDTO registerDTO) {
-        doRegister(registerDTO, URI_PATH, Constants.URI);
+    private static URIRegisterDTO uriRegisterDTO;
+
+    private String username;
+
+    private String password;
+
+    private List<String> serverList;
+
+    private String accessToken;
+    
+    public HttpClientRegisterRepository() {
     }
     
-    @Override
-    public void persistInterface(final MetaDataRegisterDTO metadata) {
-        doRegister(metadata, META_PATH, META_TYPE);
+    public HttpClientRegisterRepository(final ShenyuRegisterCenterConfig config) {
+        init(config);
     }
-    
-    // do register
-    private <T> void doRegister(final T t, final String path, final String type) {
-        // iterate through the list of admin services (admin may be clustered)
+
+    @Override
+    public void init(final ShenyuRegisterCenterConfig config) {
+        // admin username
+        this.username = config.getProps().getProperty(Constants.USER_NAME);
+        // admin paaword
+        this.password = config.getProps().getProperty(Constants.PASS_WORD);
+        // admin server address
+        this.serverList = Lists.newArrayList(Splitter.on(",").split(config.getServerLists()));
+        // set access token
+        this.setAccessToken();
+    }
+
+    /**
+     * Persist uri.
+     *
+     * @param registerDTO the register dto
+     */
+    @Override
+    public void doPersistURI(final URIRegisterDTO registerDTO) {
+        if (RuntimeUtils.listenByOther(registerDTO.getPort())) {
+            return;
+        }
+        doRegister(registerDTO, Constants.URI_PATH, Constants.URI);
+        uriRegisterDTO = registerDTO;
+    }
+
+    @Override
+    public void doPersistInterface(final MetaDataRegisterDTO metadata) {
+        doRegister(metadata, Constants.META_PATH, Constants.META_TYPE);
+    }
+
+    @Override
+    public void close() {
+        if (uriRegisterDTO != null) {
+            uriRegisterDTO.setEventType(EventType.DELETED);
+            doRegister(uriRegisterDTO, Constants.URI_PATH, Constants.URI);
+        }
+    }
+
+    private void setAccessToken() {
         for (String server : serverList) {
             try {
+                Optional<?> login = RegisterUtils.doLogin(username, password, server.concat(Constants.LOGIN_PATH));
+                login.ifPresent(v -> this.accessToken = String.valueOf(v));
+            } catch (Exception e) {
+                LOGGER.error("Login admin url :{} is fail, will retry. cause: {} ", server, e.getMessage());
+            }
+        }
+    }
+
+    private <T> void doRegister(final T t, final String path, final String type) {
+        int i = 0;
+        // iterate through the list of admin services (admin may be clustered)
+        for (String server : serverList) {
+            i++;
+            String concat = server.concat(path);
+            try {
+                // 设置访问token
+                if (StringUtils.isBlank(accessToken)) {
+                    this.setAccessToken();
+                    if (StringUtils.isBlank(accessToken)) {
+                        throw new NullPointerException("accessToken is null");
+                    }
+                }
                 // calling the tool class to send http requests
-                RegisterUtils.doRegister(GsonUtils.getInstance().toJson(t), server + path, type);
+                RegisterUtils.doRegister(GsonUtils.getInstance().toJson(t), concat, type, accessToken);
                 return;
             } catch (Exception e) {
-                LOGGER.error("register admin url :{} is fail, will retry", server);
+                LOGGER.error("Register admin url :{} is fail, will retry. cause:{}", server, e.getMessage());
+                if (i == serverList.size()) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
 }
-
 ```
 
-Serialize the data and send it via `OkHttp`.
+Serialize the data and send it via OkHttp.
 
 ```java
 
@@ -693,7 +868,12 @@ public final class RegisterUtils {
 
     // Sending data via OkHttp
     public static void doRegister(final String json, final String url, final String type) throws IOException {
-        String result = OkHttpTools.getInstance().post(url, json);
+        if (!StringUtils.hasLength(accessToken)) {
+            LOGGER.error("{} client register error accessToken is null, please check the config : {} ", type, json);
+            return;
+        }
+        Headers headers = new Headers.Builder().add(Constants.X_ACCESS_TOKEN, accessToken).build();
+        String result = OkHttpTools.getInstance().post(url, json, headers);
         if (Objects.equals(SUCCESS, result)) {
             LOGGER.info("{} client register success: {} ", type, json);
         } else {
@@ -705,135 +885,11 @@ public final class RegisterUtils {
 
 At this point, the logic of the client registering metadata by means of `http` is finished. To summarize: construct metadata by reading custom annotation information, send the data to the `Disruptor` queue, then consume the data from the queue, put the consumer into the thread pool to execute, and finally send an `http` request to the `admin`.
 
-
-The source code analysis process of the client-side metadata registration process is completed and described in a flowchart as follows.
-
-
-![](/img/activities/code-analysis-http-register/client-metadata-register-en.png)
-
-
-#### 2.4 ContextRegisterListener
-
-Create `ContextRegisterListener`, which is responsible for the construction and registration of client-side `URI` data, and its creation is done in the configuration file.
-
-
-```java
-@Configuration
-@ImportAutoConfiguration(ShenyuClientCommonBeanConfiguration.class)
-public class ShenyuSpringMvcClientConfiguration {
-     // ......
-    
-    // create ContextRegisterListener
-    @Bean
-    public ContextRegisterListener contextRegisterListener(final ShenyuClientConfig clientConfig) {
-        return new ContextRegisterListener(clientConfig.getClient().get(RpcTypeEnum.HTTP.getName()));
-    }
-}
-```
-
-
-`ContextRegisterListener` implements the `ApplicationListener` interface and overrides the `onApplicationEvent()` method, which is executed when a Spring event occurs.
-
-
-```java
-public class ContextRegisterListener implements ApplicationListener<ContextRefreshedEvent> {
-
-     //......
-
-    //Instantiation is done through the constructor
-    public ContextRegisterListener(final PropertiesConfig clientConfig) {
-        // read shenyu.client.http properties
-        Properties props = clientConfig.getProps();
-        // isFull
-        this.isFull = Boolean.parseBoolean(props.getProperty(ShenyuClientConstants.IS_FULL, Boolean.FALSE.toString()));
-        // contextPath
-        String contextPath = props.getProperty(ShenyuClientConstants.CONTEXT_PATH);
-        this.contextPath = contextPath;
-        if (isFull) {
-            if (StringUtils.isBlank(contextPath)) {
-                String errorMsg = "http register param must config the contextPath";
-                LOG.error(errorMsg);
-                throw new ShenyuClientIllegalArgumentException(errorMsg);
-            }
-            this.contextPath = contextPath + "/**";
-        }
-        // port 
-        int port = Integer.parseInt(props.getProperty(ShenyuClientConstants.PORT));
-        // appName 
-        this.appName = props.getProperty(ShenyuClientConstants.APP_NAME);
-        // host
-        this.host = props.getProperty(ShenyuClientConstants.HOST);
-        this.port = port;
-    }
-
-    // This method is executed when a context refresh event(ContextRefreshedEvent), occurs
-    @Override
-    public void onApplicationEvent(@NonNull final ContextRefreshedEvent contextRefreshedEvent) {
-        // The contents of the method are guaranteed to be executed only once
-        if (!registered.compareAndSet(false, true)) {
-            return;
-        }
-        // If isFull=true means register the entire service, build the metadata and register
-        if (isFull) {
-            publisher.publishEvent(buildMetaDataDTO());
-        }
-        
-        // build URI data and register it
-        publisher.publishEvent(buildURIRegisterDTO());
-    }
-
-    // build URI data 
-    private URIRegisterDTO buildURIRegisterDTO() {
-        String host = IpUtils.isCompleteHost(this.host) ? this.host : IpUtils.getHost(this.host);
-        return URIRegisterDTO.builder()
-                .contextPath(this.contextPath)
-                .appName(appName)
-                .host(host)
-                .port(port)
-                .rpcType(RpcTypeEnum.HTTP.getName())
-                .build();
-    }
-
-    // build metadata
-    private MetaDataRegisterDTO buildMetaDataDTO() {
-        String contextPath = this.contextPath;
-        String appName = this.appName;
-        return MetaDataRegisterDTO.builder()
-                .contextPath(contextPath)
-                .appName(appName)
-                .path(contextPath)
-                .rpcType(RpcTypeEnum.HTTP.getName())
-                .enabled(true)
-                .ruleName(contextPath)
-                .build();
-    }
-}
-
-```
-
-The main thing in the constructor is to read the property configuration.
-
-The `onApplicationEvent()` method is executed when a `Spring` event occurs, the parameter here is `ContextRefreshedEvent`, which means the context refresh event. The logic here is executed when the `Spring` container is ready: if `isFull=true` means register the whole service, build the metadata and register it, the case `isFull=true` is not handled in the post-processor `SpringMvcClientBeanPostProcessor` analyzed earlier, so here it is processing. Then the `URI` data is constructed and registered.
-
-
-> `ContextRefreshedEvent` is a `Spring` built-in event. It is fired when the `ApplicationContext` is initialized or refreshed. This can also happen in the `ConfigurableApplicationContext` interface using the `refresh()` method. Initialization here means that all `Bean`s have been successfully loaded, post-processing `Bean`s have been detected and activated, all `Singleton Bean`s have been pre-instantiated, and the `ApplicationContext` container is ready to be used.
-
-
-The registration logic is done through `publisher.publishEvent()`. It has been analyzed earlier: data is written to the `Disruptor` queue, consumed from it, and finally processed by the `ExecutorSubscriber`.
-
-- ExecutorSubscriber#executor()
-
-The actuator subscribers are divided into two categories, one that handles metadata and one that handles `URIs`. There are two on the client side and two on the server side, so there are four in total.
-
-![](/img/activities/code-analysis-http-register/executor-subscriber.png)
-
-Here is the registration `URI` information, so the execution class is `ShenyuClientURIExecutorSubscriber`.
-
+Similarly, `ShenyuClientURIExecutorSubscriber` is the execution class of registering `URI` information.
 
 - ShenyuClientURIExecutorSubscriber#executor()
 
-The main logic is to iterate through the URI data collection and implement data registration through the `persistURI()` method.
-
+The main logic is to iterate through the URI data collection and implement data registration through the persistURI() method.
 
 ```java
 
@@ -889,9 +945,9 @@ Data registration is achieved through the `persistURI()` method. The whole logic
 The analysis of the registration logic of the client is finished here, and the metadata and URI data constructed are sent to the `Disruptor` queue, from which they are then consumed, read, and sent to `admin` via `http`.
 
 
-The source code analysis of the client-side `URI` registration process is complete, with the following flow chart.
+The source code analysis of the client-side metadata and `URI` registration process is complete, with the following flow chart.
 
-![](/img/activities/code-analysis-http-register/client-uri-register-en.png)
+![](/img/activities/code-analysis-http-register/client-metadata-uri-register-en.png)
 
 
 ### 3. Server-side registration process
@@ -923,7 +979,7 @@ public class ShenyuHttpRegistryController implements ShenyuServerRegisterReposit
     @PostMapping("/register-metadata")
     @ResponseBody
     public String registerMetadata(@RequestBody final MetaDataRegisterDTO metaDataRegisterDTO) {
-        publish(metaDataRegisterDTO);
+        publisher.publish(metaDataRegisterDTO);
         return ShenyuResultMessage.SUCCESS;
     }
         
@@ -931,29 +987,13 @@ public class ShenyuHttpRegistryController implements ShenyuServerRegisterReposit
     @PostMapping("/register-uri")
     @ResponseBody
     public String registerURI(@RequestBody final URIRegisterDTO uriRegisterDTO) {
-        publish(uriRegisterDTO);
+        publisher.publish(uriRegisterDTO);
         return ShenyuResultMessage.SUCCESS;
-    }
-
-    // publish event
-    private <T> void publish(final T t) {
-        publisher.publish(Collections.singletonList(t));
     }
 }
 
 ```
 
-The two registration interfaces get the data well and call the `publish()` method to publish the data to the `Disruptor` queue.
-
-- `ShenyuServerRegisterRepository`
-
-The `ShenyuServerRegisterRepository` interface is a service registration interface, which has five implementation classes, indicating five types of registration.
-
-- `ConsulServerRegisterRepository`: registration is achieved through `Consul`;
-- `EtcdServerRegisterRepository`: registration through `Etcd`.
-- `NacosServerRegisterRepository`: registration through `Nacos`.
-- `ShenyuHttpRegistryController`: registration via `Http`; `ShenyuHttpRegistryController`: registration via `Http`.
-- `ZookeeperServerRegisterRepository`: registration through `Zookeeper`.
 
 
 The exact method used is specified by the configuration file and then loaded via `SPI`.
@@ -961,7 +1001,7 @@ The exact method used is specified by the configuration file and then loaded via
 
 In the `application.yml` file in `shenyu-admin` configure the registration method, `registerType` specify the registration type, when registering with `http`, `serverLists` do not need to be filled in, for more configuration instructions you can refer to the official website [Client Access Configuration](https://shenyu.apache.org/zh/docs/user-guide/register-center-access).
 
-```java
+```yaml
 shenyu:
   register:
     registerType: http 
@@ -983,7 +1023,7 @@ public class RegisterCenterConfiguration {
     }
     
     //create ShenyuServerRegisterRepository to register in admin
-    @Bean
+    @Bean(destroyMethod = "close")
     public ShenyuServerRegisterRepository shenyuServerRegisterRepository(final ShenyuRegisterCenterConfig shenyuRegisterCenterConfig, final List<ShenyuClientRegisterService> shenyuClientRegisterService) {
         // 1. get the registration type from the configuration property
         String registerType = shenyuRegisterCenterConfig.getRegisterType();
@@ -1021,22 +1061,23 @@ In the process of creating `shenyuServerRegisterRepository`, a series of prepara
 
 
 
-- RegisterServerDisruptorPublisher#publish()
+- RegisterClientServerDisruptorPublisher#publish()
 
 The server-side publisher that writes data to the `Disruptor` queue , built via the singleton pattern.
 
 ```java
 
-public class RegisterServerDisruptorPublisher implements ShenyuServerRegisterPublisher {
-    private static final RegisterServerDisruptorPublisher INSTANCE = new RegisterServerDisruptorPublisher();
+public class RegisterClientServerDisruptorPublisher implements ShenyuServerRegisterPublisher {
+    private static final RegisterClientServerDisruptorPublisher INSTANCE = new     private static final RegisterClientServerDisruptorPublisher INSTANCE = new RegisterServerDisruptorPublisher();
+();
 
-    public static RegisterServerDisruptorPublisher getInstance() {
+    public static RegisterClientServerDisruptorPublisher getInstance() {
         return INSTANCE;
     }
     
    //prepare for event publishing, add server-side metadata and URI subscribers, process data. And start the Disruptor queue.
     public void start(final Map<String, ShenyuClientRegisterService> shenyuClientRegisterService) {
-        factory = new RegisterServerExecutorFactory();
+        RegisterServerExecutorFactory factory = new RegisterServerExecutorFactory();
         // add URI data subscriber
         factory.addSubscribers(new URIRegisterExecutorSubscriber(shenyuClientRegisterService));
         // add Metadata subscriber
@@ -1048,9 +1089,16 @@ public class RegisterServerDisruptorPublisher implements ShenyuServerRegisterPub
     
     // write data to queue
     @Override
-    public <T> void publish(final T data) {
+    public <T> void publish(final DataTypeParent data) {
         DisruptorProvider<Object> provider = providerManage.getProvider();
-        provider.onData(f -> f.setData(data));
+        provider.onData(Collections.singleton(data));
+    }
+
+    // write data to queue on batch
+    @Override
+    public void publish(final Collection<? extends DataTypeParent> dataList) {
+        DisruptorProvider<Collection<DataTypeParent>> provider = providerManage.getProvider();
+        provider.onData(dataList.stream().map(DataTypeParent.class::cast).collect(Collectors.toList()));
     }
     
     @Override
@@ -1096,6 +1144,8 @@ public class QueueConsumer<T> implements WorkHandler<DataEvent<T>> {
     @Override
     public void onEvent(final DataEvent<T> t) {
         if (t != null) {
+            // Use different thread pools based on DataEvent type
+            ThreadPoolExecutor executor = orderly(t);
             // create queue consumption tasks via factory
             QueueConsumerExecutor<T> queueConsumerExecutor = factory.create();
             // set data
@@ -1129,10 +1179,11 @@ public final class RegisterServerConsumerExecutor extends QueueConsumerExecutor<
 
     @Override
     public void run() {
-        //get the data from the disruptor queue
-        List<DataTypeParent> results = getData();
-        // check data
-        results = results.stream().filter(data -> isValidData(data)).collect(Collectors.toList());
+        //get the data from the disruptor queue and check data
+        Collection<DataTypeParent> results = getData()
+                .stream()
+                .filter(this::isValidData)
+                .collect(Collectors.toList());
         if (CollectionUtils.isEmpty(results)) {
             return;
         }
@@ -1141,9 +1192,9 @@ public final class RegisterServerConsumerExecutor extends QueueConsumerExecutor<
     }
     
     // get subscribers by type
-    private ExecutorSubscriber getType(final List<DataTypeParent> list) {
-        DataTypeParent result = list.get(0);
-        return subscribers.get(result.getType());
+    private ExecutorSubscriber<DataTypeParent> selectExecutor(final Collection<DataTypeParent> list) {
+        final Optional<DataTypeParent> first = list.stream().findFirst();
+        return subscribers.get(first.orElseThrow(() -> new RuntimeException("the data type is not found")).getType());
     }
 }
 
@@ -1175,15 +1226,15 @@ public class MetadataExecutorSubscriber implements ExecutorTypeSubscriber<MetaDa
     @Override
     public void executor(final Collection<MetaDataRegisterDTO> metaDataRegisterDTOList) {
         // Traversing the metadata list
-        for (MetaDataRegisterDTO metaDataRegisterDTO : metaDataRegisterDTOList) {
-            // Get registered Service by type
-            ShenyuClientRegisterService shenyuClientRegisterService = this.shenyuClientRegisterService.get(metaDataRegisterDTO.getRpcType());
-            Objects.requireNonNull(shenyuClientRegisterService);
-            // Registration of metadata, locking to ensure sequential execution and prevent concurrent errors
-            synchronized (ShenyuClientRegisterService.class) {
-                shenyuClientRegisterService.register(metaDataRegisterDTO);
-            }
-        }
+        metaDataRegisterDTOList.forEach(meta -> {
+            Optional.ofNullable(this.shenyuClientRegisterService.get(meta.getRpcType())) // Get registered Service by type
+                    .ifPresent(shenyuClientRegisterService -> {
+                        // Registration of metadata, locking to ensure sequential execution and prevent concurrent errors
+                        synchronized (shenyuClientRegisterService) {
+                            shenyuClientRegisterService.register(meta);
+                        }
+                    });
+        });
     }
 }
 ```
@@ -1209,11 +1260,25 @@ public class URIRegisterExecutorSubscriber implements ExecutorTypeSubscriber<URI
         if (CollectionUtils.isEmpty(dataList)) {
             return;
         }
-        // Build URI data types and register them with the registerURI method
+        
         findService(dataList).ifPresent(service -> {
             Map<String, List<URIRegisterDTO>> listMap = buildData(dataList);
             listMap.forEach(service::registerURI);
         });
+        final Map<String, List<URIRegisterDTO>> groupByRpcType = dataList.stream()
+                .filter(data -> StringUtils.isNotBlank(data.getRpcType()))
+                .collect(Collectors.groupingBy(URIRegisterDTO::getRpcType));
+        for (Map.Entry<String, List<URIRegisterDTO>> entry : groupByRpcType.entrySet()) {
+            final String rpcType = entry.getKey();
+            // Get registered Service by type
+            Optional.ofNullable(shenyuClientRegisterService.get(rpcType))
+                    .ifPresent(service -> {
+                        final List<URIRegisterDTO> list = entry.getValue();
+                        // Build URI data types and register them with the registerURI method
+                        Map<String, List<URIRegisterDTO>> listMap = buildData(list);
+                        listMap.forEach(service::registerURI);
+                    });
+        }
     }
     
     // Find Service by type
@@ -1242,6 +1307,7 @@ public class URIRegisterExecutorSubscriber implements ExecutorTypeSubscriber<URI
 - `ShenyuClientRegisterSofaServiceImpl`: `Sofa` class, handles `Sofa` registration types.
 - `ShenyuClientRegisterSpringCloudServiceImpl`: `SpringCloud` class, handles `SpringCloud` registration types.
 - `ShenyuClientRegisterTarsServiceImpl`: `Tars` class, handles `Tars` registration types.
+- `ShenyuClientRegisterWebSocketServiceImpl`： `Websocket` class，handles `Websocket` registration types.
 
 
 From the above, we can see that each microservice has a corresponding registration implementation class. The source code analysis in this article is based on the official [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http) as an example, it is of `http` registration type, so the registration implementation class for metadata and URI data is `ShenyuClientRegisterDivideServiceImpl`: `ShenyuClientRegisterDivideServiceImpl`.
@@ -1249,7 +1315,11 @@ From the above, we can see that each microservice has a corresponding registrati
 - register(): 
 
 ```java
-public String register(final MetaDataRegisterDTO dto) {
+public abstract class AbstractShenyuClientRegisterServiceImpl extends FallbackShenyuClientRegisterService implements ShenyuClientRegisterService {
+
+    //......
+
+    public String register(final MetaDataRegisterDTO dto) {
         // 1.register selector information
         String selectorHandler = selectorHandler(dto);
         String selectorId = selectorService.registerDefault(dto, PluginNameAdapter.rpcTypeAdapter(rpcType()), selectorHandler);
@@ -1266,6 +1336,7 @@ public String register(final MetaDataRegisterDTO dto) {
         }
         return ShenyuResultMessage.SUCCESS;
     }
+}
 ```
 
 The whole registration logic can be divided into 4 steps.
@@ -1287,7 +1358,11 @@ The source code of the server-side metadata registration process is analyzed and
 - registerURI()
 
 ```java
-public String registerURI(final String selectorName, final List<URIRegisterDTO> uriList) {
+public abstract class AbstractShenyuClientRegisterServiceImpl extends FallbackShenyuClientRegisterService implements ShenyuClientRegisterService {
+
+    //......
+
+    public String registerURI(final String selectorName, final List<URIRegisterDTO> uriList) {
         if (CollectionUtils.isEmpty(uriList)) {
             return "";
         }
@@ -1301,13 +1376,14 @@ public String registerURI(final String selectorName, final List<URIRegisterDTO> 
         selectorDO.setHandle(handler);
         SelectorData selectorData = selectorService.buildByName(selectorName, PluginNameAdapter.rpcTypeAdapter(rpcType()));
         selectorData.setHandle(handler);
-       
+
         // Update records in the database
         selectorService.updateSelective(selectorDO);
         // publish Event to gateway
         eventPublisher.publishEvent(new DataChangedEvent(ConfigGroupEnum.SELECTOR, DataEventTypeEnum.UPDATE, Collections.singletonList(selectorData)));
         return ShenyuResultMessage.SUCCESS;
     }
+}
 ```
 
 After `admin` gets the `URI` data, it mainly updates the `handler` information in the selector, then writes it to the database, and finally publishes the event notification gateway. The logic of notifying the gateway is done by the data synchronization operation, which has been analyzed in the previous article, so we will not repeat it.
@@ -1327,7 +1403,7 @@ This article focuses on the `http registration` module of the `Apache ShenYu` ga
 - The register center is for registering client information to `admin` to facilitate traffic filtering.
 - `http` registration is to register client metadata information and `URI` information to `admin`.
 - `http` service access is identified by the annotation `@ShenyuSpringMvcClient`.
-- construction of the registration information mainly through the `Spring` post-processor `BeanPostProcessor` and the application listener `ApplicationListener`.
+- construction of the registration information mainly through the application listener `ApplicationListener`.
 - loading of the registration type is done through `SPI`.
 - The `Disruptor` queue was introduced to decouple data from operations, and data buffering.
 - The implementation of the registry uses interface-oriented programming, using design patterns such as template methods, singleton, and observer.

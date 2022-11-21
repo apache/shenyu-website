@@ -68,5 +68,8 @@ export default [
       <Translate>Helm deployment documentation written for ShenYu</Translate>
     ),
     latestVersion: "/helm/index",
+    versionsList: [
+      {"for ShenYu 2.5.0": "/helm/index"},
+    ]
   },
 ];

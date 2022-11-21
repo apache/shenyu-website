@@ -1426,7 +1426,7 @@ public class URIRegisterExecutorSubscriber implements ExecutorTypeSubscriber<URI
 - `ShenyuClientRegisterSofaServiceImpl`：`Sofa`类，处理`Sofa`注册类型；
 - `ShenyuClientRegisterSpringCloudServiceImpl`：`SpringCloud`类，处理`SpringCloud`注册类型；
 - `ShenyuClientRegisterTarsServiceImpl`：`Tars`类，处理`Tars`注册类型；
-- `ShenyuClientRegisterWebSocketServiceImpl`： `Websocket`类，处理`Websocket`注册类型；rWebSocketServiceImpl`： `Websocket`类，处理`Websocket`注册类型；
+- `ShenyuClientRegisterWebSocketServiceImpl`：`Websocket`类，处理`Websocket`注册类型；
 
 
 

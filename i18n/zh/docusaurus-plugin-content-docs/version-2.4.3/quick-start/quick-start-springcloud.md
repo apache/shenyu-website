@@ -60,13 +60,16 @@ eureka:
     prefer-ip-address: true
 ```
 
-特别注意: 请保证`springCloud`注册中心服务发现配置为开启
+特别注意: 请保证`springCloud`注册中心服务发现配置和负载均衡为开启
 
 * 配置方式
 
 ```yml
 spring:
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
     discovery:
       enabled: true
 ```

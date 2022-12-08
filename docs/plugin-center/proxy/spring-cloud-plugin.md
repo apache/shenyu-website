@@ -144,7 +144,7 @@ spring:
   cloud:
     loadbalancer:
       ribbon:
-        enabled: false
+        enabled: true
 ```
 
 ## 2.4 Enable plugin

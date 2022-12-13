@@ -10,7 +10,7 @@ tags: [http,data sync,Apache ShenYu]
 
 In `ShenYu` gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for `ZooKeeper`, `WebSocket`, `http long poll`, `Nacos`, `etcd` and `Consul`. The main content of this article is based on `http long poll` data synchronization source code analysis.
 
-> This paper based on `shenyu-2.4.0` version of the source code analysis, the official website of the introduction of please refer to the [Data Synchronization Design](https://shenyu.apache.org/docs/design/data-sync/) .
+> This paper based on `shenyu-2.5.0` version of the source code analysis, the official website of the introduction of please refer to the [Data Synchronization Design](https://shenyu.apache.org/docs/design/data-sync/) .
 
 ### 1. Http Long Polling
 
@@ -33,12 +33,12 @@ The `Http long polling` data synchronization configuration is loaded through `sp
 Introduce dependencies in the `pom` file.
 
 ```xml
-        <!--shenyu data sync start use http-->
-        <dependency>
-        	<groupId>org.apache.shenyu</groupId>
-        	<artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
-        	<version>${project.version}</version>
-        </dependency>
+<!--shenyu data sync start use http-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
 Add the following configuration to the `application.yml` configuration file.
@@ -60,43 +60,75 @@ When the gateway is started, the configuration class `HttpSyncDataConfiguration`
 @Configuration
 @ConditionalOnClass(HttpSyncDataService.class)
 @ConditionalOnProperty(prefix = "shenyu.sync.http", name = "url")
-@Slf4j
+@EnableConfigurationProperties(value = HttpConfig.class)
 public class HttpSyncDataConfiguration {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpSyncDataConfiguration.class);
+
+    /**
+     * Rest template.
+     *
+     * @param httpConfig the http config
+     * @return the rest template
+     */
+    @Bean
+    public RestTemplate restTemplate(final HttpConfig httpConfig) {
+        OkHttp3ClientHttpRequestFactory factory = new OkHttp3ClientHttpRequestFactory();
+        factory.setConnectTimeout(Objects.isNull(httpConfig.getConnectionTimeout()) ? (int) HttpConstants.CLIENT_POLLING_CONNECT_TIMEOUT : httpConfig.getConnectionTimeout());
+        factory.setReadTimeout(Objects.isNull(httpConfig.getReadTimeout()) ? (int) HttpConstants.CLIENT_POLLING_READ_TIMEOUT : httpConfig.getReadTimeout());
+        factory.setWriteTimeout(Objects.isNull(httpConfig.getWriteTimeout()) ? (int) HttpConstants.CLIENT_POLLING_WRITE_TIMEOUT : httpConfig.getWriteTimeout());
+        return new RestTemplate(factory);
+    }
+
+    /**
+     * AccessTokenManager.
+     *
+     * @param httpConfig   the http config.
+     * @param restTemplate the rest template.
+     * @return the access token manager.
+     */
+    @Bean
+    public AccessTokenManager accessTokenManager(final HttpConfig httpConfig, final RestTemplate restTemplate) {
+        return new AccessTokenManager(restTemplate, httpConfig);
+    }
 
     /**
      * Http sync data service.
-     * @param httpConfig        
-     * @param pluginSubscriber   
-     * @param metaSubscribers    
-     * @param authSubscribers    
+     *
+     * @param httpConfig         the http config
+     * @param pluginSubscriber   the plugin subscriber
+     * @param restTemplate       the rest template
+     * @param metaSubscribers    the meta subscribers
+     * @param authSubscribers    the auth subscribers
+     * @param accessTokenManager the access token manager
      * @return the sync data service
      */
     @Bean
-    public SyncDataService httpSyncDataService(final ObjectProvider<HttpConfig> httpConfig, final ObjectProvider<PluginDataSubscriber> pluginSubscriber,
-                                           final ObjectProvider<List<MetaDataSubscriber>> metaSubscribers, final ObjectProvider<List<AuthDataSubscriber>> authSubscribers) {
-        log.info("you use http long pull sync shenyu data");
-        return new HttpSyncDataService(Objects.requireNonNull(httpConfig.getIfAvailable()), Objects.requireNonNull(pluginSubscriber.getIfAvailable()),
-                metaSubscribers.getIfAvailable(Collections::emptyList), authSubscribers.getIfAvailable(Collections::emptyList));
-    }
-
-    /**
-     * Http config http config.
-     * @return the http config
-     */
-    @Bean
-    @ConfigurationProperties(prefix = "shenyu.sync.http")
-    public HttpConfig httpConfig() {
-        return new HttpConfig();
+    public SyncDataService httpSyncDataService(final ObjectProvider<HttpConfig> httpConfig,
+                                               final ObjectProvider<PluginDataSubscriber> pluginSubscriber,
+                                               final ObjectProvider<RestTemplate> restTemplate,
+                                               final ObjectProvider<List<MetaDataSubscriber>> metaSubscribers,
+                                               final ObjectProvider<List<AuthDataSubscriber>> authSubscribers,
+                                               final ObjectProvider<AccessTokenManager> accessTokenManager) {
+        LOGGER.info("you use http long pull sync shenyu data");
+        return new HttpSyncDataService(
+                Objects.requireNonNull(httpConfig.getIfAvailable()),
+                Objects.requireNonNull(pluginSubscriber.getIfAvailable()),
+                Objects.requireNonNull(restTemplate.getIfAvailable()),
+                metaSubscribers.getIfAvailable(Collections::emptyList),
+                authSubscribers.getIfAvailable(Collections::emptyList),
+                Objects.requireNonNull(accessTokenManager.getIfAvailable())
+        );
     }
 }
-
 ```
 
-`HttpSyncDataConfiguration` is the configuration class for `Http long polling` data synchronization, responsible for creating `HttpSyncDataService` (responsible for the concrete implementation of `http` data synchronization) and `HttpConfig` (`admin` property configuration). It is annotated as follows.
+`HttpSyncDataConfiguration` is the configuration class for `Http long polling` data synchronization, responsible for creating `HttpSyncDataService` (responsible for the concrete implementation of `http` data synchronization) 、 `RestTemplate` and `AccessTokenManager` (responsible for the access token processing). It is annotated as follows.
 
 - `@Configuration`: indicates that this is a configuration class.
 - `@ConditionalOnClass(HttpSyncDataService.class)`: conditional annotation indicating that the class `HttpSyncDataService` is to be present.
 - `@ConditionalOnProperty(prefix = "shenyu.sync.http", name = "url")`: conditional annotation to have the property `shenyu.sync.http.url` configured.
+- `@EnableConfigurationProperties(value = HttpConfig.class)`: `@EnableConfigurationProperties(value = HttpConfig.class)`: indicates that the annotation `@ConfigurationProperties(prefix = "shenyu.sync.http")` on `HttpConfig` will take effect, and the configuration class `HttpConfig` will be injected into the Ioc container.
 
 
 #### 2.2 Property initialization
@@ -106,22 +138,26 @@ public class HttpSyncDataConfiguration {
 In the constructor of `HttpSyncDataService`, complete the property initialization.
 
 ```java
-public class HttpSyncDataService implements SyncDataService, AutoCloseable {
+public class HttpSyncDataService implements SyncDataService {
 
     // omitted attribute field ......
 
-
-   public HttpSyncDataService(final HttpConfig httpConfig, final PluginDataSubscriber pluginDataSubscriber, final List<MetaDataSubscriber> metaDataSubscribers, final List<AuthDataSubscriber> authDataSubscribers) {
-        // 1. create data refresh factory
-        this.factory = new DataRefreshFactory(pluginDataSubscriber, metaDataSubscribers, authDataSubscribers);
-        // 2. get config of admin 
-        this.httpConfig = httpConfig;
-        // shenyu-admin url
-        this.serverList = Lists.newArrayList(Splitter.on(",").split(httpConfig.getUrl()));
-        // 3. create httpClient, used to initiate requests to admin
-        this.httpClient = createRestTemplate();
-        // 4. start a long polling task
-        this.start();
+    public HttpSyncDataService(final HttpConfig httpConfig,
+                               final PluginDataSubscriber pluginDataSubscriber,
+                               final RestTemplate restTemplate,
+                               final List<MetaDataSubscriber> metaDataSubscribers,
+                               final List<AuthDataSubscriber> authDataSubscribers,
+                               final AccessTokenManager accessTokenManager) {
+          // 1. accessTokenManager
+          this.accessTokenManager = accessTokenManager;
+          // 2. create data refresh factory
+          this.factory = new DataRefreshFactory(pluginDataSubscriber, metaDataSubscribers, authDataSubscribers);
+          // 3. shenyu-admin url
+          this.serverList = Lists.newArrayList(Splitter.on(",").split(httpConfig.getUrl()));
+          // 4. restTemplate
+          this.restTemplate = restTemplate;
+          // 5. start a long polling task
+          this.start();
     }
 
     //......
@@ -130,25 +166,13 @@ public class HttpSyncDataService implements SyncDataService, AutoCloseable {
 
 Other functions and related fields are omitted from the above code, and the initialization of the properties is done in the constructor, mainly.
 
+- the role of `accessTokenManager` is to request `admin` and update the `access token` regularly.
+
 - creating data processors for subsequent caching of various types of data (plugins, selectors, rules, metadata and authentication data).
 
 - obtaining the `admin` property configuration, mainly to obtain the `url` of the `admin`, `admin` with possible clusters, multiple split by a comma `(,)`.
 
-- creating `httpClient`, using `RestTemplate`, for launching requests to `admin`.
-
-
-  ```java
-      private RestTemplate createRestTemplate() {
-          OkHttp3ClientHttpRequestFactory factory = new OkHttp3ClientHttpRequestFactory();
-  
-          // connection establishment timeout of 10s
-          factory.setConnectTimeout((int) this.connectionTimeout.toMillis());
-  
-          // The gateway actively requests the configuration service of shenyu-admin, and the read timeout is 90s
-          factory.setReadTimeout((int) HttpConstants.CLIENT_POLLING_READ_TIMEOUT);
-          return new RestTemplate(factory);
-      }
-  ```
+- using `RestTemplate`, for launching requests to `admin`.
 
 - Start the long polling task.
 
@@ -159,29 +183,31 @@ Other functions and related fields are omitted from the above code, and the init
 In the `start()` method, two things are done, one is to get the full amount of data, that is, to request the `admin` side to get all the data that needs to be synchronized, and then cache the acquired data into the gateway memory. The other is to open a multi-threaded execution of a long polling task.
 
 ```java
-private void start() {
-        // Initialize only once, implemented by atomic classes. 
-        RUNNING = new AtomicBoolean(false);
+public class HttpSyncDataService implements SyncDataService {
+
+    // ......
+
+    private void start() {
         // It could be initialized multiple times, so you need to control that.
         if (RUNNING.compareAndSet(false, true)) {
             // fetch all group configs.
             // Initial startup, get full data
             this.fetchGroupConfig(ConfigGroupEnum.values());
-
-            // A backend service, a thread
+            // one backend service, one thread
             int threadSize = serverList.size();
             // ThreadPoolExecutor
             this.executor = new ThreadPoolExecutor(threadSize, threadSize, 60L, TimeUnit.SECONDS,
                     new LinkedBlockingQueue<>(),
                     ShenyuThreadFactory.create("http-long-polling", true));
-            
             // start long polling, each server creates a thread to listen for changes.
             this.serverList.forEach(server -> this.executor.execute(new HttpLongPollingTask(server)));
         } else {
-            log.info("shenyu http long polling was started, executor=[{}]", executor);
+            LOG.info("shenyu http long polling was started, executor=[{}]", executor);
         }
     }
 
+    // ......
+}
 ```
 
 ##### 2.3.1 Fetch Data
@@ -203,8 +229,12 @@ public enum ConfigGroupEnum {
 The `admin` may be a cluster, and here a request is made to each `admin` in a round-robin fashion, and if one succeeds, then the operation to get the full amount of data from the `admin` and cache it to the gateway is executed successfully. If there is an exception, the request is launched to the next `admin`.
 
 ```java
-private void fetchGroupConfig(final ConfigGroupEnum... groups) throws ShenyuException {
-    // It is possible that admins are clustered, and here requests are made to each admin by means of a loop.
+public class HttpSyncDataService implements SyncDataService {
+
+    // ......
+
+    private void fetchGroupConfig(final ConfigGroupEnum... groups) throws ShenyuException {
+        // It is possible that admins are clustered, and here requests are made to each admin by means of a loop.
         for (int index = 0; index < this.serverList.size(); index++) {
             String server = serverList.get(index);
             try {
@@ -219,10 +249,13 @@ private void fetchGroupConfig(final ConfigGroupEnum... groups) throws ShenyuExce
                 if (index >= serverList.size() - 1) {
                     throw e;
                 }
-                log.warn("fetch config fail, try another one: {}", serverList.get(index + 1));
+                LOG.warn("fetch config fail, try another one: {}", serverList.get(index + 1));
             }
         }
     }
+
+    // ......
+}
 ```
 
 - HttpSyncDataService#doFetchGroupConfig()
@@ -230,38 +263,47 @@ private void fetchGroupConfig(final ConfigGroupEnum... groups) throws ShenyuExce
 In this method, the request parameters are first assembled, then the request is launched through `httpClient` to `admin` to get the data, and finally the obtained data is updated to the gateway memory.
 
 ```java
-// Launch a request to the admin backend management system to get all synchronized data
-private void doFetchGroupConfig(final String server, final ConfigGroupEnum... groups) {
-    // 1. build request parameters, all grouped enumeration types
-    StringBuilder params = new StringBuilder();
-    for (ConfigGroupEnum groupKey : groups) {
-        params.append("groupKeys").append("=").append(groupKey.name()).append("&");
+public class HttpSyncDataService implements SyncDataService {
+
+    // ......
+
+    // Launch a request to the admin backend management system to get all synchronized data
+    private void doFetchGroupConfig(final String server, final ConfigGroupEnum... groups) {
+        // 1. build request parameters, all grouped enumeration types
+        StringBuilder params = new StringBuilder();
+        for (ConfigGroupEnum groupKey : groups) {
+            params.append("groupKeys").append("=").append(groupKey.name()).append("&");
+        }
+        // admin url:  /configs/fetch
+        String url = server + Constants.SHENYU_ADMIN_PATH_CONFIGS_FETCH + "?" + StringUtils.removeEnd(params.toString(), "&");
+        LOG.info("request configs: [{}]", url);
+        String json;
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            // set accessToken
+            headers.set(Constants.X_ACCESS_TOKEN, this.accessTokenManager.getAccessToken());
+            HttpEntity<String> httpEntity = new HttpEntity<>(headers);
+            // 2. get a request for change data
+            json = this.restTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class).getBody();
+        } catch (RestClientException e) {
+            String message = String.format("fetch config fail from server[%s], %s", url, e.getMessage());
+            LOG.warn(message);
+            throw new ShenyuException(message, e);
+        }
+        // update local cache
+        // 3. Update data in gateway memory
+        boolean updated = this.updateCacheWithJson(json);
+        if (updated) {
+            LOG.debug("get latest configs: [{}]", json);
+            return;
+        }
+        // not updated. it is likely that the current config server has not been updated yet. wait a moment.
+        LOG.info("The config of the server[{}] has not been updated or is out of date. Wait for 30s to listen for changes again.", server);
+        // No data update on the server side, just wait 30s
+        ThreadUtils.sleep(TimeUnit.SECONDS, 30);
     }
 
-    // admin url:  /configs/fetch
-    String url = server + "/configs/fetch?" + StringUtils.removeEnd(params.toString(), "&");
-    log.info("request configs: [{}]", url);
-    String json = null;
-    try {
-        // 2. get a request for change data
-        json = this.httpClient.getForObject(url, String.class);
-    } catch (RestClientException e) {
-        String message = String.format("fetch config fail from server[%s], %s", url, e.getMessage());
-        log.warn(message);
-        throw new ShenyuException(message, e);
-    }
-    // update local cache
-    // 3. Update data in gateway memory
-    boolean updated = this.updateCacheWithJson(json);
-    // The update was successful and the method is now complete
-    if (updated) {
-        log.info("get latest configs: [{}]", json);
-        return;
-    }
-    // not updated. it is likely that the current config server has not been updated yet. wait a moment.
-    log.info("The config of the server[{}] has not been updated or is out of date. Wait for 30s to listen for changes again.", server);
-    // No data update on the server side, just wait 30s
-    ThreadUtils.sleep(TimeUnit.SECONDS, 30);
+    // ......
 }
 ```
 
@@ -277,28 +319,41 @@ Here you need to explain in advance, the gateway in determining whether the upda
 Update the data in the gateway memory. Use `GSON` for deserialization, take the real data from the property `data` and give it to `DataRefreshFactory` to do the update.
 
 ```java
+public class HttpSyncDataService implements SyncDataService {
+
+    // ......
+
     private boolean updateCacheWithJson(final String json) {
         // Using GSON for deserialization
         JsonObject jsonObject = GSON.fromJson(json, JsonObject.class);
-        JsonObject data = jsonObject.getAsJsonObject("data");
         // if the config cache will be updated?
-        return factory.executor(data);
+        return factory.executor(jsonObject.getAsJsonObject("data"));
     }
+
+    // ......
+}
 ```
 
 - DataRefreshFactory#executor()
 
-Update the data according to different data types and return the updated result. Here, `parallelStream()` is used for parallel update, and the specific update logic is given to the `dataRefresh.refresh()` method. In the update result, one of the data types is updated, which means that the operation has been updated.
+Update the data according to different data types and return the updated result. The specific update logic is given to the `dataRefresh.refresh()` method. In the update result, one of the data types is updated, which means that the operation has been updated.
 
 ```java
+public final class DataRefreshFactory {
+    
+    // ......
+    
     public boolean executor(final JsonObject data) {
-        //updata data in parallelStream
+        // update data
         List<Boolean> result = ENUM_MAP.values().parallelStream()
                 .map(dataRefresh -> dataRefresh.refresh(data))
                 .collect(Collectors.toList());
-        //有一个更新就表示此次发生了更新操作
+        // one of the data types is updated, which means that the operation has been updated.
         return result.stream().anyMatch(Boolean.TRUE::equals);
     }
+    
+    // ......
+}
 ```
 
 - AbstractDataRefresh#refresh()
@@ -310,37 +365,50 @@ The data update logic uses the template method design pattern, where the generic
 In the generic `refresh()` method, it is responsible for data type conversion, determining whether an update is needed, and the actual data refresh operation.
 
 ```java
+public abstract class AbstractDataRefresh<T> implements DataRefresh {
+
+    // ......
+
     @Override
     public Boolean refresh(final JsonObject data) {
-        boolean updated = false;
         // convert data
         JsonObject jsonObject = convert(data);
-        if (null != jsonObject) {
-            // get data
-            ConfigData<T> result = fromJson(jsonObject);
-            // does it need to be updated
-            if (this.updateCacheIfNeed(result)) {
-                updated = true;
-                // real update logic, data refresh operation
-                refresh(result.getData());
-            }
+        if (Objects.isNull(jsonObject)) {
+            return false;
         }
+
+        boolean updated = false;
+        // get data
+        ConfigData<T> result = fromJson(jsonObject);
+        // does it need to be updated
+        if (this.updateCacheIfNeed(result)) {
+            updated = true;
+            // real update logic, data refresh operation
+            refresh(result.getData());
+        }
+
         return updated;
     }
-```
 
+    // ......
+}
+```
 
 - AbstractDataRefresh#updateCacheIfNeed()
 
 The process of data conversion, which is based on different data types, we will not trace further to see if the data needs to be updated logically. The method name is `updateCacheIfNeed()`, which is implemented by method overloading.
 
 ```java
-// result is data
-protected abstract boolean updateCacheIfNeed(ConfigData<T> result);
+public abstract class AbstractDataRefresh<T> implements DataRefresh {
 
-// newVal is the latest value obtained
-// What kind of data type is groupEnum
-protected boolean updateCacheIfNeed(final ConfigData<T> newVal, final ConfigGroupEnum groupEnum) {
+    // ......
+
+    // result is data
+    protected abstract boolean updateCacheIfNeed(ConfigData<T> result);
+
+    // newVal is the latest value obtained
+    // What kind of data type is groupEnum
+    protected boolean updateCacheIfNeed(final ConfigData<T> newVal, final ConfigGroupEnum groupEnum) {
         // If it is the first time, then it is put directly into the cache and returns true, indicating that the update was made this time
         if (GROUP_CACHE.putIfAbsent(groupEnum, newVal) == null) {
             return true;
@@ -349,22 +417,25 @@ protected boolean updateCacheIfNeed(final ConfigData<T> newVal, final ConfigGrou
         GROUP_CACHE.merge(groupEnum, newVal, (oldVal, value) -> {
             // md5 value is the same, no need to update
             if (StringUtils.equals(oldVal.getMd5(), newVal.getMd5())) {
-                log.info("Get the same config, the [{}] config cache will not be updated, md5:{}", groupEnum, oldVal.getMd5());
+                LOG.info("Get the same config, the [{}] config cache will not be updated, md5:{}", groupEnum, oldVal.getMd5());
                 return oldVal;
             }
 
             // The current cached data has been modified for a longer period than the new data and does not need to be updated.
             // must compare the last update time
             if (oldVal.getLastModifyTime() >= newVal.getLastModifyTime()) {
-                log.info("Last update time earlier than the current configuration, the [{}] config cache will not be updated", groupEnum);
+                LOG.info("Last update time earlier than the current configuration, the [{}] config cache will not be updated", groupEnum);
                 return oldVal;
             }
-            log.info("update {} config: {}", groupEnum, newVal);
+            LOG.info("update {} config: {}", groupEnum, newVal);
             holder.result = true;
             return newVal;
         });
         return holder.result;
     }
+
+    // ......
+}
 ```
 
 As you can see from the source code above, there are two cases where updates are not required.
@@ -377,25 +448,31 @@ In other cases, the data needs to be updated.
 At this point, we have finished analyzing the logic of the `start()` method to get the full amount of data for the first time, followed by the long polling operation. For convenience, I will paste the `start()` method once more.
 
 ```java
+public class HttpSyncDataService implements SyncDataService {
+
+    // ......
+
     private void start() {
         // It could be initialized multiple times, so you need to control that.
         if (RUNNING.compareAndSet(false, true)) {
             // fetch all group configs.
             // Initial startup, get full data
             this.fetchGroupConfig(ConfigGroupEnum.values());
-
-            // one background service, one thread
+            // one backend service, one thread
             int threadSize = serverList.size();
-            // custom thread pool
+            // ThreadPoolExecutor
             this.executor = new ThreadPoolExecutor(threadSize, threadSize, 60L, TimeUnit.SECONDS,
                     new LinkedBlockingQueue<>(),
                     ShenyuThreadFactory.create("http-long-polling", true));
             // start long polling, each server creates a thread to listen for changes.
             this.serverList.forEach(server -> this.executor.execute(new HttpLongPollingTask(server)));
         } else {
-            log.info("shenyu http long polling was started, executor=[{}]", executor);
+            LOG.info("shenyu http long polling was started, executor=[{}]", executor);
         }
     }
+
+    // ......
+}
 ```
 
 ##### 2.3.2 Execute Long Polling Task
@@ -409,41 +486,39 @@ Start long polling, an `admin` service, and create a thread for data synchroniza
 ```java
 class HttpLongPollingTask implements Runnable {
 
-        private String server;
+    private final String server;
 
-        // Default retry 3 times
-        private final int retryTimes = 3;
+    HttpLongPollingTask(final String server) {
+        this.server = server;
+    }
 
-        HttpLongPollingTask(final String server) {
-            this.server = server;
-        }
-
-        @Override
-        public void run() {
-            // long polling
-            while (RUNNING.get()) {
-                for (int time = 1; time <= retryTimes; time++) {
-                    try {
-                        doLongPolling(server);
-                    } catch (Exception e) {
-                        // print warnning log.
-                        if (time < retryTimes) {
-                            log.warn("Long polling failed, tried {} times, {} times left, will be suspended for a while! {}",
-                                    time, retryTimes - time, e.getMessage());
-                            // long polling failed, wait 5s and continue
-                            ThreadUtils.sleep(TimeUnit.SECONDS, 5);
-                            continue;
-                        }
-                        // print error, then suspended for a while.
-                        log.error("Long polling failed, try again after 5 minutes!", e);
-                        // failed all 3 times, wait 5 minutes and try again
-                        ThreadUtils.sleep(TimeUnit.MINUTES, 5);
+    @Override
+    public void run() {
+        // long polling
+        while (RUNNING.get()) {
+            // Default retry 3 times
+            int retryTimes = 3;
+            for (int time = 1; time <= retryTimes; time++) {
+                try {
+                    doLongPolling(server);
+                } catch (Exception e) {
+                    if (time < retryTimes) {
+                        LOG.warn("Long polling failed, tried {} times, {} times left, will be suspended for a while! {}",
+                                time, retryTimes - time, e.getMessage());
+                        // long polling failed, wait 5s and continue
+                        ThreadUtils.sleep(TimeUnit.SECONDS, 5);
+                        continue;
                     }
+                    // print error, then suspended for a while.
+                    LOG.error("Long polling failed, try again after 5 minutes!", e);
+                    // 3 次都失败了，等 5 分钟再试
+                    ThreadUtils.sleep(TimeUnit.MINUTES, 5);
                 }
             }
-            log.warn("Stop http long polling.");
         }
+        LOG.warn("Stop http long polling.");
     }
+}
 ```
 
 - HttpSyncDataService#doLongPolling()
@@ -456,7 +531,8 @@ Core logic for performing long polling tasks.
 - Based on the group that has changed, go back and get the data.
 
 ```java
-private void doLongPolling(final String server) {
+public class HttpSyncDataService implements SyncDataService {
+    private void doLongPolling(final String server) {
         // build request params: md5 and lastModifyTime
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>(8);
         for (ConfigGroupEnum group : ConfigGroupEnum.values()) {
@@ -466,19 +542,22 @@ private void doLongPolling(final String server) {
                 params.put(group.name(), Lists.newArrayList(value));
             }
         }
-        // build request heaad and body
+        // build request head and body
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity httpEntity = new HttpEntity(params, headers);
-        String listenerUrl = server + "/configs/listener";
-        log.debug("request listener configs: [{}]", listenerUrl);
-        JsonArray groupJson = null;
+        // set accessToken
+        headers.set(Constants.X_ACCESS_TOKEN, this.accessTokenManager.getAccessToken());
+        HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(params, headers);
+        String listenerUrl = server + Constants.SHENYU_ADMIN_PATH_CONFIGS_LISTENER;
+
+        JsonArray groupJson;
         //Initiate a request to admin to determine if the group data has changed
         //Here it just determines whether a group has changed or not
         try {
-            String json = this.httpClient.postForEntity(listenerUrl, httpEntity, String.class).getBody();
-            log.debug("listener result: [{}]", json);
-            groupJson = GSON.fromJson(json, JsonObject.class).getAsJsonArray("data");
+            String json = this.restTemplate.postForEntity(listenerUrl, httpEntity, String.class).getBody();
+            LOG.info("listener result: [{}]", json);
+            JsonObject responseFromServer = GsonUtils.getGson().fromJson(json, JsonObject.class);
+            groupJson = responseFromServer.getAsJsonArray("data");
         } catch (RestClientException e) {
             String message = String.format("listener configs fail, server:[%s], %s", server, e.getMessage());
             throw new ShenyuException(message, e);
@@ -507,7 +586,15 @@ private void doLongPolling(final String server) {
                 this.doFetchGroupConfig(server, changedGroups);
             }
         }
+        if (Objects.nonNull(groupJson) && groupJson.size() > 0) {
+            // fetch group configuration async.
+            ConfigGroupEnum[] changedGroups = GsonUtils.getGson().fromJson(groupJson, ConfigGroupEnum[].class);
+            LOG.info("Group config changed: {}", Arrays.toString(changedGroups));
+            // Proactively get the changed data from admin, depending on the grouping, and take the data in full
+            this.doFetchGroupConfig(server, changedGroups);
+        }
     }
+}
 ```
 
 One special point needs to be explained here: In the long polling task, why don't you get the changed data directly? Instead, we determine which group data has been changed, and then request `admin` again to get the changed data?
@@ -517,11 +604,11 @@ The official explanation here is.
 > After the gateway receives the response information, it only knows which Group has changed its configuration, and it needs to request the configuration data of that Group again.
 > There may be a question here: Why not write out the changed data directly?
 > We have discussed this issue in depth during development, because the `http` long polling mechanism can only guarantee quasi-real time, and if it is not processed in time at the gateway layer, it will be very difficult to update the configuration data.
-If the gateway layer is not processed in time, > or the administrator updates the configuration frequently, it is likely to miss the push of a configuration change, so for security reasons, we only inform a group that the information has changed.
+If the gateway layer is not processed in time, or the administrator updates the configuration frequently, it is likely to miss the push of a configuration change, so for security reasons, we only inform a group that the information has changed.
 
 My personal understanding is that.
 
-> If the change data is written out directly, when the administrator updates the configuration frequently, the first update will `client` remove the blocking queue and return the response information to the gateway. If a second update is made at this time, then the current `client` is not in the blocking queue, so this time the change is missed. The same is true for the gateway layer's untimely processing. This is a long polling, one gateway one synchronization thread, there may be a time-consuming process. If `admin` has data changes, the current gateway client is not in the blocking queue and will not get the data.
+> If the change data is written out directly, when the administrator updates the configuration frequently, the first update will remove the `client` from blocking queue and return the response information to the gateway. If a second update is made at this time, then the current `client` is not in the blocking queue, so this time the change is missed. The same is true for the gateway layer's untimely processing. This is a long polling, one gateway one synchronization thread, there may be a time-consuming process. If `admin` has data changes, the current gateway client is not in the blocking queue and will not get the data.
 
 We have not yet analyzed the processing logic of the `admin` side, so let's talk about it roughly. At the `admin` end, the gateway `client` will be put into the blocking queue, and when there is a data change, the gateway `client` will come out of the queue and send the change data. So, if the gateway `client` is not in the blocking queue when there is a data change, then the current changed data is not available.
 
@@ -607,6 +694,10 @@ In addition, it has the following class diagram relationships.
 The `InitializingBean` interface is implemented, so the `afterInitialize()` method is executed during the initialization of the `bean`. Execute periodic tasks via thread pool: updating the data in memory `(CACHE)` is executed every `5` minutes and starts after `5` minutes. Refreshing the local cache is reading data from the database to the local cache (in this case the memory), done by `refreshLocalCache()`.
 
 ```java
+public class HttpLongPollingDataChangedListener extends AbstractDataChangedListener {
+
+    // ......
+
     /**
      * is called in the afterPropertiesSet() method of the InitializingBean interface, which is executed during the initialization of the bean
      */
@@ -618,17 +709,20 @@ The `InitializingBean` interface is implemented, so the `afterInitialize()` meth
         // Execution cycle task: Update data in memory (CACHE) is executed every 5 minutes and starts after 5 minutes
         // Prevent the admin from starting up first for a while and then generating data; then the gateway doesn't get the full amount of data when it first connects
         scheduler.scheduleWithFixedDelay(() -> {
-            log.info("http sync strategy refresh config start.");
+            LOG.info("http sync strategy refresh config start.");
             try {
                 // Read data from database to local cache (in this case, memory)
                 this.refreshLocalCache();
-                log.info("http sync strategy refresh config success.");
+                LOG.info("http sync strategy refresh config success.");
             } catch (Exception e) {
-                log.error("http sync strategy refresh config error!", e);
+                LOG.error("http sync strategy refresh config error!", e);
             }
         }, syncInterval, syncInterval, TimeUnit.MILLISECONDS);
-        log.info("http sync strategy refresh interval: {}ms", syncInterval);
+        LOG.info("http sync strategy refresh interval: {}ms", syncInterval);
     }
+
+    // ......
+}
 ```
 
 - refreshLocalCache()
@@ -636,6 +730,10 @@ The `InitializingBean` interface is implemented, so the `afterInitialize()` meth
 Update for each of the 5 data types.
 
 ```java
+public abstract class AbstractDataChangedListener implements DataChangedListener, InitializingBean {
+
+    // ......
+
     // Read data from database to local cache (in this case, memory)
     private void refreshLocalCache() {
         //update app auth data
@@ -649,6 +747,9 @@ Update for each of the 5 data types.
         //update meta data
         this.updateMetaDataCache();
     }
+
+    // ......
+}
 ```
 
 The logic of the 5 update methods is similar, call the `service` method to get the data and put it into the memory `CACHE`. Take the updateRuleData method `updateRuleCache()` for example, pass in the rule enumeration type and call `ruleService.listAll()` to get all the rule data from the database.
@@ -668,10 +769,14 @@ The logic of the 5 update methods is similar, call the `service` method to get t
 Update the data in memory using the data in the database.
 
 ```java
-// cache Map
-protected static final ConcurrentMap<String, ConfigDataCache> CACHE = new ConcurrentHashMap<>();
+public abstract class AbstractDataChangedListener implements DataChangedListener, InitializingBean {
 
-/**
+    // ......
+
+    // cache Map
+    protected static final ConcurrentMap<String, ConfigDataCache> CACHE = new ConcurrentHashMap<>();
+
+    /**
      * if md5 is not the same as the original, then update lcoal cache.
      * @param group ConfigGroupEnum
      * @param <T> the type of class
@@ -686,6 +791,9 @@ protected static final ConcurrentMap<String, ConfigDataCache> CACHE = new Concur
         ConfigDataCache oldVal = CACHE.put(newVal.getGroup(), newVal);
         log.info("update config cache[{}], old: {}, updated: {}", group, oldVal, newVal);
     }
+
+    // ......
+}
 ```
 
 The initialization process is to start periodic tasks to update the memory data by fetching data from the database at regular intervals.
@@ -709,11 +817,13 @@ The interface class is `ConfigController`, which only takes effect when using `h
 @ConditionalOnBean(HttpLongPollingDataChangedListener.class)
 @RestController
 @RequestMapping("/configs")
-@Slf4j
 public class ConfigController {
 
-    @Resource
-    private HttpLongPollingDataChangedListener longPollingListener;
+    private final HttpLongPollingDataChangedListener longPollingListener;
+
+    public ConfigController(final HttpLongPollingDataChangedListener longPollingListener) {
+        this.longPollingListener = longPollingListener;
+    }
     
     // Omit other logic
 
@@ -736,7 +846,11 @@ public class ConfigController {
 Perform long polling tasks: If there are data changes, they will be responded to the client (in this case, the gateway side) immediately. Otherwise, the client will be blocked until there is a data change or a timeout.
 
 ```java
-/**
+public class HttpLongPollingDataChangedListener extends AbstractDataChangedListener {
+
+    // ......
+
+    /**
      * Execute long polling: If there is a data change, it will be responded to the client (here is the gateway side) immediately.
      * Otherwise, the client will otherwise remain blocked until there is a data change or a timeout.
      * @param request
@@ -751,11 +865,11 @@ Perform long polling tasks: If there are data changes, they will be responded to
         // Immediate response to the gateway if there is changed data
         if (CollectionUtils.isNotEmpty(changedGroup)) {
             this.generateResponse(response, changedGroup);
-            log.info("send response with the changed group, ip={}, group={}", clientIp, changedGroup);
+            Log.info("send response with the changed group, ip={}, group={}", clientIp, changedGroup);
             return;
         }
 
-         // No change, then the client (in this case the gateway) is put into the blocking queue
+        // No change, then the client (in this case the gateway) is put into the blocking queue
         // listen for configuration changed.
         final AsyncContext asyncContext = request.startAsync();
         // AsyncContext.settimeout() does not timeout properly, so you have to control it yourself
@@ -763,7 +877,7 @@ Perform long polling tasks: If there are data changes, they will be responded to
         // block client's thread.
         scheduler.execute(new LongPollingClient(asyncContext, clientIp, HttpConstants.SERVER_MAX_HOLD_TIMEOUT));
     }
-
+}
 ```
 
 - HttpLongPollingDataChangedListener#compareChangedGroup()
@@ -854,11 +968,13 @@ Get the grouped data and return the result according to the parameters passed in
 @ConditionalOnBean(HttpLongPollingDataChangedListener.class)
 @RestController
 @RequestMapping("/configs")
-@Slf4j
 public class ConfigController {
 
-    @Resource
-    private HttpLongPollingDataChangedListener longPollingListener;
+    private final HttpLongPollingDataChangedListener longPollingListener;
+
+    public ConfigController(final HttpLongPollingDataChangedListener longPollingListener) {
+        this.longPollingListener = longPollingListener;
+    }
 
     /**
      * Fetch configs shenyu result.
@@ -885,7 +1001,10 @@ public class ConfigController {
 Data fetching is taken directly from `CACHE`, and then matched and encapsulated according to different grouping types.
 
 ```java
-
+public abstract class AbstractDataChangedListener implements DataChangedListener, InitializingBean {
+    
+    // ......
+    
     /**
      * fetch configuration from cache.
      * @param groupKey the group key
@@ -893,31 +1012,25 @@ Data fetching is taken directly from `CACHE`, and then matched and encapsulated 
      */
     public ConfigData<?> fetchConfig(final ConfigGroupEnum groupKey) {
         // get data from CACHE
-        ConfigDataCache config = CACHE.get(groupKey.name()); 
+        ConfigDataCache config = CACHE.get(groupKey.name());
         switch (groupKey) {
             case APP_AUTH: // app auth data
-                List<AppAuthData> appAuthList = GsonUtils.getGson().fromJson(config.getJson(), new TypeToken<List<AppAuthData>>() {
-                }.getType());
-                return new ConfigData<>(config.getMd5(), config.getLastModifyTime(), appAuthList);
+                return buildConfigData(config, AppAuthData.class);
             case PLUGIN: // plugin data
-                List<PluginData> pluginList = GsonUtils.getGson().fromJson(config.getJson(), new TypeToken<List<PluginData>>() {
-                }.getType());
-                return new ConfigData<>(config.getMd5(), config.getLastModifyTime(), pluginList);
+                return buildConfigData(config, PluginData.class);
             case RULE:   // rule data
-                List<RuleData> ruleList = GsonUtils.getGson().fromJson(config.getJson(), new TypeToken<List<RuleData>>() {
-                }.getType());
-                return new ConfigData<>(config.getMd5(), config.getLastModifyTime(), ruleList);
+                return buildConfigData(config, RuleData.class);
             case SELECTOR:  // selector data
-                List<SelectorData> selectorList = GsonUtils.getGson().fromJson(config.getJson(), new TypeToken<List<SelectorData>>() {
-                }.getType());
-                return new ConfigData<>(config.getMd5(), config.getLastModifyTime(), selectorList);
-            case META_DATA: // meta data
-                List<MetaData> metaList = GsonUtils.getGson().fromJson(config.getJson(), new TypeToken<List<MetaData>>() {
-                }.getType());
-                return new ConfigData<>(config.getMd5(), config.getLastModifyTime(), metaList);
+                return buildConfigData(config, SelectorData.class);
+            case META_DATA: // meta data 
+                return buildConfigData(config, MetaData.class);
             default:  // other data type, throw exception
                 throw new IllegalStateException("Unexpected groupKey: " + groupKey);
         }
+    }
+    
+    // ......
+}
 ```
 
 #### 3.5 Data Change
@@ -965,6 +1078,8 @@ public class DataChangedEventDispatcher implements ApplicationListener<DataChang
                     break;
                 case SELECTOR:   // selector data
                     listener.onSelectorChanged((List<SelectorData>) event.getSource(), event.getEventType());
+                    // pull and save API document on seletor changed
+                    applicationContext.getBean(LoadServiceDocEntry.class).loadDocOnSelectorChanged((List<SelectorData>) event.getSource(), event.getEventType());
                     break;
                 case META_DATA:  // meta data
                     listener.onMetaDataChanged((List<MetaData>) event.getSource(), event.getEventType());
@@ -1039,7 +1154,7 @@ class DataChangeTask implements Runnable {
                 iter.remove();
                 // send response to client
                 client.sendResponse(Collections.singletonList(groupKey));
-                log.info("send response with the changed group,ip={}, group={}, changeTime={}", client.ip, groupKey, changeTime);
+                Log.info("send response with the changed group,ip={}, group={}, changeTime={}", client.ip, groupKey, changeTime);
             }
         }
     }

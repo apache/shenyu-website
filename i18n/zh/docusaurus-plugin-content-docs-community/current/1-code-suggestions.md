@@ -29,6 +29,8 @@ cover: "/img/architecture/shenyu-framework.png"
 
 * 添加新文件时，需要在文件头添加 [apache协议](https://github.com/apache/shenyu-website/blob/57f9a6b14c27d97137275453b207232f3df53205/LICENSE#L191-L201)
 
+* 尽量不直接使用第三方工具类，先查看本项目util包下是否包含。
+
 ## Object
 
 * 使用`Optional` 来转换 `Null` 对象。

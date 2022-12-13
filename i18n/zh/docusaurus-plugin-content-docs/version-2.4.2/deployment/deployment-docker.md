@@ -26,7 +26,7 @@ description: docker部署
 docker run -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
 ```
 
-另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`、`application-pg.yml` 配置放到`${your_work_dir}/conf` ， 然后执行以下语句：
+另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`配置放到`${your_work_dir}/conf` ， 然后执行以下语句：
 
 ```          
 docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
@@ -38,7 +38,7 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -v /${your_work_dir}/
 docker run -e "SPRING_PROFILES_ACTIVE=pg" -e "spring.datasource.url=jdbc:postgresql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
 ```
 
-另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-mysql.yml`、`application-pg.yml` 配置放到`${your_work_dir}/conf` ， 然后执行以下语句：
+另外一种方式, 从 [配置文件地址](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-pg.yml`配置放到`${your_work_dir}/conf` ， 然后执行以下语句：
 
 ```
 docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
@@ -71,12 +71,11 @@ agent相关配置文件位于 [shenyu-dist/shenyu-agent-dist/src/main/resources/
 附带参数 `agent` 表示启动 `shenyu-agent`。
 
 ```shell
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:2.4.2
 > docker run -d \
   -p 9195:9195 \
-  --net shenyu \
-  -v $AGENT_CONF:/opt/shenyu-bootstrap/agent/conf \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
-  apache/shenyu-bootstrap:2.4.2 agent
+  --name shenyu-bootstrap \
+  --net shenyu \
+  --env SHENYU_SYNC_WEBSOCKET_URLS=ws://shenyu-admin:9095/websocket \
+  apache/shenyu-bootstrap:${current.version}
 ```

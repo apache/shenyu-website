@@ -128,7 +128,7 @@ public class HttpSyncDataConfiguration {
 - `@Configuration`: indicates that this is a configuration class.
 - `@ConditionalOnClass(HttpSyncDataService.class)`: conditional annotation indicating that the class `HttpSyncDataService` is to be present.
 - `@ConditionalOnProperty(prefix = "shenyu.sync.http", name = "url")`: conditional annotation to have the property `shenyu.sync.http.url` configured.
-- `@EnableConfigurationProperties(value = HttpConfig.class)`: `@EnableConfigurationProperties(value = HttpConfig.class)`: indicates that the annotation `@ConfigurationProperties(prefix = "shenyu.sync.http")` on `HttpConfig` will take effect, and the configuration class `HttpConfig` will be injected into the Ioc container.
+- `@EnableConfigurationProperties(value = HttpConfig.class)`: indicates that the annotation `@ConfigurationProperties(prefix = "shenyu.sync.http")` on `HttpConfig` will take effect, and the configuration class `HttpConfig` will be injected into the Ioc container.
 
 
 #### 2.2 Property initialization

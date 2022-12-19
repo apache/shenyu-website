@@ -87,13 +87,13 @@ Note: Handwritten signature due to document upgrade, content reference PDF
 addressee
 
 ```
-secretary@apache.org, private@shenyu.apache.org
+secretary@apache.org
 ```
 
 template
 
 ```
 Hello Apache,
-    I am willing donate the ShenYu project to ASF. The attachment is my ICLA information. Github account: https://github.com/xxxx.
+    I am willing contribute to the ASF. The attachment is my ICLA information. My Github account is : https://github.com/xxxx.
 Thanks !
 ```

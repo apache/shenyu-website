@@ -140,7 +140,7 @@ description: mock plugin
 
 - **`${expression|#array(item,length)}`**
 
-  - **Description: **According to the `item` format definition, an array of length `length` can be generated. 
+  - **Description:** According to the `item` format definition, an array of length `length` can be generated. 
 
   - **Example:** `expression|#array('shenyu',3)` would generate `["shenyu","shenyu","shenyu"]`.
 
@@ -148,8 +148,12 @@ description: mock plugin
 
 - **`${expression|#req}`**
 
-  - **Description: ** Req is built-in request parameters ,which can generate response data based on request content
+  - **Description:** Req is built-in request parameters ,which can generate response data based on request content
   - **Example:**`${expression|#req.method}`、`${expression|#req.queries['query_name']}`、`${req.queries.query_name}`、`${expression|#req.uri}`。`jsonPath` is used when the request body is json . For example ,when the request body is `{"name":"shenyu"}`，`${expression|#req.json.name}`would return "shenyu"
++ **`${expression|spel}`**
+
+  + **Description**：Use Spel expressions directly to generate data
+  + **Example**：`${expression|T(java.time.LocalDate).now()}`、`${expression|1==1}`
 
 It is recommended to use the new '${}' syntax. The old syntax may be removed at an later date.
 

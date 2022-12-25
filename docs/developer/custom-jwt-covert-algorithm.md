@@ -79,7 +79,7 @@ description: Custom Jwt convert Algorithm
 
 
 
-The project would use different conversion strategies based on the`handleType` parameter of  `JwtRuleHandle` . For example, for the following `JwtRuleHandle`,the project  would use our above `CustomJwtConvertStrategy ` . (Note: ` handleType ` is `default` or nonexistent, the project would use default ` DefaultJwtConvertStrategy `)
+The project would use different conversion strategies based on the`handleType` parameter of  `JwtRuleHandle` . For example, for the following `JwtRuleHandle`,the project  would use our above `CustomJwtConvertStrategy` . (Note: ` handleType ` is `default` or nonexistent, the project would use default `DefaultJwtConvertStrategy`)
 
 ```json
 {

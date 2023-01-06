@@ -25,7 +25,7 @@ If client is `apache dubbo`, registry center is `Zookeeper`, please refer to the
         <!-- apache shenyu  apache dubbo plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
+            <artifactId>shenyu-spring-boot-starter-client-apache-dubbo</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

@@ -71,6 +71,7 @@ shenyu:
 In the `pom.xml` file of the application client, introduce the following dependencies.
 
 - Shenyu-Sdk Core
+
 ```xml
 <dependencies>
     <dependency>

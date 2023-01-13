@@ -70,6 +70,8 @@ description: JWT插件
 * jwtVal: jwt 请求体的名称
 * headerVal: jwt请求头的名称
 
+自定义转化算法请查看：[自定义JWT插件转化算法](../../developer/custom-jwt-covert-algorithm.md)
+
 ## 2.5 示例
 
 ### 2.5.1 使用jwt插件进行权限认证

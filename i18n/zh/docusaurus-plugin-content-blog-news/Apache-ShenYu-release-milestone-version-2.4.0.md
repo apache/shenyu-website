@@ -115,13 +115,13 @@ Apache ShenYu网关就是这样通过层层筛选完成流量控制。其流程�
  <!-- apache shenyu alibaba dubbo plugin start-->
  <dependency>
    <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+   <artifactId>shenyu-spring-boot-starter-client-alibaba-dubbo</artifactId>
     <version>${project.version}</version>
  </dependency>
  <!-- apache shenyu apache dubbo plugin start-->
  <dependency>
    <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
+   <artifactId>shenyu-spring-boot-starter-client-apache-dubbo</artifactId>
     <version>${project.version}</version>
  </dependency>
 ```

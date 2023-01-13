@@ -48,9 +48,9 @@ ShenYu (神禹) is the honorific name of Chinese ancient monarch Xia Yu (also kn
 ### Run Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin
-> docker network create shenyu
-> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker pull apache/shenyu-admin
+docker network create shenyu
+docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
 ```
 
 Default account: **admin** 
@@ -60,9 +60,8 @@ Default password: **123456**
 ### Run Apache ShenYu Bootstrap
 
 ```
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap
-> docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap
+docker pull apache/shenyu-bootstrap
+docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap
 ```
 
 ### Set router

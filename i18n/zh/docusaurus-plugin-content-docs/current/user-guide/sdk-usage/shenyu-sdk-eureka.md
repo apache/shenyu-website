@@ -5,6 +5,7 @@ description: Sdk使用
 ---
 
 ## 背景说明
+
 Shenyu提供了Shenyu-Sdk方便让服务能够快速接入shenyu网关， 客户端服务只需要依赖该sdk， 并做些简单配置， 即可类似调用本地接口一样调用网关暴露的API。
 
 <img src="/img/shenyu/sdk/shenyu-sdk_process.png" width="80%" height="50%" />
@@ -12,6 +13,7 @@ Shenyu提供了Shenyu-Sdk方便让服务能够快速接入shenyu网关， 客户
 客户端接入网关时可使用注册中心做服务发现，支持的注册中心有`nacos、eureka、etcd、zookeeper、consul`, 下面为`shenyu-bootstrap`及`应用客户端`使用**eureka**为注册中心时的相关指引。
 
 ## 环境准备
+
 需要参考 `运维部署` , 选择一种方式启动`shenyu-admin`及`shenyu-bootstrap`.
 
 ## shenyu-bootstrap
@@ -60,6 +62,7 @@ eureka:
 在应用客户端的`pom.xml`文件中引入如下依赖.
 
 - Shenyu-Sdk 核心包
+
 ```xml
 <dependencies>
     <dependency>
@@ -139,6 +142,7 @@ shenyu:
 **示例**
 
 项目启动类
+
 ```java
 @SpringBootApplication
 @EnableShenyuClients(basePackages = "org.apache.shenyu.examples.sdk.http.api")
@@ -156,6 +160,7 @@ public class ShenyuSdkHttpExampleApplication {
 ```
 
 网关API接口
+
 ```java
 @ShenyuClient(name = "shenyu-bootstrap", contextId = "ShenyuSdkApiName")
 public interface ShenyuHttpClientApi {
@@ -171,6 +176,5 @@ public interface ShenyuHttpClientApi {
     SdkTestDto findById(@RequestParam("id") String id);
 }
 ```
-
 
 更多可参考示例工程 [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sdk)

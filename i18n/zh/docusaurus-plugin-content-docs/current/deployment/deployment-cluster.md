@@ -92,9 +92,9 @@ server {
 >在集群模式下，Apache Shenyu支持部署多个Shenyu实例，随时可能有新的实例上线或下线。因此，Apache Shenyu引入了服务发现
 > OpenResty 模块来帮助客户端检测可用Shenyu实例。目前Apache Shenyu已经支持Zookeeper、Nacos、Etcd和Consul。Client或LoadBalancer
 > 可以通过这些Service注册中心获取可用的Shenyu实例。
-1. [Etcd](#Etcd开始)(支持)
-2. [Nacos](#Nacos开始)(支持)
-3. [Zookeeper](#Zookeeper开始)(支持)
+1. [Etcd](./deployment-cluster.md#Etcd开始)(支持)
+2. [Nacos](./deployment-cluster.md#Nacos开始)(支持)
+3. [Zookeeper](./deployment-cluster.md#Zookeeper开始)(支持)
 4. Consul(进行中)
 
 #### 入门

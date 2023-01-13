@@ -59,42 +59,136 @@ description: mock插件
 
 ## 2.4 `${}` 支持的语法
 
-**`${int|min-max}`**  
+**~~`${int|min-max}`~~**   
+
  - **说明：** 生成 `min` 到 `max` 的随机整数，包含 `min` 和 `max` 。 
  - **示例：** `${int|10-20}`
 
-**`${double|min-max|format}`**
+
+**~~`${double|min-max|format}`~~**
+
 - **说明：** 生成 `min` 到 `max` 的随机浮点数 ，包含 `min` 和 `max`，并按照 `format` 进行格式化。
 - **示例：** `${double|10-20}` , `${double|10-20.5|%.2f}`
 
-**`${email}`**
+**~~`${email}`~~**
+
 - **说明：** 生成随机的邮箱地址。
 
-**`${phone}`**
+**~~`${phone}`~~**
+
 - **说明：** 生成随机的13位手机号码。
 
-**`${zh|min-max}`**
+**~~`${zh|min-max}`~~**
+
 - **说明：** 生成长度为 `min` 到 `max` （包含 `min` 和 `max`）的随机中文字符串。
 - **示例：** `${zh|10-20}`
 
-**`${en|min-max}`**
+**~~`${en|min-max}`~~**
+
 - **说明：** 生成长度为 `min` 到 `max` （包含 `min` 和 `max`）的随机英文字符串。
 - **示例：** `${en|10-20}`
 
-**`${bool}`**
+**~~`${bool}`~~**
+
 - **说明：** 生成随机的`boolean` 类型的值 即 `true` 或 `false`。
 
-**`${list|[arg1,arg2...]}`**
+**~~`${list|[arg1,arg2...]}`~~**
+
 - **说明：** 随机返回列表中的任意一个值
 - **示例：** `${list|[gril,boy]}` 会返回 girl 或 boy 中任意一个。
 
-**`${current|format}`**
+**~~`${current|format}`~~**
+
 - **说明：** 返回当前时间并使用 `format` 格式化，`format` 可缺省，默认是 `YYYY-MM-dd HH:mm:ss`。
 - **示例：** `${current}`，`${current|YYYY-MM-dd}`
 
-**`${array|item|length}`**
+**~~`${array|item|length}`~~**
+
 - **说明：** 按照 `item` 格式定义生成长度为 `length` 的数组, `item` 中可以嵌套使用上述的所有数据生成规则，结果会自动添加`[]`。
 - **示例：** `${array|{"name":"test"}|3}` 会生成 `[{"name":"test"},{"name":"test"},{"name":"test"}]`，`${array|{"age":${int|18-65}}|3}`
 
-**注意：不要使用 `""` 包裹 `${}` ,mock插件会根据 `generator`的定义增加前缀和后缀。**
+**${expression|expression}**
+
+目前支持spel表达式并内置了一些函数和参数，完全可替换旧的`${}`语法
+
++ **`${expression|#int(min,max)}`**
+
+  + **说明：** 生成 `min` 到 `max` 的随机整数，包含 `min` 和 `max` 。 
+
+   - **示例：** `${expression|#int(1,2)}`
+
++ **`${expression|#double(min,max)}`**
+
+  + **说明：** 生成 `min` 到 `max` 的随机浮点数 ，包含 `min` 和 `max`，并按照 `format` 进行格式化。
+  + **示例：**`${expression|#double(10.5,12.0)}`,`${expression|#double(10.5,12.0,'￥%.2f')}`
+
++ **`${expression|#email()}`**
+
+  - **说明：** 生成随机的邮箱地址。
+
++ **`${expression|#phone()}`**
+
+  - **说明：**  生成随机的13位手机号码。
+
++ **`${expression|zh(min,max)}`**
+
+  - **说明：** 生成长度为 `min` 到 `max` （包含 `min` 和 `max`）的随机中文字符串。
+  - **示例：** `${expression|#zh(1,10)}`
+
++ **`${expression|en(min,max)}`**
+
+  - **说明：**  生成长度为 `min` 到 `max` （包含 `min` 和 `max`）的随机英文字符串。
+  - **示例：** `${expression|#en(1,10)}`
+
++ **`${expression|#bool()}`**
+
+  + **说明：** 生成随机的`boolean` 类型的值 即 `true` 或 `false`。
+
++ **`${expression|#oneOf(arg1,arg2...)}`**
+
+  + **说明：** 随机返回列表中的任意一个值，不限制类型
+  + **示例：** `${expression|#oneOf('shenyu','number',1)}` 会返回 'shneyu' 或 'number' 或者数值1。
+
++ **`${expression|current()}`**
+
+  - **说明：** 返回当前时间并使用 `format` 格式化，`format` 可缺省，默认是 `YYYY-MM-dd HH:mm:ss`。
+  - **示例：** `${expression|#current()}`，`${expression|#current('YYYY-MM-dd')}`
+
++ **`${expression|#array(item,length)}`**
+
+  - **说明：** 按照 `item` 格式定义生成长度为 `length` 的数组。
+
+  - **示例：** `expression|#array('shenyu',3)` 会生成 `["shenyu","shenyu","shenyu"]`.
+
+    也可嵌套使用`${expression|#array(#bool(),2)}`或者`${expression|#array(#array('shenyu',2),2)}`
+
++ **`${expression|#req}`**
+
+  + 说明：内置请求参数，可根据请求内容生成响应数据
+  + 示例：`${expression|#req.method}`、`${expression|#req.queries['query_name']}`、`${req.queries.query_name}`、`${expression|#req.uri}`。当请求体为json时,可使用`jsonPath`，比如请求体为`{"name":"shenyu"}`，`${expression|#req.json.name}`将返回"shenyu"
+
++ **`${expression|spel}`**
+
+  + **说明**：直接使用Spel表达式生成数据
+  + **示例**：`${expression|T(java.time.LocalDate).now()}`、`${expression|1==1}`
+
+  建议使用新的`${}`语法，旧的语法功能可能择期被移除。
+
+  功能可替换查看表：
+
+  | old                        | new                                 |
+  | -------------------------- | ----------------------------------- |
+  | ${int\|min-max}            | ${expression\|#int(min,max)}        |
+  | ${double\|min-max\|format} | ${expression\|#double(min,max)}     |
+  | ${email}                   | ${expression\|#email()}             |
+  | ${phone}                   | ${expression\|#phone()}             |
+  | ${zh\|min-max}             | ${expression\|#zh(min,max)}         |
+  | ${en\|min-max}             | ${expression\|#en(min,max)}         |
+  | ${list\|[arg1,arg2...]}    | ${expression\|#oneOf(arg1,agr2...)} |
+  | ${current\|format}         | ${expression\|#current(format)}     |
+  | ${bool}                    | ${expression\|#bool()}              |
+  | ${array\|item\|length}     | ${expression#array(item,length)}    |
+
+
+**注意：不需要使用 `""` 包裹 `${}` ,mock插件会根据 `generator`的定义增加前缀和后缀。**
 

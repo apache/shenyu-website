@@ -11,6 +11,7 @@ description: specify sign plugins for examination
 ## Extension
 
 * The default implementation is `org.apache.shenyu.plugin.sign.service.ComposableSignService`.
+    
     ```java
     @Bean
     @ConditionalOnMissingBean(value = SignService.class, search = SearchStrategy.ALL)
@@ -18,6 +19,9 @@ description: specify sign plugins for examination
         return new ComposableSignService(new DefaultExtractor(), new DefaultSignProvider());
     }
     ```
+    
+    
+    
 * Declare a new class named `CustomSignService` and implements  `org.apache.shenyu.plugin.plugin.sign.service`.
 
 ```java
@@ -51,3 +55,4 @@ public interface SignService {
          return new CustomSignService();
    }
 ```
+

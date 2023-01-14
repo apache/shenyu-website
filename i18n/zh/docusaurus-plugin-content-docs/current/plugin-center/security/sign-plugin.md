@@ -290,7 +290,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
   Relative URL = path [ "?" query ] eg: /apache/shenyu/pulls?name=小明
   ```
 
-  **sign: **`parameters`参数中对应的签名算法
+  **sign**： `parameters`参数中对应的签名算法
 
   **Relative URL：**相对URL，Path加上query的部分，（不包含fragment，服务端收不到）。
 
@@ -473,7 +473,7 @@ public class Test2 {
 
   
 
-+  校验请求体演示
++ 校验请求体演示
 
    计算Token
 

@@ -418,7 +418,7 @@ All the configuration parts are the same, so let's look directly at the paramete
       }
   ```
 
--  verify without the request body
+-   verify without the request body
 
   ```java
   public static void main(String[] args) {
@@ -498,3 +498,4 @@ eyJhbGciOiJNRDUiLCJhcHBLZXkiOiJCRDc5ODBGNTY4OEE0REU2QkNGMUI1MzI3RkUwN0Y1QyIsInRp
 # 4. Extension
 
 * Please refer to: [dev-sign](../../developer/custom-sign-algorithm).
+

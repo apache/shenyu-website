@@ -54,7 +54,7 @@ description: sign plugin
 
 * In `shenyu-admin`--> BasicConfig --> Plugin --> `sign` set to enable.
 
-## 2.4 Config Plugin With Authorize
+## 2.4 Config Plugin With Authorize（1.0.0）
 
 ### 2.4.1 AK/SK Config
 
@@ -116,90 +116,81 @@ For the created authentication information, you can click `PathOperation` at the
 | version       | 1.0.0  |  `1.0.0` is a fixed string value |
 
 Sort the above three field natually according to the key, then splice fields and fields, finally splice SK. The following is a code example.
-The above three fields are spliced with field values, and then 'SK' is spliced as the 'extSignKey`. The following is a code example.
 
 #### 2.4.3.1 Generate sign with request header
 
-Step 1: First, construct a `extSignKey`
+Step 1: First, construct a Map.
 
 ```java
 
-  //timestamp is string format of millisecond. String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-  String timestamp = "1571711067186"; 
-  String path = "/api/service/abc";
-  String version = "1.0.0";
-  String extSignKey = String.join("", "timestamp", timestamp, "path", path, "version", version, "506EEB535CF740D7A755CB4B9F4A1536");
+   Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
+   //timestamp is string format of millisecond. String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
+   map.put("timestamp","1571711067186");  // Value should be string format of milliseconds
+   map.put("path", "/api/service/abc");
+   map.put("version", "1.0.0");
 ```
 
-* The returned extSignKey value should be:`timestamp1571711067186path/api/service/abcversion1.0.0506EEB535CF740D7A755CB4B9F4A1536`
-
-Step 2: Md5 encryption and then capitalization.
+Step 2: Sort the `Keys` naturally, then splice the key and values, and finally splice the `SK` assigned to you.
 
 ```java
-DigestUtils.md5DigestAsHex(extSignKey.getBytes()).toUpperCase()
+List<String> storedKeys = Arrays.stream(map.keySet()
+                .toArray(new String[]{}))
+                .sorted(Comparator.naturalOrder())
+                .collect(Collectors.toList());
+final String sign = storedKeys.stream()
+                .map(key -> String.join("", key, params.get(key)))
+                .collect(Collectors.joining()).trim()
+                .concat("506EEB535CF740D7A755CB4B9F4A1536");
 ```
 
-* The final returned value is: `F6A9EE877F1C017AF60D8F1200517AA5`.
+* The returned sign value should be:`path/api/service/abctimestamp1571711067186version1.0.0506EEB535CF740D7A755CB4B9F4A1536`
 
-#### 2.4.3.2 Generate sign with request header and request body
-
-Step 1: First, construct a `extSignKey`
-
-```java
-
-  //timestamp is string format of millisecond. String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-  String timestamp = "1571711067186"; 
-  String path = "/api/service/abc";
-  String version = "1.0.0";
-  String extSignKey = String.join("", "timestamp", timestamp, "path", path, "version", version, "506EEB535CF740D7A755CB4B9F4A1536");
-```
-
-* The returned extSignKey value should be:`timestamp1571711067186path/api/service/abcversion1.0.0506EEB535CF740D7A755CB4B9F4A1536`
-
-Step 2: Construct a 'Map' named 'jsonMap'. And the 'jsonMap' must store the information of each node of the request body.
-
-```java
-  //Skip this step if there is no request body
-  Map<String, String> jsonMap = Maps.newHashMapWithExpectedSize(2);
-  // if your request body is:{"id":123,"name":"order"}
-  jsonMap.put("id", "123");
-  jsonMap.put("name", "order");
-```
-
-Step 3: Construct a 'Map' named 'queryMap'. And the 'queryMap' must store the information of each node of the uri request parameter.
-
-```java
-  //No url request parameter Skip this step
-  Map<String, String> queryMap = Maps.newHashMapWithExpectedSize(2);
-  // if your request uri is:/api/service/abc?code=10&desc="desc"
-  queryMap.put("code", "10");
-  queryMap.put("desc", "desc");
-```
-
-Step 4: `JsonMap 'and' queryMap 'respectively perform the natural sorting of' Key ', then' Key 'and' Value 'values are spliced to obtain' jsonSign 'and' querySign ', and finally' jsonSign ',' querySign 'and' extSignKey 'are spliced to' sign '.
-
-```java
-  Map<String, String> empityMap = new HashMap();
-  String jsonSign = Optional.ofNullable(jsonMap).orElse(empityMap).keySet().stream()
-          .sorted(Comparator.naturalOrder())
-          .map(key -> String.join("", key, jsonMap.get(key)))
-          .collect(Collectors.joining()).trim();
-  String querySign = Optional.ofNullable(queryMap).orElse(empityMap).keySet().stream()
-          .sorted(Comparator.naturalOrder())
-          .map(key -> String.join("", key, queryMap.get(key)))
-          .collect(Collectors.joining()).trim();
-  String sign = String.join("", jsonSign, querySign, signKey);
-```
-
-* The returned sign value should be:`id123nameordercode10descdesctimestamp1571711067186path/api/service/abcversion1.0.0506EEB535CF740D7A755CB4B9F4A1536`
-
-Step 5: Md5 encryption and then capitalization.
+Step 3: Md5 encryption and then capitalization.
 
 ```java
 DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 ```
 
-* The final returned value is: `AC8EB7C4E0DAC57C4FCF8A9C58A3E445`.
+* The final returned value is: `A021BF82BE342668B78CD9ADE593D683`.
+
+#### 2.4.3.2 Generate sign with request header and request body
+
+Step 1: First, construct a Map, and the map must save every request body parameters
+
+```java
+
+   Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
+   //timestamp is string format of millisecond. String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
+   map.put("timestamp","1660659201000");  // Value should be string format of milliseconds
+   map.put("path", "/http/order/save");
+   map.put("version", "1.0.0");
+   // if your request body is:{"id":123,"name":"order"}
+   map.put("id", "1");
+   map.put("name", "order")
+```
+
+Step 2: Sort the `Keys` naturally, then splice the key and values, and finally splice the `SK` assigned to you.
+
+```java
+List<String> storedKeys = Arrays.stream(map.keySet()
+                .toArray(new String[]{}))
+                .sorted(Comparator.naturalOrder())
+                .collect(Collectors.toList());
+final String sign = storedKeys.stream()
+                .map(key -> String.join("", key, params.get(key)))
+                .collect(Collectors.joining()).trim()
+                .concat("2D47C325AE5B4A4C926C23FD4395C719");
+```
+
+* The returned sign value should be:`id123nameorderpath/http/order/savetimestamp1660659201000version1.0.02D47C325AE5B4A4C926C23FD4395C719`
+
+Step 3: Md5 encryption and then capitalization.
+
+```java
+DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
+```
+
+* The final returned value is: `35FE61C21F73E9AAFC46954C14F299D7`.
 
 ### 2.4.4 Request GateWay
 
@@ -213,7 +204,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 | --------   | -----:  | :----: |
 | timestamp  |   `1571711067186`  |  Timestamp when signing   |
 | appKey     | `1TEST123456781`  |  The AK value assigned to you |
-| sign       | `AC8EB7C4E0DAC57C4FCF8A9C58A3E445`  | The signature obtained above |
+| sign       | `A90E66763793BDBC817CF3B52AAAC041`  | The signature obtained above |
 | version       | `1.0.0`  | `1.0.0` is a fixed value. |
 
 * The signature plugin will filter requests before `5` minutes by default
@@ -247,94 +238,258 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 * close(signRequestBody): generate signature with request header.  
 * open(signRequestBody): generate signature with request header and request body.
 
-## 2.5 Examples
+## 2.5 Config Plugin With Authorize（2.0.0）
 
-### 2.5.1 Verify api with sign plugin
+This authentication algorithm is the version 2.0.0 algorithm, which is same as version1's except **Authentication Guide** and **Request GateWay.**
 
-#### 2.5.1.1 Plugin Config
+### 2.5.1 Authentication Guide
+
+Authentication algorithm of Version 2.0.0 generates a Token based on the signature algorithm, and puts the Token value into the request header Authorization parameter when sending a request. To distinguish it from version 1.0.0, the version parameter of the request header is left, which is 2.0.0.
+
+#### 2.5.1.1 prepare
+
+* Step 1: `AK/SK` is assigned by the gateway. For example, the `AK` assigned to you is: `1TEST123456781` SK is: ` 506eeb535cf740d7a755cb49f4a1536'
+
+* Step 2: Decide the gateway path you want to access, such as `/api/service/abc`
+
+#### 2.5.1.2 Generate Token
+
++ build parameter
+
+  build the `parameters` that is json string
+
+  ```json
+  {
+      "alg":"MD5",
+      "appKey":"506EEB535CF740D7A755CB4B9F4A1536",
+      "timestamp":"1571711067186"
+  }
+  ```
+
+  **alg**: signature algorithm（result is uppercase HEX string）
+
+  - MD5: MD5-HASH(data+key)
+  - HMD5:HMAC-MD5
+  - HS256:HMAC-SHA-256
+  - HS512:HMAC-SHA-512
+
+  **appKey**：appKey
+
+  **timestamp**: timestamp of the length is 13
+
++ Calculate signature value
+
+  ```tex
+  signature = sign(
+    base64Encoding(parameters) + Relative URL + Body*,
+    secret
+  );
+  * indicate Optional , it depends on handler config
+  Relative URL = path [ "?" query ] eg: /apache/shenyu/pulls?name=jack
+  ```
+
+  > note :`Relative URL` is not include fragment
+
++ Calculate Token
+
+  >  token = base64Encoding(parameters) + '.' + base64Encoding(signature)
+
+  Put the Token into the request header `Authorization` parameter.
+
+### 2.5.2 Request GateWay
+
+| Field         | 值      | 描述        |
+| :------------ | :------ | :---------- |
+| Authorization | Token   | Token       |
+| version       | `2.0.0` | Fixed value |
+
+
+
+## 2.6 Examples
+
+### 2.6.1 Verify api with sign plugin（1.0.0）
+
+#### 2.6.1.1 Plugin Config
 
 ![](/img/shenyu/plugin/sign/sign_open_en.jpg)
 
-#### 2.5.1.2 Selector Config
+#### 2.6.1.2 Selector Config
 
 ![](/img/shenyu/plugin/sign/example-selector-en.png)
 
-#### 2.5.1.3 Rule Config
+#### 2.6.1.3 Rule Config
 
 ![](/img/shenyu/plugin/sign/example-rule-en.png)
 
-#### 2.5.1.5 Add AppKey/SecretKey
+#### 2.6.1.5 Add AppKey/SecretKey
 
 ![](/img/shenyu/plugin/sign/example-sign-auth-en.png)
 
-#### 2.5.1.6 Request Service and check result
+#### 2.6.1.6 Request Service and check result
 
 * build request params with `Authentication Guide`,
 
 ```java
 public class Test1 {
   public static void main(String[] args) {
-    //timestamp is string format of millisecond String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-    String timestamp = "1660658725000";
-    String path = "/http/order/save";
-    String version = "1.0.0";
-    String extSignKey = String.join("", "timestamp", timestamp, "path", path, "version", version, "2D47C325AE5B4A4C926C23FD4395C719");
-    
-    System.out.println(extSignKey);
-    
-    System.out.println(DigestUtils.md5DigestAsHex(extSignKey.getBytes()).toUpperCase());
+    Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
+    //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
+    map.put("timestamp","1660658725000");  //值应该为毫秒数的字符串形式
+    map.put("path", "/http/order/save");
+    map.put("version", "1.0.0");
+    map.put("id", "123");
+    map.put("name", "order");
+    // map.put("body", "{\"id\":123,\"name\":\"order\"}");
+
+    List<String> storedKeys = Arrays.stream(map.keySet()
+                    .toArray(new String[]{}))
+            .sorted(Comparator.naturalOrder())
+            .collect(Collectors.toList());
+    final String sign = storedKeys.stream()
+            .map(key -> String.join("", key, map.get(key)))
+            .collect(Collectors.joining()).trim()
+            .concat("2D47C325AE5B4A4C926C23FD4395C719");
+    System.out.println(sign);
+
+    System.out.println(DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase());
   }
 }
 ```
 
-* signature without body: `timestamp1660658725000path/http/order/saveversion1.0.02D47C325AE5B4A4C926C23FD4395C719`
-* sign without body result is: `A2D81371D99DD4ECB0D5EC6298E3C2EB`
+* signature without body: `path/http/order/savetimestamp1571711067186version1.0.02D47C325AE5B4A4C926C23FD4395C719`
+* sign without body result is: `9696D3E549A6AEBE763CCC2C7952DDC1`
 
 ![](/img/shenyu/plugin/sign/result.png)
 
 ```java
 public class Test2 {
   public static void main(String[] args) {
-    //timestamp is string format of millisecond String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
-    String timestamp = "1660659201000";
-    String path = "/http/order/save";
-    String version = "1.0.0";
-    String extSignKey = String.join("", "timestamp", timestamp, "path", path, "version", version, "2D47C325AE5B4A4C926C23FD4395C719");
-    
-    Map<String, String> jsonMap = Maps.newHashMapWithExpectedSize(2);
-    // if your request body is:{"id":123,"name":"order"}
-    jsonMap.put("id", "123");
-    jsonMap.put("name", "order");
-    
-    Map<String, String> queryMap = null;
-    /* if you have uri params
-    Map<String, String> queryMap = Maps.newHashMapWithExpectedSize(2);
-    // if your request uri is:/api/service/abc?code=10&desc="desc"
-    queryMap.put("code", "10");
-    queryMap.put("desc", "desc");
-    */
-    Map<String, String> empityMap = new HashMap();
-    String jsonSign = Optional.ofNullable(jsonMap).orElse(empityMap).keySet().stream()
-          .sorted(Comparator.naturalOrder())
-          .map(key -> String.join("", key, jsonMap.get(key)))
-          .collect(Collectors.joining()).trim();
-          
-    String querySign = Optional.ofNullable(queryMap).orElse(empityMap).keySet().stream()
-          .sorted(Comparator.naturalOrder())
-          .map(key -> String.join("", key, queryMap.get(key)))
-          .collect(Collectors.joining()).trim();
-    String sign = String.join("", jsonSign, querySign, signKey);    
-    
+    Map<String, String> map = Maps.newHashMapWithExpectedSize(3);
+    //timestamp为毫秒数的字符串形式 String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli())
+    map.put("timestamp","1660659201000");  //值应该为毫秒数的字符串形式
+    map.put("path", "/http/order/save");
+    map.put("version", "1.0.0");
+
+    List<String> storedKeys = Arrays.stream(map.keySet()
+                    .toArray(new String[]{}))
+            .sorted(Comparator.naturalOrder())
+            .collect(Collectors.toList());
+    final String sign = storedKeys.stream()
+            .map(key -> String.join("", key, map.get(key)))
+            .collect(Collectors.joining()).trim()
+            .concat("2D47C325AE5B4A4C926C23FD4395C719");
     System.out.println(sign);
+
     System.out.println(DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase());
   }
 }
 ```
 
-*signature with body:`id123nameordertimestamp1660659201000path/http/order/saveversion1.0.02D47C325AE5B4A4C926C23FD4395C719`
-*sign with body result is:`BF485842D2C08A3378308BA9992A309F`
+*signature with body:`id123nameorderpath/http/order/savetimestamp1660659201000version1.0.02D47C325AE5B4A4C926C23FD4395C719`
+*sign with body result is:`35FE61C21F73E9AAFC46954C14F299D7`
 
 ![](/img/shenyu/plugin/sign/result-with-body.png)
+
+### 2.6.2 Verify api with sign plugin（2.0.0）
+
+All the configuration parts are the same, so let's look directly at the parameter part of the calculation request header and the part of sending request.
+
+### 2.6.1.1 Request Service and check result
+
+- implements the algorithm
+
+  Suppose we use a signature algorithm named MD5. According to the previous description, the signature value is to concatenate the data and key, and then hash.
+
+  ```java
+      private static String sign(final String signKey, final String base64Parameters, final URI uri, final String body) {
+  
+          String data = base64Parameters
+                  + getRelativeURL(uri)
+                  + Optional.ofNullable(body).orElse("");
+  
+          return DigestUtils.md5Hex(data+signKey).toUpperCase();
+      }
+  
+      private static String getRelativeURL(final URI uri) {
+          if (Objects.isNull(uri.getQuery())) {
+              return uri.getPath();
+          }
+          return uri.getPath() + "?" + uri.getQuery();
+      }
+  ```
+
+-  verify without the request body
+
+  ```java
+  public static void main(String[] args) {
+      
+      String signKey = "2D47C325AE5B4A4C926C23FD4395C719";
+  
+      URI uri = URI.create("/http/order/save");
+  
+      String parameters = JsonUtils.toJson(ImmutableMap.of(
+          "alg","MD5",
+          "appKey","BD7980F5688A4DE6BCF1B5327FE07F5C",
+          "timestamp","1673708353996"));
+  
+      String base64Parameters = Base64.getEncoder()
+          .encodeToString(parameters.getBytes(StandardCharsets.UTF_8));
+  
+      String signature = sign(signKey,base64Parameters,uri,null);
+  
+      String Token = base64Parameters+"."+signature;
+  
+      System.out.println(Token);
+  
+  }
+  ```
+
+  Token:
+
+  ```tex
+  eyJhbGciOiJNRDUiLCJhcHBLZXkiOiJCRDc5ODBGNTY4OEE0REU2QkNGMUI1MzI3RkUwN0Y1QyIsInRpbWVzdGFtcCI6IjE2NzM3MDgzNTM5OTYifQ==.33ED53DF79CA5B53C0BF2448B670AF35
+  ```
+
+  发送请求：
+
+  ![image-20230114230500887](/img/shenyu/plugin/sign/version2_sign_request.png)
+
+- verify with the request body
+
+```java
+    public static void main(String[] args) {
+        String signKey = "2D47C325AE5B4A4C926C23FD4395C719";
+
+        URI uri = URI.create("/http/order/save");
+
+        String parameters = JsonUtils.toJson(ImmutableMap.of(
+                "alg","MD5",
+                "appKey","BD7980F5688A4DE6BCF1B5327FE07F5C",
+                "timestamp","1673708905488"));
+
+        String base64Parameters = Base64.getEncoder()
+                .encodeToString(parameters.getBytes(StandardCharsets.UTF_8));
+
+        String requestBody = "{\"id\":123,\"name\":\"order\"}";
+
+        String signature = sign(signKey,base64Parameters,uri,requestBody);
+
+        String Token = base64Parameters+"."+signature;
+
+        System.out.println(Token);
+
+    }
+```
+
+Token:
+
+```tex
+eyJhbGciOiJNRDUiLCJhcHBLZXkiOiJCRDc5ODBGNTY4OEE0REU2QkNGMUI1MzI3RkUwN0Y1QyIsInRpbWVzdGFtcCI6IjE2NzM3MDg5MDU0ODgifQ==.FBCEB6D816644A98378635050AB85EF1
+```
+
+![image-20230114231032837](/img/shenyu/plugin/sign/request_body.png)
+
+![image-20230114230922598](/img/shenyu/plugin/sign/image/version2_sign_request_with_body.png)
 
 # 3. How to disable plugin
 

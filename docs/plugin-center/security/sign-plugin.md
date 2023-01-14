@@ -418,7 +418,7 @@ All the configuration parts are the same, so let's look directly at the paramete
       }
   ```
 
--   verify without the request body
+- verify without the request body
 
   ```java
   public static void main(String[] args) {

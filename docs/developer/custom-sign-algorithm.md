@@ -10,24 +10,39 @@ description: specify sign plugins for examination
 
 ## Extension
 
-* The default implementation is `org.apache.shenyu.plugin.sign.service.DefaultSignService`.
-* Declare a new class named `CustomSignService` and implements  `org.apache.shenyu.plugin.sign.api.SignService`.
+* The default implementation is `org.apache.shenyu.plugin.sign.service.ComposableSignService`.
+    ```java
+    @Bean
+    @ConditionalOnMissingBean(value = SignService.class, search = SearchStrategy.ALL)
+    public SignService signService() {
+        return new ComposableSignService(new DefaultExtractor(), new DefaultSignProvider());
+    }
+    ```
+* Declare a new class named `CustomSignService` and implements  `org.apache.shenyu.plugin.plugin.sign.service`.
 
 ```java
- public interface SignService {
- 
-     /**
-      * Sign verify pair.
-      *
-      * @param exchange   the exchange
-      * @return the pair
-      */
-     Pair<Boolean, String> signVerify(ServerWebExchange exchange);
- }
+public interface SignService {
+
+    /**
+     * Gets verifyResult.
+     * @param exchange exchange
+     * @param requestBody requestBody
+     * @return result
+     */
+    VerifyResult signatureVerify(ServerWebExchange exchange, String requestBody);
+
+    /**
+     * Gets verifyResult.
+     * @param exchange exchange
+     * @return result
+     */
+    VerifyResult signatureVerify(ServerWebExchange exchange);
+}
+
 
 ```
 
-* When returning true in Pair, the sign verification passes. If there's false, the String in Pair will be return to the frontend to show.
+* When returning is `isSuccess()` of VerifyResult, the sign verification passes. If there's false, the `getReason()` of VerifyResult will be return to the frontend to show.
 * Register defined class as a Spring Bean.
 
 ```java
@@ -36,37 +51,3 @@ description: specify sign plugins for examination
          return new CustomSignService();
    }
 ```
-
-# Others
-
-> If you only want to modify the signature algorithm, refer to the following.
-
-- The default implementation of the signature algorithm is `org.apache.shenyu.common.utils.SignUtils#generateSign`.
-- Declare a new class named `CustomSignProvider` and implements `org.apache.shenyu.plugin.sign.api.SignProvider`.
-
-```java
-/**
- * The Sign plugin sign provider.
- */
-public interface SignProvider {
-
-    /**
-     * acquired sign.
-     *
-     * @param signKey sign key
-     * @param params  params
-     * @return sign
-     */
-    String generateSign(String signKey, Map<String, String> params);
-}
-```
-
-- Put `CustomSignProvider` to `Spring IoC`
-
-```java
-@Bean
-public SignProvider customSignProvider() {
-    return new CustomSignProvider();
-}
-```
-

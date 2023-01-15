@@ -489,7 +489,7 @@ eyJhbGciOiJNRDUiLCJhcHBLZXkiOiJCRDc5ODBGNTY4OEE0REU2QkNGMUI1MzI3RkUwN0Y1QyIsInRp
 
 ![image-20230114231032837](/img/shenyu/plugin/sign/request_body.png)
 
-![image-20230114230922598](/img/shenyu/plugin/sign/image/version2_sign_request_with_body.png)
+![image-20230114230922598](/img/shenyu/plugin/sign/version2_sign_request_with_body.png)
 
 # 3. How to disable plugin
 

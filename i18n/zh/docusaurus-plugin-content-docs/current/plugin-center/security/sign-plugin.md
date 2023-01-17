@@ -331,11 +331,11 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 ![](/img/shenyu/plugin/sign/example-rule-zh.png)
 
-#### 2.6.1.5 添加AppKey/SecretKey
+#### 2.6.1.4 添加AppKey/SecretKey
 
 ![](/img/shenyu/plugin/sign/example-sign-auth-zh.png)
 
-#### 2.6.1.6 Request Service and check result
+#### 2.6.1.5 Request Service and check result
 
 * 构造请求参数，请查看`Authentication Guide`目录,
 
@@ -405,7 +405,7 @@ public class Test2 {
 
 所有配置部分皆相同，我们直接看计算请求头的参数部分和发送请求部分
 
-### 2.6.1.1 Request Service and check result
+#### 2.6.2.1 Request Service and check result
 
 + 算法实现
 
@@ -433,7 +433,7 @@ public class Test2 {
       }
   ```
 
-+ 不校验请求体演示
++ 不包含请求体校验演示
 
   ```java
   public static void main(String[] args) {
@@ -467,13 +467,13 @@ public class Test2 {
 
   发送请求：
 
-  ![image-20230114230500887]/img/shenyu/plugin/sign/version2_sign_request.png)
+  ![image-20230114230500887](/img/shenyu/plugin/sign/version2_sign_request.png)
 
   
 
   
 
-+ 校验请求体演示
++ 包含请求体校验演示
 
    计算Token
 

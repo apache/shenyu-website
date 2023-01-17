@@ -244,7 +244,7 @@ This authentication algorithm is the version 2.0.0 algorithm, which is same as v
 
 ### 2.5.1 Authentication Guide
 
-Authentication algorithm of Version 2.0.0 generates a Token based on the signature algorithm, and puts the Token value into the request header Authorization parameter when sending a request. To distinguish it from version 1.0.0, the version parameter of the request header is left, which is 2.0.0.
+Authentication algorithm of Version 2.0.0 generates a Token based on the signature algorithm, and puts the Token value into the request header `Authorization` parameter when sending a request. To distinguish it from version 1.0.0, the `version` parameter of the request header is left, which is 2.0.0.
 
 #### 2.5.1.1 prepare
 
@@ -321,11 +321,11 @@ Authentication algorithm of Version 2.0.0 generates a Token based on the signatu
 
 ![](/img/shenyu/plugin/sign/example-rule-en.png)
 
-#### 2.6.1.5 Add AppKey/SecretKey
+#### 2.6.1.4 Add AppKey/SecretKey
 
 ![](/img/shenyu/plugin/sign/example-sign-auth-en.png)
 
-#### 2.6.1.6 Request Service and check result
+#### 2.6.1.5 Request Service and check result
 
 * build request params with `Authentication Guide`,
 
@@ -392,9 +392,9 @@ public class Test2 {
 
 ### 2.6.2 Verify api with sign plugin（2.0.0）
 
-All the configuration parts are the same, so let's look directly at the parameter part of the calculation request header and the part of sending request.
+All the configuration parts are the same, so let's look directly at the the calculation part of parameter of request header and the part of sending request.
 
-### 2.6.1.1 Request Service and check result
+#### 2.6.2.1 Request Service and check result
 
 - implements the algorithm
 

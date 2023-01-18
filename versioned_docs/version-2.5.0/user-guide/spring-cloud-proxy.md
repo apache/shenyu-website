@@ -120,7 +120,7 @@ public class ShenyuBootstrapApplication {
 
 Please refer to [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/v2.5.0/shenyu-examples/shenyu-examples-springcloud)
 
-* Add the following dependencies to your `Spring Cloud` microservice :
+* Add the following dependencies to your `Spring Cloud` micro service :
 
 ```xml
  <dependency>
@@ -278,7 +278,7 @@ Special note: currently only supports `@RequestMapping, @GetMapping, @PostMappin
 
 ```
 
-* After successfully registering your service, go to the backend management system PluginList -> rpc proxy -> springCloud ', you will see the automatic registration of selectors and rules information.
+* After successfully registering your service, go to the Back-end management system PluginList -> rpc proxy -> springCloud ', you will see the automatic registration of selectors and rules information.
 
 
 
@@ -288,7 +288,7 @@ Special note: currently only supports `@RequestMapping, @GetMapping, @PostMappin
 
 * firstly,the domain name that requested before in your service, now need to replace with gateway's domain name.
 
-* secondly, Apache ShenYu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if your familiar with it.
+* secondly, Apache ShenYu gateway needs a route prefix which comes from `contextPath`, it configured during the integration with gateway, you can change it freely in divide plugin of `shenyu-admin`, if you're familiar with it.
 
 > For example, your have an `order` service and it has a interface, the request url: `http://localhost:8080/test/save` .
 >

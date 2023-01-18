@@ -11,7 +11,7 @@ In most of the `plugins` ( such as `Dubbo`, `gRPC`,`Spring-cloud`, etc) of `Apac
 - `PredictJudge`-predicate
 - `MatchStrategy`-matching strategy
 
-Relatively speaking, the `MatchStrategy` is the part that needs the least extension points. For the combination judgement of multiple conditions, the common select rules are: All conditions are matched, at least one is match, at least the first is met, or most of conditions  satisfied.  As well  need to handle various type of parameters, for example: `IP`, `header`, `uri`, etc.  How to make the `MatchStrategy` to be simple to use and extensible?
+Relatively speaking, the `MatchStrategy` is the part that needs the least extension points. For the combined judgement of multiple conditions, the common selection rules are: All conditions are matched, at least one is matched, at least the first is met, or most of conditions  satisfied.  As well  need to handle various types of parameters, for example: `IP`, `header`, `uri`, etc.  How to make the `MatchStrategy` to be simple to use and extensible?
 
 ## MatchStrategy
 

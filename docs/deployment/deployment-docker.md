@@ -12,13 +12,13 @@ This article introduces the use of `docker` to deploy the `Apache ShenYu` gatewa
 ### Create Docker Network
 
 ```
-> docker network create shenyu
+docker network create shenyu
 ```
 
 ### Start Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin:${current.version}
+docker pull apache/shenyu-admin:${current.version}
 ```
 
 > After version 2.5.1, when `docker run`, we can customize JVM startup parameters by adding `-e ADMIN_JVM="xxxx"`
@@ -26,7 +26,7 @@ This article introduces the use of `docker` to deploy the `Apache ShenYu` gatewa
 * use `h2` to store data:
 
 ```
-> docker run -d -p 9095:9095 --name shenyu-admin --net shenyu apache/shenyu-admin:${current.version}
+docker run -d -p 9095:9095 --name shenyu-admin --net shenyu apache/shenyu-admin:${current.version}
 ```
 
 * use `MySQL` to store data, follow the [guide document](./deployment-before.md#mysql) to initialize the database, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar) to `/$(your_work_dir)/ext-lib`：
@@ -72,13 +72,13 @@ docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -
 First, pull the docker image
 
 ```shell
-> docker pull apache/shenyu-bootstrap:${current.version}
+docker pull apache/shenyu-bootstrap:${current.version}
 ```
 
 If you don't need to modify the configuration, just use the command below to run the application
 
 ```shell
-> docker run -d \
+docker run -d \
   -p 9195:9195 \
   --name shenyu-bootstrap \
   --net shenyu \
@@ -91,7 +91,7 @@ If you don't need to modify the configuration, just use the command below to run
 If you need to modify the configuration, copy the configuration from the Github directory where the bootstrap [configuration file](https://github.com/apache/shenyu/tree/master/shenyu-bootstrap/src/main/resources) is located, then recorded it as `$BOOTSTRAP_CONF`. After your modification, execute the command below to run the application
 
 ```shell
-> docker run -d \
+docker run -d \
   -p 9195:9195 \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   --name shenyu-bootstrap \

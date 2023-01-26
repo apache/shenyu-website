@@ -39,20 +39,20 @@ description: Environment Setup
 ### docker
 
 ```
-> docker pull dromara/soul-admin
-> docker network create soul
+docker pull dromara/soul-admin
+docker network create soul
 ```
 
 * use `h2` store
 
 ```
-> docker run -d -p 9095:9095 --net soul dromara/soul-admin
+docker run -d -p 9095:9095 --net soul dromara/soul-admin
 ```
 
 * use `mysql` store.
 
 ```
-> docker run -e "SPRING_PROFILES_ACTIVE=mysql" -d -p 9095:9095 --net soul dromara/soul-admin
+docker run -e "SPRING_PROFILES_ACTIVE=mysql" -d -p 9095:9095 --net soul dromara/soul-admin
 ```
 
 If you want to override environment variables, you can do like this.
@@ -74,9 +74,9 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 * download
 
 ```
-> git clone https://github.com/dromara/soul.git
-> cd soul
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+git clone https://github.com/dromara/soul.git
+cd soul
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 * setup for  `SoulAdminBootstrap`.
@@ -106,17 +106,17 @@ Visit `http://localhost:9095/index.html` default username：admin  password: 123
 ### docker
 
 ```
-> docker network create soul
-> docker pull dromara/soul-bootstrap
-> docker run -d -p 9195:9195 --net soul dromara/soul-bootstrap
+docker network create soul
+docker pull dromara/soul-bootstrap
+docker run -d -p 9195:9195 --net soul dromara/soul-bootstrap
 ```
 
 ### local
 
 ```
-> git clone https://github.com/dromara/soul.git
-> cd soul
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+git clone https://github.com/dromara/soul.git
+cd soul
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 * setup for `SoulBootstrap`.

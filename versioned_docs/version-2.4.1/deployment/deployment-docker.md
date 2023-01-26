@@ -10,14 +10,14 @@ This article introduces the use of `docker` to deploy the `Apache ShenYu` gatewa
 ### Start Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin:2.4.1
-> docker network create shenyu
+docker pull apache/shenyu-admin:2.4.1
+docker network create shenyu
 ```
 
 * use `h2` to store data:
 
 ```
-> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.1
+docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.1
 ```
 
 * use `MySQL` to store data, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) to `/$(your_work_dir)/ext-lib`：
@@ -59,7 +59,7 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 ### Start Apache ShenYu Bootstrap
 
 ```
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:2.4.1
-> docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap:2.4.1
+docker network create shenyu
+docker pull apache/shenyu-bootstrap:2.4.1
+docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap:2.4.1
 ```

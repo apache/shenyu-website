@@ -12,13 +12,13 @@ description: docker部署
 ### 创建 Docker Network
 
 ```
-> docker network create shenyu
+docker network create shenyu
 ```
 
 ### 启动 Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin:${current.version}
+docker pull apache/shenyu-admin:${current.version}
 ```
 
 > 在 2.5.1 版本之后，在 `docker run` 时，可以通过添加 `-e ADMIN_JVM="xxxx"` 来自定义 JVM 启动参数
@@ -26,7 +26,7 @@ description: docker部署
 * 使用 `h2` 来存储后台数据：
 
 ```
-> docker run -d -p 9095:9095 --name shenyu-admin --net shenyu apache/shenyu-admin:${current.version}
+docker run -d -p 9095:9095 --name shenyu-admin --net shenyu apache/shenyu-admin:${current.version}
 ```
 
 * 使用 `MySQL` 来存储后台数据, 按照 [指引文档](./deployment-before.md#mysql) 初始化数据库, 将 [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar) 拷贝到 `/${your_work_dir}/ext-lib`：
@@ -72,13 +72,13 @@ docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -
 首先拉取 Docker 镜像
 
 ```shell
-> docker pull apache/shenyu-bootstrap:${current.version}
+docker pull apache/shenyu-bootstrap:${current.version}
 ```
 
 如果不需要修改配置，可以直接使用以下命令启动
 
 ```shell
-> docker run -d \
+docker run -d \
   -p 9195:9195 \
   --name shenyu-bootstrap \
   --net shenyu \
@@ -91,7 +91,7 @@ docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -
 如果需要修改配置，可以从 Github 中拉取 bootstrap 的[配置文件](https://github.com/apache/shenyu/tree/master/shenyu-bootstrap/src/main/resources)，将其所在目录记为 `$BOOTSTRAP_CONF`，并进行配置修改。修改完毕后，使用以下命令启动
 
 ```shell
-> docker run -d \
+docker run -d \
   -p 9195:9195 \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   --name shenyu-bootstrap \

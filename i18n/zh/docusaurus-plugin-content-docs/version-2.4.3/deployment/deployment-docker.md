@@ -12,14 +12,14 @@ description: docker部署
 ### 启动Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin:${current.version}
-> docker network create shenyu
+docker pull apache/shenyu-admin:${current.version}
+docker network create shenyu
 ```
 
 * 使用 `h2` 来存储后台数据：
 
 ```
-> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
+docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
 * 使用 `MySQL` 来存储后台数据, 按照 [指引文档](./deployment-before.md#mysql) 初始化数据库, 将 [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) 拷贝到 `/${your_work_dir}/ext-lib`：
@@ -63,7 +63,7 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 宿主机中，bootstrap的[配置文件](https://github.com/apache/incubator-shenyu/tree/master/shenyu-bootstrap/src/main/resources)所在目录记为 `$BOOTSTRAP_CONF`。
 
 ```shell
-> docker run -d \
+docker run -d \
   -p 9195:9195 \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   --name shenyu-bootstrap \

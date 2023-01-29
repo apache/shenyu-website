@@ -27,14 +27,14 @@ Take the shenyu gateway log information, write it to elasticSearch (or send it t
 - Download code
 
 ```shell
-> git clone https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/apache/incubator-shenyu.git
 ```
 
 - Use Maven to compile the code
 
 ```shell
-> cd incubator-shenyu
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+cd incubator-shenyu
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 After the compilation is successful, you can see the compiled jar package and related configuration files of the `shenyu-agent` module in the `~/shenyu/shenyu-dist/shenyu-agent-dist/target/shenyu-agent` directory.

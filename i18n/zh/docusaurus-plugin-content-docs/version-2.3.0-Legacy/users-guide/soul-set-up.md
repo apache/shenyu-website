@@ -37,14 +37,14 @@ description: 环境搭建
 ### docker构建
 
 ```
-> docker pull dromara/soul-admin
-> docker network create soul
+docker pull dromara/soul-admin
+docker network create soul
 ```
 
 * 使用 `h2` 来存储后台数据
 
 ```
-> docker run -d -p 9095:9095 --net soul dromara/soul-admin
+docker run -d -p 9095:9095 --net soul dromara/soul-admin
 ```
 
 * 使用 `mysql` 来存储后台数据。
@@ -72,14 +72,14 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 * 下载代码
 
 ```
-> git clone https://github.com/dromara/soul.git
-> cd soul
+git clone https://github.com/dromara/soul.git
+cd soul
 ```
 
 * 编译代码
 
 ```
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 * 启动 `SoulAdminBootstrap`。 
@@ -109,9 +109,9 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 ### docker构建
 
 ```
-> docker network create soul
-> docker pull dromara/soul-bootstrap
-> docker run -d -p 9195:9195 --net soul dromara/soul-bootstrap
+docker network create soul
+docker pull dromara/soul-bootstrap
+docker run -d -p 9195:9195 --net soul dromara/soul-bootstrap
 ```
 
 ### 本地构建
@@ -119,14 +119,14 @@ docker run -v D:\tmp\conf:/opt/soul-admin/conf/ -d -p 9095:9095 --net soul droma
 * 下载代码
 
 ```
-> git clone https://github.com/dromara/soul.git
-> cd soul
+git clone https://github.com/dromara/soul.git
+cd soul
 ```
 
 * 编译代码
 
 ```
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 * 启动 `SoulBootstrap`。 

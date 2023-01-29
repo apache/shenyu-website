@@ -218,4 +218,3 @@ try {
 * 判断自身对象是否为 Null，但是返回 Optional 包装的，以下是几个代表实例。  
   目前 ： ```return null == a ? Optional.empty() : Optional.ofNullable(a.getXXX());```    
   建议 ： ```return Optional.ofNullable(a).map(e -> e.getXXX());```  
-  

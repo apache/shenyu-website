@@ -14,8 +14,8 @@ When the user does not configure data permissions, it has all the data permissio
 ## How to use
 
 The Brief introduce is as follows.
-- Users with administrative user resouce permissions (including the admin user) create a new user.
-- Users with administrative user data resouce permissions (including admin user) click `ConfigureDataPermission` to manage the user's data permissions.
+- Users with administrative user resource permissions (including the admin user) create a new user.
+- Users with administrative user data resource permissions (including admin user) click `ConfigureDataPermission` to manage the user's data permissions.
 > Make sure the data exists in the plugin list before doing so. If not, you will have any data to configure.
 
 Now, let's look how to operation step by step:

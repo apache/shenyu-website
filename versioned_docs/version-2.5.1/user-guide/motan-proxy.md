@@ -1,0 +1,107 @@
+---
+title: Motan Proxy
+description: Motan Proxy
+---
+
+This document is intended to help the `Motan` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Motan` plugin to handle `motan` service.
+
+Before the connection, start `shenyu-admin` correctly, start `Motan` plugin, and add related dependencies on the gateway and `Motan` application client. Refer to the previous [Quick start with Motan](../quick-start/quick-start-motan) .
+
+For details about client access configuration, see [Application Client Access Config](property-config/register-center-access.md) .
+
+For details about data synchronization configurations, see [Data Synchronization Config](property-config/use-data-sync.md) .
+
+## Add motan plugin in gateway
+
+Add the following dependencies to the gateway's `pom.xml` file:
+
+```xml
+        <!-- apache shenyu motan plugin -->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-core</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-registry-zookeeper</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-transport-netty4</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weibo</groupId>
+            <artifactId>motan-springsupport</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+```
+
+* Restart your gateway service.
+
+## Motan service access gateway
+
+Please refer to: [shenyu-examples-motan](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-motan)
+
+1. In the microservice built by `Motan`, add the following dependencies:
+
+```xml
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-client-motan</artifactId>
+            <version>${shenyu.version}</version>
+        </dependency>
+```
+
+2. Add the following configuration to the `application.yaml` configuration file:
+
+```yaml
+shenyu:
+  register:
+    registerType: http #zookeeper #etcd #nacos #consul
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    props:
+      username: admin
+      password: 123456
+  client:
+    motan:
+      props:
+        contextPath: /motan
+        ipAndPort: motan
+        appName: motan
+        port: 8081
+      package-path: org.apache.shenyu.examples.motan.service
+      basicServiceConfig:
+        exportPort: 8002
+motan:
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+```
+
+
+3. Add `@ShenyuMotanClient` annotation to the method of `Motan` service interface implementation class, start your service provider, after successful registration, go to PluginList -> rpc proxy -> motan in the background management system, you will see automatic registration of selectors and rules information.
+
+Example:
+
+```java
+@MotanService(export = "demoMotan:8002")
+public class MotanDemoServiceImpl implements MotanDemoService {
+    @Override
+    @ShenyuMotanClient(path = "/hello")
+    public String hello(String name) {
+        return "hello " + name;
+    }
+}
+```
+
+## User Request
+
+You can request your `motan` service by Http. The `Apache ShenYu` gateway needs to have a route prefix which is the `contextPath` configured by the access gateway. For example: `http://localhost:9195/motan/hello` .

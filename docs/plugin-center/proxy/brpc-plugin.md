@@ -67,7 +67,9 @@ Each `Brpc` interface method, will correspond to a metadata, when the `Brpc` app
                 }
             ]
         }
-    ]
+    ],
+    "host": "127.0.0.1",
+    "port": 8005
 }
 ```
 

@@ -68,8 +68,7 @@ shenyu:
         contextPath: /brpc
         ipAndPort: brpc
         appName: brpc
-        port: 8005
-        host: 127.0.0.1
+        port: ${starlight.server.port}
 
 # starlight
 starlight:

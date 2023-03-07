@@ -6,7 +6,11 @@ description: Mqtt access shenyu gateway
 
 ## Description
 
-* After the plugin is used, it will give the ability of mqtt.
+* The current implementation of the MQTT protocol is version 3.1, which implements the following identifiers: connect, publish, subscribe, unsubscribe, disconnect, PingReq, PingResp, and QoS 0.
+
+* The implementation is missing retain, implementation of QoS (1,2), and cluster mode.
+
+* For more information, please see the content at http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html.
 
 ## Introducing Plugin Support of Mqtt Gateway
 

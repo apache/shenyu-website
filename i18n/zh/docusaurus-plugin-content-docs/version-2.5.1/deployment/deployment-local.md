@@ -22,7 +22,7 @@ description: 本地部署
 
 ```
 git clone https://github.com/apache/shenyu.git
-cd incubator-shenyu
+cd shenyu
 mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 

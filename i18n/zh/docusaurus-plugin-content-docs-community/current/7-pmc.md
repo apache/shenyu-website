@@ -11,6 +11,7 @@ tags: ["PMC-Member"]
 **1、参考 [PMC MEMBERSHIP MANAGEMENT](https://www.apache.org/dev/pmc.html#pmcmembers) 完成投票**
 
 * 在<private@shenyu.apache.org>邮件列表发起Vote流程
+
 ```
 Tilte: [VOTE] New PMC member (Nominee)
 
@@ -49,7 +50,6 @@ I am glad to receive your votes, and the voting result is[1],
 +1 PMC members name (PMC)
 
 [1]: vote thread refer to https://lists.apache.org/list?private@shenyu.apache.org
-
 
 The vote is successful,
 

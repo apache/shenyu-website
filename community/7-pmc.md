@@ -11,6 +11,7 @@ tags: ["PMC-Member Guide"]
 **1. Follow this [PMC MEMBERSHIP MANAGEMENT](https://www.apache.org/dev/pmc.html#pmcmembers) to complete the vote**
 
 * Vote new PMC member thread to <private@shenyu.apache.org>
+
 ```
 Tilte: [VOTE] New PMC member (Nominee)
 
@@ -49,7 +50,6 @@ I am glad to receive your votes, and the voting result is[1],
 
 [1]: vote thread refer to https://lists.apache.org/list?private@shenyu.apache.org
 
-
 The vote is successful,
 
 I will proceed with the invitation. Note that according to new rules,
@@ -72,6 +72,7 @@ The vote result is available here:
 (vote result thread refer to https://lists.apache.org/list?private@shenyu.apache.org)
 
 ```
+
 **2. Add the new PMC to [roster](https://whimsy.apache.org/roster/committee/shenyu)**
 
 **3. Notify the new PMC members to subscribe to the private mailing list：[private-subscribe@shenyu.apache.org](mailto:private-subscribe@shenyu.apache.org)**

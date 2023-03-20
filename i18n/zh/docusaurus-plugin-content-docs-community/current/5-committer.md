@@ -83,6 +83,7 @@ I am glad to receive your votes, and the voting result is[1],
 Therefore, I will send the invitation to (Nominee).
 
 ```
+
 * 给新的committer发送邮件，并且抄送给 <private@shenyu.apache.org>:
 > 新的committer提供可用的邮箱地址，如果签署过icla，最好提供一样的邮箱地址.
 

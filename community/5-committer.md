@@ -82,6 +82,7 @@ I am glad to receive your votes, and the voting result is[1],
 Therefore, I will send the invitation to (Nominee).
 
 ```
+
 * Invitation new Committer to Nominee email and copied to <private@shenyu.apache.org>:
 > new committer need prepare an available email.
 

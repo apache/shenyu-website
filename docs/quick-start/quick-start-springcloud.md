@@ -18,7 +18,7 @@ If you are a startup gateway by means of source, can be directly run the ShenyuB
 
 > Note: Before starting, make sure the gateway has added dependencies.
 
-Add the gateway proxy plugin for `Spring Cloud` and add the your registry center dependencies:
+Add the gateway proxy plugin for `Spring Cloud` and add your registry center dependencies:
 
 ```xml
 <!-- apache shenyu springCloud plugin start-->

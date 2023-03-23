@@ -64,3 +64,7 @@ description: redirect插件
 - 当满足匹配规则时，服务内部会使用 `DispatcherHandler` 内部接口转发。
 - 要实现网关自身接口转发，我们需要在配置路径使用 `/` 作为前缀开始，具体配置如下图。
   <img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/demo2.png" width="70%" height="60%" />
+
+# 3. 如何禁用插件
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `Redirect` 设置为禁用。
+  <img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/disable-redirect-plugin-zh.png" width="70%" height="60%" />

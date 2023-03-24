@@ -43,7 +43,7 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     enabled: true
     registerType: http
     serverLists: http://localhost:9095
@@ -119,7 +119,7 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     enabled: true
     registerType: zookeeper
     serverLists: localhost:2181
@@ -191,7 +191,7 @@ shenyu:
 
 ```yaml
 shenyu:
-  client:
+  register:
     enabled: true
     registerType: etcd 
     serverLists: http://localhost:2379

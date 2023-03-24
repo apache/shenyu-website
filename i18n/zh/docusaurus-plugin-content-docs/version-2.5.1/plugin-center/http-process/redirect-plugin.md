@@ -31,7 +31,7 @@ description: redirect插件
 
 ## 2.1 插件使用流程图
 
-<img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/redirect-procedure-zh.png" width="40%" height="30%" />
+<img src="../../../../../../static/img/shenyu/plugin/redirect/redirect-procedure-zh.png" width="40%" height="30%" />
 
 ## 2.2 导入 pom
 
@@ -51,7 +51,7 @@ description: redirect插件
 
 - 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `redirect` 设置为开启。
 
-  <img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/redirect-plugin-enable-zh.png" width="70%" height="60%" />
+  <img src="../../../../../../static/img/shenyu/plugin/redirect/redirect-plugin-enable-zh.png" width="70%" height="60%" />
 
 ## 2.4 配置插件
 
@@ -59,11 +59,11 @@ description: redirect插件
 - `shenyu-admin`插件列表 --> `HttpProcess` --> `Redirect`，先添加选择器，然后添加规则：
 - 添加选择器：
 
-  <img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/redirect-plugin-forward-rule-zh.png" width="70%" height="60%" />
+  <img src="../../../../../../static/img/shenyu/plugin/redirect/redirect-plugin-forward-rule-zh.png" width="70%" height="60%" />
 
 - 添加规则：
 
-  <img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/redirect-plugin-rule-zh.png" width="70%" height="60%" />
+  <img src="../../../../../../static/img/shenyu/plugin/redirect/redirect-plugin-rule-zh.png" width="70%" height="60%" />
 
 ## 2.5 示例
 
@@ -79,17 +79,17 @@ description: redirect插件
 - 调用选择器和规则声明的接口，将会重定向至指定路径。
 - 在本例中，将跳转至 [ShenYu 官网](https://shenyu.apache.org)
 
-  <img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/redirect.png" width="70%" height="60%" />
+  <img src="../../../../../../static/img/shenyu/plugin/redirect/redirect.png" width="70%" height="60%" />
 
 ### 2.5.2 网关自身接口转发
 
 - 当满足匹配规则时，服务内部会使用 `DispatcherHandler` 内部接口转发。
 - 要实现网关自身接口转发，我们需要在配置路径使用 `/` 作为前缀开始，具体配置如下图。
 
-  <img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/demo2-zh.png" width="70%" height="60%" />
+  <img src="../../../../../../static/img/shenyu/plugin/redirect/demo2-zh.png" width="70%" height="60%" />
 
 # 3. 如何禁用插件
 
 - 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `Redirect` 设置为禁用。
   
-  <img align=bottom src="../../../../../../static/img/shenyu/plugin/redirect/disable-redirect-plugin-zh.png" width="70%" height="60%" />
+  <img src="../../../../../../static/img/shenyu/plugin/redirect/disable-redirect-plugin-zh.png" width="70%" height="60%" />

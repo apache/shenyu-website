@@ -31,7 +31,7 @@ description:  brpc-plugin
 
 * Add related dependencies and enable plugin, please refer to: [Quick start with Brpc](../../quick-start/quick-start-brpc) .
 
-* `Brpc` client access, please refer to: [Brpc Proxy](../../user-guide/brpc-proxy) .
+* `Brpc` client access, please refer to: [Brpc Proxy](../../user-guide/proxy/brpc-proxy.md) .
 
 
 ## 2.2 Metadata

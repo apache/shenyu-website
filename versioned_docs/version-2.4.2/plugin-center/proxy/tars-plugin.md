@@ -14,7 +14,7 @@ description:  tars-plugin
 
 * Add related dependencies and enable plugin, please refer to: [Quick start with Tars](../../quick-start/quick-start-tars) .
 
-* `Tars` client access, please refer to: [Tars Proxy](../../user-guide/tars-proxy) .
+* `Tars` client access, please refer to: [Tars Proxy](../../user-guide/proxy/tars-proxy.md) .
 
 
 

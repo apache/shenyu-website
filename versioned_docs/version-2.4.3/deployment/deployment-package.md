@@ -7,7 +7,7 @@ description: Binary Packages Deployment
 
 This article introduces the deployment of the `Apache ShenYu` gateway using the binary packages.
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](deployment-before.md).
 
 ### Start Apache ShenYu Admin
 
@@ -23,7 +23,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 > linux: ./start.sh --spring.profiles.active = h2
 ```
 
-* use `MySQL` to store data, follow the [guide document](./deployment-before.md#mysql) to initialize the database, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) to /$(your_work_dir)/ext-lib, go to the `/conf` directory, and modify the `JDBC` configuration in `application-mysql.yml`.
+* use `MySQL` to store data, follow the [guide document](deployment-before.md#mysql) to initialize the database, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) to /$(your_work_dir)/ext-lib, go to the `/conf` directory, and modify the `JDBC` configuration in `application-mysql.yml`.
 
 ```
 > windows: start.bat --spring.profiles.active = mysql
@@ -31,7 +31,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 > linux: ./start.sh --spring.profiles.active = mysql
 ```
 
-* use `PostgreSql` to store data, follow the [guide document](./deployment-before.md#postgresql) to initialize the database, go to the `/conf` directory, and modify the `JDBC` configuration in `application-pg.yml`.
+* use `PostgreSql` to store data, follow the [guide document](deployment-before.md#postgresql) to initialize the database, go to the `/conf` directory, and modify the `JDBC` configuration in `application-pg.yml`.
 
 ```
 > windows: start.bat --spring.profiles.active = pg
@@ -39,7 +39,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 > linux: ./start.sh --spring.profiles.active = pg
 ```
 
-* use `Oracle` to store data, follow the [guide document](./deployment-before.md#oracle) to initialize the database, go to the `/conf` directory, and modify the `JDBC` configuration in `application-oracle.yml`.
+* use `Oracle` to store data, follow the [guide document](deployment-before.md#oracle) to initialize the database, go to the `/conf` directory, and modify the `JDBC` configuration in `application-oracle.yml`.
 
 ```
 > windows: start.bat --spring.profiles.active = oracle

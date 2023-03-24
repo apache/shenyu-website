@@ -33,7 +33,7 @@ Since ShenYu 2.4.0
 
 * Add related dependencies and enable plugin, please refer to: [Quick start with Spring Cloud](../../quick-start/quick-start-springcloud) .
 
-* `Spring Cloud` client access, please refer to: [Spring Cloud Proxy](../../user-guide/spring-cloud-proxy) .
+* `Spring Cloud` client access, please refer to: [Spring Cloud Proxy](../../user-guide/proxy/spring-cloud-proxy.md) .
 
 ## 2.1 Plugin-use procedure chart
 

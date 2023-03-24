@@ -7,7 +7,7 @@ description: Local Quick Deployment
 
 This article introduces how to quick start the `Apache ShenYu` gateway in the standalone environment.
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](deployment-before.md).
 
 ### Environmental preparation
 

@@ -31,7 +31,7 @@ description: redirect plugin
 
 ## 2.1 Plugin-use procedure chart
 
-  <img src="../../../static/img/shenyu/plugin/redirect/redirect-procedure-en.png" width="40%" height="30%" />
+  <img src="/img/shenyu/plugin/redirect/redirect-procedure-en.png" width="40%" height="30%" />
 
 ## 2.2 Import pom
 
@@ -51,7 +51,7 @@ description: redirect plugin
 
   - In `shenyu-admin` --> BasicConfig --> Plugin --> `Redirect` set Status enable.
 
-    <img src="../../../static/img/shenyu/plugin/redirect/redirect-plugin-enable-en.png" width="70%" height="60%" />
+    <img src="/img/shenyu/plugin/redirect/redirect-plugin-enable-en.png" width="70%" height="60%" />
 
 ## 2.4 Config plugin
 
@@ -59,10 +59,10 @@ description: redirect plugin
   - In `shenyu-admin` --> `PluginList` --> `HttpProcess` --> `Redirect`, add selector config first，then add rule config：
     - Add selector config
 
-      <img src="../../../static/img/shenyu/plugin/redirect/redirect-plugin-forward-rule-en.png" width="80%" height="60%" />
+      <img src="/img/shenyu/plugin/redirect/redirect-plugin-forward-rule-en.png" width="80%" height="60%" />
     - Add rule config
 
-      <img src="../../../static/img/shenyu/plugin/redirect/redirect-plugin-rule-en.png" width="80%" height="60%" />
+      <img src="/img/shenyu/plugin/redirect/redirect-plugin-rule-en.png" width="80%" height="60%" />
 
 ## 2.5 Examples
 
@@ -78,17 +78,17 @@ description: redirect plugin
   - Invoke the interface declared by selectors and rules will redirect to the specified path.
   - In this demo, it will jump to [ShenYu official website](https://shenyu.apache.org)
 
-    <img src="../../../static/img/shenyu/plugin/redirect/redirect.png" width="70%" height="60%" />
+    <img src="/img/shenyu/plugin/redirect/redirect.png" width="70%" height="60%" />
 
 ### 2.5.2 Gateway's own interface forwarding
 
   - When the matching rules are met, the service will use the `DispatcherHandler` internal interface for forwarding.
   - To implement the gateway's own interface forwarding, we need to use `/` as the prefix in the configuration path. The specific configuration is as shown in the figure below.
 
-    <img src="../../../static/img/shenyu/plugin/redirect/demo2-en.png" width="70%" height="60%" />
+    <img src="/img/shenyu/plugin/redirect/demo2-en.png" width="70%" height="60%" />
 
 # 3. How to disable plugin
 
 - In `shenyu-admin` --> BasicConfig --> Plugin --> `Redirect` set Status disable.
 
-  <img src="../../../static/img/shenyu/plugin/redirect/disable-redirect-plugin-zh.png" width="70%" height="60%" />
+  <img src="/img/shenyu/plugin/redirect/disable-redirect-plugin-zh.png" width="70%" height="60%" />

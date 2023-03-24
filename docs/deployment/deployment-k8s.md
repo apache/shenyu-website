@@ -175,8 +175,18 @@ data:
           enabled: false
     shenyu:
       matchCache:
-        enabled: false
-        maxFreeMemory: 256 # 256MB
+        selector:
+          selectorEnabled: false
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+        rule:
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+      trie:
+        childrenSize: 10000
+        pathVariableSize: 1000
+        pathRuleCacheSize: 1000
+        matchMode: antPathMatch
       netty:
         http:
           # set to false, user can custom the netty tcp server config.
@@ -568,8 +578,18 @@ data:
           enabled: false
     shenyu:
       matchCache:
-        enabled: false
-        maxFreeMemory: 256 # 256MB
+        selector:
+          selectorEnabled: false
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+        rule:
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+      trie:
+        childrenSize: 10000
+        pathVariableSize: 1000
+        pathRuleCacheSize: 1000
+        matchMode: antPathMatch
       netty:
         http:
           # set to false, user can custom the netty tcp server config.

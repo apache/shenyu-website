@@ -14,7 +14,7 @@ description:  grpc-plugin
 
 * Add related dependencies and enable plugin, please refer to: [Quick start with gRPC](../../quick-start/quick-start-grpc) .
 
-* `gRPC` client access, please refer to: [gRPC Proxy](../../user-guide/grpc-proxy) .
+* `gRPC` client access, please refer to: [gRPC Proxy](../../user-guide/proxy/grpc-proxy.md) .
 
 
 

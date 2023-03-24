@@ -13,7 +13,7 @@ description:  Tars插件
 
 * 引入相关依赖，开启插件，请参考：[Tars快速开始](../../quick-start/quick-start-tars) 。
 
-* `Tars`应用客户端接入，请参考：[Tars服务接入](../../user-guide/tars-proxy) 。
+* `Tars`应用客户端接入，请参考：[Tars服务接入](../../user-guide/proxy/tars-proxy.md) 。
 
 
 ## 插件讲解

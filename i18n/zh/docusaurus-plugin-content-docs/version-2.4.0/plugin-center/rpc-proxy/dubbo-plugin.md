@@ -15,7 +15,7 @@ description: dubbo插件
 
 * 引入相关依赖，开启插件，请参考：[Dubbo快速开始](../../quick-start/quick-start-dubbo) 。
 
-* `Dubbo`应用客户端接入，请参考：[Dubbo服务接入](../../user-guide/dubbo-proxy) 。
+* `Dubbo`应用客户端接入，请参考：[Dubbo服务接入](../../user-guide/proxy/dubbo-proxy.md) 。
 
 * 选择器和规则配置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 

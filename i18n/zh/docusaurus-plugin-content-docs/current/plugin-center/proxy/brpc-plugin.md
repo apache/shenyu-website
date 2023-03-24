@@ -32,7 +32,7 @@ description:  Brpc插件
 
 * 引入相关依赖，开启插件，请参考：[Brpc快速开始](../../quick-start/quick-start-brpc) 。
 
-* `Brpc`应用客户端接入，请参考：[Brpc服务接入](../../user-guide/brpc-proxy) 。
+* `Brpc`应用客户端接入，请参考：[Brpc服务接入](../../user-guide/proxy/brpc-proxy.md) 。
 
 
 ## 2.2 元数据

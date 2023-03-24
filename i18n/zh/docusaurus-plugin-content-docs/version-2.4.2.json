@@ -27,6 +27,10 @@
     "message": "属性配置",
     "description": "The label for category Property-Config in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Quick Connect to Your Service": {
+    "message": "快速接入",
+    "description": "The label for category User-Guide/Proxy in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.Plugin Center": {
     "message": "插件集合",
     "description": "The label for category Plugin-Center in sidebar tutorialSidebar"

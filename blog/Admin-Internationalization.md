@@ -9,7 +9,7 @@ Shenyu is a native API gateway for service proxy, protocol translation and API g
 
 ### Task1: Achieve the internationalization of shenyu-admin background(7 steps)
 
-1. **Add necessary dependencies:**
+**1. Add necessary dependencies:**
 
 Make sure we have the required dependencies in your **`pom.xml`** (for Maven) or **`build.gradle`** (for Gradle).
 
@@ -30,7 +30,7 @@ implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 In step 1, we ensure that our project has the necessary dependencies to enable validation and internationalization features. The **`spring-boot-starter-validation`** dependency includes Hibernate Validator, an implementation of the JSR-303 (Bean Validation) specification, and other libraries required for validation and internationalization.
 
-1. **Configure the `MessageSource` and `Validator` beans:**
+**2. Configure the `MessageSource` and `Validator` beans:**
 
 Create a configuration class and define a **`MessageSource`** bean to load the message properties files for different languages, and a **`Validator`** bean to use Hibernate Validator with custom **`MessageInterpolator`**:
 
@@ -70,7 +70,7 @@ Inside the class, I’ll define two beans:
 
 **`LocalValidatorFactoryBean`**: This bean configures the validation process with Hibernate Validator and enables the use of a custom **`MessageInterpolator`** for translating validation error messages. I’ll set the **`validationMessageSource`** property to the **`MessageSource`** bean I defined earlier. This will make the validation process use the translated messages from the message properties files for validation error messages.
 
-1. **Create message properties files:**
+**3. Create message properties files:**
 
 Create message properties files for each language you want to support, containing the translated messages for validation error messages and any other messages I want to internationalize. Place these files in the **`resources/i18n`** directory:
 
@@ -79,7 +79,7 @@ Create message properties files for each language you want to support, containin
 
 Add the translations for each message key in the corresponding properties file.
 
-1. **Create a custom `LocaleResolver`:**
+**4. Create a custom `LocaleResolver`:**
 
 Implement a custom **`LocaleResolver`** to determine the client's preferred language based on the 'Location' header in the HTTP request.
 
@@ -102,7 +102,7 @@ public class HeaderLocaleResolver implements LocaleResolver {
 }
 ```
 
-1. **Register the custom `LocaleResolver`:**
+**5. Register the custom `LocaleResolver`:**
 
 Register your custom **`LocaleResolver`** as a bean in your configuration class.
 
@@ -113,7 +113,7 @@ public LocaleResolver localeResolver() {
 }
 ```
 
-1. **Add a validation exception handler:**
+**6. Add a validation exception handler:**
 
 Create a validation exception handler that catches validation exceptions and returns internationalized error messages based on the client's preferred language.
 
@@ -138,7 +138,7 @@ public class ValidationErrorHandler {
 }
 ```
 
-1. **Update controllers and services to use internationalized messages:**
+**7. Update controllers and services to use internationalized messages:**
 
 Inject the **`MessageSource`** bean into our service classes and controllers. Use the **`MessageSource`** bean to get translated messages based on the client's preferred language.
 

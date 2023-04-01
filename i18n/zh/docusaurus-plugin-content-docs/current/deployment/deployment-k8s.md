@@ -20,14 +20,13 @@ description: K8s部署
 > 和 h2 过程类似，需要额外注意的两个地方：
 >
 > 	1. 需要下载 mysql-connector.jar，容器启动时会执行下载命令
-> 	2. 需要指定外部 MySQL 数据库配置，通过 Endpoints 来代理外部 MySQL 数据库
+> 	2. 需要指定外部 MySQL 数据库配置
 >
 > 具体流程如下：
 >
 > 	1. 创建 Namespace和 ConfigMap
-> 	2. 创建 Endpoints 代理外部 MySQL
-> 	3. 部署 shenyu-admin
-> 	4. 部署 shenyu-bootstrap
+> 	2. 部署 shenyu-admin
+> 	3. 部署 shenyu-bootstrap
 
 ## 示例一：使用 h2 作为数据库
 
@@ -175,8 +174,18 @@ data:
           enabled: false
     shenyu:
       matchCache:
-        enabled: false
-        maxFreeMemory: 256 # 256MB
+        selector:
+          selectorEnabled: false
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+        rule:
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+      trie:
+        childrenSize: 10000
+        pathVariableSize: 1000
+        pathRuleCacheSize: 1000
+        matchMode: antPathMatch
       netty:
         http:
           # set to false, user can custom the netty tcp server config.
@@ -534,7 +543,7 @@ data:
         init_enable: true
     spring:
       datasource:
-        url: jdbc:mysql://mysql.shenyu.svc.cluster.local:3306/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        url: jdbc:mysql://{your_mysql_ip}:{your_mysql_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
         username: {your_mysql_user}
         password: {your_mysql_password}
         driver-class-name: com.mysql.jdbc.Driver
@@ -571,8 +580,18 @@ data:
           enabled: false
     shenyu:
       matchCache:
-        enabled: false
-        maxFreeMemory: 256 # 256MB
+        selector:
+          selectorEnabled: false
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+        rule:
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+      trie:
+        childrenSize: 10000
+        pathVariableSize: 1000
+        pathRuleCacheSize: 1000
+        matchMode: antPathMatch
       netty:
         http:
           # set to false, user can custom the netty tcp server config.
@@ -688,40 +707,7 @@ data:
 
 - 执行 `kubectl apply -f shenyu-ns.yaml`
 
-### 2. 创建 Endpoints 代理外部 MySQL
-
-- 初始化数据库[部署先决条件](./deployment-before.md)
-
-- 创建文件 shenyu-ep.yaml
-
-```yaml
-kind: Service
-apiVersion: v1
-metadata:
-  name: mysql
-  namespace: shenyu
-spec:
-  ports:
-  - port: 3306
-    name: mysql
-    targetPort: {your_mysql_port}
----
-kind: Endpoints
-apiVersion: v1
-metadata:
-  name: mysql
-  namespace: shenyu
-subsets:
-- addresses:
-  - ip: {your_mysql_ip}
-  ports:
-  - port: {your_mysql_port}
-    name: mysql
-```
-
-- 执行 `kubectl apply -f shenyu-ep.yaml`
-
-### 3. 部署 shenyu-admin
+### 2. 部署 shenyu-admin
 
 - 创建文件 shenyu-admin.yaml
 
@@ -812,7 +798,7 @@ spec:
 
 - 执行`kubectl apply -f shenyu-admin.yaml`
 
-### 4. 部署 shenyu-bootstrap
+### 3. 部署 shenyu-bootstrap
 
 - 创建文件 shenyu-bootstrap.yaml
 

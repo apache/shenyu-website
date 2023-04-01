@@ -3,6 +3,15 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>Apache ShenYu 2.5.1 Version Release</Translate>,
+        description: <Translate>Apache ShenYu 2.5.1 Version Release</Translate>,
+        categories: "Apache ShenYu",
+        tags: ["Apache ShenYu"],
+        date: '2023-02-06',
+        cover: "/img/architecture/shenyu-architecture-3d.png",
+        src:'Apache-ShenYu-release-version-2.5.1',
+    },
+    {
         title: <Translate>From company gateway framework selection to Apache ShenYu Committer</Translate>,
         author: "Shuo Li",
         description: <Translate>From company gateway framework selection to Apache ShenYu Committer</Translate>,

@@ -12,7 +12,7 @@ description: divide插件
 
 * 引入相关依赖，开启插件，请参考：[Http快速开始](../../quick-start/quick-start-http) 。
 
-* `Http`应用客户端接入，请参考：[Http服务接入](../../user-guide/http-proxy) 。
+* `Http`应用客户端接入，请参考：[Http服务接入](../../user-guide/proxy/http-proxy.md) 。
 
 ## 插件讲解
 

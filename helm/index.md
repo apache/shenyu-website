@@ -5,6 +5,15 @@ description: Helm Deployment
 
 This article introduces the use of `helm` to deploy the `Apache ShenYu` gateway.
 
+## Prerequisites
+
+### Tools
+
+* [Kubernetes &＆ Kubectl](https://kubernetes.io/docs/setup/)
+* [Helm](https://helm.sh/docs/intro/install/)
+
+### Database
+
 > Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](https://shenyu.apache.org/docs/deployment/deployment-before/).
 
 ## Add Helm repository
@@ -139,24 +148,46 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 | configuration item | type   | default   | description                                                                                        |
 |--------------------|--------|-----------|----------------------------------------------------------------------------------------------------|
-| replicas           | int    | `1`       | Number of replicas                                                                                 |
 | version            | string | `"2.5.0"` | shenyu version, it is not recommended to modify, please install the corresponding version directly |
 
 ### shenyu-admin configuration
 
-| configuration item | type   | default                                                                                                     | description        |
-|--------------------|--------|-------------------------------------------------------------------------------------------------------------|--------------------|
-| admin.nodePort     | int    | `31095`                                                                                                     | NodePort port      |
-| admin.javaOpts     | string | [see here](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-admin-dist/docker/entrypoint.sh) | JVM parameters     |
-| admin.resources    | dict   | omit                                                                                                        | K8s resource quota |
+| configuration item                                    | type   | default                                                                                                     | description                                                     |
+|-------------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| admin.enabled                                         | bool   | `true`                                                                                                      | whether to install admin                                        |
+| admin.replicas                                        | int    | `1`                                                                                                         | number of replicas                                              |
+| admin.image                                           | string | `"apache/shenyu-admin"`                                                                                     | image name (you can modify this field to support custom images) |
+| admin.nodePort                                        | int    | `31095`                                                                                                     | NodePort port                                                   |
+| admin.javaOpts                                        | string | [see here](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-admin-dist/docker/entrypoint.sh) | JVM parameters                                                  |
+| admin.resources                                       | dict   | omit                                                                                                        | K8s resource quota                                              |
+| admin.autoscaling.enabled                             | bool   | `false`                                                                                                     | whether to install hpa                                          |
+| admin.autoscaling.minReplicas                         | int    | `1`                                                                                                         | minReplicas in hpa                                              |
+| admin.autoscaling.maxReplicas                         | int    | `10`                                                                                                        | maxReplicas in hpa                                              |
+| admin.autoscaling.targetCPUUtilizationPercentage      | int    | `75`                                                                                                        | targetCPUUtilizationPercentage in hpa                           |
+| admin.autoscaling.targetMemoryUtilizationPercentage   | int    | `75`                                                                                                        | targetMemoryUtilizationPercentage in hpa                        |
+| admin.ingress.enabled                                 | bool   | `false`                                                                                                     | whether to install ingress                                      |
+| admin.ingress.hosts[0].host                           | string | `shenyu-admin.local`                                                                                        | ingress host, u can set not only one  host                      |
+| admin.ingress.hosts[0].paths[0].path                  | string | `/`                                                                                                         | ingress host, u can set not only one  path                      |
+
 
 ### shenyu-bootstrap configuration
 
-| configuration item  | type   | default                                                                                                         | description        |
-|---------------------|--------|-----------------------------------------------------------------------------------------------------------------|--------------------|
-| bootstrap.nodePort  | int    | `31195`                                                                                                         | NodePort Port      |
-| bootstrap.javaOpts  | string | [see here](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-bootstrap-dist/docker/entrypoint.sh) | JVM parameters     |
-| bootstrap.resources | dict   | `{}`                                                                                                            | K8s resource quota |
+| configuration item                                          | type   | default                                                                                                         | description                                                     |
+|-------------------------------------------------------------|--------|-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| bootstrap.enabled                                           | bool   | `true`                                                                                                          | whether to install bootstrap                                    |
+| bootstrap.replicas                                          | int    | `2`                                                                                                             | number of replicas                                              |
+| bootstrap.image                                             | string | `"apache/shenyu-bootstrap"`                                                                                     | image name (you can modify this field to support custom images) |
+| bootstrap.nodePort                                          | int    | `31195`                                                                                                         | NodePort Port                                                   |
+| bootstrap.javaOpts                                          | string | [see here](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-bootstrap-dist/docker/entrypoint.sh) | JVM parameters                                                  |
+| bootstrap.resources                                         | dict   | `{}`                                                                                                            | K8s resource quota                                              |
+| bootstrap.autoscaling.enabled                               | bool   | `false`                                                                                                         | whether to install hpa                                          |
+| bootstrap.autoscaling.minReplicas                           | int    | `1`                                                                                                             | minReplicas in hpa                                              |
+| bootstrap.autoscaling.maxReplicas                           | int    | `10`                                                                                                            | maxReplicas in hpa                                              |
+| bootstrap.autoscaling.targetCPUUtilizationPercentage        | int    | `75`                                                                                                            | targetCPUUtilizationPercentage in hpa                           |
+| bootstrap.autoscaling.targetMemoryUtilizationPercentage     | int    | `75`                                                                                                            | targetMemoryUtilizationPercentage in hpa                        |
+| bootstrap.ingress.enabled                                   | bool   | `false`                                                                                                         | whether to install ingress                                      |
+| bootstrap.ingress.hosts[0].host                             | string | `shenyu-boostrap.local`                                                                                         | ingress host, u can set not only one  host                      |
+| bootstrap.ingress.hosts[0].paths[0].path                    | string | `/`                                                                                                             | ingress host, u can set not only one  path                      |
 
 ### Database configuration
 

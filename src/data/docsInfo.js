@@ -10,7 +10,8 @@ export default [
     nextVersion: "/docs/next/index",
     versionsList: [
       { next: "/docs/next/index" },
-      { "2.5.0": "/docs/index" },
+      { "2.5.1": "/docs/index" },
+      { "2.5.0": "/docs/2.5.0/index" },
       { "2.4.3": "/docs/2.4.3/index" },
       { "2.4.2": "/docs/2.4.2/index" },
       { "2.4.1": "/docs/2.4.1/index" },
@@ -68,5 +69,8 @@ export default [
       <Translate>Helm deployment documentation written for ShenYu</Translate>
     ),
     latestVersion: "/helm/index",
+    versionsList: [
+      {"for ShenYu 2.5.0": "/helm/index"},
+    ]
   },
 ];

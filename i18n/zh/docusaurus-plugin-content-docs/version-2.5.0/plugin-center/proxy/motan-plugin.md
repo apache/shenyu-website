@@ -12,7 +12,7 @@ description:  Motan插件
 
 * 引入相关依赖，开启插件，请参考：[Motan快速开始](../../quick-start/quick-start-motan) 。
 
-* `Motan`应用客户端接入，请参考：[Motan服务接入](../../user-guide/motan-proxy) 。
+* `Motan`应用客户端接入，请参考：[Motan服务接入](../../user-guide/proxy/motan-proxy.md) 。
 
 
 ## 插件讲解

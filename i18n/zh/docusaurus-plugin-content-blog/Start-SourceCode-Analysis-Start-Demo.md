@@ -19,7 +19,7 @@ tags: [Apache ShenYu]
 使用Git拉取代码
 
 ```shell
-> git clone https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/apache/incubator-shenyu.git
 ```
 
 ### 编译代码
@@ -27,8 +27,8 @@ tags: [Apache ShenYu]
 使用Maven进行编译
 
 ```shell
-> cd incubator-shenyu
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+cd incubator-shenyu
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 ### 启动网关服务

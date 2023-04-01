@@ -34,7 +34,7 @@ description: Spring Cloud插件
 
 * 引入相关依赖，开启插件，请参考：[Spring Cloud快速开始](../../quick-start/quick-start-springcloud) 。
 
-* `Spring Cloud`应用客户端接入，请参考：[Spring Cloud服务接入](../../user-guide/spring-cloud-proxy) 。
+* `Spring Cloud`应用客户端接入，请参考：[Spring Cloud服务接入](../../user-guide/proxy/spring-cloud-proxy.md) 。
 
 ## 2.1 插件使用流程图
 
@@ -145,7 +145,7 @@ spring:
   cloud:
     loadbalancer:
       ribbon:
-        enabled: false
+        enabled: true
 ```
 
 ## 2.4 启用插件

@@ -6,6 +6,15 @@ description: Helm部署
 
 本文介绍使用 `helm` 来部署 `Apache ShenYu` 网关。
 
+## 先决条件
+
+### 工具
+
+* [Kubernetes &＆ Kubectl](https://kubernetes.io/zh-cn/docs/setup/)
+* [Helm](https://helm.sh/zh/docs/intro/install/)
+
+### 数据库
+
 > 在阅读本文档前，你需要先阅读[部署先决条件](https://shenyu.apache.org/zh/docs/deployment/deployment-before)文档来完成部署 `shenyu` 前的环境准备工作。
 
 ## 添加 Helm 仓库
@@ -134,26 +143,31 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 ### 全局配置
 
-| 配置项    | 类型    | 默认值     | 描述                                   |
-|----------|--------|-----------|---------------------------------------|
-| replicas | int    | `1`       | 副本数量                               |
-| version  | string | `"2.5.0"` | shenyu 版本，不建议修改，请直接安装对应版本 |
+| 配置项   | 类型    | 默认值     | 描述                                   |
+|---------|--------|-----------|---------------------------------------|
+| version | string | `"2.5.0"` | shenyu 版本，不建议修改，请直接安装对应版本 |
 
 ### shenyu-admin 配置
 
-| 配置项           | 类型    | 默认值                                                                                                      | 描述          |
-|-----------------|--------|------------------------------------------------------------------------------------------------------------|--------------|
-| admin.nodePort  | int    | `31095`                                                                                                    | NodePort 端口 |
-| admin.javaOpts  | string | [详见这里](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-admin-dist/docker/entrypoint.sh) | JVM 参数      |
-| admin.resources | dict   | `{}`                                                                                                       | K8s 资源配额  |
+| 配置项           | 类型    | 默认值                                                                                                      | 描述                                 |
+|-----------------|--------|------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| admin.enabled   | bool   | `true`                                                                                                     | 是否安装 admin                       |
+| admin.replicas  | int    | `1`                                                                                                        | 副本数量                             |
+| admin.image     | string | `"apache/shenyu-admin"`                                                                                    | 镜像名称（可以修改此字段以支持定制化镜像） |
+| admin.nodePort  | int    | `31095`                                                                                                    | NodePort 端口                        |
+| admin.javaOpts  | string | [详见这里](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-admin-dist/docker/entrypoint.sh) | JVM 参数                             |
+| admin.resources | dict   | `{}`                                                                                                       | K8s 资源配额                         |
 
 ### shenyu-bootstrap 配置
 
-| 配置项               | 类型    | 默认值                                                                                                          | 描述          |
-|---------------------|--------|----------------------------------------------------------------------------------------------------------------|--------------|
-| bootstrap.nodePort  | int    | `31195`                                                                                                        | NodePort 端口 |
-| bootstrap.javaOpts  | string | [详见这里](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-bootstrap-dist/docker/entrypoint.sh) | JVM 参数      |
-| bootstrap.resources | dict   | `{}`                                                                                                           | K8s 资源配额  |
+| 配置项               | 类型    | 默认值                                                                                                          | 描述                                 |
+|---------------------|--------|----------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| bootstrap.enabled   | bool   | `true`                                                                                                         | 是否安装 bootstrap                   |
+| bootstrap.replicas  | int    | `2`                                                                                                            | 副本数量                             |
+| bootstrap.image     | string | `"apache/shenyu-bootstrap"`                                                                                    | 镜像名称（可以修改此字段以支持定制化镜像） |
+| bootstrap.nodePort  | int    | `31195`                                                                                                        | NodePort 端口                        |
+| bootstrap.javaOpts  | string | [详见这里](https://github.com/apache/shenyu/blob/master/shenyu-dist/shenyu-bootstrap-dist/docker/entrypoint.sh) | JVM 参数                             |
+| bootstrap.resources | dict   | `{}`                                                                                                           | K8s 资源配额                         |
 
 ### 数据库配置
 

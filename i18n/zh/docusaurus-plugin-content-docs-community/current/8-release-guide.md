@@ -449,14 +449,14 @@ docker buildx build \
   -t apache/shenyu-admin:${PUBLISH.VERSION} \
   --build-arg APP_NAME=apache-shenyu-${PUBLISH.VERSION}-admin-bin \
   --platform=linux/arm64,linux/amd64,linux/arm/v6,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x \
-  -f ./shenyu-admin-dist/Dockerfile --push ./shenyu-admin-dist
+  -f ./shenyu-admin-dist/docker/Dockerfile --push ./shenyu-admin-dist
 
 docker buildx build \
   -t apache/shenyu-bootstrap:latest \
   -t apache/shenyu-bootstrap:${PUBLISH.VERSION} \
   --build-arg APP_NAME=apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin \
   --platform=linux/arm64,linux/amd64,linux/arm/v6,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x \
-  -f ./shenyu-bootstrap-dist/Dockerfile --push ./shenyu-bootstrap-dist
+  -f ./shenyu-bootstrap-dist/docker/Dockerfile --push ./shenyu-bootstrap-dist
 
 ```
 

@@ -80,8 +80,8 @@ Except for host, port, all others are optional, in most cases only these 3 items
 
 ### 2.4.2 Configuring Selectors and Rulers
 
-For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
-In addition sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
+For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule).
+In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) correspond to different topics, related to isolation,  
 then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
 The operation is shown below:
 

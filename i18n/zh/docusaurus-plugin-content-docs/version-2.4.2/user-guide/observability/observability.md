@@ -27,14 +27,14 @@ description: Observability
 - 下载代码
 
 ```shell
-> git clone https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/apache/incubator-shenyu.git
 ```
 
 - 使用Maven编译代码
 
 ```shell
-> cd incubator-shenyu
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+cd incubator-shenyu
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 编译成功后，在 `~/shenyu/shenyu-dist/shenyu-agent-dist/target/shenyu-agent` 目录下，可以看见 `shenyu-agent` 模块编译后的jar包和相关配置文件。

@@ -13,8 +13,18 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 ```yaml
 shenyu:
   matchCache:
-    enabled: false
-    maxFreeMemory: 256 # 256MB
+    selector:
+      selectorEnabled: false
+      initialCapacity: 10000 # initial capacity in cache
+      maximumSize: 10000 # max size in cache
+    rule:
+      initialCapacity: 10000 # initial capacity in cache
+      maximumSize: 10000 # max size in cache
+  trie:
+    childrenSize: 10000
+    pathVariableSize: 1000
+    pathRuleCacheSize: 1000
+    matchMode: antPathMatch
   netty:
     http:
       webServerFactoryEnabled: true
@@ -201,12 +211,35 @@ shenyu:
 
 ##### shenyu.matchCache config
 
-The apache shenyu  selector cache config.
+* selector cache
 
-| Name          | Type    | Default | Required | Description                         |
-| :------------ | :------ | :-----: | :------: | :---------------------------------- |
-| enabled       | Boolean |  false  |    No    | Whether to enable selector caching. |
-| maxFreeMemory | Integer |  256MB  |   否No   | Maximum cache usage (MB).           |
+| Field           | Type    | Default | Required | Description                         |
+|-----------------|---------|---------|----------|-------------------------------------|
+| selectorEnabled | Boolean | false   | No       | Whether to enable selector caching. |
+| initialCapacity | Integer | 10000   | No       | selector initial capacity           |
+| maximumSize     | Integer | 10000   | No       | selector max size                   |
+
+* rule Level-1 cache config
+
+| Field           | Type    | Default | Required | Description           |
+|-----------------|---------|---------|----------|-----------------------|
+| initialCapacity | Integer | 10000   | Yes      | rule initial capacity |
+| maximumSize     | Integer | 10000   | Yes      | rule max size         |
+
+* shenyu rule Level-2 cache config(shenyu level-2 cache using trie cache)
+
+| Field             | Type    | Default      | Required | Description                                                                       |
+|-------------------|---------|--------------|----------|-----------------------------------------------------------------------------------|
+| childrenSize      | Integer | 10000        | Yes      | trie cache children size                                                          |
+| pathVariableSize  | Integer | 1000         | Yes      | tie cache path variable size, for example, /{username}/{age}                      |
+| pathRuleCacheSize | Integer | 1000         | Yes      | rule data list of the current path                                                |
+| matchMode         | String  | antPathMatch | Yes      | path match mode, shenyu support two match modes, `antPathMatch` and `pathPattern` |
+
+L1 and L2 caching is enabled on shenyu by default,
+shenyu trie match support two match mode, we suggest use `pathPattern` as default match mode
+
+> pathPattern: org.springframework.web.util.pattern.PathPatternParser
+> antPathMatch: org.springframework.util.AntPathMatcher
 
 
 

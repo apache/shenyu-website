@@ -13,8 +13,18 @@ description: 网关属性配置
 ```yaml
 shenyu:
   matchCache:
-    enabled: false
-    maxFreeMemory: 256 # 256MB
+    selector:
+      selectorEnabled: false
+      initialCapacity: 10000 # initial capacity in cache
+      maximumSize: 10000 # max size in cache
+    rule:
+      initialCapacity: 10000 # initial capacity in cache
+      maximumSize: 10000 # max size in cache
+  trie:
+    childrenSize: 10000
+    pathVariableSize: 1000
+    pathRuleCacheSize: 1000
+    matchMode: antPathMatch
   netty:
     http:
       webServerFactoryEnabled: true
@@ -201,12 +211,34 @@ shenyu:
 
 ##### shenyu.matchCache 配置
 
-Apache ShenYu 选择器缓存配置
+* Apache ShenYu 选择器缓存配置
 
-| 名称          | 类型    | 默认值 | 是否必填 | 说明 |
-|:------------------------------|:----- |:-------:|:--------:|:------------------------------------------------------------|
-| enabled | Boolean |  false  |    否    | 是否开启选择器缓存 |
-| maxFreeMemory | Integer | 256MB | 否 | 最大缓存占用，单位MB |
+| 字段           | 类型    | 默认值 | 是否必填 | 说明       |
+|-----------------|---------|---------|----------|-------------------|
+| selectorEnabled | Boolean | false   | No       | 是否开启选择器缓存         |
+| initialCapacity | Integer | 10000   | No       | 选择器缓存初始化容量        |
+| maximumSize     | Integer | 10000   | No       | 选择器缓存最大数量         |
+
+* Apache ShenYu L1级缓存配置
+
+| 字段              | 类型      | 默认值   | 是否必填 | 说明        |
+|-----------------|---------|-------|------|-----------|
+| initialCapacity | Integer | 10000 | Yes  | 规则缓存初始化容量 |
+| maximumSize     | Integer | 10000 | Yes  | 规则缓存最大容量  |
+
+* Apache ShenYu L2级缓存配置(shenyu使用前缀树作为l2缓存)
+
+| 字段                | 类型      | 默认值      | 是否必填 | 说明                                                            |
+|-------------------|---------|--------------|----------|---------------------------------------------------------------|
+| childrenSize      | Integer | 10000        | Yes      | 前缀树缓存每个子节点的缓存数量                                               |
+| pathVariableSize  | Integer | 1000         | Yes      | 前缀树缓存每个子节点存储的路径变量数量, /{username}/{age}                        |
+| pathRuleCacheSize | Integer | 1000         | Yes      | 当前路径的规则                                                       |
+| matchMode         | String  | antPathMatch | Yes      | shenyu路径匹配模式，shenyu支持两种匹配模式: `antPathMatch` and `pathPattern` |
+
+shenyu默认开启L1和L2缓存, shenyu前缀树支持两种匹配模式，我们非常建议您使用`pathPattern`作为默认的匹配模式。
+
+> pathPattern: org.springframework.web.util.pattern.PathPatternParser
+> antPathMatch: org.springframework.util.AntPathMatcher
 
 
 

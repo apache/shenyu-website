@@ -5,7 +5,7 @@ keywords: ["k8s"]
 description: K8s Deployment
 ---
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](deployment-before.md).
 
 This article introduces the use of `K8s` to deploy the `Apache ShenYu` gateway.
 

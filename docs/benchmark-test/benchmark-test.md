@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-title: ShenYu Benchmark Test Report
+title: Benchmark Test Report
 keywords: ["test", "benchmark-test"]
 description: ShenYu Benchmark Test Report
 ---
@@ -40,7 +40,7 @@ wrk-4.2.0
     - -Xss 512k 
     - -XX: +DisableExplicitGC 
     - -XX: LargePageSizeInBytes=128m
-- shenyu-bootstrap 配置：
+- shenyu-bootstrap Configuration：
     
     ```yml
     matchCache:
@@ -59,7 +59,7 @@ wrk-4.2.0
         matchMode: antPathMatch
     ```
 
-- Netty 配置
+- Netty Configuration:
 
     ```yml
     netty:
@@ -100,7 +100,7 @@ wrk-4.2.0
             singleEventExecutorPerGroup: true
     ```
 
-- HttpClient 配置
+- HttpClient Configuration:
 
     ```yml
     httpclient:
@@ -159,8 +159,8 @@ wrk-4.2.0
     - 600 concurrency
 
     <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/1-netty-cache-selector.png" width="100%" height="100%" />
-    <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/2-netty-cache-selector.png" width="100%" height="100%" />
-    <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/3-netty-cache-selector.png" width="100%" height="100%" />
+    <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/2-netty-cache-selector.jpg" width="100%" height="100%" />
+    <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/3-netty-cache-selector.jpg" width="100%" height="100%" />
 
     - 800 concurrency
 

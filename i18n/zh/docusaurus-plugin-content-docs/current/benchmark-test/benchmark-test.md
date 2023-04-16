@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-title: ShenYu 基准测试报告
+title: 基准测试报告
 keywords: ["test", "benchmark-test"]
 description: ShenYu 基准测试报告
 ---
@@ -59,7 +59,7 @@ wrk-4.2.0
         matchMode: antPathMatch
     ```
 
-- Netty 配置
+- Netty 配置：
 
     ```yml
     netty:
@@ -100,7 +100,7 @@ wrk-4.2.0
             singleEventExecutorPerGroup: true
     ```
 
-- HttpClient 配置
+- HttpClient 配置：
 
     ```yml
     httpclient:
@@ -135,8 +135,8 @@ wrk-4.2.0
 
     |         | QPS      | 50% latency (ms) | 75% latency (ms) | 90% latency (ms) | 99% latency (ms) | 平均响应时间(ms) | 最大响应时间(ms) |
     |:---------:|:----------:|:------------------:|:------------------:|:------------------:|:------------------:|:------------:|:------------:|
-    | 600 并发  | 20472.95 | 19.37            | 25.36            | 32.89            | 69.92            | 22.09      | 1043.33    |
-    | 800 并发  | 20703.55 | 23.57            | 31.32            | 40.11            | 77.28            | 26.11      | 576.47     |
+    | 600  并发 | 20472.95 | 19.37            | 25.36            | 32.89            | 69.92            | 22.09      | 1043.33    |
+    | 800  并发 | 20703.55 | 23.57            | 31.32            | 40.11            | 77.28            | 26.11      | 576.47     |
     | 1000 并发 | 20979.91 | 29.21            | 37.86            | 47.23            | 80.91            | 31.20      | 860.55     |
     | 1200 并发 | 21129.88 | 32.45            | 42.40            | 52.68            | 96.10            | 35.06      | 1070       |
 
@@ -144,8 +144,8 @@ wrk-4.2.0
 
     |         | QPS      | 50% latency (ms) | 75% latency (ms) | 90% latency (ms) | 99% latency (ms) | 平均响应时间(ms) | 最大响应时间(ms) |
     |:---------:|:----------:|:------------------:|:------------------:|:------------------:|:------------------:|:------------:|:------------:|
-    | 600 并发  | 18640.47 | 15.77            | 24.77            | 38.26            | 80.31            | 20.32      | 852.06     |
-    | 800 并发  | 18723.44 | 18.12            | 28.69            | 44.96            | 95.3             | 23.52      | 765.26     |
+    | 600  并发 | 18640.47 | 15.77            | 24.77            | 38.26            | 80.31            | 20.32      | 852.06     |
+    | 800  并发 | 18723.44 | 18.12            | 28.69            | 44.96            | 95.3             | 23.52      | 765.26     |
     | 1000 并发 | 18928.99 | 19.99            | 31.42            | 49.09            | 108.84           | 25.93      | 1040       |
     | 1200 并发 | 18965.37 | 22.10            | 34.62            | 54.48            | 122.31           | 28.66      | 1075       |
 
@@ -159,8 +159,8 @@ wrk-4.2.0
     - 600 并发
 
     <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/1-netty-cache-selector.png" width="100%" height="100%" />
-    <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/2-netty-cache-selector.png" width="100%" height="100%" />
-    <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/3-netty-cache-selector.png" width="100%" height="100%" />
+    <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/2-netty-cache-selector.jpg" width="100%" height="100%" />
+    <img src="/img/shenyu/benchmark-test/netty/600-currency/8-thread/3-netty-cache-selector.jpg" width="100%" height="100%" />
 
     - 800 并发
 

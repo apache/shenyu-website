@@ -35,6 +35,7 @@ wrk-4.2.0
 - 使用 Mock 服务模拟一个平均响应时长 20ms ，响应报文约 2k 的接口
 - 每次测试时长 3 分钟
 - HTTP 请求端分别使用 `NettyClient` 和 `WebClient` 进行测试
+- 日志级别为WARN
  
 ### JVM 配置
 

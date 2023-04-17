@@ -35,6 +35,7 @@ wrk-4.2.0
 - Use the Mock service to simulate an interface with an average response time of 20ms and about 2k response messages
 - Each test lasts 3 minutes
 - The HTTP request side is tested with `NettyClient` and `WebClient` respectively
+- Log level is set to `WARN`
 
 ### JVM Configuration
 

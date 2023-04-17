@@ -36,6 +36,8 @@ wrk-4.2.0
 - Each test lasts 3 minutes
 - The HTTP request side is tested with `NettyClient` and `WebClient` respectively
 - Log level is set to `WARN`
+- Apache ShenYu Bootstrap deploy mode: standalone
+- Apache ShenYu Admin deploy in `Back-end Mock Service Server`
 
 ### JVM Configuration
 

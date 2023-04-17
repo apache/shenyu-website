@@ -36,6 +36,8 @@ wrk-4.2.0
 - 每次测试时长 3 分钟
 - HTTP 请求端分别使用 `NettyClient` 和 `WebClient` 进行测试
 - 日志级别为WARN
+- Apache ShenYu Bootstrap部署模式：单机部署
+- Apache ShenYu Admin部署在mock服务器上。
  
 ### JVM 配置
 

@@ -19,6 +19,8 @@ description: mock plugin
 * Set the status code and body of the request.
 * Support configuration `${}` placeholder to automatically generate data.
 
+* **Note:** In order to support a more flexible data generation method, the mock plug-in supports users to use SpEL expressions to generate mock data. Using SpEL expressions may lead to the risk of executing malicious scripts or applying destructive programs. We recommend that you be extra careful when using them, use them in a safe environment as much as possible, such as an intranet environment, and follow security best practices.
+
 ## 1.4 Plugin Code
 
 * Core module ```shenyu-plugin-mock```

@@ -334,6 +334,12 @@
   "Apache ShenYu Start Demo": {
     "message": "Apache ShenYu 启动示例"
   },
+  "Guide for New Contributors to Start avoid Pitfalls": {
+    "message": "Apache ShenYu 新人开发者启动及开发防踩坑指南"
+  },
+  "As a first-time developer in the `Shenyu` community, I encountered some \"Pitfalls\" that were not mentioned in the tutorials I followed to start and develop the project. I have documented the detailed steps I took to start `shenyu`, `shenyu-dashboard`, `shenyu-website` in this blog, hoping to help more new contributors in the community.": {
+    "message": "作为 `Shenyu` 社区初来乍到的开发者，我在按照相关教程进行项目启动及开发的过程中，遇到了一些教程中并未提及到的 “坑” ，我将我启动`shenyu` , `shenyu-dashboard`, `shenyu-website` 的详细步骤记录在这篇博客中，希望可以帮到社区中更多的新人开发者。"
+  },
   "Etcd Data Synchronization Source Code Analysis": {
     "message": "Etcd数据同步源码分析"
   },

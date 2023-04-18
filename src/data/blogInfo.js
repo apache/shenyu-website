@@ -86,6 +86,16 @@ export default [
                 date: '2021-07-2',
                 abs:<Translate>Apache ShenYu Start Demo</Translate>
             },
+            {
+                title: <Translate>Guide for New Contributors to Start avoid Pitfalls</Translate>,
+                author: "Yuxuan Zhang (Contributor)",
+                autImg: "/img/blog/zhangyuxuan.png",
+                autPage:"https://github.com/zuobiao-zhou",
+                src: "Start-SourceCode-Analysis-Start-Demo-for-Contributor",
+                cover: "/img/blog/7-1.png",
+                date: '2023-04-18',
+                abs:<Translate>As a first-time developer in the `Shenyu` community, I encountered some "Pitfalls" that were not mentioned in the tutorials I followed to start and develop the project. I have documented the detailed steps I took to start `shenyu`, `shenyu-dashboard`, `shenyu-website` in this blog, hoping to help more new contributors in the community.</Translate>
+            },
         ]
     },
     {

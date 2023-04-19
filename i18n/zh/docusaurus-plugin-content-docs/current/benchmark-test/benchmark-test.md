@@ -53,10 +53,12 @@ wrk-4.2.0
 
 ### 公共配置
 
+* application.yml
+
 ```yml
 matchCache:
   selector:
-    selectorEnabled: false
+    selectorEnabled: true
     initialCapacity: 10000 # initial capacity in cache
     maximumSize: 10000 # max size in cache
   rule:
@@ -107,6 +109,38 @@ netty:
     allocType: "pooled"
     messageSizeEstimator: 8
     singleEventExecutorPerGroup: true
+```
+
+```yaml
+  file:
+    enabled: false
+    maxSize : 10
+```
+
+```yaml
+  cross:
+    enabled: false
+```
+
+```yaml
+logging:
+  level:
+    root: warn
+    org.springframework.boot: warn
+    org.apache.ibatis: warn
+    org.apache.shenyu.bonuspoint: warn
+    org.apache.shenyu.lottery: warn
+    org.apache.shenyu: warn
+```
+
+* logback.xml
+
+```xml
+    <root level="WARN">
+        <appender-ref ref="ASYNC_STDOUT"/>
+        <appender-ref ref="ASYNC_FILE"/>
+        <appender-ref ref="ASYNC_ERROR_FILE"/>
+    </root>
 ```
 
 ### WebClient配置

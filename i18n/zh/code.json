@@ -575,7 +575,7 @@
   "This module provided SDK to watch available ShenYu instance list as upstream nodes by Service Register Center for OpenResty.": {
     "message": "该模块提供了SDK来监视OpenResty的服务注册中心作为上游节点的可用ShenYu实例列表"
   },
-  "Shenyu-client-golang for Go client allows you to access ShenYu Gateway,it supports registory go service to ShenYu Gateway.": {
+  "Shenyu-client-golang for Go client allows you to access ShenYu Gateway,it supports register go service to ShenYu Gateway.": {
     "message": "Shenyu-client-golang是提供了Go语言访问ShenYu网关的功能，并支持服务注册到ShenYu网关。"
   },
   "ShenYu .NET client allows you to register your Apps to ShenYu Gateway automatically and use ShenYu as gateway easily.": {

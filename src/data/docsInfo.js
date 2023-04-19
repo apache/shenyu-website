@@ -36,7 +36,7 @@ export default [
     description: (
       <Translate>
         Shenyu-client-golang for Go client allows you to access ShenYu
-        Gateway,it supports registory go service to ShenYu Gateway.
+        Gateway,it supports register go service to ShenYu Gateway.
       </Translate>
     ),
     latestVersion: "/shenyuClientGolang/http",

@@ -69,9 +69,9 @@ description: Logging-ElasticSearch Plugin
 - The individual configuration items are described as follows:
 
 | config-item     | type    | description                                                  | remarks                             |
-| :-------------- | :------ | :----------------------------------------------------------- | :---------------------------------- |
+|:----------------| :------ | :----------------------------------------------------------- | :---------------------------------- |
 | host            | String  | host name                                                    | must                                |
-| prot            | String  | port num                                                     | must                                |
+| port            | String  | port num                                                     | must                                |
 | sampleRate      | String  | Sampling rate, range 0~1, 0: off, 0.01: acquisition 1%, 1: acquisition 100% | Optional, default 1, all collection |
 | compressAlg     | String  | Compression algorithm, no compression by default, currently supports LZ4 compression | Optional, no compression by default |
 | maxResponseBody | Ingeter | Maximum response size, above the threshold no response will be collected | Optional, default 512KB             |

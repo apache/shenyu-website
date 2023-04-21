@@ -51,8 +51,8 @@ shenyu
    ├    ├──uri
    ├    ├     ├──${rpcType}
    ├    ├     ├      ├────${contextPath}
-   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
-   ├    ├     ├               ├──${ip:prot}
+   ├    ├     ├               ├──${ip:port} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:port}
 ```
 
 shenyu-client starts up, the service interface information (MetaDataRegisterDTO/URIRegisterDTO) wrote above the Zookeeper nodes.
@@ -73,8 +73,8 @@ shenyu
    ├    ├──uri
    ├    ├     ├──${rpcType}
    ├    ├     ├      ├────${contextPath}
-   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
-   ├    ├     ├               ├──${ip:prot}
+   ├    ├     ├               ├──${ip:port} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:port}
 ```
 
 shenyu-client starts up, the service interface information (MetaDataRegisterDTO/URIRegisterDTO) wrote in Ephemeral way above Etcd of the node.

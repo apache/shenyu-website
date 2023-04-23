@@ -6,7 +6,14 @@ description: Local Model
 
 ## Description
 
-* Standalone environment, then use the local `API` to update the apache shenyu gateway data。
+* Standalone environment, then use the local `API` to update the apache shenyu gateway data. the yaml config:
+```yaml
+shenyu:
+  local:
+    enabled: true
+    sha512Key: 123456
+```
+
 
 * Common result:
 

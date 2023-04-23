@@ -61,7 +61,7 @@ Default password: **123456**
 
 ```
 docker pull apache/shenyu-bootstrap
-docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap
+docker run -d -p 9195:9195 -e "shenyu.local.enabled=true" --net shenyu apache/shenyu-bootstrap
 ```
 
 ### Set router

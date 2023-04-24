@@ -301,3 +301,60 @@ shenyu:
 * Used `-Dplugin-ext=xxxx`, Also used `shenyu.extPlugin.path` in yaml，If neither is configured, the `ext-lib` directory in the apache shenyu gateway boot path will be loaded by default.
 
 * Priority ：`-Dplugin-ext=xxxx` > `shenyu.extPlugin.path` > `ext-lib(default)`
+
+
+## Plugin jar upload
+
+* To use this feature, you will need to package the `ShenyuPlugin` extension as a custom ShenyuPlugin Jar
+* Configure it in ShenyuAdmin
+  * use  `ShenyuAdmin - BasicConfig - Plugin` add plugin in `pluginJar` click upload button
+* Custom ShenyuPlugin can be started by loading third-party jars into the `-cp` directory if it depends on other third-party packages in shenyu-bootstrap
+
+Tips: The Upload jar plugin does not support hot loading.
+If you need to modify the jar online. You can make a new jar. Go through the above steps again. The class name cannot be duplicated from the last upload
+plugin uploaded for the first time
+```java
+public class CustomPluginV1 extends AbstractShenyuPlugin {
+    private static final Logger LOG = LoggerFactory.getLogger(CustomPluginV1.class);
+
+    protected Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorData selectorData, RuleData rule) {
+        LOG.info(".......... function plugin start CustomPluginV1............");
+        return chain.execute(exchange);
+    }
+
+    @Override
+    public int getOrder() {
+        return 0;
+    }
+
+    @Override
+    public String named() {
+        return "CustomPluginV1";
+    }
+}
+```
+Now we need to change it
+
+Delete CustomPluginV1 in the admin interface
+
+And recreate CustomPluginV2
+```java
+public class CustomPluginV2 extends AbstractShenyuPlugin {
+    private static final Logger LOG = LoggerFactory.getLogger(CustomPluginV2.class);
+
+    protected Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorData selectorData, RuleData rule) {
+        LOG.info(".......... function plugin start CustomPluginV2............");
+        return chain.execute(exchange);
+    }
+
+    @Override
+    public int getOrder() {
+        return 0;
+    }
+
+    @Override
+    public String named() {
+        return "CustomPluginV2";
+    }
+}
+```

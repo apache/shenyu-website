@@ -313,6 +313,7 @@ shenyu:
 Tips: The Upload jar plugin does not support hot loading.
 If you need to modify the jar online. You can make a new jar. Go through the above steps again. The class name cannot be duplicated from the last upload
 plugin uploaded for the first time
+
 ```java
 public class CustomPluginV1 extends AbstractShenyuPlugin {
     private static final Logger LOG = LoggerFactory.getLogger(CustomPluginV1.class);
@@ -333,11 +334,13 @@ public class CustomPluginV1 extends AbstractShenyuPlugin {
     }
 }
 ```
+
 Now we need to change it
 
 Delete CustomPluginV1 in the admin interface
 
 And recreate CustomPluginV2
+
 ```java
 public class CustomPluginV2 extends AbstractShenyuPlugin {
     private static final Logger LOG = LoggerFactory.getLogger(CustomPluginV2.class);
@@ -358,3 +361,4 @@ public class CustomPluginV2 extends AbstractShenyuPlugin {
     }
 }
 ```
+

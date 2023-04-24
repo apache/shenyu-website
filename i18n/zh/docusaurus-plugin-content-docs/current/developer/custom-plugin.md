@@ -321,6 +321,7 @@ shenyu:
 如果你需要在线修改jar包. 你可以重新打一个jar包.把上述步骤重新走一遍.这里的类名不能与上次上传相重复
 
 第一次上传的 plugin
+
 ```java
 public class CustomPluginV1 extends AbstractShenyuPlugin {
     private static final Logger LOG = LoggerFactory.getLogger(CustomPluginV1.class);
@@ -341,11 +342,13 @@ public class CustomPluginV1 extends AbstractShenyuPlugin {
     }
 }
 ```
+
 此时需要修改
 
 在admin 界面 删除 CustomPluginV1
 
 并且重新创建 CustomPluginV2
+
 ```java
 public class CustomPluginV2 extends AbstractShenyuPlugin {
     private static final Logger LOG = LoggerFactory.getLogger(CustomPluginV2.class);

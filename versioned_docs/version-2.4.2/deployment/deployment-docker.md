@@ -10,14 +10,14 @@ This article introduces the use of `docker` to deploy the `Apache ShenYu` gatewa
 ### Start Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin:2.4.2
-> docker network create shenyu
+docker pull apache/shenyu-admin:2.4.2
+docker network create shenyu
 ```
 
 * use `h2` to store data:
 
 ```
-> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
+docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.2
 ```
 
 * use `MySQL` to store data, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) to `/$(your_work_dir)/ext-lib`：
@@ -49,9 +49,9 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 In the host, the directory where the bootstrap [configuration file](https://github.com/apache/incubator-shenyu/tree/master/shenyu-bootstrap/src/main/resources) is located is recorded as `$BOOTSTRAP_CONF`.
 
 ```shell
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:2.4.2
-> docker run -d \
+docker network create shenyu
+docker pull apache/shenyu-bootstrap:2.4.2
+docker run -d \
   -p 9195:9195 \  -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   apache/shenyu-bootstrap:2.4.2
 ```
@@ -71,9 +71,9 @@ For detailed configuration, please refer to [Observability](../user-guide/observ
 The additional parameter `agent` means to start `shenyu-agent`.
 
 ```shell
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap:2.4.2
-> docker run -d \
+docker network create shenyu
+docker pull apache/shenyu-bootstrap:2.4.2
+docker run -d \
   -p 9195:9195 \
   --net shenyu \
   -v $AGENT_CONF:/opt/shenyu-bootstrap/agent/conf \

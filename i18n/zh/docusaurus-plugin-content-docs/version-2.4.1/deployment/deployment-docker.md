@@ -11,14 +11,14 @@ description: docker部署
 ### 启动Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin:2.4.1
-> docker network create shenyu
+docker pull apache/shenyu-admin:2.4.1
+docker network create shenyu
 ```
 
 * 使用 `h2` 来存储后台数据：
 
 ```
-> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.1
+docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.4.1
 ```
 
 * 使用 `MySQL` 来存储后台数据,将 [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) 拷贝到 `/${your_work_dir}/ext-lib`：
@@ -48,7 +48,7 @@ docker run -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net
 ### 启动Apache ShenYu Bootstrap
 
 ```
-> docker run -d \
+docker run -d \
   -p 9195:9195 \
   -v $BOOTSTRAP_CONF:/opt/shenyu-bootstrap/conf \
   --name shenyu-bootstrap \

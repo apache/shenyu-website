@@ -19,9 +19,9 @@ description: 本地部署
 * 下载代码
 
 ```
-> git clone https://github.com/apache/incubator-shenyu.git
-> cd incubator-shenyu
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+git clone https://github.com/apache/incubator-shenyu.git
+cd incubator-shenyu
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 * 使用开发工具启动 `org.apache.shenyu.admin.ShenyuAdminBootstrap`，访问 http://localhost:9095 ， 默认用户名和密码分别为: `admin` 和 `123456`。

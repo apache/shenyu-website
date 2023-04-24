@@ -43,17 +43,16 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 ### 运行 Apache ShenYu Admin
 
 ```
-> docker pull apache/shenyu-admin
-> docker network create shenyu
-> docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker pull apache/shenyu-admin
+docker network create shenyu
+docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
 ```
 
 ### 运行 Apache ShenYu Bootstrap
 
 ```
-> docker network create shenyu
-> docker pull apache/shenyu-bootstrap
-> docker run -d -p 9195:9195 --net shenyu apache/shenyu-bootstrap
+docker pull apache/shenyu-bootstrap
+docker run -d -p 9195:9195 -e "shenyu.local.enabled=true" --net shenyu apache/shenyu-bootstrap
 ```
 
 ### 路由设置

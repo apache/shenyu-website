@@ -54,8 +54,8 @@ shenyu
    ├    ├──uri
    ├    ├     ├──${rpcType}
    ├    ├     ├      ├────${contextPath}
-   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
-   ├    ├     ├               ├──${ip:prot}
+   ├    ├     ├               ├──${ip:port} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:port}
 ```
 
 `shenyu-client`启动时，将服务接口信息（`MetaDataRegisterDTO/URIRegisterDTO`）写到如上的`zookeeper`节点中。
@@ -76,8 +76,8 @@ shenyu
    ├    ├──uri
    ├    ├     ├──${rpcType}
    ├    ├     ├      ├────${contextPath}
-   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
-   ├    ├     ├               ├──${ip:prot}
+   ├    ├     ├               ├──${ip:port} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:port}
 ```
 
 `shenyu-client`启动时，将服务接口信息（`MetaDataRegisterDTO/URIRegisterDTO`）以`Ephemeral`方式写到如上的`Etcd`节点中。

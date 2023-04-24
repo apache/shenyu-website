@@ -3,6 +3,12 @@ import Translate from "@docusaurus/Translate";
 
 export default [
   {
+    title: <Translate>Release Apache Shenyu 2.5.1</Translate>,
+    description:
+        "New Features  \n  1. Add brpc example. \n  2. Add spring boot starter plugin brpc&admin. \n  3. Add brpc-plugin. \n  ......",
+    src: "2.5.1-release",
+  },
+  {
     title: <Translate>Release Apache Shenyu Nginx 1.0.0-1</Translate>,
     description:
         "New Features  \n  1. Support for listening to Apache ShenYu node changes using Zookeeper. \n  2. Support for listening to Apache ShenYu node changes using ETCD. \n  3. Support for listening to Apache ShenYu node changes using Nacos. \n  ......",

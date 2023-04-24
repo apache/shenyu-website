@@ -22,14 +22,13 @@ This article introduces the use of `K8s` to deploy the `Apache ShenYu` gateway.
 > Similar to the h2 process, there are two points to note
 >
 > 1. you need to load [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar), the download command is executed when the container is started
-> 2. you need to specify an external MySQL database configuration to proxy the external MySQL database via Endpoints
+> 2. you need to specify an external MySQL database configuration
 >
 > The process is as follows.
 >
 > 1. create Namespace and ConfigMap
-> 2. create Endpoints to proxy external MySQL
-> 3. deploy shenyu-admin
-> 4. deploy shenyu-bootstrap
+> 2. deploy shenyu-admin
+> 3. deploy shenyu-bootstrap
 
 
 ## Example 1: Using h2 as a database
@@ -176,8 +175,18 @@ data:
           enabled: false
     shenyu:
       matchCache:
-        enabled: false
-        maxFreeMemory: 256 # 256MB
+        selector:
+          selectorEnabled: false
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+        rule:
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+      trie:
+        childrenSize: 10000
+        pathVariableSize: 1000
+        pathRuleCacheSize: 1000
+        matchMode: antPathMatch
       netty:
         http:
           # set to false, user can custom the netty tcp server config.
@@ -532,7 +541,7 @@ data:
         init_enable: true
     spring:
       datasource:
-        url: jdbc:mysql://mysql.shenyu.svc.cluster.local:3306/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        url: jdbc:mysql://{your_mysql_ip}:{your_mysql_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
         username: {your_mysql_user}
         password: {your_mysql_password}
         driver-class-name: com.mysql.jdbc.Driver
@@ -569,8 +578,18 @@ data:
           enabled: false
     shenyu:
       matchCache:
-        enabled: false
-        maxFreeMemory: 256 # 256MB
+        selector:
+          selectorEnabled: false
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+        rule:
+          initialCapacity: 10000 # initial capacity in cache
+          maximumSize: 10000 # max size in cache
+      trie:
+        childrenSize: 10000
+        pathVariableSize: 1000
+        pathRuleCacheSize: 1000
+        matchMode: antPathMatch
       netty:
         http:
           # set to false, user can custom the netty tcp server config.
@@ -686,40 +705,7 @@ data:
 
 - execute `kubectl apply -f shenyu-ns.yaml`
 
-### 2. Create Endpoints to represent MySQL
-
-- Init database [Deployment Prerequisites document](./deployment-before.md).
-
-- create shenyu-ep.yaml
-
-```yaml
-kind: Service
-apiVersion: v1
-metadata:
-  name: mysql
-  namespace: shenyu
-spec:
-  ports:
-  - port: 3306
-    name: mysql
-    targetPort: {your_mysql_port}
----
-kind: Endpoints
-apiVersion: v1
-metadata:
-  name: mysql
-  namespace: shenyu
-subsets:
-- addresses:
-  - ip: {your_mysql_ip}
-  ports:
-  - port: {your_mysql_port}
-    name: mysql
-```
-
-- execute `kubectl apply -f shenyu-ep.yaml`
-
-### 3. Create shenyu-admin
+### 2. Create shenyu-admin
 
 - create shenyu-admin.yaml
 
@@ -810,7 +796,7 @@ spec:
 
 - execute`kubectl apply -f shenyu-admin.yaml`
 
-### 4. Create shenyu-bootstrap
+### 3. Create shenyu-bootstrap
 
 - create shenyu-bootstrap.yaml
 

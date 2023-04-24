@@ -10,7 +10,8 @@ export default [
     nextVersion: "/docs/next/index",
     versionsList: [
       { next: "/docs/next/index" },
-      { "2.5.0": "/docs/index" },
+      { "2.5.1": "/docs/index" },
+      { "2.5.0": "/docs/2.5.0/index" },
       { "2.4.3": "/docs/2.4.3/index" },
       { "2.4.2": "/docs/2.4.2/index" },
       { "2.4.1": "/docs/2.4.1/index" },
@@ -35,7 +36,7 @@ export default [
     description: (
       <Translate>
         Shenyu-client-golang for Go client allows you to access ShenYu
-        Gateway,it supports registory go service to ShenYu Gateway.
+        Gateway,it supports register go service to ShenYu Gateway.
       </Translate>
     ),
     latestVersion: "/shenyuClientGolang/http",

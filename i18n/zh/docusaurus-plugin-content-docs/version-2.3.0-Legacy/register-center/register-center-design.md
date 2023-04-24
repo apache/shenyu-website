@@ -55,8 +55,8 @@ soul
    ├    ├──uri
    ├    ├     ├──${rpcType}
    ├    ├     ├      ├────${contextPath}
-   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
-   ├    ├     ├               ├──${ip:prot}
+   ├    ├     ├               ├──${ip:port} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:port}
 ```
 
 Soul-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）写到如上的zookeeper节点中。
@@ -81,8 +81,8 @@ soul
    ├    ├──uri
    ├    ├     ├──${rpcType}
    ├    ├     ├      ├────${contextPath}
-   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
-   ├    ├     ├               ├──${ip:prot}
+   ├    ├     ├               ├──${ip:port} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:port}
 ```
 
 Soul-Client启动时，将服务接口信息（MetaDataRegisterDTO/URIRegisterDTO）以Ephemeral方式写到如上的Etcd节点中。

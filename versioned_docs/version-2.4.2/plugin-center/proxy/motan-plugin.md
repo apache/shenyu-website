@@ -14,7 +14,7 @@ description:  motan-plugin
 
 * Add related dependencies and enable plugin, please refer to: [Quick start with Motan](../../quick-start/quick-start-motan) .
 
-* `Motan` client access, please refer to: [Motan Proxy](../../user-guide/motan-proxy) .
+* `Motan` client access, please refer to: [Motan Proxy](../../user-guide/proxy/motan-proxy.md) .
 
 
 

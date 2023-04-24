@@ -13,7 +13,7 @@ description: gRPC插件
 
 * 引入相关依赖，开启插件，请参考：[gRPC快速开始](../../quick-start/quick-start-grpc) 。
 
-* `gRPC`应用客户端接入，请参考：[gRPC服务接入](../../user-guide/grpc-proxy) 。
+* `gRPC`应用客户端接入，请参考：[gRPC服务接入](../../user-guide/proxy/grpc-proxy.md) 。
 
 
 ## 插件讲解

@@ -69,9 +69,9 @@ description: Logging-ElasticSearch Plugin
 - The individual configuration items are described as follows:
 
 | config-item     | type    | description                                                  | remarks                             |
-| :-------------- | :------ | :----------------------------------------------------------- | :---------------------------------- |
+|:----------------| :------ | :----------------------------------------------------------- | :---------------------------------- |
 | host            | String  | host name                                                    | must                                |
-| prot            | String  | port num                                                     | must                                |
+| port            | String  | port num                                                     | must                                |
 | sampleRate      | String  | Sampling rate, range 0~1, 0: off, 0.01: acquisition 1%, 1: acquisition 100% | Optional, default 1, all collection |
 | compressAlg     | String  | Compression algorithm, no compression by default, currently supports LZ4 compression | Optional, no compression by default |
 | maxResponseBody | Ingeter | Maximum response size, above the threshold no response will be collected | Optional, default 512KB             |
@@ -80,8 +80,8 @@ Except for host, port, all others are optional, in most cases only these 3 items
 
 ### 2.4.2 Configuring Selectors and Rulers
 
-For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
-In addition sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
+For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule).
+In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) correspond to different topics, related to isolation,  
 then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
 The operation is shown below:
 

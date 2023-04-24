@@ -83,13 +83,13 @@ Apache CLA 全称 Apache Contributor License Agreement，签署 ICLA 的目的�
 收件人
 
 ```
-secretary@apache.org, private@shenyu.apache.org
+secretary@apache.org
 ```
 
 模板
 
 ```
 Hello Apache,
-    I am willing donate the ShenYu project to ASF. The attachment is my ICLA information. Github account: https://github.com/xxxx.
+    I am willing contribute to the ASF. The attachment is my ICLA information. My Github account is : https://github.com/xxxx.
 Thanks !
 ```

@@ -145,7 +145,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 | 配置项   | 类型    | 默认值     | 描述                                   |
 |---------|--------|-----------|---------------------------------------|
-| version | string | `"2.5.0"` | shenyu 版本，不建议修改，请直接安装对应版本 |
+| version | string | `"2.5.1"` | shenyu 版本，不建议修改，请直接安装对应版本 |
 
 ### shenyu-admin 配置
 

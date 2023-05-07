@@ -13,6 +13,7 @@ Before accessing, please start `shenyu-admin` correctly.
 You can refer to any of the example codes below [shenyu-examples](https://github.com/apache/shenyu/tree/master/shenyu-examples).
 
 The only thing you need to do is to add `@ApiModule` and `@ApiDoc` annotations to your service, here is an example from `shenyu-examples-http`:
+
 ```java
 @RestController
 @RequestMapping("/order")

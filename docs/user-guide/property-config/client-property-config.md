@@ -16,8 +16,8 @@ Set the `shenyu` property in your microservice, for example, in [shenyu-examples
 ```yaml
 shenyu:
   client:
-    registerType: http #zookeeper #etcd #nacos #consul
-    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
+    registerType: http #zookeeper #etcd #nacos #consul #apollo
+    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848 #localhost:8080
     props:
       contextPath: /http
       appName: http
@@ -34,11 +34,11 @@ This section describes configurations related to client access. For details abou
 
 
 
-|Name                      | Type  |  Default   | Required  | Description                        |
-|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-|registerType                   |String |  http      | Yes     | Which mode to use for registry. Currently, http, zookeeper, etcd, consul and nacos are supported.|
-|serverLists                |String |  null    |  No  |Configure the address of the registry. In clustering, multiple addresses are separated by commas (,).|
-|props    | | |   | The value of the property varies according to the registerType.|
+| Name         | Type   | Default | Required | Description                                                                                               |
+|:-------------|:-------|:-------:|:--------:|:----------------------------------------------------------------------------------------------------------|
+| registerType | String |  http   |   Yes    | Which mode to use for registry. Currently, http, zookeeper, etcd, consul ,apollo and nacos are supported. |
+| serverLists  | String |  null   |    No    | Configure the address of the registry. In clustering, multiple addresses are separated by commas (,).     |
+| props        |        |         |          | The value of the property varies according to the registerType.                                           |
 
 
 
@@ -92,5 +92,15 @@ When the registerType is `nacos`, the supported properties are as follows.
 |accessKey                | String |  ""    |  No  |accessKey|
 |secretKey                | String |  ""    |  No  |secretKey|
 
+When the registerType is `apollo`, the supported properties are as follows.
+
+| Name        | Type   | Default  | Required | Description |
+|:------------|:-------|:--------:|:--------:|:------------|
+| appId       | String | "shenyu" |   Yes    | appId       |
+| env         | String |    ""    |   Yes    | env         |
+| clusterName | String |    ""    |   Yes    | clusterName |
+| namespace   | String |    ""    |   Yes    | namespace   |
+| token       | String |    ""    |   Yes    | token       |
+| portalUrl   | String |    ""    |   Yes    | portalUrl   |
 
 When the registerType is `consul`, no other property configuration is provided. please set `spring.cloud.consul` for the configuration.

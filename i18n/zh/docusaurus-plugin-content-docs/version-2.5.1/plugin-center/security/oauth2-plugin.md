@@ -28,7 +28,13 @@ description:  OAuth 2插件
       <version>${project.version}</version>
   </dependency>
   <!-- apache shenyu oauth2 plugin end-->
-  
+  <!-- spring security oauth2 client start-->
+  <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-oauth2-client</artifactId>
+      <version>${spring-security.version}</version>
+  </dependency>
+  <!-- spring security oauth2 client start-->
 ```
 
 - 在`shenyu-bootstrap`模块配置`oauth2`

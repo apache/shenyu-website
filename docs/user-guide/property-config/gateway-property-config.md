@@ -492,19 +492,31 @@ The following properties are configured for data synchronization using `http lon
 
 The following properties are configured for data synchronization using `nacos` :
 
-|Name                      |                      | Type  |  Default   | Required  | Description                        |
-|:------------------------ |:----- |:-------: |:-------:|:----------------------------|:---------------------------:|
-|url                |                | String |  null    | 是 |nacos url|
-|namespace                |                | String |  null    |  Yes  |namespace|
-|username                |                | String |  null   |  No  |username|
-|password                |                | String |  null    |  No  |password|
-|acm                |                | Object | - |  No  |aliyun ACM service configuration.|
-| |enabled | boolean | false | No |whether to enable.|
-| |endpoint | String | null | No |ACM service address.|
-| |namespace | String | null | No |namespace.|
-| |accessKey | String | null | No |accessKey.|
-| |secretKey | String | null | No |secretKey.|
+|Name                      |                      | Type  |  Default   | Required | Description                        |
+|:------------------------ |:----- |:-------: |:-------:|:---------|:---------------------------:|
+|url                |                | String |  null    | Yes      |nacos url|
+|namespace                |                | String |  null    | Yes      |namespace|
+|username                |                | String |  null   | No       |username|
+|password                |                | String |  null    | No       |password|
+|acm                |                | Object | - | No       |aliyun ACM service configuration.|
+| |enabled | boolean | false | No       |whether to enable.|
+| |endpoint | String | null | No       |ACM service address.|
+| |namespace | String | null | No       |namespace.|
+| |accessKey | String | null | No       |accessKey.|
+| |secretKey | String | null | No       |secretKey.|
 
+The following properties are configured for data synchronization using `apollo` :
+
+| Name        |     |  Type  | Default | Required | Description |
+|:------------|:----|:------:|:-------:|:---------|:-----------:|
+| namespace   |     | String |  null   | Yes      |  namespace  |
+| appId       |     | String |  null   | Yes      |    appId    |
+| token       |     | String |  null   | Yes      |    token    |
+| clusterName |     | String | default | Yes      |   cluster   |
+| portalUrl   |     | String |  null   | Yes      |  portalUrl  |
+| meta        |     | String |  null   | Yes      |    meta     |
+| env         |     | String |  null   | Yes      |     env     |
+    
 
 
 The following properties are configured for data synchronization using `etcd` :

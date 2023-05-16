@@ -331,6 +331,38 @@ shenyu:
 
   <img src="/img/shenyu/dataSync/shenyu_consul_admin_sync_config.jpg" width="80%" height="70%" />
 
+### Apollo Synchronization Config
+
+* `Apache ShenYu` gateway config
+
+Add these dependencies in `pom.xml`：
+
+```xml
+<!-- apache shenyu data sync start use consul-->
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-sync-data-apollo</artifactId>
+  <version>${project.version}</version>
+</dependency>
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-apollo-pom.png" width="80%" height="70%" />
+
+Add these config values in  yaml file:
+
+```yaml
+shenyu:
+  sync:
+    apollo:
+      appId: shenyu
+      meta: http://localhost:8080
+      env: dev
+      clusterName: test
+      namespace: application
+
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-apollo-yml.png" width="80%" height="70%" />
 
 
 > After the data synchronization strategy of Apache ShenYu gateway and shenyu-admin is reconfigured, the microservice needs to be restarted.

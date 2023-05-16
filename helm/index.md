@@ -148,7 +148,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 | configuration item | type   | default   | description                                                                                        |
 |--------------------|--------|-----------|----------------------------------------------------------------------------------------------------|
-| version            | string | `"2.5.0"` | shenyu version, it is not recommended to modify, please install the corresponding version directly |
+| version            | string | `"2.5.1"` | shenyu version, it is not recommended to modify, please install the corresponding version directly |
 
 ### shenyu-admin configuration
 

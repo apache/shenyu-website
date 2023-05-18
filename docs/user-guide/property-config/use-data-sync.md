@@ -354,12 +354,13 @@ Add these config values in  yaml file:
 shenyu:
   sync:
     apollo:
-      appId: shenyu
       meta: http://localhost:8080
+      appId: shenyu
+      portalUrl: http://localhost:8070
       env: dev
       clusterName: test
       namespace: application
-
+      token: 0fff5645fc74ee5e0d63a6389433c8c8afc0beea31eed0279ecc1c8961d12da9
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-apollo-yml.png" width="80%" height="70%" />

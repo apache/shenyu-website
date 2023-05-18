@@ -58,14 +58,14 @@ Add the following configuration to the gateway's `yml` file:
 instance:
     enabled: true
     registerType: apollo
-    serverLists: localhost:8080
+    serverLists: http://localhost:8080
     props:
-      namespace: shenyu
-      appId: shenyu
-      portalUrl: localhost:8070
       env: dev
+      appId: shenyu
+      namespace: application
       clusterName: default
-      token: 0a0c4c8c7f8c4c9c9c9c9c9c9c9c9c9c
+      token: 0fff5645fc74ee5e0d63a6389433c8c8afc0beea31eed0279ecc1c8961d12da9
+      portalUrl: http://localhost:8070
 ```
 
 

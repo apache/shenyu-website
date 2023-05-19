@@ -3,6 +3,15 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>OSPP 2023 & Apache ShenYu e2e task is coming | Invite you to explore the high performance gateway</Translate>,
+        description: <Translate>Apache ShenYu OSPP 2023</Translate>,
+        categories: "OSPP 2023",
+        tags: ["Apache ShenYu OSPP 2023"],
+        date: '2023-05-19',
+        cover: "https://new-blog-1251602255.cos.ap-shanghai.myqcloud.com/img/1683816359250.jpg",
+        src:'Apache-ShenYu-OSPP2023-2023-05-19.md',
+    },
+    {
         title: <Translate>Apache ShenYu 2.5.1 Version Release</Translate>,
         description: <Translate>Apache ShenYu 2.5.1 Version Release</Translate>,
         categories: "Apache ShenYu",

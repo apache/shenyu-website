@@ -16,7 +16,7 @@ date: 2023-05-19
 
 开源之夏 2023 学生报名 4 月 29 日正式开启啦！同学们可以在开源之夏官网 https://summer-ospp.ac.cn/ 挑选项目，与导师沟通并准备项目申请材料、提交申请。
 
-![](/img/news/ospp-2023.jpg)
+![ospp-2023.jpg](/img/news/ospp/ospp-2023.jpg)
 
 ## Apache ShenYu简介
 
@@ -117,4 +117,4 @@ Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关
 
 开源之夏2023 社区各项目课题将从4月29日开始接受学生参与项目申请，欢迎通过上方联系方式，与各导师沟通并准备项目申请材料。
 
-![](/img/news/ospp-2023-flow.jpg)
+![](/img/news/ospp/ospp-2023-flow.jpg)

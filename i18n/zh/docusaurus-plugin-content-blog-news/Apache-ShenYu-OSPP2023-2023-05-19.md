@@ -16,7 +16,7 @@ date: 2023-05-19
 
 开源之夏 2023 学生报名 4 月 29 日正式开启啦！同学们可以在开源之夏官网 https://summer-ospp.ac.cn/ 挑选项目，与导师沟通并准备项目申请材料、提交申请。
 
-![](/img/news/ospp-2023.png)
+![](/img/news/ospp-2023.jpg)
 
 ## Apache ShenYu简介
 

@@ -8,8 +8,8 @@ export default [
         categories: "OSPP 2023",
         tags: ["Apache ShenYu OSPP 2023"],
         date: '2023-05-19',
-        cover: "https://new-blog-1251602255.cos.ap-shanghai.myqcloud.com/img/1683816359250.jpg",
-        src:'Apache-ShenYu-OSPP2023-2023-05-19.md',
+        cover: "/img/news/ospp-2023.jpg",
+        src:'Apache-ShenYu-OSPP2023-2023-05-19',
     },
     {
         title: <Translate>Apache ShenYu 2.5.1 Version Release</Translate>,

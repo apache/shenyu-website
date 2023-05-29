@@ -17,7 +17,7 @@ It aims to encourage students to actively participate in the development and mai
 
 Open source summer 2023 student registration officially opens on April 29! Students can select projects on the official website of Open Source Summer https://summer-ospp.ac.cn/, communicate with mentor, prepare project application materials, and submit applications.
 
-![](https://new-blog-1251602255.cos.ap-shanghai.myqcloud.com/img/1683816359250.jpg)
+![ospp-2023.jpg](/img/news/ospp/ospp-2023.jpg)
 
 ## Apache ShenYu Introduction
 
@@ -118,4 +118,4 @@ The prize money for this competition is provided by the Summer of Open Source Or
 
 Open Source Summer 2023 community projects will start accepting students to participate in project applications from April 29th. Welcome to communicate with the tutors and prepare project application materials through the contact information above.
 
-![](https://new-blog-1251602255.cos.ap-shanghai.myqcloud.com/img/1683817405594.jpg)
+![](/img/news/ospp/ospp-2023-flow.jpg)

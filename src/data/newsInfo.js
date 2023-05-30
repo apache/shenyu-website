@@ -8,7 +8,7 @@ export default [
         categories: "OSPP 2023",
         tags: ["Apache ShenYu OSPP 2023"],
         date: '2023-05-19',
-        cover: "/img/news/ospp-2023.jpg",
+        cover: "/img/news/ospp/ospp-2023.jpg",
         src:'Apache-ShenYu-OSPP2023-2023-05-19',
     },
     {

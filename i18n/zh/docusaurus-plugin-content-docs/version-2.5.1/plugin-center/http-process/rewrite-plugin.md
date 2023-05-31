@@ -76,7 +76,7 @@ description: rewrite插件
 
 #### 2.5.1.1 运行 `shenyu-examples-http` 项目
 
-* 使用[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http), 参考[](../../quick-start/quick-start-http#运行shenyu-examples-http项目)
+* 使用[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http), 参考[运行shenyu-examples-http项目](../../quick-start/quick-start-http#运行shenyu-examples-http项目)
 
 #### 2.5.1.1 插件配置
 

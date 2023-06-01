@@ -3,7 +3,7 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
-        title: <Translate>OSPP 2023 & Apache ShenYu e2e task is coming | Invite you to explore the high performance gateway</Translate>,
+        title: <Translate>OSPP 2023 & Apache ShenYu task is coming | Invite you to explore the high performance gateway</Translate>,
         description: <Translate>Apache ShenYu OSPP 2023</Translate>,
         categories: "OSPP 2023",
         tags: ["Apache ShenYu OSPP 2023"],

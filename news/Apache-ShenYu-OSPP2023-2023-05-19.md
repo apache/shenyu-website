@@ -1,5 +1,5 @@
 ---
-title: "[OSPP 2023 & Apache ShenYu e2e task is coming | Invite you to explore the high performance gateway]"
+title: "[OSPP 2023 & Apache ShenYu task is coming | Invite you to explore the high performance gateway]"
 author: "moremind"
 description: "Apache ShenYu OSPP 2023"
 categories: "OSPP 2023"
@@ -7,6 +7,7 @@ tags: ["Apache ShenYu", "OSPP 2023"]
 date: 2023-05-19
 ---
 
+# OSPP 2023 & Apache ShenYu e2e task is coming
 
 ## OSPP 2023
 
@@ -119,3 +120,45 @@ The prize money for this competition is provided by the Summer of Open Source Or
 Open Source Summer 2023 community projects will start accepting students to participate in project applications from April 29th. Welcome to communicate with the tutors and prepare project application materials through the contact information above.
 
 ![](https://new-blog-1251602255.cos.ap-shanghai.myqcloud.com/img/1683817405594.jpg)
+
+
+<br>
+<br>
+
+
+# shenyu-ingress-controller ability increased
+
+## Project background
+
+Kubernetes Controller is an important step in the Apache ShenYu Cloud native construction. The community is building Shenyu-Ingress-Controller to enable the docking of K8s ingress resources. However, currently the shenyu-ingress-controller feature is relatively simple and only supports the resource definition native to K8s ingress.
+
+This project needs to extend Shenyu-Ingress-Controller based on annotation to inherit the rich native functions of Apache ShenYu as much as possible.
+
+Project output requirements
+
+- Enhanced shenyu-ingress-controller abilities
+- Complete the core code writing
+
+- Complete corresponding unit test and integration test
+
+- Complete related documentation
+
+Technical requirements of the project
+
+- Familiar with Java and Spring Framework
+- Be familiar with Kubernetes
+- Understand the API gateway
+
+Project results warehouse
+
+- https://github.com/apache/shenyu
+- https://github.com/apache/shenyu-website
+
+## Project address
+
+https://summer-ospp.ac.cn/org/prodetail/2362f0183
+
+## Other information
+
+- Project difficulty: Advanced
+- Email: [jooks@apache.org](mailto:jooks@apache.org)

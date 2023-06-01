@@ -50,18 +50,23 @@ instance:
       etcdTTL: 5 #Optional, default 5
 ```
 
-### Use consul
+### Use apollo
 
 Add the following configuration to the gateway's `yml` file:
 
 ```yaml
 instance:
     enabled: true
-    registerType: consul
-    serverLists: localhost:8848 #config with your consul address, used by the cluster environment, separated with (,).
+    registerType: apollo
+    serverLists: http://localhost:8080
     props:
-      consulTimeout: 3000 #Optional, default 3000
-      consulTTL: 3000 #Optional, default 3000
+      env: dev
+      appId: shenyu
+      namespace: application
+      clusterName: default
+      token: 0fff5645fc74ee5e0d63a6389433c8c8afc0beea31eed0279ecc1c8961d12da9
+      portalUrl: http://localhost:8070
 ```
+
 
 > After the configuration is complete, start the gateway and it will successfully register to the corresponding registration center.

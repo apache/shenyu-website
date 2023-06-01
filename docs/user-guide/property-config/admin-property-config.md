@@ -141,6 +141,17 @@ When the registerType is `consul`, the supported properties are as follows.
 |metadata-path                | String |  `shenyu/register`    |  No  |Metadata path name, default is `shenyu/register`.|
 
 
+When the registerType is `apollo`, the supported properties are as follows.
+
+| Name          | Type   | Default | Required | Description          |
+|:--------------|:-------|:-------:|:--------:|:---------------------|
+| appId         | String |  null   |   Yes    | Apollo appId         |
+| namespace     | String |  null   |   Yes    | Apollo namespace     |
+| portalUrl     | String |  null   |   Yes    | Apollo portalUrl     |
+| env           | String |  null   |   Yes    | Apollo env           |
+| clusterName   | String |  null   |   Yes    | Apollo clusterName   |
+| token         | String |  null   |   Yes    | Apollo token         |
+ 
 
 ##### shenyu.sync config
 

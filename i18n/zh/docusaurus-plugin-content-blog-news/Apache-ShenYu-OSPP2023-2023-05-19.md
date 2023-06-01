@@ -122,8 +122,7 @@ Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关
 ![](/img/news/ospp/ospp-2023-flow.jpg)
 
 
-<br>
-<br>
+
 
 # shenyu-ingress-controller能力增强
 

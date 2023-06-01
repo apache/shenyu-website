@@ -123,8 +123,6 @@ Open Source Summer 2023 community projects will start accepting students to part
 ![](/img/news/ospp/ospp-2023-flow.jpg)
 
 
-<br>
-<br>
 
 
 # shenyu-ingress-controller ability increased

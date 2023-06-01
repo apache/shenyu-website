@@ -161,4 +161,4 @@ https://summer-ospp.ac.cn/org/prodetail/2362f0183
 ## Other information
 
 - Project difficulty: Advanced
-- Email: [jooks@apache.org](mailto:jooks@apache.org)
+- Email: jooks@apache.org

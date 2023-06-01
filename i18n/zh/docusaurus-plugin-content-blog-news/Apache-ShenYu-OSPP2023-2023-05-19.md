@@ -159,4 +159,4 @@ https://summer-ospp.ac.cn/org/prodetail/2362f0183
 ## 其他信息
 
 - 项目难度：进阶
-- 导师邮箱：[jooks@apache.org](mailto:jooks@apache.org)
+- 导师邮箱：jooks@apache.org

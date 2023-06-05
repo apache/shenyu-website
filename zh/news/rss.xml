@@ -8,9 +8,9 @@
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[【开源之夏Apache ShenYu e2e课题来袭 | 邀您深耕高性能网关】]]></title>
+            <title><![CDATA[[开源之夏】Apache ShenYu 课题来袭 | 邀您深耕高性能网关]]]></title>
             <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-OSPP2023-2023-05-19</link>
-            <guid>【开源之夏Apache ShenYu e2e课题来袭 | 邀您深耕高性能网关】</guid>
+            <guid>[开源之夏】Apache ShenYu 课题来袭 | 邀您深耕高性能网关]</guid>
             <pubDate>Fri, 19 May 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[Apache ShenYu OSPP 2023]]></description>
         </item>

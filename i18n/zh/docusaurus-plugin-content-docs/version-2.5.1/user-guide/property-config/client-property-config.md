@@ -13,16 +13,21 @@ description: Client属性配置
 ### 属性配置
 
 ```yaml
-shenyu:
-  client:
-    registerType: http #zookeeper #etcd #nacos #consul
-    serverLists: http://localhost:9095 #localhost:2181 #http://localhost:2379 #localhost:8848
-    props:
-      contextPath: /http
-      appName: http
-      port: 8189
-      nacosNameSpace: ShenyuRegisterCenter
-
+  shenyu:
+    register:
+      registerType: http
+      serverLists: http://localhost:9095
+      props:
+        username: admin
+        password: 123456
+    client:
+      http: # http 协议
+        props:
+          appName: appName # 服务名称
+          contextPath: /http # 每个服务的路由地址
+          host: 127.0.0.1
+          port: 8080
+          isFull : false
 ```
 
 

@@ -1,17 +1,17 @@
 ---
 sidebar_position: 7
 title: Cluster Deployment
-keywords: ["Gateway Cluster Enviroment", "Cluster Enviroment"]
-description: Cluster Delopyment
+keywords: ["Gateway Cluster Environment", "Cluster Environment"]
+description: Cluster Deployment
 ---
 
 > Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
 
-This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment.
+This article introduces how to deploy the `Shenyu` gateway in cluster environment.
 
 > In this part, you can see  [ShenYu Binary Packages Deployment](./deployment-package.md) before deploying.
 
-### Enviromental Preparation
+### Environmental Preparation
 
 * Two or more Gateway Boostrap servers, these servers must install JDK1.8+.
 * A server for Gateway Admin, this server must install mysql/pgsql/h2 and JDK1.8+.
@@ -19,7 +19,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 
 ### Start Apache ShenYu Admin
 
-* download and unzip [apache-shenyu-${current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.5.0/apache-shenyu-2.5.0-admin-bin.tar.gz) in your Gateway Admin server.
+* download and unzip [apache-shenyu-${current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.5.1/apache-shenyu-2.5.1-admin-bin.tar.gz) in your Gateway Admin server.
 
 * config your database, go to the `/conf` directory, and  modify `spring.profiles.active` of the configuration in `application.yaml` to `mysql`, `pg` or `h2`.
 
@@ -35,7 +35,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 
 ### Start Apache ShenYu Boostrap
 
-* download and unzip [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.5.0/apache-shenyu-2.5.0-bootstrap-bin.tar.gz) in your Gateway Boostrap server.
+* download and unzip [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz) in your Gateway Boostrap server.
 
 * config your synchronization, go to the `/conf` directory, and modify `shenyu.sync` of configuration in `application.yaml` to `websocket`, `http`, `zookeeper`, `etcd`, `consul` or `nacos`, this configuaration must remain the same of `ShenyYu Admin`.
 

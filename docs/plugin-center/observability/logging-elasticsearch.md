@@ -168,7 +168,7 @@ Users need to deploy the `ElasticSearch` service to collect
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/postman-request.png)
 
-#### 2.6.1.6 Querying data using kibaba
+#### 2.6.1.6 Querying data using kibana
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/index.png)
 

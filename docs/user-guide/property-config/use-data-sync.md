@@ -310,7 +310,7 @@ Add these config values in  yaml file:
 shenyu:
     sync:
       consul:
-				url: http://localhost:8500
+        url: http://localhost:8500
         waitTime: 1000	# query wait time
         watchDelay: 1000	# Data synchronization interval                             
 ```

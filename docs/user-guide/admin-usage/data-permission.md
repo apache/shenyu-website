@@ -37,7 +37,7 @@ Adding data in the plugin list, this article uses `divide` as an example, like:
 Giving the `divide` plugin permission to the `default` role.
 <img src="/img/shenyu/basicConfig/dataPermission/role-permission-setting-en.png" width="80%" height="50%" />
 
-The `default` role has none permissions.The user can't login who we set `default` role to. So we must edit the permissons.
+The `default` role has none permissions.The user can't login who we set `default` role to. So we must edit the permissions.
 
 #### Configure Data Permission
 

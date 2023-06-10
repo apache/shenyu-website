@@ -440,7 +440,7 @@ shenyu:
 # http.isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 # dubbo.contextPath: your project dubbo service's context path
 # dubbo.port: your project dubbo rpc port
-# dubbo.appName: your project dubbo appliation name
+# dubbo.appName: your project dubbo application name
 # nacosNameSpace: nacos namespace
 ```
 
@@ -526,8 +526,8 @@ shenyu:
 # appId: apollo appId
 # namespaceName: apollo namespaceName
 # clusterName: apollo clusterName
-# token: apollo opeanapi token
-# portalUrl: apollo  opeanapi portalUrl like http://localhost:8070
+# token: apollo openapi token
+# portalUrl: apollo  openapi portalUrl like http://localhost:8070
 # port: your project port number; apply to springmvc/tars/grpc
 # contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
 # appName：your project name,the default value is`spring.application.name`.

@@ -7,9 +7,9 @@ tags: ["Apache ShenYu", "OSPP 2023"]
 date: 2023-05-19
 ---
 
-# [开源之夏】Apache ShenYu e2e课题来袭 | 邀您深耕高性能网关
+## [开源之夏】Apache ShenYu e2e课题来袭 | 邀您深耕高性能网关
 
-## 开源之夏
+### 开源之夏
 
 开源之夏是由中科院软件所`开源软件供应链点亮计划`发起并长期支持的一项暑期开源活动，旨在鼓励在校学生积极参与开源软件的开发维护，培养和发掘更多优秀的开发者，促进优秀开源软件社区的蓬勃发展，助力开源软件供应链建设。
 
@@ -20,13 +20,13 @@ date: 2023-05-19
 
 ![ospp-2023.jpg](/img/news/ospp/ospp-2023.jpg)
 
-## Apache ShenYu简介
+### Apache ShenYu简介
 
 Apache ShenYu是一款支持多语言、多协议(Dubbo,SpringCloud,gRPC,Motan,SofaTars, BRPC)、插件化设计、高度可动态化配置、高度可自主化开发的Java网关。内置丰富的插件支持，鉴权，限流，熔断，防火墙等等。流量配置动态化，性能极高。支持集群部署，支持 A/B Test，蓝绿发布等功能。
 
 Apache ShenYu社区作为Apache基金会组织下的开源项目社区。截止目前在全球共聚集了340位贡献者，他们以“Apache Way”的精神参与ShenYu，为ShenYu做出贡献，与ShenYu共同成长！
 
-## Apache ShenYu课题项目介绍
+### Apache ShenYu课题项目介绍
 
 > **课题任务门槛不会太高的哦，且全程由社区导师倾心指导。**
 
@@ -34,11 +34,11 @@ Apache ShenYu社区作为Apache基金会组织下的开源项目社区。截止�
 
 Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关，但目前ShenYu缺少必要的end to end engine以及test case, end to end test是shenyu项目整体贯通的重要部分。
 
-### 相关技能
+#### 相关技能
 
 了解Apache ShenYu的技术架构，了解Apache ShenYu的端到端测试框架，能够利用现有代码编写TestSpec,需要了解shenyu的数据同步框架包括websocket，http，zookeeper，nacos，apollo等中间件以及算法，能够编写docker-compose，了解testcontainer，docker等e2e开发必备工具。
 
-### 相关任务
+#### 相关任务
 
 1.编写shenyu端到端测试框架，编写shenyu端到端测试引擎(难度:高)
 
@@ -54,7 +54,7 @@ Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关
 
 7.编写对应github ci文件，保证ci流程在github action运转正常
 
-### 项目产出要求
+#### 项目产出要求
 
 1.编写对应的e2e测试用例
 
@@ -64,7 +64,7 @@ Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关
 
 4.编辑对应的e2e文档
 
-### 项目技术要求
+#### 项目技术要求
 
 1.遵循shenyu代码规范
 
@@ -76,7 +76,7 @@ Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关
 
 5.深入了解shenyu的端到端测试引擎以及框架
 
-### 项目成果仓库
+#### 项目成果仓库
 
 * https://github.com/apache/shenyu
 * https://github.com/apache/shenyu-website
@@ -85,19 +85,19 @@ Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关
 
 * https://summer-ospp.ac.cn/org/prodetail/2362f0159?list=org&navpage=org
 
-### 其他信息
+#### 其他信息
 
 * 项目难度：进阶
 
 * 导师邮箱：hefengen@apache.org
 
-## 你能从活动中获得什么？
+### 你能从活动中获得什么？
 
-### 开发经历
+#### 开发经历
 
 参与开源项目，成为大型开源项目的贡献者，了解多领域多难度梯度任务，给你丰富的大型开源项目实战经验，同时也是锻炼开发能力的好机会！
 
-### 组委会奖励
+#### 组委会奖励
 
 1.你将获得结项奖金和结项证书：通过结项考核的学生将有机会获得优秀学生证书。
 
@@ -109,13 +109,13 @@ Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关
 
 本次比赛的奖金均由开源之夏组委会提供。
 
-### Apache ShenYu社区深度交流
+#### Apache ShenYu社区深度交流
 
 1.参与开源之夏@Apache ShenYu课题，你将能够同Apache ShenYu社区全球300+位贡献者交流。
 
 2.参与开源之夏@Apache ShenYu课题，你将成为Apache ShenYu贡献者，在持续贡献者之后，更有机会成为Apache ShenYu Committer。
 
-## 快速参与开源之夏
+### 快速参与开源之夏
 
 开源之夏2023 社区各项目课题将从4月29日开始接受学生参与项目申请，欢迎通过上方联系方式，与各导师沟通并准备项目申请材料。
 
@@ -124,15 +124,15 @@ Shenyu是一个异步的，高性能的，跨语言的，响应式的`API`网关
 
 
 
-# shenyu-ingress-controller能力增强
+## shenyu-ingress-controller能力增强
 
-## 项目背景
+### 项目背景
 
 Kubernetes Controller是Apache ShenYu云原生建设的重要步骤，社区正在建设shenyu-ingress-controller，以实现K8s ingress资源的对接。但是，目前shenyu-ingress-controller功能较为简单，仅支持K8s ingress原生的资源定义。
 
 本项目需要基于annotation拓展shenyu-ingress-controller，尽可能地继承Apache ShenYu丰富的原生功能。
 
-## 项目产出要求
+### 项目产出要求
 
 - 增强shenyu-ingress-controller的能力
 - 完成核心代码的编写
@@ -141,25 +141,115 @@ Kubernetes Controller是Apache ShenYu云原生建设的重要步骤，社区正�
 
 - 完成相关文档
 
-## 项目技术要求
+### 项目技术要求
 
 - 熟悉Java和Spring Framework
 - 熟悉Kubernetes
 - 了解API网关
 
-## 项目成果仓库
+### 项目成果仓库
 
 - https://github.com/apache/shenyu
 - https://github.com/apache/shenyu-website
 
-## 项目地址
+### 项目地址
 
 https://summer-ospp.ac.cn/org/prodetail/2362f0183
 
-## 其他信息
+### 其他信息
 
 - 项目难度：进阶
 - 导师邮箱：jooks@apache.org
 
 
+## [开源之夏】Apache ShenYu tcp代理来袭 | 邀您深耕高性能网关
+
+### 开源之夏
+
+开源之夏是由中科院软件所`开源软件供应链点亮计划`发起并长期支持的一项暑期开源活动，旨在鼓励在校学生积极参与开源软件的开发维护，培养和发掘更多优秀的开发者，促进优秀开源软件社区的蓬勃发展，助力开源软件供应链建设。
+
+### 学生开启报名
+
+开源之夏 2023 学生报名 4 月 29 日正式开启啦！同学们可以在开源之夏官网 https://summer-ospp.ac.cn/ 挑选项目，与导师沟通并准备项目申请材料、提交申请。
+
+![ospp-2023.jpg](/img/news/ospp/ospp-2023.jpg)
+
+### Apache ShenYu简介
+
+Apache ShenYu支持各种语言(http 协议)，支持 Dubbo、 Spring Cloud、 gRPC、 Motan、 Sofa、 Tars 等协议。插件化设计思想，插件热插拔，易扩展。灵活的流量筛选，能满足各种流量控制。内置丰富的插件支持，鉴权，限流，熔断，防火墙等等。流量配置动态化，性能极高。 支持集群部署，支持 A/B Test，蓝绿发布的Java网关。
+
+### Apache ShenYu课题项目介绍
+
+> **课题任务门槛不会太高的哦，且全程由社区导师倾心指导。**
+
+#### 项目背景
+
+本项目主要是通过插件的方式更加灵活地、可拓展地实现不同通信协议（TCP/UDP/WebSocket等）的代理，以增强ShenYu的通信代理功能。项目提供管理后台可手动配置转发下游的IP、PORT等数据，同时支持下游服务通过ShenYu客户端自动注册ShenYu网关，此外也支持业务提供注册中心地址来完成服务发现和注册功能。业务请求进来时，ShenYu网关根据不同的通信协议类型，匹配不同的通信协议插件来完成通信代理。
+
+
+#### 相关技能
+
+了解Apache ShenYu的技术架构，熟悉Java和Spring Framework,熟悉reactor等前端组件和框架,熟悉API网关,熟悉tcp、udp等相关协议。
+
+#### 项目产出要求
+
+完成tcp/udp/websocket等代理插件的开发
+
+Task1:完成tcp/udp/websocket的用来代理到下游服务的代理插件功能开发；
+
+✅ 完成注册中心监听元数据的开发
+
+Task1:在shenyu-admin开发支持的多种注册中心（nacos/consul/zk等）监听业务下游服务相关元数据；
+
+✅ 完成代理插件相关元数据的数据同步开发
+
+Task1:完成通信插件代理相关数据同步到网关的开发；
+
+✅ 完成和设计服务自动发现相关表和后台数据开发
+
+Task1:完成相关数据库表设计；
+
+Task2:完成相关表的CRUD开发；
+
+✅ 完成shenyu管理后台通信代理相关数据的编辑
+
+Task1:前端增加编辑通信代理相关元数据的编辑新增页面；
+
+Task2:增加前端页面对应的后端接口；
+
+✅ 完成通信协议代理的集成测试单元测试和文档输出
+
+Task1:完成相关改动的单元测试；
+
+Task2:完成整个功能的集成测试；
+
+Task3:完成整个功能相关接入文档以及功能介绍相关文档的输出。
+
+#### 项目技术要求
+
+1.熟悉Java和Spring Framework
+
+2.熟悉reactor等前端组件和框架
+
+3.熟悉API网关.
+
+
+#### 项目成果仓库
+
+* https://github.com/apache/shenyu
+* https://github.com/apache/shenyu-website
+
+#### 项目地址
+
+* https://summer-ospp.ac.cn/org/prodetail/2362f0251?list=org&navpage=org
+
+#### 导师邮箱
+
+mahaitao@apache.org
+
+### 快速参与开源之夏
+
+开源之夏2023 社区各项目课题将从4月29日开始接受学生参与项目申请，欢迎通过上方联系方式，与各导师沟通并准备项目申请材料。
+
+![ospp-2023.jpg](/img/news/ospp/ospp-2023.jpg)
 

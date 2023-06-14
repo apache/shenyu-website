@@ -7,7 +7,9 @@ tags: ["Apache ShenYu", "OSPP 2023"]
 date: 2023-05-19
 ---
 
+
 ## OSPP 2023 & Apache ShenYu e2e task is coming
+
 
 ### OSPP 2023
 
@@ -19,6 +21,7 @@ It aims to encourage students to actively participate in the development and mai
 Open source summer 2023 student registration officially opens on April 29! Students can select projects on the official website of Open Source Summer https://summer-ospp.ac.cn/, communicate with mentor, prepare project application materials, and submit applications.
 
 ![ospp-2023.jpg](/img/news/ospp/ospp-2023.jpg)
+
 
 
 ### Apache ShenYu Introduction
@@ -125,9 +128,11 @@ Open Source Summer 2023 community projects will start accepting students to part
 
 
 
+
 ## shenyu-ingress-controller ability increased
 
 ### Project background
+
 
 Kubernetes Controller is an important step in the Apache ShenYu Cloud native construction. The community is building Shenyu-Ingress-Controller to enable the docking of K8s ingress resources. However, currently the shenyu-ingress-controller feature is relatively simple and only supports the resource definition native to K8s ingress.
 
@@ -144,6 +149,7 @@ This project needs to extend Shenyu-Ingress-Controller based on annotation to in
 
 ### Technical requirements of the project
 
+
 - Familiar with Java and Spring Framework
 - Be familiar with Kubernetes
 - Understand the API gateway
@@ -158,6 +164,7 @@ This project needs to extend Shenyu-Ingress-Controller based on annotation to in
 https://summer-ospp.ac.cn/org/prodetail/2362f0183
 
 ### Other information
+
 
 - Project difficulty: Advanced
 - Email: jooks@apache.org
@@ -251,3 +258,4 @@ mahaitao@apache.org
 Open Source Summer 2023 community projects will start accepting students to participate in project applications from April 29th. Welcome to communicate with the tutors and prepare project application materials through the contact information above.
 
 ![ospp-2023.jpg](/img/news/ospp/ospp-2023.jpg)
+

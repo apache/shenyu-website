@@ -3,6 +3,16 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>The Student's Journey of Contributing to Apache ShenYu</Translate>,
+        author: "Haiqi Qin",
+        description: <Translate>The Student's Journey of Contributing to Apache ShenYu</Translate>,
+        categories: "Apache ShenYu",
+        tags: ["Apache ShenYu"],
+        date: '2023-06-14',
+        cover: "/img/news/QinHaiqi.png",
+        src:'Apache-ShenYu-Committer-2023-06-14',
+    },
+    {
         title: <Translate>OSPP 2023 & Apache ShenYu task is coming | Invite you to explore the high performance gateway</Translate>,
         description: <Translate>Apache ShenYu OSPP 2023</Translate>,
         categories: "OSPP 2023",

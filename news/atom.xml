@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenyu.apache.org/news</id>
     <title>Apache ShenYu Blog</title>
-    <updated>2023-05-19T00:00:00.000Z</updated>
+    <updated>2023-06-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://shenyu.apache.org/news"/>
     <subtitle>Apache ShenYu Blog</subtitle>
     <icon>https://shenyu.apache.org/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[【The Student's Journey of Contributing to Apache ShenYu】]]></title>
+        <id>【The Student's Journey of Contributing to Apache ShenYu】</id>
+        <link href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2023-06-14"/>
+        <updated>2023-06-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The Student's Journey of Contributing to Apache ShenYu]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[OSPP 2023 & Apache ShenYu task is coming | Invite you to explore the high performance gateway]]]></title>
         <id>[OSPP 2023 &amp; Apache ShenYu task is coming | Invite you to explore the high performance gateway]</id>

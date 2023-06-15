@@ -4,9 +4,16 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Fri, 19 May 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 14 Jun 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[【The Student's Journey of Contributing to Apache ShenYu】]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2023-06-14</link>
+            <guid>【The Student's Journey of Contributing to Apache ShenYu】</guid>
+            <pubDate>Wed, 14 Jun 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Student's Journey of Contributing to Apache ShenYu]]></description>
+        </item>
         <item>
             <title><![CDATA[[OSPP 2023 & Apache ShenYu task is coming | Invite you to explore the high performance gateway]]]></title>
             <link>https://shenyu.apache.org/news/Apache-ShenYu-OSPP2023-2023-05-19</link>

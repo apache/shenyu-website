@@ -63,7 +63,7 @@ For the final filtering of traffic, there is a rule handler logic.
 
   * `failureRateThreshold` ：Configures the failure rate threshold in percentage,When the failure rate is equal or greater than the threshold the CircuitBreaker transitions to open and starts short-circuiting calls,default value:`50`.
 
-  * `fallbackUri` ：Configures the fall back uri.
+  * `fallbackUri` ：Configures the fallback uri.
 
   * `minimumNumberOfCalls` ：Configures the minimum number of calls which are required (per sliding window period) before the CircuitBreaker can calculate the error rate or slow call rate,default value:`100`.
 

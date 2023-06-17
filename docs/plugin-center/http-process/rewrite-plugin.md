@@ -20,7 +20,7 @@ description: rewrite plugin
 
 ## 1.4 Plugin code
 
-* Core Moudule `shenyu-plugin-rewrite`
+* Core Module `shenyu-plugin-rewrite`
 
 * Core Class `org.apache.shenyu.plugin.rewrite.RewritePlugin`
 
@@ -90,7 +90,7 @@ description: rewrite plugin
 
 ![](/img/shenyu/plugin/rewrite/rewrite_example_rule.png)
 
-The request `/http/hello` would be rewrited to `/hi`
+The request `/http/hello` would be rewritten to `/hi`
 
 #### 2.5.1.4 Check Result
 

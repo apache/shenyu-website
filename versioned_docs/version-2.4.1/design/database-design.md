@@ -42,7 +42,7 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
 * Data Permission use database to store the relationship between users, selectors and rules.
 
 * The Data Permission Table UML Diagram:
-![data perission uml](/img/shenyu/db/data_permission.png)
+![data permission uml](/img/shenyu/db/data_permission.png)
 
 
 * Detailed design:

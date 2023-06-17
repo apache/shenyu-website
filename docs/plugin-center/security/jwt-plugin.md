@@ -1,9 +1,8 @@
 ---
-
 title: JWT plugin
 keywords: ["JWT"]
 description: JWT plugin
-----------------------
+---
 
 # 1. Overview
 

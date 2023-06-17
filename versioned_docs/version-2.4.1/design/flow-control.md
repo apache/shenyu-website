@@ -33,4 +33,4 @@ Traffic filtering is the soul of the selector and the rule, corresponding to the
 You can then use `Match`, `=`, `SpEL`, `Regex`, `Groovy`, etc, to Match the desired data. Multi-group matching Adds matching policies that can use And/Or.
 
 
-please refre to [Selector And Rule Config](../user-guide/admin-usage/selector-and-rule) for details.
+please refer to [Selector And Rule Config](../user-guide/admin-usage/selector-and-rule) for details.

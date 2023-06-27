@@ -3,6 +3,34 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>The Student's Journey of Contributing to Apache ShenYu</Translate>,
+        author: "Haiqi Qin",
+        description: <Translate>The Student's Journey of Contributing to Apache ShenYu</Translate>,
+        categories: "Apache ShenYu",
+        tags: ["Apache ShenYu"],
+        date: '2023-06-14',
+        cover: "/img/news/QinHaiqi.png",
+        src:'Apache-ShenYu-Committer-2023-06-14',
+    },
+    {
+        title: <Translate>OSPP 2023 & Apache ShenYu task is coming | Invite you to explore the high performance gateway</Translate>,
+        description: <Translate>Apache ShenYu OSPP 2023</Translate>,
+        categories: "OSPP 2023",
+        tags: ["Apache ShenYu OSPP 2023"],
+        date: '2023-05-19',
+        cover: "/img/news/ospp/ospp-2023.jpg",
+        src:'Apache-ShenYu-OSPP2023-2023-05-19',
+    },
+    {
+        title: <Translate>Google Summer of Code & Apache ShenYu task is coming | Invite you to explore the high performance gateway</Translate>,
+        description: <Translate>Apache ShenYu GSOC 2023</Translate>,
+        categories: "GSOC 2023",
+        tags: ["Apache ShenYu GSOC 2023"],
+        date: '2023-04-18',
+        cover: "/img/news/gsoc/gsoc-2023.jpg",
+        src:'Apache-ShenYu-GSOC2023-2023-04-18',
+    },
+    {
         title: <Translate>Apache ShenYu 2.5.1 Version Release</Translate>,
         description: <Translate>Apache ShenYu 2.5.1 Version Release</Translate>,
         categories: "Apache ShenYu",

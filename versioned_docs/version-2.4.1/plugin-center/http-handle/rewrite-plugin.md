@@ -20,7 +20,7 @@ description: rewrite plugin
 
 ## 1.4 Plugin code
 
-* Core Moudule `shenyu-plugin-rewrite`
+* Core Module `shenyu-plugin-rewrite`
 
 * Core Class `org.apache.shenyu.plugin.rewrite.RewritePlugin`
 

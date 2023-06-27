@@ -317,55 +317,8 @@ shenyu:
   * 进入 ShenyuAdmin - BasicConfig - Plugin 进行添加 plugin 在 pluginJar 中可以添加自定义的 plugin Jar 包
 * 自定义的 ShenyuPlugin 如果依赖了其他的第三方包可以 ShenyuBootstrap 启动是加载到 -cp 的第三方jar包目录
 
-注意: 上传jar包插件不支持热加载.
-如果你需要在线修改jar包. 你可以重新打一个jar包.把上述步骤重新走一遍.这里的类名不能与上次上传相重复
+注意:
 
-第一次上传的 plugin
+上传jar包插件支持热加载
+如果你需要在线修改jar包. 你可以重新打一个jar包. 并且提升版本号, 例如 `1.0.1` 升高至 `1.0.2`
 
-```java
-public class CustomPluginV1 extends AbstractShenyuPlugin {
-    private static final Logger LOG = LoggerFactory.getLogger(CustomPluginV1.class);
-
-    protected Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorData selectorData, RuleData rule) {
-        LOG.info(".......... function plugin start..CustomPluginV1............");
-        return chain.execute(exchange);
-    }
-
-    @Override
-    public int getOrder() {
-        return 0;
-    }
-
-    @Override
-    public String named() {
-        return "CustomPluginV1";
-    }
-}
-```
-
-此时需要修改
-
-在admin 界面 删除 CustomPluginV1
-
-并且重新创建 CustomPluginV2
-
-```java
-public class CustomPluginV2 extends AbstractShenyuPlugin {
-    private static final Logger LOG = LoggerFactory.getLogger(CustomPluginV2.class);
-
-    protected Mono<Void> doExecute(ServerWebExchange exchange, ShenyuPluginChain chain, SelectorData selectorData, RuleData rule) {
-        LOG.info(".......... function plugin start..CustomPluginV2............");
-        return chain.execute(exchange);
-    }
-
-    @Override
-    public int getOrder() {
-        return 0;
-    }
-
-    @Override
-    public String named() {
-        return "CustomPluginV2";
-    }
-}
-```

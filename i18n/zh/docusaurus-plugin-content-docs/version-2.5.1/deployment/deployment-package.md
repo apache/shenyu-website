@@ -12,7 +12,7 @@ description: 二进制包部署
 
 ### 启动 Apache ShenYu Admin
 
-* 下载 [apache-shenyu-${current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.0/apache-shenyu-2.5.0-admin-bin.tar.gz)
+* 下载 [apache-shenyu-${current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-admin-bin.tar.gz)
 
 * 解压缩 `apache-shenyu-${current.version}-admin-bin.tar.gz`。 进入 `bin` 目录。
 
@@ -58,7 +58,7 @@ description: 二进制包部署
 
 ### 启动 Apache ShenYu Bootstrap
 
-* 下载 [`apache-shenyu-${current.version}-bootstrap-bin.tar.gz`](https://archive.apache.org/dist/shenyu/2.5.0/apache-shenyu-2.5.0-bootstrap-bin.tar.gz)
+* 下载 [`apache-shenyu-${current.version}-bootstrap-bin.tar.gz`](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz)
 
 * 解压缩 `apache-shenyu-${current.version}-bootstrap-bin.tar.gz`。 进入 bin 目录。
 

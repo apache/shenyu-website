@@ -59,7 +59,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
 
 Download [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
 
-```xml
+```yaml
 com:
   alipay:
     sofa:

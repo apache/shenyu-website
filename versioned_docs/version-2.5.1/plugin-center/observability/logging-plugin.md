@@ -60,7 +60,7 @@ description: logging plugin
 
 > you must open loggingConsole plugin before you use loggingConsole plugin.
 
-### 2.5.1.1 Selctor Configuration
+### 2.5.1.1 Selector Configuration
 
 ![](/img/shenyu/plugin/logging/logging-console/log-selector-en.jpg)
 

@@ -49,7 +49,7 @@ For example, add a selector to the `divide` plugin:
       * exclude: the inverse of the method of `match`.
       * startsWith: when its prefix is equal to the specified value, it matches. In certain scenarios, `match` can be replaced (such as `/test/` instead of `/test/**`) for better performance.
       * endsWith: when its suffix is equal to the specified value, it matches.
-      * pathPatter: it's an optimized version of `match`, which has better performance than `match`, but does not support writing `**` in the middle of the path (such as `/api/**/xxx`).
+      * pathPattern: it's an optimized version of `match`, which has better performance than `match`, but does not support writing `**` in the middle of the path (such as `/api/**/xxx`).
   * Continued: whether the subsequent selector is still executed.
   * PrintLogs: it will print the matching log with the open option enabled.
   * Enable: whether to enable the plugin.
@@ -94,7 +94,7 @@ For example, add a selector to the `divide` plugin:
       * exclude: Same function as `match`, flow selection is opposite.
       * startsWith: when its prefix is equal to the specified value, it matches. In certain scenarios, `match` can be replaced (such as `/test/` instead of `/test/**`) for better performance.
       * endsWith: when its suffix is equal to the specified value, it matches.
-      * pathPatter: it's an optimized version of `match`, which has better performance than `match`, but does not support writing `**` in the middle of the path (such as `/api/**/xxx`).
+      * pathPattern: it's an optimized version of `match`, which has better performance than `match`, but does not support writing `**` in the middle of the path (such as `/api/**/xxx`).
 
   * PrintLogs: it will print the matching log with the open option enabled.
 
@@ -310,27 +310,27 @@ Condition parameters allow you to retrieve the actual data of the request. How t
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-endswith-en.png)
 
-* `pathPatter`
+* `pathPattern`
 
-  Like `match`, `pathPatter` supports fuzzy matching (`/**`). If your rule conditions are sets as follows, then the request `/http/order/findById` can be matched;
+  Like `match`, `pathPattern` supports fuzzy matching (`/**`). If your rule conditions are sets as follows, then the request `/http/order/findById` can be matched;
 
   Notice: writing `**` in the middle of the path (such as `/api/**/xxx`) is not supported!
 
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-pathpatter-en.png)
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-pathpattern-en.png)
 
 If you want to further understand conditions matching strategy, please read the source code, the package name is `org.apache.shenyu.plugin.base.condition.judge`:
 
-|Match Strategy                      | Class  | 
-|:------------------------ |:----- |
-|`match`                   |`MatchPredicateJudge` |  
-|`=`                       |`EqualsPredicateJudge` |  
-|`regex`                   |`RegexPredicateJudge` |  
-|`contains`                |`ContainsPredicateJudge` |
-|`TimeBefore`              |`TimerBeforePredicateJudge` |  
-|`TimeAfter`               |`TimerAfterPredicateJudge` |
-|`exclude`                 |`ExcludePredicateJudge` |
-|`startsWith`              |`StartsWithPredicateJudge` |
-|`endsWith`                |`EndsWithPredicateJudge` |
-|`pathPatter`              |`PathPatternPredicateJudge` |
+| Match Strategy | Class  | 
+|:---------------|:----- |
+| `match`        |`MatchPredicateJudge` |  
+| `=`            |`EqualsPredicateJudge` |  
+| `regex`        |`RegexPredicateJudge` |  
+| `contains`     |`ContainsPredicateJudge` |
+| `TimeBefore`   |`TimerBeforePredicateJudge` |  
+| `TimeAfter`    |`TimerAfterPredicateJudge` |
+| `exclude`      |`ExcludePredicateJudge` |
+| `startsWith`   |`StartsWithPredicateJudge` |
+| `endsWith`     |`EndsWithPredicateJudge` |
+| `pathPattern`  |`PathPatternPredicateJudge` |
 
 The examples in this article illustrate the use of selectors and rules. The Settings of specific conditions need to be selected according to actual conditions.

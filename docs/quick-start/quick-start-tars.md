@@ -58,7 +58,7 @@ Execute the `org.apache.shenyu.examples.tars.ShenyuTestTarsApplication` main met
 
 If the `-Dconfig` parameter is not added, the configuration may throw the following exceptions:
 
-```xml
+```text
 com.qq.tars.server.config.ConfigurationException: error occurred on load server config
 	at com.qq.tars.server.config.ConfigurationManager.loadServerConfig(ConfigurationManager.java:113)
 	at com.qq.tars.server.config.ConfigurationManager.init(ConfigurationManager.java:57)

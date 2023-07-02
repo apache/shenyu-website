@@ -145,7 +145,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 | 配置项   | 类型    | 默认值     | 描述                                   |
 |---------|--------|-----------|---------------------------------------|
-| version | string | `"2.5.0"` | shenyu 版本，不建议修改，请直接安装对应版本 |
+| version | string | `"2.5.1"` | shenyu 版本，不建议修改，请直接安装对应版本 |
 
 ### shenyu-admin 配置
 
@@ -180,15 +180,17 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 #### h2
 
-| 配置项                  | 类型    | 默认值  | 描述   |
-|------------------------|--------|--------|-------|
-| dataSource.h2.username | string | `"sa"` | 用户名 |
-| dataSource.h2.password | string | `"sa"` | 密码   |
+| 配置项                  | 类型    | 默认值  | 描述                                                                             |
+|------------------------|--------|--------|---------------------------------------------------------------------------------|
+| dataSource.h2.username | string | `"sa"` | 用户名                                                                           |
+| dataSource.h2.password | string | `"sa"` | 密码                                                                             |
+| dataSource.h2.url      | string | ``     | 自定义 url, 默认的 h2 url 是 "jdbc:h2:mem:~/shenyu;DB_CLOSE_DELAY=-1;MODE=MySQL;" |
 
 #### MySQL
 
 | 配置项                             | 类型    | 默认值                        | 描述                                                                                               |
 |-----------------------------------|--------|------------------------------|---------------------------------------------------------------------------------------------------|
+| dataSource.mysql.urlOverride      | string | `""`                         | 自定义完整url，并忽略IP等字段的配置，格式：jdbc:mysql://xxxxxxx                                         |
 | dataSource.mysql.ip               | string | `""`                         | IP                                                                                                |
 | dataSource.mysql.port             | int    | `3306`                       | 端口                                                                                               |
 | dataSource.mysql.username         | string | `"root"`                     | 用户名                                                                                             |
@@ -200,6 +202,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 | 配置项                          | 类型    | 默认值                     | 描述                                                                                              |
 |--------------------------------|--------|---------------------------|--------------------------------------------------------------------------------------------------|
+| dataSource.pg.urlOverride      | string | `""`                      | 自定义完整url，并忽略IP等字段的配置，格式：jdbc:postgresql://xxxxxxx                                   |
 | dataSource.pg.ip               | string | `""`                      | IP                                                                                               |
 | dataSource.pg.port             | int    | `5432`                    | 端口                                                                                              |
 | dataSource.pg.username         | string | `"postgres"`              | 用户名                                                                                            |
@@ -211,6 +214,7 @@ helm install shenyu shenyu/shenyu -n=shenyu --create-namespace \
 
 | 配置项                              | 类型    | 默认值                        | 描述                                                                                            |
 |------------------------------------|--------|------------------------------|------------------------------------------------------------------------------------------------|
+| dataSource.oracle.urlOverride      | string | `""`                         | 自定义完整url，并忽略IP等字段的配置，格式：jdbc:oracle:xxx                                           |
 | dataSource.oracle.ip               | string | `""`                         | IP                                                                                             |
 | dataSource.oracle.port             | int    | `1521`                       | 端口                                                                                            |
 | dataSource.oracle.username         | string | `"root"`                     | 用户名                                                                                          |

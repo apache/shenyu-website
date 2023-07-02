@@ -23,7 +23,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 * 使用 `linux` 换行符号.
 
-* 每行代码前面必须保持 `4` 个 `Tab Siz` 。
+* 每行代码前面必须保持 `4` 个 `Tab Size` 。
 
 * 所有的代码 必须通过 checkStyle的检查: https://github.com/apache/shenyu/blob/master/script/shenyu_checkstyle.xml
 

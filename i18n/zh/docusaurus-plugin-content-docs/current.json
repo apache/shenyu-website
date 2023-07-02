@@ -70,5 +70,12 @@
   "sidebar.tutorialSidebar.category.SPI": {
     "message": "SPI",
     "description": "The label for category SPI in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Benchmark Test": {
+
+    "message": "基准测试",
+
+    "description": "ShenYu Benchmark Test"
+
   }
 }

@@ -5,7 +5,7 @@ keywords: ["Deployment"]
 description: Local Quick Deployment
 ---
 
-This article introduces how to quick start the `Apache ShenYu` gateway in the standalone environment.
+This article introduces how to quickly start the `Apache ShenYu` gateway in the standalone environment.
 
 > Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
 
@@ -15,7 +15,7 @@ This article introduces how to quick start the `Apache ShenYu` gateway in the st
 
 ### Start Apache ShenYu Bootstrap
 
-* download [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.0/apache-shenyu-2.5.0-bootstrap-bin.tar.gz)
+* download [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz)
 
 * unzip `apache-shenyu-${current.version}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 

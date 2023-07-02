@@ -301,3 +301,18 @@ shenyu:
 * Used `-Dplugin-ext=xxxx`, Also used `shenyu.extPlugin.path` in yaml，If neither is configured, the `ext-lib` directory in the apache shenyu gateway boot path will be loaded by default.
 
 * Priority ：`-Dplugin-ext=xxxx` > `shenyu.extPlugin.path` > `ext-lib(default)`
+
+
+## Plugin jar upload
+
+* To use this feature, you will need to package the `ShenyuPlugin` extension as a custom ShenyuPlugin Jar
+* Configure it in ShenyuAdmin
+  * use  `ShenyuAdmin - BasicConfig - Plugin` add plugin in `pluginJar` click upload button
+* Custom ShenyuPlugin can be started by loading third-party jars into the `-cp` directory if it depends on other third-party packages in shenyu-bootstrap
+
+Tips:
+
+The Upload jar package plugin supports hot loading
+If you need to modify the jar online. You can make a new jar. And raise the version number, for example '1.0.1' to '1.0.2'
+
+

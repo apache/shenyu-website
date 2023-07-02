@@ -55,8 +55,8 @@ soul
    ├    ├──uri
    ├    ├     ├──${rpcType}
    ├    ├     ├      ├────${contextPath}
-   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
-   ├    ├     ├               ├──${ip:prot}
+   ├    ├     ├               ├──${ip:port} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:port}
 ```
 
 Zookeeper register client will save data to zookeeper when soul client is started.
@@ -81,8 +81,8 @@ soul
    ├    ├──uri
    ├    ├     ├──${rpcType}
    ├    ├     ├      ├────${contextPath}
-   ├    ├     ├               ├──${ip:prot} : save uri data of URIRegisterDTO
-   ├    ├     ├               ├──${ip:prot}
+   ├    ├     ├               ├──${ip:port} : save uri data of URIRegisterDTO
+   ├    ├     ├               ├──${ip:port}
 ```
 
 Etcd register client will save data to etcd when soul client is started.

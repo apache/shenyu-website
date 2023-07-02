@@ -307,3 +307,18 @@ shenyu:
 * 可以使用 `-Dplugin-ext=xxxx` 指定，也可以使用 `shenyu.extPlugin.path`配置文件指定，如果都没配置，默认会加载网关启动路径下的 `ext-lib`目录。
 
 * 优先级 ：`-Dplugin-ext=xxxx` > `shenyu.extPlugin.path` > `ext-lib(default)`
+
+
+
+## 插件jar包上传
+
+* 当使用这个功能时候, 需要把上述扩展的`ShenyuPlugin` 打包成自定义的 ShenyuPlugin Jar 包
+* 并且在 ShenyuAdmin 进行配置
+  * 进入 ShenyuAdmin - BasicConfig - Plugin 进行添加 plugin 在 pluginJar 中可以添加自定义的 plugin Jar 包
+* 自定义的 ShenyuPlugin 如果依赖了其他的第三方包可以 ShenyuBootstrap 启动是加载到 -cp 的第三方jar包目录
+
+注意:
+
+上传jar包插件支持热加载
+如果你需要在线修改jar包. 你可以重新打一个jar包. 并且提升版本号, 例如 `1.0.1` 升高至 `1.0.2`
+

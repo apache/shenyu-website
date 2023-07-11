@@ -18,12 +18,14 @@ description: 客户端接入原理
 ## 设计原理
 
 ### 术语说明
+
 为了便于读者理解，避免产生歧义，本节的图、文中所提到的"注册中心客户端"，"注册中心服务端"，"register-center-client","register-center-server"等
 均指的是shenyu-register-client和shenyu-register-client-server，也就是讲的都是由shenyu所包装的一些模块和类。
 读者在理解时不要和实际注册中心的客户端、注册中心服务概念搞混淆了（例如：nacos-client、nacos-server）
 
 
 ### 整体流程
+
 1.微服务应用启动时，会通过指定的注册中心客户端将注册信息写入到注册中心中（例如：nacos）  
 2.shenyu-admin启动会从指定的注册中心中订阅注册信息，放入Disruptor中  
 3.借助shenyu的数据同步机制，将注册信息实时同步给shenyu-gateway  
@@ -140,6 +142,7 @@ shenyu.register.service.${rpcType}.${contextPath}
 订阅端会对所有的`Metadata`配置继续监听，当初次订阅和配置更新后，触发`selector`和`rule`的数据变更和数据同步事件发布。
 
 ### SPI扩展
+
 应用微服务通过shenyu-client接入注册时使用到的一些类
 
 | *SPI 名称*                       | *详细说明*               |

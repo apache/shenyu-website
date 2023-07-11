@@ -33,7 +33,7 @@ ShenYu 2.6.0
 
 ## 2.1 插件使用流程图
 
-![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin_use_zh.jpg)
+![](/img/shenyu/plugin/plugin_use_zh.jpg)
 
 ## 2.2 导入pom
 

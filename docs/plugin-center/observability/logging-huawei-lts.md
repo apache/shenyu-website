@@ -36,7 +36,7 @@ ShenYu 2.6.0
 
 ## 2.1 Plugin-use procedure chart
 
-![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin_use_en.jpg)
+![](/img/shenyu/plugin/plugin_use_en.jpg)
 
 - ## 2.2 Import pom
 

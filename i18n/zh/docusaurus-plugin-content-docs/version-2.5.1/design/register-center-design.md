@@ -17,6 +17,20 @@ description: 客户端接入原理
 
 ## 设计原理
 
+### 术语说明
+为了便于读者理解，避免产生歧义，本节的图、文中所提到的"注册中心客户端"，"注册中心服务端"，"register-center-client","register-center-server"等
+均指的是shenyu-register-client和shenyu-register-client-server，也就是讲的都是由shenyu所包装的一些模块和类。
+读者在理解时不要和实际注册中心的客户端、注册中心服务概念搞混淆了（例如：nacos-client、nacos-server）
+
+
+### 整体流程
+1.微服务应用启动，注册信息会通过指定的注册中心客户端先写入到实际的注册中心（例如：nacos）
+2.shenyu-admin启动会从实际注册中心中订阅注册信息，放入Disruptor
+3.借助shenyu的数据同步机制，将信息实时同步给shenyu-gateway
+数据同步机制设计可参考  [数据同步机制设计](data-sync.md)
+
+http服务注册比较特殊，直接由shenyu-admin完成
+
 ### 注册中心客户端
 
 ![](/img/shenyu/register/client.png)
@@ -24,7 +38,7 @@ description: 客户端接入原理
 在你的微服务配置中声明注册中心客户端类型，如`Http`或`Zookeeper`。
 应用程序启动时使用`SPI`方式加载并初始化对应注册中心客户端，通过实现`Spring Bean`相关的后置处理器接口，在其中获取需要进行注册的服务接口信息，将获取的信息放入`Disruptor`中。
 
-注册中心客户端从`Disruptor`中读取数据，并将接口信息注册到`shenyu-admin`，`Disruptor`在其中起数据与操作解耦的作用，利于扩展。
+注册中心客户端从`Disruptor`中读取数据，并将接口信息最终注册到`shenyu-admin`，`Disruptor`在其中起数据与操作解耦的作用，利于扩展。
 
 ### 注册中心服务端
 
@@ -125,6 +139,7 @@ shenyu.register.service.${rpcType}.${contextPath}
 订阅端会对所有的`Metadata`配置继续监听，当初次订阅和配置更新后，触发`selector`和`rule`的数据变更和数据同步事件发布。
 
 ### SPI扩展
+应用微服务通过shenyu-client接入注册时使用到的一些类
 
 | *SPI 名称*                       | *详细说明*               |
 | -------------------------------- | --------------------------- |
@@ -138,16 +153,17 @@ shenyu.register.service.${rpcType}.${contextPath}
 | ConsulClientRegisterRepository   | 基于Consul注册的实现 |
 | NacosClientRegisterRepository    | 基于Nacos注册的实现 |
 
+shenyu-admin从注册中心中订阅注册信息时用到的类
 
 | *SPI 名称*                       | *详细说明*                 |
 | -------------------------------- | ----------------------------- |
-| ShenyuServerRegisterRepository     | ShenYu网关客户端注册的后台服务资源      |
+| ShenyuClientServerRegisterRepository     | ShenYu网关客户端注册的后台服务资源      |
 
 | *已知实现类*                       | *详细说明*                 |
 | -------------------------------- | ----------------------------- |
 | ShenyuHttpRegistryController       | 使用Http服务接口来处理客户端注册请求        |
-| ZookeeperServerRegisterRepository| 使用Zookeeper来处理客户端注册节点 |
-| EtcdServerRegisterRepository     | 使用Etcd来处理客户端注册节点 |
-| ConsulServerRegisterRepository   | 使用Consul来处理客户端注册节点 |
-| NacosServerRegisterRepository    | 使用Nacos来处理客户端注册节点 |
+| ZookeeperClientServerRegisterRepository| 使用Zookeeper来处理客户端注册节点 |
+| EtcdClientServerRegisterRepository     | 使用Etcd来处理客户端注册节点 |
+| ConsulClientServerRegisterRepository   | 使用Consul来处理客户端注册节点 |
+| NacosClientServerRegisterRepository    | 使用Nacos来处理客户端注册节点 |
 

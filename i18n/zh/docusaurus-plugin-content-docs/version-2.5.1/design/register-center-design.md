@@ -24,9 +24,10 @@ description: 客户端接入原理
 
 
 ### 整体流程
-1.微服务应用启动，注册信息会通过指定的注册中心客户端先写入到实际的注册中心（例如：nacos）
-2.shenyu-admin启动会从实际注册中心中订阅注册信息，放入Disruptor
-3.借助shenyu的数据同步机制，将信息实时同步给shenyu-gateway
+1.微服务应用启动时，会通过指定的注册中心客户端将注册信息写入到注册中心中（例如：nacos）  
+2.shenyu-admin启动会从指定的注册中心中订阅注册信息，放入Disruptor中  
+3.借助shenyu的数据同步机制，将注册信息实时同步给shenyu-gateway  
+
 数据同步机制设计可参考  [数据同步机制设计](data-sync.md)
 
 http服务注册比较特殊，直接由shenyu-admin完成

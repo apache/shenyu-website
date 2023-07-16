@@ -32,9 +32,11 @@ org.postgresql.Driver
 
 - Finally load the file with 'java.util.ServiceLoader' to instantiate the corresponding implementation class of the interface
 
-```java
+```
+
 ServiceLoader<Driver> loader = ServiceLoader.load(Driver.class)
 ```
+
 The underlying implementation involves classloading, the parent delegate model, and so on, which I won't expand here. Based on this design idea, many mainstream frameworks self-implemented a set of 'SPI' extension, such as 'Dubbo SPI' extension module, which would read the 'META-INF/services/dubbo' directory file content in the classppath for class loading. The 'shenyu-spi' module also follows this similar design idea.
 
 ## source code of shenyu-spi

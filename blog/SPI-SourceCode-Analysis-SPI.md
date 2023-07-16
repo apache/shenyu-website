@@ -20,9 +20,9 @@ Recently,when I read the source code of open source project Apache Shenyu API ga
 
 The JDK's built-in 'SPI' can be used as follows:
 
-- in the 'META-INF/services' directory of the classpath, create a file named with the fully qualified name of the interface (essentially a 'properties' file), for example named 'java.sql.Driver'
+- In the 'META-INF/services' directory of the classpath, create a file named with the fully qualified name of the interface (essentially a 'properties' file) whose implementation classes you want the SPI loader to load , for example if you want to load the SQL driver implementation classes mentioned above then create a file named 'java.sql.Driver' since those classes implement the 'java.sql.driver' interface.
 
-- this file can be specified in the specific implementation classes, namely each implementation class all types of qualified called one line alone, such as `META-INF/services/java.sql.Driver`
+- In this file we can add entries for all the specific implementations of the interface . For example for the above driver class scenario we would add entries as shown in below code snippet in the file `META-INF/services/java.sql.Driver`
 
 ```java
 # content of file META-INF/services/java.sql.Driver
@@ -32,7 +32,12 @@ org.postgresql.Driver
 
 - Finally load the file with 'java.util.ServiceLoader' to instantiate the corresponding implementation class of the interface
 
-The underlying implementation involves classloading, the parent delegate model, and so on, which I won't expand here. Based on this design idea, many mainstream frameworks self-implemented a set of 'SPI' extension, such as 'Dubbo SPI' extension module, which to read the 'META-INF/services/dubbo' directory file content in the classppath for class loading. The 'shenyu-spi' module also follows this similar design idea.
+```
+
+ServiceLoader<Driver> loader = ServiceLoader.load(Driver.class)
+```
+
+The underlying implementation involves classloading, the parent delegate model, and so on, which I won't expand here. Based on this design idea, many mainstream frameworks self-implemented a set of 'SPI' extension, such as 'Dubbo SPI' extension module, which would read the 'META-INF/services/dubbo' directory file content in the classppath for class loading. The 'shenyu-spi' module also follows this similar design idea.
 
 ## source code of shenyu-spi
 
@@ -58,7 +63,7 @@ The 'shenyu-spi' module is very concise, and the code structure is as follows:
 
 ### @SPI
 
-`org.apache.shenyu.spi.SPI` is an identification annotation which is using for 'SPI' interface.That is, only interfaces that use '@SPI' can be loaded by 'shenyu-spi'. The class's annotation describes the implementation of Apache Dubbo, a reference to all the SPI systems (which makes sense, since the SPI extension is already a mature scheme with much the same implementation). This annotation has only one method:
+`org.apache.shenyu.spi.SPI` is an identification annotation which is used for identifying an interface as a 'SPI' interface.That is, only interfaces that use '@SPI' annotation can be loaded by 'shenyu-spi'. The class's annotation describes the implementation of Apache Dubbo, a reference to all the SPI systems (which makes sense, since the SPI extension is already a mature scheme with much the same implementation). This annotation has only one method:
 
 ```java
 @Documented
@@ -79,7 +84,7 @@ The unique 'value()' method is used to specify the default 'SPI' implementation 
 
 ### @Join
 
-`org.apache.shenyu.spi.Join` is an identification annotation too，which is using for 'SPI' interface, which specify the 'SPI' implementation and to indicate that the class is added to the SPI system and can be loaded by ExtensionLoader. This annotation has only one method:
+`org.apache.shenyu.spi.Join` is an identification annotation too. When this annotation is used on a class it specifies that  the class contains 'SPI' implementation and to indicate that the class is added to the SPI system and can be loaded by ExtensionLoader. This annotation has two methods:
 
 ```java
 @Documented
@@ -92,10 +97,19 @@ public @interface Join {
      * @return int.
      */
     int order() default 0;
+
+    /**
+     * Indicates that the object joined by @Join is a singleton,
+     * otherwise a completely new instance is created each time.
+     * @return true or false.
+     */
+    boolean isSingleton() default true;
 }
 ```
 
 The unique 'order()' method is used to specify the specific sequence number. If a single interface that annotated with '@SPI' has multiple implementation classes that annotated with '@Join', the sequence number determines the order of these implementation class instances (the smaller one comes first).
+
+The isSingleton() method indicates whether the class that the implementation class is a singleton class or not. That is if it is a singleton class it will be instantiated only once else it will create a new instance everytime . 
 
 ### ExtensionLoader
 
@@ -132,26 +146,10 @@ public final class ExtensionLoader<T> {
     private String cachedDefaultName;
     
     // Holder比较器，按照Holder的order降序，也就是顺序号小的排在前面
-    private final Comparator<Holder<Object>> holderComparator = (o1, o2) -> {
-        if (o1.getOrder() > o2.getOrder()) {
-            return 1;
-        } else if (o1.getOrder() < o2.getOrder()) {
-            return -1;
-        } else {
-            return 0;
-        }
-    };
+    private final Comparator<Holder<Object>> holderComparator = Comparator.comparing(Holder::getOrder);
     
     // ClassEntity比较器，按照ClassEntity的order降序，也就是顺序号小的排在前面
-    private final Comparator<ClassEntity> classEntityComparator = (o1, o2) -> {
-        if (o1.getOrder() > o2.getOrder()) {
-            return 1;
-        } else if (o1.getOrder() < o2.getOrder()) {
-            return -1;
-        } else {
-            return 0;
-        }
-    };
+    private final Comparator<ClassEntity> classEntityComparator = Comparator.comparing(ClassEntity::getOrder);
     
     // 暂时省略其他代码
 
@@ -162,6 +160,9 @@ public final class ExtensionLoader<T> {
         private volatile T value;
         
         private Integer order;
+
+        private boolean isSingleton;
+        
         // 省略setter和getter代码
     }
     
@@ -173,15 +174,19 @@ public final class ExtensionLoader<T> {
         
         // 加载顺序号
         private Integer order;
+
+        private Boolean isSingleton;
         
         // SPI实现类
         private Class<?> clazz;
-        
-        private ClassEntity(final String name, final Integer order, final Class<?> clazz) {
+
+        private ClassEntity(final String name, final Integer order, final Class<?> clazz, final boolean isSingleton) {
             this.name = name;
             this.order = order;
             this.clazz = clazz;
+            this.isSingleton = isSingleton;
         }
+        
         // 省略setter和getter代码
     }
 }
@@ -344,7 +349,7 @@ private void loadClass(final Map<String, ClassEntity> classes,
 }
 ```
 
-Processing with the chain of method 'getExtensionClassesEntity - > loadExtensionClass - > loadDirectory - > loadResources - > LoadClass',it with create a mapping of 'alias' to 'implementation class information' for subsequent instantiations, as shown in the 'getJoin()' method:
+Processing with the chain of method 'getExtensionClassesEntity - > loadExtensionClass - > loadDirectory - > loadResources - > LoadClass',it will create a mapping of 'alias' to 'implementation class information' for subsequent instantiations, as shown in the 'getJoin()' method:
 
 ```java
 // 基于别名获取实现类实例

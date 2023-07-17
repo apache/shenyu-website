@@ -57,7 +57,7 @@ ShenYu 2.6.0
 
 ### 2.4.1 插件配置
 
-### ![](/img/shenyu/plugin/logging/logging-huawei-cls/plugin-config-zh.jpg)
+### ![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-zh.jpg)
 
 | 配置项                    | 描述                                                         | 类型    | 备注 |
 | ------------------------- | ------------------------------------------------------------ | ------- | ---- |
@@ -81,7 +81,7 @@ ShenYu 2.6.0
 
 - 获取 `regionName`
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-regionName.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-regionName.png)
 
 | **区域名称** | **RegionName** |
 | ------------ | -------------- |
@@ -97,17 +97,17 @@ ShenYu 2.6.0
 - 获取 `projectId`
 
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-projectId.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-projectId.png)
 
 - 获取 `accessKeyId`与`accessKeySecret`
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-access.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-access.png)
 
 - 获取 `logGroupId`与`logStreamId`
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-logGroupId.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-logGroupId.png)
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-logStreamId.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-logStreamId.png)
 
 ### 2.4.2 规则和选择器配置
 
@@ -147,23 +147,23 @@ ShenYu 2.6.0
 
 - 开启插件，并配置 huawei lts插件,配置如下：
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/plugin-config-zh.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-zh.png)
 
 #### 2.6.1.2 选择器配置
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-log-selector-zh.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log-selector-zh.png)
 
 #### 2.6.1.3 规则配置
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-log-rule-zh.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log-rule-zh.png)
 
 #### 2.6.1.4 发送请求
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/call-service.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/call-service.png)
 
 #### 2.6.1.5 hauwei lts日志平台展示
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-log.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log.png)
 
 # 3. 如何禁用插件
 

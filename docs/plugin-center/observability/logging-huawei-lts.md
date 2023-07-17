@@ -60,7 +60,7 @@ ShenYu 2.6.0
 
 ### 2.4.1 Plugin configuration
 
-### ![](/img/shenyu/plugin/logging/logging-huawei-cls/plugin-config-en.jpg)
+### ![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-en.jpg)
 
 | config-item               | description                                                  | type    | remarks  |
 | ------------------------- | ------------------------------------------------------------ | ------- | -------- |
@@ -84,7 +84,7 @@ ShenYu 2.6.0
 
 - get `regionName`
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-regionName.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-regionName.png)
 
 | **区域名称** | **RegionName** |
 | ------------ | -------------- |
@@ -99,17 +99,17 @@ ShenYu 2.6.0
 
 - get  `projectId`
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-projectId.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-projectId.png)
 
 - get  `accessKeyId` and `accessKeySecret`
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-access.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-access.png)
 
 - get`logGroupId ` and `logStreamId`
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-logGroupId.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-logGroupId.png)
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-logStreamId.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-logStreamId.png)
 
 ### 2.4.2 Configuration Selectors and Rules
 
@@ -149,23 +149,23 @@ collect request info as follows
 
 * Open the plugin and configure huawei lts, configure it as follows.
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/plugin-config-en.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-en.png)
 
 ####   2.6.1.2 Selector Configuration
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-log-selector-en.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log-selector-en.png)
 
 ####   2.6.1.3 Rule Configuration
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-log-rule-en.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log-rule-en.png)
 
 ####   2.6.1.4 Send Request
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/call-service.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/call-service.png)
 
 ####   2.6.1.5 Tencent cls Platform Display
 
-![](/img/shenyu/plugin/logging/logging-huawei-cls/huawei-lts-log.png)
+![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log.png)
 
 # 3. How to disable plugin
 

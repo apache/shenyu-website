@@ -60,7 +60,7 @@ ShenYu 2.6.0
 
 ### 2.4.1 Plugin configuration
 
-### ![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-en.jpg)
+### ![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-en.png)
 
 | config-item               | description                                                  | type    | remarks  |
 | ------------------------- | ------------------------------------------------------------ | ------- | -------- |

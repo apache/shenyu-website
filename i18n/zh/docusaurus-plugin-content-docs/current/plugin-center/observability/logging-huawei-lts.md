@@ -57,7 +57,7 @@ ShenYu 2.6.0
 
 ### 2.4.1 插件配置
 
-### ![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-zh.jpg)
+### ![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-zh.png)
 
 | 配置项                    | 描述                                                         | 类型    | 备注 |
 | ------------------------- | ------------------------------------------------------------ | ------- | ---- |

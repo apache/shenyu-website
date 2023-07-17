@@ -170,3 +170,4 @@ collect request info as follows
 # 3. How to disable plugin
 
 - In `shenyu-admin` --> BasicConfig --> Plugin -->`loggingHuaweiLts`set Status disable.
+- 

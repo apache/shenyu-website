@@ -105,7 +105,7 @@ ShenYu 2.6.0
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-access.png)
 
-- get `logGroupId ` and `logStreamId`
+- get `logGroupId` and `logStreamId`
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-logGroupId.png)
 

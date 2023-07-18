@@ -168,4 +168,3 @@ ShenYu 2.6.0
 # 3. 如何禁用插件
 
 - 在 `shenyu-admin` --> 基础配置 --> 插件管理-> `loggingHuaweiLts` ，设置为关闭。
-- 

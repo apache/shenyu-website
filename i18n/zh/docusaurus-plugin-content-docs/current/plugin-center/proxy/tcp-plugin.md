@@ -44,7 +44,7 @@ description: Tcp插件
 
 ```json
 {
-  "loadBalanceAlgorithm": "random",
+  "loadBalance": "random",
   "bossGroupThreadCount": "1",
   "workerGroupThreadCount": "12",
   "clientMaxConnections": "20",
@@ -133,3 +133,7 @@ shenyu-gateway 代理列表同步log
 使用 `redis-cli -p {forwardPort}` 访问
 
 ![connection.png](/img/shenyu/plugin/tcp/redis-connection.png)
+
+
+如果当前 admin 的  UpstreamList 与 gateway 出现差异时可以 点击刷新 强制同步到gateway
+![refresh_upstream.png](/img/shenyu/plugin/tcp/refresh_upstream.png)

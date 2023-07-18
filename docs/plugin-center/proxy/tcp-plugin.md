@@ -134,3 +134,6 @@ Take the proxy redis for example
 use `redis-cli -p {forwardPort}` 
 
 ![connection.png](/img/shenyu/plugin/tcp/redis-connection.png)
+
+If there is a difference between the current admin's UpstreamList and the gateway's , you can click Refresh to force synchronization to the gateway
+![refresh_upstream.png](/img/shenyu/plugin/tcp/refresh_upstream.png)

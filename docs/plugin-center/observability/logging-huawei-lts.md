@@ -11,24 +11,24 @@ description: logging plugin
 
 * Logging-HuaweiLts Plugin
 
-##   1.2 Appropriate Scenario
+## 1.2 Appropriate Scenario
 
 * collect http request information to huawei  lts, analysis request information by huawei lts platform.
 
-##   1.3 Plugin functionality
+## 1.3 Plugin functionality
 
 - The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request，
 
 * the plugin records access logs and sends to huawei lts platform.
 
-##   1.4 Plugin code
+## 1.4 Plugin code
 
 * Core Module `shenyu-plugin-logging-huawei-lts`
 
 * Core Class `org.apache.shenyu.plugin.huawei.lts.LoggingHuaweiLtsPlugin`
 * Core Class `org.apache.shenyu.plugin.huawei.lts.client.HuaweiLtsLogCollectClient`
 
-##   1.5 Added Since Which shenyu version
+## 1.5 Added Since Which shenyu version
 
 ShenYu 2.6.0
 
@@ -105,7 +105,7 @@ ShenYu 2.6.0
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-access.png)
 
-- get`logGroupId ` and `logStreamId`
+- get `logGroupId ` and `logStreamId`
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-logGroupId.png)
 
@@ -151,19 +151,19 @@ collect request info as follows
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/plugin-config-en.png)
 
-####   2.6.1.2 Selector Configuration
+#### 2.6.1.2 Selector Configuration
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log-selector-en.png)
 
-####   2.6.1.3 Rule Configuration
+#### 2.6.1.3 Rule Configuration
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log-rule-en.png)
 
-####   2.6.1.4 Send Request
+#### 2.6.1.4 Send Request
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/call-service.png)
 
-####   2.6.1.5 Tencent cls Platform Display
+#### 2.6.1.5 Huawei lts Platform Display
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-log.png)
 

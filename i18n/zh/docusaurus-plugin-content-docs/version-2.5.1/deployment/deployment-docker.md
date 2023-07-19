@@ -61,6 +61,14 @@ docker run --name shenyu-admin -e "SPRING_PROFILES_ACTIVE=oracle" -e "spring.dat
 
 另外一种方式, 从 [配置文件地址](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-oracle.yml` 配置放到`${your_work_dir}/conf`， 调整`application.yml`中的配置`spring.profiles.active = oracle`，然后执行以下语句：
 
+* 使用 `OpenGauss` 来存储后台数据, 按照 [指引文档](./deployment-before.md#opengauss) 初始化数据库, 执行以下语句：
+
+```
+docker run --name shenyu-admin -e "SPRING_PROFILES_ACTIVE=opengauss" -e "spring.datasource.url=jdbc:opengauss://localhost:5432/shenyu" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
+```
+
+另外一种方式, 从 [配置文件地址](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/) 中把 `application.yml`、`application-og.yml` 配置放到`${your_work_dir}/conf`， 调整`application.yml`中的配置`spring.profiles.active = og`，然后执行以下语句：
+
 ```
 docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```

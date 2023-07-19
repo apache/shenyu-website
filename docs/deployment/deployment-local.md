@@ -36,6 +36,8 @@ mvn clean install '-Dmaven.javadoc.skip=true' '-B' '-Drat.skip=true' '-Djacoco.s
 
   * If you use `Oracle` for storage, follow the [guide document](./deployment-before.md#oracle) to initialize the database and modify the `JDBC` configuration in `application-oracle.yml`, set the variable `--spring.profiles.active = oracle`.
 
+  * If you use `OpenGuass` for storage, follow the [guide document](./deployment-before.md#opengauss) to initialize the database and modify the `JDBC` configuration in `application-og.yml`, set the variable `--spring.profiles.active = og`.
+
 * use the development tool to start `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`.
 
 

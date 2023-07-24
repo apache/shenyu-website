@@ -36,8 +36,6 @@ mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=tru
 
   * 如果使用`Oracle`来存储，需按照 [指引文档](./deployment-before.md#oracle) 初始化数据库和修改 `application-oracle.yml` 中的 `jdbc` 相关配置，再设置变量 `--spring.profiles.active = oracle` 启动服务。
 
-  * 如果使用`OpenGuass`来存储，需按照 [指引文档](./deployment-before.md#opengauss) 初始化数据库和修改 `application-og.yml` 中的 `jdbc` 相关配置，再设置变量 `--spring.profiles.active = og` 启动服务。
-
 * 使用开发工具启动 `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`。
 
 

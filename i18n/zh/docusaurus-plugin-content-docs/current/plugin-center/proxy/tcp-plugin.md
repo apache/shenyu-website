@@ -95,6 +95,7 @@ ReactorNetty `ConnectionProvider` 配置 详情见 `shenyu-protocol-tcp#Connecti
   "${yourProps}": "{}"
 }
 ```
+
 discovery 模块会自动 监听到 你的 zookeeper 注册中心 自动维护 discovery_upstream
 
 
@@ -136,4 +137,5 @@ shenyu-gateway 代理列表同步log
 
 
 如果当前 admin 的  UpstreamList 与 gateway 出现差异时可以 点击刷新 强制同步到gateway
+
 ![refresh_upstream.png](/img/shenyu/plugin/tcp/refresh_upstream.png)

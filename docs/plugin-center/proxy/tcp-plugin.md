@@ -94,6 +94,7 @@ If the registered data is not in the default json format: aliases can be set
   "${yourProps}": "{}"
 }
 ```
+
 The discovery module will automatically listen to your zookeeper registry and automatically maintain discovery_upstream
 
 

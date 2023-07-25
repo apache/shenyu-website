@@ -12,16 +12,16 @@ description: Tcp插件
 
 ## 1.2 适用场景
 
-- 处理 Tcp协议 请求，将其转发到后端其他 Tcp 协议的服务
+- 处理 TCP 协议请求，将其转发到后端其他 TCP 协议的服务
 - 服务负载均衡
 
 ## 1.3 插件功能
 
-* 支持根据 配置的 upstream list 做tcp代理
-* upstream list 可在 admin 模块自行配置 热同步到 gateway
-* 支持设置请求的负载均衡策略，目前支持 shenyu 负载均衡模块的策略 注意: 负载均衡作用与和gateway建立连接时,当连接建立后续的流量继续保持
-  负载均衡模块 已经选定的upstream
-* 支持配置开启端口进行监听, 可配置 reactor-netty 参数
+* 支持根据配置的 upstream list 做 TCP 代理；
+* upstream list 可在 admin 模块自行配置，热同步到 gateway；
+* 支持设置请求的负载均衡策略，目前支持 shenyu 负载均衡模块的策略（注意: 负载均衡作用与gateway建立连接时，当连接建立，后续的流量继续保持
+  负载均衡模块 已经选定的upstream）；
+* 支持配置开启端口进行监听，可配置 reactor-netty 参数；
 * 支持开启多个代理选择器
 
 ## 1.4 插件代码
@@ -34,13 +34,23 @@ description: Tcp插件
 
 # 2. 如何使用插件
 
-启动 admin server 在 BasicConfig - Plugin 中 搜索 tcp 插件 并且 点击 Resource 激活当前 tcp 模块
+## 2.1 启用插件
 
-![init-tcp](/img/shenyu/plugin/tcp/init-tcp.png)
+- 初次使用时，启动 admin server，在 `shenyu-admin` --> 基础配置 --> 插件管理 中， 搜索 tcp 插件 并且点击“资源”激活 TCP 插件模块
 
-## 2.1 插件配置
+![init-tcp-zh](/img/shenyu/plugin/tcp/init_tcp_zh.png)
 
-插件配置
+- 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `tcp`，设置为开启
+
+![start-tcp-zh](/img/shenyu/plugin/tcp/start_tcp_zh.png)
+
+## 2.2 配置插件
+
+- TCP 插件是以代理选择器（proxy-selector）为单位创建的，因此配置插件即是配置代理选择器的属性。 创建代理选择器时，点击页面的“添加选择器按钮”，在弹出的选择器表单中，即可对选择器属性进行配置：
+
+![selector_props](/img/shenyu/plugin/tcp/selector_props.png)
+
+ 默认配置如下：
 
 ```json
 {
@@ -55,24 +65,41 @@ description: Tcp插件
 }
 ```
 
-loadBalanceAlgorithm : shenyu负载均衡算法 默认random
-bossGroupThreadCount , workerGroupThreadCount
-ReactorNetty TcpServer 配置 详情见  `shenyu-protocol-tcp#TcpBootstrapServer#start`
-clientMaxConnections , clientMaxIdleTimeMs , clientMaxLifeTimeMs , clientPendingAcquireTimeout ,
-clientPendingAcquireMaxCount
-ReactorNetty `ConnectionProvider` 配置 详情见 `shenyu-protocol-tcp#ConnectionContext`
+- `loadBalanceAlgorithm` : shenyu负载均衡算法，默认为random
+- `bossGroupThreadCount` , `workerGroupThreadCount`：
+ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServer#start`
+- `clientMaxConnections` , `clientMaxIdleTimeMs` , `clientMaxLifeTimeMs` , `clientPendingAcquireTimeout` ,
+`clientPendingAcquireMaxCount`: ReactorNetty `ConnectionProvider` 配置，详情见 `shenyu-protocol-tcp#ConnectionContext`
 
-## 2.2 Discovery 支持
 
-目前 支持 Discovery Zookeeper 和 Local 模式
+用户可以在`shenyu-admin` --> 基础配置 --> 插件处理管理 中，搜索 tcp 插件，对默认配置进行修改编辑：
+
+![plugin_handle_zh](/img/shenyu/plugin/tcp/plugin_handle_zh.png)
+
+## 2.3 配置服务发现
+
+- TCP 插件支持插件级别、选择器级别两种级别的服务发现配置：
+
+① 用户点击页面上的“服务发现配置”按钮，便可以在弹出的表单中配置插件级别的服务发现。配置完成后，再次打开表单，可以修改或删除之前的配置。
+插件级别discovery配置后，选择器的discovery设置默认与插件级别保持一致：
+
+![discovery_config](/img/shenyu/plugin/tcp/discovery_config.png)
+
+② 如果用户没有配置插件级别的服务发现，在每次创建代理选择器（proxy-selector)时，都可以对该选择器的discovery进行配置：
+
+![selector_discovery](/img/shenyu/plugin/tcp/selector_discovery.png)
+
+
+- 目前，TCP 插件支持 Zookeeper 模式和 Local 模式的服务发现。
 
 ### 2.2.1 Zookeeper 模式
 
-![zookeeper.png](/img/shenyu/plugin/tcp/zookeeper.png)
-配置 zookeeper 链接地址
-当你要被注册到 shenyu tcp代理的 服务 注册到 ListenerNode 若不配置自动为 `/shenyu/discovery` 下的 临时节点
+- 当服务发现的类型选择zookeeper时，表单展示需要填写的对应字段：
 
-数据为:
+![zk_discovery_zh.png](/img/shenyu/plugin/tcp/zk_discovery_zh.png)
+
+
+- 数据为:
 
 ```json
 {
@@ -84,7 +111,7 @@ ReactorNetty `ConnectionProvider` 配置 详情见 `shenyu-protocol-tcp#Connecti
 }
 ```
 
-若注册的数据与 默认的json格式不同时: 可以设置别名  
+- 若注册的数据与默认的json格式不同时，可以在“转换处理”中设置别名：
 
 ```json
 {
@@ -96,13 +123,39 @@ ReactorNetty `ConnectionProvider` 配置 详情见 `shenyu-protocol-tcp#Connecti
 }
 ```
 
-discovery 模块会自动 监听到 你的 zookeeper 注册中心 自动维护 discovery_upstream
+- zookeeper模式对应的服务发现属性默认为：
+
+```json
+{
+  "baseSleepTimeMilliseconds":"1000",
+  "maxRetries":"3",
+  "maxSleepTimeMilliseconds":"1000",
+  "connectionTimeoutMilliseconds":"1000",
+  "sessionTimeoutMilliseconds":"1000",
+  "namespace":"",
+  "digest":null
+}
+```
+
+- 用户可以在`shenyu-admin` --> 基础配置 --> 字典管理 中，搜索字典名称为“zookeeper”，对默认属性对应的字典值进行修改编辑
+（注意：不可修改字典类型和字典名称）：
+
+![zk_dict.png](/img/shenyu/plugin/tcp/zk_dict_zh.png)
+
+- zookeeper模式下，discovery模块会自动监听用户的 zookeeper 注册中心，自动维护 discovery_upstream 
+
+![zookeeper.png](/img/shenyu/plugin/tcp/zookeeper.png)
+
+
+
+
+
 
 
 
 ### 2.2.2 Local 模式
 
-discovery#Local 配置
+- discovery#Local 配置
 
 ```json
 {
@@ -118,24 +171,43 @@ discovery#Local 配置
 
 详情见 `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
 
-discovery#Local 配置
-手动配置 转发端口 和 下游节点
-![local.png](/img/shenyu/plugin/tcp/local.png)
 
-shenyu-gateway 端口启动log
+- 当服务发现的类型选择local时，需要手动填写服务下游列表。如图所示，服务下游列表为可编辑表格，
+双击每一个单元格可以进行表格内容的修改:
+
+![local_selector_zh.png](/img/shenyu/plugin/tcp/local_selector_zh.png)
+
+
+- shenyu-gateway 端口启动log
+
 ![gateway_start_port_log.png](/img/shenyu/plugin/tcp/gateway_start_port_log.png)
 
-shenyu-gateway 代理列表同步log
+- shenyu-gateway 代理列表同步log
+
 ![gateway_upstream_list.png](/img/shenyu/plugin/tcp/gateway_upstream_list.png)
 
-## 使用
+## 2.4 配置选择器
 
-以 代理 redis 为例
-使用 `redis-cli -p {forwardPort}` 访问
+- 除了上文中的服务发现配置外，创建选择器时，还需要填写选择器的“基本配置”部分，包括名称与代理端口等。为了提升填写的便捷性，
+可以点击“复制选择器”，拷贝已经创建的选择器的部分信息。
 
-![connection.png](/img/shenyu/plugin/tcp/redis-connection.png)
+> 注意：选择器的名称唯一标识选择器，不能重复
+
+![selector_basic.png](/img/shenyu/plugin/tcp/selector_basic.png)
+
+- 创建完选择器后，选择器以卡片的形式展现，鼠标悬停于卡片上，将会展示选择器的创建时间、更新时间与属性。
+卡片下方有三个图标按钮，从左至右依次为同步、编辑与删除选择器：
+
+![card_list_zh.png](/img/shenyu/plugin/tcp/card_list_zh.png)
+
+- 如果当前 admin 的  UpstreamList 与 gateway 出现差异时可以点击“同步”图标，强制同步到gateway。
+
+## 2.6 示例
+
+以代理 redis 为例，使用 `redis-cli -p {forwardPort}` 访问
+
+![connection.png](/img/shenyu/plugin/tcp/redis_connection.png)
 
 
-如果当前 admin 的  UpstreamList 与 gateway 出现差异时可以 点击刷新 强制同步到gateway
 
-![refresh_upstream.png](/img/shenyu/plugin/tcp/refresh_upstream.png)
+

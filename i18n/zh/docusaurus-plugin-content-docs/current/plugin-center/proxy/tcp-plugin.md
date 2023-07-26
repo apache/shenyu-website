@@ -19,10 +19,11 @@ description: Tcp插件
 
 * 支持根据配置的 upstream list 做 TCP 代理；
 * upstream list 可在 admin 模块自行配置，热同步到 gateway；
-* 支持设置请求的负载均衡策略，目前支持 shenyu 负载均衡模块的策略（注意: 负载均衡作用与gateway建立连接时，当连接建立，后续的流量继续保持
-  负载均衡模块 已经选定的upstream）；
+* 支持设置请求的负载均衡策略，目前支持 shenyu 负载均衡模块的策略；
 * 支持配置开启端口进行监听，可配置 reactor-netty 参数；
 * 支持开启多个代理选择器
+
+> 注意: 负载均衡作用与gateway建立连接时，当连接建立，后续的流量继续保持负载均衡模块已经选定的upstream
 
 ## 1.4 插件代码
 
@@ -136,6 +137,7 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
   "digest":null
 }
 ```
+详情见 `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
 
 - 用户可以在`shenyu-admin` --> 基础配置 --> 字典管理 中，搜索字典名称为“zookeeper”，对默认属性对应的字典值进行修改编辑
 （注意：不可修改字典类型和字典名称）：
@@ -154,23 +156,6 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 
 
 ### 2.2.2 Local 模式
-
-- discovery#Local 配置
-
-```json
-{
-  "baseSleepTimeMilliseconds": "1000",
-  "maxRetries": "3",
-  "maxSleepTimeMilliseconds": "1000",
-  "connectionTimeoutMilliseconds": "1000",
-  "sessionTimeoutMilliseconds": "1000",
-  "namespace": "",
-  "digest": null
-}
-```
-
-详情见 `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
-
 
 - 当服务发现的类型选择local时，需要手动填写服务下游列表。如图所示，服务下游列表为可编辑表格，
 双击每一个单元格可以进行表格内容的修改:
@@ -200,7 +185,7 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 
 ![card_list_zh.png](/img/shenyu/plugin/tcp/card_list_zh.png)
 
-- 如果当前 admin 的  UpstreamList 与 gateway 出现差异时可以点击“同步”图标，强制同步到gateway。
+- 如果当前 admin 的 UpstreamList 与 gateway 出现差异时，可以点击“同步”图标，强制同步到gateway。
 
 ## 2.6 示例
 

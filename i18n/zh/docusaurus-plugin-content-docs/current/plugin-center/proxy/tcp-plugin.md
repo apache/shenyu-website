@@ -8,7 +8,7 @@ description: Tcp插件
 
 ## 1.1 插件名称
 
-- Tcp插件
+- TCP插件
 
 ## 1.2 适用场景
 
@@ -23,11 +23,11 @@ description: Tcp插件
 * 支持配置开启端口进行监听，可配置 reactor-netty 参数；
 * 支持开启多个代理选择器
 
-> 注意: 负载均衡作用与gateway建立连接时，当连接建立，后续的流量继续保持负载均衡模块已经选定的upstream
+> __注意__: 负载均衡作用与gateway建立连接时，当连接建立，后续的流量继续保持负载均衡模块已经选定的upstream
 
 ## 1.4 插件代码
 
-- 核心模块`shenyu-plugin-tcp` `shenyu-protocol-tcp`
+- 核心模块：`shenyu-plugin-tcp` `shenyu-protocol-tcp`
 
 ## 1.5 添加自哪个shenyu版本
 
@@ -79,7 +79,7 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 
 ## 2.3 配置服务发现
 
-- TCP 插件支持插件级别、选择器级别两种级别的服务发现配置：
+TCP 插件支持插件级别、选择器级别两种级别的服务发现配置：
 
 ① 用户点击页面上的“服务发现配置”按钮，便可以在弹出的表单中配置插件级别的服务发现。配置完成后，再次打开表单，可以修改或删除之前的配置。
 插件级别discovery配置后，选择器的discovery设置默认与插件级别保持一致：
@@ -91,9 +91,9 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 ![selector_discovery](/img/shenyu/plugin/tcp/selector_discovery.png)
 
 
-- 目前，TCP 插件支持 Zookeeper 模式和 Local 模式的服务发现。
+目前，TCP 插件支持 Zookeeper 模式和 Local 模式的服务发现。
 
-### 2.2.1 Zookeeper 模式
+### 2.3.1 Zookeeper 模式
 
 - 当服务发现的类型选择zookeeper时，表单展示需要填写的对应字段：
 
@@ -140,7 +140,7 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 详情见 `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
 
 - 用户可以在`shenyu-admin` --> 基础配置 --> 字典管理 中，搜索字典名称为“zookeeper”，对默认属性对应的字典值进行修改编辑
-（注意：不可修改字典类型和字典名称）：
+（__注意__：不可修改字典类型和字典名称）：
 
 ![zk_dict.png](/img/shenyu/plugin/tcp/zk_dict_zh.png)
 
@@ -155,7 +155,7 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 
 
 
-### 2.2.2 Local 模式
+### 2.3.2 Local 模式
 
 - 当服务发现的类型选择local时，需要手动填写服务下游列表。如图所示，服务下游列表为可编辑表格，
 双击每一个单元格可以进行表格内容的修改:
@@ -163,20 +163,12 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 ![local_selector_zh.png](/img/shenyu/plugin/tcp/local_selector_zh.png)
 
 
-- shenyu-gateway 端口启动log
-
-![gateway_start_port_log.png](/img/shenyu/plugin/tcp/gateway_start_port_log.png)
-
-- shenyu-gateway 代理列表同步log
-
-![gateway_upstream_list.png](/img/shenyu/plugin/tcp/gateway_upstream_list.png)
-
 ## 2.4 配置选择器
 
 - 除了上文中的服务发现配置外，创建选择器时，还需要填写选择器的“基本配置”部分，包括名称与代理端口等。为了提升填写的便捷性，
 可以点击“复制选择器”，拷贝已经创建的选择器的部分信息。
 
-> 注意：选择器的名称唯一标识选择器，不能重复
+> __注意__：选择器的名称唯一标识选择器，不能重复
 
 ![selector_basic.png](/img/shenyu/plugin/tcp/selector_basic.png)
 
@@ -186,6 +178,16 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 ![card_list_zh.png](/img/shenyu/plugin/tcp/card_list_zh.png)
 
 - 如果当前 admin 的 UpstreamList 与 gateway 出现差异时，可以点击“同步”图标，强制同步到gateway。
+
+## 2.5 日志
+
+- shenyu-gateway 端口启动log
+
+![gateway_start_port_log.png](/img/shenyu/plugin/tcp/gateway_start_port_log.png)
+
+- shenyu-gateway 代理列表同步log
+
+![gateway_upstream_list.png](/img/shenyu/plugin/tcp/gateway_upstream_list.png)
 
 ## 2.6 示例
 

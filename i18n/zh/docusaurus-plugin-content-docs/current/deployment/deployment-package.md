@@ -56,6 +56,16 @@ description: 二进制包部署
 > linux: ./start.sh
 ```
 
+* 使用 `OpenGauss` 来存储后台数据，需按照 [指引文档](./deployment-before.md#opengauss) 初始化数据库， 进入 `/conf` 目录修改 `application-og.yaml` 中 `jdbc` 的配置。
+
+* 将 `conf/application.yml` 中的 `spring.profiles.active` 修改成 `og`
+
+```
+> windows: start.bat
+
+> linux: ./start.sh
+```
+
 ### 启动 Apache ShenYu Bootstrap
 
 * 下载 [`apache-shenyu-${current.version}-bootstrap-bin.tar.gz`](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz)

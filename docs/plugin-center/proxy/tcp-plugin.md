@@ -142,6 +142,7 @@ you can set an alias in "handler"：
   "digest":null
 }
 ```
+
 See `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init` for details.
 
 - You can search for the dictionary name as "zookeeper" in `shenyu-admin` --> BasicConfig --> Dictionary, 

@@ -137,6 +137,7 @@ TCP 插件支持插件级别、选择器级别两种级别的服务发现配置�
   "digest":null
 }
 ```
+
 详情见 `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
 
 - 用户可以在`shenyu-admin` --> 基础配置 --> 字典管理 中，搜索字典名称为“zookeeper”，对默认属性对应的字典值进行修改编辑

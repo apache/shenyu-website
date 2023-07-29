@@ -403,7 +403,7 @@ Netty HttpClient 代理的相关配置
 | allowedAnyOrigin |  | Boolean |   false  |    否    | 是否允许任意Origin，为true时直接将`Access-Control-Allow-Origin`设置值与Origin相同，即`request.getHeaders().getOrigin()`，同时丢弃`allowedOrigin`配置 |
 | allowedOrigin |  | AllowedOriginConfig |  -  |    否    | 设置允许的请求来源 |
 |  | spacer | String | "." | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes 一起使用 |
-|  | domain | String | 无 | 否 | 设置允许访问的子域名，需要搭配 spacer、domain 一起使用 |
+|  | domain | String | 无 | 否 | 设置允许访问的子域名，需要搭配 spacer、prefixes 一起使用 |
 |  | prefixes | Set | 无 | 否 | 设置允许访问的子域名，需要搭配 spacer、domain 一起使用 |
 |  | origins | Set | null | 否 | 设置允许访问的域名，可单独使用 |
 |  | originRegex | String | 无 | 否 | 设置允许正则匹配的域名访问，可单独使用 |

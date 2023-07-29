@@ -55,6 +55,16 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 > linux: ./start.sh
 ```
 
+* use `OpenGauss` to store data, follow the [guide document](./deployment-before.md#opengauss) to initialize the database, go to the `/conf` directory, and modify the `JDBC` configuration in `application-og.yml`.
+
+* Modify `spring.profiles.active` in `conf/application.yml` to `og`
+
+```
+> windows: start.bat
+
+> linux: ./start.sh
+```
+
 ### Start Apache ShenYu Bootstrap
 
 * download [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz)

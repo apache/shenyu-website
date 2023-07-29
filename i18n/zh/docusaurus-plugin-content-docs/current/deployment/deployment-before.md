@@ -44,3 +44,13 @@ description: 部署先决条件
     * maven repository: https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8/19.3.0.0
     * homepage:  https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html
 
+### OpenGauss
+
+在[项目openGauss初始化脚本目录](https://github.com/apache/incubator-shenyu/blob/master/db/init/og) 中找到初始化脚本`create-table.sql`, 使用客户端连接工具连接您的openGauss服务创建一个数据库, 在此数据库上执行`create-table.sql`脚本, 由此您便初始化了`shenyu-admin`的数据库, 之后可在[项目配置文件](https://github.com/apache/incubator-shenyu/blob/master/shenyu-admin/src/main/resources/application-og.yml) 中调整您的openGauss环境配置.
+
+* sql脚本: https://github.com/apache/shenyu/blob/master/db/init/og
+
+* 驱动:
+
+  * maven repository: https://mvnrepository.com/artifact/org.opengauss/opengauss-jdbc/5.0.0-og
+  * homepage:  https://gitee.com/opengauss/openGauss-connector-jdbc

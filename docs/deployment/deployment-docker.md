@@ -65,6 +65,18 @@ another way is to put the `application.yml`、`application-oracle.yml` configura
 docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
 ```
 
+* use `OpenGauss` to store data, follow the [guide document](./deployment-before.md#opengauss) to initialize the database, execute the following statement：
+
+```
+docker run --name shenyu-admin -e "SPRING_PROFILES_ACTIVE=og" -e "spring.datasource.url=jdbc:opengauss://localhost:5432/shenyu" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
+```
+
+another way is to put the `application.yml`、`application-og.yml` configuration in ${your_work_dir}/conf, modify the configuration `spring.profiles.active = og` in `application.yml`, and then execute the following statement：
+
+```
+docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:${current.version}
+```
+
 ### Start Apache ShenYu Bootstrap
 
 > After version 2.5.1, when `docker run`, we can customize JVM startup parameters by adding `-e BOOT_JVM="xxxx"`

@@ -43,7 +43,7 @@ description: 选择器和规则管理
       * `exclude`： 是 `match` 方式的反选。
       * `startsWith`：请求前缀等于指定的值，才能匹配。在特定场景下，可替换 `match` （如用`/test/`来替换`/test/**`）以获得更好的性能。
       * `endsWith`：请求后缀等于指定的值，才能匹配。
-      * `pathPatter`：是 `match` 的优化版，性能比`match`更好，但是不支持将`**`写在path中间（如`/api/**/xxx`）。
+      * `pathPattern`：是 `match` 的优化版，性能比`match`更好，但是不支持将`**`写在path中间（如`/api/**/xxx`）。
   * 继续后续选择器：后续选择器还是否执行。
   * 是否开启：打开才会生效。
   * 打印日志：打开时，当匹配上的时候，会打印匹配日志。
@@ -86,7 +86,7 @@ description: 选择器和规则管理
       * `exclude`： 是 `match` 方式的反选。
       * `startsWith`：请求前缀等于指定的值，才能匹配。在特定场景下，可替换 `match` （如用`/test/`来替换`/test/**`）以获得更好的性能。
       * `endsWith`：请求后缀等于指定的值，才能匹配。
-      * `pathPatter`：是 `match` 的优化版，性能比`match`更好，但是不支持将`**`写在path中间（如`/api/**/xxx`）。
+      * `pathPattern`：是 `match` 的优化版，性能比`match`更好，但是不支持将`**`写在path中间（如`/api/**/xxx`）。
   * 是否开启：打开才会生效。
   * 打印日志：打开时，当匹配上的时候，才会打印匹配日志。
   * 执行顺序：当多个规则的时候，执行顺序小的优先执行。
@@ -296,13 +296,13 @@ MyHeader: custom-header
 
   ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-endswith-zh.png)
 
-* `pathPatter`
+* `pathPattern`
 
-  跟 `match` 类似， `pathPatter` 支持模糊匹配（`/**`）。假如你的规则条件设置如下，那么请求 `/http/order/findById` 就可以匹配上；
+  跟 `match` 类似， `pathPattern` 支持模糊匹配（`/**`）。假如你的规则条件设置如下，那么请求 `/http/order/findById` 就可以匹配上；
   
   但是注意：不支持将`**`写在path中间（如`/api/**/xxx`）!
 
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-pathpatter-zh.png)
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-pathpattern-zh.png)
 
 如果想更深入理解条件匹配策略，请阅读相关源码，包名是`org.apache.shenyu.plugin.base.condition.judge`：
 
@@ -317,6 +317,6 @@ MyHeader: custom-header
 |`exclude`                 |`ExcludePredicateJudge` |
 |`startsWith`              |`StartsWithPredicateJudge` |
 |`endsWith`                |`EndsWithPredicateJudge` |
-|`pathPatter`              |`PathPatternPredicateJudge` |
+|`pathPattern`              |`PathPatternPredicateJudge` |
 
 文中的示例是为了说明选择器和规则的使用，具体条件的设置需要根据实际情况选择。

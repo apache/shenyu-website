@@ -316,7 +316,7 @@ Condition parameters allow you to retrieve the actual data of the request. How t
 
   Notice: writing `**` in the middle of the path (such as `/api/**/xxx`) is not supported!
 
-  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-pathpatter-en.png)
+  ![](/img/shenyu/basicConfig/selectorRule/predicate-judge-pathpattern-en.png)
 
 If you want to further understand conditions matching strategy, please read the source code, the package name is `org.apache.shenyu.plugin.base.condition.judge`:
 

@@ -43,4 +43,3 @@ description: 部署先决条件
 
     * maven repository: https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8/19.3.0.0
     * homepage:  https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html
-

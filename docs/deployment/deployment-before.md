@@ -43,3 +43,14 @@ In [the oracle initialization scripts directory](https://github.com/apache/sheny
 
   * maven repository: https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8/19.3.0.0
   * homepage:  https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html
+
+### OpenGauss
+
+In [the openGuass initialization scripts directory](https://github.com/apache/shenyu/blob/master/db/init/og) found in the initialization script `create-table.sql`, Use the client connection tool to connect to your openGauss service to create a database, execute the `create-table.sql` script on this database, and initialize the `Shenyu-admin` database. After can be [project configuration file](https://github.com/apache/shenyu/blob/master/shenyu-admin/src/main/resources/application-og.yml) to adjust your openGauss environment configuration.
+
+* sql script: https://github.com/apache/shenyu/blob/master/db/init/og
+
+* driver:
+
+  * maven repository: https://mvnrepository.com/artifact/org.opengauss/opengauss-jdbc/5.0.0-og
+  * homepage:  https://gitee.com/opengauss/openGauss-connector-jdbc

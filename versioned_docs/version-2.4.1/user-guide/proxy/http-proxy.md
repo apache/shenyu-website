@@ -7,7 +7,7 @@ description: Integrate Http with shenyu gateway
 
 This document is intended to help the `Http` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Divide` plugin to handle `Http` requests.
 
-Before the connection, start `shenyu-admin` correctly, start `Divide` plugin, and add related dependencies on the gateway and `Http` application client. Refer to the previous [Quick start with Http](../quick-start/quick-start-http) .
+Before the connection, start `shenyu-admin` correctly, start `Divide` plugin, and add related dependencies on the gateway and `Http` application client. Refer to the previous [Quick start with Http](../../quick-start/quick-start-http) .
 
 For details about client access configuration, see [Application Client Access Config](./register-center-access) .
 
@@ -128,8 +128,8 @@ The following indicates that `/order/save` is proxied by the gateway, while `/or
 ## Http request access gateway(other framework)
 
 * First, find `divide` plugin in `shenyu-admin`, add selector, and rules, and filter traffic matching.
-* If you don't know how to configure, please refer to [Selector Detailed Explanation](../user-guide/admin-usage/selector-and-rule).
-* You can also develop your customized http-client，refer to [multi-language Http client development](../developer/developer-shenyu-client)。
+* If you don't know how to configure, please refer to [Selector Detailed Explanation](../admin-usage/selector-and-rule).
+* You can also develop your customized http-client，refer to [multi-language Http client development](../../developer/developer-shenyu-client)。
 
 ## User request
 

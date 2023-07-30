@@ -23,7 +23,7 @@ This article introduces how to start the `Apache ShenYu` gateway in the local en
 ```
 git clone https://github.com/apache/shenyu.git
 cd shenyu
-mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+mvn clean install '-Dmaven.javadoc.skip=true' '-B' '-Drat.skip=true' '-Djacoco.skip=true' '-DskipITs' '-DskipTests'
 ```
 
 * use the development tool to start `org.apache.shenyu.admin.ShenyuAdminBootstrap`，Visit http://localhost:9095, the default username and password are: `admin` and `123456` respectively.
@@ -35,6 +35,8 @@ mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=tru
   * If you use `PostgreSql` for storage, follow the [guide document](./deployment-before.md#postgresql) to initialize the database and modify the `JDBC` configuration in `application-pg.yml`, set the variable `--spring.profiles.active = pg` and start the server.
 
   * If you use `Oracle` for storage, follow the [guide document](./deployment-before.md#oracle) to initialize the database and modify the `JDBC` configuration in `application-oracle.yml`, set the variable `--spring.profiles.active = oracle`.
+
+  * If you use `OpenGuass` for storage, follow the [guide document](./deployment-before.md#opengauss) to initialize the database and modify the `JDBC` configuration in `application-og.yml`, set the variable `--spring.profiles.active = og`.
 
 * use the development tool to start `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`.
 

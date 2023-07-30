@@ -81,6 +81,8 @@ You can search for the tcp plugin in `shenyu-admin` --> BasicConfig --> PluginHa
 
 ## 2.3 Configure service discovery
 
+`discovery` see  [discovery-mode](../discovery/discovery-mode.md)
+
 The TCP plugin supports two levels of discovery configuration: plugin-level and selector-level:
 
 ① You can click the "Discovery Configuration" button on the page to configure plugin-level discovery in the pop-up form. 
@@ -98,8 +100,7 @@ Discovery `Zookeeper` and `Local` modes are currently supported.
 
 ### 2.3.1 Zookeeper Mode
 
-- When "zookeeper" is selected as the type of discovery, 
-the form displays the corresponding fields that need to be filled in：
+- When the type of service discovery is Zookeeper, you need to fill in the discovery-ZooKeeper configuration details in [discovery-mode](../discovery/discovery-mode.md)
 
 ![zk_discovery_en.png](/img/shenyu/plugin/tcp/zk_discovery_en.png)
 

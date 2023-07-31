@@ -341,7 +341,7 @@ Apache ShenYu 网关中代理Http及SpringCloud协议后，用于发送代理请
 
 | 名称            |  类型   |  默认值   | 是否必填 | 说明                                                         |
 | :-------------- | :-----: | :-------: | :------: | :----------------------------------------------------------- |
-| strategy        | String  | webClient |    No    | HttpClientPlugin实现策略（默认使用webClietnt）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
+| strategy        | String  | webClient |    No    | HttpClientPlugin实现策略（默认使用webClient）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
 | connectTimeout  |   int   |   45000   |    No    | 连接超时时间 (毫秒)，默认值为 `45000`。                      |
 | responseTimeout |   int   |   3000    |    No    | 结果超时时间 (毫秒)，默认值为 `3000`。                       |
 | readerIdleTime  |   int   |   3000    |    No    | 指定读空闲超时时间 (毫秒)，默认值为 `3000`。                 |
@@ -408,7 +408,7 @@ Netty HttpClient 代理的相关配置
 | 名称    | 类型    | 默认值 | 是否必填 | 说明                 |
 | :------ | :------ | :----: | :------: | :------------------- |
 | enabled | Boolean | false  |    否    | 是否开启文件大小过滤 |
-| maxSize | Integer |  10    |    否    | 上传文件最大值 ，（单位:MB） |
+| maxSize | Integer |  10    |    否    | 上传文件最大值（单位:MB） |
 
 
 - `shenyu.cross` 配置
@@ -422,9 +422,9 @@ Netty HttpClient 代理的相关配置
 | allowedMethods |  | String |   "*"  |    否    | 允许的方法 |
 | allowedAnyOrigin |  | Boolean |   false  |    否    | 是否允许任意Origin，为true时直接将`Access-Control-Allow-Origin`设置值与Origin相同，即`request.getHeaders().getOrigin()`，同时丢弃`allowedOrigin`配置 |
 | allowedOrigin |  | AllowedOriginConfig |  -  |    否    | 设置允许的请求来源 |
-|  | spacer | String | "." | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes一起使用 |
-|  | domain | String | 无 | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes一起使用 |
-|  | prefixes | Set | 无 | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes一起使用 |
+|  | spacer | String | "." | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes 一起使用 |
+|  | domain | String | 无 | 否 | 设置允许访问的子域名，需要搭配 spacer、prefixes 一起使用 |
+|  | prefixes | Set | 无 | 否 | 设置允许访问的子域名，需要搭配 spacer、domain 一起使用 |
 |  | origins | Set | null | 否 | 设置允许访问的域名，可单独使用 |
 |  | originRegex | String | 无 | 否 | 设置允许正则匹配的域名访问，可单独使用 |
 | allowedExpose |  | String |  ""  |    否    | 允许的Expose |

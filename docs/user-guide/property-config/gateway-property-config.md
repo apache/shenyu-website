@@ -419,8 +419,8 @@ Cross filter properties:
 | allowedAnyOrigin |  | Boolean |   false  |    No    | Whether to allow any Origin, if it is true, directly set the `Access-Control-Allow-Origin` to the same value as the Origin, that is, `request.getHeaders().getOrigin()`, and discard the `allowedOrigin` configuration. |
 | allowedOrigin |  | AllowedOriginConfig |  -  |    No    | Set the allowed request sources. |
 |  | spacer | String | "" | No | Set the allowed subdomains, need to use with `domain`, `prefixes`. |
-|  | domain | String | "" | No | Set the allowed subdomains, need to use with `domain`, `prefixes`. |
-|  | prefixes | Set | [] | No | Set the allowed subdomains, need to use with `domain`, `prefixes`. |
+|  | domain | String | "" | No | Set the allowed subdomains, need to use with `spacer`, `prefixes`. |
+|  | prefixes | Set | [] | No | Set the allowed subdomains, need to use with `spacer`, `domain`. |
 |  | origins | Set | null | No | Set the domain names that are allowed to be accessed, which can be used separately. |
 |  | originRegex | String | "" | No | Set up access to domains that allow regular matching, available separately. |
 | allowedExpose |  | String |  ""  |    No    | allowedExpose |

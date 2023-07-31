@@ -194,7 +194,7 @@ Netty HttpClient 代理的相关配置：
 | 名称    | 类型    | 默认值 | 是否必填 | 说明                 |
 | :------ | :------ | :----: | :------: | :------------------- |
 | enabled | Boolean | false  |    否    | 是否开启文件大小过滤 |
-| maxSize | Integer |  10    |    No    | 上传文件最大值 ，（单位:MB） |
+| maxSize | Integer |  10    |    No    | 上传文件最大值（单位:MB） |
 
 
 - `shenyu.cross` 配置

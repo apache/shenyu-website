@@ -219,6 +219,21 @@ spring:
   * `path`：请求路径。
   * `timeout`：设置请求超时时间。
 
+### 2.5.4 SpringCloud服务实例缓存配置
+
+你能在`shenyu-bootstrap.yml`文件中修改如下配置：
+
+```yaml
+shenyu:
+  springCloudCache:
+    enabled: false
+```
+
+此配置将帮助您在每次心跳时从springcloud注册中心获取serviceInstance(通过监听springcloud心跳事件)
+
+* 当您使用nacos或者eureka作为注册中心时，您可以将springcloud serviceInstance缓存设置为`false`。
+* 当您使用zookeeper或者consul作为注册中心时，您可以将springcloud serviceInstance缓存设置为`true`。
+
 ## 2.6 示例
 
 ### 2.6.1 使用ShenYu访问SpringCloud服务

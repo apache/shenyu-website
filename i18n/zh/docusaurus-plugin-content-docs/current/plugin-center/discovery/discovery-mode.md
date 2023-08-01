@@ -52,6 +52,7 @@ ZOOKEEPER 模式 : 监听 zk 下指定节点下的 临时节点变化来获取�
    ![add_listener_node.png](/img/shenyu/plugin/discovery/add_listener_node.png)
 
    注意: 这里的 Handler 配置, shenyu 规定的upstream 注册数据是以下 json 形式发送
+
     ```json
     {
         "url": "127.0.0.1::6379",  // upstream 的 url
@@ -60,6 +61,7 @@ ZOOKEEPER 模式 : 监听 zk 下指定节点下的 临时节点变化来获取�
         "weight": 10 // 计算负载均衡时使用
     }
     ```
+   
    如果 你的服务 别名和shenyu 定义的 json 格式不同时候 可以在 handler 起别名
    如上图 我需要吧status 改为 healthy. 其他为改 保存 原有 json-key 的形式
 
@@ -81,6 +83,7 @@ ZOOKEEPER 模式 : 监听 zk 下指定节点下的 临时节点变化来获取�
 ## 3.1 注册信息配置
 
 ### 3.1.1 基本配置
+
 ![common-config.png](/img/shenyu/plugin/discovery/common-config.png)
 
 - Type 注册类型 [LOCAL|ZOOKEEPER]
@@ -90,6 +93,7 @@ ZOOKEEPER 模式 : 监听 zk 下指定节点下的 临时节点变化来获取�
 
 
 ### 3.1.2 数据详解
+
 - upstream 注册数据为:
 
 ```json
@@ -126,9 +130,8 @@ LOCAL模式下 只支持 选择器级别
 
 ZOOKEEPER模式下 支持 插件级别 和 选择器级别
 
-
-
 详情见 `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
+
 ```json
 {
   "baseSleepTimeMilliseconds": "1000",
@@ -140,6 +143,7 @@ ZOOKEEPER模式下 支持 插件级别 和 选择器级别
   "digest": null
 }
 ```
+
 - 用户可以在`shenyu-admin` --> 基础配置 --> 字典管理 中，搜索字典名称为“zookeeper”，对默认属性对应的字典值进行修改编辑
   （__注意__：不可修改字典类型和字典名称）：
 

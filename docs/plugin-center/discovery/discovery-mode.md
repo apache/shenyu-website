@@ -53,7 +53,8 @@ Selector level: This applies to the current selector. There are different select
    ![add_listener_node.png](/img/shenyu/plugin/discovery/add_listener_node.png)
 
    Note: In this Handler configuration, shenyu specifies that the upstream registration data is sent in the following json form
-    ```json
+    
+   ```json
     {
         "url": "127.0.0.1::6379",  // upstream's url
         "protocol": "tcp", // upstream's protocol
@@ -61,6 +62,7 @@ Selector level: This applies to the current selector. There are different select
         "weight": 10 // Used when calculating load balancing
     }
     ```
+   
    You can alias the handler if your service alias is different from the json format defined by shenyu
    In the above image, I need to change the status to healthy. The other is to save the original json-key form
 
@@ -82,6 +84,7 @@ If you choose the LOCAL mode, you don't need to log into a registry and manually
 ## 3.1 Registration Information Configuration
 
 ### 3.1.1 Basic Configuration
+
 ![common-config.png](/img/shenyu/plugin/discovery/common-config.png)
 
 - Type registered Type [LOCAL | ZOOKEEPER]
@@ -91,6 +94,7 @@ If you choose the LOCAL mode, you don't need to log into a registry and manually
 
 
 ### 3.1.2 Detailed explanation of data
+
 - The `upstream` registration data is :
 
 ```json
@@ -142,6 +146,7 @@ SEE `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
   "digest": null
 }
 ```
+
 - You can search for the dictionary name as "zookeeper" in `shenyu-admin` --> BasicConfig --> Dictionary,
   and modify the dictionary value corresponding to the default properties
   ( __Note__: The dictionary type and dictionary name cannot be modified)：

@@ -11,15 +11,17 @@ In most of the `plugins` ( such as `Dubbo`, `gRPC`,`Spring-cloud`, etc) of `Apac
 - `PredictJudge`-predicate
 - `MatchStrategy`-matching strategy
 
-Relatively speaking, the `MatchStrategy` is the part that needs the least extension points. For the combined judgement of multiple conditions, the common selection rules are: All conditions are matched, at least one is matched, at least the first is met, or most of conditions  satisfied.  As well  need to handle various types of parameters, for example: `IP`, `header`, `uri`, etc.  How to make the `MatchStrategy` to be simple to use and extensible?
+Relatively speaking, the `MatchStrategy` is the part that needs the least extension points. For the combined judgement of multiple conditions, the common selection rules are: All conditions are matched, at least one is matched, at least the first is met, or most of conditions  satisfied.  As we will  need to handle various types of parameters, for example: `IP`, `header`, `uri`, etc. 
+
+How to make the `MatchStrategy` to be simple to use and extensible?
 
 ## MatchStrategy
 
-The implementation of `MatchStrategy` is in ***shenyu-plugin-base*** module. It has based on the SPI creation mechanism, and used factory pattern and strategy design pattern. The class diagram of `MatchStrategy` `is` showed as follows.
+The implementation of `MatchStrategy` is in ***shenyu-plugin-base*** module. It is based on the SPI creation mechanism, and has used factory pattern and strategy design pattern. The class diagram of `MatchStrategy` `is` showed as follows.
 
 ![MatchStrategy-class-diagram](/img/activities/code-analysis-matchstrategy-spi/MatchStrategy-class-diagram.PNG)
 
-Base on the interface `MatchStrategy` to design the implementation classes, and the  abstract class `AbstractMatchStrategy` supplies common method, while the factory class `MatchStrategyFactory` provides creation  functions.
+Based on the interface `MatchStrategy` we design the implementation classes, and the  abstract class `AbstractMatchStrategy` supplies common method, while the factory class `MatchStrategyFactory` provides creation  functions.
 
 ## MatchStrategy Interface
 
@@ -33,7 +35,7 @@ public interface MatchStrategy {
 }
 ```
 
-The annotation `@SPI` means that this is an `SPI` interface. Where `ServerWebExchange` is `org.springframework.web.server.ServerWebExchange`, represents the request-response  interactive content of of HTTP. Following is the code of `ConditionData`, the more detail about this class can refer to [code analysis](http://shenyu.apache.org/blog/PredicateJudge-SPI) of `PredicteJudge`
+The annotation `@SPI` means that this is an `SPI` interface. Where `ServerWebExchange` is `org.springframework.web.server.ServerWebExchange`, represents the request-response  interactive content of HTTP. Following is the code of `ConditionData`, the more detail about this class can refer to [code analysis](https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI/) of `PredicteJudge`
 
 ```java
 public class ConditionData {
@@ -48,7 +50,7 @@ public class ConditionData {
 
 ## AbstractMatchStrategy
 
-Second, let's look at the abstract class `AbstractMatchStrategy`，it has defined a `buildRealData`  method，in this method wrapped various parameters to a unified interface  through the functionality of `ParameterDataFactory`,  which is the factory class of `ParameterData`. There supports a variety  types of  parameters , such as `Ip`, `Cookie`, `Header`,`uri`, etc.  Modifications of such parameters will not impact the calling of matching rules of `MatchStrategy`.
+Second, let's look at the abstract class `AbstractMatchStrategy`，it has defined a `buildRealData`  method，In this method it wraps various parameters to a unified interface through the functionality of `ParameterDataFactory`,  which is the factory class of `ParameterData`. It supports a variety of types of  parameters , such as `Ip`, `Cookie`, `Header`,`uri`, etc.  Modifications of such parameters will not impact the calling of matching rules of `MatchStrategy`.
 
 ```java
 public abstract class AbstractMatchStrategy {
@@ -61,24 +63,24 @@ public abstract class AbstractMatchStrategy {
 
 ## Implementation class and profile
 
-Then, let's look at the two implementation class based on the above interface in  ***shenyu-plugin-base*** module , that is:
+Now, let's look at the two implementation class based on the above interface in  ***shenyu-plugin-base*** module , that is:
 
 - `AndMatchStrategy`- `AND` -All conditions are matched
 
 - `OrMatchStrategy`-   `OR` -at least one is match
 
-  The profile  is shown as follows, which locates at the `SHENYU_DIRECTORY`directory. When starting up, the top-level SPI classes will read the key-value and  load the classes and cache them.
+  The properties file containing the SPI implementation is shown as follows, which located at the `SHENYU_DIRECTORY`directory. When starting up, the top-level SPI classes will read the key-value and  load the classes and cache them.
 
 ```properties
 and=org.apache.shenyu.plugin.base.condition.strategy.AndMatchStrategy
 or=org.apache.shenyu.plugin.base.condition.strategy.OrMatchStrategy
 ```
 
-These two implementation classes inherit `AbstractMatchStrategy` and implement `MatchStrategy`.
+These two implementation classes inherit `AbstractMatchStrategy` class and implement `MatchStrategy` interface.
 
 ### AndMatchStrategy-  “AND” relation
 
-Because `PredicateJudge` encapsulates the diversity of Predicate , and `ConditionData` and `ParameData` can present variety of parameters, for treating of multiple conditions, using`stream` and `lambda` expression, It can be very simple and efficient to process "AND" logic- all conditions must be matched.
+Since the `PredicateJudge` interface can encapsulate different variety of Predicates , for example  EqualsPredicateJudge, EndsWithPredicateJudge and so on, the `ConditionData` and `ParamData` passed to it can present with variety of parameters, for treating of multiple conditions. So using`stream` and `lambda` expression, it can be very simple and efficient to process "AND" logic (all conditions must be matched).
 
 ```java
 @Join
@@ -145,10 +147,10 @@ In `filterSelector`() method, after validation of  the `SelectorData`, calls the
     }
 ```
 
-In `filterRule()` it is also calls the  `match()` method of `MatchStrategyFactory`.  Does it look particularly concise or even simple?  In the [code analysis](http://shenyu.apache.org/blog/PredicateJudge-SPI) of  `PredicteJudge` , you can  see more detail about parameter processing in `shenyu-plugin`.
+In `filterRule()` it is also calls the  `match()` method of `MatchStrategyFactory`.  Does it look particularly concise or even simple?  In the [code analysis](https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI/) of  `PredicteJudge` , you can  see more detail about parameter processing in `shenyu-plugin`.
 
 ## Summary
 
-Due to the use of  `SPI` mechanism of `Apache Shen`, the parameter selection module has the characteristic of loose coupling and extensibility. In terms of  the combination of multiple conditions, `MatchStrategy` provides a good design.  Although currently only two implementation classes are present, it can be easily develop more complex `MatchStrategy` rules in the future,  such as "`firstOf`"-first condition must matched, or "`mostOf`"- most of the conditions must be matched, etc.
+Due to the use of  `SPI` mechanism of `Apache Shenyu`, the parameter selection module has the characteristic of loose coupling and extensibility. In terms of  the combination of multiple conditions, `MatchStrategy` provides a good design.  Although currently only two implementation classes are present, it can be easily used to develop more complex `MatchStrategy` rules in the future,  such as "`firstOf`"-first condition must matched, or "`mostOf`"- most of the conditions must be matched, etc.
 
 Interested readers can read the source code of `'shenyu-plugin'` to learn more.

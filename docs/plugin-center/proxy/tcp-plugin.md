@@ -81,6 +81,8 @@ You can search for the tcp plugin in `shenyu-admin` --> BasicConfig --> PluginHa
 
 ## 2.3 Configure service discovery
 
+`discovery` see  [discovery-mode](../discovery/discovery-mode.md)
+
 The TCP plugin supports two levels of discovery configuration: plugin-level and selector-level:
 
 ① You can click the "Discovery Configuration" button on the page to configure plugin-level discovery in the pop-up form. 
@@ -98,58 +100,8 @@ Discovery `Zookeeper` and `Local` modes are currently supported.
 
 ### 2.3.1 Zookeeper Mode
 
-- When "zookeeper" is selected as the type of discovery, 
-the form displays the corresponding fields that need to be filled in：
 
-![zk_discovery_en.png](/img/shenyu/plugin/tcp/zk_discovery_en.png)
-
-
-- The data is:
-
-```json
-{
-  "protocol": "tcp",
-  "url": "127.0.0.1:6379",
-  "status": 1,
-  "weight": 1,
-  "props": "{}"
-}
-```
-
-- If the registered data is different from the default json format, 
-you can set an alias in "handler"：
-
-```json
-{
-  "${yourProtocol}": "tcp",
-  "${yourUrl}": "127.0.0.1:6379",
-  "${yourStatus}": 1,
-  "${yourWeight}": 1,
-  "${yourProps}": "{}"
-}
-```
-
-- The discovery properties corresponding to the zookeeper mode default to：
-
-```json
-{
-  "baseSleepTimeMilliseconds":"1000",
-  "maxRetries":"3",
-  "maxSleepTimeMilliseconds":"1000",
-  "connectionTimeoutMilliseconds":"1000",
-  "sessionTimeoutMilliseconds":"1000",
-  "namespace":"",
-  "digest":null
-}
-```
-
-See `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init` for details.
-
-- You can search for the dictionary name as "zookeeper" in `shenyu-admin` --> BasicConfig --> Dictionary, 
-and modify the dictionary value corresponding to the default properties
-   ( __Note__: The dictionary type and dictionary name cannot be modified)：
-
-![zk_dict_en.png](/img/shenyu/plugin/tcp/zk_dict_en.png)
+- When the type of service Discovery is Zookeeper, you need to fill out the Discovery-ZooKeeper configuration training for details [discovery-mode](../discovery/discovery-mode.md)
 
 - In zookeeper mode, the discovery module will automatically monitor the user's zookeeper registration center 
 and automatically maintain discovery upstreams:

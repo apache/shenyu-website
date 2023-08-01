@@ -81,6 +81,8 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 
 TCP 插件支持插件级别、选择器级别两种级别的服务发现配置：
 
+服务发现 详情 见  [discovery-mode](../discovery/discovery-mode.md)
+
 ① 用户点击页面上的“服务发现配置”按钮，便可以在弹出的表单中配置插件级别的服务发现。配置完成后，再次打开表单，可以修改或删除之前的配置。
 插件级别discovery配置后，选择器的discovery设置默认与插件级别保持一致：
 
@@ -95,65 +97,11 @@ TCP 插件支持插件级别、选择器级别两种级别的服务发现配置�
 
 ### 2.3.1 Zookeeper 模式
 
-- 当服务发现的类型选择zookeeper时，表单展示需要填写的对应字段：
-
-![zk_discovery_zh.png](/img/shenyu/plugin/tcp/zk_discovery_zh.png)
-
-
-- 数据为:
-
-```json
-{
-  "protocol": "tcp",
-  "url": "127.0.0.1:6379",
-  "status": 1,
-  "weight": 1,
-  "props": "{}"
-}
-```
-
-- 若注册的数据与默认的json格式不同时，可以在“转换处理”中设置别名：
-
-```json
-{
-  "${yourProtocol}": "tcp",
-  "${yourUrl}": "127.0.0.1:6379",
-  "${yourStatus}": 1,
-  "${yourWeight}": 1,
-  "${yourProps}": "{}"
-}
-```
-
-- zookeeper模式对应的服务发现属性默认为：
-
-```json
-{
-  "baseSleepTimeMilliseconds":"1000",
-  "maxRetries":"3",
-  "maxSleepTimeMilliseconds":"1000",
-  "connectionTimeoutMilliseconds":"1000",
-  "sessionTimeoutMilliseconds":"1000",
-  "namespace":"",
-  "digest":null
-}
-```
-
-详情见 `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
-
-- 用户可以在`shenyu-admin` --> 基础配置 --> 字典管理 中，搜索字典名称为“zookeeper”，对默认属性对应的字典值进行修改编辑
-（__注意__：不可修改字典类型和字典名称）：
-
-![zk_dict.png](/img/shenyu/plugin/tcp/zk_dict_zh.png)
+- 当服务发现的类型选择zookeeper时，需要填写 Discovery-Zookeeper 配置 培训详情见 [discovery-mode](../discovery/discovery-mode.md)
 
 - zookeeper模式下，discovery模块会自动监听用户的 zookeeper 注册中心，自动维护 discovery_upstream 
 
 ![zookeeper.png](/img/shenyu/plugin/tcp/zookeeper.png)
-
-
-
-
-
-
 
 
 ### 2.3.2 Local 模式

@@ -215,6 +215,21 @@ Rule Handler, the `handle` field, can be performed by the gateway after the fina
   * `path`：request path.
   * `timeout`：set time out.
 
+### 2.5.4 SpringCloud ServiceInstance Cache Config
+
+you can config springcloud serviceInstance cache in `shenyu-bootstrap.yml` as follows.
+
+```yaml
+shenyu:
+  springCloudCache:
+    enabled: false
+```
+
+this config will help you get serviceInstance from springcloud registry every heartbeat time(listen to spring cloud heartbeat event)
+
+* when you use nacos or eureka as registry, you can config springcloud serviceInstance cache to `false`.  
+* when you use zookeeper or consul as registry, you can config springcloud serviceInstance cache to `true`.
+
 ## 2.6 Examples
 
 ### 2.6.1 Use ShenYu Request SpringCloud Service

@@ -12,19 +12,28 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 
 ```yaml
 shenyu:
-  matchCache:
-    selector:
-      selectorEnabled: false
+  selectorMatchCache:
+    ## selector L1 cache
+    cache:
+      enabled: false
       initialCapacity: 10000 # initial capacity in cache
       maximumSize: 10000 # max size in cache
-    rule:
+    ## selector L2 cache, use trie as L2 cache
+    trie:
+      enabled: false
+      cacheSize: 128 # the number of plug-ins
+      matchMode: antPathMatch
+  ruleMatchCache:
+    ## rule L1 cache
+    cache:
+      enabled: true
       initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 10000 # max size in cache
-  trie:
-    childrenSize: 10000
-    pathVariableSize: 1000
-    pathRuleCacheSize: 1000
-    matchMode: antPathMatch
+      maximumSize: 65536 # max size in cache
+    ## rule L2 cache, use trie as L2 cache
+    trie:
+      enabled: false
+      cacheSize: 1024 # the number of selectors
+      matchMode: antPathMatch
   netty:
     http:
       webServerFactoryEnabled: true
@@ -211,36 +220,46 @@ shenyu:
 
 ##### shenyu.matchCache config
 
-* selector cache
+* selector match cache
 
-| Field           | Type    | Default | Required | Description                         |
-|-----------------|---------|---------|----------|-------------------------------------|
-| selectorEnabled | Boolean | false   | No       | Whether to enable selector caching. |
-| initialCapacity | Integer | 10000   | No       | selector initial capacity           |
-| maximumSize     | Integer | 10000   | No       | selector max size                   |
+| Field           | Type    | Default | Required | Description                       |
+|-----------------|---------|---------|----------|-----------------------------------|
+| enabled         | Boolean | false   | No       | Whether to enable selector cache. |
+| initialCapacity | Integer | 10000   | No       | selector initial capacity         |
+| maximumSize     | Integer | 10000   | No       | selector max size                 |
 
-* rule Level-1 cache config
+* selector trie cache
 
-| Field           | Type    | Default | Required | Description           |
-|-----------------|---------|---------|----------|-----------------------|
-| initialCapacity | Integer | 10000   | Yes      | rule initial capacity |
-| maximumSize     | Integer | 10000   | Yes      | rule max size         |
+| Field        | Type    | Default      | Required | Description                                                                       |
+|--------------|---------|--------------|----------|-----------------------------------------------------------------------------------|
+| enabled      | Boolean | false        | No       | Whether to enable selector trie cache                                             |
+| cacheSize    | Integer | 512          | No       | trie cache size                                                                   |
+| matchMode    | String  | antPathMatch | Yes      | path match mode, shenyu support two match modes, `antPathMatch` and `pathPattern` |
 
-* shenyu rule Level-2 cache config(shenyu level-2 cache using trie cache)
 
-| Field             | Type    | Default      | Required | Description                                                                       |
-|-------------------|---------|--------------|----------|-----------------------------------------------------------------------------------|
-| childrenSize      | Integer | 10000        | Yes      | trie cache children size                                                          |
-| pathVariableSize  | Integer | 1000         | Yes      | tie cache path variable size, for example, /{username}/{age}                      |
-| pathRuleCacheSize | Integer | 1000         | Yes      | rule data list of the current path                                                |
-| matchMode         | String  | antPathMatch | Yes      | path match mode, shenyu support two match modes, `antPathMatch` and `pathPattern` |
+* rule match cache
 
-L1 and L2 caching is enabled on shenyu by default,
+| Field           | Type    | Default | Required | Description                   |
+|-----------------|---------|---------|----------|-------------------------------|
+| enabled         | Boolean | false   | No       | Whether to enable rule cache. |
+| initialCapacity | Integer | 10000   | No       | selector initial capacity     |
+| maximumSize     | Integer | 10000   | No       | selector max size             |
+
+* rule trie cache
+
+| Field        | Type    | Default      | Required | Description                                                                       |
+|--------------|---------|--------------|----------|-----------------------------------------------------------------------------------|
+| enabled      | Boolean | false        | No       | Whether to enable rule trie cache                                                 |
+| cacheSize    | Integer | 512          | No       | trie cache size                                                                   |
+| matchMode    | String  | antPathMatch | Yes      | path match mode, shenyu support two match modes, `antPathMatch` and `pathPattern` |
+
+
 shenyu trie match support two match mode, we suggest use `pathPattern` as default match mode
 
 > pathPattern: org.springframework.web.util.pattern.PathPatternParser
 > antPathMatch: org.springframework.util.AntPathMatcher
 
+when you mark `matchRestful` as true, we suggest mark all cache to `false` to avoid cache conflict.
 
 
 ##### shenyu.NettyTcpProperties config
@@ -400,8 +419,8 @@ Cross filter properties:
 | allowedAnyOrigin |  | Boolean |   false  |    No    | Whether to allow any Origin, if it is true, directly set the `Access-Control-Allow-Origin` to the same value as the Origin, that is, `request.getHeaders().getOrigin()`, and discard the `allowedOrigin` configuration. |
 | allowedOrigin |  | AllowedOriginConfig |  -  |    No    | Set the allowed request sources. |
 |  | spacer | String | "" | No | Set the allowed subdomains, need to use with `domain`, `prefixes`. |
-|  | domain | String | "" | No | Set the allowed subdomains, need to use with `domain`, `prefixes`. |
-|  | prefixes | Set | [] | No | Set the allowed subdomains, need to use with `domain`, `prefixes`. |
+|  | domain | String | "" | No | Set the allowed subdomains, need to use with `spacer`, `prefixes`. |
+|  | prefixes | Set | [] | No | Set the allowed subdomains, need to use with `spacer`, `domain`. |
 |  | origins | Set | null | No | Set the domain names that are allowed to be accessed, which can be used separately. |
 |  | originRegex | String | "" | No | Set up access to domains that allow regular matching, available separately. |
 | allowedExpose |  | String |  ""  |    No    | allowedExpose |

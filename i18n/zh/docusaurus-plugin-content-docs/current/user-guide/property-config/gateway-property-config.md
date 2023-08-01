@@ -12,19 +12,28 @@ description: 网关属性配置
 
 ```yaml
 shenyu:
-  matchCache:
-    selector:
-      selectorEnabled: false
+  selectorMatchCache:
+    ## selector L1 cache
+    cache:
+      enabled: false
       initialCapacity: 10000 # initial capacity in cache
       maximumSize: 10000 # max size in cache
-    rule:
+    ## selector L2 cache, use trie as L2 cache
+    trie:
+      enabled: false
+      cacheSize: 128 # the number of plug-ins
+      matchMode: antPathMatch
+  ruleMatchCache:
+    ## rule L1 cache
+    cache:
+      enabled: true
       initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 10000 # max size in cache
-  trie:
-    childrenSize: 10000
-    pathVariableSize: 1000
-    pathRuleCacheSize: 1000
-    matchMode: antPathMatch
+      maximumSize: 65536 # max size in cache
+    ## rule L2 cache, use trie as L2 cache
+    trie:
+      enabled: false
+      cacheSize: 1024 # the number of selectors
+      matchMode: antPathMatch
   netty:
     http:
       webServerFactoryEnabled: true
@@ -211,35 +220,46 @@ shenyu:
 
 ##### shenyu.matchCache 配置
 
-* Apache ShenYu 选择器缓存配置
+* 选择器匹配缓存配置
 
 | 字段           | 类型    | 默认值 | 是否必填 | 说明       |
-|-----------------|---------|---------|----------|-------------------|
-| selectorEnabled | Boolean | false   | No       | 是否开启选择器缓存         |
-| initialCapacity | Integer | 10000   | No       | 选择器缓存初始化容量        |
-| maximumSize     | Integer | 10000   | No       | 选择器缓存最大数量         |
+|-----------------|---------|---------|----------|-----------------------------------|
+| enabled         | Boolean | false   | No       | 是否开启选择器缓存 |
+| initialCapacity | Integer | 10000   | No       | 选择器缓存初始化容量         |
+| maximumSize     | Integer | 10000   | No       | 选择器缓存最大数量                 |
 
-* Apache ShenYu L1级缓存配置
+* 选择器前缀树缓存配置
 
-| 字段              | 类型      | 默认值   | 是否必填 | 说明        |
-|-----------------|---------|-------|------|-----------|
-| initialCapacity | Integer | 10000 | Yes  | 规则缓存初始化容量 |
-| maximumSize     | Integer | 10000 | Yes  | 规则缓存最大容量  |
+| 字段           | 类型    | 默认值 | 是否必填 | 说明                                                                                |
+|--------------|---------|--------------|----------|-----------------------------------------------------------------------------------|
+| enabled      | Boolean | false        | No       | 是否开启选择器前缀树缓存                                                                      |
+| cacheSize    | Integer | 512          | No       | 前缀树缓存大小                                                                           |
+| matchMode    | String  | antPathMatch | Yes      | shenyu路径匹配模式，shenyu支持两种匹配模式: `antPathMatch` and `pathPattern` |
 
-* Apache ShenYu L2级缓存配置(shenyu使用前缀树作为l2缓存)
 
-| 字段                | 类型      | 默认值      | 是否必填 | 说明                                                            |
-|-------------------|---------|--------------|----------|---------------------------------------------------------------|
-| childrenSize      | Integer | 10000        | Yes      | 前缀树缓存每个子节点的缓存数量                                               |
-| pathVariableSize  | Integer | 1000         | Yes      | 前缀树缓存每个子节点存储的路径变量数量, /{username}/{age}                        |
-| pathRuleCacheSize | Integer | 1000         | Yes      | 当前路径的规则                                                       |
-| matchMode         | String  | antPathMatch | Yes      | shenyu路径匹配模式，shenyu支持两种匹配模式: `antPathMatch` and `pathPattern` |
+* 规则匹配缓存配置
+
+| 字段           | 类型    | 默认值 | 是否必填 | 说明        |
+|-----------------|---------|---------|----------|-----------|
+| enabled         | Boolean | false   | No       | 是否开启选择器缓存 |
+| initialCapacity | Integer | 10000   | No       | 规则缓存初始化容量 |
+| maximumSize     | Integer | 10000   | No       | 规则缓存最大数量  |
+
+* 规则前缀树缓存配置
+
+| 字段           | 类型    | 默认值 | 是否必填 | 说明                                                            |
+|--------------|---------|--------------|----------|---------------------------------------------------------------|
+| enabled      | Boolean | false        | No       | 是否开启规则前缀树缓存                                                   |
+| cacheSize    | Integer | 512          | No       | 前缀树缓存大小                                                       |
+| matchMode    | String  | antPathMatch | Yes      | shenyu路径匹配模式，shenyu支持两种匹配模式: `antPathMatch` and `pathPattern` |
+
 
 shenyu默认开启L1和L2缓存, shenyu前缀树支持两种匹配模式，我们非常建议您使用`pathPattern`作为默认的匹配模式。
 
 > pathPattern: org.springframework.web.util.pattern.PathPatternParser
 > antPathMatch: org.springframework.util.AntPathMatcher
 
+当您将`matchRestful`标记为true时，我们建议将所有缓存标记为`false`，以避免匹配冲突。
 
 
 ##### shenyu.NettyTcpProperties 配置
@@ -321,7 +341,7 @@ Apache ShenYu 网关中代理Http及SpringCloud协议后，用于发送代理请
 
 | 名称            |  类型   |  默认值   | 是否必填 | 说明                                                         |
 | :-------------- | :-----: | :-------: | :------: | :----------------------------------------------------------- |
-| strategy        | String  | webClient |    No    | HttpClientPlugin实现策略（默认使用webClietnt）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
+| strategy        | String  | webClient |    No    | HttpClientPlugin实现策略（默认使用webClient）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
 | connectTimeout  |   int   |   45000   |    No    | 连接超时时间 (毫秒)，默认值为 `45000`。                      |
 | responseTimeout |   int   |   3000    |    No    | 结果超时时间 (毫秒)，默认值为 `3000`。                       |
 | readerIdleTime  |   int   |   3000    |    No    | 指定读空闲超时时间 (毫秒)，默认值为 `3000`。                 |
@@ -388,7 +408,7 @@ Netty HttpClient 代理的相关配置
 | 名称    | 类型    | 默认值 | 是否必填 | 说明                 |
 | :------ | :------ | :----: | :------: | :------------------- |
 | enabled | Boolean | false  |    否    | 是否开启文件大小过滤 |
-| maxSize | Integer |  10    |    否    | 上传文件最大值 ，（单位:MB） |
+| maxSize | Integer |  10    |    否    | 上传文件最大值（单位:MB） |
 
 
 - `shenyu.cross` 配置
@@ -402,9 +422,9 @@ Netty HttpClient 代理的相关配置
 | allowedMethods |  | String |   "*"  |    否    | 允许的方法 |
 | allowedAnyOrigin |  | Boolean |   false  |    否    | 是否允许任意Origin，为true时直接将`Access-Control-Allow-Origin`设置值与Origin相同，即`request.getHeaders().getOrigin()`，同时丢弃`allowedOrigin`配置 |
 | allowedOrigin |  | AllowedOriginConfig |  -  |    否    | 设置允许的请求来源 |
-|  | spacer | String | "." | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes一起使用 |
-|  | domain | String | 无 | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes一起使用 |
-|  | prefixes | Set | 无 | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes一起使用 |
+|  | spacer | String | "." | 否 | 设置允许访问的子域名，需要搭配 domain、prefixes 一起使用 |
+|  | domain | String | 无 | 否 | 设置允许访问的子域名，需要搭配 spacer、prefixes 一起使用 |
+|  | prefixes | Set | 无 | 否 | 设置允许访问的子域名，需要搭配 spacer、domain 一起使用 |
 |  | origins | Set | null | 否 | 设置允许访问的域名，可单独使用 |
 |  | originRegex | String | 无 | 否 | 设置允许正则匹配的域名访问，可单独使用 |
 | allowedExpose |  | String |  ""  |    否    | 允许的Expose |

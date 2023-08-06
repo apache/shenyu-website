@@ -29,6 +29,7 @@ ShenYu Kubernetes Controller implements the K8s native Ingress standard, see [K8
 In addition, Apache ShenYu has expanded based on the Annotation field of Ingress, and the configuration is shown in the following tables:
 
 ### General
+
 | Name | Default | Required | Description |
 | --------------------------- | ------ | -------- | ----- --- |
 | kubernetes.io/ingress.class | | Yes | Fill in shenyu |

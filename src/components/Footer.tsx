@@ -11,7 +11,7 @@ const Footer = (): React.ReactElement => (
                         <a href=''>< img src='/img/logo/support-apache.png' alt="Apache Support Logo" /></a>
                         <a href=''>< img src='/img/logo/asf_logo.svg' alt="The Apache Software Foundation" /></a>
                     </div>
-                    <span className={styles.text}>Copyright  2022 The Apache Software Foundation, Licensed under the Apache License, Version 2.0. Apache ShenYu, Apache, the Apache feather logo, the Apache ShenYu logo are trademarks of The Apache Software Foundation.</span>
+                    <span className={styles.text}>Copyright  2023 The Apache Software Foundation, Licensed under the Apache License, Version 2.0. Apache ShenYu, Apache, the Apache feather logo, the Apache ShenYu logo are trademarks of The Apache Software Foundation.</span>
                 </div>
             </div>
             <div className={styles.footerLinks}>

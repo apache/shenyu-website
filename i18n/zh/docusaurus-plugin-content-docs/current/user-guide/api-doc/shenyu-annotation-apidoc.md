@@ -1,7 +1,7 @@
 ---
-title: 客户端注册API文档
+title: Shenyu注解注册API文档
 keywords: ["api doc 接口 文档 register 注册"]
-description: 客户端注册API文档
+description: Shenyu注解注册API文档
 ---
 
 此篇文介绍如何将 `API文档` 暴露到 `Apache ShenYu` 网关。

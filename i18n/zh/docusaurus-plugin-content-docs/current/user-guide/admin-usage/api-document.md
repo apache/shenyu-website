@@ -12,12 +12,13 @@ description: API文档管理
 
 为了减少割裂感、提升前后端开发的用户体验，需要在shenyu-admin中看到API文档，以及直接对API进行测试。
 
-## 操作流程
+
+## 使用流程
 
 大体的流程如下：
-- 后端开发在shenyu-admin中产出API文档(同时支持`手动填写`和`客户端注册`2种方式，目前更推荐`客户端注册`)。
+- 后端开发在shenyu-admin中产出API文档(已经支持`远程拉取swagger`、`手动填写`、`客户端注册`3种方式。从功能完整性和使用体验上，目前更推荐`远程拉取swagger`，后2种方式将会在后面版本持续功能增强)。
 - 前端在shenyu-admin中查看API文档并开始开发。
-> 联调期间开发人员(包括前后端)可能使用shenyu-admin中的测试功能直接请求API。
+> 联调期间开发人员(包括前后端)可以使用shenyu-admin中的测试功能直接请求API。
 
 接下来我们看下具体操作：
 
@@ -27,12 +28,10 @@ description: API文档管理
 
 > 通过客户端注册API文档请参考[客户端注册API文档](../api-document-register.md)
 
-#### 增加标签
+#### 创建项目
 
-标签用于给API文档分类，标签下面既可以挂API，也可以挂标签，没有层级限制。
+如果你还没有创建过项目或你的PAI需要归类到新项目，这时需要你创建一个项目。
 <img src="/img/shenyu/basicConfig/apiManagement/create-tag-1-cn.png" width="80%" height="50%" />
-
-<img src="/img/shenyu/basicConfig/apiManagement/create-tag-2-cn.png" width="80%" height="50%" />
 
 #### 增加API文档
 
@@ -40,17 +39,21 @@ description: API文档管理
 
 这里出现列表的就是我们正在新增的API文档。
 
+### 远程拉取swagger文档
+
+
+
 #### 发布API
 
-如果该API是从未发布到发布且用户并未接入shenyu客户端，shenyu-admin将会自动把API文档所描述的API暴露到网关。
+如果该API从未发布到proxy插件或你不打算使用shenyu客户端提供的注解注册URI，shenyu-admin的发布API功能为你提供了另一种可选方式，它将自动注册该API到网关，跟你使用shenyu客户端的注解效果一样。
 <img src="/img/shenyu/basicConfig/apiManagement/publish-api-cn.png" width="80%" height="50%" />
 
 #### 下线API(可选)
 
-> 特别注意：点击下线后，API文档仍然可见，但暴露到网关的接口将会立即失效。
+> 特别注意：点击下线后，该API虽然在API文档列表仍然可见，但会从proxy插件和元数据下面删除，在你重新发布该API前，网关不再代理该API。
 
 <img src="/img/shenyu/basicConfig/apiManagement/offline-api-cn.png" width="80%" height="50%" />
 
-### 请求API
+### 请求API（接口调试）
 
 <img src="/img/shenyu/basicConfig/apiManagement/api-debug-cn.png" width="80%" height="50%" />

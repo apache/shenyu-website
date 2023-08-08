@@ -40,6 +40,8 @@ Tags are used to classify API documents, and you can hang both APIs and tags und
 
 The list here is the API documentation we're adding.
 
+### Swagger Document
+
 #### Publish API
 
 If the API has never been published and the user has not used the shenyu-client, shenyu-admin will automatically expose the API described in the API document to the gateway.

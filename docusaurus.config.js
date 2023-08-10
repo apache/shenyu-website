@@ -117,6 +117,17 @@ module.exports = {
       // Optional: see doc section below
       contextualSearch: true,
     },
+    imageZoom: {
+      // CSS selector to apply the plugin to, defaults to '.markdown img'
+      selector: '.markdown img',
+      // Optional medium-zoom options
+      // see: https://www.npmjs.com/package/medium-zoom#options
+      options: {
+        margin: 24,
+        background: 'rgba(255, 255, 255, 0.2)',
+        scrollOffset: 240,
+      },
+    },
   },
   presets: [
     [
@@ -248,5 +259,6 @@ module.exports = {
         blogSidebarCount: 0,
       },
     ],
+    "plugin-image-zoom",
   ],
 };

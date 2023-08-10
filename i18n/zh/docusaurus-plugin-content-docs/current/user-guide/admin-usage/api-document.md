@@ -18,21 +18,22 @@ description: API文档管理
 大体的流程如下：
 - 后端开发在shenyu-admin中产出API文档(已经支持`远程拉取swagger`、`手动填写`、`客户端注册`3种方式。从功能完整性和使用体验上，目前更推荐`远程拉取swagger`，后2种方式将会在后面版本持续功能增强)。
 - 前端在shenyu-admin中查看API文档并开始开发。
-> 联调期间开发人员(包括前后端)可以使用shenyu-admin中的测试功能直接请求API。
+> 联调期间开发人员(包括前后端)可以直接使用shenyu-admin中的接口调试功能发起API调用。
 
 ## 3. 设置全局的环境地址
-可能你有多个网关地址（比如生产环境、测试环境），你可以在`Apache ShenYu`网关管理系统 --> 基础配置 --> 字典管理，添加或修改你的网关地址。
-![apidoc-dictionary-cn](/img/shenyu/api-doc/apidoc-dictionary-cn.png)
+实际使用中，可能你有多个网关地址（比如生产环境、测试环境，公网环境、内网环境），你可以在`Apache ShenYu`网关管理系统 --> 基础配置 --> 字典管理，配置多个网关地址。
+
+![apidoc-env-cn](/img/shenyu/basicConfig/apiManagement/apidoc-env-cn.png)
 
 >  字典类型：必须填写`apidocEnv`；
 >
 > 字典编码：网关地址的编码标识，无实际含义，建议以 `ENV_LABEL_`作为前缀，比如 `ENV_LABEL_OFFLINE`；
 >
-> 字典名称：表示网关类型，比如填写 `测试环境`、`生产环境`，该值将会出现在API文档详情页面；
+> 字典名称：表示网关类型，比如填写 `测试环境`、`生产环境`。该值将会出现在API文档详情页面；
 > 
-> 字典值：表示网关地址，比如 http://127.0.0.1:9195，该值将会出现在API文档详情页面；
+> 字典值：表示网关地址，比如 http://127.0.0.1:9195。该值将会出现在API文档详情页面；
 >
-> 字典描述或备注：你的网关地址使用何种用途，做一个简短的介绍，该值将会出现在API文档详情页面；
+> 字典描述或备注：你的网关地址使用何种用途，做一个简短的介绍。该值将会出现在API文档详情页面；
 >
 > 排序：数值大小决定了网关地址的展示顺序；
 >
@@ -46,7 +47,8 @@ description: API文档管理
 
 ##### 创建项目
 
-如果你还没有创建过项目或你的PAI需要归类到新项目，这时需要你创建一个项目。
+如果你还没有创建过项目或者你要把新建的API归类到新项目，这时需要你创建一个项目。
+
 ![app_create_cn](/img/shenyu/basicConfig/apiManagement/app_create_cn.png)
 
 ##### 增加API文档
@@ -70,7 +72,7 @@ description: API文档管理
 
 ## 6.下线API(可选)
 
-> 特别注意：点击下线后，该API虽然在API文档列表仍然可见，但会从proxy插件和元数据下面删除，在你重新发布该API前，网关不再代理该API。
+> 特别注意：点击下线后，该API虽然在API文档列表仍然可见，但会从proxy插件和元数据管理列表中删除，在你重新发布该API前，网关不会代理该API，当你通过网关请求该API时，会报异常。
 
 ![offline-api-cn](/img/shenyu/basicConfig/apiManagement/offline-api-cn.png)
 

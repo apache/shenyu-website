@@ -1,10 +1,10 @@
 ---
 title: API Document Management
-keywords: ["api doc"]
+keywords: ["api doc Document"]
 description: API document management
 ---
 
-## Design Notes
+## 1. Design Notes
 
 When the front and back end are jointly debugged, it is usually necessary for the back end to give documents to detail the input and output of the interface; 
 
@@ -12,46 +12,75 @@ After the backend development is complete, you need to test whether the access g
 
 In order to reduce the sense of fragmentation and improve the user experience of front-end and back-end development, it is necessary to see the API documentation in shenyu-admin and test the API directly.
 
-## How to use
+## 2. How to use
 
 The brief introduce is as follows.
-- Back-end development produces API documents in shenyu-admin (both `manual` and `client registration` are supported, and `client registration` is currently recommended).
+- Back-end development produces API documents in shenyu-admin.
+> Three methods of `remotely pulling swagger`, `manual filling`, and `client registration` are already supported. From the perspective of functional integrity and user experience, `remotely pulling swagger` is currently recommended, and the latter two methods will be in Continuous function enhancement in later versions.
 - The frontend looks at the API documentation in shenyu-admin and starts development.
 > During joint debugging, developers (including front-end and backend) may use the testing function in shenyu-admin to request APIs directly.
 
-Now, let's look how to operation step by step:
+## 3. Set the global environment address
 
-### Add API Document Manually
+In actual use, you may have multiple gateway addresses (such as production environment, test environment, or public network environment, intranet environment), you can manage them in `Apache ShenYu` Gateway Management System --> BasicConfig --> Dictionary, Set multiple gateway addresses.
 
-Clicking the menu "Document -> API Document" to create tag and api.
+![apidoc-env-en](/img/shenyu/basicConfig/apiManagement/apidoc-env-en.png)
 
-> For the API registration documentation through the client, please refer to [Client Registration API Documentation](../api-document-register.md)
+> DictionaryType: Fill in the value must be `apidocEnv`;
+>
+> DictionaryCode: The identifier of the gateway address has no actual meaning. It is recommended to use `ENV_LABEL_` as a prefix, such as `ENV_LABEL_OFFLINE`;
+>
+> DictionaryName: Indicates the gateway type, such as filling in `test environment`, `production environment`. This value will appear on the API documentation details page;
+>
+> DictionaryValue: Indicates the gateway address, such as http://127.0.0.1:9195. This value will appear on the API documentation details page;
+>
+> DictionaryDescribe: Give a brief description of what scenario the gateway address is used for. This value will appear on the API documentation details page;
+>
+> Sort: The numerical value determines the display order of the gateway address;
+>
+> Status: open or close。
 
-#### Add tag
+## 4. Support Multiple Ways to Aggregate API Documents
 
-Tags are used to classify API documents, and you can hang both APIs and tags under the tags, and there is no hierarchical limit.
-<img src="/img/shenyu/basicConfig/apiManagement/create-tag-1-en.png" width="80%" height="50%" />
+### 4.1 Add API Document Manually
 
-<img src="/img/shenyu/basicConfig/apiManagement/create-tag-2-en.png" width="80%" height="50%" />
+Clicking the menu "Document -> API Document" to create api.
 
-#### Add API Document
+##### Create Project
 
-<img src="/img/shenyu/basicConfig/apiManagement/create-api-en.png" width="80%" height="50%" />
+If you have not created a project or you want to classify the new API into a new project, you need to create a project.
 
-The list here is the API documentation we're adding.
+![app-create-en](/img/shenyu/basicConfig/apiManagement/app-create-en.png)
 
-#### Publish API
+##### Add API Documentation
+
+![create-api-en](/img/shenyu/basicConfig/apiManagement/create-api-en.png)
+
+### 4.2 Remotely pull the swagger registration API Document.
+
+Automatically register API documentation by remotely pulling swager documentation. Please refer to [Remote pull swagger registration API document](../api-doc/swagger-apidoc.md)
+
+### 4.3 Shenyu Client Annotation Registration API Documentation 
+
+Automatically register API documents through Shenyu client annotations. Please refer to [Client Registration API Documentation](../api-doc/shenyu-annotation-apidoc.md)
+> This method is recommended if you do not expect to view the full interface documentation details. When you choose this automatic registration method, please turn off the registration method of remote automatic pull swagger, otherwise there will be conflicts.
+
+## 5. Publish API
 
 If the API has never been published and the user has not used the shenyu-client, shenyu-admin will automatically expose the API described in the API document to the gateway.
 
-<img src="/img/shenyu/basicConfig/apiManagement/publish-api-en.png" width="80%" height="50%" />
+![publish-api-en](/img/shenyu/basicConfig/apiManagement/publish-api-en.png)
 
-#### Offline API(optional)
+After clicking Save, you'll see that the registration data for the API is inserted below the selectors and rules. As shown below:
 
-> Notice: After clicking offline, the API document will still be visible, but the interface exposed to the gateway will immediately become invalid.
+![api-published-divide-list-en](/img/shenyu/basicConfig/apiManagement/api-published-divide-list-en.png)
 
-<img src="/img/shenyu/basicConfig/apiManagement/offline-api-en.png" width="80%" height="50%" />
+## 6. Offline API(optional)
 
-### API Debug
+> Special Note: After clicking Offline, the API will still be visible in the API document list, but it will be deleted from the proxy plug-in and metadata management list. Before you republish the API, the gateway will not proxy the API. When you pass through the gateway When requesting this API, an exception will be reported.
 
-<img src="/img/shenyu/basicConfig/apiManagement/api-debug-en.png" width="80%" height="50%" />
+![offline-api-en](/img/shenyu/basicConfig/apiManagement/offline-api-en.png)
+
+## 7. API Debug
+
+![api-debug-en](/img/shenyu/basicConfig/apiManagement/api-debug-en.png)

@@ -1,181 +1,45 @@
 ---
-title: Using Nacos with Shenyu-SDK
-keywords: ["Using Shenyu-Sdk", "Nacos"]
-description: Using Shenyu-Sdk
+title: Pull the swagger registration API document
+keywords: ["swagger api Interface Document Aggregation"]
+description: Remotely pull swagger registration API documentation
 ---
 
-## Background explanation
+This article introduces how to aggregate the `Swagger API documentation` of each backend microservice to the `Apache ShenYu` gateway management system.
 
-Shenyu offers Shenyu-Sdk to make it easy for services to quickly integrate with the Shenyu gateway. By simply depending on the SDK and doing some simple configuration, client services can call the gateway's exposed APIs as if they were calling local interfaces.
+## 1. Description
+Remotely pull swagger documents, currently only supports swagger2.0, and only supports Divide and SpringCloud proxy plug-ins.
 
-<img src="/img/shenyu/sdk/shenyu-sdk_process.png" width="80%" height="50%" />
+## 2. Environment Preparation
+### 2.1 Run `shenyu-admin`
+Please refer to the `deployment` document, choose a way to run `shenyu-admin`.
 
-The registration center supported by the gateway for client access includes (nacos, eureka, etcd, zookeeper, consul), and the following is the relevant guide for using **nacos** registration center when `shenyu-bootstrap` and `application client` are used.
+### 2.2 Enable the global switch for remotely pulling swagger documents.
+It is enabled by default. In the `Apache ShenYu` gateway management system --> BasicConfig --> Dictionary, find the data whose DictionaryType is `apidoc`, and modify the dictionary value: `true`.
+> 【Notice】DictionaryValue: `true` means the switch is on, `false` means it is off. If it is closed, `shenyu-admin` will not automatically pull the swagger documents of each microservice.
 
-## Environment preparation
+![apidoc-dictionary-en](/img/shenyu/api-doc/apidoc-dictionary-en.png)
 
-Refer to `Deployment` guide, and choose a way to start `shenyu-admin` and `shenyu-bootstrap`.
+## 3. Run the Sample Project
+3.1. Download [shenyu-examples-http-swagger2](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http-swagger2)
 
-## shenyu-bootstrap
+3.2. Run `org.apache.shenyu.examples.http.ShenyuTestSwaggerApplication` main method to start the project.
 
-### Maven dependency
+The examples project will synchronize the service startup information to `shenyu-admin` through the Shenyu client annotation (such as `@ShenyuSpringMvcClient`) according to the address configured by `shenyu.register.serverLists`, and then trigger `shenyu-admin` to remotely pull the swagger document And complete the analysis, and finally aggregate to produce a new API document.
 
-In the gateway's `pom.xml` file, introduce the following dependencies.
+## 4. Demonstration Effect
+### 4.1 List of API Documents
+In `Apache ShenYu` Gateway Management System --> Document --> API Document, you can see the aggregated API documents.
 
-```xml
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-instance</artifactId>
-    <version>${project.version}</version>
-</dependency>
-```
+![apidoc-swagger-list-en](/img/shenyu/api-doc/apidoc-swagger-list-en.png)
 
-### Edit the configuration file
+### 4.2 API Details Effect
+![apidoc-detail-en](/img/shenyu/api-doc/apidoc-detail-en.png)
 
-Add the following configuration to the gateway's `yml` configuration file.
+## 5. How to Automatically Update API Documentation
+### 5.1 Restart Project
+As in the example above, an automatic update of the API docs is triggered by starting the project.
+### 5.2 Modify the startup time of the proxy plugin selector.
+In the PlugiList --> Proxy --> selector, find the target service, and then modify the startup time.
+> Note: The startup time of the new setting must not be earlier than the original startup time, otherwise the API document will not be automatically pulled and refreshed.
 
-```yaml
-spring:
-  application:
-    name: shenyu-bootstrap
-  cloud:
-    discovery:
-      enabled: true
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848 # Enter the nacos address(es), separated by commas in English.
-        enabled: true
-        namespace: ShenyuRegisterCenter # nacos namespace ID
-        # if nacos authentication is enabled, the following parameters must be configured
-        username: nacos # Authentication username
-        password: nacos # Authentication password
-```
-
-## Client Application
-
-### Maven dependency
-
-In the `pom.xml` file of the application client, introduce the following dependencies.
-
-- Shenyu-Sdk Core
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-sdk-core</artifactId>
-        <version>2.5.1-SNAPSHOT</version>
-    </dependency>
-
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-sdk</artifactId>
-        <version>2.5.1-SNAPSHOT</version>
-    </dependency>
-</dependencies>
-```
-
-- Shenyu-Sdk http implementation
-
-> HTTP client implementation, offering okhttp and httpclient as implementation options. Other implementations can be created by extending the `AbstractShenyuSdkClient` class.
-
-```xml
-<!-- httpclient -->
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-sdk-httpclient</artifactId>
-    <version>2.5.1-SNAPSHOT</version>
-</dependency>
-
-<!-- okhttp -->
-<!-- 
-<dependency>
-    <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-sdk-okhttp</artifactId>
-    <version>2.5.1-SNAPSHOT</version>
-</dependency>
--->
-```
-
-### Edit the configuration file
-
-Add the following configuration in the application client's `yml` configuration file.
-
-```yaml
-shenyu:
-  sdk:
-    enabled: true
-    register-type: nacos 
-    server-lists: localhost:2181
-    props:
-      nacosNameSpace: ShenyuRegisterCenter
-      username: nacos
-      password: nacos
-      retry:
-        enable: true
-        period: 100
-        maxPeriod: 1000
-        maxAttempts: 5
-      algorithm: roundRobin
-      scheme: http
-      
-# registerType: service registration type, fill in nacos.
-# serverList: Enter the nacos address(es), separated by commas in English.
-# nacosNameSpace: nacos namespace ID
-# username: Authentication username
-# password: Authentication password
-# scheme: Request protocol.
-
-# retry: Configuration related to failure retries.
-# retry.period: Retry waiting time.
-# retry.maxPeriod: Maximum retry waiting time .
-# retry.maxAttempts: Maximum retry count.
-```
-
-## Writing the local interface for the SDK
-
-1. In the project startup class, annotate `@EnableShenyuClients(basePackages = "org.apache.shenyu.examples.sdk.http.api")`, where `basePackages` maintains the package location of Shenyu-Sdk's corresponding maintained gateway API interface.
-
-2. Create an interface and use the `@ShenyuClient(name = "xxx", contextId = "ShenyuSdkApiName")` annotation to mark it, where `name` represents the gateway service name. If you need to define multiple beans to maintain the gateway's API, you can use `contextId` as the corresponding bean alias.
-
-3. In the defined interface, add the methods of the interface to be mapped to the shenyu gateway, where the `value` of `@xxMapping` corresponds to the path of the corresponding request in the gateway.
-
-**Example**
-
-Project startup class
-
-```java
-@SpringBootApplication
-@EnableShenyuClients(basePackages = "org.apache.shenyu.examples.sdk.http.api")
-public class ShenyuSdkHttpExampleApplication {
-
-    /**
-     * main.
-     *
-     * @param args args
-     */
-    public static void main(final String[] args) {
-        SpringApplication.run(ShenyuSdkHttpExampleApplication.class, args);
-    }
-}
-```
-
-Shenyu-SDK interface
-
-```java
-@ShenyuClient(name = "shenyu-bootstrap", contextId = "ShenyuSdkApiName")
-public interface ShenyuHttpClientApi {
-
-    /**
-     * findById.
-     * test Get.
-     *
-     * @param id id
-     * @return SdkTestDto
-     */
-    @GetMapping("/http/shenyu/client/findById")
-    SdkTestDto findById(@RequestParam("id") String id);
-}
-```
-
-For more information, refer to the sample project [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sdk)
+![app-proxy-startuptime-en](/img/shenyu/api-doc/app-proxy-startuptime-en.png)

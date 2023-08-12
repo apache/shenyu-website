@@ -21,11 +21,12 @@ The brief introduce is as follows.
 > During joint debugging, developers (including front-end and backend) may use the testing function in shenyu-admin to request APIs directly.
 
 ## 3. Set the global environment address
+
 In actual use, you may have multiple gateway addresses (such as production environment, test environment, or public network environment, intranet environment), you can manage them in `Apache ShenYu` Gateway Management System --> BasicConfig --> Dictionary, Set multiple gateway addresses.
 
 ![apidoc-env-en](/img/shenyu/basicConfig/apiManagement/apidoc-env-en.png)
 
->  DictionaryType: Fill in the value must be `apidocEnv`;
+> DictionaryType: Fill in the value must be `apidocEnv`;
 >
 > DictionaryCode: The identifier of the gateway address has no actual meaning. It is recommended to use `ENV_LABEL_` as a prefix, such as `ENV_LABEL_OFFLINE`;
 >
@@ -52,12 +53,15 @@ If you have not created a project or you want to classify the new API into a new
 ![app-create-en](/img/shenyu/basicConfig/apiManagement/app-create-en.png)
 
 ##### Add API Documentation
+
 ![create-api-en](/img/shenyu/basicConfig/apiManagement/create-api-en.png)
 
 ### 4.2 Remotely pull the swagger registration API Document.
+
 Automatically register API documentation by remotely pulling swager documentation. Please refer to [Remote pull swagger registration API document](../api-doc/swagger-apidoc.md)
 
 ### 4.3 Shenyu Client Annotation Registration API Documentation 
+
 Automatically register API documents through Shenyu client annotations. Please refer to [Client Registration API Documentation](../api-doc/shenyu-annotation-apidoc.md)
 > This method is recommended if you do not expect to view the full interface documentation details. When you choose this automatic registration method, please turn off the registration method of remote automatic pull swagger, otherwise there will be conflicts.
 

@@ -8,6 +8,14 @@ const data = [
         title: translate({ message: 'Source Codes' }),
         versions: [
             {
+                versionTitle: '2.6.0',
+                targets: {
+                    'zip': 'https://www.apache.org/dyn/closer.lua/shenyu/2.6.0/apache-shenyu-2.6.0-src.zip',
+                    'asc': 'https://downloads.apache.org/shenyu/2.6.0/apache-shenyu-2.6.0-src.zip.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/2.6.0/apache-shenyu-2.6.0-src.zip.sha512',
+                }
+            },
+            {
                 versionTitle: '2.5.1',
                 targets: {
                     'zip': 'https://www.apache.org/dyn/closer.lua/shenyu/2.5.1/apache-shenyu-2.5.1-src.zip',
@@ -45,6 +53,14 @@ const data = [
         title: translate({ message: 'ShenYu-Admin Binary Distribution' }),
         versions: [
             {
+                versionTitle: '2.6.0',
+                targets: {
+                    'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/2.6.0/apache-shenyu-2.6.0-admin-bin.tar.gz',
+                    'asc': 'https://downloads.apache.org/shenyu/2.6.0/apache-shenyu-2.6.0-admin-bin.tar.gz.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/2.6.0/apache-shenyu-2.6.0-admin-bin.tar.gz.sha512',
+                }
+            },
+            {
                 versionTitle: '2.5.1',
                 targets: {
                     'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/2.5.1/apache-shenyu-2.5.1-admin-bin.tar.gz',
@@ -81,6 +97,14 @@ const data = [
     {
         title: translate({ message: 'ShenYu-Bootstrap Binary Distribution' }),
         versions: [
+            {
+                versionTitle: '2.6.0',
+                targets: {
+                    'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/2.6.0/apache-shenyu-2.6.0-bootstrap-bin.tar.gz',
+                    'asc': 'https://downloads.apache.org/shenyu/2.6.0/apache-shenyu-2.6.0-bootstrap-bin.tar.gz.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/2.6.0/apache-shenyu-2.6.0-bootstrap-bin.tar.gz.sha512',
+                }
+            },
             {
                 versionTitle: '2.5.1',
                 targets: {

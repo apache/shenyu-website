@@ -1,7 +1,7 @@
 {
   "version.label": {
-    "message": "当前版本",
-    "description": "The label for version current"
+    "message": "2.6.0",
+    "description": "The label for version 2.6.0"
   },
   "sidebar.tutorialSidebar.category.Design": {
     "message": "设计文档",

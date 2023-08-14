@@ -32,8 +32,9 @@ description: use different data-sync strategy
     soul :
       sync:
           websocket :
-               urls: ws://localhost:9095/websocket
-    #urls: address of soul-admin，multi-address will be splitted with (,).
+            # urls: address of soul-admin，multi-address will be splitted with (,).
+            urls: ws://localhost:9095/websocket
+            allowOrigin: ws://localhost:9195
     ```
 
   * soul-admin config, enable this parameter `--soul.sync.websocket=''` in soul admin, then restart service.

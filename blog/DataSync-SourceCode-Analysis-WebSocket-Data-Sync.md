@@ -797,8 +797,9 @@ shenyu:
     dubbo :
       parameter: multi
     sync:
-        websocket :  # Use websocket for data synchronization
-          urls: ws://localhost:9095/websocket   # websocket address of admin
+      websocket :  # Use websocket for data synchronization
+        urls: ws://localhost:9095/websocket   # websocket address of admin
+        allowOrigin: ws://localhost:9195
 ```
 
 Add a dependency on websocket in the gateway.

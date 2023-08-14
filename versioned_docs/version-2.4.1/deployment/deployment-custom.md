@@ -61,4 +61,5 @@ shenyu:
   sync:
     websocket:
       urls: ws://localhost:9095/websocket  //set to your shenyu-admin address
+      allowOrigin: ws://localhost:9195
 ```

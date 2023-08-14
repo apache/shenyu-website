@@ -35,8 +35,9 @@ Add these config values in  yaml file:
 shenyu:
   sync:
     websocket :
+      # urls: address of shenyu-admin，multi-address will be separated with (,).
       urls: ws://localhost:9095/websocket
-      #urls: address of shenyu-admin，multi-address will be separated with (,).
+      allowOrigin: ws://localhost:9195
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-yml.png" width="80%" height="70%" />

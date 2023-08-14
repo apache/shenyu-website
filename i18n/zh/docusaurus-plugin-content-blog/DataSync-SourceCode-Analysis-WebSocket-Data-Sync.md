@@ -796,8 +796,9 @@ shenyu:
     dubbo :
       parameter: multi
     sync:
-        websocket :  # 使用websocket进行数据同步
-             urls: ws://localhost:9095/websocket   # admin端的websocket地址
+      websocket :  # 使用websocket进行数据同步
+        urls: ws://localhost:9095/websocket   # admin端的websocket地址
+        allowOrigin: ws://localhost:9195
 ```
 
 在网关中引入`websocket`的依赖。

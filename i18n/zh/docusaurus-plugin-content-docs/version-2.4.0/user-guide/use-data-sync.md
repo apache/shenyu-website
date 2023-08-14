@@ -33,8 +33,9 @@ description: 使用不同的数据同步策略
 shenyu:
   sync:
     websocket :
+      # urls:是指 shenyu-admin的地址，如果有多个，请使用（,）分割。 
       urls: ws://localhost:9095/websocket
-      # urls:是指 shenyu-admin的地址，如果有多个，请使用（,）分割。  
+      allowOrigin: ws://localhost:9195 
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-yml.png" width="80%" height="70%" />

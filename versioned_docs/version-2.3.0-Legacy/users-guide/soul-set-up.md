@@ -170,6 +170,7 @@ soul :
   sync:
     websocket :
       urls: ws://localhost:9095/websocket  // set your soul-admin address
+      allowOrigin: ws://localhost:9195
 ```
 
 * Environment Setup has finished, now your project is launched.

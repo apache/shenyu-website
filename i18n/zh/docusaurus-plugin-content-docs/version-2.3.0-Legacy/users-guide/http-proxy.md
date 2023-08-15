@@ -92,7 +92,7 @@ description: http用户
   
   * 举例子 （1）： 代表 `/test/payment`，`/test/findByUserId` 都会被网关代理。
    
-  ```java
+    ```java
       @RestController
       @RequestMapping("/test")
       @SoulSpringMvcClient(path = "/test/**")
@@ -111,7 +111,7 @@ description: http用户
               return userDTO;
           }      
        }
-  ```
+    ```
   
   * 举例子 （2）：代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
    

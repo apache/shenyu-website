@@ -8,7 +8,7 @@ This document is intended to help the `Dubbo` service access the `Apache ShenYu`
 
 Support Alibaba Dubbo(< 2.7.x) and Apache Dubbo (>=2.7.x).
 
-Before the connection, start `shenyu-admin` correctly, start `Dubbo` plugin, and add related dependencies on the gateway and `Dubbo` application client. Refer to the previous [Quick start with Dubbo](../quick-start/quick-start-dubbo) .
+Before the connection, start `shenyu-admin` correctly, start `Dubbo` plugin, and add related dependencies on the gateway and `Dubbo` application client. Refer to the previous [Quick start with Dubbo](../../quick-start/quick-start-dubbo) .
 
 For details about client access configuration, see [Application Client Access Config](../property-config/register-center-access.md) .
 

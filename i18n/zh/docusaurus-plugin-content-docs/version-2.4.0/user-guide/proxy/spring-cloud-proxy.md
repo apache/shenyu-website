@@ -111,7 +111,7 @@ description: SpringCloud接入ShenYu网关
 * 示例一：
   代表 `/test/payment`, `/test/findByUserId` 都会被网关代理。
 
- ```java
+```java
   @RestController
   @RequestMapping("/test")
   @ShenyuSpringCloudClient(path = "/test/**")
@@ -137,7 +137,7 @@ description: SpringCloud接入ShenYu网关
   代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
 
 
- ```java
+```java
   @RestController
   @RequestMapping("/order")
   @ShenyuSpringCloudClient(path = "/order")

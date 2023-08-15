@@ -297,7 +297,7 @@ shenyu:
 27. Add the springcloud service instance cache
 
 > specific pr please see: https://github.com/apache/shenyu/pull/4705
-
+>
 > the specific use please see: https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/spring-cloud-plugin
 >
 > ```yaml

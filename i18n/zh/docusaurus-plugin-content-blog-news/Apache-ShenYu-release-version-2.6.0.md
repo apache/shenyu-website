@@ -296,7 +296,7 @@ shenyu:
 27.添加springcloud service instance缓存
 
 > 具体pr请查看：https://github.com/apache/shenyu/pull/4705
-
+>
 > 具体使用请查看：https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/spring-cloud-plugin
 >
 > ```yaml

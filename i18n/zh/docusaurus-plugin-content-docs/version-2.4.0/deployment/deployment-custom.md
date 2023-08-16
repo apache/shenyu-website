@@ -60,6 +60,7 @@ shenyu:
   sync:
     websocket:
       urls: ws://localhost:9095/websocket  //设置成你的 shenyu-admin 地址
+      allowOrigin: ws://localhost:9195
 ```
 
 

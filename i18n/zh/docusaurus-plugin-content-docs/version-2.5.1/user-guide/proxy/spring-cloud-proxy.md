@@ -135,7 +135,7 @@ public class ShenyuBootstrapApplication {
 * 示例一：
   代表 `/test/payment`, `/test/findByUserId` 都会被网关代理。
 
- ```java
+```java
   @RestController
   @RequestMapping("/test")
   @ShenyuSpringCloudClient(path = "/test/**")
@@ -160,7 +160,7 @@ public class ShenyuBootstrapApplication {
 * 示例二：
   代表 `/order/save`，会被网关代理，而`/order/findById` 则不会。
 
- ```java
+```java
   @RestController
   @RequestMapping("/order")
   @ShenyuSpringCloudClient(path = "/order")

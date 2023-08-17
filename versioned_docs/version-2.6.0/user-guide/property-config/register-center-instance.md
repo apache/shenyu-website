@@ -11,13 +11,13 @@ This document will introduce how to register the gateway instance to the registr
 First, introduce the following dependencies in the gateway's `pom.xml` file.
 
 ```xml
-<!--shenyu instance start-->
+<!--shenyu registry start-->
 <dependency>
     <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-instance</artifactId>
+    <artifactId>shenyu-spring-boot-starter-registry</artifactId>
     <version>${project.version}</version>
 </dependency>
-<!--shenyu instance end-->
+<!--shenyu registry end-->
 ```
 
 ### Use zookeeper
@@ -27,7 +27,7 @@ First, introduce the following dependencies in the gateway's `pom.xml` file.
 Add the following configuration to the gateway's `yml` file:
 
 ```yaml
-instance:
+registry:
     enabled: true
     registerType: zookeeper
     serverLists: localhost:2181 #config with your zk address, used by the cluster environment, separated with (,).
@@ -41,7 +41,7 @@ instance:
 Add the following configuration to the gateway's `yml` file:
 
 ```yaml
-instance:
+registry:
     enabled: true
     registerType: etcd
     serverLists: http://localhost:2379 #config with your etcd address, used by the cluster environment, separated with (,).
@@ -55,7 +55,7 @@ instance:
 Add the following configuration to the gateway's `yml` file:
 
 ```yaml
-instance:
+registry:
     enabled: true
     registerType: apollo
     serverLists: http://localhost:8080

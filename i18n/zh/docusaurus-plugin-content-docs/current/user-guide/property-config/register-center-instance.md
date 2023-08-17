@@ -10,13 +10,13 @@ description: 注册中心配置
 首先，在网关的 `pom.xml` 文件中引入如下依赖。
 
 ```xml
-<!--shenyu instance start-->
+<!--shenyu registry start-->
 <dependency>
     <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-instance</artifactId>
+    <artifactId>shenyu-spring-boot-starter-registry</artifactId>
     <version>${project.version}</version>
 </dependency>
-<!--shenyu instance end-->
+<!--shenyu registry end-->
 ```
 
 ### 使用zookeeper
@@ -26,7 +26,7 @@ description: 注册中心配置
 在网关的 `yml` 文件中添加如下配置：
 
 ```yaml
-instance:
+registry:
     enabled: true
     registerType: zookeeper
     serverLists: localhost:2181 #配置成你的 zookeeper 地址，集群环境请使用（,）分隔
@@ -40,7 +40,7 @@ instance:
 在网关的 `yml` 文件中添加如下配置：
 
 ```yaml
-instance:
+registry:
     enabled: true
     registerType: etcd
     serverLists: http://localhost:2379 #配置成你的 etcd 地址，集群环境请使用（,）分隔。
@@ -54,7 +54,7 @@ instance:
 在网关的 `yml` 文件中添加如下配置：
 
 ```yaml
-instance:
+registry:
     enabled: true
     registerType: consul
     serverLists: localhost:8848 #配置成你的 consul 地址，集群环境请使用（,）分隔。

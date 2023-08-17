@@ -25,7 +25,7 @@ In the gateway's `pom.xml` file, introduce the following dependencies.
 ```xml
 <dependency>
     <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-instance</artifactId>
+    <artifactId>shenyu-spring-boot-starter-registry</artifactId>
     <version>${project.version}</version>
 </dependency>
 ```

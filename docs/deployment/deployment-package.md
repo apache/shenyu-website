@@ -11,7 +11,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Admin
 
-* download [apache-shenyu-${current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-admin-bin.tar.gz)
+* download [apache-shenyu-${current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.6.0/apache-shenyu-2.6.0-admin-bin.tar.gz)
 
 * unzip `apache-shenyu-${current.version}-admin-bin.tar.gz`。 go to the `bin` directory.
 
@@ -67,7 +67,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Bootstrap
 
-* download [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz)
+* download [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.6.0/apache-shenyu-2.6.0-bootstrap-bin.tar.gz)
 
 * unzip `apache-shenyu-${current.version}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 

@@ -15,7 +15,7 @@ description: 单机快速部署
 
 ### 启动 Apache ShenYu Bootstrap
 
-* 下载 [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz)
+* 下载 [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.6.0/apache-shenyu-2.6.0-bootstrap-bin.tar.gz)
 
 * 解压缩 `apache-shenyu-${current.version}-bootstrap-bin.tar.gz`。 进入 bin 目录。
 

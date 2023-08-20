@@ -77,6 +77,7 @@ When the workflow is triggered, use the dockerfile under the shenyu-dist module 
 If you need to write e2e test cases, you first need to code and debug locally. Currently e2e supports two startup methods, one is docker startup and the other is host startup. These two modes can be switched in the @ShenYuTest annotation in the test class. The host startup method directly starts the services that need to be started locally to run the test code. Before using docker to start, you need to build the corresponding image first. Because ShenYu currently needs to support e2e testing in the github workflow, it is recommended to use the docker startup method.
 
 ### Analysis of e2e startup process
+
 Currently, the e2e module is mainly divided into four parts: case, client, common and engine.
 
 ![e2e-modules](/img/activities/code-analysis-e2e/e2e-modules.png)

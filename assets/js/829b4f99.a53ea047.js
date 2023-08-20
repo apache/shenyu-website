@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[62955],{18447:e=>{e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"e-2-e-test","name":"e2e test","count":1,"permalink":"/blog/tags/e-2-e-test"}')}}]);

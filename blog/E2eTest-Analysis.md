@@ -3,6 +3,7 @@ title: E2e Test Analysis
 author: Haiqi Qin
 author_title: Apache ShenYu Committer
 author_url: https://github.com/HaiqiQin
+author_image_url: https://avatars.githubusercontent.com/u/80969210?v=4
 tags: [E2e Test, Apache ShenYu]
 ---
 

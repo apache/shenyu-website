@@ -212,7 +212,21 @@ export default [
                 abs:<Translate>Code Analysis For Divide Plugin</Translate>
             },
         ]
-    }, 
-    
+    },
+    {
+        categray: 'E2e Test',
+        posts: [
+            {
+                title: <Translate>E2e Test Analysis</Translate>,
+                author: "Haiqi Qin (Committer)",
+                autImg: "https://avatars.githubusercontent.com/u/80969210?v=4",
+                autPage:"https://github.com/HaiqiQin",
+                src: "E2eTest-Analysis",
+                cover: "/img/logo.svg",
+                date: '2023-08-20',
+                abs:<Translate>This article will conduct an in-depth analysis of Apache ShenYu e2e module.</Translate>
+            },
+        ]
+    },
 
 ]

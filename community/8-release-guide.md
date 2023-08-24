@@ -209,25 +209,12 @@ cd ~/svn_release/dev/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
 mkdir -p ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
 cd ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-dist/shenyu-src-dist/target/*.zip ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-dist/shenyu-src-dist/target/*.zip.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz.asc ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-src-dist/target/*.zip* ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-bootstrap-dist/target/*.tar.gz* ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-dist/shenyu-admin-dist/target/*.tar.gz* ~/svn_release/dev/shenyu/${PUBLISH.VERSION}
 ```
 
-**3. Adding hashes**
-
-Follow [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] instructions.
-
-```shell
-shasum -a 512 apache-shenyu-${PUBLISH.VERSION}-src.zip > apache-shenyu-${PUBLISH.VERSION}-src.zip.sha512
-shasum -b -a 512 apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin.tar.gz > apache-shenyu-${PUBLISH.VERSION}-bootstrap-bin.tar.gz.sha512
-shasum -b -a 512 apache-shenyu-${PUBLISH.VERSION}-admin-bin.tar.gz > apache-shenyu-${PUBLISH.VERSION}-admin-bin.tar.gz.sha512
-```
-
-**4. Submit the new release**
+**3. Submit the new release**
 
 ```shell
 cd ~/svn_release/dev/shenyu

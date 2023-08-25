@@ -10,7 +10,7 @@ Shenyu提供了Shenyu-Sdk方便让服务能够快速接入shenyu网关， 客户
 
 <img src="/img/shenyu/sdk/shenyu-sdk_process.png" width="80%" height="50%" />
 
-客户端接入网关的注册中心支持(nacos、eureka、etcd、zookeeper、consul)，下面为`shenyu-bootstrap`及`应用客户端`使用**Zookeeper**注册中心时的相关指引。
+客户端接入网关的注册中心支持(nacos、eureka、etcd、zookeeper、consul)，下面为`shenyu-bootstrap`及`应用客户端`使用**Nacos**注册中心时的相关指引。
 
 ## 环境准备
 

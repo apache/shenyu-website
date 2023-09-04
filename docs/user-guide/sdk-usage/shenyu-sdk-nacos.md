@@ -145,6 +145,8 @@ shenyu:
 Project startup class
 
 ```java
+import org.apache.shenyu.sdk.spring.EnableShenyuClients;
+
 @SpringBootApplication
 @EnableShenyuClients(basePackages = "org.apache.shenyu.examples.sdk.http.api")
 public class ShenyuSdkHttpExampleApplication {
@@ -163,6 +165,8 @@ public class ShenyuSdkHttpExampleApplication {
 Shenyu-SDK interface
 
 ```java
+import org.apache.shenyu.sdk.spring.ShenyuClient;
+
 @ShenyuClient(name = "shenyu-bootstrap", contextId = "ShenyuSdkApiName")
 public interface ShenyuHttpClientApi {
 

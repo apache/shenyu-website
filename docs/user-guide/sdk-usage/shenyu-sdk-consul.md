@@ -150,7 +150,6 @@ shenyu:
 # retry.maxPeriod: Maximum retry waiting time .
 # retry.maxAttempts: Maximum retry count.
 ```
- 
 
 ## Writing the local interface for the SDK
 
@@ -165,6 +164,8 @@ shenyu:
 Project startup class
 
 ```java
+import org.apache.shenyu.sdk.spring.EnableShenyuClients;
+
 @SpringBootApplication
 @EnableShenyuClients(basePackages = "org.apache.shenyu.examples.sdk.http.api")
 public class ShenyuSdkHttpExampleApplication {
@@ -183,6 +184,8 @@ public class ShenyuSdkHttpExampleApplication {
 Shenyu-SDK interface
 
 ```java
+import org.apache.shenyu.sdk.spring.ShenyuClient;
+
 @ShenyuClient(name = "shenyu-gateway", contextId = "ShenyuSdkApiName")
 public interface ShenyuHttpClientApi {
 

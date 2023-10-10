@@ -176,6 +176,9 @@ shenyu:
     paths:
       - /actuator/health
       - /health_check
+  alert:
+    enabled: true
+    admins: localhost:9095
   extPlugin:
     path:
     enabled: true
@@ -627,4 +630,13 @@ Apache ShenYu Metrics 配置，网关用来监控自身运行状态
 | keepAliveTime      | Long    | 60000L                                                 |    否    | 多余的空闲线程keepAlive时间，单位毫秒 |
 | maxWorkQueueMemory | Long    | 当前JVM最大可用内存的80% |    否    |        最大使用内存，单位字节         |
 | maxFreeMemory      | Integer | 无                                                     |    否    |        最大剩余内存，单位字节         |
+
+##### shenyu.alert 配置
+
+Apache ShenYu 网关告警通知配置  
+
+| Name              | Type    | Default                                                 | Required |     Description     |
+|:------------------| ------- |:--------------------------------------------------------|:--------:|:-------------------:|
+| enabled           | Boolean | false                                                   |    否     |      是否开启告警消息通知     |
+| admins            | String  | "localhost:9095"                                        |    否     | ShenYu Admin 服务地址列表 |
 

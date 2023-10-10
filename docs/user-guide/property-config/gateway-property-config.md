@@ -176,6 +176,9 @@ shenyu:
     paths:
       - /actuator/health
       - /health_check
+  alert:
+    enabled: true
+    admins: localhost:9095
   extPlugin:
     path:
     enabled: true
@@ -260,7 +263,6 @@ shenyu trie match support two match mode, we suggest use `pathPattern` as defaul
 > antPathMatch: org.springframework.util.AntPathMatcher
 
 when you mark `matchRestful` as true, we suggest mark all cache to `false` to avoid cache conflict.
-
 
 ##### shenyu.NettyTcpProperties config
 
@@ -393,7 +395,6 @@ Gateway routing can support routing to http and https back-end services at the s
 | closeNotifyReadTimeout   |   int   |    0    |    No    | SSL close_notify read timeout. Default to 0 ms.              |
 | defaultConfigurationType | String  |   TCP   |    No    | The default ssl configuration type. Defaults to TCP.<br />- H2: SslProvider will be set depending on OpenSsl.isAlpnSupported(), SslProvider.HTTP2_CIPHERS, ALPN support, HTTP/1.1 and HTTP/2 support.<br />- TCP: [`SslProvider`](https://netty.io/4.1/api/io/netty/handler/ssl/SslProvider.html?is-external=true) will be set depending on `OpenSsl.isAvailable()`.<br />- NONE: There will be no default configuration. |
 
-
 ##### Filter Configuration
 
 - `shenyu.file` config
@@ -464,8 +465,6 @@ Local forwarding-related configuration.
 | enabled   | Boolean |  false  |    No    | Whether to enable local forwarding.                          |
 | sha512Key | String  |   ""    |   Yes    | Secret key, according to the secret key to determine whether the need for local forwarding. |
 
-
-
 ##### shenyu.switchConfig config
 
 The apache shenyu switch configuration.
@@ -473,8 +472,6 @@ The apache shenyu switch configuration.
 | Name  | Type    | Default | Required | Description                                                  |
 | :---- | :------ | :-----: | :------: | :----------------------------------------------------------- |
 | local | Boolean |  true   |    No    | Whether to open local mode, if so, local operation data, default open. |
-
-
 
 ##### shenyu.sync config
 
@@ -554,7 +551,6 @@ The following properties are configured for data synchronization using `consul` 
 | waitTime   | int    |  null   |   Yes    | the timeout period for requesting consul service to pull configuration information (milliseconds). |
 |watchDelay | int | null | Yes |Synchronization interval (milliseconds).|
 
-
 ##### shenyu.extPlugin config
 
 The apache shenyu supports dynamic loading of custom plug-ins with the following configuration
@@ -577,7 +573,6 @@ Scheduler config for apache shenyu scheduler thread model.
 | type | String |   fixed  |   False    | fixed Thread Pool or elastic  Scheduler Thread Model. |
 | threads | Integer |    Math.max((Runtime.getRuntime().availableProcessors() << 1) + 1, 16) |   False    | threads for fixed Thread Pool. |
 
-
 ##### shenyu.upstreamCheck config
 
 UpstreamCheck config is the configuration used by  apache shenyu to detect upstream.
@@ -592,8 +587,6 @@ UpstreamCheck config is the configuration used by  apache shenyu to detect upstr
 | printEnabled | Boolean |  true  |    No    | Whether to turn on print logs. |
 | printInterval | Integer |    60000 |   No  | schedule time (ms) for print logs. |
 
-
-
 ##### shenyu.ribbon config
 
 The apache shenyu polling interval configuration.
@@ -601,8 +594,6 @@ The apache shenyu polling interval configuration.
 | Name                      | Type    | Default | Required | Description                                                  |
 | :------------------------ | :------ | :-----: | :------: | :----------------------------------------------------------- |
 | serverListRefreshInterval | Integer |  10000  |    No    | Adjust the refresh interval parameter, refer to`com.netflix.client.config.CommonClientConfigKey#ServerListRefreshInterval`. |
-
-
 
 ##### shenyu.metrics config
 
@@ -618,8 +609,6 @@ The apache shenyu metrics config，the gateway is used to monitor its own operat
 | props     |             |    -    |         | No       | properties.                                                  |
 |           | jvm_enabled | Boolean |  Null   | No       | Turn on jvm's monitoring metrics.                            |
 
-
-
 ##### shenyu.sharedPool config
 
 The apache shenyu shared thread pool configuration.
@@ -633,4 +622,13 @@ The apache shenyu shared thread pool configuration.
 | keepAliveTime      | Long    | 60000L                                          |    No    | Excess idle thread keepAlive time, in milliseconds. |
 | maxWorkQueueMemory | Long    | 80% of the current JVM maximum available memory |    No    |             Maximum memory used (byte).             |
 | maxFreeMemory      | Integer | 无                                              |    No    |          Maximum remaining memory (byte).           |
+
+##### shenyu.alert config
+
+The apache shenyu alert notice configuration.
+
+| Name               | Type    | Default                                         | Required |                    Description                    |
+| :----------------- | ------- |:------------------------------------------------| :------: |:-------------------------------------------------:|
+| enabled            | Boolean | false                                           |    No    |         Whether to enable alarm message.          |
+| admins             | String  | "localhost:9095"                                |    No    | Report alarm message to shenyu admin server list. |
 

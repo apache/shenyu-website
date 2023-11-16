@@ -1,5 +1,5 @@
 ---
-title: Logging-HuaweiLts插件
+title: Logging-Huawei-Lts插件
 keywords: ["Logging", "HuaweiLts"]
 description: Logging-HuaweiLts插件
 ---

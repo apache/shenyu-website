@@ -375,5 +375,4 @@ shenyu:
 
 
 > After the data synchronization strategy of Apache ShenYu gateway and shenyu-admin is reconfigured, the microservice needs to be restarted.
->
 > the Apache ShenYu gateway and shenyu-admin must use the same synchronization strategy.

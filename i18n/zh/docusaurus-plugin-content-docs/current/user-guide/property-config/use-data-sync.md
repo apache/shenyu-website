@@ -374,5 +374,4 @@ shenyu:
   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-apollo-yml.png" width="80%" height="70%" />
 
 > 在`Apache ShenYu`网关和`shenyu-admin` 重新配置数据同步策略后，需要重启服务。
->
 > `Apache ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。

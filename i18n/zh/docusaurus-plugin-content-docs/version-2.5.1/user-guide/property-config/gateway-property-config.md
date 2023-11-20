@@ -24,8 +24,8 @@ shenyu:
       serverSocketChannel:
         soRcvBuf: 87380
         soBackLog: 128
-        soReuseAddr: false
-        connectTimeoutMillis: 10000
+        soReuseAddr: true
+        connectTimeoutMillis: 30000
         writeBufferHighWaterMark: 65536
         writeBufferLowWaterMark: 32768
         writeSpinCount: 16
@@ -35,14 +35,14 @@ shenyu:
         singleEventExecutorPerGroup: true
       socketChannel:
         soKeepAlive: false
-        soReuseAddr: false
+        soReuseAddr: true
         soLinger: -1
         tcpNoDelay: true
         soRcvBuf: 87380
         soSndBuf: 16384
         ipTos: 0
         allowHalfClosure: false
-        connectTimeoutMillis: 10000
+        connectTimeoutMillis: 30000
         writeBufferHighWaterMark: 65536
         writeBufferLowWaterMark: 32768
         writeSpinCount: 16
@@ -212,7 +212,7 @@ Apache ShenYu 选择器缓存配置
 
 ##### shenyu.NettyTcpProperties 配置
 
-Apache ShenYu Netty 配置
+Apache ShenYu reactor-netty 配置
 
 | 名称                          | 类型    | 默认值 | 是否必填 | 说明                                                          |
 |:------------------------------|:----- |:-------:|:--------:|:------------------------------------------------------------|
@@ -221,31 +221,31 @@ Apache ShenYu Netty 配置
 | workerCount                   | Integer |    4    |    否    | Netty 工作线程数                                                 |
 | accessLog                     | Boolean |  false  |    否    | netty request parameters.                                   |
 | **ServerSocketChannelConfig** |  |         |          |                                                             |
-| soRcvBuf                      | Integer |  87380  |    否    | Socket参数，TCP数据接收缓冲区大小                                       |
+| soRcvBuf                      | Integer | --        | 否       | Socket参数，TCP数据接收缓冲区大小，默认由系统决定            |
 | soBackLog                     | Integer |   128   |    否    | Socket参数，服务端接受连接的队列长度                                       |
-| soReuseAddr                   | Boolean |  false  |    否    | Socket 参数，是否复用地址                                            |
-| connectTimeoutMillis          | Integer |  10000  |    否    | Netty 参数，连接超时时间                                             |
+| soReuseAddr                   | Boolean | true      | 否       | Socket 参数，是否复用地址，reactor-netty中默认值为true       |
+| connectTimeoutMillis          | Integer | 30000     | 否       | Netty 参数，连接超时时间                                     |
 | writeBufferHighWaterMark      | Integer |  65536  |    否    | Netty 参数，通道水位线上限                                            |
 | writeBufferLowWaterMark       | Integer |  32768  |    否    | Netty 参数，通道水位线下限                                            |
 | writeSpinCount                | Integer |   16    |    否    | Netty参数，一个Loop写操作执行的最大次数                                    |
-| autoRead                      | Boolean |  true   |    否    | Netty参数，自动读取                                                |
+| autoRead                      | Boolean | false     | 否       | Netty参数，自动读取，reactor-netty中默认值为false，且只能为false |
 | allocType                     | String  | pooled  |    否    | Netty参数，ByteBuf的分配器                                         |
 | messageSizeEstimator          | Integer |    8    |    否    | Netty参数, 消息大小估算器, 用于估算ByteBuf,ByteBufHolder和FileRegion大小    |
 | singleEventExecutorPerGroup   | Boolean |  true   |    否    | Netty参数, 单线程执行ChannelPipeline中的事件                           |
 | **SocketChannelConfig**       |  |         |          |                                                             |
 | soKeepAlive                   | Boolean |  false  |    否    | Socket 参数，是否启用心跳保活机制                                        |
-| soReuseAddr                   | Boolean |  false  |    否    | Socket 参数，是否复用地址                                            |
+| soReuseAddr                   | Boolean | true      | 否       | Socket 参数，是否复用地址，reactor-netty中默认值为true       |
 | soLinger                      | Integer |   -1    |    否    | Socket 参数，关闭 Socket 的延迟时间                                   |
 | tcpNoDelay                    | Boolean |  true   |    否    | Socket 参数，是否启用 Nagle 算法                                     |
-| soRcvBuf                      | Integer |  87380  |    否    | Socket参数，TCP数据接收缓冲区大小                                       |
-| soSndBuf                      | Integer |   128   |    否    | Socket参数，TCP数据发送缓冲区大小                                       |
+| soRcvBuf                      | Integer | --        | 否       | Socket参数，TCP数据接收缓冲区大小，默认由系统决定            |
+| soSndBuf                      | Integer | --        | 否       | Socket参数，TCP数据发送缓冲区大小，默认由系统决定            |
 | ipTos                         | Integer |    0    |    否    | IP参数，设置IP头部的Type-of-Service字段，用于描述IP包的优先级和QoS选项             |
 | allowHalfClosure              | Boolean |  false  |    否    | Netty参数，一个连接的远端关闭时本地端是否关闭                                   |
-| connectTimeoutMillis          | Integer |  10000  |    否    | Netty 参数，连接超时时间                                             |
+| connectTimeoutMillis          | Integer | 30000     | 否       | Netty 参数，连接超时时间                                     |
 | writeBufferHighWaterMark      | Integer |  65536  |    否    | Netty 参数，通道水位线上限                                            |
 | writeBufferLowWaterMark       | Integer |  32768  |    否    | Netty 参数，通道水位线下限                                            |
 | writeSpinCount                | Integer |   16    |    否    | Netty参数，一个Loop写操作执行的最大次数                                    |
-| autoRead                      | Boolean |  true   |    否    | Netty参数，自动读取                                                |
+| autoRead                      | Boolean | false     | 否       | Netty参数，自动读取，reactor-netty中默认值为false，且只能为false |
 | allocType                     | String | pooled  |    否    | Netty参数，ByteBuf的分配器                                         |
 | messageSizeEstimator          | Integer |    8    |    否    | Netty参数, 消息大小估算器, 用于估算ByteBuf,ByteBufHolder和FileRegion大小    |
 | singleEventExecutorPerGroup   | Boolean |  true   |    否    | Netty参数, 单线程执行ChannelPipeline中的事件                           |

@@ -25,7 +25,7 @@ Shenyu提供了Shenyu-Sdk方便让服务能够快速接入shenyu网关， 客户
 ```xml
 <dependency>
     <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-instance</artifactId>
+    <artifactId>shenyu-spring-boot-starter-registry</artifactId>
     <version>${project.version}</version>
 </dependency>
 ```

@@ -79,6 +79,8 @@ For more information on selectors and rules configuration, see [Selector And Rul
   * `MinimumRequests`: the minimum number of requests required to trigger a circuit breaker.
 
   * `ErrorThresholdPercentage`: percentage of exception occurring during that time.
+     
+  * `Timeout`(ms): execution timeout.
 
   * `MaxConcurrentRequests`: max concurrent requests.
 

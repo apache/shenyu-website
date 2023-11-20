@@ -315,7 +315,7 @@ shenyu:
 * 当使用这个功能时候, 需要把上述扩展的`ShenyuPlugin` 打包成自定义的 ShenyuPlugin Jar 包
 * 并且在 ShenyuAdmin 进行配置
   * 进入 ShenyuAdmin - BasicConfig - Plugin 进行添加 plugin 在 pluginJar 中可以添加自定义的 plugin Jar 包
-* 自定义的 ShenyuPlugin 如果依赖了其他的第三方包可以 ShenyuBootstrap 启动是加载到 -cp 的第三方jar包目录
+* 自定义的 ShenyuPlugin 如果依赖了其他的第三方包可以 ShenyuBootstrap 启动时加载到 -cp 的第三方jar包目录
 
 注意:
 

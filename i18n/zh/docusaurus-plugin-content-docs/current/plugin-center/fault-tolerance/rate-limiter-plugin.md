@@ -82,7 +82,7 @@ description: rateLimiter插件
 
 ## 2.3 启用插件
 
-在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `Cache` 设置为开启。
+在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `rateLimiter` 设置为开启。
 
 ## 2.4 配置插件
 
@@ -192,4 +192,4 @@ replenishRate为3, burstCapacity为10
 
 # 3. 如何禁用插件
 
-在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `Cache` 设置为关闭。
+在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `rateLimiter` 设置为关闭。

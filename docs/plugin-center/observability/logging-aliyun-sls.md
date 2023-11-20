@@ -1,5 +1,5 @@
 ---
-title: Logging Aliyun Sls Plugin
+title: Logging-Aliyun-Sls Plugin
 keywords: ["logging"]
 description: logging plugin
 ---

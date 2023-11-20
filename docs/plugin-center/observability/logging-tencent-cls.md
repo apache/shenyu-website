@@ -1,5 +1,5 @@
 ---
-title: Logging-Tencent cls日志插件
+title: Logging-Tencent-Cls Plugin
 keywords: ["Logging"]
 description: logging plugin
 ---

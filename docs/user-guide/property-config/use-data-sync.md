@@ -334,22 +334,29 @@ shenyu:
 
 ### Apollo Synchronization Config
 
+Apollo just support Java [8,17), if you want to use apollo as data sync center, please make sure your JDK version is between [8,17).
+
 * `Apache ShenYu` gateway config
 
-Add these dependencies in `pom.xml`：
-
-```xml
-<!-- apache shenyu data sync start use consul-->
-<dependency>
-  <groupId>org.apache.shenyu</groupId>
-  <artifactId>shenyu-spring-boot-starter-sync-data-apollo</artifactId>
-  <version>${project.version}</version>
-</dependency>
-```
-
-  <img src="/img/shenyu/dataSync/shenyu-data-sync-apollo-pom.png" width="80%" height="70%" />
+Download the corresponding version of the jar package from `https://repo1.maven.org/maven2/org/apache/shenyu/shenyu-spring-boot-starter-sync-data-apollo/`, and then put the jar package into the `/lib` directory.
 
 Add these config values in  yaml file:
+
+```yaml
+shenyu:
+  sync:
+    apollo:
+    appId: shenyu
+    meta: http://localhost:8080
+    env: dev
+    clusterName: test
+    namespace: application
+```
+
+* `Apache ShenYu Admin` config
+
+Download the corresponding version of the jar package from `https://repo1.maven.org/maven2/org/apache/shenyu/shenyu-admin-listener-apollo/`, and then put the jar package into the `/lib` directory.
+
 
 ```yaml
 shenyu:

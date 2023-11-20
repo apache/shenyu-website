@@ -45,7 +45,7 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 ```
 docker pull apache/shenyu-admin
 docker network create shenyu
-docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
+docker run -d -p 9095:9095 --name shenyu-admin --net shenyu apache/shenyu-admin
 ```
 
 默认账号: **admin**
@@ -56,7 +56,7 @@ docker run -d -p 9095:9095 --net shenyu apache/shenyu-admin
 
 ```
 docker pull apache/shenyu-bootstrap
-docker run -d -p 9195:9195 -e "shenyu.local.enabled=true" --net shenyu apache/shenyu-bootstrap
+docker run -d -p 9195:9195 -e "shenyu.local.enabled=true" -e SHENYU_SYNC_WEBSOCKET_URLS=ws://shenyu-admin:9095/websocket --net shenyu apache/shenyu-bootstrap
 ```
 
 ### 路由设置

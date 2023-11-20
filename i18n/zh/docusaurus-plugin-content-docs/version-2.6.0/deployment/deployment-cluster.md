@@ -36,7 +36,6 @@ description: 集群部署
 ### 启动 Apache ShenYu Boostrap
 
 * 在你的网关启动器服务器下载并解压[apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.6.0/apache-shenyu-2.6.0-bootstrap-bin.tar.gz) 。
-
 * 配置你的数据同步方式，进入`/conf`目录，在`application.yaml`文件中修改`shenyu.sync`节点为`websocket`, `http`, `zookeeper`, `etcd`, `consul` 或者 `nacos`，这个配置必须与`ShenyYu Admin`的配置保持相同。
 
 * 进入`bin`目录，启动ShenYu Bootstrap。

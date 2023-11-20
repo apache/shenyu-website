@@ -163,7 +163,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 - 方法名称：需要调用的方法名。
 
-- 路径：`http`请路径。
+- 路径：`http`请求路径。
 
 - 路径描述：对该路径的说明，方便查看。
 

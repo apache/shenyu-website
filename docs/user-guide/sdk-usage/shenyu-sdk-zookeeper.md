@@ -25,7 +25,7 @@ In the gateway's `pom.xml` file, introduce the following dependencies.
 ```xml
 <dependency>
     <groupId>org.apache.shenyu</groupId>
-    <artifactId>shenyu-spring-boot-starter-instance</artifactId>
+    <artifactId>shenyu-spring-boot-starter-registry</artifactId>
     <version>${project.version}</version>
 </dependency>
 ```
@@ -139,6 +139,8 @@ shenyu:
 Project startup class
 
 ```java
+import org.apache.shenyu.sdk.spring.EnableShenyuClients;
+
 @SpringBootApplication
 @EnableShenyuClients(basePackages = "org.apache.shenyu.examples.sdk.http.api")
 public class ShenyuSdkHttpExampleApplication {
@@ -157,6 +159,8 @@ public class ShenyuSdkHttpExampleApplication {
 Shenyu-SDK interface
 
 ```java
+import org.apache.shenyu.sdk.spring.ShenyuClient;
+
 @ShenyuClient(name = "shenyu-gateway", contextId = "ShenyuSdkApiName")
 public interface ShenyuHttpClientApi {
 

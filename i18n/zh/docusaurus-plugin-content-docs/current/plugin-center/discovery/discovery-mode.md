@@ -20,7 +20,7 @@ Discovery
 
 ## 1.3 说明
 
-`Discovery`网管admin服务主动监听 注册到网管服务. 使得shenyu网管具备主动发现被代理服务列表的变化
+`Discovery`网关admin服务主动监听 注册到网管服务. 使得shenyu网关具备主动发现被代理服务列表的变化
 `Discovery` 可以针对 选择器级别, 也可以针对 插件级别.
 目前 引入 `Discovery` 插件为 TCP 插件.
 
@@ -28,7 +28,7 @@ Discovery
 
 LOCAL , ZOOKEEPER , NACOS(待支持) , ERURKA(待支持) ....
 
-LOCAL 模式 : 主要依靠手动维护 upstream 列表 推送到网管
+LOCAL 模式 : 主要依靠手动维护 upstream 列表 推送到网关
 
 ZOOKEEPER 模式 : 监听 zk 下指定节点下的 临时节点变化来获取数据
 

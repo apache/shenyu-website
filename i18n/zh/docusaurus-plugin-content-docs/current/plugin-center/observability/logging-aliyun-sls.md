@@ -1,5 +1,5 @@
 ---
-title: Aliyun Sls日志插件
+title: Aliyun-Sls插件
 keywords: ["logging"]
 description: logging插件
 ---

@@ -43,3 +43,71 @@ ShenYu Kubernetes Controller 实现了 K8s 原生的 Ingress 标准，原生标�
 | shenyu.apache.org/timeout          | 3000   | 否       | 后端请求超时时间，单位毫秒                                   |
 | shenyu.apache.org/header-max-size  | 10240  | 否       | 请求头最大大小，单位byte                                     |
 | shenyu.apache.org/request-max-size | 102400 | 否       | 请求体最大大小，单位byte                                     |
+
+### Dubbo插件
+
+| 名称                                           | 默认值   | 是否必填 | 说明                                                         |
+| ---------------------------------------------- | -------- | -------- | ------------------------------------------------------------ |
+| shenyu.apache.org/loadbalancer                 | random   | 否       | 负载均衡算法，可选hash、random、roundRobin、leastActive、p2c、shortestResponse |
+| shenyu.apache.org/retry                        | 3        | 否       | 失败重试次数                                                 |
+| shenyu.apache.org/timeout                      | 3000     | 否       | 后端请求超时时间，单位毫秒                                   |
+| shenyu.apache.org/header-max-size              | 10240    | 否       | 请求头最大大小，单位byte                                     |
+| shenyu.apache.org/request-max-size             | 102400   | 否       | 请求体最大大小，单位byte                                     |
+| shenyu.apache.org/upstreams-protocol           | dubbo:// | 否       | 指定upstream使用的protocol协议                               |
+| shenyu.apache.org/plugin-dubbo-enabled         |          | 否       | 确定是否启动dubbo插件                                        |
+| shenyu.apache.org/zookeeper-register-address   |          | 是       | 指定zookeeper地址                                            |
+| shenyu.apache.org/plugin-dubbo-app-name        |          | 是       | 指定元数据的应用名称                                         |
+| shenyu.apache.org/plugin-dubbo-path            |          | 是       | 指定元数据的请求路径                                         |
+| shenyu.apache.org/plugin-dubbo-rpc-type        |          | 是       | 指定元数据的rpc类型（dubbo，sofa，tars，springCloud，motan，grpc） |
+| shenyu.apache.org/plugin-dubbo-service-name    |          | 是       | 指定元数据的接口名称                                         |
+| shenyu.apache.org/plugin-dubbo-method-name     |          | 是       | 指定元数据的方法名称                                         |
+| shenyu.apache.org/plugin-dubbo-rpc-expand      |          | 否       | 指定元数据的rpc扩展参数（json对象）                          |
+| shenyu.apache.org/plugin-dubbo-parameter-types |          | 是       | 指定元数据的参数类型                                         |
+
+### Motan插件
+
+| 名称                                           | 默认值 | 是否必填 | 说明                                                         |
+| ---------------------------------------------- | ------ | -------- | ------------------------------------------------------------ |
+| shenyu.apache.org/loadbalancer                 | random | 否       | 负载均衡算法，可选hash、random、roundRobin、leastActive、p2c、shortestResponse |
+| shenyu.apache.org/retry                        | 3      | 否       | 失败重试次数                                                 |
+| shenyu.apache.org/timeout                      | 3000   | 否       | 后端请求超时时间，单位毫秒                                   |
+| shenyu.apache.org/header-max-size              | 10240  | 否       | 请求头最大大小，单位byte                                     |
+| shenyu.apache.org/request-max-size             | 102400 | 否       | 请求体最大大小，单位byte                                     |
+| shenyu.apache.org/plugin-motan-enabled         |        | 是       | 确定是否启动motan插件                                        |
+| shenyu.apache.org/zookeeper-register-address   |        | 是       | 指定zookeeper地址                                            |
+| shenyu.apache.org/plugin-motan-app-name        |        | 是       | 指定元数据的应用名称                                         |
+| shenyu.apache.org/plugin-motan-path            |        | 是       | 指定元数据的请求路径                                         |
+| shenyu.apache.org/plugin-motan-rpc-type        |        | 是       | 指定元数据的rpc类型（dubbo，sofa，tars，springCloud，motan，grpc） |
+| shenyu.apache.org/plugin-motan-service-name    |        | 是       | 指定元数据的接口名称                                         |
+| shenyu.apache.org/plugin-motan-method-name     |        | 是       | 指定元数据的方法名称                                         |
+| shenyu.apache.org/plugin-motan-rpc-expand      |        | 否       | 指定元数据的rpc扩展参数（json对象）                          |
+| shenyu.apache.org/plugin-motan-parameter-types |        | 是       | 指定元数据的参数类型                                         |
+
+### SpringCloud插件
+
+| 名称                                                  | 默认值 | 是否必填 | 说明                                                         |
+| ----------------------------------------------------- | ------ | -------- | ------------------------------------------------------------ |
+| shenyu.apache.org/loadbalancer                        | random | 否       | 负载均衡算法，可选hash、random、roundRobin、leastActive、p2c、shortestResponse |
+| shenyu.apache.org/retry                               | 3      | 否       | 失败重试次数                                                 |
+| shenyu.apache.org/timeout                             | 3000   | 否       | 后端请求超时时间，单位毫秒                                   |
+| shenyu.apache.org/header-max-size                     | 10240  | 否       | 请求头最大大小，单位byte                                     |
+| shenyu.apache.org/request-max-size                    | 102400 | 否       | 请求体最大大小，单位byte                                     |
+| shenyu.apache.org/plugin-spring-cloud-enabled         |        | 是       | 确定是否启动springCloud插件                                  |
+| shenyu.apache.org/zookeeper-register-address          |        | 是       | 指定zookeeper地址                                            |
+| shenyu.apache.org/plugin-spring-cloud-app-name        |        | 是       | 指定元数据的应用名称                                         |
+| shenyu.apache.org/plugin-spring-cloud-path            |        | 是       | 指定元数据的请求路径                                         |
+| shenyu.apache.org/plugin-spring-cloud-rpc-type        |        | 是       | 指定元数据的rpc类型（dubbo，sofa，tars，springCloud，motan，grpc） |
+| shenyu.apache.org/plugin-spring-cloud-service-name    |        | 是       | 指定元数据的接口名称                                         |
+| shenyu.apache.org/plugin-spring-cloud-method-name     |        | 是       | 指定元数据的方法名称                                         |
+| shenyu.apache.org/plugin-spring-cloud-rpc-expand      |        | 否       | 指定元数据的rpc扩展参数（json对象）                          |
+| shenyu.apache.org/plugin-spring-cloud-parameter-types |        | 是       | 指定元数据的参数类型                                         |
+
+### WebSocket插件
+
+| 名称                               | 默认值 | 是否必填 | 说明                                                         |
+| ---------------------------------- | ------ | -------- | ------------------------------------------------------------ |
+| shenyu.apache.org/loadbalancer     | random | 否       | 负载均衡算法，可选hash、random、roundRobin、leastActive、p2c、shortestResponse |
+| shenyu.apache.org/retry            | 3      | 否       | 失败重试次数                                                 |
+| shenyu.apache.org/timeout          | 3000   | 否       | 后端请求超时时间，单位毫秒                                   |
+| shenyu.apache.org/header-max-size  | 10240  | 否       | 请求头最大大小，单位byte                                     |
+| shenyu.apache.org/request-max-size | 102400 | 否       | 请求体最大大小，单位byte                                     |

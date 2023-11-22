@@ -330,3 +330,42 @@ shenyu:
 > 在`Apache ShenYu`网关和`shenyu-admin` 重新配置数据同步策略后，需要重启服务。
 >
 > `Apache ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。
+
+### Apollo同步配置
+
+* `Apache ShenYu` 网关配置
+
+在`pom.xml`中添加如下依赖：
+
+```xml
+<!-- apache shenyu data sync start use apollo-->
+<dependency>
+  <groupId>org.apache.shenyu</groupId>
+  <artifactId>shenyu-spring-boot-starter-sync-data-apollo</artifactId>
+  <version>${project.version}</version>
+</dependency>
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-apollo-pom.png" width="80%" height="70%" />
+
+在yaml文件中添加如下配置：
+
+```yaml
+shenyu:
+  sync:
+    apollo:
+      meta: http://localhost:8080
+      appId: shenyu
+      portalUrl: http://localhost:8070
+      env: dev
+      clusterName: test
+      namespace: application
+      token: 0fff5645fc74ee5e0d63a6389433c8c8afc0beea31eed0279ecc1c8961d12da9
+```
+
+  <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-apollo-yml.png" width="80%" height="70%" />
+
+
+> 在`Apache ShenYu`网关和`shenyu-admin` 重新配置数据同步策略后，需要重启服务。
+>
+> `Apache ShenYu`网关 和 `shenyu-admin` 必须使用相同的同步策略。

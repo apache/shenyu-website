@@ -44,14 +44,18 @@ shenyu:
 ```yaml
 shenyu:
   register:
-    enabled: true
     registerType: http
     serverLists: http://localhost:9095
     props:
-      contextPath: /http
-      appName: http
-      port: 8188  
-      isFull: false
+      username: admin
+      password: 123456
+  client:
+    http:
+      props:
+        contextPath: /http
+        appName: http
+        port: 8188
+        isFull: false
 # registerType : 服务注册类型，填写 http
 # serverList: 为http注册类型时，填写Shenyu-Admin项目的地址，注意加上http://，多个地址用英文逗号分隔
 # port: 你本项目的启动端口，目前springmvc/tars/grpc需要进行填写

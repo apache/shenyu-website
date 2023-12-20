@@ -42,13 +42,16 @@ shenyu:
   register:
     registerType: http
     serverLists: http://localhost:9095
+    props:
+      username: admin
+      password: 123456
   client:
     http:
-    	props:
-      		contextPath: /http
-      		appName: http
-      		port: 8188  
-      		isFull: false
+      props:
+        contextPath: /http
+        appName: http
+        port: 8188
+        isFull: false
 # registerType : register type, set http
 # serverList: when register type is http，set shenyu-admin address list，pls note 'http://' is necessary.
 # port: your project port number; apply to springmvc/tars/grpc

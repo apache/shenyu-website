@@ -345,3 +345,9 @@ status : 0 Healthy , 1 Unhealthy
 weight : Weight. For details, see the weight algorithm in the shenyu-loadbalancer module.
 
 ![change-weight-status.png](/img/shenyu/plugin/discovery/change-weight-status.png)
+
+## 4.4 Test report
+
+
+[Test Report](https://www.yuque.com/eureca/pgotw1/hkqkk5laubspgwl3#UojLR)
+

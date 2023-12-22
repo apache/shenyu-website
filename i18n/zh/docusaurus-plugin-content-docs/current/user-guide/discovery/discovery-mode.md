@@ -344,6 +344,10 @@ weight : 权重  详情见 权重算法 shenyu-loadbalancer 模块
 
 
 
+## 4.4 测试报告
+
+
+[测试报告](https://www.yuque.com/eureca/pgotw1/hkqkk5laubspgwl3#UojLR)
 
 
 

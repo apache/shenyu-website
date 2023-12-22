@@ -12,7 +12,7 @@ description: dubbo插件
 
 ## 插件设置
 
-* 引入相关依赖，开启插件，请参考：[Dubbo快速开始](../../../quick-start/quick-start-dubbo) 。
+* 引入相关依赖，开启插件，请参考：[Dubbo快速开始](../../quick-start/quick-start-dubbo) 。
 
 * `Dubbo`应用客户端接入，请参考：[Dubbo服务接入](../../../user-guide/dubbo-proxy) 。
 
@@ -94,7 +94,7 @@ description: dubbo插件
 
 * 方法名称：需要调用的方法名。
 
-* 路径：`http`请路径。
+* 路径：`http`请求路径。
 
 * 路径描述：对该路径的说明，方便查看。
 

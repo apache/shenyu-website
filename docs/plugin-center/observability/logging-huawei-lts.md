@@ -1,5 +1,5 @@
 ---
-title: Logging-Huawei llts日志插件
+title: Logging-Huawei-Lts Plugin
 keywords: ["Logging"]
 description: logging plugin
 

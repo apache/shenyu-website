@@ -9,7 +9,7 @@ description: Dubbo服务接入
 
 * 此篇文章是介绍 `dubbo` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `dubbo` 插件来接入`Dubbo`服务。
 * 当前支持 `alibaba dubbo（< 2.7.x）` 以及 `apache dubbo (>=2.7.x)`。
-* 接入前，请正确启动 `shenyu-admin`，并开启`dubbo`插件，在网关端和`Dubbo`服务端引入相关依赖。可以参考前面的 [Dubbo快速开始](../quick-start/quick-start-dubbo)。
+* 接入前，请正确启动 `shenyu-admin`，并开启`dubbo`插件，在网关端和`Dubbo`服务端引入相关依赖。可以参考前面的 [Dubbo快速开始](../../quick-start/quick-start-dubbo)。
 
 
 应用客户端接入的相关配置请参考：[客户端接入配置](./register-center-access)。

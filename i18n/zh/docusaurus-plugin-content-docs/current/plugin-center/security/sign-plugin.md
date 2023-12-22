@@ -135,7 +135,7 @@ List<String> storedKeys = Arrays.stream(map.keySet()
                 .sorted(Comparator.naturalOrder())
                 .collect(Collectors.toList());
 final String sign = storedKeys.stream()
-                .map(key -> String.join("", key, params.get(key)))
+                .map(key -> String.join("", key, map.get(key)))
                 .collect(Collectors.joining()).trim()
                 .concat("506EEB535CF740D7A755CB4B9F4A1536");
 ```
@@ -174,7 +174,7 @@ List<String> storedKeys = Arrays.stream(map.keySet()
                 .sorted(Comparator.naturalOrder())
                 .collect(Collectors.toList());
 final String sign = storedKeys.stream()
-                .map(key -> String.join("", key, params.get(key)))
+                .map(key -> String.join("", key, map.get(key)))
                 .collect(Collectors.joining()).trim()
                 .concat("2D47C325AE5B4A4C926C23FD4395C719");
 ```
@@ -241,7 +241,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 ### 2.5.1 鉴权使用指南
 
-​		版本2.0.0鉴权算法，主要是根据算法生成一个`Token`，发送请求的时候，请求头参数`Authorization`放入这个`Token`值。为了与版本1.0.0作出区分，保留了请求头的version参数，此时它的值应为`2.0.0`。
+​		版本2.0.0鉴权算法，主要是根据算法生成一个`Token`，发送请求的时候，请求头参数`Authorization（或ShenYu-Authorization）`放入这个`Token`值。为了与版本1.0.0作出区分，保留了请求头的version参数，此时它的值应为`2.0.0`。
 
 #### 2.5.1.1 准备工作
 
@@ -302,18 +302,19 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
   > token = base64Encoding(parameters) + '.' + base64Encoding(signature)
 
-  把Token放入到请求头`Authorization`参数即可。
+  把Token放入到请求头`Authorization（或ShenYu-Authorization）`参数即可。
 
 详细计算示例请看示例章节。
 
 ### 2.5.2请求网关
 
-| 字段          | 值      | 描述                      |
-| ------------- | ------- | ------------------------- |
-| Authorization | Token   | 上述算法计算得到的Token值 |
-| version       | `2.0.0` | 写死，就为这个值          |
+| 字段          | 值      | 描述                                           |
+| ------------- | ------- |----------------------------------------------|
+| Authorization | Token   | ShenYu-Authorization字段未配置时生效，上述算法计算得到的Token值 |
+| ShenYu-Authorization | Token   | 上述算法计算得到的Token值                              |
+| version       | `2.0.0` | 写死，就为这个值                                     |
 
-
+>为了避免和下游服务中使用Authorization字段冲突，鉴权插件优先使用ShenYu-Authorization字段值进行鉴权，当请求中不存在ShenYu-Authorization字段时，鉴权插件将使用Authorization字段值进行鉴权
 
 ## 2.6 示例
 
@@ -438,7 +439,7 @@ public class Test2 {
   ```java
   public static void main(String[] args) {
       
-      String signKey = "2D47C325AE5B4A4C926C23FD4395C719";
+      String appSecret = "2D47C325AE5B4A4C926C23FD4395C719";
   
       URI uri = URI.create("/http/order/save");
   
@@ -450,7 +451,7 @@ public class Test2 {
       String base64Parameters = Base64.getEncoder()
           .encodeToString(parameters.getBytes(StandardCharsets.UTF_8));
   
-      String signature = sign(signKey,base64Parameters,uri,null);
+      String signature = sign(appSecret,base64Parameters,uri,null);
   
       String Token = base64Parameters+"."+signature;
   
@@ -479,7 +480,7 @@ public class Test2 {
 
   ```java
       public static void main(String[] args) {
-          String signKey = "2D47C325AE5B4A4C926C23FD4395C719";
+          String appSecret = "2D47C325AE5B4A4C926C23FD4395C719";
   
           URI uri = URI.create("/http/order/save");
   
@@ -493,7 +494,7 @@ public class Test2 {
   
           String requestBody = "{\"id\":123,\"name\":\"order\"}";
   
-          String signature = sign(signKey,base64Parameters,uri,requestBody);
+          String signature = sign(appSecret,base64Parameters,uri,requestBody);
   
           String Token = base64Parameters+"."+signature;
   

@@ -150,12 +150,11 @@ ZOOKEEPER模式下 支持 插件级别 和 选择器级别
 
 # 4.配合 Shenyu-client 使用
 
-
 ## 4.1 概括
+
 配合shenyu-client使用 需要依赖
 使用中间件 zookeeper, nacos , etcd, eureka 模式 依赖admin 自动感知上下线
 使用local模式 需要 手动维护 upstream列表
-
 
 ## 4.2 示例
 
@@ -163,7 +162,7 @@ shenyu-client 使用详情见 shenyu-client 模块
 
 ### 4.2.1 Local示例
 
-Local模式 不需要配置注册中心 
+Local模式 不需要配置注册中心
 
 1.如果选择使用shenyu-client自动注册为Local模式并且把当前列表注册上去
 
@@ -178,29 +177,31 @@ Local模式 不需要配置注册中心
 手动配置Rule
 ![config_local_selector_3.png](/img/shenyu/plugin/discovery/config_local_selector_3.png)
 
- 测试连接
+测试连接
+
 ```text
 curl http://localhost:9195/http/hello
 
 hello! I'm Shenyu-Gateway System. Welcome!% 
 ```
 
-
 ### 4.2.2 Zookeeper示例
 
 以 Divide为例
 
 添加依赖
+
 ```xml
+
 <dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-zookeeper</artifactId>
-   <version>${project.version}</version>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-zookeeper</artifactId>
+    <version>${project.version}</version>
 </dependency>
 
 <dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+<groupId>org.apache.shenyu</groupId>
+<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
 
@@ -218,6 +219,7 @@ shenyu:
       connectionTimeoutMilliseconds: 60000
       sessionTimeoutMilliseconds: 8
 ```
+
 启动项目 shenyu-examples-http
 
 上述说明组册成功
@@ -226,6 +228,7 @@ shenyu:
 ![divide-zookeeper-discovery-success_2.png](/img/shenyu/plugin/discovery/divide-zookeeper-discovery-success_2.png)
 
 测试连接
+
 ```text
 curl http://localhost:9195/http/hello
 
@@ -235,36 +238,40 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 ### 4.2.3 Etcd示例
 
 添加依赖
+
 ```xml
+
 <dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-etcd</artifactId>
-   <version>${project.version}</version>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-etcd</artifactId>
+    <version>${project.version}</version>
 </dependency>
 
 <dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+<groupId>org.apache.shenyu</groupId>
+<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
 
 ```yaml
 shenyu:
-   discovery:
-      enable: true
-      type: etcd
-      serverList: http://${your.etcd.host}:${your.etcd.port}
-      registerPath: shenyu_discovery_demo_http_common
-      props:
-         etcdTimeout: 3000
-         etcdTTL: 5
+  discovery:
+    enable: true
+    type: etcd
+    serverList: http://${your.etcd.host}:${your.etcd.port}
+    registerPath: shenyu_discovery_demo_http_common
+    props:
+      etcdTimeout: 3000
+      etcdTTL: 5
 ```
+
 启动shenyu-examples-http
 
 上述说明组册成功
 ![divide-etcd-discovery-success.png](/img/shenyu/plugin/discovery/divide-etcd-discovery-success.png)
 
 测试连接
+
 ```text
 curl http://localhost:9195/http/hello
 
@@ -274,34 +281,38 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 ### 4.2.4 Eureka示例
 
 添加依赖
+
 ```xml
+
 <dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-eureka</artifactId>
-   <version>${project.version}</version>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-eureka</artifactId>
+    <version>${project.version}</version>
 </dependency>
 
 <dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+<groupId>org.apache.shenyu</groupId>
+<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
+
 ```yaml
 shenyu:
-   discovery:
-      enable: true
-      type: eureka
-      serverList: http://${your.eureka.host}:${your.eureka.port}/eureka
-      registerPath: shenyu_discovery_demo_http_common
-      props:
-         eurekaClientRefreshInterval: 10
-         eurekaClientRegistryFetchIntervalSeconds: 10
+  discovery:
+    enable: true
+    type: eureka
+    serverList: http://${your.eureka.host}:${your.eureka.port}/eureka
+    registerPath: shenyu_discovery_demo_http_common
+    props:
+      eurekaClientRefreshInterval: 10
+      eurekaClientRegistryFetchIntervalSeconds: 10
 ```
 
 上述说明组册成功
 ![divide-eureka-discovery-success.png](/img/shenyu/plugin/discovery/divide-eureka-discovery-success.png)
 
 测试连接
+
 ```text
 curl http://localhost:9195/http/hello
 
@@ -311,15 +322,16 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 ### 4.2.4 Nacos示例
 
 ```xml
+
 <dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-nacos</artifactId>
-   <version>${project.version}</version>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-nacos</artifactId>
+    <version>${project.version}</version>
 </dependency>
 
 <dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+<groupId>org.apache.shenyu</groupId>
+<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
 
@@ -327,25 +339,22 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 ![divide-nacos-discovery-success.png](/img/shenyu/plugin/discovery/divide-nacos-discovery-success.png)
 
 测试连接
+
 ```text
 curl http://localhost:9195/http/hello
 
 hello! I'm Shenyu-Gateway System. Welcome!% 
 ```
 
-
 ## 4.3 修改权重和状态
+
 status : 0 健康 , 1 不健康
 
-weight : 权重  详情见 权重算法 shenyu-loadbalancer 模块
-
+weight : 权重 详情见 权重算法 shenyu-loadbalancer 模块
 
 ![change-weight-status.png](/img/shenyu/plugin/discovery/change-weight-status.png)
 
-
-
 ## 4.4 测试报告
-
 
 [测试报告](https://www.yuque.com/eureca/pgotw1/hkqkk5laubspgwl3#UojLR)
 

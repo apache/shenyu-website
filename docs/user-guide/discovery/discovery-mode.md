@@ -158,7 +158,9 @@ SEE `shenyu-discovery-zookeeper#ZookeeperDiscoveryService#init`
 
 
 ## 4.1 Overview
-To use with shenyu-client, you need to depend on middleware such as zookeeper, nacos, etcd, eureka for automatic sensing of online and offline status. For local mode, you need to manually maintain the upstream list.
+
+To use with shenyu-client, you need to depend on middleware such as zookeeper, nacos, etcd, eureka for automatic sensing of online and offline status. 
+For local mode, you need to manually maintain the upstream list.
 
 ## 4.2 Examples
 
@@ -196,6 +198,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 Take Divide as an example.
 
 Add dependencies:
+
 ```xml
 <dependency>
    <groupId>org.apache.shenyu</groupId>
@@ -223,6 +226,7 @@ shenyu:
       connectionTimeoutMilliseconds: 60000
       sessionTimeoutMilliseconds: 8
 ```
+
 Start the shenyu-examples-http project.
 
 The above indicates successful registration.
@@ -231,6 +235,7 @@ The above indicates successful registration.
 ![divide-zookeeper-discovery-success_2.png](/img/shenyu/plugin/discovery/divide-zookeeper-discovery-success_2.png)
 
 Test connection:
+
 ```text
 curl http://localhost:9195/http/hello
 
@@ -240,6 +245,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 ### 4.2.3 Etcd Example
 
 Add dependencies:
+
 ```xml
 <dependency>
    <groupId>org.apache.shenyu</groupId>
@@ -264,12 +270,14 @@ shenyu:
          etcdTimeout: 3000
          etcdTTL: 5
 ```
+
 Start shenyu-examples-http.
 
 The above indicates successful registration.
 ![divide-etcd-discovery-success.png](/img/shenyu/plugin/discovery/divide-etcd-discovery-success.png)
 
 Test connection:
+
 ```text
 curl http://localhost:9195/http/hello
 
@@ -279,6 +287,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 ### 4.2.4 Eureka Example
 
 Add dependencies:
+
 ```xml
 <dependency>
    <groupId>org.apache.shenyu</groupId>
@@ -291,6 +300,7 @@ Add dependencies:
    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
+
 ```yaml
 shenyu:
    discovery:
@@ -307,6 +317,7 @@ The above indicates successful registration.
 ![divide-eureka-discovery-success.png](/img/shenyu/plugin/discovery/divide-eureka-discovery-success.png)
 
 The above indicates successful registration.
+
 ```text
 curl http://localhost:9195/http/hello
 
@@ -332,6 +343,7 @@ The above indicates successful registration.
 ![divide-nacos-discovery-success.png](/img/shenyu/plugin/discovery/divide-nacos-discovery-success.png)
 
 The above indicates successful registration.
+
 ```text
 curl http://localhost:9195/http/hello
 
@@ -340,6 +352,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 
 
 ## 4.3 Changing Weight and Status
+
 status : 0 Healthy , 1 Unhealthy
 
 weight : Weight. For details, see the weight algorithm in the shenyu-loadbalancer module.
@@ -347,7 +360,6 @@ weight : Weight. For details, see the weight algorithm in the shenyu-loadbalance
 ![change-weight-status.png](/img/shenyu/plugin/discovery/change-weight-status.png)
 
 ## 4.4 Test report
-
 
 [Test Report](https://www.yuque.com/eureca/pgotw1/hkqkk5laubspgwl3#UojLR)
 

@@ -3,6 +3,12 @@ import Translate from "@docusaurus/Translate";
 
 export default [
   {
+    title: <Translate>Release Apache Shenyu 2.6.0</Translate>,
+    description:
+        "New Features  \n  Support shenyu-admin expose prometheus metrics \n  2. Add shenyu Level-1 cache and Level-2 cache \n  3. Save extend plugin jar to shenyu admin \n  ......",
+    src: "2.6.0-release",
+  },
+  {
     title: <Translate>Release Apache Shenyu 2.5.1</Translate>,
     description:
         "New Features  \n  1. Add brpc example. \n  2. Add spring boot starter plugin brpc&admin. \n  3. Add brpc-plugin. \n  ......",

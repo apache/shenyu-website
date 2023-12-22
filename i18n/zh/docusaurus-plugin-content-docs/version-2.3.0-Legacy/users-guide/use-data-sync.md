@@ -34,8 +34,9 @@ description: 使用不同的数据同步策略
   soul :
       sync:
           websocket :
-               urls: ws://localhost:9095/websocket
-  #urls:是指 soul-admin的地址，如果有多个，请使用（,）分割.
+            # urls:是指 soul-admin的地址，如果有多个，请使用（,）分割.
+            urls: ws://localhost:9095/websocket
+            allowOrigin: ws://localhost:9195
    ```
 
   * soul-admin 配置，或在 soul-admin 启动参数中设置 `--soul.sync.websocket=''`，然后重启服务。

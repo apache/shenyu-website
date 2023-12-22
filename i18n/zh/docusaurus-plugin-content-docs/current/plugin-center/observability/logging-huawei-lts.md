@@ -1,7 +1,7 @@
 ---
-title: Logging-ElasticSearch插件
+title: Logging-Huawei-Lts插件
 keywords: ["Logging", "HuaweiLts"]
-description: Logging-ElasticSearch插件
+description: Logging-HuaweiLts插件
 ---
 
 # 1. 概述

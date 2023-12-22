@@ -20,27 +20,27 @@ shenyu:
       serverSocketChannel:
         soRcvBuf: 87380
         soBackLog: 128
-        soReuseAddr: false
-        connectTimeoutMillis: 10000
+        soReuseAddr: true
+        connectTimeoutMillis: 30000
         writeBufferHighWaterMark: 65536
         writeBufferLowWaterMark: 32768
         writeSpinCount: 16
-        autoRead: true
+        autoRead: false
         allocType: "pooled"
       socketChannel:
         soKeepAlive: false
-        soReuseAddr: false
+        soReuseAddr: true
         soLinger: -1
         tcpNoDelay: true
         soRcvBuf: 87380
         soSndBuf: 16384
         ipTos: 0
         allowHalfClosure: false
-        connectTimeoutMillis: 10000
+        connectTimeoutMillis: 30000
         writeBufferHighWaterMark: 65536
         writeBufferLowWaterMark: 32768
         writeSpinCount: 16
-        autoRead: true
+        autoRead: false
         allocType: "pooled"
   instance:
     enabled: false
@@ -85,6 +85,7 @@ shenyu:
   sync:
     websocket:
       urls: ws://localhost:9095/websocket
+      allowOrigin: ws://localhost:9195
 #    zookeeper:
 #      url: localhost:2181
 #      sessionTimeout: 5000
@@ -149,38 +150,38 @@ shenyu:
 
 ##### shenyu.NettyTcpProperties config
 
-`ShenYu` Netty config
+`ShenYu` reactor-netty config
 
-|Name                      | Type  |  Default   | Required  | Description                        |
-|:------------------------ |:----- |:-------: |:-------:|:----------------------------|
-|webServerFactoryEnabled | Boolean | true | No | Whether to enable custom parameters. True-enable. False-NettyReactiveWebServerFactory Can be configured by yourself. |
-| selectCount | Integer |  1  |    No    | Number of netty selectors. |
-| workerCount | Integer | 4 | No | Number of netty workers. |
-| **ServerSocketChannelConfig** |  |  |  |  |
-| soRcvBuf                      | Integer |  87380  |    No    | Socket config, the size of the socket receive buffer.        |
+|Name                      | Type  | Default | Required  | Description                        |
+|:------------------------ |:----- |:-------:|:-------:|:----------------------------|
+|webServerFactoryEnabled | Boolean |  true   | No | Whether to enable custom parameters. True-enable. False-NettyReactiveWebServerFactory Can be configured by yourself. |
+| selectCount | Integer |    1    |    No    | Number of netty selectors. |
+| workerCount | Integer |    4    | No | Number of netty workers. |
+| **ServerSocketChannelConfig** |  |         |  |  |
+| soRcvBuf                      | Integer |   --    |    No    | Socket config, the size of the socket receive buffer. The default value is system dependent. |
 | soBackLog                     | Integer |   128   |    No    | Socket config, maximum length of the accept queue.           |
-| soReuseAddr                   | Boolean |  false  |    No    | Socket config, allow reuse of local addresses.               |
-| connectTimeoutMillis          | Integer |  10000  |    No    | Netty config, the connect timeout of the channel in milliseconds. |
+| soReuseAddr                   | Boolean |  true   |    No    | Socket config, allow reuse of local addresses. The default value in reactor-netty is true. |  
+| connectTimeoutMillis          | Integer |  30000  | No       | Netty config, the connect timeout of the channel in milliseconds. |
 | writeBufferHighWaterMark      | Integer |  65536  |    No    | Netty config, the high water mark of the write buffer.       |
 | writeBufferLowWaterMark       | Integer |  32768  |    No    | Netty config, the low water mark of the write buffer.        |
-| writeSpinCount | Integer | 16 | No | Netty config, the maximum loop count for a write operation. |
-| autoRead | Boolean | true | No | Netty config,  channel read method will be invoked automatically so that a user application doesn't need to call it at all. |
+| writeSpinCount | Integer |   16    | No | Netty config, the maximum loop count for a write operation. |
+| autoRead                      | Boolean |  false  | No       | Netty config, channel read method will be invoked automatically so that a user application doesn't need to call it at all. The default value in reactor-netty is false, and can only be false. |
 | allocType                     | String  | pooled  |    No    | Netty config, set the ByteBufAllocator which is used for the channel to allocate buffers. |
-| **SocketChannelConfig** |  |  |  |  |
-| soKeepAlive | Boolean | false | No | Socket config, enable tcp keepalive. |
-| soReuseAddr | Boolean | false | No | Socket config, allow reuse of local addresses. |
-| soLinger | Integer | -1 | No | Socket config, the delay time for closing the socket. |
-| tcpNoDelay | Boolean | true | No | Socket config, enable Nagle algorithm. |
-| soRcvBuf | Integer | 87380 | No | Socket config, the size of the socket receive buffer. |
-| soSndBuf | Integer | 128 | No | Socket config, the size of the socket send buffer. |
-| ipTos | Integer | 0 | No | IP config, the Type of Service (ToS) octet in the Internet Protocol (IP) header. |
-| allowHalfClosure | Boolean | false | No | Netty config, Sets whether the channel should not close itself when its remote peer shuts down output to make the connection half-closed. |
-| connectTimeoutMillis | Integer | 10000 | No | Netty config, the connect timeout of the channel in milliseconds. |
-| writeBufferHighWaterMark | Integer | 65536 | No | Netty config, the high water mark of the write buffer. |
-| writeBufferLowWaterMark | Integer | 32768 | No | Netty config, the low water mark of the write buffer. |
-| writeSpinCount | Integer | 16 | No | Netty config, the maximum loop count for a write operation. |
-| autoRead | Boolean | true | No | Netty config,  channel read method will be invoked automatically so that a user application doesn't need to call it at all. |
-| allocType | String | pooled | No | Netty config, set the ByteBufAllocator which is used for the channel to allocate buffers. |
+| **SocketChannelConfig** |  |         |  |  |
+| soKeepAlive | Boolean |  false  | No | Socket config, enable tcp keepalive. |
+| soReuseAddr                   | Boolean |  true   |    No    | Socket config, allow reuse of local addresses. The default value in reactor-netty is true. |  
+| soLinger | Integer |   -1    | No | Socket config, the delay time for closing the socket. |
+| tcpNoDelay | Boolean |  true   | No | Socket config, enable Nagle algorithm. |
+| soRcvBuf                      | Integer |   --    | No       | Socket config, the size of the socket receive buffer. The default value is system dependent. |
+| soSndBuf                      | Integer |   --    | No       | Socket config, the size of the socket send buffer. The default value is system dependent. |
+| ipTos | Integer |    0    | No | IP config, the Type of Service (ToS) octet in the Internet Protocol (IP) header. |
+| allowHalfClosure | Boolean |  false  | No | Netty config, Sets whether the channel should not close itself when its remote peer shuts down output to make the connection half-closed. |
+| connectTimeoutMillis          | Integer |  30000  | No       | Netty config, the connect timeout of the channel in milliseconds. |
+| writeBufferHighWaterMark | Integer |  65536  | No | Netty config, the high water mark of the write buffer. |
+| writeBufferLowWaterMark | Integer |  32768  | No | Netty config, the low water mark of the write buffer. |
+| writeSpinCount | Integer |   16    | No | Netty config, the maximum loop count for a write operation. |
+| autoRead                      | Boolean |  false  | No       | Netty config, channel read method will be invoked automatically so that a user application doesn't need to call it at all. The default value in reactor-netty is false, and can only be false. |
+| allocType | String | pooled  | No | Netty config, set the ByteBufAllocator which is used for the channel to allocate buffers. |
 
 ##### shenyu.instance config
 

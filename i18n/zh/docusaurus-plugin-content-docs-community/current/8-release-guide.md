@@ -322,7 +322,7 @@ The release candidates:
 https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION}/
 
 Maven 2 staging repository:
-https://repository.apache.org/content/repositories/${STAGING.RELEASE}/org/apache/shenyu/
+https://repository.apache.org/content/repositories/staging/org/apache/shenyu/${STAGING.RELEASE}/
 
 Git tag for the release:
 https://github.com/apache/shenyu/tree/v${PUBLISH.VERSION}/
@@ -399,8 +399,8 @@ Thanks everyone for taking the time to verify and vote for the release!
 根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从 dev 目录转移到 release 目录。
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete hhttps://dist.apache.org/repos/dist/release/shenyu/${PREVIOUS.RELEASE.VERSION}
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/ -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/release/shenyu/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. 完成 Maven 发布**

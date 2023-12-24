@@ -1,6 +1,6 @@
 ---
-title: 发布指南
-sidebar_position: 8
+title: ShenYu WASM 发布指南
+sidebar_position: 17
 description: Apache ShenYu WASM 发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---

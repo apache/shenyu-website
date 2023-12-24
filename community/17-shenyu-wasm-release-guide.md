@@ -1,6 +1,6 @@
 ---
-title: Release Guide
-sidebar_position: 8
+title: ShenYu WASM Release Guide
+sidebar_position: 17
 description: Apache ShenYu WASM Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---

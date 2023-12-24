@@ -322,7 +322,7 @@ The release candidates:
 https://dist.apache.org/repos/dist/dev/shenyu/${PUBLISH.VERSION}/
 
 Maven 2 staging repository:
-https://repository.apache.org/content/repositories/staging/org/apache/shenyu/${STAGING.RELEASE}/
+https://repository.apache.org/content/repositories/staging/org/apache/shenyu/shenyu/${STAGING.RELEASE}/
 
 Git tag for the release:
 https://github.com/apache/shenyu/tree/v${PUBLISH.VERSION}/

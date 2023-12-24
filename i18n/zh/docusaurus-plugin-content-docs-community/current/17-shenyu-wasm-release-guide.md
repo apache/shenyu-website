@@ -1,13 +1,13 @@
 ---
-title: ShenYu .NET 语言客户端发布指南
-sidebar_position: 15
-description: Apache ShenYu .NET 语言客户端发布指南
+title: 发布指南
+sidebar_position: 8
+description: Apache ShenYu WASM 发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## 更新发布公告
 
-按照如下格式更新[发布公告](https://github.com/apache/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md)：
+按照如下格式更新[发布公告](https://github.com/apache/shenyu/blob/master/RELEASE-NOTES.md)：
 
 ```
 ## ${PUBLISH.VERSION}
@@ -122,26 +122,63 @@ sub   rsa4096 2019-03-11 [E]
 gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 ```
 
-## 发布前的准备工作
+## 发布到 Maven 预发仓库
 
-**1. 发布一个新标签**
+**1. 配置 settings.xml**
 
-下载并安装 [Git](https://git-scm.com/downloads).
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明配置 settings.xml。
 
-创建并切换到 `${PUBLISH.VERSION}` 标签.
+**2. 使用新分支发布**
+
+下载并安装 [Git](https://git-scm.com/downloads)。
+
+创建并切换到 `${PUBLISH.VERSION}-release` 分支。
 
 ```shell
-git clone https://github.com/apache/shenyu-client-dotnet.git ~/shenyu-client-dotnet
-cd ~/shenyu-client-dotnet/
-git checkout main
-git tag -a v${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client dotnet"
+git clone https://github.com/apache/shenyu-wasm.git ~/shenyu-wasm
+cd ~/shenyu-wasm/
+git checkout -b ${PUBLISH.VERSION}-release
+git push origin ${PUBLISH.VERSION}-release
+```
+
+**3. 发布预检**
+
+下载并安装 [Maven](https://maven.apache.org/download.cgi)。
+
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明进行发布预检。
+
+```shell
+mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DdryRun=true -Dusername=(填写GitHub用户名)
+```
+
+**4. 准备发布**
+
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明准备发布。
+
+```shell
+mvn release:clean
+```
+
+```shell
+mvn release:prepare -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -DpushChanges=false -Dusername=(填写GitHub用户名)
 ```
 
 提交更新版本号后的代码和新标签。
 
 ```shell
-git push origin v${PUBLISH.VERSION}
+git push origin ${PUBLISH.VERSION}-release
+git push origin --tags
 ```
+
+**5. 执行发布**
+
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明执行发布。
+
+```shell
+mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -Dusername=(填写GitHub用户名)
+```
+
+此时，发行版被发布到 [预发仓库](https://repository.apache.org/#stagingRepositories)，找到发布的版本，即 ${STAGING.RELEASE}， 并点击 Close。
 
 ## 发布到 SVN 预发仓库
 
@@ -167,40 +204,20 @@ svn --username=${LDAP ID} commit -m "append to KEYS"
 根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明添加源码包和二进制文件包。
 
 ```shell
-# create release folder and check out svn dev repo
 mkdir -p ~/svn_release/dev/
 cd ~/svn_release/dev/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
-mkdir -p ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-
-# generate source file
-git archive --format=tar --prefix=shenyu-client-dotnet-${PUBLISH.VERSION}/ v${PUBLISH.VERSION} | gzip > shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz
-
-# generate sign file for each files
-gpg -u <id>@apache.org --armor --output shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.asc --detach-sign shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz
-
-# copy source files and
-cd ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-dotnet/shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-dotnet/shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.asc ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
+mkdir -p ~/svn_release/dev/shenyu/shenyu-wasm/${PUBLISH.VERSION}
+cd ~/svn_release/dev/shenyu/shenyu-wasm/${PUBLISH.VERSION}
+cp -f ~/shenyu-wasm/shenyu-wasm-dist/shenyu-wasm-src-dist/target/*.zip* ~/svn_release/dev/shenyu/shenyu-wasm/${PUBLISH.VERSION}
 ```
 
-**3. 添加校验文件**
-
-根据 [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] 的说明添加校验文件。
+**3. 提交新版本**
 
 ```shell
-# go to release folder
-cd ~/svn_release/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}
-shasum -a 512 shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz > shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.sha512
-```
-
-**4. 提交新版本**
-
-```shell
-cd ~/svn_release/dev/shenyu/shenyu-client-dotnet
+cd ~/svn_release/dev/shenyu/shenyu-wasm
 svn add ${PUBLISH.VERSION}/
-svn --username=${LDAP ID} commit -m "release dotnet client ${PUBLISH.VERSION}"
+svn --username=${LDAP ID} commit -m "release shenyu-wasm ${PUBLISH.VERSION}"
 ```
 
 ## 预发版本验证
@@ -210,7 +227,7 @@ svn --username=${LDAP ID} commit -m "release dotnet client ${PUBLISH.VERSION}"
 根据 [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] 的说明验证 sha512 校验和。
 
 ```shell
-shasum -c shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.sha512
+shasum -c shenyu-wasm-${PUBLISH.VERSION}-src.zip.sha512
 ```
 
 **2. 验证 GPG 签名**
@@ -220,7 +237,8 @@ shasum -c shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```shell
 curl https://downloads.apache.org/shenyu/KEYS >> KEYS
 gpg --import KEYS
-gpg --verify shenyu-client-dotnet-source.zip.asc shenyu-client-dotnet-${PUBLISH.VERSION}-src.tar.gz
+cd ~/svn_release/dev/shenyu/shenyu-wasm/${PUBLISH.VERSION}
+gpg --verify shenyu-wasm-${PUBLISH.VERSION}-src.zip.asc shenyu-wasm-${PUBLISH.VERSION}-src.zip
 ```
 
 **3. 确保 SVN 与 GitHub 源码一致**
@@ -228,10 +246,10 @@ gpg --verify shenyu-client-dotnet-source.zip.asc shenyu-client-dotnet-${PUBLISH.
 根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明确保 SVN 与 GitHub 源码一致。
 
 ```
-wget https://github.com/apache/shenyu-client-dotnet/archive/v${PUBLISH.VERSION}.zip
+wget https://github.com/apache/shenyu-wasm/archive/v${PUBLISH.VERSION}.zip
 unzip v${PUBLISH.VERSION}.zip
-tar xzf shenyu-client-dotnet-v${PUBLISH.VERSION}-src.tar.gz
-diff -r shenyu-client-dotnet-${PUBLISH.VERSION} shenyu-client-dotnet-v${PUBLISH.VERSION}
+unzip shenyu-wasm-${PUBLISH.VERSION}-src.zip
+diff -r -x "shenyu-wasm-build" -x "shenyu-wasm-runtime" shenyu-wasm-${PUBLISH.VERSION}-src shenyu-wasm-${PUBLISH.VERSION}
 ```
 
 **4. 检查源码包**
@@ -243,7 +261,7 @@ diff -r shenyu-client-dotnet-${PUBLISH.VERSION} shenyu-client-dotnet-v${PUBLISH.
 - 所有文件的开头都有 ASF 许可证
 - 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
 - 不存在不符合预期的二进制文件
-- 编译通过 (dotnet build) (目前支持 .NET 3 或更高版本)
+- 编译通过 (./mvnw install) (目前支持 JAVA 8)
 - 如果存在第三方代码依赖：
   - 第三方代码依赖的许可证兼容
   - 所有第三方代码依赖的许可证都在 `LICENSE` 文件中声名
@@ -281,7 +299,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[VOTE] Release Apache ShenYu .NET client ${PUBLISH.VERSION}
+[VOTE] Release Apache ShenYu WASM ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -289,26 +307,28 @@ dev@shenyu.apache.org
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu Client .NET version ${PUBLISH.VERSION}.
+This is a call for vote to release Apache ShenYu WASM version ${PUBLISH.VERSION}
 
 Release notes:
-https://github.com/apache/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md
+https://github.com/apache/shenyu-wasm/blob/master/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION}/
+https://dist.apache.org/repos/dist/dev/shenyu/shenyu-wasm/${PUBLISH.VERSION}/
+
+Maven 2 staging repository:
+https://repository.apache.org/content/repositories/staging/org/apache/shenyu/shenyu-wasm/${STAGING.RELEASE}/
 
 Git tag for the release:
-https://github.com/apache/shenyu-client-dotnet/tree/v${PUBLISH.VERSION}
+https://github.com/apache/shenyu-wasm/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
-https://github.com/apache/shenyu-client-dotnet/commit/xxxxxxxxxxxxxxx
-
+https://github.com/apache/shenyu-wasm/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 Keys to verify the Release Candidate:
 https://downloads.apache.org/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/shenyu-client-dotnet-release-guide/#check-release
+https://shenyu.apache.org/community/shenyu-wasm-release-guide/#check-release
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -328,7 +348,7 @@ Checklist for reference:
 
 [ ] Source code distributions have correct names matching the current release.
 
-[ ] LICENSE and NOTICE files are correct for each ShenYu Client .NET repo.
+[ ] LICENSE and NOTICE files are correct for each ShenYu repo.
 
 [ ] All files have license headers if necessary.
 
@@ -346,7 +366,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[RESULT][VOTE] Release Apache ShenYu Client .NET ${PUBLISH.VERSION}
+[RESULT][VOTE] Release Apache ShenYu WASM ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -373,47 +393,39 @@ Thanks everyone for taking the time to verify and vote for the release!
 根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从 dev 目录转移到 release 目录。
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-dotnet -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-dotnet/${PREVIOUS.RELEASE.VERSION}
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-wasm/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-wasm/ -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/release/shenyu/shenyu-wasm/${PREVIOUS.RELEASE.VERSION}
 ```
 
-**2. 完成 NuGet 发布**
+**2. 完成 Maven 发布**
 
-将`Apache.ShenYu.Client` and `Apache.ShenYu.AspNetCore`发布到 NuGet 中央仓库。
+根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明完成 Maven 发布。
 
-```
-# goto client folder
-cd client/Apache.ShenYu.Client
+回到 [预发仓库](https://repository.apache.org/#stagingRepositories) 的 ${STAGING.RELEASE}，点击 `Release`。
 
-# package
-dotnet pack -c Release
+**3. 完成 GitHub 发布**
 
-# goto AspNetCore folder
-cd client/Apache.ShenYu.AspNetCore
+编辑 [Releases](https://github.com/apache/shenyu/releases) 中的 `${PUBLISH.VERSION}`，然后点击发布。
 
-# package
-dotnet pack -c Release
-```
+**4. 完成 GitHub 更新**
 
-Publish them to NuGet website.
+从 GitHub Fork 一份代码，并执行以下命令：
 
 ```shell
-# publish client package
-cd client/Apache.ShenYu.Client/bin/Release
-
-dotnet nuget push Apache.ShenYu.Client.<version>.nupkg --api-key <push_api_key> --source https://api.nuget.org/v3/index.json
-
-# publish asp.net core package
-cd client/Apache.ShenYu.AspNetCore/bin/Release
-
-dotnet nuget push Apache.ShenYu.AspNetCore.<version>.nupkg --api-key <push_api_key> --source https://api.nuget.org/v3/index.json
+git checkout master
+git merge origin/${PUBLISH.VERSION}-release
+git pull
+git push origin master
 ```
 
-**3. 完成 GitHub release**
+以上修改需要创建一个 pull request。pr 合并后，在原始仓库执行以下命令：
 
-编辑 [Releases](https://github.com/apache/shenyu-client-dotnet/releases) `${PUBLISH.VERSION}`点击 Release.
+```shell
+git push --delete origin ${PUBLISH.VERSION}-release
+git branch -d ${PUBLISH.VERSION}-release
+```
 
-**4. 更新下载页面**
+**5. 更新下载页面**
 
 根据 [Release Download Pages for Projects](https://infra.apache.org/release-download-pages.html) [15]， [Normal distribution on the Apache downloads site](https://infra.apache.org/release-publishing.html#normal) [16] 的说明更新下载页面。
 
@@ -425,15 +437,15 @@ Apache 镜像连接生效后（至少一小时），更新下载页面：
 >
 > 注意：GPG 签名文件和哈希校验文件的下载连接必须使用这个前缀：`https://downloads.apache.org/shenyu/`
 
-**5. 更新文档**
+**6. 更新文档**
 
 将 `${PUBLISH.VERSION}` 版本的[文档](https://github.com/apache/shenyu-website)进行归档，并更新[版本页面](https://shenyu.apache.org/zh/versions)。
 
-**6. 更新事件页面**
+**7. 更新事件页面**
 
 添加新版本[事件](https://shenyu.apache.org/zh/event/${PUBLISH.VERSION}-release)。
 
-**7. 更新新闻页面**
+**8. 更新新闻页面**
 
 添加新版本[新闻](https://shenyu.apache.org/zh/news)。
 
@@ -451,7 +463,7 @@ announce@apache.org
 标题：
 
 ```
-[ANNOUNCE] Apache ShenYu .NET client ${PUBLISH.VERSION} available
+[ANNOUNCE] Apache ShenYu WASM ${PUBLISH.VERSION} available
 ```
 
 正文：
@@ -459,7 +471,7 @@ announce@apache.org
 ```
 Hi,
 
-Apache ShenYu Team is glad to announce the new release of Apache ShenYu .NET client ${PUBLISH.VERSION}.
+Apache ShenYu Team is glad to announce the new release of Apache ShenYu WASM ${PUBLISH.VERSION}.
 
 Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
@@ -471,7 +483,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu-client-dotnet/blob/main/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu-wasm/blob/master/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 
@@ -500,7 +512,7 @@ dev@shenyu.apache.org
 标题：
 
 ```
-[CANCEL][VOTE] Release Apache ShenYu Client .NET ${PUBLISH.VERSION}
+[CANCEL][VOTE] Release Apache ShenYu WASM ${PUBLISH.VERSION}
 ```
 
 正文：
@@ -533,7 +545,7 @@ git tag -d v${PUBLISH.VERSION}
 **4. 删除 SVN 待发布内容**
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-wasm/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
 ```
 
 **5. 更新邮件标题**
@@ -541,7 +553,7 @@ svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-dotnet/${
 完成以上步骤后，可以开始重新进行发布操作。接下来的投票邮件标题需要增加 `[ROUND ${n}]` 后缀。例如：
 
 ```
-[VOTE] Release Apache ShenYu Client .NET ${PUBLISH.VERSION} [ROUND 2]
+[VOTE] Release Apache ShenYu WASM ${PUBLISH.VERSION} [ROUND 2]
 ```
 
 投票结果和通知邮件不需要加后缀。

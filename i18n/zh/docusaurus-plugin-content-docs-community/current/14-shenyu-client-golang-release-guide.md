@@ -219,7 +219,7 @@ gpg --verify shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz.asc shenyu-clien
 根据 [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] 的说明确保 SVN 与 GitHub 源码一致。
 
 ```
-wget https://github.com/apache/shenyu/shenyu-client-golang/archive/v${PUBLISH.VERSION}.zip
+wget https://github.com/apache/shenyu-client-golang/archive/v${PUBLISH.VERSION}.zip
 unzip v${PUBLISH.VERSION}.zip
 mv shenyu-client-golang-${PUBLISH.VERSION} shenyu-client-golang-${PUBLISH.VERSION}-src
 unzip shenyu-client-golang-${PUBLISH.VERSION}.zip
@@ -284,23 +284,22 @@ Hello ShenYu Community,
 This is a call for vote to release Apache ShenYu Client Golang version ${PUBLISH.VERSION}
 
 Release notes:
-https://github.com/apache/shenyu/shenyu-client-golang/blob/master/RELEASE-NOTES.md
+https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md
 
 The release candidates:
 https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}/
 
 Git tag for the release:
-https://github.com/apache/shenyu/shenyu-client-golang/tree/v${PUBLISH.VERSION}/
+https://github.com/apache/shenyu-client-golang/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
-https://github.com/apache/shenyu/shenyu-client-golang/commit/xxxxxxxxxxxxxxxxxxxxxxx
-
+https://github.com/apache/shenyu-client-golang/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 Keys to verify the Release Candidate:
 https://downloads.apache.org/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/release-guide/#check-release
+https://shenyu.apache.org/community/shenyu-client-golang-release-guide/#check-release
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -365,13 +364,13 @@ Thanks everyone for taking the time to verify and vote for the release!
 根据 [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] 的说明将新版本从 dev 目录转移到 release 目录。
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} hhttps://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete hhttps://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PREVIOUS.RELEASE.VERSION}
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. 完成 GitHub 发布**
 
-Edit [Releases](https://github.com/apache/shenyu/shenyu-client-golang/releases) `${PUBLISH.VERSION}` and click release.
+Edit [Releases](https://github.com/apache/shenyu-client-golang/releases) `${PUBLISH.VERSION}` and click release.
 
 从 GitHub Fork 一份代码，并执行以下命令：
 

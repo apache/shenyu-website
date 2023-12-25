@@ -244,7 +244,7 @@ This authentication algorithm is the version 2.0.0 algorithm, which is same as v
 
 ### 2.5.1 Authentication Guide
 
-Authentication algorithm of Version 2.0.0 generates a Token based on the signature algorithm, and puts the Token value into the request header `Authorization(or ShenYu-Authorization)` parameter when sending a request. To distinguish it from version 1.0.0, the `version` parameter of the request header is left, which is 2.0.0.
+Authentication algorithm of Version 2.0.0 generates a Token based on the signature algorithm, and puts the Token value into the request header `ShenYu-Authorization` parameter when sending a request. To distinguish it from version 1.0.0, the `version` parameter of the request header is left, which is 2.0.0.
 
 #### 2.5.1.1 prepare
 
@@ -294,17 +294,16 @@ Authentication algorithm of Version 2.0.0 generates a Token based on the signatu
 
   >  token = base64Encoding(parameters) + '.' + base64Encoding(signature)
 
-  Put the Token into the request header `Authorization(or ShenYu-Authorization)` parameter.
+  Put the Token into the request header `ShenYu-Authorization` parameter.
 
 ### 2.5.2 Request GateWay
 
 | Field         | 值      | 描述                                                          |
 | :------------ | :------ |:------------------------------------------------------------|
-| Authorization | Token   | When the ShenYu Authorization field is not configured,Token |
 | ShenYu-Authorization | Token   | Token                                                       |
 | version       | `2.0.0` | Fixed value                                                 |
 
->use ShenYu-Authorization to avoid conflict with another Authorization
+>please change the Authorization field to ShenYu-Authorization as soon as possible to avoid conflicts with application Authorization.
 
 ## 2.6 Examples
 

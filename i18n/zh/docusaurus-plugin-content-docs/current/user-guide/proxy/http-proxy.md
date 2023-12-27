@@ -34,7 +34,7 @@ description: Http服务接入
 
 * `SpringBoot` 用户
   
-  可以参考：[shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http)
+  可以参考：[shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http)
 
   1. 在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
 
@@ -66,7 +66,7 @@ description: Http服务接入
 
 * `SpringMvc` 用户
 
-  可以参考：[shenyu-examples-springmvc](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springmvc)
+  可以参考：[shenyu-examples-springmvc](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-springmvc)
 
   在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
 

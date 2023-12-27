@@ -6,7 +6,7 @@ tags: ["integration test"]
 
 ### Preparation
 
-1. Clone the code of [Apache ShenYu](https://github.com/apache/incubator-shenyu).
+1. Clone the code of [Apache ShenYu](https://github.com/apache/shenyu).
 2. Install and start docker.
 
 ### Start integration test locally

@@ -116,7 +116,7 @@ public class ShenyuBootstrapApplication {
 
 ## SpringCloud服务接入网关
 
-可以参考：[shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
+可以参考：[shenyu-examples-springcloud](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
 
 
 * 在由`SpringCloud`构建的微服务中，引入如下依赖：

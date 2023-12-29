@@ -138,7 +138,7 @@ List<String> storedKeys = Arrays.stream(map.keySet()
                 .sorted(Comparator.naturalOrder())
                 .collect(Collectors.toList());
 final String sign = storedKeys.stream()
-                .map(key -> String.join("", key, params.get(key)))
+                .map(key -> String.join("", key, map.get(key)))
                 .collect(Collectors.joining()).trim()
                 .concat("506EEB535CF740D7A755CB4B9F4A1536");
 ```
@@ -177,7 +177,7 @@ List<String> storedKeys = Arrays.stream(map.keySet()
                 .sorted(Comparator.naturalOrder())
                 .collect(Collectors.toList());
 final String sign = storedKeys.stream()
-                .map(key -> String.join("", key, params.get(key)))
+                .map(key -> String.join("", key, map.get(key)))
                 .collect(Collectors.joining()).trim()
                 .concat("2D47C325AE5B4A4C926C23FD4395C719");
 ```
@@ -244,7 +244,7 @@ This authentication algorithm is the version 2.0.0 algorithm, which is same as v
 
 ### 2.5.1 Authentication Guide
 
-Authentication algorithm of Version 2.0.0 generates a Token based on the signature algorithm, and puts the Token value into the request header `Authorization` parameter when sending a request. To distinguish it from version 1.0.0, the `version` parameter of the request header is left, which is 2.0.0.
+Authentication algorithm of Version 2.0.0 generates a Token based on the signature algorithm, and puts the Token value into the request header `ShenYu-Authorization` parameter when sending a request. To distinguish it from version 1.0.0, the `version` parameter of the request header is left, which is 2.0.0.
 
 #### 2.5.1.1 prepare
 
@@ -294,16 +294,16 @@ Authentication algorithm of Version 2.0.0 generates a Token based on the signatu
 
   >  token = base64Encoding(parameters) + '.' + base64Encoding(signature)
 
-  Put the Token into the request header `Authorization` parameter.
+  Put the Token into the request header `ShenYu-Authorization` parameter.
 
 ### 2.5.2 Request GateWay
 
-| Field         | 值      | 描述        |
-| :------------ | :------ | :---------- |
-| Authorization | Token   | Token       |
-| version       | `2.0.0` | Fixed value |
+| Field         | 值      | 描述                                                          |
+| :------------ | :------ |:------------------------------------------------------------|
+| ShenYu-Authorization | Token   | Token                                                       |
+| version       | `2.0.0` | Fixed value                                                 |
 
-
+>please change the Authorization field to ShenYu-Authorization as soon as possible to avoid conflicts with application Authorization.
 
 ## 2.6 Examples
 
@@ -423,7 +423,7 @@ All the configuration parts are the same, so let's look directly at the the calc
   ```java
   public static void main(String[] args) {
       
-      String signKey = "2D47C325AE5B4A4C926C23FD4395C719";
+      String appSecret = "2D47C325AE5B4A4C926C23FD4395C719";
   
       URI uri = URI.create("/http/order/save");
   
@@ -435,7 +435,7 @@ All the configuration parts are the same, so let's look directly at the the calc
       String base64Parameters = Base64.getEncoder()
           .encodeToString(parameters.getBytes(StandardCharsets.UTF_8));
   
-      String signature = sign(signKey,base64Parameters,uri,null);
+      String signature = sign(appSecret,base64Parameters,uri,null);
   
       String Token = base64Parameters+"."+signature;
   
@@ -458,7 +458,7 @@ All the configuration parts are the same, so let's look directly at the the calc
 
 ```java
     public static void main(String[] args) {
-        String signKey = "2D47C325AE5B4A4C926C23FD4395C719";
+        String appSecret = "2D47C325AE5B4A4C926C23FD4395C719";
 
         URI uri = URI.create("/http/order/save");
 
@@ -472,7 +472,7 @@ All the configuration parts are the same, so let's look directly at the the calc
 
         String requestBody = "{\"id\":123,\"name\":\"order\"}";
 
-        String signature = sign(signKey,base64Parameters,uri,requestBody);
+        String signature = sign(appSecret,base64Parameters,uri,requestBody);
 
         String Token = base64Parameters+"."+signature;
 

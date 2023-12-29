@@ -227,4 +227,4 @@ upstream shenyu {
 openresty -s reload
 ```
 
-这是一个使用 Zookeeper的完整[示例](https://github.com/apache/incubator-shenyu-nginx/blob/main/example/zookeeper/nginx.conf) 。
+这是一个使用 Zookeeper的完整[示例](https://github.com/apache/shenyu-nginx/blob/main/example/zookeeper/nginx.conf) 。

@@ -5,7 +5,7 @@ description: Create Git repository
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-> Note: Only PPMC members have the permission to do the following operations.
+> Note: Only PMC members have the permission to do the following operations.
 
 ## Create Git repository
 

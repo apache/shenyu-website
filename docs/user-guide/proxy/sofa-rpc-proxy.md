@@ -58,7 +58,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 ## Sofa service access gateway
 
-Please refer to：[shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
+Please refer to：[shenyu-examples-sofa](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa)
 
 1. Based on the `springboot` project，Introduce the following dependencies：
 
@@ -151,7 +151,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 * Parameter passing：
   - Access the gateway through http post，and pass through body and json.
-  - For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
+  - For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:

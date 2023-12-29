@@ -118,7 +118,7 @@ public class ShenyuBootstrapApplication {
 
 ## SpringCloud service access gateway
 
-Please refer to [shenyu-examples-springcloud](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
+Please refer to [shenyu-examples-springcloud](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud)
 
 * Add the following dependencies to your `Spring Cloud` microservice :
 

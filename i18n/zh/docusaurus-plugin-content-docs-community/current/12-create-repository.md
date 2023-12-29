@@ -5,7 +5,7 @@ description: 创建 Git 仓库
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
-> 注意：只有 PPMC 成员有权限进行如下操作。
+> 注意：只有 PMC 成员有权限进行如下操作。
 
 ## 创建 Git 仓库
 

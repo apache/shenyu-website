@@ -6,7 +6,7 @@ tags: ["integration test"]
 
 ### 准备
 
-1. 克隆 [Apache ShenYu](https://github.com/apache/incubator-shenyu) 的代码.
+1. 克隆 [Apache ShenYu](https://github.com/apache/shenyu) 的代码.
 2. 安装并启动 `docker` .
 
 ### 在本地开启集成测试

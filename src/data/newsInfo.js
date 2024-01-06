@@ -3,6 +3,15 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>Apache ShenYu WASM 1.0.0 Version Release</Translate>,
+        description: <Translate>Apache ShenYu WASM 1.0.0 Version Release</Translate>,
+        categories: "Apache ShenYu WASM",
+        tags: ["Apache ShenYu", "WASM"],
+        date: '2024-01-06',
+        cover: "/img/architecture/shenyu-architecture-3d.png",
+        src:'Apache-ShenYu-WASM-release-version-1.0.0',
+    },
+    {
         title: <Translate>Apache ShenYu 2.6.0 Version Release</Translate>,
         description: <Translate>Apache ShenYu 2.6.0 Version Release</Translate>,
         categories: "Apache ShenYu",

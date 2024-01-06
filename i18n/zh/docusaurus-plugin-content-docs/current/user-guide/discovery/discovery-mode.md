@@ -252,7 +252,7 @@ shenyu:
 
 - 启动服务 shenyu-examples-http，同样地，在选择器页面可以看到自动注册上来的服务实例列表，并可进行编辑：
 
-![zk-selector-zh.png](/img/shenyu/plugin/discovery/zk-selector-zh.png)
+![etcd-selector-zh.png](/img/shenyu/plugin/discovery/etcd-selector-zh.png)
 
 - 测试连接
 

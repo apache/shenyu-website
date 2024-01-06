@@ -10,7 +10,7 @@ export default [
         "  Support the use of user-defined dynamic link libraries \n" +
         "Refactor \n" +
         "  Refactor repository from wasmer-java",
-    src: "shenyu-wasm-1.0.0-release.md",
+    src: "shenyu-wasm-1.0.0-release",
   },
   {
     title: <Translate>Release Apache Shenyu 2.6.0</Translate>,

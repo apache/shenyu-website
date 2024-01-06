@@ -63,6 +63,7 @@ LOCAL, ZOOKEEPER, NACOS, EUREKA, ETCD
 ![config-discovery-plugin-modal-zh.png](/img/shenyu/plugin/discovery/config-discovery-plugin-modal-zh.png)
 
 #### 2.1.2 在选择器中使用
+
 - 点击 `添加选择器`，在新增选择器页面中，我们发现 `类型` 强制选择刚才配置的插件级监听模式，表示所添加的选择器也将采用相同的配置。
   此时，仅需输入需要监听的 `监听节点` ：
 
@@ -102,7 +103,7 @@ LOCAL, ZOOKEEPER, NACOS, EUREKA, ETCD
 
 ![after-import-zh.png](/img/shenyu/plugin/discovery/after-import-zh.png)
 
-> __注意__：如果确认导入后台配置，后台的服务发现属性将会自动填充进表单，并沿用之前的discovery对象，
+> **注意**：如果确认导入后台配置，后台的服务发现属性将会自动填充进表单，并沿用之前的discovery对象，
 此时，在表单中修改服务发现属性将无效，依然保持后台配置。
 
 - 若选择了 LOCAL 模式，则无需接入注册中心，用户需要手动维护 upstream 列表。
@@ -121,7 +122,7 @@ LOCAL, ZOOKEEPER, NACOS, EUREKA, ETCD
 
 - ZooKeeper/Nacos/Eureka/Etcd模式下，支持插件级别和选择器级别的服务发现配置。
 - 针对每个模式下的注册中心属性，以zookeeper为例，用户可以在`shenyu-admin` --> 基础配置 --> 字典管理 中，搜索字典名称为“zookeeper”，对默认属性对应的字典值进行修改编辑
-  （__注意__：不可修改字典类型和字典名称）。
+  （**注意**：不可修改字典类型和字典名称）。
 - 这些模式下，网关会动态地从注册中心获取服务实例信息，服务实例的新增、下线、修改等，将会实时显示在 upstream 列表中。
 
 
@@ -201,6 +202,7 @@ shenyu:
          connectionTimeoutMilliseconds: 60000
          sessionTimeoutMilliseconds: 8
 ```
+
 - 启动服务 shenyu-examples-http
 - 服务注册成功，在选择器页面可以看到自动注册上来的服务实例列表：
 
@@ -278,6 +280,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
+
 - application.yml 中添加如下配置（此处的 `registerPath` 可以理解为需要监听的服务的名称）
 
 ```yaml
@@ -319,6 +322,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
+
 - application.yml 中添加如下配置（此处的 `registerPath` 同样可以理解为需要监听的服务的名称）
 
 ```yaml
@@ -345,13 +349,14 @@ curl http://localhost:9195/http/hello
 hello! I'm Shenyu-Gateway System. Welcome!% 
 ```
 
-> __注意__：通过shenyu-client配置服务发现，本质上是配置插件级别的服务发现，同一种服务发现模式下，
+> **注意**：通过shenyu-client配置服务发现，本质上是配置插件级别的服务发现，同一种服务发现模式下，
 实际上只有一个discovery对象（即：只能够配置同一套类型-服务器URL-服务发现参数），监听节点可以有多个。
- 
-> __注意__：Divide插件和Grpc插件中，可以通过在application.yml文件中配置protocol来修改协议，Websocket
-插件的协议默认均为ws
+
 
 ![ws-selector-zh.png](/img/shenyu/plugin/discovery/ws-selector-zh.png)
+
+> **注意**：Divide插件和Grpc插件中，可以通过在application.yml文件中配置protocol来修改协议，Websocket
+插件的协议默认均为ws
 
 
 

@@ -125,7 +125,7 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
 
  If you want to customize, see [custom-plugin](https://shenyu.apache.org/docs/developer/custom-plugin/) .
 
----  
+---
 
 # Selector & Rule
 
@@ -137,7 +137,7 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
   
   The selector and the rule match only once, and the match is returned. So the coarsest granularity should be sorted last.
 
----  
+---
 
 # Data Caching & Data Sync
 
@@ -161,14 +161,14 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
 
 <a href="https://starchart.cc/apache/shenyu.svg"><img src="https://starchart.cc/apache/shenyu.svg"/></a>
 
----  
+---
 
 # Contributor and Support
 
 * [How to Contribute](https://shenyu.apache.org/community/contributor-guide)
 * [Mailing Lists](mailto:dev@shenyu.apache.org)
 
----  
+---
 
 # Known Users
 

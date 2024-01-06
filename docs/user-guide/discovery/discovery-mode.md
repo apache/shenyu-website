@@ -67,6 +67,7 @@ select the desired listening mode and fill in the service discovery name, regist
 ![config-discovery-plugin-modal-en.png](/img/shenyu/plugin/discovery/config-discovery-plugin-modal-en.png)
 
 #### 2.1.2 Usage within Selectors
+
 - To add a new selector, click on `Add Selector`. In the new selector page, you will notice that the `Type` field enforces the previously configured plugin-level listening mode,
 indicating that the added selector will also adopt the same configuration. 
 At this point, simply input the desired `ListeningNode`:
@@ -115,7 +116,7 @@ At this point, you only need to configure the listening node:
 
 ![after-import-en.png](/img/shenyu/plugin/discovery/after-import-en.png)
 
-> __Note__: If you confirm importing the backend configuration, 
+> **Note**: If you confirm importing the backend configuration, 
 the backend service discovery properties will be automatically filled in the form and will continue to use the previous discovery object. 
 In this case, modifying service discovery properties in the form will be ineffective, and the backend configuration will be retained.
 
@@ -222,6 +223,7 @@ shenyu:
          connectionTimeoutMilliseconds: 60000
          sessionTimeoutMilliseconds: 8
 ```
+
 - Start the shenyu-examples-http service.
 - Once the service registration is successful, 
 you can view the list of automatically registered service instances on the selector page:
@@ -302,6 +304,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
+
 - Add the Following Configuration in application.yml
   (in this context, `registerPath` can be understood as the name of the service to be monitored):
 
@@ -347,6 +350,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
 </dependency>
 ```
+
 - Add the Following Configuration in application.yml 
 (Here, `registerPath` can also be understood as the name of the service to be monitored.)
 
@@ -375,14 +379,15 @@ curl http://localhost:9195/http/hello
 hello! I'm Shenyu-Gateway System. Welcome!% 
 ```
 
-> __Note__：Configuring service discovery using Shenyu-client essentially configures service discovery at the plugin level. 
+> **Note**：Configuring service discovery using Shenyu-client essentially configures service discovery at the plugin level. 
 Under the same service discovery mode, there is, in fact, only one discovery object 
 (meaning you can only configure the same set of type, server URL, and service discovery parameters), while multiple listening nodes can be configured.
 
-> __Note__：In the Divide and gRPC plugins, you can modify the protocol by configuring the protocol in the application.yml file. 
-The default protocol for the Websocket plugin is 'ws'.
 
 ![ws-selector-en.png](/img/shenyu/plugin/discovery/ws-selector-en.png)
+
+> **Note**：In the Divide and gRPC plugins, you can modify the protocol by configuring the protocol in the application.yml file.
+The default protocol for the Websocket plugin is 'ws'.
 
 
 

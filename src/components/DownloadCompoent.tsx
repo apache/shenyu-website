@@ -177,6 +177,19 @@ const data = [
                 }
             }
         ],
+    },
+    {
+        title: translate({ message: 'ShenYu WASM Source Codes' }),
+        versions: [
+            {
+                versionTitle: '1.0.0',
+                targets: {
+                    'zip': 'https://www.apache.org/dyn/closer.lua/shenyu/shenyu-wasm/1.0.0/shenyu-wasm-1.0.0-src.zip',
+                    'asc': 'https://downloads.apache.org/shenyu/shenyu-wasm/1.0.0/shenyu-wasm-1.0.0-src.zip.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/shenyu-wasm/1.0.0/shenyu-wasm-1.0.0-src.zip.sha512',
+                }
+            }
+        ],
     }
 ]
 

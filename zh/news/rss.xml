@@ -4,9 +4,16 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/zh/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Tue, 15 Aug 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 06 Jan 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[【Apache ShenYu WASM 1.0.0 版本发布】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-WASM-release-version-1.0.0</link>
+            <guid>【Apache ShenYu WASM 1.0.0 版本发布】</guid>
+            <pubDate>Sat, 06 Jan 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Apache ShenYu WASM 1.0.0 版本发布]]></description>
+        </item>
         <item>
             <title><![CDATA[【Apache ShenYu 2.6.0 版本发布】]]></title>
             <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.6.0</link>

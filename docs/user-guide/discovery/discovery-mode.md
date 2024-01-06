@@ -76,15 +76,20 @@ At this point, simply input the desired `ListeningNode`:
 
 - The `Handler` here refers to ShenYu's specified JSON format for transmitting upstream registration data, 
 as shown below:
+  - url: URL of the upstream
+  - protocol: communication protocol of the upstream
+  - status: status of the upstream node (0 for healthy, 1 for unhealthy)
+  - weight: Used for load balancing calculations
 
-    ```json
-    {
-        "url": "127.0.0.1::6379",  // URL of the upstream
-        "protocol": "tcp",  // Communication protocol of the upstream
-        "status": 0,  // Status of the upstream node (0 for healthy, 1 for unhealthy)
-        "weight": 10  // Used for load balancing calculations
-    }
-    ```
+
+  ```json
+  {
+      "url": "127.0.0.1::6379", 
+      "protocol": "tcp",
+      "status": 0, 
+      "weight": 10
+  }
+  ```
 
 - If your service alias does not match ShenYu's defined JSON format, 
 you can perform alias mapping in `Handler`.
@@ -195,16 +200,18 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 - Add Dependencies
 
 ```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-zookeeper</artifactId>
-   <version>${project.version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-zookeeper</artifactId>
+    <version>${project.version}</version>
+  </dependency>
 
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
-</dependency>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 - Add the Following Configuration in application.yml
@@ -249,16 +256,18 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 - Add Dependencies
 
 ```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-etcd</artifactId>
-   <version>${project.version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-etcd</artifactId>
+    <version>${project.version}</version>
+  </dependency>
 
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
-</dependency>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 - Add the Following Configuration in application.yml
@@ -293,16 +302,18 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 - Add Dependencies
 
 ```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-eureka</artifactId>
-   <version>${project.version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-eureka</artifactId>
+    <version>${project.version}</version>
+  </dependency>
 
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
-</dependency>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 - Add the Following Configuration in application.yml
@@ -339,16 +350,18 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 - Add Dependencies
 
 ```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-nacos</artifactId>
-   <version>${project.version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-eureka</artifactId>
+    <version>${project.version}</version>
+  </dependency>
 
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
-</dependency>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 - Add the Following Configuration in application.yml 

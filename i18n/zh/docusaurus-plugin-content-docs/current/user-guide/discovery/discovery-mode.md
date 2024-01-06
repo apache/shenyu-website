@@ -69,16 +69,21 @@ LOCAL, ZOOKEEPER, NACOS, EUREKA, ETCD
 
   ![add-selector-under-plugin-discovery-zh.png](/img/shenyu/plugin/discovery/add-selector-under-plugin-discovery-zh.png)
 
-- 这里的 `转换处理` 是指, ShenYu 规定的 upstream 注册数据是以下 JSON 格式传输
+- 这里的 `转换处理` 是指，ShenYu 规定的 upstream 注册数据是以下 JSON 格式传输，包括：
+  - url: upstream 的 url
+  - protocol: upstream 的通信协议
+  - status: upstream 节点的状态 (0: healthy, 1: unhealthy)
+  - weight: 权重，计算负载均衡时使用
+  
 
-    ```json
-    {
-        "url": "127.0.0.1::6379",  // upstream 的 url
-        "protocol": "tcp",  // upstream 的 通信协议
-        "status": 0,  // upstream 节点的状态 (0, healthy, 1 unhealthy)
-        "weight": 10  // 计算负载均衡时使用
-    }
-    ```
+  ```json
+  {
+      "url": "127.0.0.1::6379", 
+      "protocol": "tcp",
+      "status": 0,
+      "weight": 10
+  }
+  ```
 
 - 如果您的服务别名与ShenYu定义的JSON格式不匹配，您可以在 `转换处理` 中进行别名映射。
   例如，如上图所示，如果您需要将"status"改为"healthy"，而保留其他键不变，
@@ -174,16 +179,18 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 - 添加依赖
 
 ```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-zookeeper</artifactId>
-   <version>${project.version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-zookeeper</artifactId>
+    <version>${project.version}</version>
+  </dependency>
 
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
-</dependency>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 - application.yml 中添加如下配置
@@ -225,16 +232,18 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 - 添加依赖
 
 ```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-etcd</artifactId>
-   <version>${project.version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-etcd</artifactId>
+    <version>${project.version}</version>
+  </dependency>
 
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
-</dependency>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 - application.yml 中添加如下配置
@@ -269,16 +278,18 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 - 添加依赖
 
 ```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-eureka</artifactId>
-   <version>${project.version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-eureka</artifactId>
+    <version>${project.version}</version>
+  </dependency>
 
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
-</dependency>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 - application.yml 中添加如下配置（此处的 `registerPath` 可以理解为需要监听的服务的名称）
@@ -311,16 +322,18 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 ### 4.5 Nacos示例
 
 ```xml
-<dependency>
-   <groupId>org.apache.shenyu</groupId>
-   <artifactId>shenyu-discovery-nacos</artifactId>
-   <version>${project.version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-discovery-eureka</artifactId>
+    <version>${project.version}</version>
+  </dependency>
 
-<dependency>
-<groupId>org.apache.shenyu</groupId>
-<artifactId>shenyu-spring-boot-starter-client-http</artifactId>
-</dependency>
+  <dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-client-http</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 - application.yml 中添加如下配置（此处的 `registerPath` 同样可以理解为需要监听的服务的名称）

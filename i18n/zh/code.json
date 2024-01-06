@@ -539,6 +539,9 @@
   "ShenYu Nginx Source Codes": {
     "message": "ShenYu Nginx 源码"
   },
+  "ShenYu WASM Source Codes": {
+    "message": "ShenYu WASM 源码"
+  },
   "Document List": {
     "message": "文档列表"
   },

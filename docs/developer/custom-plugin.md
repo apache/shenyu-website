@@ -87,6 +87,139 @@ Detailed instruction of interface methods:
     }
 ```
 
+## Single Responsibility Plugin in Multiple Languages
+
+* The above is about writing a single responsibility plugin in Java. If you want to write plugins in another language, at least the language you are good at supporting `WASM`, you can find resources [here](https://shenyu.apache.org/docs/next/design/wasm-plugin-design/) . After you have learned about `WASM`, let's introduce the following dependency to build the Java part of the plugin:
+
+```xml
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-plugin-wasm-api</artifactId>
+    <version>${project.version}</version>
+</dependency>
+```
+
+* Add a new class `MyShenyuWasmPlugin`, inherit from `org.apache.shenyu.plugin.wasm.api.AbstractWasmPlugin`
+
+```java
+package x.y.z;
+
+public class MyShenyuWasmPlugin extends AbstractWasmPlugin {
+    
+    private static final Map<Long, String> RESULTS = new ConcurrentHashMap<>();
+    
+    @Override
+    public int getOrder() {
+        // your plugin order
+        return 0;
+    }
+    
+    @Override
+    public String named() {
+        return "yourPluginName";
+    }
+    
+    @Override
+    protected Mono<Void> doExecute(final ServerWebExchange exchange, final ShenyuPluginChain chain, final Long argumentId) {
+        final String result = RESULTS.remove(argumentId);
+        // Results returned by calling other languages
+        return chain.execute(exchange);
+    }
+    
+    @Override
+    protected Long getArgumentId(final ServerWebExchange exchange, final ShenyuPluginChain chain) {
+        // Need to generate unique IDs for parameters based on exchange and chain
+        return 0L;
+    }
+    
+    @Override
+    protected Map<String, Func> initWasmCallJavaFunc(final Store<Void> store) {
+        Map<String, Func> funcMap = new HashMap<>();
+        funcMap.put("get_args", WasmFunctions.wrap(store, WasmValType.I64, WasmValType.I64, WasmValType.I32, WasmValType.I32,
+            (argId, addr, len) -> {
+                // Callbacks for obtaining parameters from Java in other languages
+                String config = "hello from java " + argId;
+                LOG.info("java side->" + config);
+                ByteBuffer buf = super.getBuffer();
+                for (int i = 0; i < len && i < config.length(); i++) {
+                    buf.put(addr.intValue() + i, (byte) config.charAt(i));
+                }
+                return Math.min(config.length(), len);
+            }));
+        funcMap.put("put_result", WasmFunctions.wrap(store, WasmValType.I64, WasmValType.I64, WasmValType.I32, WasmValType.I32,
+            (argId, addr, len) -> {
+                // Callbacks that pass call results to Java in other languages
+                ByteBuffer buf = super.getBuffer();
+                byte[] bytes = new byte[len];
+                for (int i = 0; i < len; i++) {
+                    bytes[i] = buf.get(addr.intValue() + i);
+                }
+                String result = new String(bytes, StandardCharsets.UTF_8);
+                RESULTS.put(argId, result);
+                LOG.info("java side->" + result);
+                return 0;
+            }));
+        return funcMap;
+        }
+    }
+```
+
+* Create projects in other languages, using the Rust language as an example:
+
+```shell
+cd {shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main
+cargo new --lib your_plugin_name
+```
+
+* Add `execute` method in `lib.rs`：
+```rust
+#[link(wasm_import_module = "shenyu")]
+extern "C" {
+    fn get_args(arg_id: i64, addr: i64, len: i32) -> i32;
+
+    fn put_result(arg_id: i64, addr: i64, len: i32) -> i32;
+}
+
+// Adding `#[no_mangle]` to prevent the Rust compiler from modifying method names is mandatory
+#[no_mangle]
+pub unsafe extern "C" fn execute(arg_id: i64) {
+    let mut buf = [0u8; 32];
+    let buf_ptr = buf.as_mut_ptr() as i64;
+    eprintln!("rust side-> buffer base address: {}", buf_ptr);
+    // Get parameters from Java
+    let len = get_args(arg_id, buf_ptr, buf.len() as i32);
+    let java_arg = std::str::from_utf8(&buf[..len as usize]).unwrap();
+    eprintln!("rust side-> recv:{}", java_arg);
+    // Add plugin logic for the Rust section here, such as rpc calls, etc
+    // Pass the call result of rust to Java
+    let rust_result = "rust result".as_bytes();
+    let result_ptr = rust_result.as_ptr() as i64;
+    _ = put_result(arg_id, result_ptr, rust_result.len() as i32);
+}
+```
+
+* Add `[lib]` to `Cargo.toml` and change `crate-type ` to `["cdylib"]`. Ultimately, your `Cargo.toml` should look like:
+
+```toml
+[package]
+name = "your_plugin_name"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# ......
+
+[lib]
+crate-type = ["cdylib"]
+```
+
+* Generate the wasm file：
+
+```shell
+cargo build --target wasm32-wasi --release
+```
+
+* You will see `{shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main/{your_plugin_name}/target/wasm32-wasi/release/{your_plugin_name}.wasm`, then rename it, due to the `x.y.z.MyShenyuWasmPlugin`，the final wasm file name should be `x.y.z.MyShenyuWasmPlugin.wasm`, finally, put the wasm file in the `resources` folder of your plugin module.
 
 ## Matching Traffic Processing Plugin
 
@@ -94,10 +227,10 @@ Detailed instruction of interface methods:
 
 ```xml
  <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-plugin-base</artifactId>
-        <version>${project.version}</version>
-  </dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-plugin-base</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
 * Add a new class `CustomPlugin`, inherit from `org.apache.shenyu.plugin.base.AbstractShenyuPlugin`
@@ -201,6 +334,41 @@ public class CustomPlugin extends AbstractShenyuPlugin {
     public ShenyuPlugin customPlugin() {
         return new CustomPlugin();
     }
+```
+
+## Matching Traffic Processing Plugin in Multiple Languages
+
+* The general logic is similar to [Single Responsibility Plugin in Multiple Languages](#Single Responsibility Plugin in Multiple Languages) , but the dependency in Java and the methods that need to be added in other languages are different from `Single Responsibility Plugin in Multiple Languages`. The following are the dependency required for the Java part of the `Multi Language Matching Traffic Processing Plugin`:
+
+```xml
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-plugin-wasm-base</artifactId>
+    <version>${project.version}</version>
+</dependency>
+```
+
+* The following are the methods that must be added (using the Rust language as an example):
+
+```rust
+#[no_mangle]
+pub unsafe extern "C" fn doExecute(arg_id: i64) {
+    //......
+}
+```
+
+* The following are optional methods (using the Rust language as an example):
+
+```rust
+#[no_mangle]
+pub unsafe extern "C" fn before(arg_id: i64) {
+    //......
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn after(arg_id: i64) {
+    //......
+}
 ```
 
 ## Subscribe your plugin data and do customized jobs

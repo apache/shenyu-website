@@ -177,6 +177,7 @@ cargo new --lib your_plugin_name
 ```
 
 * 在`lib.rs`中新增`execute`方法：
+
 ```rust
 #[link(wasm_import_module = "shenyu")]
 extern "C" {

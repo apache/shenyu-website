@@ -171,7 +171,8 @@ cd {shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main
 cargo new --lib your_plugin_name
 ```
 
-* Add `execute` method in `lib.rs`：
+* Add `execute` method in `lib.rs`:
+
 ```rust
 #[link(wasm_import_module = "shenyu")]
 extern "C" {
@@ -198,7 +199,7 @@ pub unsafe extern "C" fn execute(arg_id: i64) {
 }
 ```
 
-* Add `[lib]` to `Cargo.toml` and change `crate-type ` to `["cdylib"]`. Ultimately, your `Cargo.toml` should look like:
+* Add `[lib]` to `Cargo.toml` and change `crate-type` to `["cdylib"]`. Ultimately, your `Cargo.toml` should look like:
 
 ```toml
 [package]

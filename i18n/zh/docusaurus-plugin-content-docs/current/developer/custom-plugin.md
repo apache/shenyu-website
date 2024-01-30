@@ -92,6 +92,140 @@ public interface ShenyuPlugin {
     }
 ```
 
+## 单一职责插件与多语言
+
+* 上述用java写单一职责插件，如果想用其他语言写插件，至少需要你擅长的语言支持`WASM`，你可以在[这里](https://shenyu.apache.org/zh/docs/next/design/wasm-plugin-design/) 找到一些资料。在你了解过`WASM`后，我们引入以下依赖来构建插件的java部分：
+
+```xml
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-plugin-wasm-api</artifactId>
+    <version>${project.version}</version>
+</dependency>
+```
+
+* 用户新增一个类 `MyShenyuWasmPlugin`，直接继承 `org.apache.shenyu.plugin.wasm.api.AbstractWasmPlugin`
+
+```java
+package x.y.z;
+
+public class MyShenyuWasmPlugin extends AbstractWasmPlugin {
+    
+    private static final Map<Long, String> RESULTS = new ConcurrentHashMap<>();
+    
+    @Override
+    public int getOrder() {
+        // 你的插件顺序
+        return 0;
+    }
+    
+    @Override
+    public String named() {
+        return "你的插件名称";
+    }
+    
+    @Override
+    protected Mono<Void> doExecute(final ServerWebExchange exchange, final ShenyuPluginChain chain, final Long argumentId) {
+        final String result = RESULTS.remove(argumentId);
+        // 调用其他语言返回的结果
+        return chain.execute(exchange);
+    }
+    
+    @Override
+    protected Long getArgumentId(final ServerWebExchange exchange, final ShenyuPluginChain chain) {
+        // 需要根据exchange和chain生成参数的唯一id
+        return 0L;
+    }
+    
+    @Override
+    protected Map<String, Func> initWasmCallJavaFunc(final Store<Void> store) {
+        Map<String, Func> funcMap = new HashMap<>();
+        funcMap.put("get_args", WasmFunctions.wrap(store, WasmValType.I64, WasmValType.I64, WasmValType.I32, WasmValType.I32,
+            (argId, addr, len) -> {
+                // 其他语言从java获取参数的回调
+                String config = "hello from java " + argId;
+                LOG.info("java side->" + config);
+                ByteBuffer buf = super.getBuffer();
+                for (int i = 0; i < len && i < config.length(); i++) {
+                    buf.put(addr.intValue() + i, (byte) config.charAt(i));
+                }
+                return Math.min(config.length(), len);
+            }));
+        funcMap.put("put_result", WasmFunctions.wrap(store, WasmValType.I64, WasmValType.I64, WasmValType.I32, WasmValType.I32,
+            (argId, addr, len) -> {
+                // 其他语言把调用结果传给java的回调
+                ByteBuffer buf = super.getBuffer();
+                byte[] bytes = new byte[len];
+                for (int i = 0; i < len; i++) {
+                    bytes[i] = buf.get(addr.intValue() + i);
+                }
+                String result = new String(bytes, StandardCharsets.UTF_8);
+                RESULTS.put(argId, result);
+                LOG.info("java side->" + result);
+                return 0;
+            }));
+        return funcMap;
+        }
+    }
+```
+
+* 创建其他语言的项目，下面以rust语言为例：
+
+```shell
+cd {shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main
+cargo new --lib your_plugin_name
+```
+
+* 在`lib.rs`中新增`execute`方法：
+
+```rust
+#[link(wasm_import_module = "shenyu")]
+extern "C" {
+    fn get_args(arg_id: i64, addr: i64, len: i32) -> i32;
+
+    fn put_result(arg_id: i64, addr: i64, len: i32) -> i32;
+}
+
+// 加上`#[no_mangle]`以防止rust编译器修改方法名，这是必须的
+#[no_mangle]
+pub unsafe extern "C" fn execute(arg_id: i64) {
+    let mut buf = [0u8; 32];
+    let buf_ptr = buf.as_mut_ptr() as i64;
+    eprintln!("rust side-> buffer base address: {}", buf_ptr);
+    // 从java那边获取参数
+    let len = get_args(arg_id, buf_ptr, buf.len() as i32);
+    let java_arg = std::str::from_utf8(&buf[..len as usize]).unwrap();
+    eprintln!("rust side-> recv:{}", java_arg);
+    // 这里添加rust部分的插件逻辑，比如rpc调用等等
+    // 把rust的调用结果传给java
+    let rust_result = "rust result".as_bytes();
+    let result_ptr = rust_result.as_ptr() as i64;
+    _ = put_result(arg_id, result_ptr, rust_result.len() as i32);
+}
+```
+
+* 在`Cargo.toml`中新增`[lib]`并把`crate-type`改为`["cdylib"]`，最终你的`Cargo.toml`应该像这样：
+
+```toml
+[package]
+name = "your_plugin_name"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# ......
+
+[lib]
+crate-type = ["cdylib"]
+```
+
+* 生成wasm文件：
+
+```shell
+cargo build --target wasm32-wasi --release
+```
+
+* 你将看到`{shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main/{your_plugin_name}/target/wasm32-wasi/release/{your_plugin_name}.wasm`，重命名wasm文件，结合`x.y.z.MyShenyuWasmPlugin`的类路径，wasm文件名是`x.y.z.MyShenyuWasmPlugin.wasm`，最后把wasm文件放到你插件模块的`resources`文件夹下。
 
 ## 匹配流量处理插件
 
@@ -206,6 +340,41 @@ public class CustomPlugin extends AbstractShenyuPlugin {
     public ShenyuPlugin customPlugin() {
         return new CustomPlugin();
     }
+```
+
+## 匹配流量处理插件与多语言
+
+* 大体逻辑与[单一职责插件与多语言](#单一职责插件与多语言) 类似，但java部分的依赖、其他语言需要新增的方法与`单一职责插件与多语言`不同。以下是`多语言匹配流量处理插件`java部分所需要的依赖：
+
+```xml
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-plugin-wasm-base</artifactId>
+    <version>${project.version}</version>
+</dependency>
+```
+
+* 以下是必须新增的方法(以rust语言为例)：
+
+```rust
+#[no_mangle]
+pub unsafe extern "C" fn doExecute(arg_id: i64) {
+    //......
+}
+```
+
+* 以下是可选的方法(以rust语言为例)：
+
+```rust
+#[no_mangle]
+pub unsafe extern "C" fn before(arg_id: i64) {
+    //......
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn after(arg_id: i64) {
+    //......
+}
 ```
 
 ## 订阅你的插件数据，进行自定义的处理

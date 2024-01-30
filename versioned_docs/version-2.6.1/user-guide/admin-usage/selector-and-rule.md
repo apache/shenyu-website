@@ -54,7 +54,17 @@ For example, add a selector to the `divide` plugin:
   * PrintLogs: it will print the matching log with the open option enabled.
   * Enable: whether to enable the plugin.
   * Order：the smaller will have high priority to execute among multi-selectors.
-  * Handler: The operation when the request matches the selector.
+  * Handler: The `handle` field, configured in [Plugin handle management](./plugin-handle-explanation). Its purpose is to determine the actions to take when the request matches this selector. Within the selector, the `handle` field is often used to represent a manually maintained list of service instances. Each service instance includes the following fields:
+    - `host`: Host address
+    - `ip:port`: IP+port address
+    - `protocol`: Protocol
+    - `weight`: Weight of the service instance
+    - `warmupTime`: Service warm-up time
+    - `startupTime`: Service startup time
+    - `status`: true indicates the service node is available, false indicates it is not available
+
+> **Note**: For plugins that incorporate service discovery modules (such as the Divide plugin, Grpc plugin, and WebSocket plugin), the selector page does not display the handler (i.e., the `handle` field). Instead, it is manually managed through the `Service Discovery` tab under local mode. See [Discovery Module](../discovery/discovery-mode) for details.
+
 * the above picture means: when the prefix of the request uri is `/http`, it will redirect to this service `127.0.0.1:8080`.
 * selector advice : combine `uri` condition and `startsWith` prefix（/contextPath/）as the first request filter.
 * selector(the same for rule) match condition fuzzy string matching rule:

@@ -1,7 +1,7 @@
 ---
 title: 扩展插件加载逻辑
 author: hql0312
-author_title: Apache ShenYu Contributor
+author_title: hql0312 Coder
 author_url: https://github.com/hql0312
 tags: [plugin,ext,Apache ShenYu]
 ---

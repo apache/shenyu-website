@@ -8,7 +8,6 @@ tags: [plugin,ext,Apache ShenYu]
 
 > 本文基于`shenyu-2.6.1`版本进行源码分析.
 
-
 # 正文
 Shenyu 提供了一个种机制来定制自己的插件或是修改已有的插件，在其内部通过extPlugin的配置实现，其需要满足以下两点：
 1. 实现接口 `ShenyuPlugin` 或是 `PluginDataHandler`
@@ -17,6 +16,7 @@ Shenyu 提供了一个种机制来定制自己的插件或是修改已有的插�
 ## 入口
 
 真正实现该逻辑的类是`ShenyuLoaderService`,接下来看下该类是如何处理
+
 ```java
     public ShenyuLoaderService(final ShenyuWebHandler webHandler, final CommonPluginDataSubscriber subscriber, final ShenyuConfig shenyuConfig) {
         // 插件信息的信息订阅
@@ -35,7 +35,9 @@ Shenyu 提供了一个种机制来定制自己的插件或是修改已有的插�
             executor.scheduleAtFixedRate(() -> loadExtOrUploadPlugins(null), config.getScheduleDelay(), config.getScheduleTime(), TimeUnit.SECONDS);
         }
     }
+    
 ```
+
 该类有以下几个属性：
 
 `webHandler`: 该类是shenyu 处理请求的入口，引用了所有的插件数据，在扩展插件加载后，需要进行更新
@@ -136,6 +138,7 @@ public List<ShenyuLoaderResult> loadUploadedJarPlugins() {
         return results;
     }
 ```
+
 该方法就是负责构建所有符合条件的对象，并封装成 `ShenyuLoaderResult`对象，该对象对于创建后对象，进行了封装，会在方法 `buildResult()`中进行处理
 
 ```java
@@ -151,7 +154,6 @@ public List<ShenyuLoaderResult> loadUploadedJarPlugins() {
         return result;
     }
 ```
-
 
 同时进入方法 `getOrCreateSpringBean()` 进一步分析
 
@@ -197,6 +199,7 @@ public List<ShenyuLoaderResult> loadUploadedJarPlugins() {
         }
     }
 ```
+
 逻辑大致如下：
 1. 判断是否实现了接口 `ShenyuPlugin` 或 `PluginDataHandler`, 如果没有，则是否标识了 `@Component` 或是 `@Service`
 2. 如果符合1的条件，则将该对象注册到Spring 容器，并返回创建的对象
@@ -221,8 +224,10 @@ public List<ShenyuLoaderResult> loadUploadedJarPlugins() {
 
     }
 ```
+
 该方法的逻辑处理了两个数据：
 1. 将实现了 `ShenyuPlugin` 接口的数据，同步至 `webHandler`的plugins 列表
+
 ```java
     public void putExtPlugins(final List<ShenyuPlugin> extPlugins) {
         if (CollectionUtils.isEmpty(extPlugins)) {
@@ -271,6 +276,7 @@ public List<ShenyuLoaderResult> loadUploadedJarPlugins() {
         plugins = sortPlugins(newPluginList);
     }
 ```
+
 2. 将实现了 `PluginDataHandler` 接口的数据，同步至 `subscriber` 的handlers 列表
 
 ```java

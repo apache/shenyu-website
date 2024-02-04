@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[75256],{69016:e=>{e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"etcd","name":"etcd","count":1,"permalink":"/blog/tags/etcd"}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[85620],{60960:e=>{e.exports=JSON.parse('{"allTagsPath":"/zh/blog/tags","slug":"ext","name":"ext","count":1,"permalink":"/zh/blog/tags/ext"}')}}]);

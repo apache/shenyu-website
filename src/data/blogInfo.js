@@ -211,6 +211,16 @@ export default [
                 date: '2021-07-2',
                 abs:<Translate>Code Analysis For Divide Plugin</Translate>
             },
+            {
+                title: <Translate>Code Analysis Ext Plugin Loader</Translate>,
+                author: "hql0312 (Committer)",
+                autImg: "/img/blog/hql0312.png",
+                autPage: "https://github.com/hql0312",
+                src: "Loader-SourceCode-Analysis-ExtLoader",
+                cover: "/img/logo.svg",
+                date: '2024-02-04',
+                abs:<Translate>Code Analysis Ext Plugin Loader</Translate>
+            },
         ]
     },
     {

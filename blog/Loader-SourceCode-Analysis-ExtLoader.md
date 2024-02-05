@@ -41,9 +41,9 @@ The class that truly implements this logic is' ShenyuLoaderService '. Now let's 
 
 This class has the following properties:
 
-`WebHandler `: This class is the entry point for shenyu to process requests, referencing all plugin data. After the extension plugin is loaded, it needs to be updated.
+`WebHandler`: This class is the entry point for shenyu to process requests, referencing all plugin data. After the extension plugin is loaded, it needs to be updated.
 
-`Subscriber `: This class is the entry point for the subscription of plugins, referencing the subscription processing classes of all plugins. After the extension configuration is loaded, synchronous updates are also required.
+`Subscriber`: This class is the entry point for the subscription of plugins, referencing the subscription processing classes of all plugins. After the extension configuration is loaded, synchronous updates are also required.
 
 `Executor`: A scheduled task will be created inside' ShenyuLoaderService 'to periodically scan and load jar packages under the specified path, facilitating the loading of extended plugins and achieving dynamic discovery
 By default, it will scan every 300 seconds after 30 seconds of startup.

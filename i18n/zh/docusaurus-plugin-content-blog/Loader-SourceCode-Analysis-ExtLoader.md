@@ -10,7 +10,7 @@ tags: [plugin,ext,Apache ShenYu]
 
 # 正文
 
-Shenyu 提供了一个种机制来定制自己的插件或是修改已有的插件，在其内部通过extPlugin的配置实现，其需要满足以下两点：
+Shenyu 提供了一种机制来定制自己的插件或是修改已有的插件，在其内部通过extPlugin的配置实现，其需要满足以下两点：
 1. 实现接口 `ShenyuPlugin` 或是 `PluginDataHandler`
 2. 将实现的包打包后，放置于`shenyu.extPlugin.path`对应的路径下
 

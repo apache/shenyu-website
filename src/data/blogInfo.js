@@ -213,7 +213,7 @@ export default [
             },
             {
                 title: <Translate>Code Analysis Ext Plugin Loader</Translate>,
-                author: "hql0312 (Committer)",
+                author: "hql0312 (contributor)",
                 autImg: "/img/blog/hql0312.png",
                 autPage: "https://github.com/hql0312",
                 src: "Loader-SourceCode-Analysis-ExtLoader",

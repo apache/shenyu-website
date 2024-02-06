@@ -592,5 +592,8 @@
   },
   "Next Version": {
     "message": "下一版本"
+  },
+  "Code Analysis Ext Plugin Loader": {
+    "message": "扩展插件加载逻辑源码分析"
   }
 }

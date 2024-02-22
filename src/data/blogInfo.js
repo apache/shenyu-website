@@ -158,7 +158,7 @@ export default [
                 autPage: "https://github.com/hql0312",
                 src: "DataSync-SourceCode-Analysis-Apollo-Data-Sync",
                 cover: "/img/logo.svg",
-                date: '2024-02-04',
+                date: '2024-02-22',
                 abs:<Translate>Introduce Shenyu data sync by apollo.</Translate>
             },
         ]

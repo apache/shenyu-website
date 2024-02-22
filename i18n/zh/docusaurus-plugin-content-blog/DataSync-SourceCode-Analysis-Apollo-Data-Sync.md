@@ -14,7 +14,7 @@ tags: [apollo,data sync,Apache ShenYu]
 
 ![](/img/activities/code-analysis-apollo-data-sync/Apollo-Sync.png)
 
-#### 接收数据
+### 接收数据
 
 - PluginController.createPlugin()
 
@@ -38,7 +38,7 @@ public class PluginController {
 }
 ```
 
-#### 处理数据
+### 处理数据
 
 - PluginServiceImpl.createOrUpdate() -> PluginServiceImpl.create()
 
@@ -125,7 +125,7 @@ public class DataChangedEventDispatcher implements ApplicationListener<DataChang
 }
 ```
 
-#### 分发数据
+### 分发数据
 
 - DataChangedEventDispatcher.onApplicationEvent()
 

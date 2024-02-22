@@ -14,7 +14,7 @@ Understand the overall process through the process of adding plugins
 
 ![](/img/activities/code-analysis-apollo-data-sync/Apollo-Sync.png)
 
-#### Receive Data
+### Receive Data
 
 - PluginController.createPlugin()
 
@@ -38,7 +38,7 @@ public class PluginController {
 }
 ```
 
-#### 处理数据
+### Processing data
 
 - PluginServiceImpl.createOrUpdate() -> PluginServiceImpl.create()
 
@@ -124,7 +124,7 @@ public class DataChangedEventDispatcher implements ApplicationListener<DataChang
 }
 ```
 
-#### Distribute data
+### Distribute data
 
 - DataChangedEventDispatcher.onApplicationEvent()
 
@@ -203,14 +203,14 @@ public abstract class AbstractNodeDataChangedListener implements DataChangedList
 }
 ```
 
-`AbstractNodeDataChangedListener 'receives' ChangeData' as a parameter, which defines the key names for each data stored in Apollo. The data stored in Apollo includes the following data:
-- Plugin
-- Selector
-- Rules
-- Authorization
-- Metadata
-- Proxy selector
-- Downstream List (Discovery)
+`AbstractNodeDataChangedListener` receives ChangeData as a parameter, which defines the key names for each data stored in Apollo. The data stored in Apollo includes the following data:
+- Plugin(plugin)
+- Selector(selector)
+- Rules(rule)
+- Authorization(auth)
+- Metadata(meta)
+- Proxy selector(proxy.selector)
+- Downstream List (discovery)
 
 These information are specified by the ApolloDataChangedListener constructor:
 

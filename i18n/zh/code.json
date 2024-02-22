@@ -595,5 +595,11 @@
   },
   "Code Analysis Ext Plugin Loader": {
     "message": "扩展插件加载逻辑源码分析"
+  },
+  "Apollo Data Synchronization Source Code Analysis": {
+    "message": "Apollo 数据同步源码分析"
+  },
+  "Introduce Shenyu data sync by apollo.": {
+    "message": "Apollo 数据同步介绍，源码分析整体流程."
   }
 }

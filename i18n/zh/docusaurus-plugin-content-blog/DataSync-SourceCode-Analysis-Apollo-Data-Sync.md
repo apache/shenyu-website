@@ -387,7 +387,7 @@ public class ApolloDataChangedInit extends AbstractDataChangedInit {
 ```
 
 判断`apollo`中是否存在数据，如果不存在，则进行同步。
-这里有一个bug, 因为这里判断的key，在同步时，并不会创建，则会导致每次重启时都重新加载数据，已提[PR](https://github.com/apache/shenyu/pull/5435)
+这里有一个bug, 因为这里判断的key，在同步时，并不会创建，则会导致每次重启时都重新加载数据，已提[PR#5435](https://github.com/apache/shenyu/pull/5435)
 
 
 `ApolloDataChangedInit`实现了`CommandLineRunner`接口。它是`springboot`提供的接口，会在所有 `Spring Beans`初始化之后执行`run()`方法，常用于项目中初始化的操作。

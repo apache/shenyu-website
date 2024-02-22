@@ -386,7 +386,7 @@ public class ApolloDataChangedInit extends AbstractDataChangedInit {
 ```
 
 Check if there is data in `apollo`, and if it does not exist, synchronize it.
-There is a bug here because the key determined here will not be created during synchronization, which will cause data to be reloaded every time it is restarted. [PR](https://github.com/apache/shenyu/pull/5435)
+There is a bug here because the key determined here will not be created during synchronization, which will cause data to be reloaded every time it is restarted. [PR#5435](https://github.com/apache/shenyu/pull/5435)
 
 `ApolloDataChangedInit` implements the `CommandLineRunner` interface. It is an interface provided by `springboot` that executes the `run()` method after all `Spring Beans` are initialized. It is commonly used for initialization operations in projects.
 - SyncDataService.syncAll()

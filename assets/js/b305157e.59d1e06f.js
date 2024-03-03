@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[47485],{97422:e=>{e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"register-center","name":"register center","count":1,"permalink":"/blog/tags/register-center"}')}}]);

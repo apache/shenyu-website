@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[55488],{62235:e=>{e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"divide","name":"divide","count":1,"permalink":"/blog/tags/divide"}')}}]);

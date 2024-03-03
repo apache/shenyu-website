@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[71887],{48663:e=>{e.exports=JSON.parse('{"pluginId":"event","version":"current","label":"Next","banner":"none","isLast":true,"docsSidebars":{}}')}}]);

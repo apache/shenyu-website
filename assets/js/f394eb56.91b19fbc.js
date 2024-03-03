@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[77880],{16136:s=>{s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"first-start","name":"first-start","count":1,"permalink":"/blog/tags/first-start"}')}}]);

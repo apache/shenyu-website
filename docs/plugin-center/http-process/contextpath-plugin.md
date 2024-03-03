@@ -116,9 +116,35 @@ Since this example uses the service of the http protocol, we need to modify the 
 
 ![](/img/shenyu/plugin/context-path/remove-add-prefix-en.png)
 
-#### 2.5.2.5 Call Interface
+#### 2.5.2.7 Call Interface
 
 ![](/img/shenyu/plugin/context-path/invoke-interface-add-prefix.png)
+
+### 2.5.3 Example rewrite application
+
+#### 2.5.3.1 Refer [Local Deployment](https://shenyu.apache.org/docs/deployment/deployment-local/) to start admin and bootstrap.
+
+#### 2.5.3.2 Refer 2.2 to import pom and restart bootstrap.
+
+#### 2.5.3.3 Refer 2.3 to enable plugin.
+
+#### 2.5.3.4 Run client projects.
+
+For client project we can directly use [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) and [shenyu-examples-https](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-https).
+
+- After the client projects started, you can see that there are two additional context selectors and rules configuration in shenyu-admin.
+
+![](/img/shenyu/plugin/context-path/context-path-selectors.jpg)
+
+#### 2.5.3.5 Config rewriteContextPath
+
+![](/img/shenyu/plugin/context-path/rewrite-context-path.jpg)
+
+Note: the percentage can adjust the rewriting ratio from 0 to 100, with a default of 100, indicating complete rewriting.
+
+#### 2.5.2.6 Call Interface
+
+![](/img/shenyu/plugin/context-path/invoke-interface-rewrite-context-path.jpg)
 
 # 3. How to disable plugin
 

@@ -69,6 +69,8 @@ description: rewrite plugin
 * Param details:
   * `regex`: The regular expression that matches the part of uri to be rewrited.
   * `replace`: The content of replacement.
+  * `percentage` : The percentage of rewriting, 100 represents 100%.
+  * `rewriteMetaData`: Whether to rewrite metadata, true indicates that it is enabled, and once enabled, the uri can be rewritten across plugins.
 
 ## 2.5 Examples
 

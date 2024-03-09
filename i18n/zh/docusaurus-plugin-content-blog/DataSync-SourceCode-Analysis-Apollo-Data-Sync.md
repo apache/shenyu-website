@@ -191,6 +191,7 @@ public class ApolloDataChangedListener extends AbstractNodeDataChangedListener {
     
 }
 ```
+
 `ApolloDataChangedListener` 继承了 `AbstractNodeDataChangedListener` 类，该类主要是以key作为存储方式的基类，如apollo、nacos等，其他的如zookeeper、
 consul、etcd 等是以path的方式进行分层级来查找的。
 
@@ -233,6 +234,7 @@ public class ApolloDataChangedListener extends AbstractNodeDataChangedListener {
 ```
 
 `DataChangedListener` 定义了以下几个方法：
+
 ```java
 // 数据变更监听器
 public interface DataChangedListener {

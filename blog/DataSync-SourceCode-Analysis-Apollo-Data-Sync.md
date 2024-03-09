@@ -77,7 +77,7 @@ public class PluginServiceImpl implements SelectorService {
 
 Complete the data persistence operation in the `PluginServiceImpl` class, that is, save the data to the database and publish events through `pluginEventPublisher`.
 
-The logic of the `pluginEventPublisher.onCreated ` method is to publish the changed event:
+The logic of the `pluginEventPublisher.onCreated` method is to publish the changed event:
 
 ```java
     @Override
@@ -190,6 +190,7 @@ public class ApolloDataChangedListener extends AbstractNodeDataChangedListener {
     
 }
 ```
+
 `ApolloDataChangedListener` inherits the `AbstractNodeDataChangedListener` class, which mainly uses key as the base class for storage, such as Apollo, Nacos, etc., while others such as Zookeeper
 Consul, etc. are searched in a hierarchical manner using a path.
 
@@ -269,6 +270,7 @@ public interface DataChangedListener {
 ```
 
 When the plugin is processed by `DataChangedEventDispatcher`, the method `listener.onPluginChanged` is called. Next, analyze the logic of the object and implement the processing by `AbstractNodeDataChangedListener`:
+
 ```java
 public abstract class AbstractNodeDataChangedListener implements DataChangedListener {
   @Override
@@ -392,6 +394,7 @@ There is a bug here because the key determined here will not be created during s
 - SyncDataService.syncAll()
 
 Query data from the database, then perform full data synchronization, including all authentication information, plugin information, rule information, selector information, metadata, proxy selector, and discover downstream events. Mainly, synchronization events are published through `eventPublisher`. After publishing events through `publishEvent()`, `ApplicationListener` performs event change operations, which is referred to as `DataChangedEventDispatcher` in `ShenYu`.
+
 ```java
 @Service
 public class SyncDataServiceImpl implements SyncDataService {

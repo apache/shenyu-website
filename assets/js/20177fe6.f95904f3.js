@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[70683],{10394:s=>{s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"data-sync","name":"data sync","count":6,"permalink":"/blog/tags/data-sync"}')}}]);

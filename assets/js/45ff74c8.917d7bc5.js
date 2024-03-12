@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[55282],{50625:e=>{e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"apache-shen-yu","name":"apache shenyu","count":21,"permalink":"/blog/tags/apache-shen-yu"}')}}]);

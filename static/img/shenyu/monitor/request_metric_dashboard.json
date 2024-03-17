@@ -67,7 +67,7 @@
   "gnetId": 8563,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1703843098511,
+  "iteration": 1710581139933,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -360,12 +360,220 @@
       }
     },
     {
+      "description": "collecting restrict requests of Apache ShenYu Gateway",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 120,
+      "maxPerRow": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "repeat": "ratelimiter",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "shenyu_[[ratelimiter]]_request_restrict_total{job=\"$job\",instance=~\"$instance\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "[[ratelimiter]]",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "ShenYu [[ratelimiter]] request restrict total",
+      "transformations": [],
+      "type": "timeseries"
+    },
+    {
+      "description": "collecting circuitbreaker  requests of Apache ShenYu Gateway",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 11,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 121,
+      "maxPerRow": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "repeat": "circuitbreaker",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "shenyu_[[circuitbreaker]]_request_circuitbreaker_total{job=\"$job\",instance=~\"$instance\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "[[circuitbreaker]]",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "ShenYu [[circuitbreaker]] circuitbreaker request total",
+      "transformations": [],
+      "type": "timeseries"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 17
       },
       "id": 84,
       "panels": [],
@@ -383,7 +591,7 @@
         "h": 15,
         "w": 8,
         "x": 0,
-        "y": 10
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 2,
@@ -479,7 +687,7 @@
         "h": 15,
         "w": 8,
         "x": 8,
-        "y": 10
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 113,
@@ -574,7 +782,7 @@
         "h": 15,
         "w": 8,
         "x": 16,
-        "y": 10
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 114,
@@ -664,7 +872,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 25
+        "y": 33
       },
       "id": 74,
       "panels": [],
@@ -683,7 +891,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 34
       },
       "hiddenSeries": false,
       "id": 104,
@@ -768,7 +976,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 35
+        "y": 43
       },
       "id": 72,
       "panels": [],
@@ -792,7 +1000,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 36
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 5,
@@ -887,7 +1095,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 36
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 96,
@@ -969,7 +1177,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 44
+        "y": 52
       },
       "id": 70,
       "panels": [],
@@ -989,7 +1197,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 45
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 3,
@@ -1126,7 +1334,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 45
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 115,
@@ -1215,7 +1423,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 55
+        "y": 63
       },
       "id": 68,
       "panels": [],
@@ -1234,7 +1442,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 56
+        "y": 64
       },
       "hiddenSeries": false,
       "id": 4,
@@ -1331,7 +1539,6 @@
   ],
   "refresh": "",
   "schemaVersion": 35,
-  "style": "dark",
   "tags": [
     "JVM",
     "gateway",
@@ -1435,6 +1642,80 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": [
+            ""
+          ],
+          "value": [
+            ""
+          ]
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "ratelimiter",
+        "multi": true,
+        "name": "ratelimiter",
+        "options": [
+          {
+            "selected": false,
+            "text": "sentinel",
+            "value": "sentinel"
+          },
+          {
+            "selected": false,
+            "text": "resilience4j",
+            "value": "resilience4j"
+          },
+          {
+            "selected": false,
+            "text": "ratelimiter",
+            "value": "ratelimiter"
+          }
+        ],
+        "query": "sentinel,resilience4j,ratelimiter ",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": [
+            ""
+          ],
+          "value": [
+            ""
+          ]
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "circuitbreaker",
+        "multi": true,
+        "name": "circuitbreaker",
+        "options": [
+          {
+            "selected": false,
+            "text": "sentinel",
+            "value": "sentinel"
+          },
+          {
+            "selected": false,
+            "text": "resilience4j",
+            "value": "resilience4j"
+          },
+          {
+            "selected": false,
+            "text": "hystrix",
+            "value": "hystrix"
+          }
+        ],
+        "query": "sentinel,resilience4j,hystrix",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
       }
     ]
   },
@@ -1465,6 +1746,6 @@
   "timezone": "browser",
   "title": "Apache ShenYu Dashboard",
   "uid": "apache_shenyu_dashboard",
-  "version": 16,
+  "version": 1,
   "weekStart": ""
 }

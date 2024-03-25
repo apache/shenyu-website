@@ -11,7 +11,7 @@ description:  对ShenYu网关中SPI的使用进行介绍
 
 ### 注册中心扩展
 
-通过哪种方式实现服务的注册，当前支持`Consul`、`Etcd`、`Http`、`Nacos`和`Zookeeper`。注册中心的扩展包括客户端和服务端，接口分别为 `ShenyuServerRegisterRepository` 和 `ShenyuClientRegisterRepository` 。
+通过哪种方式实现服务的注册，当前支持`Consul`、`Etcd`、`Http`、`Nacos`和`Zookeeper`。注册中心的扩展包括客户端和服务端，接口分别为 `ShenyuClientServerRegisterRepository` 和 `ShenyuClientRegisterRepository` 。
 
 ### 监控中心扩展
 

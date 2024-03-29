@@ -6,6 +6,9 @@ import event from '../data/event';
 import Translate from "@docusaurus/Translate";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
+function CustomLink({url, href, child}) {
+    return url ? <Link className={styles.link} to={'event/' + href}>{child}</Link> : <Link className={styles.link} to={href}>{child}</Link>
+}
 
 function Event() {
   const [url, setUrl] = useState(true)
@@ -28,12 +31,10 @@ function Event() {
             return (
               <div key={i} className={styles.cardItem} >
                 <div className={styles.cardInfo}>
-                  <div className={styles.cardTitle}>{eventItem.title}</div>
+                  <CustomLink url={url} href={eventItem.src} child={(<div className={styles.cardTitle}>{eventItem.title}</div>)}/>
                   <div className={styles.cardDesc}>{eventItem.description}</div>
                   <div className={styles.readMore}>
-                    {
-                      url ? <Link className={styles.link} to={'event/' + eventItem.src}> >> <Translate>Read More</Translate></Link> : <Link className={styles.link} to={eventItem.src}> >> <Translate>Read More</Translate></Link>
-                    }
+                    <CustomLink url={url} href={eventItem.src} child={(<> >> <Translate>Read More</Translate></>)}/>
                   </div>
                 </div>
               </div>

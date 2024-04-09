@@ -3,6 +3,16 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>Co-authoring the future with ShenYu</Translate>,
+        author: "kerwin612",
+        description: <Translate>Co-authoring the future with ShenYu</Translate>,
+        categories: "Apache ShenYu Committers",
+        tags: ["Apache ShenYu"],
+        date: "2024-04-08",
+        cover: "/img/news/0.png",
+        src:'Apache-ShenYu-Committer-2024-04-08',
+    },
+    {
         title: <Translate>Apache ShenYu WASM 1.0.0 Version Release</Translate>,
         description: <Translate>Apache ShenYu WASM 1.0.0 Version Release</Translate>,
         categories: "Apache ShenYu WASM",

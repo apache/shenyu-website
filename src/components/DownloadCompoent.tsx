@@ -254,7 +254,7 @@ function DownloadCompoent() {
                 return (
                     <div className={styles.downloadCard} key={index}>
                         <div className={styles.downloadCardTitle}>{title}</div>
-                        <button id='dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(index) }}><Translate>Source</Translate></button>
+                        <button id='dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(index) }}><Translate>All Versions</Translate></button>
                         {
                             showItem[index] &&
                             (

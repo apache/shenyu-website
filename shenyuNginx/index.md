@@ -4,7 +4,7 @@ Apache ShenYu Nginx Module
 This module provided SDK to watch available ShenYu instance list as upstream nodes by Service Register Center for OpenResty.
 1. [ETCD](#greeting-etcd) (Supported)
 2. [Nacos](#greeting-nacos) (Supported)
-3. [Zookeeper](#greeting-zookeeper) (Supported)k
+3. [Zookeeper](#greeting-zookeeper) (Supported)
 4. [Consul](#greeting-consul) (Supported)
 
 In the cluster mode, Apache ShenYu supports the deployment of multiple ShenYu instances, which may have new instances joining or leaving at any time.

@@ -49,7 +49,7 @@ function Event() {
         <div className={styles.title}><Translate>Document List</Translate></div>
         <div className={styles.description}>
           <p className={styles.descriptionLine}><Translate>This directory presents the official Apache ShenYu repositories and some ecosystem projects developed by community.</Translate></p>
-          <p className={styles.descriptionLine}><Translate>The downloadable releases can be find in the</Translate><Link className={styles.descriptionLineHref} to="./download"><Translate>download page</Translate></Link></p>
+          <p className={styles.descriptionLine}><Translate>The downloadable releases can be find in the</Translate><Link className={styles.descriptionLineHref} to="download"><Translate>download page</Translate></Link></p>
         </div>
       </div>
       <div className={styles.content}>

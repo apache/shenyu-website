@@ -547,6 +547,30 @@ data:
         username: {your_mysql_user}
         password: {your_mysql_password}
         driver-class-name: com.mysql.jdbc.Driver
+      hikari:
+        connection-timeout: 30000
+        minimum-idle: 5
+        maximum-pool-size: 20
+        auto-commit: true
+        idle-timeout: 600000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-init-sql: SET NAMES utf8mb4
+        validation-timeout: 800
+      mail:
+        # Attention: this is mail server address.
+        host: smtp.qq.com
+        username: shenyu@apache.com
+        # Attention: this is not email account password, this requires an email authorization code
+        password: your-password
+        #Attention: Tencent mail smtps 465,smtp 587
+        port: 587
+        properties:
+          mail:
+            smtp:
+              socketFactoryClass: javax.net.ssl.SSLSocketFactory
+              ssl:
+                enable: true
   shenyu-bootstrap-application.yml: |
     server:
       port: 9195

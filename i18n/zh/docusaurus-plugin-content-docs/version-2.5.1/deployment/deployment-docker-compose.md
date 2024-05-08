@@ -31,6 +31,13 @@ sh ./install.sh #默认拉取最新配置，如果需要部署已发布版本，
 
 修改脚本下载的配置文件来设置`JDBC`等配置。
 
+如果使用 mysql 数据库，请在已下载的 `docker-compose.yml` 中的 `shenyu-admin` service 中挂载 `mysql-connector.jar`，否则会因为无法连接数据库导致部署失败。
+
+```
+volumes:
+  - ./shenyu-admin/ext-lib:/opt/shenyu-admin/ext-lib
+```
+
 ### 执行 docker-compose
 
 ```shell

@@ -1,6 +1,7 @@
 # Apache ShenYu Official Website
 
 ![Website Deploy](https://github.com/apache/shenyu-website/workflows/Website%20Deploy/badge.svg)
+[![Contribute with Gitpod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod&color=green)](https://gitpod.io/#https://github.com/apache/shenyu-website)
 
 This project keeps all sources used for building up Apache ShenYu official website which's served at <https://shenyu.apache.org/>. 
 

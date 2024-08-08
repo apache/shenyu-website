@@ -1,0 +1,23 @@
+tasks:
+
+    - name: Run
+      command: |
+          gp sync-await setup
+          yarn start
+
+    - name: Setup
+      init: |
+          yarn install
+      command: |
+          gp sync-done setup
+          exit 0
+      openMode: split-right
+
+vscode:
+    extensions:
+        - editorconfig.editorconfig
+        - dbaeumer.vscode-eslint
+        - stylelint.vscode-stylelint
+        - DavidAnson.vscode-markdownlint
+        - ms-azuretools.vscode-docker
+        - GitHub.vscode-pull-request-github

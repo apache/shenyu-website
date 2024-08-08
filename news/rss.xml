@@ -4,9 +4,16 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Mon, 08 Apr 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 08 Aug 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[[My Open Source Journey with Apache ShenYu]]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2024-08-08</link>
+            <guid>[My Open Source Journey with Apache ShenYu]</guid>
+            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[My Open Source Journey with Apache ShenYu]]></description>
+        </item>
         <item>
             <title><![CDATA[[Co-authoring the future with ShenYu]]]></title>
             <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2024-04-08</link>

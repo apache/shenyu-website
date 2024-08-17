@@ -3,6 +3,16 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>Start small, become a Committer</Translate>,
+        author: "achao",
+        description: <Translate>Start small, become a Committer</Translate>,
+        categories: "Apache ShenYu Committers",
+        tags: ["Apache ShenYu"],
+        date: "2024-08-14",
+        cover: "/img/news/achao.jpg",
+        src:'Apache-ShenYu-Committer-2024-08-14',
+    },
+    {
         title: <Translate>My Open Source Journey with Apache ShenYu</Translate>,
         author: "Hongyu Liu",
         description: <Translate>My Open Source Journey with Apache ShenYu</Translate>,

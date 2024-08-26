@@ -4,9 +4,16 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/zh/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Thu, 08 Aug 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 14 Aug 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[从小事做起，逐渐成为开源社区的核心力量]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2024-08-14</link>
+            <guid>从小事做起，逐渐成为开源社区的核心力量</guid>
+            <pubDate>Wed, 14 Aug 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[从小事做起，逐渐成为开源社区的核心力量]]></description>
+        </item>
         <item>
             <title><![CDATA[【我的 Apache ShenYu 开源之旅】]]></title>
             <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2024-08-08</link>

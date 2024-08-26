@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenyu.apache.org/news</id>
     <title>Apache ShenYu Blog</title>
-    <updated>2024-08-08T00:00:00.000Z</updated>
+    <updated>2024-08-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://shenyu.apache.org/news"/>
     <subtitle>Apache ShenYu Blog</subtitle>
     <icon>https://shenyu.apache.org/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Start small, become a Committer]]></title>
+        <id>Start small, become a Committer</id>
+        <link href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2024-08-14"/>
+        <updated>2024-08-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Start small, become a Committer]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[My Open Source Journey with Apache ShenYu]]]></title>
         <id>[My Open Source Journey with Apache ShenYu]</id>

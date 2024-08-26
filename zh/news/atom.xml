@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenyu.apache.org/zh/news</id>
     <title>Apache ShenYu Blog</title>
-    <updated>2024-08-08T00:00:00.000Z</updated>
+    <updated>2024-08-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://shenyu.apache.org/zh/news"/>
     <subtitle>Apache ShenYu Blog</subtitle>
     <icon>https://shenyu.apache.org/zh/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[从小事做起，逐渐成为开源社区的核心力量]]></title>
+        <id>从小事做起，逐渐成为开源社区的核心力量</id>
+        <link href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2024-08-14"/>
+        <updated>2024-08-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[从小事做起，逐渐成为开源社区的核心力量]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【我的 Apache ShenYu 开源之旅】]]></title>
         <id>【我的 Apache ShenYu 开源之旅】</id>

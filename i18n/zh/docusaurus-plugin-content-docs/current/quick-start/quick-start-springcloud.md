@@ -46,7 +46,6 @@ description: Spring Cloud快速开始
                     <version>2.2.0.RELEASE</version>
                 </dependency>
         <!-- apache shenyu springCloud plugin end-->
-
 ```
 
 `eureka`配置信息如下：

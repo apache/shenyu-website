@@ -214,6 +214,21 @@ module.exports = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "shenyuClientRust",
+        path: "shenyuClientRust",
+        routeBasePath: "shenyuClientRust",
+        disableVersioning: false,
+        includeCurrentVersion: true,
+        editCurrentVersion: true,
+        editLocalizedFiles: true,
+        sidebarPath: require.resolve("./sidebarsCommunity.js"),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "helm",
         path: "helm",
         routeBasePath: "helm",

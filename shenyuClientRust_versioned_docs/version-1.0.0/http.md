@@ -37,7 +37,7 @@ let config = ShenYuConfig::from_yaml_file("config.yml").unwrap();
 let client = ShenyuClient::new(config, app.app_name(), app.uri_infos(), 3000).unwrap();
 ```
 
-```log
+```
 The adminToken like this :
 {
     "code":200,
@@ -57,8 +57,7 @@ When you success get toekn, you will see this :
 2024-10-09T08:07:27.721483Z  INFO shenyu_client_rust::core: [SUCCESS], get register token success, register token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZXhwIjoxNzI4NTQ3NjQ3fQ.93LAuDP_MrJZeQB5A6gX-3-Vyxy9egw41QhnNHlUWEE"
 
 ```
-
-**3.Step 2 Register MetaData to ShenYu GateWay. **
+**3.Step 2 Register MetaData to ShenYu GateWay.**
 
 ```markdown
 // register to shenyu admin.
@@ -145,7 +144,7 @@ client.register().expect("TODO: panic message");
 
 ```
 
-**3.Step 3 Offline register from ShenYu GateWay. **
+**3.Step 3 Offline register from ShenYu GateWay.**
 
 ```log
 2024-10-03T02:29:50.311159Z  INFO shenyu_client_rust::core: [SUCCESS], offline success, register data: Object {

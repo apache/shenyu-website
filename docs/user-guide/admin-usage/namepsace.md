@@ -12,33 +12,33 @@ Note: To facilitate usage, a default namespace already exists in the system; ple
 
 Users log into the ShenYu Admin backend and select 【Basic Config - Namespace】.
 
-![](/img/shenyu/basicConfig/namepsace/namespace-manager.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-manager.png" width="80%" height="50%" />
 
 In the namespace management module, click Add Data to create a new namespace. Simply fill in the 【Name】 and 【Description】 fields; the system will automatically generate a namespaceId.
 
-![](/img/shenyu/basicConfig/namepsace/namespace-add.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-add.png" width="80%" height="50%" />
 
 After successful creation, a unique namespaceId will be automatically generated.
 
-![](/img/shenyu/basicConfig/namepsace/namespace-Id.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-Id.png" width="80%" height="50%" />
 
 ### 2.Configure Namespace for Downstream Services (shenyu-client)
 
 Once you have the namespaceId, you can configure it in the downstream services (already integrated with shenyu-client) in the configuration file to use one or more namespaceIds.
 
-![](/img/shenyu/basicConfig/namepsace/namespace-shenyu-client.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-shenyu-client.png" width="80%" height="50%" />
 
 ### 3.Manage Data the Namespace
 
 Once data from Shenyu-client is registered under the specified namespace in Shenyu-admin, the backend management supports isolated gateway data. Users can switch between different namespaces for operations via the button in the upper right corner.
 
-![](/img/shenyu/basicConfig/namepsace/namespace-divide.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-divide.png" width="80%" height="50%" />
 
 ### 4.Configure Namespace for Gateway (bootstrap)
 
 Note: A gateway can only bind to a single unique namespaceId
 
-![](/img/shenyu/basicConfig/namepsace/namespace-bootstrap.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-bootstrap.png" width="80%" height="50%" />
 
 ## 3.Important Changes
 

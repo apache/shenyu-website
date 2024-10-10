@@ -12,15 +12,15 @@ Note: To facilitate usage, a default namespace already exists in the system; ple
 
 Users log into the ShenYu Admin backend and select 【Basic Config - Namespace】.
 
-<img src="/img/shenyu/basicConfig/namepsace/namespace-manager.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/namepsace/namespace-manager-en.png" width="80%" height="50%" />
 
 In the namespace management module, click Add Data to create a new namespace. Simply fill in the 【Name】 and 【Description】 fields; the system will automatically generate a namespaceId.
 
-<img src="/img/shenyu/basicConfig/namepsace/namespace-add.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/namepsace/namespace-add-en.png" width="80%" height="50%" />
 
 After successful creation, a unique namespaceId will be automatically generated.
 
-<img src="/img/shenyu/basicConfig/namepsace/namespace-Id.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/namepsace/namespace-Id-en.png" width="80%" height="50%" />
 
 ### 2.Configure Namespace for Downstream Services (shenyu-client)
 
@@ -32,7 +32,7 @@ Once you have the namespaceId, you can configure it in the downstream services (
 
 Once data from Shenyu-client is registered under the specified namespace in Shenyu-admin, the backend management supports isolated gateway data. Users can switch between different namespaces for operations via the button in the upper right corner.
 
-<img src="/img/shenyu/basicConfig/namepsace/namespace-divide.png" width="80%" height="50%" />
+<img src="/img/shenyu/basicConfig/namepsace/namespace-divide-en.png" width="80%" height="50%" />
 
 ### 4.Configure Namespace for Gateway (bootstrap)
 

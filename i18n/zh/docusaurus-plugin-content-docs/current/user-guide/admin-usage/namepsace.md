@@ -12,33 +12,33 @@
 
 用户登录shenyu-admin后台，选择【基础配置-命名空间管理】
 
-![](/img/shenyu/basicConfig/namepsace/namespace-manager.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-manager.png" width="80%" height="50%" />
 
-命名空间管理模块下点击添加数据即可新增命名空间，，只需填写【名字】和【描述】系统会自动生成namespaceId
+命名空间管理模块下点击添加数据即可新增命名空间，只需填写【名字】和【描述】系统会自动生成namespaceId
 
-![](/img/shenyu/basicConfig/namepsace/namespace-add.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-add.png" width="80%" height="50%" />
 
 创建成功后会自动生成唯一namespaceId
 
-![](/img/shenyu/basicConfig/namepsace/namespace-Id.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-Id.png" width="80%" height="50%" />
 
 ### 2.下游服务配置命名空间（shenyu-client）
 
 得到namespaceId以后，我们可以在下游服务（已经引入shenyu-client），配置文件中配置单个或多个namespaceId
 
-![](/img/shenyu/basicConfig/namepsace/namespace-shenyu-client.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-shenyu-client.png" width="80%" height="50%" />
 
 ### 3.管理命名空间下的数据
 
 在Shenyu-client的数据注册到Shenyu-admin指定的命名空间下后。在后台管理端中，支持命名空间隔离的网关数据，用户可以通过右上角按钮切换到不同命名空间下进行操作
 
-![](/img/shenyu/basicConfig/namepsace/namespace-divide.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-divide.png" width="80%" height="50%" />
 
 ### 4.网关配置命名空间（bootstrap）
 
 注意：一个网关只能绑定唯一namespaceId
 
-![](/img/shenyu/basicConfig/namepsace/namespace-bootstrap.png)
+<img src="/img/shenyu/basicConfig/namepsace/namespace-bootstrap.png" width="80%" height="50%" />
 
 ## 3.重要改动说明
 

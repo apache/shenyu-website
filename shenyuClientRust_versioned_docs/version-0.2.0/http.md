@@ -30,11 +30,14 @@ shenyu:
       password: "123456"
 ```
 
-```markdown
-//init config.
-let config = ShenYuConfig::from_yaml_file("config.yml").unwrap();
-// init shenyu client.
-let client = ShenyuClient::new(config, app.app_name(), app.uri_infos(), 3000).unwrap();
+```rust
+fn register_test() {
+    //init config.
+    let config = ShenYuConfig::from_yaml_file("config.yml").unwrap();
+    // init shenyu client.
+    let client = ShenyuClient::new(config, app.app_name(), app.uri_infos(), 3000).unwrap();
+    /// other steps.
+}
 ```
 
 ```
@@ -57,11 +60,14 @@ When you success get toekn, you will see this :
 2024-10-09T08:07:27.721483Z  INFO shenyu_client_rust::core: [SUCCESS], get register token success, register token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyTmFtZSI6ImFkbWluIiwiZXhwIjoxNzI4NTQ3NjQ3fQ.93LAuDP_MrJZeQB5A6gX-3-Vyxy9egw41QhnNHlUWEE"
 ```
 
-**3.Step 2 Register MetaData to ShenYu GateWay.**
+**3.Step 2 Register to ShenYu admin. (maybe add the admin sync data to gateway doc url).**
 
-```markdown
-// register to shenyu admin.
-client.register().expect("TODO: panic message");
+```rust
+fn register_test() {
+    /// Step1.
+    // register to shenyu admin.
+    client.register().expect("TODO: panic message");
+}
 ```
 
 ```log

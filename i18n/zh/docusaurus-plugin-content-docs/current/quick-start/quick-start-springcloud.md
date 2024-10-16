@@ -90,6 +90,28 @@ public class ShenyuBootstrapApplication {
 
 启动`shenyu-bootstrap`项目。
 
+## springCloud插件增强
+用于在admin侧配置注册中心相关信息。
+- 目前Shenyu 上的 SpringCloudPlugin 插件实现了对注册中心的服务发现的支持。但是无法做到动态切换注册中心。为了能让使用者更加清晰的使用该插件，以及能更便捷的切换注册中心的配置，而做出以下需求。从而降低用户的使用成本，以及使用体验。
+- 痛点1：目前一定要在网关的配置文件中配置注册中心相关信息，而且不同注册中心的配置项不统一（例如eureka和nacos）。
+- 痛点2：目前Shenyu 上的 SpringCloudPlugin 插件实现了对注册中心的服务发现的支持。但是无法做到动态切换注册中心。
+
+具体操作流程：
+
+- 启动shenyu-admin
+- 启动shenyu-bootstrap
+- 启动注册中心，例如shenyu-examples下的eureka项目
+- 启动shenyu-examples下的shenyu-examples-springcloud
+- 在admin的系统界面上配置注册中心的相关信息，并点击确认
+
+以eureka注册中心配置举例，通过页面的方式统一不同注册中心的配置项：
+
+<img src="/img/shenyu/quick-start/springcloud/springCloud-dynamic-register-operate.png" width="60%" height="50%" />
+
+
+点击确认后，即使用eureka作为springCloudPlugin的注册中心。
+
+
 ## 运行shenyu-examples-springcloud
 
 示例项目中我们使用 `eureka` 作为 `Spring Cloud`的注册中心。你可以使用本地的`eureka`，也可以使用示例中提供的应用。

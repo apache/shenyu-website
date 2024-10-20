@@ -91,6 +91,7 @@ public class ShenyuBootstrapApplication {
 启动`shenyu-bootstrap`项目。
 
 ## 在admin侧配置注册中心相关信息
+
 - 目前Shenyu 上的 SpringCloudPlugin 插件实现了对注册中心的服务发现的支持。但是无法做到动态切换注册中心。为了能让使用者更加清晰的使用该插件，以及能更便捷的切换注册中心的配置，shenyu支持开发者在admin页面上配置注册中心以及切换注册中心，从而降低用户的使用成本，以及使用体验。
 
 具体操作流程：

@@ -92,6 +92,7 @@ public class ShenyuBootstrapApplication {
 Restart the `shenyu-bootstrap` project.
 
 ## Configure the registration center related information on the admin side
+
 - Currently, the SpringCloudPlugin plugin on Shenyu implements support for service discovery of the registry center. However, it is not possible to dynamically switch the registry center. In order to allow users to use the plugin more clearly and switch the configuration of the registry center more conveniently, shenyu supports developers to configure and switch the registry center on the admin page, thereby reducing the user's usage cost and experience.
 
 Specific operation process:

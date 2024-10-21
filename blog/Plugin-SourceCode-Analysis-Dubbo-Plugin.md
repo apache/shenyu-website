@@ -17,7 +17,7 @@ The `Apache ShenYu` gateway uses the `dubbo` plugin to make calls to the `dubbo`
 
 ### 1. Service Registration
 
-Take the example provided on the official website [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo/shenyu-examples-apache-dubbo-service). Suppose your `dubbo` service is defined as follows (`spring-dubbo.xml`).
+Take the example provided on the official website [shenyu-examples-dubbo](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo/shenyu-examples-apache-dubbo-service). Suppose your `dubbo` service is defined as follows (`spring-dubbo.xml`).
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"

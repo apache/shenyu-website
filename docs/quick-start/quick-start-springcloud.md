@@ -91,6 +91,35 @@ public class ShenyuBootstrapApplication {
 
 Restart the `shenyu-bootstrap` project.
 
+## Configure the registration center related information on the admin side
+
+- Currently, the SpringCloudPlugin plugin on Shenyu implements support for service discovery of the registry center. However, it is not possible to dynamically switch the registry center. In order to allow users to use the plugin more clearly and switch the configuration of the registry center more conveniently, shenyu supports developers to configure and switch the registry center on the admin page, thereby reducing the user's usage cost and experience.
+
+Specific operation process:
+
+- Start shenyu-admin
+- Start shenyu-bootstrap
+- Start the registry center, such as the eureka project under shenyu-examples
+- Start shenyu-examples-springcloud under shenyu-examples
+- Configure the relevant information of the registry center on the admin system interface and click Confirm
+
+Take the eureka registry center configuration as an example to show how to configure the relevant information of the registry center on the page:
+
+<img src="/img/shenyu/quick-start/springcloud/springCloud-dynamic-register-operate-en.png" width="60%" height="50%" />
+
+As shown in the figure above, registerType indicates the type of registration center, and the following registration centers are supported:
+
+- eureka
+- nacos
+- zookeeper
+- apollo
+- consul
+- etcd
+- polaris
+- kubernetes
+
+serverLists indicates the IP address of the registration center, and props is the additional configuration items for the registration center, such as namespace, username, etc. After clicking OK, eureka is used as the registration center of springCloudPlugin.
+
 ## Run the shenyu-examples-springcloud project
 
 In the example project we used `Eureka` as the registry for `Spring Cloud`. You can use the local `Eureka` or the application provided in the example.

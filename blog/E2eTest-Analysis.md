@@ -26,7 +26,7 @@ In short, e2e testing is a comprehensive testing method that can verify whether 
 
 ### How to implement automated e2e testing
 
-In Apache ShenYu, the main steps of e2e testing are reflected in the script of the GitHub Action workflow, as shown below, the script is located at [~/.github/workflows](https://github.com/apache/incubator-shenyu/tree/master/.github/workflows) directory in the e2e file.
+In Apache ShenYu, the main steps of e2e testing are reflected in the script of the GitHub Action workflow, as shown below, the script is located at [~/.github/workflows](https://github.com/apache/shenyu/tree/master/.github/workflows) directory in the e2e file.
 
 ```yaml
 name: e2e

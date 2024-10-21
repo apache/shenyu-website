@@ -19,7 +19,7 @@ tags: [Apache ShenYu]
 Use Git to clone code
 
 ```shell
-git clone https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/apache/shenyu.git
 ```
 
 ### Compile code
@@ -27,7 +27,7 @@ git clone https://github.com/apache/incubator-shenyu.git
 Compile with Maven
 
 ```shell
-cd incubator-shenyu
+cd shenyu
 mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 

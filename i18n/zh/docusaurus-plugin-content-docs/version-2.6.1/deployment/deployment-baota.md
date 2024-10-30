@@ -9,6 +9,7 @@ description: 通过宝塔面板部署
 > 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署 `shenyu` 前的环境准备工作。
 
 ### 前提
+
 - 仅适用于宝塔面板9.2.0及以上版本
 - 安装宝塔面板，前往[宝塔面板](https://www.bt.cn/new/download.html)官网，选择正式版的脚本下载安装
 
@@ -36,6 +37,7 @@ description: 通过宝塔面板部署
 
 
 ### 访问 ShenYu
+
 - 请在浏览器地址栏中输入域名访问 `http://<宝塔面板IP>:9095`，即可访问 `ShenYu` 控制台。
 ![控制台](img/shenyu/deployment/baota/20241010102246.png)
 

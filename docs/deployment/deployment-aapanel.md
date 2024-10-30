@@ -43,6 +43,7 @@ After submission, the panel will automatically initialize the application, which
 
 
 ### Visit ShenYu
+
 - If you have set a domain name, please directly enter the domain name in the browser address bar, such as `http://demo.ShenYu.apache.org`, to access the `LobeChat`ShenYu console.
 - If you choose to access through `IP+Port`, please enter the domain name in the browser address bar to access `http://<aaPanelIP>:9095` to access the `ShenYu` console.
 ![console](img/shenyu/deployment/aapanel/console.png)

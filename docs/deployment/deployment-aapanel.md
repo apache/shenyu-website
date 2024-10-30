@@ -18,18 +18,18 @@ To install aaPanel, go to the [aaPanel](https://www.aapanel.com/new/download.htm
 aaPanel(Applicable versions 7.0.11 and above) Deployment guidelines
 
 1. Log in to aaPanel and click `Docker` in the menu bar
-   ![Docker](/static/img/install.png)
+   ![Docker](img/shenyu/deployment/aapanel/install.png)
 
 2. The first time you will be prompted to install the `Docker` and `Docker Compose` services, click Install Now. If it is already installed, please ignore it.
-   ![install](/static/img/install2.png)
+   ![install](img/shenyu/deployment/aapanel/install2.png)
 
 3. After the installation is complete, find `ShenYu` in `One-Click Install` and click `install`  
 
-   ![install_HertzBeat](/static/img/install-ShenYu.png)
+   ![install_HertzBeat](img/shenyu/deployment/aapanel/install-ShenYu.png)
 
 4. Set the basic information such as domain name and click 'OK'
 
-   ![add](/static/img/addShenYu.png)
+   ![add](img/shenyu/deployment/aapanel/addShenYu.png)
    
 
 
@@ -45,5 +45,5 @@ After submission, the panel will automatically initialize the application, which
 ### Visit ShenYu
 - If you have set a domain name, please directly enter the domain name in the browser address bar, such as `http://demo.ShenYu.apache.org`, to access the `LobeChat`ShenYu console.
 - If you choose to access through `IP+Port`, please enter the domain name in the browser address bar to access `http://<aaPanelIP>:9095` to access the `ShenYu` console.
-![console](/static/img/console.png)
+![console](img/shenyu/deployment/aapanel/console.png)
 

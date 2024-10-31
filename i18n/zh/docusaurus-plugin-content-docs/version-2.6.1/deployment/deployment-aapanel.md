@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: 通过宝塔面板部署
+keywords: ["宝塔"]
 description: 通过宝塔面板部署
 ---
 

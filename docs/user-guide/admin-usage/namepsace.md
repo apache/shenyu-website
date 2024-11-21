@@ -60,6 +60,7 @@ This allows you to manage the plugin status within the current namespace.
 <img src="/img/shenyu/basicConfig/namespace/namespace-new-plugin-en.png" width="80%" height="50%" />
 
 ### 3.Other Gateway Data Management
+
 Pages that display the namespace switch component in the top-right corner support namespace isolation. By switching namespaces via the component, you can manage gateway data for a specific namespace.
 
 <img src="/img/shenyu/basicConfig/namespace/namespace-other-data-en.png" width="80%" height="50%" />

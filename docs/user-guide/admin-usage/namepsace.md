@@ -6,7 +6,7 @@ Currently, when managing gateways for different business line needs, multiple se
 
 Note: To facilitate usage, a default namespace already exists in the system; please do not manually delete the default namespace records in the database.
 
-## 2.Usage Process
+## 2.Namespace Creation and Enablement
 
 ### 1.Create a New Namespace
 
@@ -39,6 +39,31 @@ Once data from Shenyu-client is registered under the specified namespace in Shen
 Note: A gateway can only bind to a single unique namespaceId
 
 <img src="/img/shenyu/basicConfig/namespace/namespace-bootstrap.png" width="80%" height="50%" />
+
+## 3.Plugin Management
+
+### 1.Add a New Plugin
+
+The plugin group under a new namespace is empty by default. To add a plugin to a namespace, you first need to select the option to generate it under the specific namespace in the plugin template.
+
+Choose 【PluginTemplate】-【Generate】-【Select Target Namespace】
+<img src="/img/shenyu/basicConfig/namespace/namespace-generate-plugin-en.png" width="80%" height="50%" />
+
+### 2.Switch Namespace
+
+Switch namespaces via the component in the top-right corner.
+
+<img src="/img/shenyu/basicConfig/namespace/namespace-change-en.png" width="80%" height="50%" />
+
+This allows you to manage the plugin status within the current namespace.
+
+<img src="/img/shenyu/basicConfig/namespace/namespace-new-plugin-en.png" width="80%" height="50%" />
+
+### 3.Other Gateway Data Management
+
+Pages that display the namespace switch component in the top-right corner support namespace isolation. By switching namespaces via the component, you can manage gateway data for a specific namespace.
+
+<img src="/img/shenyu/basicConfig/namespace/namespace-other-data-en.png" width="80%" height="50%" />
 
 ## 3.Important Changes
 

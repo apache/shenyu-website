@@ -24,7 +24,7 @@
 
 ### 2.下游服务配置命名空间（shenyu-client）
 
-得到namespaceId以后，我们可以在下游服务（已经引入shenyu-client），配置文件中配置单个或多个namespaceId
+得到namespaceId以后，我们可以在下游服务（已经引入shenyu-client），配置文件中配置单个或多个namespaceId（多个namespaceId之间应使用 “,” 隔开）
 
 <img src="/img/shenyu/basicConfig/namespace/namespace-shenyu-client.png" width="80%" height="50%" />
 
@@ -68,7 +68,7 @@
 
 ## 4.重要改动说明
 
-#### 1.旧版本的【插件】的概念已经变成【插件元数据】概念，现在的【插件】模型已经是命名空间下的插件，而在数据库中【插件元数据】对应plugin表，【插件】对应namespace_plugin_rel 表
+#### 1.旧版本的【插件】的概念已经变成【插件元数据】概念，现在的【插件】模型已经是某个命名空间下的插件，而在数据库中【插件元数据】对应plugin表，【插件】对应namespace_plugin_rel 表
 
 #### 2.Apidoc模块已经与selector、Rule等解绑
 

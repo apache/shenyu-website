@@ -20,800 +20,533 @@ Six months later, Apache ShenYu released version 2.7.0, which submitted a total 
 
 > version records: https://github.com/apache/shenyu/compare/v2.6.1...v2.7.0
 > 
-### New Feature
 
-1. Supports the plug-in upload function and gateway hot load plug-in
+### ✨ New Features
 
-> the specific use please see: https://shenyu.apache.org/zh/docs/next/developer/custom-plugin
+1.Upgrade dockerfile java runtime version 8 to 17
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5374
+
+2.Upgrade SpringBoot to 3.x
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5583
+
+3.Support ShenYu Admin Cluster
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5544
+> 
+> https://github.com/apache/shenyu/pull/5592
+
+4.Upgrade checkstyle plugin to 3.4.0
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5614
+
+5.Datasource support OceanBase
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5617
+
+6.Supports batch modification of selector/rule status
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5499
+
+7.Supports batch modification of PathAuth status 
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5488
+
+8.Upgrade apache dubbo version 
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5527
+
+9.Support `Contribute with Gitpod`
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5610
+
+10.Support Configs Export And Import 
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5474
+
+11.Add shenyu client heartbeat 
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5659
+
+12.Support Namespace 
+
+> the specific use please see: https://shenyu.apache.org/docs/user-guide/admin-usage/namepsace
+> 
+> specific pr please see: https://github.com/apache/shenyu/pull/5584
 >
-> specific pr please see: https://github.com/apache/shenyu/pull/4392
-
-2. Apollo is supported as the data synchronization and registry
-
-```yaml
-sheneyu:
-  sync:
-    apollo:
-      appId: shenyu
-      meta: http://localhost:8080
-      env: dev
-      clusterName: test
-      namespace: application
-```
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4532
-
-3. The springboot client can be dynamically configured on the shenyu client
-
-4. Add the TCP plug-in
-
-> the specific use please see: https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/tcp-plugin
+> https://github.com/apache/shenyu/pull/5715
 >
-> specific pr please see: https://github.com/apache/shenyu/pull/4607
+> https://github.com/apache/shenyu/pull/5716
 >
-> https://github.com/apache/shenyu/pull/4766
-
-![](https://shenyu.apache.org/zh/assets/images/card_list_zh-5a32a8ec1b2a8eed4c649bb3e4f1c7f3.png)
-
-![](https://shenyu.apache.org/zh/assets/images/discovery-design-3081f14fec1ef9322d39bd1b998f42a3.png)
-
-5. Support springmvn(boot) to collect api-meta data from shenyu client
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4600
-
-6. Add support for the shenyu ingress controller
-
-> the specific use please see: https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/build-deploy
+> https://github.com/apache/shenyu/pull/5719
 >
-> https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/config
+> https://github.com/apache/shenyu/pull/5729
 >
-> specific pr please see: https://github.com/apache/shenyu/pull/4620
+> https://github.com/apache/shenyu/pull/5734
 >
-> 配置如下：
+> https://github.com/apache/shenyu/pull/5735
 >
-> ```yaml
-> shenyu:
->   netty:
->     http:
->       sni:
->         enabled: true
->         mod: k8s #k8s模式适用
->         defaultK8sSecretNamespace: shenyu-ingress #默认secret资源的namespace
->         defaultK8sSecretName: default-cert #默认secret资源名字
-> ```
+> https://github.com/apache/shenyu/pull/5740
 >
+> https://github.com/apache/shenyu/pull/5746
 >
-
-7. Add a zookeeper, naocs, Apollo, HttpLongPolling, consul as shenyu service discovery
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4636
+> https://github.com/apache/shenyu/pull/5757
 >
-> https://github.com/apache/shenyu/pull/4657
+> https://github.com/apache/shenyu/pull/5760
 >
-> https://github.com/apache/shenyu/pull/4802
+> https://github.com/apache/shenyu/pull/5765
 >
-> https://github.com/apache/shenyu/pull/4795
+> https://github.com/apache/shenyu/pull/5769
 >
-> https://github.com/apache/shenyu/pull/4800
+> https://github.com/apache/shenyu/pull/5771
 >
-> https://github.com/apache/shenyu/issues/4562
-
-8. Add Huawei Cloud lts log collection
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4812
-
-9. Add opengauss database support
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4856
-
-10.添加polaris作为shenyu的数据同步和注册中心
-
-```yaml
-shenyu:
-  sync:
-    polaris:
-      url: 127.0.0.1:8093
-      namespace:
-      fileGroup:
-```
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4410
+> https://github.com/apache/shenyu/pull/5779
 >
-> https://github.com/apache/shenyu/pull/4897
-
-11. Add shenyu matching cache
-
-```yaml
-shenyu:
-  selectorMatchCache:
-    ## selector L1 cache
-    cache:
-      enabled: false
-      initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 10000 # max size in cache
-    ## selector L2 cache, use trie as L2 cache
-    trie:
-      enabled: false
-      cacheSize: 128 # the number of plug-ins
-      matchMode: antPathMatch
-  ruleMatchCache:
-    ## rule L1 cache
-    cache:
-      enabled: true
-      initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 65536 # max size in cache
-    ## rule L2 cache, use trie as L2 cache
-    trie:
-      enabled: false
-      cacheSize: 1024 # the number of selectors
-      matchMode: antPathMatch
-```
-
-> the specific use please see: https://shenyu.apache.org/zh/docs/next/user-guide/property-config/client-property-config
+> https://github.com/apache/shenyu/pull/5786
 >
-> specific pr please see: https://github.com/apache/shenyu/pull/4417
+> https://github.com/apache/shenyu/pull/5790
 >
-> https://github.com/apache/shenyu/pull/4536
-
-12. Added support for prometheus for shenyu admin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4336
-
-13. Expose the endpoints of shenyu actuator
-
-> Note: You can use pr to view the memory data of shenyu gateway
+> https://github.com/apache/shenyu/pull/5798
 >
-> specific pr please see: https://github.com/apache/shenyu/pull/4637
+> https://github.com/apache/shenyu/pull/5799
 >
-> Check the configuration of actuator:
+> https://github.com/apache/shenyu/pull/5823
 >
-> ```yaml
-> management:
->   endpoints:
->     web:
->       exposure:
->         include: "*" # or health,info
-> ```
-
-## Enhanced
-
-1. Add tags attribute to API doc client
-
-> the specific use please see: https://shenyu.apache.org/docs/user-guide/api-doc/shenyu-annotation-apidoc
+> https://github.com/apache/shenyu/pull/5847
 >
-> specific pr please see: https://github.com/apache/shenyu/pull/4362
+> https://github.com/apache/shenyu/pull/5857
 
-2. Add Brpc integration tests
+13.Support k8s dynamically scale 
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4319
+> specific pr please see: https://github.com/apache/shenyu/pull/5686
 
-3.Brpc supports shared thread pools
+14.Invalidate Previous Tokens on New Login by Implementing Client ID Validation
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4402
+> specific pr please see: https://github.com/apache/shenyu/pull/5600
 
-4. Add mapping types for cryptorRequst and cryptorResponse
+15.Support for gray release in divide-plugin
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4418
+> specific pr please see: https://github.com/apache/shenyu/pull/5763
 
-5. Encryption plug-in supports multiple field encryption
+16.Support Kubernetes registry
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4435
+> specific pr please see: https://github.com/apache/shenyu/pull/5769
 
-6. Add the p2c load balancing algorithm
+### ⚡ Enhancement
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4451
+1.Add rocketmq logging e2e test
 
-7. Generate a plug-in string using base64 and store it in the plug-in data
+> specific pr please see: https://github.com/apache/shenyu/pull/5439
 
-> the specific use please see: https://shenyu.apache.org/zh/docs/next/developer/custom-plugin
+2.Enhance metrics-ratelimiter collect
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5461
+
+3.Enhance metrics collection for Sentinel, Resilience4j, and Hystrix
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5468
+
+4.Arrange sofa common tools dependencies
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5609
+
+6.Add missing license
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5503
+
+7.Set up callback for send message on Kafka
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5748
+
+8.Use the loadbalance configuration from metadata for Dubbo
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5806
+
+9.Add non null validation for upstream which obtained from select
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5804
+
+10.Set timeout which from rule handle to dubbo rpc context
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5778
+
+11.Publish event when enable selector and rule
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5762
+
+12.Remove closed session from the NAMESPACE_SESSION_MAP
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5734  
+
+13.Add test case for ShenyuClientURIExecutorSubscriber
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5413
+
+14.Add test case for `ShenyuClientIllegalArgumentException`
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5408
+
+15.Add test case for `ShenyuClientRegisterEventPublisher`
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5417
+
+16.Add test case for `ShenyuClientMetadataExecutorSubscriber`
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5404
+
+17.Add test case for `AbstractWasmPluginDataHandler`
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5451
+
+18.Add test case for `ShenyuClientRegisterRepositoryFactoryTest`
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5443
+
+19.Add test case for `AbstractWasmDiscoveryHandler`
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5453
+
+20.Upgrade sofa rpc version support
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5526
+
+21.Add header key of Sign plugin to CrossFilter config
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5627
+
+22.Encrypt the password
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5436
+
+23.Add AbstractShenyuWasmPluginTest
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5450
+
+24.RewritePlugin/ContextPathPlugin supports across application and plugin
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5438
+
+25.Remove duplicate path check
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5514
+
+26.Remove Alibaba Dubbo Support
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5500
+
+27.Support docker env set http path
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5833
+
+28.Add some code refactor improve
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5613
+
+29.Support get token from cookie\header\param
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5547
+
+30.Make the default value of ShenyuDubboService annotation equal to that of DubboService annotation
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5816
+
+31.Add db script into admin package
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5724
+
+32.Get rid of the dead code and add some improvements
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5849
+> 
+> https://github.com/apache/shenyu/pull/5803
+> 
+> https://github.com/apache/shenyu/pull/5789
+
+33.MotanServiceEventListenerTest case optimization
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5745
+
+34.Delete duplicate maven in shenyu-registry-eureka.xml
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5836
+
+35.Jwt dependency updated
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5480
+
+36.Print plugin execute time
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5437
+
+37.Discovery Local support upstream health check in Admin
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5596
+
+38.Close rule cache
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5589
+
+39.Less concurrency
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5587
+
+40.Optimize logic to avoid "orElse" execution，Update VersionTwoExtractor.java
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5415
+
+### ♻️ Refactor
+
+1.Admin distributed lock by spring-integration-jdbc
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5457
+
+2.Refactor beanUtils
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5497
+
+3.Remove macos ci
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5559
+
+4.Update logging plugin DataBuffer deprecated method
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5620
+
+5.Modify e2e k8s to docker compose
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5710
+
+6.Migrate Admin swagger from springfox to springdoc
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5630
+
+7.Refactor springcloud plugin
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5695
+
+8.Refactor some code
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5568
+
+9.Delete SO_SNDBUF & SO_RCVBUF
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5502
+
+10.Refactor shenyu-sync-data-http : replace log %s -> {}.
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5465
+
+11.Optimizing the node type listener
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5435
+
+12.Refactor plugin lifecycle
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5432
+
+13.Adjust code order and remove invalid input parameters
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5397
+
+### 🐛 Bug Fix
+
+1.Fix duplicate header for request plugin
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5846
+
+2.Fix proxy.selector and discovery not delete when delete divide selector
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5845
+
+3.Fix LoggingPlugin error log catch
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5842
+
+4.Fix logging plugin sample bug
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5429
+
+5.Fix memory overflow
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5407
+
+6.Fix rewrite integrated test
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5445
+
+7.Fix AbstractWasmPluginDataHandlerTest
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5464
+
+8.Fix missing PRIMARY KEY in sql-script/h2/schema.sql
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5481
+
+9.Fix Data dictionary page data sorting exception
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5483
+
+10.FIx doc error
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5505
+
+11.Resolve dashboard routing mismatch post context-path update
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5510
+
+12.Fix etcd sync config problem
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5535
+
+13.Fix consul sync problem
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5546
+
+14.Fix the bug of being unable to query without registration
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5578
+
+15.Fix Plugin Edit Page Issue by Correcting Plugin ID Query and Updating Data Type
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5622
+
+16.Fix class AdminConstants has word spelling error
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5637
+
+17.Fix shenyu-examples-springmvc start failed
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5664
+
+18.Fix dashboard menu children sort not working problem
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5691
+
+19.Fix ShenyuApacheDubboXmlProviderApplication config
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5811
+
+20.Fix data sync dataId for proxy selector and discovery is not unique
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5783
+
+21.Filter disable dict option
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5776
+
+22.Fix SpringCloudParser MetaData null data
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5737
+
+23.Fix client register validation
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5764
+
+24.Config dubbo serialize-check-status=DISABLE
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5756
+
+25.Fix example TestApacheDubboXmlApplication start failed
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5754
+
+26.Fix the nacos data sync model missing the contextPath configuration
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5722
+
+27.Fix SPI create non singleton objects in multi-threaded scenarios
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5713
+
+28.Fix BadSqlGrammarException
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5707
+
+29.Fix ListUtil->merge exception
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5642
+
+30.Fix metaData disable not filtered
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5638
+
+31.Fix divide logging request method
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5607
+
+32.Fix e2e chunk header error
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5593
+
+33.Fix cookie error and sql check
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5567
+
+34.Fixed NPE issue
+
+> specific pr please see: https://github.com/apache/shenyu/pull/5539
 >
-> specific pr please see: https://github.com/apache/shenyu/pull/4473
+> https://github.com/apache/shenyu/pull/5530
 
-8. Add the shortest response load balancing algorithm
+35.Fix Invalid path error
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4488
+> specific pr please see: https://github.com/apache/shenyu/pull/5533
 
-9. Add a hash load balancing test case
+36.Fix hot load issue
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4383
+> specific pr please see: https://github.com/apache/shenyu/pull/5509
 
-10. Add the DetailSerivice test case
+37.Fix e2e test case can not run wget command
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4450
+> specific pr please see: https://github.com/apache/shenyu/pull/5519
 
-11. Provide broad routing policies
+38.Fix fallback issue
 
-> Specific configurations are as follows:
->
-> ```yaml
-> shenyu:
->     switchConfig:
->        local: true
->        collapseSlashes: false #true表示开启宽泛路径支持
-> ```
->
-> specific pr please see: https://github.com/apache/shenyu/pull/4522
+> specific pr please see: https://github.com/apache/shenyu/pull/5496
 
-12. Add shenyu-common enums package test cases
+39.Resolve the sql error in rule-sqlmap.xml
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4541
+> specific pr please see: https://github.com/apache/shenyu/pull/5644
 
-13. Add shenyu-common dto package test cases
+40.Fix readYmlBuildRepository NPE
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4549/
+> specific pr please see: https://github.com/apache/shenyu/pull/5819
 
-14. Add the model package test case of add shenyu-admin
+41.Fix nacos cannot be registered in the Shenyu-examples-SpringCloud project
 
-> specific pr please see: https://github.com/apache/shenyu/issues/4540
+> specific pr please see: https://github.com/apache/shenyu/pull/5825
 
-15. Add the shenyu match cache test case
+42.Fix springCloud ruleData path setting didn't used
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4557
+> specific pr please see: https://github.com/apache/shenyu/pull/5841
+> 
+> https://github.com/apache/shenyu/pull/5843
 
-16. Support k8s probe
+43.Fix shenyu-plugin-logging-elasticsearch : modify setIndexName of ElasticSearchLogConfig
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4567
+> specific pr please see: https://github.com/apache/shenyu/pull/5830
 
-17. Add a service package test for shenyu-admin
+44.Fix Not first offline from the gateway when stopping service
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4579
+> specific pr please see: https://github.com/apache/shenyu/pull/5507
 
-18. Add json support to the API documentation
+45.Fix k8s liveness probe can not run wget command error
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4591
+> specific pr please see: https://github.com/apache/shenyu/pull/5513
 
-19. The SPEL of the mock plugin is secure by default
+46.Fix AbstractNodeDataSyncService load discoverUpstream on startup
 
-> specific pr please see: https://github.com/apache/shenyu/pull/4606
-
-20. Add ` ShenyuClientApiDocExecutorSubscriber ` test cases
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4632
-
-21. Add test cases for shenyu-client-sofa module
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4688
-
-22. Add 'tag relation' to 'shenyu api doc'
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4362
-
-23. Add start and stop scripts for windows
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4673
-
-24. Add a test case for 'ShenyuSdkClientFactory'
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4645
-
-25. Add websocket synchronization support for shenyu e2e springcloud plugin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4698
-
-26. Support divide plugin automatically offline
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4702
-
-27. Add the springcloud service instance cache
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4705
->
-> the specific use please see: https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/spring-cloud-plugin
->
-> ```yaml
-> shenyu:
->     springCloudCache:
->        enabled: false # 为true是开启springcloud缓存
-> ```
-
-28. Changing the password supports i18n
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4758
-
-29.shenyu discovery supports websocket synchronization
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4768
-
-30. Upgrade 'springboot' version to '2.7.13'
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4783
-
-31. Add nacos and zookeeper synchronization test for e2e-springcloud
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4747
-
-32. Add 'api doc client' annotation generation property
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4845
-
-33. Support 'zookeeper' client automatically offline
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4806
-
-34. Support 'Apollo client' automatic offline
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4855
-
-35. Support swagger documents and store them in a database
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4849
-
-36. Support 'nacos client' automatic offline
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4890
-
-37. Add the alibaba dubbo e2e test case
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4859
-
-38. Add the apache dubbo e2e test case
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4899
-
-39. Add shenyu spring sdk test cases
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4913
-
-40. Add sofa e2e test
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4919
-
-41. Add a test case for Apollo data synchronization
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4918
-
-42. Add the Connection pool configuration for the database (hakari)
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4938
-
-43. Add 'idea icon' for shenyu
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4951
-
-## Refactor
-
-1. Reconstruct shenyu admin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4355
-
-2. Optimize the least active balance algorithm
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4342
-
-3. Optimize the compatibility of the first version of shenyu sign plugin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4332
->
-> the specific use please see: https://shenyu.apache.org/docs/plugin-center/security/sign-plugin
-
-4. Optimize the shenyu upstream check logic
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4386
-
-5. Optimize the global version of the project
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4394
-
-6. Optimize the code of 'ShenyuConsulConfigWatch'
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4400
-
-7. Optimize shenyu prefix tree matching logic
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4414
-
-8. Optimize the verification when the rule condition is submitted
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4403
-
-9. Optimize the shenyu-client-websocket client registration code
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4462
-
-10. Add shenyu admin's Micrometer dependent license
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4409
-
-11. Update the maven-assembly-plugin packaging plug-in to version 3.5.0
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4673
-
-12. Optimize the ordering of global plug-ins
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4429
-
-13. Use BearerToken instead of StatelessToken in shenyu admin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4516
-
-14. Reconstructs the shenyu-logging module
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4526
-
-15. Verify api doc
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4564
-
-16. Optimize shenyu prefix tree and support '*' matching
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4569
-
-17. Optimize the hot loading of plug-ins
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4392
-
-18. Optimize the putPlugin method of 'ShenyuWebHandler'
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4598
-
-19. Refactor Shenyu webfilter
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4614
-
-20. Refactor the oauth2 plguin plug-in
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4624
-
-21. Refactor the continued field of the shenyu selector
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4635
-
-22. Refactor shenyu selection and rule matching cache
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4578
-
-23. Deleted unused generics from the shenyu client
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4653
-
-24. Refactor shenyu's support for sentinel plug-ins
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4669
-
-25. Expose cached data through actuator terminals
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4637
->
-> https://github.com/apache/shenyu/pull/4658
-26. Refactor the checkUserPassword method to boot without printing a known error log
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4697
-
-27. Add parameters for printing logs
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4637
-
-28. Reconstructs shenyu global exception handling
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4709
-
-29. Added shenyu plugin to upload integration test
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4679
-
-30. Optimize grammar candy
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4700
-
-31. Optimize discovery_handler_id of discovery_upstream
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4710
-
-32. Reconstruct the shenyu-plugin module and archive proxy plug-ins by category
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4765
-
-33. Refactor the cache of AlibabaDubboConfigCache
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4772
-
-34. Remove hutool dependencies
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4773
-
-35. Refactor 'ShenyuClientShutdownHook'
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4780
-
-36. Add BaseAnnotationApiBeansExtractor Extractor
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4787
-
-37. Support multi-client registration
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4790
-
-38. Refactoring Shenyu-e2e supports Shenyu's check style
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4799
-
-39. Optimize shenyu client registration logic
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4809
-
-40. Add a domain test for the shenyu divide plugin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4803
-
-41. Update the extension of the rpc_ext field
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4821
-
-42. Optimize consul connection operations
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4832
-
-43. Refactor the yaml addition of springcloud for shenyu e2e
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4837
-
-44. Add integration tests for the k8s ingress controller
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4820
-
-45. Split the document field of the apidoc detail interface and add fields such as requestHeaders and responseParameters
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4865
-
-46. Add a swagger example project to test the functionality of the API documentation
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4825
-
-47. Optimize the display of shenyu admin's form fields in json format
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4873
-
-48. Reconstruct the observability of shenyu logs
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4874
-
-49. Add the bootstrap boot log
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4879
-
-50. Refactor swagger's api documentation
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4892
-
-51. Upgrade grpc version to 1.53.0
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4841
-
-52. Refactor api metadata handlers
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4948
-
-53. Optimize code and pom dependencies
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4945
-
-## Bug Fixes
-
-1. Optimize the h2 path
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4351
-
-2. Fix the invocation error of the encryption response plug-in
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4331
-
-3. Fix the jdk8 Map computeIfAbsent performance bug
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4338
-
-4. Fix zombieRemovalTimes code
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4368
-
-5. Rectify the sql error after the upgrade
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4374
-
-6. Delete the detectorOfflineLinks tag
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4382
-
-7. Ignore flat pom
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4390
-
-8. Repair the LOG invocation method
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4387
-
-9. Fix the NPE of sheyu-example-springcloud using nacos
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4396
-
-10. Fix Shenyu-admin name type dispute
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4340
-
-11. Restore the load balancing spi resource
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4411
-
-12. Rectify sql script errors
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4412
-
-13. Fix jackson's 24 hour format and time zone
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4413
-
-14. Fix JwtUtils error
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4420
-
-15. Fix dubbo caller cache bug
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4433
-
-16. Delete the lost HOST
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4425
-
-17. Repair SpringMvcClientEventListener test cases
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4252
-
-18. Fix the zombie update PENDING_SYNC error
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4430
-
-19. Repair memory leaks in the windlfu
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4486
-
-20. Fix the rule query failure caused by too many rules
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4499
-
-21. Fix missing actuator dependencies and port errors in sample http
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4506
-
-22. Fix http and https errors on UpstreamCheckUtils
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4509
-
-23. Fix memory leak caused by FileFilter
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4507
-
-24. Fix the zookeeper synchronization error
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4906
-
-25. The memory leak repair MemorySafeWindowTinyLFUMap errors
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4524
-
-26. Fix ApiDoc path missing separator
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4528
-
-27. Fix shenyu trie's NPE
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4533
-
-28. Fix plugin skip error
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4589
-
-29. Rectify the oracle sql error
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4595
-
-30. Fix shenyu admin can not load shenyu icon issue
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4605
-
-31. Fix the hystrix fallback bug
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4593
-
-32. Fix the warm-up time for divide and springcloud
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4619
-
-33. Fix springcloud service selector
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4639
-
-34. Fix shenyu-spring-boot-starter-plugin-mock add spring.factories
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4644
-
-35. Fix shenyu-client-mvc and shenyu-client-springcloud lost ip
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4681
-
-36. Fix empty rule data and selector data in cache
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4716
-
-37. Fix api documentation module update api details error
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4720
-
-38. Fix getting topic from configuration in KafkaLogCollectClient
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4756
-
-39. Fix thread safety issue with loggingConsole plugin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4763
-
-40. Fix brpc integration test response size
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4784
-
-41. Fix plugn-Dubco-common selector update gray release to remove cache
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4762
-
-42. Fix shenyu admin menu name bug
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4805
-
-43. Fix the problem that shenyu admin cannot configure consul ports
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4843
-
-44. Fix shenyu client metadata and uri cannot be synchronized with apollo to admin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4851
-
-45. Fix PathVariable annotation url does not match
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4852
-
-46. Fixed an issue where URIs could not be updated in PathPattern mode
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4854
-
-47. Fix the client close method call twice
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4867
-
-48. Fix shenyu error processing consul configuration
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4872
-
-49. Delete the unused configuration from the Request and modifyResponse plug-ins
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4882
-
-50. Fix the http registration metadata error
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4889
-
-51. Fixed an issue where websocket lost user-defined close status
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4844
-
-52. Fix consul register lost meta path property when special symbol
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4885
-
-53. Fix etcd synchronization errors
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4911
-
-54. Rectify multiple synchronization event errors on shenyu admin
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4941
-
-55. Fix Shenyu motan plugin execution error
-
-> specific pr please see: https://github.com/apache/shenyu/pull/4934
+> specific pr please see: https://github.com/apache/shenyu/pull/5473
 
 ## Contributors
 
-Special thanks to the following contributors for their support and participation in the '2.6.0' release (in no particular order).
+Special thanks to the following contributors for their support and participation in the '2.7.0' release (in no particular order).
 
-midnight2104,koonchen,847850277,balloon72,yu199195,iwangjie,damonxue,tian-pengfei,caojiajun,dragon-zhang,u3breeze,li-keguo,SuperMonkeyC,mahaitao617,tomsun28,moremind,liaolzy,Ceilzcx,misaya295,BoyuLi4,HaiqiQin,starlight2003,stulzq,ywj1352,yunlongn,aFlyBird0,dengliming,plutokaito,xuyicheng1995,lan-dian,sachin10fi,zuobiao-zhou, hudongdong129,crudboy,aoshiguchen,VampireAchao,JooKS-me,Redick01,huanccwang,lijay7674,omernaci,peng-heng,December-Pb,6freeair2016,jieyangxchen,lianjunwei,u3breeze,eurecalulu,wanyaoasiainfo,wanyaoasiainfo,Kakk22,xuziyang,menglujing,xcsnx,yu1183688986,lahmXu,fabian4,ileonli,VampireAchao,GOODBOY008,TeslaCN
+0xmkzt,Divyansh200102,IceFoxs,JJellyfish,Kerwin Bryant,M.G. Ting,Misaya295,NanMu,Qi Xu,RayayChung,Ricco Chen,Sinsy,
+VampireAchao,WindSearcher,Wweiei,Yu Siheng,aias00,caaaaaat,crazyStar,crudboy,dragon-zhang,dyjxg4xygary,dyp314417995,
+eye-gu,frank,hdgaadd,hql0312,j@ckzh0u,jerbo99,loongs-zhang,mmengLong,moremind,po-168,tomsun28,ttfont,wlngo,wyfvsfy,
+xcsnx,xiangqianZ,xiaoyu,yunlongn,ywwana,zhengke zhou,zhengpeng,ywj1352
 
 ## Become a contributor
 

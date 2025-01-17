@@ -533,6 +533,12 @@
   "ShenYu client golang Source Codes": {
     "message": "golang 客户端源码"
   },
+  "ShenYu client rust Source Codes": {
+    "message": "rust 客户端源码"
+  },
+  "ShenYu client python Source Codes": {
+    "message": "python 客户端源码"
+  },
   "ShenYu client .NET Source Codes": {
     "message": ".NET 客户端源码"
   },

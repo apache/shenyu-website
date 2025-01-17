@@ -21,799 +21,528 @@ date: 2025-01-15
 
 ### 新特性
 
-1.支持插件上传功能，支持网关热加载插件
+1.升级 Java版本，从`jdk8`升级到`jdk17`
 
-> 具体使用请查看：https://shenyu.apache.org/zh/docs/next/developer/custom-plugin
->
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4392
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5374
 
-2.支持使用Apollo作为数据同步和注册中心
+2.升级 SpringBoot 版本，升级到 3.x
 
-```yaml
-sheneyu:
-  sync:
-    apollo:
-      appId: shenyu
-      meta: http://localhost:8080
-      env: dev
-      clusterName: test
-      namespace: application
-```
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5583
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4532
+3.支持 shenyu admin 集群模式
 
-3.支持springboot client在shenyu client中动态配置
-
-4.添加TCP插件
-
-> 具体使用请查看：https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/tcp-plugin
->
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4607
->
-> https://github.com/apache/shenyu/pull/4766
-
-![](https://shenyu.apache.org/zh/assets/images/card_list_zh-5a32a8ec1b2a8eed4c649bb3e4f1c7f3.png)
-
-![](https://shenyu.apache.org/zh/assets/images/discovery-design-3081f14fec1ef9322d39bd1b998f42a3.png)
-
-5.支持springmvn(boot)在shenyu client中收集api-meta data
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4600
-
-6.添加shenyu ingress controller的支持
-
-> 具体使用请查看：https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/build-deploy
->
-> https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/config
->
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4620
->
-> 配置如下：
->
-> ```yaml
-> shenyu:
->   netty:
->     http:
->       sni:
->         enabled: true
->         mod: k8s #k8s模式适用
->         defaultK8sSecretNamespace: shenyu-ingress #默认secret资源的namespace
->         defaultK8sSecretName: default-cert #默认secret资源名字
-> ```
->
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5544
 > 
+> https://github.com/apache/shenyu/pull/5592
 
-7.添加zookeeper,naocs,apollo,HttpLongPolling,consul作为shenyu服务发现
+4.升级 checkstyle 插件版本到 3.4.0
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4636
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5614
+
+5.数据源支持 OceanBase
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5617
+
+6.支持批量修改选择器/规则状态
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5499
+
+7.支持批量修改 PathAuth 状态
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5488
+
+8.升级 apache dubbo 版本
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5527
+
+9.支持 `Contribute with Gitpod`
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5610
+
+10.支持配置批量导出和导入
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5474
+
+11.添加 shenyu 客户端心跳
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5659
+
+12.支持命名空间 
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5584
 >
-> https://github.com/apache/shenyu/pull/4657
+> https://github.com/apache/shenyu/pull/5715
 >
-> https://github.com/apache/shenyu/pull/4802
+> https://github.com/apache/shenyu/pull/5716
 >
-> https://github.com/apache/shenyu/pull/4795
+> https://github.com/apache/shenyu/pull/5719
 >
-> https://github.com/apache/shenyu/pull/4800
+> https://github.com/apache/shenyu/pull/5729
 >
-> https://github.com/apache/shenyu/issues/4562
-
-8.添加华为云lts日志收集
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4812
-
-9.添加opengauss数据库支持
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4856
-
-10.添加polaris作为shenyu的数据同步和注册中心
-
-```yaml
-shenyu:
-  sync:
-    polaris:
-      url: 127.0.0.1:8093
-      namespace:
-      fileGroup:
-```
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4410
+> https://github.com/apache/shenyu/pull/5734
 >
-> https://github.com/apache/shenyu/pull/4897
-
-11.添加shenyu匹配缓存
-
-```yaml
-shenyu:
-  selectorMatchCache:
-    ## selector L1 cache
-    cache:
-      enabled: false
-      initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 10000 # max size in cache
-    ## selector L2 cache, use trie as L2 cache
-    trie:
-      enabled: false
-      cacheSize: 128 # the number of plug-ins
-      matchMode: antPathMatch
-  ruleMatchCache:
-    ## rule L1 cache
-    cache:
-      enabled: true
-      initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 65536 # max size in cache
-    ## rule L2 cache, use trie as L2 cache
-    trie:
-      enabled: false
-      cacheSize: 1024 # the number of selectors
-      matchMode: antPathMatch
-```
-
-> 具体使用请查看：https://shenyu.apache.org/zh/docs/next/user-guide/property-config/client-property-config
+> https://github.com/apache/shenyu/pull/5735
 >
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4417
+> https://github.com/apache/shenyu/pull/5740
 >
-> https://github.com/apache/shenyu/pull/4536
-
-12.新增shenyu admin对prometheus的支持
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4336
-
-13.暴露shenyu actuator端点
-
-> 说明：可通过pr查看shenyu网关的内存数据
+> https://github.com/apache/shenyu/pull/5746
 >
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4637
+> https://github.com/apache/shenyu/pull/5757
 >
-> 如何关闭请查看actuator配置：
+> https://github.com/apache/shenyu/pull/5760
 >
-> ```yaml
-> management:
->   endpoints:
->     web:
->       exposure:
->         include: "*" # or health,info
-> ```
-
-## 增强
-
-1.对API doc client增加tags属性
-
-> 具体使用请查看：https://shenyu.apache.org/docs/user-guide/api-doc/shenyu-annotation-apidoc
+> https://github.com/apache/shenyu/pull/5765
 >
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4362
-
-2.添加Brpc的集成测试
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4319
-
-3.Brpc支持共享线程池
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4402
-
-4.为加密插件(cryptorRequst和cryptorResponse)增加映射类型
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4418
-
-5.加密插件支持多个个字段加密
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4435
-
-6.添加p2c负载均衡算法
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4451
-
-7.使用base64生成插件字符串，并存储到插件数据中
-
-> 具体使用请查看：https://shenyu.apache.org/zh/docs/next/developer/custom-plugin
+> https://github.com/apache/shenyu/pull/5769
 >
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4473
-
-8.添加最短响应负载均衡算法
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4488
-
-9.添加hash负载均衡测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4383
-
-10.添加`DetailSerivice`测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4450
-
-11.提供宽泛的路径策略
-
-> 具体配置如下：
+> https://github.com/apache/shenyu/pull/5771
 >
-> ```yaml
-> shenyu:
->     switchConfig:
->        local: true
->        collapseSlashes: false #true表示开启宽泛路径支持
-> ```
+> https://github.com/apache/shenyu/pull/5779
 >
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4522
-
-12.添加shenyu-common的enums包测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4541
-
-13.添加shenyu-common的dto包测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4549/
-
-14.添加Add shenyu-admin的model包测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/issues/4540
-
-15.添加shenyu match cache测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4557
-
-16.支持k8s探针
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4567
-
-17.添加shenyu-admin的service包测试
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4579
-
-18.在API文档中添加json支持
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4591
-
-19.mock插件的SPEL默认为安全的
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4606
-
-20.添加`ShenyuClientApiDocExecutorSubscriber`的测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4632
-
-21.为shenyu-client-sofa模块添加测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4688
-
-22.为`shenyu api doc`添加`tag relation`
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4362
-
-23.添加windows下的启动、停止脚本
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4673
-
-24.添加`ShenyuSdkClientFactory`的测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4645
-
-25.添加shenyu e2e springcloud plugin的websocket同步支持
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4698
-
-26.支持divide插件自动下线
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4702
-
-27.添加springcloud service instance缓存
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4705
+> https://github.com/apache/shenyu/pull/5786
 >
-> 具体使用请查看：https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/spring-cloud-plugin
+> https://github.com/apache/shenyu/pull/5790
 >
-> ```yaml
-> shenyu:
->     springCloudCache:
->        enabled: false # 为true是开启springcloud缓存
-> ```
-
-28.更改密码支持i18n
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4758
-
-29.shenyu discovery支持websocket同步
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4768
-
-30.升级`springboot`版本到`2.7.13`
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4783
-
-31.为e2e-springcloud添加nacos，zookeeper同步测试
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4747
-
-32.添加`api doc client`注解生成属性
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4845
-
-33.支持`zookeeper`客户端自动下线
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4806
-
-34.支持`Apollo client`自动下线
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4855
-
-35.支持swagger文档，并将文档存储到数据库
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4849
-
-36.支持`nacos client`自动下线
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4890
-
-37.添加alibaba dubbo e2e 测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4859
-
-38.添加apache dubbo e2e 测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4899
-
-39.添加shenyu spring sdk测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4913
-
-40.添加sofa e2e测试
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4919
-
-41.添加Apollo数据同步的测试用例
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4918
-
-42.添加数据库的连接池配置(hakari)
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4938
-
-43.为shenyu添加`idea icon`
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4951
-
-## 重构
-
-1.重构shenyu admin
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4355
-
-2.优化least active balance算法
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4342
-
-3.优化shenyu sign插件的第一个版本的兼容性
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4332
+> https://github.com/apache/shenyu/pull/5798
 >
-> 具体使用请查看：https://shenyu.apache.org/docs/plugin-center/security/sign-plugin
-
-4.优化shenyu upstream check逻辑
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4386
-
-5.优化项目的全局版本
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4394
-
-6.优化`ShenyuConsulConfigWatch`的代码
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4400
-
-7.优化shenyu前缀树匹配逻辑
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4414
-
-8.优化rule condition提交时的校验
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4403
-
-9.优化shenyu-client-websocket的客户端注册代码
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4462
-
-10.添加shenyu admin依赖Micrometer的许可证
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4409
-
-11.更新 maven-assembly-plugin打包插件到3.5.0版本
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4673
-
-12.优化全局插件的排序
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4429
-
-13.在shenyu admin中使用BearerToken替代StatelessToken
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4516
-
-14.重构shenyu-logging模块
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4526
-
-15.对api doc支持校验
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4564
-
-16.优化shenyu前缀树，并支持`*`匹配
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4569
-
-17.优化插件的热加载
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4392
-
-18.优化`ShenyuWebHandler`的putPlugin方法
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4598
-
-19.重构Shenyu webfilter
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4614
-
-20.重构 oauth2 plguin插件
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4624
-
-21.重构shenyu选择器的continued字段
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4635
-
-22.重构shenyu选择和规则的匹配缓存
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4578
-
-23.删除了shenyu客户端中未使用的泛型
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4653
-
-24.重构shenyu对sentinel插件的支持
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4669
-
-25.将缓存数据通过actuator端点暴露
-
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4637 
+> https://github.com/apache/shenyu/pull/5799
 >
-> https://github.com/apache/shenyu/pull/4658
+> https://github.com/apache/shenyu/pull/5823
+>
+> https://github.com/apache/shenyu/pull/5847
+>
+> https://github.com/apache/shenyu/pull/5857
 
-26.重构`checkUserPassword`方法，启动时不打印已知错误日志
+13.支持 k8s 动态扩展
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4697
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5686
 
-27.添加打印日志的参数
+14.通过实现客户端 ID 验证使新登录时失效先前的令牌
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4637
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5600
 
-28.重构shenyu全局异常处理
+15.支持 divide-plugin 的灰度发布
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4709
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5763
 
-29.添加了shenyu插件上传的集成测试
+16.支持 Kubernetes 作为注册中心
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4679
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5769
 
-30.优化语法糖
+### 增强
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4700
+1.添加 RocketMQ 日志的e2e测试
 
-31.优化discovery_upstream的discovery_handler_id字段
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5439
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4710
+2.增强指标限流器的收集功能
 
-32.重构shenyu-plugin模块，将proxy插件分类归档
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5461
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4765
+3.增强 Sentinel、Resilience4j 和 Hystrix 的指标收集
 
-33.重构`AlibabaDubboConfigCache`的缓存
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5468
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4772
+4.整理 SOFA commons-tools 依赖
 
-34.移除hutool的依赖
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5609
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4773
+6.添加缺失的许可证声明
 
-35.重构`ShenyuClientShutdownHook`
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5503
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4780
+7.为 Kafka 消息发送设置回调机制
 
-36.Extractor添加BaseAnnotationApiBeansExtractor
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5748
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4787
+8.使用元数据中的负载均衡配置用于 Dubbo
 
-37.支持多客户端注册
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5806
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4790
+9.为从选择器获取的 Upstream 添加非空校验
 
-38.重构Shenyu-e2e支持Shenyu的check style
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5804
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4799
+10.将规则处理中的超时设置到 Dubbo RPC 上下文
 
-39.优化shenyu客户端注册逻辑
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5778
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4809
+11.在启用选择器和规则时发布事件
 
-40.添加shenyu divide插件的域名测试
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5762
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4803
+12.从命名空间会话映射中移除已关闭的会话
 
-41.更新rpc_ext字段的扩展
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5734  
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4821
+13.为 ShenyuClientURIExecutorSubscriber 添加测试用例
 
-42.优化consul的连接操作
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5413
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4832
+14.为 ShenyuClientIllegalArgumentException 添加测试用例
 
-43.重构shenyu e2e的springcloud的yaml添加方式
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5408
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4837
+15.为 ShenyuClientRegisterEventPublisher 添加测试用例
 
-44.为k8s ingress controller添加集成测试
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5417
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4820
+16.为 ShenyuClientMetadataExecutorSubscriber 添加测试用例
 
-45.拆分apidoc明细接口的document字段，增加requestHeaders、responseParameters等字段
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5404
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4865
+17.为 AbstractWasmPluginDataHandler 添加测试用例
 
-46.加swagger示例项目，测试API文档的相关功能
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5451
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4825
+18.为 ShenyuClientRegisterRepositoryFactoryTest 添加测试用例
 
-47.优化shenyu admin的json格式表单字段的显示
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5443
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4873
+19.为 AbstractWasmDiscoveryHandler 添加测试用例
 
-48.重构shenyu日志可观测性
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5453
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4874
+20.升级 SOFA RPC 版本支持
 
-49.添加bootstrap启动日志
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5526
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4879
+21.将签名插件的请求头键添加到跨域过滤器配置中
 
-50.重构swagger的api文档
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5627
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4892
+22.加密密码
 
-51.升级grpc版本至1.53.0
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5436
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4841
+23.添加 AbstractShenyuWasmPlugin 测试用例
 
-52.重构api元数据处理函数
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5450
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4948
+24.重写插件/上下文路径插件支持跨应用和插件
 
-53.优化代码和pom依赖
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5438
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4945
+25.移除重复路径检查
 
-## Bug修复
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5514
 
-1.优化h2的路径
+26.移除 Alibaba Dubbo 支持
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4351
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5500
 
-2.修复加密响应插件的调用错误
+27.支持通过 Docker 环境变量设置 HTTP 路径
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4331
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5833
 
-3.修复jdk8 Map computeIfAbsent性能bug
+28.添加代码重构改进
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4338
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5613
 
-4.修复zombieRemovalTimes代码
+29.支持从 cookie、header、param 中获取令牌
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4368
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5547
 
-5.修复升级后的sql错误
+30.使 ShenyuDubboService 注解的默认值与 DubboService 注解保持一致
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4374
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5816
 
-6.删除detectorOfflineLinks标签
+31.将数据库脚本添加到管理包中
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4382
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5724
 
-7.忽略扁平化的pom
+32.清理无用代码并进行改进
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4390
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5849
+> 
+> https://github.com/apache/shenyu/pull/5803
+> 
+> https://github.com/apache/shenyu/pull/5789
 
-8.修复LOG调用方法
+33.优化 MotanServiceEventListener 测试用例
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4387
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5745
 
-9.使用nacos修复sheyu-example-springcloud的NPE
+34.删除 shenyu-registry-eureka.xml 中重复的 Maven 配置
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4396
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5836
 
-10.修复 Shenyu-admin名称的类型争论
+35.更新 JWT 依赖
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4340
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5480
 
-11.修复负载平衡spi资源
+36.打印插件执行时间
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4411
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5437
 
-12.修复sql脚本错误
+37.Admin 中的本地发现支持 upstream 健康检查
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4412
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5596
 
-13.修复jackson的24小时格式和时区
+38.关闭规则缓存
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4413
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5589
 
-14.修复JwtUtils错误
+39.减少并发
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4420
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5587
 
-15.修复dubbo调用者缓存bug
+40.优化逻辑以避免 "orElse" 执行，更新 VersionTwoExtractor
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4433
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5415
 
-16.修复丢失HOST的删除操作
+### 重构
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4425
+1.使用 spring-integration-jdbc 实现 Admin 分布式锁
 
-17.修复SpringMvcClientEventListener测试用例
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5457
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4252
+2.重构 beanUtils
 
-18.修复zombie更新PENDING_SYNC的错误
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5497
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4430
+3.移除 macOS CI
 
-19.修复windlfu的内存泄漏
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5559
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4486
+4.更新日志插件中已弃用的 DataBuffer 方法
 
-20.修复因规则过多导致规则查询失败的问题
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5620
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4499
+5.将 e2e k8s 测试修改为 docker compose
 
-21.修复示例http中缺少执行器依赖项和端口错误
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5710
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4506
+6.将 Admin swagger 从 springfox 迁移到 springdoc
 
-22.修复UpstreamCheckUtils的http和https错误
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5630
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4509
+7.重构 springcloud 插件
 
-23.修复FileFilter造成内存泄漏的问题
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5695
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4507
+8.重构部分代码
 
-24.修复zookeeper同步错误
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5568
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4906
+9.删除 SO_SNDBUF 和 SO_RCVBUF
 
-25.修复MemorySafeWindowTinyLFUMap内存泄漏错误
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5502
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4524
+10.重构 shenyu-sync-data-http：将日志 %s 替换为 {}
 
-26.修复ApiDoc路径缺少分隔符的问题
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5465
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4528
+11.优化节点类型监听器
 
-27.修复 shenyu trie的NPE
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5435
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4533
+12.重构插件生命周期
 
-28.修复插件跳过错误
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5432
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4589
+13.调整代码顺序并移除无效的输入参数
 
-29.修复oracle sql错误
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5397
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4595
+### 修复
 
-30.修复shenyu admin中无法加载shenyu图标的问题
+1.修复请求插件的重复请求头问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4605
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5846
 
-31.修复hystrix fallback的bug
+2.修复删除 divide 选择器时代理选择器和发现未删除的问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4593
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5845
 
-32.修复divide和springcloud的预热时间
+3.修复日志插件错误日志捕获问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4619
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5842
 
-33.修复springcloud服务选择器
+4.修复日志插件示例 bug
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4639
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5429
 
-34.修复 shenyu-spring-boot-starter-plugin-mock添加spring.factories
+5.修复内存溢出问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4644
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5407
 
-35.修复 shenyu-client-mvc和shenyu-client-springcloud丢失ip
+6.修复重写集成测试
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4681
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5445
 
-36.修复缓存中规则数据和选择器数据为空的问题
+7.修复 AbstractWasmPluginDataHandlerTest
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4716
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5464
 
-37.修复api文档模块更新api详情错误
+8.修复 sql-script/h2/schema.sql 中缺少主键的问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4720
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5481
 
-38.修复从KafkaLogCollectClient中的配置获取topic
+9.修复数据字典页面数据排序异常
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4756
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5483
 
-39.修复loggingConsole插件的线程安全问题
+10.修复文档错误
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4763
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5505
 
-40.修复brpc集成测试响应大小
+11.解决仪表盘路由与上下文路径更新不匹配的问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4784
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5510
 
-41.修复plugn-dubbo-common的选择器更新灰色发布删除缓存的问题
+12.修复 etcd 同步配置问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4762
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5535
 
-42.修复shenyu admin菜单名称bug
+13.修复 consul 同步问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4805
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5546
 
-43.修复shenyu admin无法配置consul端口的问题
+14.修复未注册无法查询的错误
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4843
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5578
 
-44.修复shenyu客户端元数据和uri无法与apollo同步到admin的问题
+15.修复插件编辑页面问题：修正插件 ID 查询和更新数据类型
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4851
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5622
 
-45.修复PathVariable注解url无法匹配的问题
+16.修复 AdminConstants 类拼写错误
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4852
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5637
 
-46.修复PathPattern模式下无法更新uri的问题
+17.修复 shenyu-examples-springmvc 启动失败问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4854
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5664
 
-47.修复客户端关闭方法调用两次
+18.修复仪表盘菜单子项排序不生效问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4867
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5691
 
-48.修复 shenyu 错误处理 consul 配置
+19.修复 ShenyuApacheDubboXmlProviderApplication 配置
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4872
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5811
 
-49.从Request、modifyResponse插件中删除未使用的配置
+20.修复代理选择器和发现的数据同步 ID 不唯一问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4882
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5783
 
-50.修复http注册元数据错误
+21.过滤禁用的字典选项
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4889
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5776
 
-51.修复websocket丢失用户自定义关闭状态的问题
+22.修复 SpringCloudParser 元数据空数据问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4844
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5737
 
-52.修复consul寄存器在特殊符号时丢失元路径的属性
+23.修复客户端注册验证
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4885
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5764
 
-53.修复etcd同步错误
+24.配置 dubbo 序列化检查状态为禁用
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4911
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5756
 
-54.修复shenyu admin多次同步事件错误
+25.修复示例 TestApacheDubboXmlApplication 启动失败问题
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4941
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5754
 
-55.修复 Shenyu motan插件执行错误
+26.修复 nacos 数据同步模型缺少上下文路径配置
 
-> 具体pr请查看：https://github.com/apache/shenyu/pull/4934
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5722
+
+27.修复 SPI 在多线程场景下创建非单例对象问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5713
+
+28.修复错误的 SQL 语法异常
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5707
+
+29.修复 ListUtil->merge 异常
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5642
+
+30.修复元数据禁用未过滤问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5638
+
+31.修复 divide 日志请求方法
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5607
+
+32.修复 e2e chunk header 错误
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5593
+
+33.修复 cookie 错误和 SQL 检查
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5567
+
+34.修复空指针异常问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5539
+>
+> https://github.com/apache/shenyu/pull/5530
+
+35.修复无效路径错误
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5533
+
+36.修复热加载问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5509
+
+37.修复 e2e 测试用例无法运行 wget 命令
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5519
+
+38.修复降级问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5496
+
+39.解决 rule-sqlmap.xml 中的 SQL 错误
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5644
+
+40.修复 readYmlBuildRepository 空指针异常
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5819
+
+41.修复 nacos 无法在 Shenyu-examples-SpringCloud 项目中注册问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5825
+
+42.修复 springCloud 规则数据路径设置未使用问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5841
+> 
+> https://github.com/apache/shenyu/pull/5843
+
+43.修复 shenyu-plugin-logging-elasticsearch：修改 ElasticSearchLogConfig 的 setIndexName
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5830
+
+44.修复停止服务时未首先从网关下线问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5507
+
+45.修复 k8s 存活探针无法运行 wget 命令错误
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5513
+
+46.修复 AbstractNodeDataSyncService 启动时加载发现上游问题
+
+> 具体pr请查看：https://github.com/apache/shenyu/pull/5473
 
 ## 贡献者
 
-特别感谢以下贡献者对 `2.6.0`版本的支持和参与（排名不分先后）。
+特别感谢以下贡献者对 `2.7.0`版本的支持和参与（排名不分先后）。
 
-midnight2104,koonchen,847850277,balloon72,yu199195,iwangjie,damonxue,tian-pengfei,caojiajun,dragon-zhang,u3breeze,li-keguo,SuperMonkeyC,mahaitao617,tomsun28,moremind,liaolzy,Ceilzcx,misaya295,BoyuLi4,HaiqiQin,starlight2003,stulzq,ywj1352,yunlongn,aFlyBird0,dengliming,plutokaito,xuyicheng1995,lan-dian,sachin10fi,zuobiao-zhou, hudongdong129,crudboy,aoshiguchen,VampireAchao,JooKS-me,Redick01,huanccwang,lijay7674,omernaci,peng-heng,December-Pb,6freeair2016,jieyangxchen,lianjunwei,u3breeze,eurecalulu,wanyaoasiainfo,wanyaoasiainfo,Kakk22,xuziyang,menglujing,xcsnx,yu1183688986,lahmXu,fabian4,ileonli,VampireAchao,GOODBOY008,TeslaCN
+0xmkzt,Divyansh200102,IceFoxs,JJellyfish,Kerwin Bryant,M.G. Ting,Misaya295,NanMu,Qi Xu,RayayChung,Ricco Chen,Sinsy,
+VampireAchao,WindSearcher,Wweiei,Yu Siheng,aias00,caaaaaat,crazyStar,crudboy,dragon-zhang,dyjxg4xygary,dyp314417995,
+eye-gu,frank,hdgaadd,hql0312,j@ckzh0u,jerbo99,loongs-zhang,mmengLong,moremind,po-168,tomsun28,ttfont,wlngo,wyfvsfy,
+xcsnx,xiangqianZ,xiaoyu,yunlongn,ywwana,zhengke zhou,zhengpeng,ywj1352
 
 ## 成为贡献者
 

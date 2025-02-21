@@ -24,7 +24,7 @@
 
 ### 2.下游服务配置命名空间（shenyu-client）
 
-得到namespaceId以后，我们可以在下游服务（已经引入shenyu-client），配置文件中配置单个或多个namespaceId（多个namespaceId之间应使用 “,” 隔开）
+得到namespaceId以后，我们可以在下游服务（已经引入shenyu-client），配置文件中配置单个或多个namespaceId（多个namespaceId之间应使用 “;” 隔开）
 
 <img src="/img/shenyu/basicConfig/namespace/namespace-shenyu-client.png" width="80%" height="50%" />
 

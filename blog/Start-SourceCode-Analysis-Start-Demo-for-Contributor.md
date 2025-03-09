@@ -13,8 +13,9 @@ As a first-time developer in the `Shenyu` community, I encountered some "Pitfall
 
 ## Environmental Preparation
 
-- Correct local installation of `JDK1.8+`
+- Correct local installation of `JDK17+`
 - Properly install `Git` locally
+- Correctly install Maven `3.6.3+`
 - Choose a development tool, this article uses `IDEA` as an example
 
 ## ShenYu Backend Startup Guide
@@ -90,6 +91,20 @@ Maven is a cross-platform project management tool . As the Apache organization's
     ```shell
     git config --global core.longpaths true
     ```
+
+   Tips: If you encounter the following error or have network issues preventing you from pulling all the code:
+
+   ``` tex
+   RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanly: CANCEL (err 8) 2057 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet early EOF fetch-pack: invalid index-pack output
+   ```
+
+   You can execute the following commands to first pull a single version of the code, then fetch the full code:
+
+   ``` shell
+   git clone https://github.com/apache/shenyu.git --depth 1
+   cd ./shenyu
+   git fetch --unshallow
+   ```
 
 ### ShenYu First Start
 

@@ -13,11 +13,14 @@ tags: [first-start,Apache ShenYu]
 
 ## 环境准备
 
-- 本地正确安装 `JDK1.8+`
+- 本地正确安装 `JDK17` 或更高版本
 - 本地正确安装 `Git`
+- 本地正确安装`Maven3.63` 或更高版本
 - 选择一款开发工具，本文使用 `IDEA` 为例
 
 ## ShenYu 后端启动指南
+
+
 
 ### 安装并配置Maven
 
@@ -50,21 +53,21 @@ Maven是一个跨平台的项目管理工具。作为Apache组织顶级开源项
         <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         <mirrorOf>central</mirrorOf>
         </mirror>
-
+    
         <mirror>
         <id>alimaven</id>
         <mirrorOf>central</mirrorOf>
         <name>aliyun maven</name>
         <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
         </mirror>
-
+    
         <mirror>
         <id>maven</id>
         <mirrorOf>central</mirrorOf>
         <name>name_</name>
         <url>http://repo1.maven.org/maven2</url>
         </mirror> 
-
+    
         <mirror>
         <id>junit</id>
         <mirrorOf>central</mirrorOf>
@@ -90,6 +93,22 @@ Maven是一个跨平台的项目管理工具。作为Apache组织顶级开源项
     ```shell
     git config --global core.longpaths true
     ```
+
+	Tips: 如果提示如下错误或者网络不好无法拉取全部代码：
+	
+	``` tex
+	RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanly: CANCEL (err 8) 2057 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet early EOF fetch-pack: invalid index-pack output
+	```
+	
+	可以执行以下命令先拉取一个版本的代码,然后在获取全量代码.
+	
+	``` shell
+	git clone https://github.com/apache/shenyu.git --depth 1
+	cd ./shenyu
+	git fetch --unshallow
+	```
+	
+	
 
 ### ShenYu 初启动
 
@@ -162,11 +181,11 @@ Apache ShenYu提供了Http、Dubbo、SpringCloud等应用接入shenyu网关的�
 1. 在[官网](https://nodejs.org/en)下载并安装Node.js ，选择 `LTS` 版本即可
 2. 安装时，除了设置安装路径，其他一直点 `Next` 即可
 3. 安装完成后，在命令行中进行验证：
-    
+  
     ```shell
     C:\Users\pc>node -v
     v12.22.12
-
+    
     C:\Users\pc>npm -v
     6.14.16
     ```

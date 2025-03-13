@@ -24,7 +24,7 @@ After successful creation, a unique namespaceId will be automatically generated.
 
 ### 2.Configure Namespace for Downstream Services (shenyu-client)
 
-Once you have the namespaceId, you can configure it in the downstream services (already integrated with shenyu-client) in the configuration file to use one or more namespaceIds.(Multiple namespaceIds should be separated by “,”)
+Once you have the namespaceId, you can configure it in the downstream services (already integrated with shenyu-client) in the configuration file to use one or more namespaceIds.(Multiple namespaceIds should be separated by “;”)
 
 <img src="/img/shenyu/basicConfig/namespace/namespace-shenyu-client.png" width="80%" height="50%" />
 

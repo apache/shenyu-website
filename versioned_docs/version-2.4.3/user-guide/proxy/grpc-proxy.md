@@ -6,7 +6,7 @@ description: gRPC access shenyu gateway
 
 This document is intended to help the `gRPC` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `gRPC` plugin to handle `gRPC` service.
 
-Before the connection, start `shenyu-admin` correctly, start `gRPC` plugin, and add related dependencies on the gateway and `gRPC` application client. Refer to the previous [Quick start with gRPC](../quick-start/quick-start-grpc) .
+Before the connection, start `shenyu-admin` correctly, start `gRPC` plugin, and add related dependencies on the gateway and `gRPC` application client. Refer to the previous [Quick start with gRPC](../../quick-start/quick-start-grpc) .
 
 For details about client access configuration, see [Application Client Access Config](./register-center-access) .
 

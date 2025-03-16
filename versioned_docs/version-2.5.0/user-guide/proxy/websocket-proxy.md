@@ -5,7 +5,7 @@ description: Websocket Proxy
 
 This document is intended to help the `Websocket` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Websocket` plugin to handle `Websocket` service.
 
-Before the connection, start `shenyu-admin` correctly, start `Websocket` plugin, and add related dependencies on the gateway and `Websocket` application client. Refer to the previous [Quick start with Websocket](../quick-start/quick-start-websocket) .
+Before the connection, start `shenyu-admin` correctly, start `Websocket` plugin, and add related dependencies on the gateway and `Websocket` application client. Refer to the previous [Quick start with Websocket](../../quick-start/quick-start-websocket) .
 
 For details about client access configuration, see [Application Client Access Config](../property-config/register-center-access.md) .
 

@@ -6,7 +6,7 @@ description: springCloud with shenyu gateway
 
 This document is intended to help the `Spring Cloud` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `springCloud` plugin to handle `Spring Cloud` service.
 
-Before the connection, start `shenyu-admin` correctly, start `springCloud` plugin, and add related dependencies on the gateway and `springCloud` application client. Refer to the previous [Quick start with Spring Cloud](../quick-start/quick-start-springcloud) .
+Before the connection, start `shenyu-admin` correctly, start `springCloud` plugin, and add related dependencies on the gateway and `springCloud` application client. Refer to the previous [Quick start with Spring Cloud](../../quick-start/quick-start-springcloud) .
 
 For details about client access configuration, see [Application Client Access Config](../property-config/register-center-access.md) .
 

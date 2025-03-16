@@ -5,7 +5,7 @@ description: Brpc Proxy
 
 This document is intended to help the `Brpc` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Brpc` plugin to handle `Brpc` service.
 
-Before the connection, start `shenyu-admin` correctly, start `Brpc` plugin, and add related dependencies on the gateway and `Brpc` application client. Refer to the previous [Quick start with Brpc](../quick-start/quick-start-brpc) .
+Before the connection, start `shenyu-admin` correctly, start `Brpc` plugin, and add related dependencies on the gateway and `Brpc` application client. Refer to the previous [Quick start with Brpc](../../quick-start/quick-start-brpc) .
 
 For details about client access configuration, see [Application Client Access Config](../property-config/register-center-access.md) .
 

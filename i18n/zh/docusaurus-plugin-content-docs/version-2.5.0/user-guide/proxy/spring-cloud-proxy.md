@@ -6,7 +6,7 @@ description: SpringCloud接入ShenYu网关
 
 此篇文章是介绍 `springCloud` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `springCloud` 插件来接入`Spring Cloud`服务。
 
-接入前，请正确启动 `shenyu-admin`，并开启`springCloud`插件，在网关端和`springCloud`服务端引入相关依赖。可以参考前面的 [Spring Cloud快速开始](../quick-start/quick-start-springcloud)。
+接入前，请正确启动 `shenyu-admin`，并开启`springCloud`插件，在网关端和`springCloud`服务端引入相关依赖。可以参考前面的 [Spring Cloud快速开始](../../quick-start/quick-start-springcloud)。
 
 应用客户端接入的相关配置请参考：[客户端接入配置](../property-config/register-center-access.md)。
 

@@ -28,7 +28,7 @@ description: divide插件
 <img src="/img/shenyu/basicConfig/pluginHandle/selector_add.png" width="80%" height="80%" />
 
 
-选择器处理: 对应[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)的`handle`字段，是网关匹配到流量以后，真实调用的`http`配置，可以配置多个，设置负载均衡权重，具体的负载均衡策略，在规则中指定。更多信息请参考插件管理中的 [插件处理管理](../plugin-handle-explanation) 。
+选择器处理: 对应[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)的`handle`字段，是网关匹配到流量以后，真实调用的`http`配置，可以配置多个，设置负载均衡权重，具体的负载均衡策略，在规则中指定。更多信息请参考插件管理中的 [插件处理管理](../../user-guide/admin-usage/plugin-handle-explanation) 。
 
 * 处理配置详解：
 

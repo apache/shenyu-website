@@ -9,7 +9,7 @@ Before the connection, start `shenyu-admin` correctly, start `tars` plugin, and 
 
 For details about client access configuration, see [Application Client Access Config](./register-center-access) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync)).
+For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync)).
 
 ## Add tars plugin in gateway
 

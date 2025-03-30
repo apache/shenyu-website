@@ -240,7 +240,7 @@ description: Http服务接入
 
 * 如果不懂怎么配置，请参考 [选择器和规则管理](../user-guide/admin-usage/selector-and-rule)。
 
-* 您也可以自定义开发属于你的 `http-client`，参考 [多语言 Http 客户端开发](../developer/developer-shenyu-client)。
+* 您也可以自定义开发属于你的 `http-client`，参考 [多语言 Http 客户端开发](../../developer/developer-shenyu-client)。
 
 ## 用户请求
 

@@ -83,7 +83,7 @@ Then configure this authentication information
 
 After submit, a piece of authentication information is generated, which contains `AppKey` and `AppSecret`, which is the `AK/SK` in the `Sign` plugin.
 
-Please refer to the detailed instructions of the `Sign` plugin： [Sign Plugin](../../plugin-center/authority-and-certification/sign-plugin).
+Please refer to the detailed instructions of the `Sign` plugin： [Sign Plugin](../../plugin-center/security/sign-plugin).
 
 #### 2.4.1.3 PathOperation
 

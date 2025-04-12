@@ -69,7 +69,7 @@ Now use `postman` to simulate `http` to request your `http` service:
 
 ### Use more plugins
 
-We can refer to [Official Document](../docs/index) to use other plugins.
+We can refer to [Official Document](https://shenyu.apache.org/docs/index) to use other plugins.
 
 Here is an example of using the param-mapping plugin.
 

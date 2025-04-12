@@ -8,9 +8,9 @@ description: Tars服务接入
 接入前，请正确启动 `shenyu-admin`，并开启`tars`插件，在网关端和`tars`服务端引入相关依赖。可以参考前面的 [Tars快速开始](../../quick-start/quick-start-tars) 。
 
 
-应用客户端接入的相关配置请参考：[客户端接入配置](./register-center-access)。
+应用客户端接入的相关配置请参考：[客户端接入配置](../register-center-access)。
 
-数据同步的相关配置请参考：[数据同步配置](./use-data-sync)。
+数据同步的相关配置请参考：[数据同步配置](../use-data-sync)。
 
 ## 在网关中引入 tars 插件
 

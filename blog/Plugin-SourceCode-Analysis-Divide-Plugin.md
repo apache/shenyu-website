@@ -8,7 +8,7 @@ tags: [plugin,divide,Apache ShenYu]
 
 The `ShenYu` gateway uses the `divide` plugin to handle `http` requests. You can see the official documentation [Quick start with Http](https://shenyu.apache.org/docs/quick-start/quick-start-http) to learn how to use this plugin.
 
-> This article is based on `shenyu-2.4.3` version for source code analysis, please refer to [Http Proxy](https://shenyu.apache.org/docs/user-guide/http-proxy) for the introduction of the official website.
+> This article is based on `shenyu-2.4.3` version for source code analysis, please refer to [Http Proxy](https://shenyu.apache.org/docs/user-guide/proxy/http-proxy) for the introduction of the official website.
 
 ### 1. Register Service
 

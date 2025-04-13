@@ -170,7 +170,7 @@ Apache ShenYu提供了Http、Dubbo、SpringCloud等应用接入shenyu网关的�
 
 ### 使用更多插件
 
-我们可以参考 [官方文档](../docs/index)左侧`插件集合`，来使用所需要插件。
+我们可以参考 [官方文档](https://shenyu.apache.org/zh/docs/index)左侧`插件集合`，来使用所需要插件。
 
 ## Shenyu 前端启动指南
 

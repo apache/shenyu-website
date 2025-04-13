@@ -462,7 +462,7 @@ In this class, a static method calling `LoadBalancer` is provided, where`Extensi
 
 ## Using of LoadBalancer module
 
-In the above section, we describe the `LoadBalancer` `SPI` and three implementation classes. Let's take a look at how the `LoadBalancer` to be used in `Apache Shenyu`. [DividePlugin](http://shenyu.apache.org/docs/plugin-center/http-handle/divide-plugin) is a `plugin` in `Apache Shenyu` responsible for routing `http` request. when enable to use this `plugin`, it will transfer traffic according to selection data and rule data, and deliver to next plugin downstream.
+In the above section, we describe the `LoadBalancer` `SPI` and three implementation classes. Let's take a look at how the `LoadBalancer` to be used in `Apache Shenyu`. [DividePlugin](http://shenyu.apache.org/docs/plugin-center/proxy/divide-plugin) is a `plugin` in `Apache Shenyu` responsible for routing `http` request. when enable to use this `plugin`, it will transfer traffic according to selection data and rule data, and deliver to next plugin downstream.
 
 ```java
 @Override

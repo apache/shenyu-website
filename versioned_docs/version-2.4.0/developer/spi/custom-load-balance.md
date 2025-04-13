@@ -6,7 +6,7 @@ description: Custom Load Balance
 
 ## Explanation
 
-* Before custom development, please customize and build the gateway environment first, please refer to: [custom deployment](../deployment-custom).
+* Before custom development, please customize and build the gateway environment first, please refer to: [custom deployment](../../deployment/deployment-custom).
 
 * This article describes how to customize the extension of `org.apache.shenyu.plugin.divide.balance.LoadBalance` .
 

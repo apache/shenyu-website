@@ -166,7 +166,7 @@ The following uses the `IDEA HTTP Client Plugin` to mock http to access http ser
 
 ### Use more plugins
 
-We can refer to the [official documentation](../docs/index) to the left of `Plugins collection` to use the required plugins.
+We can refer to the [official documentation](https://shenyu.apache.org/docs/index) to the left of `Plugins collection` to use the required plugins.
 
 ## Shenyu Front End Startup Guide
 

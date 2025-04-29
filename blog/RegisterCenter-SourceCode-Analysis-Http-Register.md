@@ -999,7 +999,7 @@ public class ShenyuHttpRegistryController implements ShenyuServerRegisterReposit
 The exact method used is specified by the configuration file and then loaded via `SPI`.
 
 
-In the `application.yml` file in `shenyu-admin` configure the registration method, `registerType` specify the registration type, when registering with `http`, `serverLists` do not need to be filled in, for more configuration instructions you can refer to the official website [Client Access Configuration](https://shenyu.apache.org/zh/docs/user-guide/register-center-access).
+In the `application.yml` file in `shenyu-admin` configure the registration method, `registerType` specify the registration type, when registering with `http`, `serverLists` do not need to be filled in, for more configuration instructions you can refer to the official website [Client Access Configuration](https://shenyu.apache.org/zh/docs/user-guide/property-config/register-center-access).
 
 ```yaml
 shenyu:

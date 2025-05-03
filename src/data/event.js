@@ -3,6 +3,12 @@ import Translate from "@docusaurus/Translate";
 
 export default [
   {
+    title: <Translate>Release Apache Shenyu 2.7.0.1</Translate>,
+    description:
+        "What's Changed \n fixed some bug when using http-polling mode \n plugin-jwt SPI extension for parsing JWT payloads to ensure compatibility with older......",
+    src: "2.7.0.1-release",
+  },
+  {
     title: <Translate>Release Apache Shenyu 2.7.0</Translate>,
     description:
         "✨ New Features \n 1. Upgrade dockerfile java runtime version 8 to 17 \n 2. Upgrade SpringBoot to 3.x \n 3. Support ShenYu Admin Cluster \n ......",

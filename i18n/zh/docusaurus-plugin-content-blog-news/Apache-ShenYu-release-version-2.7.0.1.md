@@ -19,7 +19,8 @@ date: 2025-05-03
 
 > 版本记录：https://github.com/apache/shenyu/compare/v2.7.0...v2.7.0.1
 
-## What's Changed
+## 改动内容
+
 * 修复了使用 http-polling 模式时的一些 bug by @xesprni in https://github.com/apache/shenyu/pull/5889
 * [type:refactor] 通过 plugin-jwt SPI 扩展解析 JWT payloads 以确保与旧版本 JWT 工具的兼容性 by @ISKonst in https://github.com/apache/shenyu/pull/5882
 * [type:fix] 支持 dubbo 方法配置 by @eye-gu in https://github.com/apache/shenyu/pull/5891
@@ -91,8 +92,8 @@ date: 2025-05-03
 * [fix] 修复 license 错误 by @Aias00 in https://github.com/apache/shenyu/pull/6011
 * [release] 修改 pom 版本为 2.7.0.1-SNAPSHOT by @Aias00 in https://github.com/apache/shenyu/pull/6012
 
+## 新贡献者
 
-## New Contributors
 * @xesprni 在 https://github.com/apache/shenyu/pull/5889 中做出了他们的第一个贡献
 * @g0ne150 在 https://github.com/apache/shenyu/pull/5905 中做出了他们的第一个贡献
 * @cntigers 在 https://github.com/apache/shenyu/pull/5908 中做出了他们的第一个贡献

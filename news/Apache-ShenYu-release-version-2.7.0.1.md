@@ -22,6 +22,7 @@ Three months later, Apache ShenYu released version 2.7.0.1, which submitted a to
 > 
 
 ## What's Changed
+
 * fixed some bug when using http-polling mode by @xesprni in https://github.com/apache/shenyu/pull/5889
 * [type:refactor] plugin-jwt SPI extension for parsing JWT payloads to ensure compatibility with older versions of JWT tools by @ISKonst in https://github.com/apache/shenyu/pull/5882
 * [type:fix] support dubbo method configure by @eye-gu in https://github.com/apache/shenyu/pull/5891
@@ -95,6 +96,7 @@ Three months later, Apache ShenYu released version 2.7.0.1, which submitted a to
 * [release] modify pom version to 2.7.0.1-SNAPSHOT by @Aias00 in https://github.com/apache/shenyu/pull/6012
 
 ## New Contributors
+
 * @xesprni made their first contribution in https://github.com/apache/shenyu/pull/5889
 * @g0ne150 made their first contribution in https://github.com/apache/shenyu/pull/5905
 * @cntigers made their first contribution in https://github.com/apache/shenyu/pull/5908

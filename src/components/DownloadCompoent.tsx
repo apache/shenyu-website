@@ -8,6 +8,14 @@ const data = [
         title: translate({ message: 'Source Codes' }),
         versions: [
             {
+                versionTitle: '2.7.0.1',
+                targets: {
+                    'zip': 'https://www.apache.org/dyn/closer.lua/shenyu/2.7.0.1/apache-shenyu-2.7.0.1-src.zip',
+                    'asc': 'https://downloads.apache.org/shenyu/2.7.0.1/apache-shenyu-2.7.0.1-src.zip.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/2.7.0.1/apache-shenyu-2.7.0.1-src.zip.sha512',
+                }
+            },
+            {
                 versionTitle: '2.7.0',
                 targets: {
                     'zip': 'https://www.apache.org/dyn/closer.lua/shenyu/2.7.0/apache-shenyu-2.7.0-src.zip',

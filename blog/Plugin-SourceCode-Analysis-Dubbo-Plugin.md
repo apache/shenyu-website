@@ -12,12 +12,12 @@ tags: [plugin,dubbo,Apache ShenYu]
 
 The `Apache ShenYu` gateway uses the `dubbo` plugin to make calls to the `dubbo` service. You can see the official documentation [Dubbo Quick Start](https://shenyu.apache.org/docs/quick-start/quick-start-dubbo) to learn how to use the plugin.
 
-> This article is based on `shenyu-2.4.3` version for source code analysis, please refer to [Dubbo Service Access](https://shenyu.apache.org/zh/docs/user-guide/dubbo-proxy/) for the introduction of the official website.
+> This article is based on `shenyu-2.4.3` version for source code analysis, please refer to [Dubbo Service Access](https://shenyu.apache.org/zh/docs/user-guide/proxy/dubbo-proxy/) for the introduction of the official website.
 
 
 ### 1. Service Registration
 
-Take the example provided on the official website [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo/shenyu-examples-apache-dubbo-service). Suppose your `dubbo` service is defined as follows (`spring-dubbo.xml`).
+Take the example provided on the official website [shenyu-examples-dubbo](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-dubbo/shenyu-examples-apache-dubbo-service). Suppose your `dubbo` service is defined as follows (`spring-dubbo.xml`).
 
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"

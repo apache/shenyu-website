@@ -48,7 +48,7 @@ On the client side, after the data is out of the queue, the data is transferred 
 
 ### 2. Client Registration Process
 
-When the client starts, it reads the attribute information according to the relevant configuration, and then writes it to the queue. Let's take the official [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http) as an example and start the source code analysis . The official example is a microservice built by `springboot`. For the configuration of the registration center, please refer to the official website [client access configuration](https://shenyu.apache.org/docs/user-guide/property-config/register-center-access) .
+When the client starts, it reads the attribute information according to the relevant configuration, and then writes it to the queue. Let's take the official [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) as an example and start the source code analysis . The official example is a microservice built by `springboot`. For the configuration of the registration center, please refer to the official website [client access configuration](https://shenyu.apache.org/docs/user-guide/property-config/register-center-access) .
 
 #### 2.1 Load configuration, read properties
 
@@ -221,7 +221,7 @@ Read `username`, `password` and `serverLists` from the configuration file, the u
 
 > `SPI`, known as `Service Provider Interface`, is a service provider discovery feature built into the `JDK`, a mechanism for dynamic replacement discovery.
 >
-> [shenyu-spi](https://github.com/apache/incubator-shenyu/tree/master/shenyu-spi) is a custom `SPI` extension implementation for the `Apache ShenYu` gateway, designed and implemented with reference to Dubbo [SPI extension implementation](https://dubbo.apache.org/zh/docs/v2.7/dev/impls/).
+> [shenyu-spi](https://github.com/apache/shenyu/tree/master/shenyu-spi) is a custom `SPI` extension implementation for the `Apache ShenYu` gateway, designed and implemented with reference to Dubbo [SPI extension implementation](https://dubbo.apache.org/zh/docs/v2.7/dev/impls/).
 
 
 #### 2.3 SpringMvcClientEventListener
@@ -999,7 +999,7 @@ public class ShenyuHttpRegistryController implements ShenyuServerRegisterReposit
 The exact method used is specified by the configuration file and then loaded via `SPI`.
 
 
-In the `application.yml` file in `shenyu-admin` configure the registration method, `registerType` specify the registration type, when registering with `http`, `serverLists` do not need to be filled in, for more configuration instructions you can refer to the official website [Client Access Configuration](https://shenyu.apache.org/zh/docs/user-guide/register-center-access).
+In the `application.yml` file in `shenyu-admin` configure the registration method, `registerType` specify the registration type, when registering with `http`, `serverLists` do not need to be filled in, for more configuration instructions you can refer to the official website [Client Access Configuration](https://shenyu.apache.org/zh/docs/user-guide/property-config/register-center-access).
 
 ```yaml
 shenyu:
@@ -1310,7 +1310,7 @@ public class URIRegisterExecutorSubscriber implements ExecutorTypeSubscriber<URI
 - `ShenyuClientRegisterWebSocketServiceImpl`： `Websocket` class，handles `Websocket` registration types.
 
 
-From the above, we can see that each microservice has a corresponding registration implementation class. The source code analysis in this article is based on the official [shenyu-examples-http](https://github.com/apache/incubator-shenyu/tree/master/shenyu-examples/shenyu-examples-http) as an example, it is of `http` registration type, so the registration implementation class for metadata and URI data is `ShenyuClientRegisterDivideServiceImpl`: `ShenyuClientRegisterDivideServiceImpl`.
+From the above, we can see that each microservice has a corresponding registration implementation class. The source code analysis in this article is based on the official [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) as an example, it is of `http` registration type, so the registration implementation class for metadata and URI data is `ShenyuClientRegisterDivideServiceImpl`: `ShenyuClientRegisterDivideServiceImpl`.
 
 - register(): 
 

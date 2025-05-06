@@ -6,7 +6,7 @@ description: sofa 接入 Apache ShenYu 网关
 
 此篇文章是介绍 `sofa` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `sofa` 插件来接入`sofa`服务。
 
-接入前，请正确启动 `shenyu-admin`，并开启`sofa`插件，在网关端和`sofa`服务端引入相关依赖。可以参考前面的 [Sofa快速开始](../quick-start/quick-start-sofa)。
+接入前，请正确启动 `shenyu-admin`，并开启`sofa`插件，在网关端和`sofa`服务端引入相关依赖。可以参考前面的 [Sofa快速开始](../../quick-start/quick-start-sofa)。
 
 关于插件使用可请参考：[Sofa插件](../../plugin-center/proxy/sofa-plugin.md)
 

@@ -195,7 +195,7 @@ It should be noted that,if your business instance not use the client jar of `she
   
 ### 2.5.3 Rule Config
 
-Rule Handler, the `handle` field, can be performed by the gateway after the final matching of traffic. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
+Rule Handler, the `handle` field, can be performed by the gateway after the final matching of traffic. For more information, please refer to [Plugin handle management](../../user-guide/admin-usage/plugin-handle-explanation) in Plugin Config.
 
 * use `shenyu-client-springcloud` rule config
 

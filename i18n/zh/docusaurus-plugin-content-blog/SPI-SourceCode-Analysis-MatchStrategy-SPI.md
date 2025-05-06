@@ -34,7 +34,7 @@ public interface MatchStrategy {
 }
 ```
 
-@`SPI` `annotation`代表这是一个`SPI`接口。`ServerWebExchange` 是 `org.springframework.web.server.ServerWebExchange` ,代表`HTTP`的 `request-response`  的交互内容。`ConditionData`的代码如下，更多说明可以参考`PredicateJudge`[代码分析](http://shenyu.apache.org/blog/PredicateJudge-SPI)中的说明，
+@`SPI` `annotation`代表这是一个`SPI`接口。`ServerWebExchange` 是 `org.springframework.web.server.ServerWebExchange` ,代表`HTTP`的 `request-response`  的交互内容。`ConditionData`的代码如下，更多说明可以参考`PredicateJudge`[代码分析](https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI/)中的说明，
 
 ```java
 public class ConditionData {
@@ -136,7 +136,7 @@ OR(1, "or");
     private Boolean filterRule(final RuleData ruleData, final ServerWebExchange exchange) {        return ruleData.getEnabled() && MatchStrategyFactory.match(ruleData.getMatchMode(), ruleData.getConditionDataList(), exchange);    }
 ```
 
-也同样是调用`MatchStrategyFactory`的`match`方法，看上去是不是特别的简洁甚至是简单？ 在`PredicteJudge`的[代码分析](http://shenyu.apache.org/blog/PredicateJudge-SPI)文中，对`shenyu-plugin`如何做参数调用方面做了更进一步的描述。
+也同样是调用`MatchStrategyFactory`的`match`方法，看上去是不是特别的简洁甚至是简单？ 在`PredicteJudge`的[代码分析](https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI/)文中，对`shenyu-plugin`如何做参数调用方面做了更进一步的描述。
 
 ## Summary
 

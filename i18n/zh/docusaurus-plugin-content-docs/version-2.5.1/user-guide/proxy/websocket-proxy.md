@@ -4,7 +4,7 @@ description: Websocket服务接入
 ---
 此篇文介绍如何将 `Websocket` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `Websocket` 插件来接入 `Websocket`服务。
 
-接入前，请正确启动 `shenyu-admin`，并开启 `Websocket`插件，在网关端和 `Websocket`服务端引入相关依赖。可以参考前面的 [Websocket快速开始](../quick-start/quick-start-websocket) 。
+接入前，请正确启动 `shenyu-admin`，并开启 `Websocket`插件，在网关端和 `Websocket`服务端引入相关依赖。可以参考前面的 [Websocket快速开始](../../quick-start/quick-start-websocket) 。
 
 应用客户端接入的相关配置请参考：[客户端接入配置](../property-config/register-center-access.md)。
 

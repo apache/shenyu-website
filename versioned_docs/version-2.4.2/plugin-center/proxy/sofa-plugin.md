@@ -14,7 +14,7 @@ description: sofa access shenyu gateway
 
 * Add related dependencies and enable plugin, please refer to: [Quick start with Sofa](../../quick-start/quick-start-sofa) .
 
-* `Sofa` client access, please refer to: [Sofa Proxy](../../user-guide/sofa-proxy) .
+* `Sofa` client access, please refer to: [Sofa Proxy](../../user-guide/proxy/sofa-rpc-proxy.md) .
 
 * Set selector and rule, please refer to: [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule) .
 

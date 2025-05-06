@@ -69,7 +69,7 @@ Apache ShenYu提供了Http、Dubbo、SpringCloud等应用接入shenyu网关的�
 
 ### 使用更多插件
 
-我们可以参考 [官方文档](../docs/index)，来使用其他的插件。
+我们可以参考 [官方文档](https://shenyu.apache.org/zh/docs/index)，来使用其他的插件。
 
 这里以使用 param-mapping 插件为例。
 

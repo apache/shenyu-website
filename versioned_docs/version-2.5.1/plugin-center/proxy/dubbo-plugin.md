@@ -38,7 +38,7 @@ After the client accesses the `ShenYu` gateway, it will automatically register t
 
 <img src="/img/shenyu/plugin/dubbo/selector_en_new.png" width="80%" height="80%" />
 
-Selector Handler, the `handle` field, is an operation that can be processed by the gateway after matching the traffic. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
+Selector Handler, the `handle` field, is an operation that can be processed by the gateway after matching the traffic. For more information, please refer to [Plugin handle management](../../user-guide/admin-usage/plugin-handle-explanation) in Plugin Config.
 
 * details：
 
@@ -75,7 +75,7 @@ It should be noted that,if your business instance not use the client jar of 'she
 
 <img src="/img/shenyu/plugin/dubbo/rule_en.png" width="80%" height="80%" />
 
-Rule Handler, the `handle` field, can be performed by the gateway after the final matching of traffic. For more information, please refer to [Plugin handle management](../plugin-handle-explanation) in Plugin Config.
+Rule Handler, the `handle` field, can be performed by the gateway after the final matching of traffic. For more information, please refer to [Plugin handle management](../../user-guide/admin-usage/plugin-handle-explanation) in Plugin Config.
 
 * details：
 

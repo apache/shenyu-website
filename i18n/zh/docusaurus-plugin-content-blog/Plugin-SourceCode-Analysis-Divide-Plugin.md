@@ -10,7 +10,7 @@ tags: [plugin,divide,Apache ShenYu]
 
 `ShenYu` 网关使用 `divide` 插件来处理 `http` 请求。你可以查看官方文档 [Http快速开始](https://shenyu.apache.org/zh/docs/next/quick-start/quick-start-http) 了解如何使用该插件。
 
-> 本文基于`shenyu-2.4.3`版本进行源码分析，官网的介绍请参考 [Http服务接入](https://shenyu.apache.org/zh/docs/next/user-guide/http-proxy) 。
+> 本文基于`shenyu-2.4.3`版本进行源码分析，官网的介绍请参考 [Http服务接入](https://shenyu.apache.org/zh/docs/user-guide/proxy/http-proxy) 。
 
 
 ### 1. 服务注册

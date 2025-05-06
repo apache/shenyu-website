@@ -8,6 +8,22 @@ const data = [
         title: translate({ message: 'Source Codes' }),
         versions: [
             {
+                versionTitle: '2.7.0.1',
+                targets: {
+                    'zip': 'https://www.apache.org/dyn/closer.lua/shenyu/2.7.0.1/apache-shenyu-2.7.0.1-src.zip',
+                    'asc': 'https://downloads.apache.org/shenyu/2.7.0.1/apache-shenyu-2.7.0.1-src.zip.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/2.7.0.1/apache-shenyu-2.7.0.1-src.zip.sha512',
+                }
+            },
+            {
+                versionTitle: '2.7.0',
+                targets: {
+                    'zip': 'https://www.apache.org/dyn/closer.lua/shenyu/2.7.0/apache-shenyu-2.7.0-src.zip',
+                    'asc': 'https://downloads.apache.org/shenyu/2.7.0/apache-shenyu-2.7.0-src.zip.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/2.7.0/apache-shenyu-2.7.0-src.zip.sha512',
+                }
+            },
+            {
                 versionTitle: '2.6.1',
                 targets: {
                     'zip': 'https://www.apache.org/dyn/closer.lua/shenyu/2.6.1/apache-shenyu-2.6.1-src.zip',
@@ -61,6 +77,14 @@ const data = [
         title: translate({ message: 'ShenYu-Admin Binary Distribution' }),
         versions: [
             {
+                versionTitle: '2.7.0',
+                targets: {
+                    'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/2.7.0/apache-shenyu-2.7.0-admin-bin.tar.gz',
+                    'asc': 'https://downloads.apache.org/shenyu/2.7.0/apache-shenyu-2.7.0-admin-bin.tar.gz.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/2.7.0/apache-shenyu-2.7.0-admin-bin.tar.gz.sha512',
+                }
+            },
+            {
                 versionTitle: '2.6.1',
                 targets: {
                     'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/2.6.1/apache-shenyu-2.6.1-admin-bin.tar.gz',
@@ -113,6 +137,14 @@ const data = [
     {
         title: translate({ message: 'ShenYu-Bootstrap Binary Distribution' }),
         versions: [
+            {
+                versionTitle: '2.7.0',
+                targets: {
+                    'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/2.7.0/apache-shenyu-2.7.0-bootstrap-bin.tar.gz',
+                    'asc': 'https://downloads.apache.org/shenyu/2.7.0/apache-shenyu-2.7.0-bootstrap-bin.tar.gz.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/2.7.0/apache-shenyu-2.7.0-bootstrap-bin.tar.gz.sha512',
+                }
+            },
             {
                 versionTitle: '2.6.1',
                 targets: {
@@ -172,6 +204,19 @@ const data = [
                     'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/shenyu-client-golang/v1.0.0/shenyu-client-golang-v1.0.0-src.tar.gz',
                     'asc': 'https://downloads.apache.org/shenyu/shenyu-client-golang/v1.0.0/shenyu-client-golang-v1.0.0-src.tar.gz.asc',
                     'sha512': 'https://downloads.apache.org/shenyu/shenyu-client-golang/v1.0.0/shenyu-client-golang-v1.0.0-src.tar.gz.sha512',
+                }
+            }
+        ],
+    },
+    {
+        title: translate({ message: 'ShenYu client rust Source Codes' }),
+        versions: [
+            {
+                versionTitle: '1.0.0',
+                targets: {
+                    'tar': 'https://www.apache.org/dyn/closer.lua/shenyu/shenyu-client-rust/1.0.0/shenyu-client-rust-1.0.0-src.tar.gz',
+                    'asc': 'https://downloads.apache.org/shenyu/shenyu-client-rust/1.0.0/shenyu-client-rust-1.0.0-src.tar.gz.asc',
+                    'sha512': 'https://downloads.apache.org/shenyu/shenyu-client-rust/1.0.0/shenyu-client-rust-1.0.0-src.tar.gz.sha512',
                 }
             }
         ],
@@ -254,7 +299,7 @@ function DownloadCompoent() {
                 return (
                     <div className={styles.downloadCard} key={index}>
                         <div className={styles.downloadCardTitle}>{title}</div>
-                        <button id='dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(index) }}><Translate>Source</Translate></button>
+                        <button id='dropDownButton' className={styles.downloadCardButton} onClick={() => { showList(index) }}><Translate>All Versions</Translate></button>
                         {
                             showItem[index] &&
                             (

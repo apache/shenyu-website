@@ -19,7 +19,7 @@ tags: [Apache ShenYu]
 Use Git to clone code
 
 ```shell
-git clone https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/apache/shenyu.git
 ```
 
 ### Compile code
@@ -27,7 +27,7 @@ git clone https://github.com/apache/incubator-shenyu.git
 Compile with Maven
 
 ```shell
-cd incubator-shenyu
+cd shenyu
 mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
@@ -69,7 +69,7 @@ Now use `postman` to simulate `http` to request your `http` service:
 
 ### Use more plugins
 
-We can refer to [Official Document](../docs/index) to use other plugins.
+We can refer to [Official Document](https://shenyu.apache.org/docs/index) to use other plugins.
 
 Here is an example of using the param-mapping plugin.
 

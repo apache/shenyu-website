@@ -110,6 +110,7 @@ The following log appears when the startup is successful:
 2021-02-10 14:03:53.837  INFO 2860 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SPRINGCLOUD-TEST/host.docker.internal:springCloud-test:8884 - registration status: 204
 2021-02-10 14:03:54.231  INFO 2860 --- [           main] o.d.s.e.s.ShenyuTestSpringCloudApplication : Started ShenyuTestSpringCloudApplication in 6.338 seconds (JVM running for 7.361) 
 ```
+
 - After starting `shenyu-examples-springcloud`
 - You can see the newly registered data on the `divide` plugin of the admin system
 

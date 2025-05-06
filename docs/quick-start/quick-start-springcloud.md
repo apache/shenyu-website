@@ -8,88 +8,29 @@ This document introduces how to quickly access the Apache ShenYu gateway using S
 ## Environment to prepare
 
 
-Please refer to the deployment to select a way to start shenyu-admin. For example, start the Apache ShenYu gateway management system through [local deployment](../deployment/deployment-local) .
+Please refer to the operation and maintenance deployment content and choose a way to start `shenyu-admin`. For example, start the `Apache ShenYu` backend management system through [local deployment](../deployment/deployment-local).
 
-After successful startup, you need to open the springCloud plugin on in the BasicConfig `->` Plugin.
+To start the gateway, if it is through source code, directly run `ShenyuBootstrapApplication` in `shenyu-bootstrap`.
 
-<img src="/img/shenyu/quick-start/springcloud/springcloud_open_en.png" width="60%" height="50%" />
+## Startup sequence
 
-If you are a startup gateway by means of source, can be directly run the ShenyuBootstrapApplication of shenyu-bootstrap module.
+- Start `shenyu-admin`
+- Start `shenyu-bootstrap`
+- Start the registration center, such as the `eureka` project under `shenyu-examples`
+- Configure `shenyu-examples-springcloud` registration discovery
 
-> Note: Before starting, make sure the gateway has added dependencies.
-
-Add the gateway proxy plugin for `Spring Cloud` and add your registry center dependencies:
-
-```xml
-<!-- apache shenyu springCloud plugin start-->
-               <dependency>
-                    <groupId>org.apache.shenyu</groupId>
-                    <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
-                    <version>${project.version}</version>
-                </dependency>
-
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-commons</artifactId>
-                    <version>2.2.0.RELEASE</version>
-                </dependency>
-
-                <dependency>
-                    <groupId>org.apache.shenyu</groupId>
-                    <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-                    <version>${project.version}</version>
-                </dependency>
-        <!-- springCloud if you config register center is eureka please dependency end-->
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-                    <version>2.2.0.RELEASE</version>
-                </dependency>
-        <!-- apache shenyu springCloud plugin end-->
+```yaml
+shenyu:
+  discovery:
+    enable: true
+    type: eureka
+    serverList: ${eureka.client.serviceUrl.defaultZone}
+    registerPath: ${spring.application.name}
+    props:
+      nacosNameSpace: ShenyuRegisterCenter
 ```
 
-
-`eureka` config information:
-
-```yml
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
-```
-
-Note: Please ensure that the spring Cloud registry service discovery configuration is enabled
-
-* Configuration method
-
-```yml
-spring:
-  cloud:
-    discovery:
-      enabled: true
-```
-
-* code method
-
-```java
-@SpringBootApplication
-@EnableDiscoveryClient
-public class ShenyuBootstrapApplication {
-    
-    /**
-     * Main Entrance.
-     *
-     * @param args startup arguments
-     */
-    public static void main(final String[] args) {
-        SpringApplication.run(ShenyuBootstrapApplication.class, args);
-    }
-}
-```
-
-Restart the `shenyu-bootstrap` project.
+## Run `shenyu-examples-springcloud`
 
 ## Configure the registration center related information on the admin side
 
@@ -124,17 +65,13 @@ serverLists indicates the IP address of the registration center, and props is th
 
 In the example project we used `Eureka` as the registry for `Spring Cloud`. You can use the local `Eureka` or the application provided in the example.
 
-
 Download [shenyu-examples-eureka](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-eureka) 、[shenyu-examples-springcloud](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-springcloud) .
-
 
 Startup the Eureka service:
 Execute the `org.apache.shenyu.examples.eureka.EurekaServerApplication` main method to start project.
 
 Startup the Spring Cloud service:
 Execute the `org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication` main method to start project.
-
-Since `2.4.3`, `shenyu.client.springCloud.props.port` can be non-configured if you like.
 
 The following log appears when the startup is successful:
 
@@ -174,11 +111,12 @@ The following log appears when the startup is successful:
 2021-02-10 14:03:54.231  INFO 2860 --- [           main] o.d.s.e.s.ShenyuTestSpringCloudApplication : Started ShenyuTestSpringCloudApplication in 6.338 seconds (JVM running for 7.361) 
 ```
 
+- After starting `shenyu-examples-springcloud`
+- You can see the newly registered data on the `divide` plugin of the admin system
+
 ## Test
 
-The `shenyu-examples-springcloud` project will automatically register interface methods annotated with `@ShenyuSpringCloudClient` in the Apache ShenYu gateway after successful startup.
-
-Open PluginList -> rpc proxy -> springCloud to see the list of plugin rule configurations:
+The `shenyu-examples-springcloud` project will automatically register interface methods annotated with `@ShenyuSpringMvcClient` in the Apache ShenYu gateway after successful startup.
 
 ![](/img/shenyu/quick-start/springcloud/rule-list.png)
 

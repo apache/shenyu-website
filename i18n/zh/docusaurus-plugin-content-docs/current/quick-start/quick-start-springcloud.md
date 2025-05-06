@@ -9,118 +9,27 @@ description: Spring Cloud快速开始
 
 请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。
 
-启动成功后，需要在基础配置`->`插件管理中，把`springCloud` 插件设置为开启。
-
-<img src="/img/shenyu/quick-start/springcloud/springCloud-plugin-enable.png" width="60%" height="50%" />
-
-
 启动网关，如果是通过源码的方式，直接运行`shenyu-bootstrap`中的`ShenyuBootstrapApplication`。
 
-> 注意，在启动前，请确保网关已经引入相关依赖。
+## 启动顺序
 
-引入网关对`Spring Cloud`的代理插件，并添加相关注册中心依赖：
+- 启动`shenyu-admin`
+- 启动`shenyu-bootstrap`
+- 启动注册中心，例如`shenyu-examples`下的`eureka`项目
+- 配置 `shenyu-examples-springcloud` 注册发现
 
-```xml
-<!-- apache shenyu springCloud plugin start-->
-               <dependency>
-                    <groupId>org.apache.shenyu</groupId>
-                    <artifactId>shenyu-spring-boot-starter-plugin-springcloud</artifactId>
-                    <version>${project.version}</version>
-                </dependency>
-
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-commons</artifactId>
-                    <version>2.2.0.RELEASE</version>
-                </dependency>
-
-                <dependency>
-                    <groupId>org.apache.shenyu</groupId>
-                    <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-                    <version>${project.version}</version>
-                </dependency>
-        <!-- springCloud if you config register center is eureka please dependency end-->
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-                    <version>2.2.0.RELEASE</version>
-                </dependency>
-        <!-- apache shenyu springCloud plugin end-->
+```yaml
+shenyu:
+  discovery:
+    enable: true
+    type: eureka
+    serverList: ${eureka.client.serviceUrl.defaultZone}
+    registerPath: ${spring.application.name}
+    props:
+      nacosNameSpace: ShenyuRegisterCenter
 ```
 
-`eureka`配置信息如下：
-
-```yml
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
-```
-
-特别注意: 请保证`springCloud`注册中心服务发现配置为开启
-
-* 配置方式
-
-```yml
-spring:
-  cloud:
-    discovery:
-      enabled: true
-```
-
-* 代码方式
-
-```java
-@SpringBootApplication
-@EnableDiscoveryClient
-public class ShenyuBootstrapApplication {
-    
-    /**
-     * Main Entrance.
-     *
-     * @param args startup arguments
-     */
-    public static void main(final String[] args) {
-        SpringApplication.run(ShenyuBootstrapApplication.class, args);
-    }
-}
-```
-
-启动`shenyu-bootstrap`项目。
-
-## 在admin侧配置注册中心相关信息
-
-- 目前Shenyu 上的 SpringCloudPlugin 插件实现了对注册中心的服务发现的支持。但是无法做到动态切换注册中心。为了能让使用者更加清晰的使用该插件，以及能更便捷的切换注册中心的配置，shenyu支持开发者在admin页面上配置注册中心以及切换注册中心，从而降低用户的使用成本，以及使用体验。
-
-具体操作流程：
-
-- 启动shenyu-admin
-- 启动shenyu-bootstrap
-- 启动注册中心，例如shenyu-examples下的eureka项目
-- 启动shenyu-examples下的shenyu-examples-springcloud
-- 在admin的系统界面上配置注册中心的相关信息，并点击确认
-
-以eureka注册中心配置举例，来展示如何在页面上配置注册中心相关信息：
-
-<img src="/img/shenyu/quick-start/springcloud/springCloud-dynamic-register-operate.png" width="60%" height="50%" />
-
-如上图，registerType表示注册中心类型，支持以下注册中心：
-
-- eureka
-- nacos
-- zookeeper
-- apollo
-- consul
-- etcd
-- polaris
-- kubernetes
-
-serverLists表示注册中心ip地址，props则是放置注册中心的额外配置项，例如namespace、username等。 点击确认后，即使用eureka作为springCloudPlugin的注册中心。
-
-
-## 运行shenyu-examples-springcloud
+## 运行 `shenyu-examples-springcloud`
 
 示例项目中我们使用 `eureka` 作为 `Spring Cloud`的注册中心。你可以使用本地的`eureka`，也可以使用示例中提供的应用。
 
@@ -129,8 +38,6 @@ serverLists表示注册中心ip地址，props则是放置注册中心的额外�
 启动`eureka`服务，运行`org.apache.shenyu.examples.eureka.EurekaServerApplication`main方法启动项目。
 
 启动`spring cloud`服务，运行`org.apache.shenyu.examples.springcloud.ShenyuTestSpringCloudApplication`main方法启动项目。
-
-从`2.4.3`开始，用户可以不配置`shenyu.client.springCloud.props.port`。
 
 成功启动会有如下日志：
 
@@ -170,12 +77,13 @@ serverLists表示注册中心ip地址，props则是放置注册中心的额外�
 2021-02-10 14:03:54.231  INFO 2860 --- [           main] o.d.s.e.s.ShenyuTestSpringCloudApplication : Started ShenyuTestSpringCloudApplication in 6.338 seconds (JVM running for 7.361) 
 ```
 
+- 启动 `shenyu-examples-springcloud` 之后
+- 在admin的系统的`divide`插件上即可看到刚注册上来的数据
+
 
 ## 测试Http请求
 
-`shenyu-examples-springcloud`项目成功启动之后会自动把加 `@ShenyuSpringCloudClient` 注解的接口方法注册到网关。
-
-打开`插件列表 -> rpc proxy -> springCloud` 可以看到插件规则配置列表：
+`shenyu-examples-springcloud`项目成功启动之后会自动把加 `@ShenyuSpringMvcClient` 注解的接口方法注册到网关。
 
 
 ![](/img/shenyu/quick-start/springcloud/rule-list.png)

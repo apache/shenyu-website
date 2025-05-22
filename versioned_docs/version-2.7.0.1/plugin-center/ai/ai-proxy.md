@@ -52,4 +52,5 @@ curl --location --request POST 'http://localhost:9195/ai/proxy/v1/chat/completio
     ]
   }'
 ```
+
 ![](/img/shenyu/plugin/ai-proxy/ai-proxy-api.png)

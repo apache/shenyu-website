@@ -53,4 +53,3 @@ If you set tokenLimit=10 and make another request within 60 seconds, AiTokenLimi
 
 Example response (after rate limiting):
 ![ai-proxy-api](/img/shenyu/plugin/ai-token-limiter/ai-token-limiter-api-after.png)
-

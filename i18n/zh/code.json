@@ -1,6 +1,6 @@
 {
   "homepage.hero.title": {
-    "message": "Java 原生API网关,用于服务代理、协议转换和API治理",
+    "message": "Java 原生API网关,用于<b>服务代理</b>、<b>协议转换</b>和<b>API治理</b>",
     "description": "Home page hero title, can contain simple html tags"
   },
   "Get Started": {

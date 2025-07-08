@@ -1,7 +1,7 @@
 ---
 title: "[From Apache ShenYu User to Apache ShenYu Committer]"
 author: "Fengen He"
-description: "From Apache ShenYu User Boy to Apache ShenYu Committer"
+description: "From Apache ShenYu User to Apache ShenYu Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2022-08-04

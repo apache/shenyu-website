@@ -59,7 +59,7 @@ export default [
         ]
     },
     {
-        categray: 'RegisterCenter',
+        categray: <Translate>RegisterCenter</Translate>,
         posts: [
             {
                 title: <Translate>Register Center Source Code Analysis of Http Register</Translate>,
@@ -74,7 +74,7 @@ export default [
         ]
     },
     {
-        categray: 'Start',
+        categray: <Translate>Start</Translate>,
         posts: [
             {
                 title: <Translate>Apache ShenYu Start Demo</Translate>,
@@ -99,7 +99,7 @@ export default [
         ]
     },
     {
-        categray: 'DataSync',
+        categray: <Translate>DataSync</Translate>,
         posts: [
             {
                 title: <Translate>Etcd Data Synchronization Source Code Analysis</Translate>,
@@ -164,7 +164,7 @@ export default [
         ]
     },
     {
-        categray: 'Integration Test',
+        categray: <Translate>Integration Test</Translate>,
         posts: [
             {
                 title: <Translate>Integration Test Analysis</Translate>,
@@ -179,7 +179,7 @@ export default [
         ]
     },
     {
-        categray: 'Plugin',
+        categray: <Translate>Plugin</Translate>,
         posts: [
             {
                 title: <Translate>Code Analysis For Context-Path Plugin</Translate>,
@@ -234,7 +234,7 @@ export default [
         ]
     },
     {
-        categray: 'E2e Test',
+        categray: <Translate>E2e Test</Translate>,
         posts: [
             {
                 title: <Translate>E2e Test Analysis</Translate>,

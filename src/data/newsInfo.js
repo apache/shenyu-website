@@ -117,7 +117,7 @@ export default [
     },{
         title: <Translate>From Apache ShenYu User to Apache ShenYu Committer</Translate>,
         author: "Fengen He",
-        description: <Translate>From Apache ShenYu User Boy to Apache ShenYu Committer</Translate>,
+        description: <Translate>From Apache ShenYu User to Apache ShenYu Committer</Translate>,
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: '2022-08-04',
@@ -195,7 +195,7 @@ export default [
         src:'Apache-ShenYu-Committer-2021-09-08'
     },
     {
-        title: <Translate>Release the first version of Apache ShenYu 2.4.0  Make API gateway easy</Translate>,
+        title: <Translate>Release the first version of Apache ShenYu 2.4.0 Make API gateway easy</Translate>,
         author: "xiaoyu",
         description: <Translate>Release the first version of Apache ShenYu 2.4.0 Make API gateway easy</Translate>,
         categories: "Apache ShenYu",

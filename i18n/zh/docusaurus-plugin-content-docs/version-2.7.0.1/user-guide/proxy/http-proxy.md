@@ -17,17 +17,17 @@ description: Http服务接入
 * 在网关的 `pom.xml` 文件中增加如下依赖：
 
   ```xml
-      <dependency>
-          <groupId>org.apache.shenyu</groupId>
-          <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
-          <version>${project.version}</version>
-      </dependency>
-      
-      <dependency>
-          <groupId>org.apache.shenyu</groupId>
-          <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-          <version>${project.version}</version>
-      </dependency>
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
+    <version>${project.version}</version>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+    <version>${project.version}</version>
+</dependency>
   ```
 
 ## Http请求接入网关（springMvc 体系用户）

@@ -71,11 +71,11 @@ description: Http服务接入
   在你的`http`服务中的 `pom.xml`文件 新增如下依赖:
 
   ```xml
-      <dependency>
-          <groupId>org.apache.shenyu</groupId>
-          <artifactId>shenyu-client-springmvc</artifactId>
-          <version>${shenyu.version}</version>
-      </dependency>
+  <dependency>
+      <groupId>org.apache.shenyu</groupId>
+      <artifactId>shenyu-client-springmvc</artifactId>
+      <version>${shenyu.version}</version>
+  </dependency>
    ```
 
   并在你的 `bean` 定义的 `xml` 文件中新增如下：

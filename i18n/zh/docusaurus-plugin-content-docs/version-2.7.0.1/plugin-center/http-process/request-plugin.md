@@ -38,13 +38,13 @@ description: RequestPlugin
 - 在网关的 `pom.xml` 文件中添加插件 maven 配置，默认已经添加。
 
 ```xml
-  <!-- apache shenyu request plugin start-->
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-request</artifactId>
-     <version>${project.version}</version>
-  </dependency>
-  <!-- apache shenyu request plugin end-->
+<!-- apache shenyu request plugin start-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-request</artifactId>
+   <version>${project.version}</version>
+</dependency>
+<!-- apache shenyu request plugin end-->
 ```
 
 ## 2.3 启用插件

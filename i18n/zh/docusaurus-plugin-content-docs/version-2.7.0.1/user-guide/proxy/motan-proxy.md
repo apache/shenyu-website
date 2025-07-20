@@ -18,32 +18,32 @@ description: Motan服务接入
 引入网关对`Motan`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-        <!-- apache shenyu motan plugin -->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.weibo</groupId>
-            <artifactId>motan-core</artifactId>
-            <version>1.1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.weibo</groupId>
-            <artifactId>motan-registry-zookeeper</artifactId>
-            <version>1.1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.weibo</groupId>
-            <artifactId>motan-transport-netty4</artifactId>
-            <version>1.1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.weibo</groupId>
-            <artifactId>motan-springsupport</artifactId>
-            <version>1.1.9</version>
-        </dependency>
+<!-- apache shenyu motan plugin -->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
+    <version>${project.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.weibo</groupId>
+    <artifactId>motan-core</artifactId>
+    <version>1.1.9</version>
+</dependency>
+<dependency>
+    <groupId>com.weibo</groupId>
+    <artifactId>motan-registry-zookeeper</artifactId>
+    <version>1.1.9</version>
+</dependency>
+<dependency>
+    <groupId>com.weibo</groupId>
+    <artifactId>motan-transport-netty4</artifactId>
+    <version>1.1.9</version>
+</dependency>
+<dependency>
+    <groupId>com.weibo</groupId>
+    <artifactId>motan-springsupport</artifactId>
+    <version>1.1.9</version>
+</dependency>
 ```
 
 * 重启你的网关服务。

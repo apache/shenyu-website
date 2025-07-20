@@ -22,13 +22,13 @@ description: redirect插件
 - 在网关的 `pom.xml` 文件中添加 `redirect` 的支持。
 
 ```xml
-  <!-- apache shenyu redirect plugin start-->
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-plugin-redirect</artifactId>
-     <version>${project.version}</version>
-  </dependency>
-  <!-- apache shenyu redirect plugin end-->
+<!-- apache shenyu redirect plugin start-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-redirect</artifactId>
+   <version>${project.version}</version>
+</dependency>
+<!-- apache shenyu redirect plugin end-->
 ```
 
 - 选择器和规则，只有匹配的请求，才会进行转发和重定向，请参考：[选择器规则管理](../../user-guide/admin-usage/selector-and-rule)。

@@ -63,21 +63,21 @@ eureka:
 
 - Shenyu-Sdk 核心包
 
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-sdk-core</artifactId>
-        <version>2.5.1-SNAPSHOT</version>
-    </dependency>
-
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-sdk</artifactId>
-        <version>2.5.1-SNAPSHOT</version>
-    </dependency>
-</dependencies>
-```
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-sdk-core</artifactId>
+            <version>2.5.1-SNAPSHOT</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sdk</artifactId>
+            <version>2.5.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+    ```
 
 - Shenyu-Sdk http实现包
 

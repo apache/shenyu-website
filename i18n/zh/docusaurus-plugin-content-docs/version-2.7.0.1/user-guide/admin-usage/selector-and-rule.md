@@ -4,7 +4,7 @@ keywords: ["选择器", "规则"]
 description: 选择器和规则管理
 ---
 
-本文档将介绍`Apache ShenYu`后台管理系统中选择器和规则的使用，关于选择器和规则的概念及设计请参考 [流量控制](../../design/flow-control)。
+本文档将介绍`Apache ShenYu`后台管理系统中选择器和规则的使用，关于选择器和规则的概念及设计请参考 [流量控制](../../../design/flow-control)。
 
 请参考运维部署的内容，选择一种方式启动`shenyu-admin`。比如，通过 [本地部署](../../deployment/deployment-local) 启动`Apache ShenYu`后台管理系统。 启动成功后，可以直接访问 `http://localhost:9095` ，默认用户名和密码分别为: `admin` 和 `123456`。
 

@@ -10,11 +10,11 @@ description: 构建和部署 Kubernetes 控制器
 建议参考[自定义部署](../../deployment/deployment-custom.md)构建自定义网关，在网关的 Maven 依赖中加入 shenyu-kubernetes-controller 的依赖，网关即可集成 kubernetes 控制器。
 
 ```xml
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-k8s</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-k8s</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
 也可以直接使用官方构建的 docker 镜像（TODO，未完成）

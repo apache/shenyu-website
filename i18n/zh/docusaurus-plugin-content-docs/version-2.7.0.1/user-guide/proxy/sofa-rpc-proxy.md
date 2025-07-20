@@ -21,37 +21,37 @@ description: sofa 接入 Apache ShenYu 网关
 1. 在网关的 `pom.xml` 文件中增加如下依赖：
 
  ```xml
-        <dependency>
-            <groupId>com.alipay.sofa</groupId>
-            <artifactId>sofa-rpc-all</artifactId>
-            <version>5.7.6</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>net.jcip</groupId>
-                    <artifactId>jcip-annotations</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-client</artifactId>
-            <version>4.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>4.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-recipes</artifactId>
-            <version>4.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+ <dependency>
+     <groupId>com.alipay.sofa</groupId>
+     <artifactId>sofa-rpc-all</artifactId>
+     <version>5.7.6</version>
+     <exclusions>
+         <exclusion>
+             <groupId>net.jcip</groupId>
+             <artifactId>jcip-annotations</artifactId>
+         </exclusion>
+     </exclusions>
+ </dependency>
+ <dependency>
+     <groupId>org.apache.curator</groupId>
+     <artifactId>curator-client</artifactId>
+     <version>4.0.1</version>
+ </dependency>
+ <dependency>
+     <groupId>org.apache.curator</groupId>
+     <artifactId>curator-framework</artifactId>
+     <version>4.0.1</version>
+ </dependency>
+ <dependency>
+     <groupId>org.apache.curator</groupId>
+     <artifactId>curator-recipes</artifactId>
+     <version>4.0.1</version>
+ </dependency>
+ <dependency>
+     <groupId>org.apache.shenyu</groupId>
+     <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
+     <version>${project.version}</version>
+ </dependency>
  ```
 
 2. 重启网关服务。
@@ -63,16 +63,16 @@ description: sofa 接入 Apache ShenYu 网关
 1. `springboot`构建，引入以下依赖：
 
  ```xml
-         <dependency>
-             <groupId>com.alipay.sofa</groupId>
-             <artifactId>rpc-sofa-boot-starter</artifactId>
-             <version>${rpc-sofa-boot-starter.version}</version>
-         </dependency>
- 				<dependency>
-             <groupId>org.apache.shenyu</groupId>
-             <artifactId>shenyu-spring-boot-starter-client-sofa</artifactId>
-             <version>${shenyu.version}</version>
-         </dependency>
+ <dependency>
+     <groupId>com.alipay.sofa</groupId>
+     <artifactId>rpc-sofa-boot-starter</artifactId>
+     <version>${rpc-sofa-boot-starter.version}</version>
+ </dependency>
+<dependency>
+     <groupId>org.apache.shenyu</groupId>
+     <artifactId>shenyu-spring-boot-starter-client-sofa</artifactId>
+     <version>${shenyu.version}</version>
+ </dependency>
  ```
 
 2. 在 application.yml 中配置

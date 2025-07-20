@@ -15,12 +15,12 @@ description: Websocket服务接入
 引入网关对 `Websocket`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖，默认已引入该依赖：
 
 ```xml
-        <!--shenyu websocket plugin start-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-websocket</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!--shenyu websocket plugin start-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-websocket</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
 * 重启你的网关服务。

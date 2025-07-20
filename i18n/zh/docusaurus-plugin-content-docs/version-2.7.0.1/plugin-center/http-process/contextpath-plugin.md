@@ -39,11 +39,11 @@ description: contextPath插件
 - 在网关的 `pom.xml` 文件中添加插件 maven 配置。
 
 ```xml
-  <dependency>
-      <groupId>org.apache.shenyu</groupId>
-      <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
-     <version>${project.version}</version>
-  </dependency>
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
+   <version>${project.version}</version>
+</dependency>
 ```
 
 ## 2.3 启用插件

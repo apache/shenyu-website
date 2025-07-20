@@ -18,19 +18,19 @@ description: Tars服务接入
 引入网关对`Tars`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-        <!-- apache shenyu tars plugin start-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-tars</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!-- apache shenyu tars plugin start-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-tars</artifactId>
+    <version>${project.version}</version>
+</dependency>
 
-        <dependency>
-            <groupId>com.tencent.tars</groupId>
-            <artifactId>tars-client</artifactId>
-            <version>1.7.2</version>
-        </dependency>
-        <!-- apache shenyu tars plugin end-->
+<dependency>
+    <groupId>com.tencent.tars</groupId>
+    <artifactId>tars-client</artifactId>
+    <version>1.7.2</version>
+</dependency>
+<!-- apache shenyu tars plugin end-->
 ```
 
 * 重启你的网关服务。

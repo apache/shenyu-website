@@ -17,12 +17,12 @@ description: 使用不同的数据同步策略
   首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-    <!-- apache shenyu data sync start use websocket-->
-    <dependency>
-        <groupId>org.apache.shenyu</groupId>
-        <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>${project.version}</version>
-    </dependency>
+<!-- apache shenyu data sync start use websocket-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-websocket-pom.png" width="80%" height="70%" />
@@ -64,12 +64,12 @@ shenyu:
   首先在 `pom.xml` 文件中引入以下依赖：
 
  ```xml
-        <!-- apache shenyu data sync start use zookeeper-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!-- apache shenyu data sync start use zookeeper-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-sync-data-zookeeper</artifactId>
+    <version>${project.version}</version>
+</dependency>
  ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-zk-pom.png" width="80%" height="70%" />
@@ -118,12 +118,12 @@ shenyu:
 首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-        <!-- apache shenyu data sync start use http-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!-- apache shenyu data sync start use http-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-sync-data-http</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-http-pom.png" width="80%" height="70%" />
@@ -166,12 +166,12 @@ shenyu:
 首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-        <!-- apache shenyu data sync start use nacos-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!-- apache shenyu data sync start use nacos-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-pom.png" width="80%" height="70%" />
@@ -232,22 +232,22 @@ shenyu:
 首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-        <!-- apache shenyu data sync start use etcd-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-sync-data-etcd</artifactId>
-            <version>${project.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.grpc</groupId>
-                    <artifactId>grpc-grpclb</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>io.grpc</groupId>
-                    <artifactId>grpc-netty</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!-- apache shenyu data sync start use etcd-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-sync-data-etcd</artifactId>
+    <version>${project.version}</version>
+    <exclusions>
+	<exclusion>
+	    <groupId>io.grpc</groupId>
+	    <artifactId>grpc-grpclb</artifactId>
+	</exclusion>
+	<exclusion>
+	    <groupId>io.grpc</groupId>
+	    <artifactId>grpc-netty</artifactId>
+	</exclusion>
+    </exclusions>
+</dependency>
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-etcd-pom.png" width="80%" height="70%" />
@@ -287,12 +287,12 @@ shenyu:
 首先在 `pom.xml` 文件中引入以下依赖：
 
 ```xml
-        <!-- apache shenyu data sync start use consul-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!-- apache shenyu data sync start use consul-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
   <img src="/img/shenyu/dataSync/shenyu_consul_sync_gateway.jpg" width="80%" height="70%" />

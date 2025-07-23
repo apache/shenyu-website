@@ -30,7 +30,7 @@ description: 数据同步
 - 用户可以在 `shenyu-admin` 后台任意修改数据，并马上同步到网关内存。
 - 支持 `Apache ShenYu` 的插件、选择器、规则数据、元数据、签名数据等数据同步。
 - 所有插件的选择器，规则都是动态配置，立即生效，不需要重启服务。
-- 数据同步方式支持 `Zookeeper`、`Http 长轮询`、`Websocket`、`Nacos`、`Etcd` 和 `Consul`。
+- 数据同步方式支持 `Zookeeper`、`Http长轮询`、`Websocket`、`Nacos`、`Etcd` 和 `Consul`。
 
 ### 原理分析
 
@@ -52,7 +52,7 @@ description: 数据同步
 
 基于 `Zookeeper` 的同步原理很简单，主要是依赖 `Zookeeper` 的 `watch` 机制。`Apache ShenYu`网关会监听配置的节点，`shenyu-admin` 在启动的时候，会将数据全量写入 `Zookeeper`，后续数据发生变更时，会增量更新 `Zookeeper` 的节点，与此同时，`Apache ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
-![zookeeper节点设计](https://yu199195.github.io/images/soul/soul-zookeeper.png)
+![](https://yu199195.github.io/images/soul/soul-zookeeper.png)
 
 `Apache ShenYu` 将配置信息写到`zookeeper`节点，是通过精心设计的，如果您想深入了解代码实现，请参考源码 `ZookeeperSyncDataService`。
 
@@ -107,4 +107,3 @@ description: 数据同步
 `Apache ShenYu`网关会定时轮询配置的节点，默认间隔时间为1s。启动时，如果 `Consul` 中不存在配置节点，将同步全量的数据写入`Consul`中，后续数据发生变更时，增量更新 `Consul` 中的配置节点，与此同时，`Apache ShenYu`网关会定时轮询配置信息的节点，拉取配置版本号与本地进行比对，若发现版本号变更时，会更新本地缓存。
 
 如果您想深入了解代码实现，请参考源码 `ConsulSyncDataService`。
-

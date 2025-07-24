@@ -15,7 +15,7 @@ description: Apache ShenYu 是一个异步的，高性能的，跨语言的，�
 
 # 为什么叫ShenYu
 
- ShenYu(神禹)是中国古代君主夏禹(后世亦称大禹)的尊称，他留下了三渡黄河造福人民并成功治理黄河洪水的感人故事。他和尧、舜一起被认为是中国古代三大帝王之一。
+ ShenYu(神禹)是中国古代君主夏禹（后世亦称大禹）的尊称，他留下了三渡黄河造福人民并成功治理黄河洪水的感人故事。他和尧、舜一起被认为是中国古代三大帝王之一。
 
 * 首先，ShenYu这个名字是为了弘扬我们中华文明的传统美德。
 * 其次，对于网关来说最重要的是流量管理。
@@ -62,49 +62,49 @@ docker run -d -p 9195:9195 -e "shenyu.local.enabled=true" --net shenyu apache/sh
 ### 路由设置
 
 * Real requests  ：<http://127.0.0.1:8080/helloworld>,
-
-```json
-{
-  "name" : "Shenyu",
-  "data" : "hello world"
-}
-```
+  
+  ```json
+  {
+    "name" : "Shenyu",
+    "data" : "hello world"
+  }
+  ```
 
 * 设置路由规则 (Standalone)
 
-将`localKey: 123456`添加到Headers中。如果需要自定义localKey，可以使用sha512工具基于明文生成密钥，并更新`shenyu.local.sha512Key`属性。
-
-```
-curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndRules' \
---header 'Content-Type: application/json' \
---header 'localKey: 123456' \
---data-raw '{
-    "pluginName": "divide",
-    "selectorHandler": "[{\"upstreamUrl\":\"127.0.0.1:8080\"}]",
-    "conditionDataList": [{
-        "paramType": "uri",
-        "operator": "match",
-        "paramValue": "/**"
-    }],
-    "ruleDataList": [{
-        "ruleHandler": "{\"loadBalance\":\"random\"}",
-        "conditionDataList": [{
-            "paramType": "uri",
-            "operator": "match",
-            "paramValue": "/**"
-        }]
-    }]
-}'
-```
+  将`localKey: 123456`添加到Headers中。如果需要自定义localKey，可以使用sha512工具基于明文生成密钥，并更新`shenyu.local.sha512Key`属性。
+  
+  ```
+  curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndRules' \
+  --header 'Content-Type: application/json' \
+  --header 'localKey: 123456' \
+  --data-raw '{
+      "pluginName": "divide",
+      "selectorHandler": "[{\"upstreamUrl\":\"127.0.0.1:8080\"}]",
+      "conditionDataList": [{
+          "paramType": "uri",
+          "operator": "match",
+          "paramValue": "/**"
+      }],
+      "ruleDataList": [{
+          "ruleHandler": "{\"loadBalance\":\"random\"}",
+          "conditionDataList": [{
+              "paramType": "uri",
+              "operator": "match",
+              "paramValue": "/**"
+          }]
+      }]
+  }'
+  ```
 
 * 代理请求 ：<http://localhost:9195/helloworld>
 
-```json
-{
-  "name" : "Shenyu",
-  "data" : "hello world"
-}
-```
+  ```json
+  {
+    "name" : "Shenyu",
+    "data" : "hello world"
+  }
+  ```
 
 ---
 

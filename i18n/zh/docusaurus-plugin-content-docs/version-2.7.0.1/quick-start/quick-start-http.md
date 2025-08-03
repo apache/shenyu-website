@@ -11,9 +11,9 @@ description: Http快速开始
 
 启动成功后，需要在基础配置`->`插件管理中，把`divide` 插件设置为开启。在`Apache ShenYu`网关中，`Http`请求是由`divide`插件进行处理。
 
-
-<img src="/img/shenyu/quick-start/http/http-plugin-enable.png" width="60%" height="50%" />
-
+<p align="center">
+     <img src="/img/shenyu/quick-start/http/http-plugin-enable.png" width="60%" height="50%" />
+</p>
 
 启动网关，如果是通过源码的方式，直接运行`shenyu-bootstrap`中的`ShenyuBootstrapApplication`。
 
@@ -22,18 +22,18 @@ description: Http快速开始
 引入网关对`Http`的代理插件，在网关的 `pom.xml` 文件中增加如下依赖：
 
 ```xml
-        <!--if you use http proxy start this-->
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<!--if you use http proxy start this-->
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-divide</artifactId>
+    <version>${project.version}</version>
+</dependency>
 
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-httpclient</artifactId>
+    <version>${project.version}</version>
+</dependency>
 ```
 
 
@@ -57,25 +57,30 @@ description: Http快速开始
 2021-02-10 00:57:08.026  INFO 3700 --- [           main] o.d.s.e.http.ShenyuTestHttpApplication     : Started ShenyuTestHttpApplication in 2.555 seconds (JVM running for 3.411) 
 ```
 
-
-
 ## 测试Http请求
 
 `shenyu-examples-http`项目成功启动之后会自动把加 `@ShenyuSpringMvcClient` 注解的接口方法注册到网关。
 
 打开`插件列表 -> Proxy -> divide`可以看到插件规则配置列表：
 
-
-![](/img/shenyu/quick-start/http/rule-list.png)
+<p align="center">
+      <img src="/img/shenyu/quick-start/http/http-plugin-enable.png"/>
+</p>
 
 下面使用`postman`模拟`http`的方式来请求你的`http`服务：
 
-![](/img/shenyu/quick-start/http/postman-test.png)
+<p align="center">
+      <img src="/img/shenyu/quick-start/http/postman-test.png"/>
+</p>
 
-下面使用`IDEA HTTP Client Plugin`模拟`http`的方式来请求你的`http`服务[本地访问，不使用`shenyu`代理]:
+下面使用`IDEA HTTP Client Plugin`模拟`http`的方式来请求你的`http`服务[本地访问，不使用`shenyu`代理]：
 
-![](/img/shenyu/quick-start/http/idea-http-test-local.png)
+<p align="center">
+      <img src="/img/shenyu/quick-start/http/idea-http-test-local.png"/>
+</p>
 
-下面使用`IDEA HTTP Client Plugin`模拟`http`的方式来请求你的`http`服务[使用`shenyu`代理]:
+下面使用`IDEA HTTP Client Plugin`模拟`http`的方式来请求你的`http`服务[使用`shenyu`代理]：
 
-![](/img/shenyu/quick-start/http/idea-http-test-proxy.png)
+<p align="center">
+      <img src="/img/shenyu/quick-start/http/idea-http-test-proxy.png"/>
+</p>

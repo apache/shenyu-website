@@ -469,7 +469,7 @@ shenyu:
 
 * Used `-Dplugin-ext=xxxx`, Also used `shenyu.extPlugin.path` in yaml，If neither is configured, the `ext-lib` directory in the apache shenyu gateway boot path will be loaded by default.
 
-* Priority ：`-Dplugin-ext=xxxx` > `shenyu.extPlugin.path` > `ext-lib(default)`
+* Priority ：`shenyu.extPlugin.path` > `-Dplugin-ext=xxxx` > `ext-lib(default)`
 
 
 ## Plugin jar upload

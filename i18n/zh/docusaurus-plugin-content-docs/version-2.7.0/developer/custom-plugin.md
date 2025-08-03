@@ -475,7 +475,7 @@ shenyu:
 
 * 可以使用 `-Dplugin-ext=xxxx` 指定，也可以使用 `shenyu.extPlugin.path`配置文件指定，如果都没配置，默认会加载网关启动路径下的 `ext-lib`目录。
 
-* 优先级 ：`-Dplugin-ext=xxxx` > `shenyu.extPlugin.path` > `ext-lib(default)`
+* 优先级 ：`shenyu.extPlugin.path` > `-Dplugin-ext=xxxx` > `ext-lib(default)`
 
 
 

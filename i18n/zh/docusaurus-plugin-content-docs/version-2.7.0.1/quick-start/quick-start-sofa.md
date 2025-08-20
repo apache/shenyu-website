@@ -20,35 +20,34 @@ description: Sofa快速开始
 如果客户端是`sofa`，注册中心使用`zookeeper`，请参考如下配置：
 
 ```xml
-        <!-- apache shenyu sofa plugin start-->
-        <dependency>
-            <groupId>com.alipay.sofa</groupId>
-            <artifactId>sofa-rpc-all</artifactId>
-            <version>5.7.6</version>
-        </dependency>
-        <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-client</artifactId>
-               <version>4.0.1</version>
-           </dependency>
-           <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-framework</artifactId>
-               <version>4.0.1</version>
-           </dependency>
-           <dependency>
-               <groupId>org.apache.curator</groupId>
-               <artifactId>curator-recipes</artifactId>
-               <version>4.0.1</version>
-           </dependency>
+<!-- apache shenyu sofa plugin start-->
+<dependency>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>sofa-rpc-all</artifactId>
+    <version>5.7.6</version>
+</dependency>
+<dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-client</artifactId>
+       <version>4.0.1</version>
+   </dependency>
+   <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-framework</artifactId>
+       <version>4.0.1</version>
+   </dependency>
+   <dependency>
+       <groupId>org.apache.curator</groupId>
+       <artifactId>curator-recipes</artifactId>
+       <version>4.0.1</version>
+   </dependency>
 
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <!-- apache shenyu sofa plugin end-->
-
+<dependency>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
+    <version>${project.version}</version>
+</dependency>
+<!-- apache shenyu sofa plugin end-->
 ```
 
 ## 运行shenyu-examples-sofa项目
@@ -130,7 +129,7 @@ public SofaSimpleTypeBean batchSaveNameAndId(final List<SofaSimpleTypeBean> sofa
         simpleTypeBean.setId(id);
         simpleTypeBean.setName("hello world shenyu sofa param batchSaveAndNameAndId :" + name + ":" + sofaTestList.stream().map(SofaSimpleTypeBean::getName).collect(Collectors.joining("-")));
         return simpleTypeBean;
-        }
+}
 ```
 
 ![](/img/shenyu/quick-start/sofa/postman-multiparams.png)

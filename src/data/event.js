@@ -3,6 +3,12 @@ import Translate from "@docusaurus/Translate";
 
 export default [
   {
+    title: <Translate>Release Apache Shenyu 2.7.0.2</Translate>,
+    description:
+        "What's Changed \n 2.7.0.1 release \n fix doc pulling error \n update badge \n fix h2 ai proxy sql lack of selector handle......",
+    src: "2.7.0.2-release",
+  },
+  {
     title: <Translate>Release Apache Shenyu 2.7.0.1</Translate>,
     description:
         "What's Changed \n fixed some bug when using http-polling mode \n plugin-jwt SPI extension for parsing JWT payloads to ensure compatibility with older......",

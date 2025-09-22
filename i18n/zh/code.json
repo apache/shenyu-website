@@ -406,6 +406,9 @@
   "Code Analysis For Divide Plugin": {
     "message": "Divide插件源码分析"
   },
+  "Code Analysis For McpServer Plugin": {
+    "message": "McpServer插件源码分析"
+  },
   "E2e Test": {
     "message": "E2e测试"
   },

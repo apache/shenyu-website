@@ -15,6 +15,7 @@ However, the gateway using middleware data synchronization still requires manual
 ### 1.Configuration Settings
 
 Open the gateway's `application.yml` file and find the heartbeat configuration item. Fill in the admin's IP address and login password.
+
 ```yaml
   heartbeat:
     enabled: true
@@ -23,7 +24,6 @@ Open the gateway's `application.yml` file and find the heartbeat configuration i
       username: admin
       password: 123456
 ```
-
 
 ## 2.Visualization Interface
 

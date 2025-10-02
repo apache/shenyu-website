@@ -15,6 +15,7 @@
 ### 1.配置填写
 
 打开网关的```application.yml``` 文件找到 ```heartbeat``` 配置项。填写admin的ip地址和登录密码
+
 ```yaml
   heartbeat:
     enabled: true
@@ -23,7 +24,6 @@
       username: admin
       password: 123456
 ```
-
 
 ## 2.可视化界面
 

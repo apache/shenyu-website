@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[26540],{14253:a=>{a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"load-balance","name":"load balance","count":1,"permalink":"/blog/tags/load-balance"}')}}]);

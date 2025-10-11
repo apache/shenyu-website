@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[89969],{99455:e=>{e.exports=JSON.parse('{"pluginId":"helm","version":"current","label":"Next","banner":"none","isLast":true,"docsSidebars":{"community":[{"type":"link","label":"Helm\u90e8\u7f72","href":"/zh/helm/index"}]}}')}}]);

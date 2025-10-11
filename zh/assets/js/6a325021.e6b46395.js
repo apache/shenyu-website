@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[43651],{12336:s=>{s.exports=JSON.parse('{"allTagsPath":"/zh/blog/tags","slug":"spi","name":"spi","count":5,"permalink":"/zh/blog/tags/spi"}')}}]);

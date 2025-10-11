@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[21357],{63148:e=>{e.exports=JSON.parse('{"pluginId":"shenyuClientRust","version":"current","label":"Next","banner":"none","isLast":true,"docsSidebars":{"community":[{"type":"link","label":"Http Example","href":"/shenyuClientRust/http"}]}}')}}]);

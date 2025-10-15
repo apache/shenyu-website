@@ -1,4 +1,3 @@
-
 ---
 title: McpServer Plugin Source Code Analysis  
 author: yusiheng
@@ -107,6 +106,7 @@ public class ShenyuMcpServerManager {
 ```
 
 ##### 1.1.1 Transport Registration
+
 * `createSseTransport()` method
 > This method is called within `getOrCreateMcpServerTransport()` and is used to create a Transport
 
@@ -128,6 +128,7 @@ public class ShenyuMcpServerManager {
 ```
 
 ##### 1.1.2 McpServer Registration
+
 * `addTransportToSharedServer()` method
 > This method is called within `getOrCreateMcpServerTransport()` and is used to create and save McpServer
 
@@ -485,6 +486,8 @@ public class ShenyuToolCallback implements ToolCallback {
 This concludes the Shenyu MCP Plugin tool invocation analysis.
 
 ![](/img/activities/code-analysis-mcp-server-plugin/Mcp-server-tool-call-en.png)
+
+---
 
 ### 4. Summary
 

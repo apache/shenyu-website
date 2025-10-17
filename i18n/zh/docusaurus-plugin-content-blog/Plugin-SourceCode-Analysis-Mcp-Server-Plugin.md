@@ -228,6 +228,7 @@ public class McpServerPluginDataHandler implements PluginDataHandler {
     }
 }
 ```
+
 * `addTool()`方法
 > 该方法被 `handlerRule()` 方法调用，用于新增工具
 

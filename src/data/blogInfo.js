@@ -231,6 +231,16 @@ export default [
                 date: '2024-02-04',
                 abs:<Translate>Code Analysis Ext Plugin Loader</Translate>
             },
+            {
+                title: <Translate>Code Analysis For McpServer Plugin</Translate>,
+                author: "yusiheng (contributor)",
+                autImg: "/img/blog/yusiheng.png",
+                autPage: "https://github.com/478320",
+                src: "Plugin-SourceCode-Analysis-Mcp-Server-Plugin",
+                cover: "/img/logo.svg",
+                date: '2025-09-22',
+                abs:<Translate>Code Analysis For McpServer Plugin</Translate>
+            },
         ]
     },
     {

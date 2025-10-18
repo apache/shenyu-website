@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[72804],{42914:s=>{s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"mcp","name":"mcp","count":1,"permalink":"/blog/tags/mcp"}')}}]);

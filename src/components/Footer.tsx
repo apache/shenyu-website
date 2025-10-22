@@ -44,7 +44,7 @@ const Footer = (): React.ReactElement => (
                         <span className={styles.linkSpan}><Translate>Subscribe mailing list</Translate></span>
                         <div className={styles.link}>
                             <div className={styles.linkItem}><a className={styles.linkA} href='./community/contributor-guide#join-the-discussion'><Translate>How to subscribe</Translate></a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='mailto://dev-subscribe@shenyu.apache.org'><Translate>Subscribe Mail</Translate></a></div>
+                            <div className={styles.linkItem}><a className={styles.linkA} href='mailto:dev-subscribe@shenyu.apache.org'><Translate>Subscribe Mail</Translate></a></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='https://lists.apache.org/list.html?dev@shenyu.apache.org'><Translate>Mail Archive</Translate></a></div>                            
                         </div>
                     </div>

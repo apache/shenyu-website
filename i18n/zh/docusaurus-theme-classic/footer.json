@@ -57,7 +57,7 @@
   },
   "link.item.label.Subscribe Mail": {
     "message": "订阅邮件",
-    "description": "The label of footer link with label=Subscribe Mail linking to mailto://dev-subscribe@shenyu.apache.org"
+      "description": "The label of footer link with label=Subscribe Mail linking to mailto:dev-subscribe@shenyu.apache.org"
   },
   "link.item.label.Mail Archive": {
     "message": "邮件归档",

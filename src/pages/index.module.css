@@ -116,11 +116,18 @@
   animation-name: jackInTheBox;
   float: right;
   /* padding: 0 20px 20px; */
-  width: 37.5rem;
+  width: 100%;
+  max-width: 37.5rem;
   height: 400px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: rgb(245,246,247);
+}
+
+.heroLogo {
+  max-width: 100%;
+  height: auto;
 }
 
 .indexCtas {
@@ -271,8 +278,32 @@
     padding: 2rem;
   }
 
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero .row {
+    flex-direction: column;
+  }
+
+  .hero .col {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .heroProjectTitle {
+    font-size: 2.5rem;
+    justify-content: center;
+  }
+
   .heroProjectTagline{
     font-size: 20px;
+    text-align: center;
+  }
+
+  .indexCtas {
+    justify-content: center;
   }
 
   .logoContainer{
@@ -280,13 +311,23 @@
     box-shadow: 6px 6px 22px 2px  rgb(0 0 51 / 20%);
     animation-duration: 2s;
     animation-name: jackInTheBox;
-    width: 85vw;
-    height: 400px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 300px;
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: rgb(245,246,247);
+    float: none;
+    margin-top: 2rem;
+    padding: 1rem;
   }
 
+  .heroLogo {
+    max-width: 100%;
+    height: auto;
+  }
 
   :global(.user-swiper-button-prev){
     top:950px !important; 
@@ -296,5 +337,34 @@
   :global(.user-swiper-button-next){
     top:950px !important;
     right: 0px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hero {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .heroProjectTitle {
+    font-size: 2rem;
+  }
+
+  .heroProjectTagline {
+    font-size: 18px;
+  }
+
+  .buttonGetStarted,
+  .buttonGithub {
+    width: 8rem;
+    font-size: 14px;
+  }
+
+  .indexCtas a:last-of-type {
+    margin: 20px 16px;
+  }
+
+  .logoContainer {
+    min-height: 250px;
+    margin-top: 1.5rem;
   }
 }

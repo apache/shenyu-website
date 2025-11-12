@@ -30,7 +30,7 @@ description: mcp Server插件
 
 点击 SSE配置 Streamable配置 可以进入Json编辑页面，可以更方便的帮助用户编辑Mcp客户端需要使用的Json配置
 
-<img src="/img/shenyu/plugin/mcpServer/mcpclient_config_zh.png" width="80%" height="80%" />
+<img src="/img/shenyu/plugin/mcpServer/mcp_client_config_zh.png" width="80%" height="80%" />
 
 #### 工具处理
 
@@ -62,4 +62,4 @@ description: mcp Server插件
 
 - 在 `shenyu-admin` --> 基础配置 --> 插件管理 --> `mcpServer` 设置为禁用。
 
-![](/img/shenyu/plugin/mcpServer/disable-cn.png)
+![](/img/shenyu/plugin/mcpServer/disable.png)

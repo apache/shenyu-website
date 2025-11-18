@@ -52,7 +52,7 @@ description: 数据同步
 
 基于 `zookeeper` 的同步原理很简单，主要是依赖 `zookeeper` 的 `watch` 机制。`Apache ShenYu`网关会监听配置的节点，`shenyu-admin` 在启动的时候，会将数据全量写入 `zookeeper`，后续数据发生变更时，会增量更新 `zookeeper` 的节点，与此同时，`Apache ShenYu`网关会监听配置信息的节点，一旦有信息变更时，会更新本地缓存。
 
-![zookeeper节点设计](https://yu199195.github.io/images/soul/soul-zookeeper.png)
+![zookeeper节点设计](/img/shenyu/dataSync/shenyu-data-sync-zookeeper.png)
 
 `Apache ShenYu` 将配置信息写到`zookeeper`节点，是通过精心设计的，如果您想深入了解代码实现，请参考源码 `ZookeeperSyncDataService`。
 

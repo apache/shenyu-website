@@ -49,7 +49,7 @@ As showing picture below,`soul-admin` will issue a configuration change notifica
 
 The zookeeper-based synchronization principle is very simple,it mainly depends on `zookeeper` watch mechanism,`soul-web` will monitor the configured node,when `soul-admin` starts,all the data will be written to `zookeeper`,it will incrementally update the nodes of `zookeeper` when data changes,at the same time, `soul-web` will monitor the node for configuration information, and update the local cache once the information changes
 
-![Zookeeper Node Design](https://yu199195.github.io/images/soul/soul-zookeeper.png)
+![Zookeeper Node Design](/img/shenyu/dataSync/shenyu-data-sync-zookeeper.png)
 
 `soul` writes the configuration information to the zookeeper node,and it is meticulously designed.
 

@@ -16,19 +16,91 @@ Apache ShenYu is a responsive API gateway developed using Java Reactor. With its
 
 ## Version preview
 
-This version primarily includes several bug fixes, dependency upgrades, and documentation improvements.
+Three months later, Apache ShenYu released version 2.7.0.3. This version merged 77 pull requests, added 29 new features, and made several improvements, refactored many functions, and fixed several bugs.
+Version history: https://github.com/apache/shenyu/compare/v2.7.0.2...v2.7.0.3
 
 ## What's Changed
 
-- [chore] Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/apache/shenyu/pull/6071
-- [chore] Bump actions/setup-java from 3 to 4 by @dependabot in https://github.com/apache/shenyu/pull/6072
-- [chore] Bump codecov/codecov-action from 3 to 4 by @dependabot in https://github.com/apache/shenyu/pull/6073
-- [chore] Bump gradle/wrapper-validation-action from 1 to 2 by @dependabot in https://github.com/apache/shenyu/pull/6074
-- [fix] Fix NPE in SpringMvcPlugin when handlerMethod is null by @Aias00 in https://github.com/apache/shenyu/pull/6075
-- [feat] Support custom load balance algorithm in Dubbo plugin by @Aias00 in https://github.com/apache/shenyu/pull/6076
-- [docs] Update quick start guide for Docker deployment by @Aias00 in https://github.com/apache/shenyu/pull/6077
-- [chore] Bump docusaurus from 3.5.2 to 3.6.0 in /shenyu-website by @dependabot in https://github.com/apache/shenyu/pull/6078
-- [fix] Resolve race condition in PluginDataSubscriber cache by @justinmclean in https://github.com/apache/shenyu/pull/6079
+- [feat] Add partial unit tests by @yuluo-yx in https://github.com/apache/shenyu/pull/6105
+- [fix] Fix NacosConfig test error by @Wweiei in https://github.com/apache/shenyu/pull/6116
+- [fix] Fix MCP Server plugin requestConfig too long issue by @Wweiei in https://github.com/apache/shenyu/pull/6115
+- [fix] Fix RedisRateLimiter type cast error (related to #6103) by @yuluo-yx in https://github.com/apache/shenyu/pull/6120
+- [fix] Fix EtcdInstanceRegisterRepositoryTest runtime failure by @Wweiei in https://github.com/apache/shenyu/pull/6127
+- [chore] Translate comments in pom.xml to English by @yuluo-yx in https://github.com/apache/shenyu/pull/6128
+- [fix] Fix ShenyuBootstrapApplication startup failure when using Nacos data sync by @Wweiei in https://github.com/apache/shenyu/pull/6131
+- [fix] Replace deprecated Base64 class with java.util.Base64 by @Aias00 in https://github.com/apache/shenyu/pull/6132
+- [chore] Sync Dashboard frontend resources by @Wweiei in https://github.com/apache/shenyu/pull/6133
+- [fix] Fix cache not being cleared after selector deletion in Nacos sync mode by @17661152 in https://github.com/apache/shenyu/pull/6140
+- [feat] Add unit tests for shenyu-registry-api module by @yuluo-yx in https://github.com/apache/shenyu/pull/6135
+- [feat] Refactor reserved keyword fields in registry config by @Wweiei in https://github.com/apache/shenyu/pull/6139
+- [feat] Add unit tests for sync data API by @yuluo-yx in https://github.com/apache/shenyu/pull/6142
+- [chore] Translate Chinese comments to English and add license header by @yuluo-yx in https://github.com/apache/shenyu/pull/6146
+- [feat] Refactor selector reserved keyword fields by @Wweiei in https://github.com/apache/shenyu/pull/6141
+- [chore] Translate Chinese comments to English by @yuluo-yx in https://github.com/apache/shenyu/pull/6149
+- [optimize] Optimize instance comparison logic in EurekaInstanceRepository by @yqw570994511 in https://github.com/apache/shenyu/pull/6148
+- [feat] Refactor rule reserved keyword fields by @Wweiei in https://github.com/apache/shenyu/pull/6147
+- [chore] Translate Chinese comments to English by @yuluo-yx in https://github.com/apache/shenyu/pull/6151
+- [optimize] Optimize instance comparison logic in NacosInstanceRepository by @yqw570994511 in https://github.com/apache/shenyu/pull/6150
+- [feat] Add more friendly debug prompt messages by @yuluo-yx in https://github.com/apache/shenyu/pull/6153
+- [test] Add more tests for FallbackShenyuClientRegisterService by @yuluo-yx in https://github.com/apache/shenyu/pull/6155
+- [feat] Adapt other databases for tag and appAuth tables by @yuluo-yx in https://github.com/apache/shenyu/pull/6152
+- [feat] MCP Server supports object and array parameters by @Wweiei in https://github.com/apache/shenyu/pull/6150
+- [chore] Sync Dashboard frontend resources by @Wweiei in https://github.com/apache/shenyu/pull/6160
+- [fix] Correct test data in MotanPluginTest by @ywwana in https://github.com/apache/shenyu/pull/6164
+- [fix] Fix data sync bug by @ywwana in https://github.com/apache/shenyu/pull/6165
+- [feat] Motan plugin config based on selector by @478320 in https://github.com/apache/shenyu/pull/6058
+- [chore] Fix typos by @yuluo-yx in https://github.com/apache/shenyu/pull/6172
+- [fix] Fix an unnamed issue by @xcsnx in https://github.com/apache/shenyu/pull/6170
+- [chore] Add new line for formatting by @yuluo-yx in https://github.com/apache/shenyu/pull/6171
+- [fix] Fix AiResponseTransformerPluginTest runtime error by @Wweiei in https://github.com/apache/shenyu/pull/6169
+- [feat] Refactor discovery_upstream reserved keyword fields by @Wweiei in https://github.com/apache/shenyu/pull/6167
+- [fix] Fix Oracle schema.sql by @eye-gu in https://github.com/apache/shenyu/pull/6162
+- [feat] Gateway and client status management by @xchoox in https://github.com/apache/shenyu/pull/6057
+- [feat] ShenYu MCP plugin auto-register support by @478320 in https://github.com/apache/shenyu/pull/6163
+- [feat] Plugin config caching based on selector by @478320 in https://github.com/apache/shenyu/pull/6068
+- [feat] Enhanced AI proxy with SpringAI, fallback, and Proxy API key by @fantasy-lotus in https://github.com/apache/shenyu/pull/6145
+- [fix] Fix init SQL script by @eye-gu in https://github.com/apache/shenyu/pull/6176
+- [fix] Fix several bugs by @478320 in https://github.com/apache/shenyu/pull/6180
+- [feat] Replace old AI proxy with enhanced version by @fantasy-lotus in https://github.com/apache/shenyu/pull/6174
+- [fix] Fix Nacos instance check logic in shenyu-registry-nacos by @BraveheartStone in https://github.com/apache/shenyu/pull/6178
+- [fix] Fix doSelectMaster logic by @fantasy-lotus in https://github.com/apache/shenyu/pull/6185
+- [fix] Fix shenyu-sync-data-http password sync error by @yuluo-yx in https://github.com/apache/shenyu/pull/6181
+- [chore] Sync Dashboard frontend resources by @fantasy-lotus in https://github.com/apache/shenyu/pull/6186
+- [fix] Fix "name" field change in TagVO by @Wweiei in https://github.com/apache/shenyu/pull/6190
+- [feat] Adapt other databases for discovery SQL fields by @yuluo-yx in https://github.com/apache/shenyu/pull/6166
+- [chore] Bump ZooKeeper from 3.9.3 to 3.9.4 by @dependabot in https://github.com/apache/shenyu/pull/6189
+- [feat] Add unit tests by @xchoox in https://github.com/apache/shenyu/pull/6182
+- [feat] LoggingRabbitMQ plugin config based on selector by @478320 in https://github.com/apache/shenyu/pull/6059
+- [feat] Sofa plugin config based on selector by @478320 in https://github.com/apache/shenyu/pull/6062
+- [feat] LoggingKafka plugin config based on selector by @478320 in https://github.com/apache/shenyu/pull/6074
+- [optimize] Optimize LogCollectUtils by @liangjh98 in https://github.com/apache/shenyu/pull/6191
+- [feat] Refactor gateway heartbeat reporting on startup by @xchoox in https://github.com/apache/shenyu/pull/6187
+- [feat] HTTP and WebSocket sync modes support heartbeat detection by @xchoox in https://github.com/apache/shenyu/pull/6196
+- [feat] Add unit tests for shenyu-register-client-api by @yuluo-yx in https://github.com/apache/shenyu/pull/6192
+- [feat] Introduce GitHub CI support by @Aias00 in https://github.com/apache/shenyu/pull/6031
+- [infra] Add auto-notification GitHub Action for new issues by @yuluo-yx in https://github.com/apache/shenyu/pull/6198
+- [feat] Add unit tests for shenyu-register-client-beat module by @yuluo-yx in https://github.com/apache/shenyu/pull/6193
+- [infra] Add issue label manager GitHub Action by @yuluo-yx in https://github.com/apache/shenyu/pull/6197
+- [feat] Introduce mvnd build tool support by @Aias00 in https://github.com/apache/shenyu/pull/6041
+- [fix] Fix old IP overriding new IP after service restart in Nacos discovery by @BraveheartStone in https://github.com/apache/shenyu/pull/6144
+- [fix] Fix path truncation in GET requests set by shenyuContext in MCP by @MaMengzhen in https://github.com/apache/shenyu/pull/6203
+- [fix] Fix multiple indices under shenyu-access-log alias by @wusuobuzai in https://github.com/apache/shenyu/pull/6204
+- [fix] Fix typo in active committers list by @yuluo-yx in https://github.com/apache/shenyu/pull/6205
+- [feat] Add unit tests for shenyu-registry-k8s module by @yuluo-yx in https://github.com/apache/shenyu/pull/6206
+- [fix] Remove unnecessary mock return value in MotanProxyServiceTest by @Aias00 in https://github.com/apache/shenyu/pull/6207
+- [feat] Replace Prow action with local issue-manager script by @yuluo-yx in https://github.com/apache/shenyu/pull/6211
+- [fix] Fix MCP auto-register bugs by @478320 in https://github.com/apache/shenyu/pull/6212
+- [feat] Enhance MCP Server auto-register capability by @478320 in https://github.com/apache/shenyu/pull/6213
+- [fix] Fix outdated dependencies caused by mvnd cache by @478320 in https://github.com/apache/shenyu/pull/6217
+- [fix] Fix issue with multiple selectors connecting to different registries by @yunlongn in https://github.com/apache/shenyu/pull/6220
+- [feat] Import MCP Server config from Swagger doc by @478320 in https://github.com/apache/shenyu/pull/6219
+- [refactor] Extract base data classes for plugin, selector, and rule by @yuluo-yx in https://github.com/apache/shenyu/pull/6221
+- [feat] Remove shenyu-infra-x-module by @yuluo-yx in https://github.com/apache/shenyu/pull/6216
+- [fix] Fix typos in several files by @khanhnl1999 in https://github.com/apache/shenyu/pull/6224
+- [fix] Fix shenyu-examples-mcp module by @478320 in https://github.com/apache/shenyu/pull/6226
+- [fix] Fix ShenYu MCP bugs by @478320 in https://github.com/apache/shenyu/pull/6227
+- [chore] Update LICENSE with new dependencies and versions by @Aias00 in https://github.com/apache/shenyu/pull/6234
+
 
 ## Become a contributor
 

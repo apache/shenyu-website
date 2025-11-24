@@ -14,19 +14,89 @@ date: 2025-11-24
 > GitHub: https://github.com/apache/shenyu
 
 ## 版本预览
-此版本主要包含若干 bug 修复、依赖升级和文档改进，推荐所有用户升级。
-
+三个月后，Apache ShenYu 发布了 2.7.0.3 版本，该版本共合并了 77 个 Pull Requests，新增了 29 项新功能，并进行了多项改进、重构了多项功能，修复了多个错误
+版本记录：https://github.com/apache/shenyu/compare/v2.7.0.2...v2.7.0.3
 ## 改动内容
 
-- [chore] Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/apache/shenyu/pull/6071
-- [chore] Bump actions/setup-java from 3 to 4 by @dependabot in https://github.com/apache/shenyu/pull/6072
-- [chore] Bump codecov/codecov-action from 3 to 4 by @dependabot in https://github.com/apache/shenyu/pull/6073
-- [chore] Bump gradle/wrapper-validation-action from 1 to 2 by @dependabot in https://github.com/apache/shenyu/pull/6074
-- [fix] Fix NPE in SpringMvcPlugin when handlerMethod is null by @Aias00 in https://github.com/apache/shenyu/pull/6075
-- [feat] Support custom load balance algorithm in Dubbo plugin by @Aias00 in https://github.com/apache/shenyu/pull/6076
-- [docs] Update quick start guide for Docker deployment by @Aias00 in https://github.com/apache/shenyu/pull/6077
-- [chore] Bump docusaurus from 3.5.2 to 3.6.0 in /shenyu-website by @dependabot in https://github.com/apache/shenyu/pull/6078
-- [fix] Resolve race condition in PluginDataSubscriber cache by @justinmclean in https://github.com/apache/shenyu/pull/6079
+- [feat] 添加部分单元测试 by @yuluo-yx in https://github.com/apache/shenyu/pull/6105
+- [fix] 修复 NacosConfig 测试错误 by @Wweiei in https://github.com/apache/shenyu/pull/6116
+- [fix] 修复 MCP Server 插件 requestConfig 过长的问题 by @Wweiei in https://github.com/apache/shenyu/pull/6115
+- [fix] 修复 RedisRateLimiter 类型转换异常（关联 #6103）by @yuluo-yx in https://github.com/apache/shenyu/pull/6120
+- [fix] 修复 EtcdInstanceRegisterRepositoryTest 运行失败问题 by @Wweiei in https://github.com/apache/shenyu/pull/6127
+- [chore] 将 pom.xml 中的注释更新为英文 by @yuluo-yx in https://github.com/apache/shenyu/pull/6128
+- [fix] 修复使用 Nacos 数据同步时 ShenyuBootstrapApplication 启动失败的问题 by @Wweiei in https://github.com/apache/shenyu/pull/6131
+- [fix] 使用 java.util.Base64 替换已废弃的 Base64 类 by @Aias00 in https://github.com/apache/shenyu/pull/6132
+- [chore] 同步 Dashboard 前端资源 by @Wweiei in https://github.com/apache/shenyu/pull/6133
+- [fix] 修复 Nacos 数据同步方式下删除选择器后缓存未正确清除的问题 by @17661152 in https://github.com/apache/shenyu/pull/6140
+- [feat] 为 shenyu-registry-api 模块补充单元测试 by @yuluo-yx in https://github.com/apache/shenyu/pull/6135
+- [feat] 重构注册中心保留关键字字段 by @Wweiei in https://github.com/apache/shenyu/pull/6139
+- [feat] 为数据同步 API 补充单元测试 by @yuluo-yx in https://github.com/apache/shenyu/pull/6142
+- [chore] 将中文注释翻译为英文并添加许可证头 by @yuluo-yx in https://github.com/apache/shenyu/pull/6146
+- [feat] 重构选择器（Selector）保留关键字字段 by @Wweiei in https://github.com/apache/shenyu/pull/6141
+- [chore] 将中文注释翻译为英文 by @yuluo-yx in https://github.com/apache/shenyu/pull/6149
+- [optimize] 优化 Eureka 实例仓库中的实例比较逻辑 by @yqw570994511 in https://github.com/apache/shenyu/pull/6148
+- [feat] 重构规则（Rule）保留关键字字段 by @Wweiei in https://github.com/apache/shenyu/pull/6147
+- [chore] 将中文注释翻译为英文 by @yuluo-yx in https://github.com/apache/shenyu/pull/6151
+- [optimize] 优化 Nacos 实例仓库中的实例比较逻辑 by @yqw570994511 in https://github.com/apache/shenyu/pull/6150
+- [feat] 增加更友好的调试提示信息 by @yuluo-yx in https://github.com/apache/shenyu/pull/6153
+- [test] 为 FallbackShenyuClientRegisterService 补充更多测试用例 by @yuluo-yx in https://github.com/apache/shenyu/pull/6155
+- [feat] 适配其他数据库对 tag 和 appAuth 表的支持 by @yuluo-yx in https://github.com/apache/shenyu/pull/6152
+- [feat] MCP Server 支持对象和数组类型的参数 by @Wweiei in https://github.com/apache/shenyu/pull/6150
+- [chore] 同步 Dashboard 前端资源 by @Wweiei in https://github.com/apache/shenyu/pull/6160
+- [fix] 修正 MotanPluginTest 示例测试的数据 by @ywwana in https://github.com/apache/shenyu/pull/6164
+- [fix] 修复数据同步相关 Bug by @ywwana in https://github.com/apache/shenyu/pull/6165
+- [feat] Motan 插件支持基于选择器的配置 by @478320 in https://github.com/apache/shenyu/pull/6058
+- [chore] 修复拼写错误 by @yuluo-yx in https://github.com/apache/shenyu/pull/6172
+- [fix] 修复一个未命名的问题 by @xcsnx in https://github.com/apache/shenyu/pull/6170
+- [chore] 添加换行符以规范格式 by @yuluo-yx in https://github.com/apache/shenyu/pull/6171
+- [fix] 修复 AiResponseTransformerPluginTest 运行失败问题 by @Wweiei in https://github.com/apache/shenyu/pull/6169
+- [feat] 重构服务发现上游（upstream）保留关键字字段 by @Wweiei in https://github.com/apache/shenyu/pull/6167
+- [fix] 修复 Oracle 初始化脚本 schema.sql 的问题 by @eye-gu in https://github.com/apache/shenyu/pull/6162
+- [feat] 网关与客户端状态管理功能 by @xchoox in https://github.com/apache/shenyu/pull/6057
+- [feat] ShenYu MCP 插件支持自动注册 by @478320 in https://github.com/apache/shenyu/pull/6163
+- [feat] 插件配置支持基于选择器进行缓存 by @478320 in https://github.com/apache/shenyu/pull/6068
+- [feat] 增强 AI 代理功能：集成 SpringAI、降级机制与 Proxy API Key 支持 by @fantasy-lotus in https://github.com/apache/shenyu/pull/6145
+- [fix] 修复初始化 SQL 脚本问题 by @eye-gu in https://github.com/apache/shenyu/pull/6176
+- [fix] 修复若干 Bug by @478320 in https://github.com/apache/shenyu/pull/6180
+- [feat] 使用增强版 AI 代理替换旧实现 by @fantasy-lotus in https://github.com/apache/shenyu/pull/6174
+- [fix] 修复 shenyu-registry-nacos 模块中 Nacos 实例检查逻辑 by @BraveheartStone in https://github.com/apache/shenyu/pull/6178
+- [fix] 修复 doSelectMaster 方法逻辑问题 by @fantasy-lotus in https://github.com/apache/shenyu/pull/6185
+- [fix] 修复 shenyu-sync-data-http 同步密码错误的问题 by @yuluo-yx in https://github.com/apache/shenyu/pull/6181
+- [chore] 同步 Dashboard 前端资源 by @fantasy-lotus in https://github.com/apache/shenyu/pull/6186
+- [fix] 修复 TagVO 中 "name" 字段变更导致的问题 by @Wweiei in https://github.com/apache/shenyu/pull/6190
+- [feat] 适配其他数据库对服务发现 SQL 字段的支持 by @yuluo-yx in https://github.com/apache/shenyu/pull/6166
+- [chore] 将 ZooKeeper 依赖从 3.9.3 升级至 3.9.4 by @dependabot in https://github.com/apache/shenyu/pull/6189
+- [feat] 补充单元测试 by @xchoox in https://github.com/apache/shenyu/pull/6182
+- [feat] LoggingRabbitMQ 插件支持基于选择器的配置 by @478320 in https://github.com/apache/shenyu/pull/6059
+- [feat] Sofa 插件支持基于选择器的配置 by @478320 in https://github.com/apache/shenyu/pull/6062
+- [feat] LoggingKafka 插件支持基于选择器的配置 by @478320 in https://github.com/apache/shenyu/pull/6074
+- [optimize] 优化 LogCollectUtils 工具类 by @liangjh98 in https://github.com/apache/shenyu/pull/6191
+- [feat] 重构网关启动时的心跳上报机制 by @xchoox in https://github.com/apache/shenyu/pull/6187
+- [feat] HTTP 与 WebSocket 同步模式支持心跳检测 by @xchoox in https://github.com/apache/shenyu/pull/6196
+- [feat] 为 shenyu-register-client-api 模块补充单元测试 by @yuluo-yx in https://github.com/apache/shenyu/pull/6192
+- [feat] 引入 GitHub CI 支持 by @Aias00 in https://github.com/apache/shenyu/pull/6031
+- [infra] 新增 Issue 创建时自动通知的 GitHub Action by @yuluo-yx in https://github.com/apache/shenyu/pull/6198
+- [feat] 为 shenyu-register-client-beat 模块补充单元测试 by @yuluo-yx in https://github.com/apache/shenyu/pull/6193
+- [infra] 新增 Issue 标签管理 GitHub Action by @yuluo-yx in https://github.com/apache/shenyu/pull/6197
+- [feat] 引入 mvnd 构建工具支持 by @Aias00 in https://github.com/apache/shenyu/pull/6041
+- [fix] 修复通过 Nacos 发现下游服务时，服务重启后旧 IP 覆盖新 IP 导致调用异常的问题 by @BraveheartStone in https://github.com/apache/shenyu/pull/6144
+- [fix] 修复 MCP 中由 shenyuContext 设置的 GET 请求路径被截断的问题 by @MaMengzhen in https://github.com/apache/shenyu/pull/6203
+- [fix] 修复当 shenyu-access-log 别名下存在多个索引时的问题 by @wusuobuzai in https://github.com/apache/shenyu/pull/6204
+- [fix] 修复活跃提交者名单中的拼写错误 by @yuluo-yx in https://github.com/apache/shenyu/pull/6205
+- [feat] 为 shenyu-registry-k8s 模块补充单元测试 by @yuluo-yx in https://github.com/apache/shenyu/pull/6206
+- [fix] 移除 MotanProxyServiceTest 中不必要的 mock 返回值 by @Aias00 in https://github.com/apache/shenyu/pull/6207
+- [feat] 使用本地脚本替换 Prow Action 实现 Issue 管理 by @yuluo-yx in https://github.com/apache/shenyu/pull/6211
+- [fix] 修复 MCP 自动注册相关 Bug by @478320 in https://github.com/apache/shenyu/pull/6212
+- [feat] 增强 MCP Server 自动注册能力 by @478320 in https://github.com/apache/shenyu/pull/6213
+- [fix] 修复因 mvnd 缓存导致使用过期依赖的问题 by @478320 in https://github.com/apache/shenyu/pull/6217
+- [fix] 修复多个选择器连接不同注册中心时的问题 by @yunlongn in https://github.com/apache/shenyu/pull/6220
+- [feat] 支持通过 Swagger 文档导入 MCP Server 配置 by @478320 in https://github.com/apache/shenyu/pull/6219
+- [refactor] 抽取插件、选择器和规则数据类的公共基类 by @yuluo-yx in https://github.com/apache/shenyu/pull/6221
+- [feat] 移除 shenyu-infra-x-module 模块 by @yuluo-yx in https://github.com/apache/shenyu/pull/6216
+- [fix] 修复若干文件中的拼写错误 by @khanhnl1999 in https://github.com/apache/shenyu/pull/6224
+- [fix] 修复 shenyu-examples-mcp 示例模块问题 by @478320 in https://github.com/apache/shenyu/pull/6226
+- [fix] 修复 ShenYu MCP 相关 Bug by @478320 in https://github.com/apache/shenyu/pull/6227
+- [chore] 更新 LICENSE 文件，包含新增依赖及其版本信息 by @Aias00 in https://github.com/apache/shenyu/pull/6234
 
 ## 成为贡献者
 

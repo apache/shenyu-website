@@ -89,25 +89,25 @@ shenyu:
 
 | name                                       | type  | labels                 | help                                                              |
 |:------------------------------------------:|:-----:|:----------------------:|:-----------------------------------------------------------------:|
-| jvm_memory_objects_pending_finalization    | gauge | {area="heap\|nonheap"} | The number of objects waiting in the finalizer queue.             |
-| jvm_memory_bytes_used                      | gauge | {area="heap\|nonheap"} | Used bytes of a given JVM memory area.                            |
-| jvm_memory_bytes_committed                 | gauge | {area="heap\|nonheap"} | Committed (bytes) of a given JVM memory area.                     |
-| jvm_memory_bytes_max                       | gauge | {area="heap\|nonheap"} | Max (bytes) of a given JVM memory area.                           |
-| jvm_memory_bytes_init                      | gauge | {area="heap\|nonheap"} | Initial bytes of a given JVM memory area.                         |
-| jvm_memory_pool_bytes_used                 | gauge | {pool}                 | Used bytes of a given JVM memory pool.                            |
-| jvm_memory_pool_bytes_committed            | gauge | {pool}                 | Committed bytes of a given JVM memory pool.                       |
-| jvm_memory_pool_bytes_max                  | gauge | {pool}                 | Max bytes of a given JVM memory pool.                             |
-| jvm_memory_pool_bytes_init                 | gauge | {pool}                 | Initial bytes of a given JVM memory pool.                         |
-| jvm_memory_pool_collection_used_bytes      | gauge | {pool}                 | Used bytes after last collection of a given JVM memory pool.      |
-| jvm_memory_pool_collection_committed_bytes | gauge | {pool}                 | Committed after last collection bytes of a given JVM memory pool. |
-| jvm_memory_pool_collection_max_bytes       | gauge | {pool}                 | Max bytes after last collection of a given JVM memory pool.       |
-| jvm_memory_pool_collection_init_bytes      | gauge | {pool}                 | Initial after last collection bytes of a given JVM memory pool.   |
+| jvm_memory_objects_pending_finalization    | gauge | \{area="heap\|nonheap"} | The number of objects waiting in the finalizer queue.             |
+| jvm_memory_bytes_used                      | gauge | \{area="heap\|nonheap"} | Used bytes of a given JVM memory area.                            |
+| jvm_memory_bytes_committed                 | gauge | \{area="heap\|nonheap"} | Committed (bytes) of a given JVM memory area.                     |
+| jvm_memory_bytes_max                       | gauge | \{area="heap\|nonheap"} | Max (bytes) of a given JVM memory area.                           |
+| jvm_memory_bytes_init                      | gauge | \{area="heap\|nonheap"} | Initial bytes of a given JVM memory area.                         |
+| jvm_memory_pool_bytes_used                 | gauge | \{pool}                 | Used bytes of a given JVM memory pool.                            |
+| jvm_memory_pool_bytes_committed            | gauge | \{pool}                 | Committed bytes of a given JVM memory pool.                       |
+| jvm_memory_pool_bytes_max                  | gauge | \{pool}                 | Max bytes of a given JVM memory pool.                             |
+| jvm_memory_pool_bytes_init                 | gauge | \{pool}                 | Initial bytes of a given JVM memory pool.                         |
+| jvm_memory_pool_collection_used_bytes      | gauge | \{pool}                 | Used bytes after last collection of a given JVM memory pool.      |
+| jvm_memory_pool_collection_committed_bytes | gauge | \{pool}                 | Committed after last collection bytes of a given JVM memory pool. |
+| jvm_memory_pool_collection_max_bytes       | gauge | \{pool}                 | Max bytes after last collection of a given JVM memory pool.       |
+| jvm_memory_pool_collection_init_bytes      | gauge | \{pool}                 | Initial after last collection bytes of a given JVM memory pool.   |
 
 #### MemoryAllocationExports
 
 | name                                  | type    | labels | help                                                                                       |
 |:-------------------------------------:|:-------:|:------:|:------------------------------------------------------------------------------------------:|
-| jvm_memory_pool_allocated_bytes_total | counter | {pool} | Total bytes allocated in a given JVM memory pool. Only updated after GC, not continuously. |
+| jvm_memory_pool_allocated_bytes_total | counter | \{pool} | Total bytes allocated in a given JVM memory pool. Only updated after GC, not continuously. |
 |                                       |         |        |                                                                                            |
 |                                       |         |        |                                                                                            |
 
@@ -115,15 +115,15 @@ shenyu:
 
 | name                           | type  | labels | help                                       |
 |:------------------------------:|:-----:|:------:|:------------------------------------------:|
-| jvm_buffer_pool_used_bytes     | gauge | {pool} | Used bytes of a given JVM buffer pool.     |
-| jvm_buffer_pool_capacity_bytes | gauge | {pool} | Bytes capacity of a given JVM buffer pool. |
-| jvm_buffer_pool_used_buffers   | gauge | {pool} | Used buffers of a given JVM buffer pool.   |
+| jvm_buffer_pool_used_bytes     | gauge | \{pool} | Used bytes of a given JVM buffer pool.     |
+| jvm_buffer_pool_capacity_bytes | gauge | \{pool} | Bytes capacity of a given JVM buffer pool. |
+| jvm_buffer_pool_used_buffers   | gauge | \{pool} | Used buffers of a given JVM buffer pool.   |
 
 #### GarbageCollectorExports
 
 | name                      | type    | labels | help                                                    |
 |:-------------------------:|:-------:|:------:|:-------------------------------------------------------:|
-| jvm_gc_collection_seconds | summary | {gc}   | Time spent in a given JVM garbage collector in seconds. |
+| jvm_gc_collection_seconds | summary | \{gc}   | Time spent in a given JVM garbage collector in seconds. |
 
 #### ThreadExports
 
@@ -135,7 +135,7 @@ shenyu:
 | jvm_threads_started_total      | counter |         | Started thread count of a JVM                                                                          |
 | jvm_threads_deadlocked         | gauge   |         | Cycles of JVM-threads that are in deadlock waiting to acquire object monitors or ownable synchronizers |
 | jvm_threads_deadlocked_monitor | gauge   |         | Cycles of JVM-threads that are in deadlock waiting to acquire object monitors                          |
-| jvm_threads_state              | gauge   | {state} | Current count of threads by state                                                                      |
+| jvm_threads_state              | gauge   | \{state} | Current count of threads by state                                                                      |
 
 #### ClassLoadingExports
 
@@ -149,7 +149,7 @@ shenyu:
 
 | name | type | labels                                                                            | help            |
 |:----:|:----:|:---------------------------------------------------------------------------------:|:---------------:|
-| jvm  | info | {version(java.runtime.version),vendor(java.vm.vendor),runtime(java.runtime.name)} | VM version info |
+| jvm  | info | \{version(java.runtime.version),vendor(java.vm.vendor),runtime(java.runtime.name)} | VM version info |
 
 
 ## 收集 metrics

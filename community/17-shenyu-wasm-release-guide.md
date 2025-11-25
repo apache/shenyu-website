@@ -178,7 +178,7 @@ Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-ar
 mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -Dusername=(GitHub ID)
 ```
 
-At this point, the distribution is published to [stagingRepositories](https://repository.apache.org/#stagingRepositories). Find the published version, ${STAGING.RELEASE}, and click `Close`.
+At this point, the distribution is published to [stagingRepositories](https://repository.apache.org/#stagingRepositories). Find the published version, $\{STAGING.RELEASE}, and click `Close`.
 
 ## Publish to SVN dev repository
 
@@ -366,7 +366,7 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[RESULT][VOTE] Release Apache ShenYu WASM ${PUBLISH.VERSION}
+[RESULT][VOTE] Release Apache ShenYu WASM $\{PUBLISH.VERSION}
 ```
 
 Content:
@@ -401,7 +401,7 @@ svn delete https://dist.apache.org/repos/dist/release/shenyu/shenyu-wasm/${PREVI
 
 Follow [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] instructions.
 
-Back to [stagingRepositories](https://repository.apache.org/#stagingRepositories), find ${STAGING.RELEASE} and click `Release`.
+Back to [stagingRepositories](https://repository.apache.org/#stagingRepositories), find $\{STAGING.RELEASE} and click `Release`.
 
 **3. Finish GitHub release**
 

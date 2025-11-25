@@ -38,7 +38,7 @@ After you have made a lot of contributions, the community will nominate. Become 
 
 ```
 
-* Vote new Committer list to <private@shenyu.apache.org> :
+* Vote new Committer list to private@shenyu.apache.org :
 
 ```
 Title : [VOTE] New committer: （Nominee）
@@ -68,7 +68,7 @@ list Nominee all contributions：
 
 ```
 
-* Vote result list to <private@shenyu.apache.org>
+* Vote result list to private@shenyu.apache.org
 
 ```
 Title [RESULT] [VOTE] New committer:(Nominee)
@@ -83,7 +83,7 @@ Therefore, I will send the invitation to (Nominee).
 
 ```
 
-* Invitation new Committer to Nominee email and copied to <private@shenyu.apache.org>:
+* Invitation new Committer to Nominee email and copied to private@shenyu.apache.org:
 > new committer need prepare an available email.
 
 ```
@@ -130,7 +130,7 @@ Apache ShenYu PMC
 
 * if new Committer accepted invitation, reply mail:
 
-> New committer accepted invitation need copied to <private@shenyu.apache.org>
+> New committer accepted invitation need copied to private@shenyu.apache.org
 
 ```
 Hi (Nominee),
@@ -194,7 +194,7 @@ What time to receive the reply signed by icla:
 
 [two-factor authentication](https://docs.github.com/cn/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
 
-**5. ANNOUNCE to <dev@shenyu.apache.org>**
+**5. ANNOUNCE to dev@shenyu.apache.org**
 
 ```
 Title: [ANNOUNCE] New committer: (Nominee)

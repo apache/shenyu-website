@@ -6,21 +6,21 @@ export default [
     docsTitle: <Translate>Apache ShenYu Docs</Translate>,
     projectName: "Apache ShenYu",
     description: <Translate>The document for Apache ShenYu</Translate>,
-    latestVersion: "/docs/index",
-    nextVersion: "/docs/next/index",
+    latestVersion: "/docs/",
+    nextVersion: "/docs/next/",
     versionsList: [
-      { next: "/docs/next/index" },
-      { "2.7.0.1": "/docs/index" },
-      { "2.7.0": "/docs/2.7.0/index" },
-      { "2.6.1": "/docs/2.6.1/index" },
-      { "2.6.0": "/docs/2.6.0/index" },
-      { "2.5.1": "/docs/2.5.1/index" },
-      { "2.5.0": "/docs/2.5.0/index" },
-      { "2.4.3": "/docs/2.4.3/index" },
-      { "2.4.2": "/docs/2.4.2/index" },
-      { "2.4.1": "/docs/2.4.1/index" },
-      { "2.4.0": "/docs/2.4.0/index" },
-      { "2.3.0-Legacy": "/docs/2.3.0-Legacy/index" },
+      { next: "/docs/next/" },
+      { "2.7.0.1": "/docs/" },
+      { "2.7.0": "/docs/2.7.0/" },
+      { "2.6.1": "/docs/2.6.1/" },
+      { "2.6.0": "/docs/2.6.0/" },
+      { "2.5.1": "/docs/2.5.1/" },
+      { "2.5.0": "/docs/2.5.0/" },
+      { "2.4.3": "/docs/2.4.3/" },
+      { "2.4.2": "/docs/2.4.2/" },
+      { "2.4.1": "/docs/2.4.1/" },
+      { "2.4.0": "/docs/2.4.0/" },
+      { "2.3.0-Legacy": "/docs/2.3.0-Legacy/" },
     ],
   },
   {
@@ -32,7 +32,7 @@ export default [
         upstream nodes by Service Register Center for OpenResty.
       </Translate>
     ),
-    latestVersion: "/shenyuNginx/index",
+    latestVersion: "/shenyuNginx/",
   },
   {
     docsTitle: <Translate>Shenyu Golang Client Docs</Translate>,
@@ -72,9 +72,9 @@ export default [
     description: (
       <Translate>Helm deployment documentation written for ShenYu</Translate>
     ),
-    latestVersion: "/helm/index",
+    latestVersion: "/helm/",
     versionsList: [
-      {"for ShenYu 2.5.0": "/helm/index"},
+      {"for ShenYu 2.5.0": "/helm/"},
     ]
   },
 ];

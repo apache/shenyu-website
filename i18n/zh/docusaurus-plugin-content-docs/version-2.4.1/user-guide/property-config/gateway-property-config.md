@@ -313,7 +313,7 @@ Apache ShenYu 调度线程模型配置
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | 是否开启使用调度线程 |
 | type | String |   fixed  |   False    | 调度线程池类型，默认为fixed，不配置或者其他则为弹性线程池|
-| threads | Integer |    Math.max((Runtime.getRuntime().availableProcessors() << 1) + 1, 16) |   False    | 固定线程池类型时候的线程数量 |
+| threads | Integer |    Math.max((Runtime.getRuntime().availableProcessors() \<< 1) + 1, 16) |   False    | 固定线程池类型时候的线程数量 |
 
 
 ##### shenyu.upstreamCheck config

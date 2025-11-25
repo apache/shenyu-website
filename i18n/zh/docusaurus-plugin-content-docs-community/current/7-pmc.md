@@ -10,7 +10,7 @@ tags: ["PMC-Member"]
 
 **1、参考 [PMC MEMBERSHIP MANAGEMENT](https://www.apache.org/dev/pmc.html#pmcmembers) 完成投票**
 
-* 在<private@shenyu.apache.org>邮件列表发起Vote流程
+* 在private@shenyu.apache.org邮件列表发起Vote流程
 
 ```
 Tilte: [VOTE] New PMC member (Nominee)
@@ -38,7 +38,7 @@ The following links will direct you to (Nominee) work.
 
 ```
 
-* 在<private@shenyu.apache.org>宣布投票结果：
+* 在private@shenyu.apache.org宣布投票结果：
 > 根据新的规则,可以立即邀请候选人，我们不需要等待通知Board后的72小时
 
 ```
@@ -59,7 +59,7 @@ hours after board notification.
 
 ```
 
-* 通知Apache Board<board@apache.org> 并且抄送给 <private@shenyu.apache.org>
+* 通知Apache Board board@apache.org 并且抄送给 private@shenyu.apache.org
 
 ```
 Tilte [NOTICE] （Nominee） for Apache ShenYu PMC
@@ -78,7 +78,7 @@ The vote result is available here:
 
 **3、通知新 PMC 成员订阅 private 邮件列表：[private-subscribe@shenyu.apache.org](mailto:private-subscribe@shenyu.apache.org)**
 
-**4. 在<dev@shenyu.apache.org>发布新闻**
+**4. 在dev@shenyu.apache.org发布新闻**
 
 ```
 Title: [ANNOUNCE] New PMC member: (Nominee)

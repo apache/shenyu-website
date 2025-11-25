@@ -133,7 +133,7 @@ URI 实例注册命令规则如下：
 soul.register.service.${rpcType}
 ```
 
-初始监听所有的RpcType节点，其下的{contextPath}实例会对应注册到其下，根据IP和Port进行区分，并携带其对应的contextPath信息。
+初始监听所有的RpcType节点，其下的\{contextPath}实例会对应注册到其下，根据IP和Port进行区分，并携带其对应的contextPath信息。
 
 URI 实例上下线之后，触发selector的upstream的更新和数据同步事件发布。
 

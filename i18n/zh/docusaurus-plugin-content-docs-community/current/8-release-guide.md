@@ -178,7 +178,7 @@ git push origin --tags
 mvn release:perform -Prelease -Darguments="-DskipTests" -DautoVersionSubmodules=true -Dusername=(填写GitHub用户名)
 ```
 
-此时，发行版被发布到 [预发仓库](https://repository.apache.org/#stagingRepositories)，找到发布的版本，即 ${STAGING.RELEASE}， 并点击 Close。
+此时，发行版被发布到 [预发仓库](https://repository.apache.org/#stagingRepositories)，找到发布的版本，即 $\{STAGING.RELEASE}， 并点击 Close。
 
 ## 发布到 SVN 预发仓库
 
@@ -407,7 +407,7 @@ svn delete https://dist.apache.org/repos/dist/release/shenyu/${PREVIOUS.RELEASE.
 
 根据 [publishing maven artifacts](https://infra.apache.org/publishing-maven-artifacts.html) [4] 的说明完成 Maven 发布。
 
-回到 [预发仓库](https://repository.apache.org/#stagingRepositories) 的 ${STAGING.RELEASE}，点击 `Release`。
+回到 [预发仓库](https://repository.apache.org/#stagingRepositories) 的 $\{STAGING.RELEASE}，点击 `Release`。
 
 **3. 完成 GitHub 发布**
 

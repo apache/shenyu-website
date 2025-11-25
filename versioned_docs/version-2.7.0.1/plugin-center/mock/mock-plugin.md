@@ -98,7 +98,7 @@ description: mock plugin
 - **Description:** According to the `item` format definition, an array of length `length` can be generated. All the above data generation rules can be nested in `item`, and the result will be automatically added with `[]`.
 - **Example:** `${array|{"name":"test"}|3}` result is `[{"name":"test"},{"name":"test"},{"name":"test"}]`，`${array|{"age":${int|18-65}}|3}`.
 
-**${expression|expression}**
+**$\{expression|expression}**
 
 `Spel` expressions are currently supported with built-in functions and arguments, which fully replace the old ${} syntax
 
@@ -163,16 +163,16 @@ Function replaceable table:
 
 | old                        | new                                 |
 | :------------------------- | :---------------------------------- |
-| ${int\|min-max}            | ${expression\|#int(min,max)}        |
-| ${double\|min-max\|format} | ${expression\|#double(min,max)}     |
-| ${email}                   | ${expression\|#email()}             |
-| ${phone}                   | ${expression\|#phone()}             |
-| ${zh\|min-max}             | ${expression\|#zh(min,max)}         |
-| ${en\|min-max}             | ${expression\|#en(min,max)}         |
-| ${list\|[arg1,arg2...]}    | ${expression\|#oneOf(arg1,agr2...)} |
-| ${current\|format}         | ${expression\|#current(format)}     |
-| ${bool}                    | ${expression\|#bool()}              |
-| ${array\|item\|length}     | ${expression#array(item,length)}    |
+| $\{int\|min-max\}            | $\{expression\|#int(min,max)\}        |
+| $\{double\|min-max\|format\} | $\{expression\|#double(min,max)\}     |
+| $\{email\}                   | $\{expression\|#email()\}             |
+| $\{phone\}                   | $\{expression\|#phone()\}             |
+| $\{zh\|min-max\}             | $\{expression\|#zh(min,max)\}         |
+| $\{en\|min-max\}             | $\{expression\|#en(min,max)\}         |
+| $\{list\|[arg1,arg2...]\}    | $\{expression\|#oneOf(arg1,agr2...)\} |
+| $\{current\|format\}         | $\{expression\|#current(format)\}     |
+| $\{bool\}                    | $\{expression\|#bool()\}              |
+| $\{array\|item\|length\}     | $\{expression#array(item,length)\}    |
 
 **You do not need to use add `""` on both sides of `${}`, the generated content will be prefixed and suffixed according to the definition of generator**
 

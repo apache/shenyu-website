@@ -14,8 +14,10 @@ date: 2025-11-24
 > GitHub: https://github.com/apache/shenyu
 
 ## 版本预览
+
 三个月后，Apache ShenYu 发布了 2.7.0.3 版本，该版本共合并了 77 个 Pull Requests，新增了 29 项新功能，并进行了多项改进、重构了多项功能，修复了多个错误
 版本记录：https://github.com/apache/shenyu/compare/v2.7.0.2...v2.7.0.3
+
 ## 改动内容
 
 - [feat] 添加部分单元测试 by @yuluo-yx in https://github.com/apache/shenyu/pull/6105

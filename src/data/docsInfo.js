@@ -10,7 +10,8 @@ export default [
     nextVersion: "/docs/next/",
     versionsList: [
       { next: "/docs/next/" },
-      { "2.7.0.1": "/docs/" },
+      { "2.7.0.2": "/docs/" },
+      { "2.7.0.1": "/docs/2.7.0.1/" },
       { "2.7.0": "/docs/2.7.0/" },
       { "2.6.1": "/docs/2.6.1/" },
       { "2.6.0": "/docs/2.6.0/" },

@@ -66,7 +66,7 @@ As showing picture below,`shenyu-admin` will issue a configuration change notifi
 
 The zookeeper-based synchronization principle is very simple,it mainly depends on `zookeeper` watch mechanism,`shenyu-web` will monitor the configured node,when `shenyu-admin` starts,all the data will be written to `zookeeper`,it will incrementally update the nodes of `zookeeper` when data changes,at the same time, `shenyu-web` will monitor the node for configuration information, and update the local cache once the information changes
 
-![Zookeeper Node Design](https://yu199195.github.io/images/soul/soul-zookeeper.png)
+![Zookeeper Node Design](/img/shenyu/dataSync/shenyu-data-sync-zookeeper.png)
 
 `Apache ShenYu` writes the configuration information to the zookeeper node,and it is meticulously designed. If you want to learn more about the code implementation, refer to the source code `ZookeeperSyncDataService`.
 

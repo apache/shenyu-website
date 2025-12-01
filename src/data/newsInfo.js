@@ -3,6 +3,15 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>Apache ShenYu 2.7.0.3 Version Release</Translate>,
+        description: <Translate>Apache ShenYu 2.7.0.3 Version Release</Translate>,
+        categories: "Apache ShenYu",
+        tags: ["Apache ShenYu"],
+        date: '2025-11-24',
+        cover: "/img/architecture/shenyu-architecture-3d.png",
+        src:'Apache-ShenYu-release-version-2.7.0.3',
+    },
+    {
         title: <Translate>Apache ShenYu 2.7.0.2 Version Release</Translate>,
         description: <Translate>Apache ShenYu 2.7.0.2 Version Release</Translate>,
         categories: "Apache ShenYu",

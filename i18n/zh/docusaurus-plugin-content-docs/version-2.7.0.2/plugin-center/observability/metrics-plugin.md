@@ -87,25 +87,25 @@ shenyu:
 
 | name                                       | type  | labels                 | help                                                              |
 |:------------------------------------------:|:-----:|:----------------------:|:-----------------------------------------------------------------:|
-| jvm_memory_objects_pending_finalization    | gauge | {area="heap\|nonheap"} | 在终结器队列中等待的对象数.                                         |  
-| jvm_memory_bytes_used                      | gauge | {area="heap\|nonheap"} | 给定 JVM 内存区域的已用字节数.                                      |
-| jvm_memory_bytes_committed                 | gauge | {area="heap\|nonheap"} | 给定 JVM 内存区域的已提交字节数.                                    |
-| jvm_memory_bytes_max                       | gauge | {area="heap\|nonheap"} | 给定 JVM 内存区域的最大字节数.                                      |
-| jvm_memory_bytes_init                      | gauge | {area="heap\|nonheap"} | 给定 JVM 内存区域的初始字节数.                                      |
-| jvm_memory_pool_bytes_used                 | gauge | {pool}                 | 给定 JVM 内存池的已用字节数.                                        |
-| jvm_memory_pool_bytes_committed            | gauge | {pool}                 | 给定 JVM 内存池的已提交字节数.                                      |
-| jvm_memory_pool_bytes_max                  | gauge | {pool}                 | 给定 JVM 内存池的最大字节数.                                        |
-| jvm_memory_pool_bytes_init                 | gauge | {pool}                 | 给定 JVM 内存池的初始字节数.                                        |
-| jvm_memory_pool_collection_used_bytes      | gauge | {pool}                 | 给定 JVM 内存池最后一次 GC 后的已用字节数.                           |
-| jvm_memory_pool_collection_committed_bytes | gauge | {pool}                 | 给定 JVM 内存池的最后一次 GC 后的已提交字节数.                       |
-| jvm_memory_pool_collection_max_bytes       | gauge | {pool}                 | 给定 JVM 内存池的最后一次 GC 后的最大字节数.                         |
-| jvm_memory_pool_collection_init_bytes      | gauge | {pool}                 | 给定 JVM 内存池的最后一次 GC 后的初始字节数.                         |
+| jvm_memory_objects_pending_finalization    | gauge | \{area="heap\|nonheap"} | 在终结器队列中等待的对象数.                                         |  
+| jvm_memory_bytes_used                      | gauge | \{area="heap\|nonheap"} | 给定 JVM 内存区域的已用字节数.                                      |
+| jvm_memory_bytes_committed                 | gauge | \{area="heap\|nonheap"} | 给定 JVM 内存区域的已提交字节数.                                    |
+| jvm_memory_bytes_max                       | gauge | \{area="heap\|nonheap"} | 给定 JVM 内存区域的最大字节数.                                      |
+| jvm_memory_bytes_init                      | gauge | \{area="heap\|nonheap"} | 给定 JVM 内存区域的初始字节数.                                      |
+| jvm_memory_pool_bytes_used                 | gauge | \{pool}                 | 给定 JVM 内存池的已用字节数.                                        |
+| jvm_memory_pool_bytes_committed            | gauge | \{pool}                 | 给定 JVM 内存池的已提交字节数.                                      |
+| jvm_memory_pool_bytes_max                  | gauge | \{pool}                 | 给定 JVM 内存池的最大字节数.                                        |
+| jvm_memory_pool_bytes_init                 | gauge | \{pool}                 | 给定 JVM 内存池的初始字节数.                                        |
+| jvm_memory_pool_collection_used_bytes      | gauge | \{pool}                 | 给定 JVM 内存池最后一次 GC 后的已用字节数.                           |
+| jvm_memory_pool_collection_committed_bytes | gauge | \{pool}                 | 给定 JVM 内存池的最后一次 GC 后的已提交字节数.                       |
+| jvm_memory_pool_collection_max_bytes       | gauge | \{pool}                 | 给定 JVM 内存池的最后一次 GC 后的最大字节数.                         |
+| jvm_memory_pool_collection_init_bytes      | gauge | \{pool}                 | 给定 JVM 内存池的最后一次 GC 后的初始字节数.                         |
 
 #### MemoryAllocationExports
 
 | name                                  | type    | labels | help                                                                                       |
 |:-------------------------------------:|:-------:|:------:|:------------------------------------------------------------------------------------------:|
-| jvm_memory_pool_allocated_bytes_total | counter | {pool} | 给定 JVM 内存池中分配的总字节数.(只有 GC 的时候才会更新)                                      |
+| jvm_memory_pool_allocated_bytes_total | counter | \{pool} | 给定 JVM 内存池中分配的总字节数.(只有 GC 的时候才会更新)                                      |
 |                                       |         |        |                                                                                            |
 |                                       |         |        |                                                                                            |
 
@@ -113,15 +113,15 @@ shenyu:
 
 | name                           | type  | labels | help                                       |
 |:------------------------------:|:-----:|:------:|:------------------------------------------:|
-| jvm_buffer_pool_used_bytes     | gauge | {pool} | 给定 JVM 缓冲池的已用字节数.                 |
-| jvm_buffer_pool_capacity_bytes | gauge | {pool} | 给定 JVM 缓冲池的字节容量.                   |
-| jvm_buffer_pool_used_buffers   | gauge | {pool} | 给定 JVM 缓冲池的已用缓冲区.                 |
+| jvm_buffer_pool_used_bytes     | gauge | \{pool} | 给定 JVM 缓冲池的已用字节数.                 |
+| jvm_buffer_pool_capacity_bytes | gauge | \{pool} | 给定 JVM 缓冲池的字节容量.                   |
+| jvm_buffer_pool_used_buffers   | gauge | \{pool} | 给定 JVM 缓冲池的已用缓冲区.                 |
 
 #### GarbageCollectorExports
 
 | name                      | type    | labels | help                                                    |
 |:-------------------------:|:-------:|:------:|:-------------------------------------------------------:|
-| jvm_gc_collection_seconds | summary | {gc}   | 在给定的 JVM 垃圾收集器中花费的秒数.                       |
+| jvm_gc_collection_seconds | summary | \{gc}   | 在给定的 JVM 垃圾收集器中花费的秒数.                       |
 
 #### ThreadExports
 
@@ -133,7 +133,7 @@ shenyu:
 | jvm_threads_started_total      | counter |         | JVM 的已启动的线程数                                                                                    |
 | jvm_threads_deadlocked         | gauge   |         | 处于死锁状态的 JVM 线程循环等待获取对象监视器或可拥有的同步器                                               |
 | jvm_threads_deadlocked_monitor | gauge   |         | 处于死锁等待获取对象监视器的 JVM 线程周期                                                                 |
-| jvm_threads_state              | gauge   | {state} | 状态为{state}的线程数                                                                                   |
+| jvm_threads_state              | gauge   | \{state} | 状态为\{state}的线程数                                                                                   |
 
 #### ClassLoadingExports
 
@@ -147,7 +147,7 @@ shenyu:
 
 | name | type | labels                                                                            | help            |
 |:----:|:----:|:---------------------------------------------------------------------------------:|:---------------:|
-| jvm  | info | {version(java.runtime.version),vendor(java.vm.vendor),runtime(java.runtime.name)} | JVM 版本信息     |
+| jvm  | info | \{version(java.runtime.version),vendor(java.vm.vendor),runtime(java.runtime.name)} | JVM 版本信息     |
 
 
 ## 收集 metrics

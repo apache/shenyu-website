@@ -88,7 +88,7 @@ description: Logging-RabbitMQ Plugin
 | durable         | Boolean | message durable                                     | 必须，默认true   |
 | exclusive       | Boolean | message exclusive                                   | 必须，默认false  |                                   | 必须，默认false  |
 | autoDelete      | String  | message auto delete                                 | 必须，默认false  |
-| args            | String  | rabbitmq args，exaple：{"x-delay":"1000"}，delay queue | 可选          |
+| args            | String  | rabbitmq args，exaple：\{"x-delay":"1000"\}，delay queue | 可选          |
 | sampleRate                        | String               | Sampling rate, range 0~1, 0: off, 0.01: acquisition 1%, 1: acquisition 100% | Optional, default 1, all collection |
 | maxResponseBody                   | Ingeter              | Maximum response size, above the threshold no response will be collected                | Optional, default 512KB |
 | maxRequestBody                    | Ingeter              | Maximum request body size, above the threshold no request body will be collected               | Optional, default 512KB  |

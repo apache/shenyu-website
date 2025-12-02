@@ -1,13 +1,13 @@
 ---
-title: ShenYu client Python Release Guide
-sidebar_position: 18
-description: Apache ShenYu-client-python Release Guide
+title: ShenYu client Golang Release Guide
+sidebar_position: 2
+description: Apache ShenYu-client-golang Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## Update release notes
 
-Update [RELEASE-NOTES](https://github.com/apache/shenyu-client-python/blob/main/RELEASE-NOTES.md) in the following format:
+Update [RELEASE-NOTES](https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md) in the following format:
 
 ```
 ## ${PUBLISH.VERSION}
@@ -131,10 +131,10 @@ Download and install [Git](https://git-scm.com/downloads).
 Create tag and switch to `${PUBLISH.VERSION}`.
 
 ```shell
-git clone https://github.com/apache/shenyu-client-python.git ~/shenyu-client-python
-cd ~/shenyu-client-python/
-git checkout main
-git tag -a ${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client python"
+git clone https://github.com/apache/shenyu-client-golang.git ~/shenyu-client-golang
+cd ~/shenyu-client-golang/
+git checkout master
+git tag -a ${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client golang"
 ```
 
 Submit the code with updated version number and new tags.
@@ -170,11 +170,11 @@ Follow [Uploading packages](https://infra.apache.org/release-publishing.html#upl
 mkdir -p ~/svn_release/dev/
 cd ~/svn_release/dev/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
-mkdir -p ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
-git archive --format=tar  --prefix=shenyu-client-python-${PUBLISH.VERSION}/ ${PUBLISH.VERSION} | gzip > shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz
-cd ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-python/*.src.tar.gz ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-client-python/*.src.tar.gz.asc ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
+mkdir -p ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+git archive --format=tar  --prefix=shenyu-client-golang-${PUBLISH.VERSION}/ ${PUBLISH.VERSION} | gzip > shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz
+cd ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-golang/*.src.tar.gz ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-golang/*.src.tar.gz.asc ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
 ```
 
 **3. Adding hashes**
@@ -182,15 +182,15 @@ cp -f ~/shenyu/shenyu-client-python/*.src.tar.gz.asc ~/svn_release/dev/shenyu/sh
 Follow [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] instructions.
 
 ```shell
-shasum -a 512 shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz  > shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz.sha512
+shasum -a 512 shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz  > shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```
 
 **4. Submit the new release**
 
 ```shell
-cd ~/svn_release/dev/shenyu/shenyu-client-python
+cd ~/svn_release/dev/shenyu/shenyu-client-golang
 svn add ${PUBLISH.VERSION}/
-svn --username=${LDAP ID} commit -m "release shenyu-client-python ${PUBLISH.VERSION}"
+svn --username=${LDAP ID} commit -m "release shenyu-client-golang ${PUBLISH.VERSION}"
 ```
 
 ## Check Release
@@ -200,7 +200,7 @@ svn --username=${LDAP ID} commit -m "release shenyu-client-python ${PUBLISH.VERS
 Follow [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] instructions.
 
 ```shell
-shasum -c shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz.sha512
+shasum -c shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```
 
 **2. Verifying GPG Signatures**
@@ -210,8 +210,8 @@ Follow [Checking Signatures](https://www.apache.org/info/verification.html#Check
 ```shell
 curl https://downloads.apache.org/shenyu/KEYS >> KEYS
 gpg --import KEYS
-cd ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
-gpg --verify shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz.asc shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz
+cd ~/svn_release/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}
+gpg --verify shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz.asc shenyu-client-golang-${PUBLISH.VERSION}-src.tar.gz
 ```
 
 **3. Ensure that SVN is consistent with GitHub source code**
@@ -219,11 +219,11 @@ gpg --verify shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz.asc shenyu-clien
 Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] instructions.
 
 ```
-wget https://github.com/apache/shenyu-client-python/archive/v${PUBLISH.VERSION}.zip
+wget https://github.com/apache/shenyu-client-golang/archive/v${PUBLISH.VERSION}.zip
 unzip v${PUBLISH.VERSION}.zip
-mv shenyu-client-python-${PUBLISH.VERSION} shenyu-client-python-${PUBLISH.VERSION}-src
-unzip shenyu-client-python-${PUBLISH.VERSION}.zip
-diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-client-python-${PUBLISH.VERSION}-src shenyu-client-python-${PUBLISH.VERSION}
+mv shenyu-client-golang-${PUBLISH.VERSION} shenyu-client-golang-${PUBLISH.VERSION}-src
+unzip shenyu-client-golang-${PUBLISH.VERSION}.zip
+diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-client-golang-${PUBLISH.VERSION}-src shenyu-client-golang-${PUBLISH.VERSION}
 ```
 
 **4. Check the source code package**
@@ -273,7 +273,7 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[VOTE] Release Apache ShenYu Client Python ${PUBLISH.VERSION}
+[VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
 ```
 
 Content:
@@ -281,25 +281,25 @@ Content:
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu Client Python version ${PUBLISH.VERSION}
+This is a call for vote to release Apache ShenYu Client Golang version ${PUBLISH.VERSION}
 
 Release notes:
-https://github.com/apache/shenyu-client-python/blob/main/RELEASE-NOTES.md
+https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}/
+https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION}/
 
 Git tag for the release:
-https://github.com/apache/shenyu-client-python/tree/v${PUBLISH.VERSION}/
+https://github.com/apache/shenyu-client-golang/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
-https://github.com/apache/shenyu-client-python/commit/xxxxxxxxxxxxxxxxxxxxxxx
+https://github.com/apache/shenyu-client-golang/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 Keys to verify the Release Candidate:
 https://downloads.apache.org/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/shenyu-client-python-release-guide/#check-release
+https://shenyu.apache.org/community/shenyu-client-golang-release-guide/#check-release
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -319,7 +319,7 @@ Checklist for reference:
 
 [ ] Source code distributions have correct names matching the current release.
 
-[ ] LICENSE and NOTICE files are correct for each ShenYu Client Python repo.
+[ ] LICENSE and NOTICE files are correct for each ShenYu Client Golang repo.
 
 [ ] All files have license headers if necessary.
 
@@ -337,7 +337,7 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[RESULT][VOTE] Release Apache ShenYu Client Python ${PUBLISH.VERSION}
+[RESULT][VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
 ```
 
 Content:
@@ -364,13 +364,13 @@ Thanks everyone for taking the time to verify and vote for the release!
 Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-python/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${PREVIOUS.RELEASE.VERSION}
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PREVIOUS.RELEASE.VERSION}
 ```
 
 **2. Finish GitHub release**
 
-Edit [Releases](https://github.com/apache/shenyu-client-python/releases) `${PUBLISH.VERSION}` and click release.
+Edit [Releases](https://github.com/apache/shenyu-client-golang/releases) `${PUBLISH.VERSION}` and click release.
 
 ```shell
 git tag -d ${PUBLISH.VERSION}
@@ -415,7 +415,7 @@ announce@apache.org
 Title:
 
 ```
-[ANNOUNCE] Apache ShenYu Client Python ${PUBLISH.VERSION} available
+[ANNOUNCE] Apache ShenYu Client Golang ${PUBLISH.VERSION} available
 ```
 
 Content:
@@ -423,7 +423,7 @@ Content:
 ```
 Hi,
 
-Apache ShenYu Team is glad to announce the new release of Apache ShenYu Client Python ${PUBLISH.VERSION}.
+Apache ShenYu Team is glad to announce the new release of Apache ShenYu Client Golang ${PUBLISH.VERSION}.
 
 Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
@@ -435,7 +435,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu-client-python/blob/main/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu-client-golang/blob/master/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 
@@ -464,7 +464,7 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[CANCEL][VOTE] Release Apache ShenYu Client Python ${PUBLISH.VERSION}
+[CANCEL][VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION}
 ```
 
 Content:
@@ -497,7 +497,7 @@ git tag -d v${PUBLISH.VERSION}
 **4. Deleting SVN content to be published**
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-golang/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
 ```
 
 **5. Update email title**
@@ -505,7 +505,7 @@ svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${
 After completing the above steps, you can start the re-posting operation. The next poll email title needs to have the `[ROUND ${n}]` suffix added. For example.
 
 ```
-[VOTE] Release Apache ShenYu Client Python ${PUBLISH.VERSION} [ROUND 2]
+[VOTE] Release Apache ShenYu Client Golang ${PUBLISH.VERSION} [ROUND 2]
 ```
 
 Voting result and announcement emails do not need to be suffixed.

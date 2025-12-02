@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[91627],{9190:s=>{s.exports=JSON.parse('{"label":"WASM","permalink":"/zh/news/tags/wasm","allTagsPath":"/zh/news/tags","count":1,"unlisted":false}')}}]);

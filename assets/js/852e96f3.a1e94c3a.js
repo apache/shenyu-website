@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[28377],{32018:e=>{e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"rate-limiter","name":"rate limiter","count":1,"permalink":"/blog/tags/rate-limiter"}')}}]);

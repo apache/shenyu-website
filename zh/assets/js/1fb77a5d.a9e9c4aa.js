@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[136],{85213:a=>{a.exports=JSON.parse('{"label":"Param-Mapping","permalink":"/zh/blog/tags/param-mapping","allTagsPath":"/zh/blog/tags","count":1,"unlisted":false}')}}]);

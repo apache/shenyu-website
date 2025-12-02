@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[10373],{3392:e=>{e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"websocket","name":"websocket","count":1,"permalink":"/blog/tags/websocket"}')}}]);

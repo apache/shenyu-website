@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[47485],{97422:e=>{e.exports=JSON.parse('{"label":"register center","permalink":"/blog/tags/register-center","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

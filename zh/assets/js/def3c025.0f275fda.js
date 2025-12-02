@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[34489],{14027:t=>{t.exports=JSON.parse('{"allTagsPath":"/zh/blog/tags","slug":"context-path","name":"context-path","count":1,"permalink":"/zh/blog/tags/context-path"}')}}]);

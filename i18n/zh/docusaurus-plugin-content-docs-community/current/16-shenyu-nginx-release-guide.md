@@ -244,7 +244,7 @@ diff -r shenyu-nginx-${PUBLISH.VERSION}-src shenyu-nginx-v${PUBLISH.VERSION}
 - 所有文件的开头都有 ASF 许可证
 - 不存在未依赖软件的 `LICENSE` 和 `NOTICE`
 - 不存在不符合预期的二进制文件
-- 编译通过 (luarocks make rockspec/shenyu-nginx-${PUBLISH.VERSION}.rockspec)
+- 编译通过 (luarocks make rockspec/shenyu-nginx-$\{PUBLISH.VERSION}.rockspec)
 - 如果存在第三方代码依赖：
   - 第三方代码依赖的许可证兼容
 

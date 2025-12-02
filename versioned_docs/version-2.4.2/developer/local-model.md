@@ -171,7 +171,7 @@ POST
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |operator （match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
+|**operator**|String|True| |operator （match，=，regex，\>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
 |**paramValue**|Integer|False| |param value|
 
@@ -246,7 +246,7 @@ POST
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |operator （match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
+|**operator**|String|True| |operator （match，=，regex，\>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
 |**paramValue**|Integer|False| |param value|
 
@@ -357,7 +357,7 @@ POST
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |operator （match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
+|**operator**|String|True| |operator （match，=，regex，\>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
 |**paramValue**|Integer|False| |param value|
 

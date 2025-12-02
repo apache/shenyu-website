@@ -1,5 +1,6 @@
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const {themes} = require('prism-react-renderer');
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
@@ -94,8 +95,8 @@ module.exports = {
       ],
     },
     prism: {
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
+      theme: lightTheme,
+      darkTheme: darkTheme,
       additionalLanguages: [
         "java",
         "properties",
@@ -107,7 +108,9 @@ module.exports = {
       ],
     },
     algolia: {
-      apiKey: "5f882bef2dfc81f5f1b4e5ea87b2f165",
+      // apiKey: "5f882bef2dfc81f5f1b4e5ea87b2f165",
+      appId: 'DY1AXAPBQY',
+      apiKey: '391ef440955a44a32cbeb5e7db9a2b6c',
       indexName: "apache_shenyu",
       // Optional: see doc section below
       contextualSearch: true,

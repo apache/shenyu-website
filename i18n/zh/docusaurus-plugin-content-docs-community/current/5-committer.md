@@ -39,7 +39,7 @@ cover: "/img/architecture/shenyu-framework.png"
 
 ```
 
-* 在<private@shenyu.apache.org>邮件列表提名committer :
+* 在private@shenyu.apache.org邮件列表提名committer :
 
 ```
 标题 : [VOTE] New committer: （Nominee）
@@ -69,7 +69,7 @@ list Nominee all contributions：
 
 ```
 
-* 在<private@shenyu.apache.org>邮件列表宣布结果:
+* 在private@shenyu.apache.org邮件列表宣布结果:
 
 ```
 标题 [RESULT] [VOTE] New committer:(Nominee)
@@ -84,7 +84,7 @@ Therefore, I will send the invitation to (Nominee).
 
 ```
 
-* 给新的committer发送邮件，并且抄送给 <private@shenyu.apache.org>:
+* 给新的committer发送邮件，并且抄送给 private@shenyu.apache.org:
 > 新的committer提供可用的邮箱地址，如果签署过icla，最好提供一样的邮箱地址.
 
 ```
@@ -131,7 +131,7 @@ Apache ShenYu PMC
 
 * 新的committer接受邀请, 回复如下邮件:
 
-> 新的提交者接受邀请的回复需要抄送给 <private@shenyu.apache.org>
+> 新的提交者接受邀请的回复需要抄送给 private@shenyu.apache.org
 
 ```
 Hi (Nominee),
@@ -195,7 +195,7 @@ What time to receive the reply signed by icla:
 
 [双重身份验证](https://docs.github.com/cn/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)
 
-**5. 在<dev@shenyu.apache.org>邮件列表发布新闻公告**
+**5. 在dev@shenyu.apache.org邮件列表发布新闻公告**
 
 ```
 标题: [ANNOUNCE] New committer: (Nominee)

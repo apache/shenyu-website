@@ -15,9 +15,9 @@ This article introduces how to quickly start the `Apache ShenYu` gateway in the 
 
 ### Start Apache ShenYu Bootstrap
 
-* download [apache-shenyu-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz)
+* download [apache-shenyu-$\{current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.5.1/apache-shenyu-2.5.1-bootstrap-bin.tar.gz)
 
-* unzip `apache-shenyu-${current.version}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-$\{current.version}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 
 ```
 > windwos : start.bat 

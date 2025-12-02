@@ -315,7 +315,7 @@ scheduler config for Apache ShenYu Scheduler Thread Model
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | Whether to turn on Scheduler Thread Model |
 | type | String |   fixed  |   False    | fixed Thread Pool or elastic  Scheduler Thread Model|
-| threads | Integer |    Math.max((Runtime.getRuntime().availableProcessors() << 1) + 1, 16) |   False    | threads for fixed Thread Pool |
+| threads | Integer |    Math.max((Runtime.getRuntime().availableProcessors() \<< 1) + 1, 16) |   False    | threads for fixed Thread Pool |
 
 
 ##### shenyu.upstreamCheck config

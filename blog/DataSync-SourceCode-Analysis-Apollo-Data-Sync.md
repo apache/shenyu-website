@@ -552,7 +552,7 @@ private void apolloWatchPrefixes() {
 ```
 
 The logic of loading data from the previous admin will only add two keys to the plugin: `plugin.list` and `plugin.${plugin.name}`, while `plugin.list` is a list of all enabled plugins, and the data for this key is in the
-There is no data in the local cache, only `plugin${plugin.name} will be  focus.
+There is no data in the local cache, only `plugin$\{plugin.name} will be  focus.
 
 At this point, the synchronization logic of bootstrap in `apollo` has been analyzed.
 

@@ -33,7 +33,7 @@ This aritcle introduces how to delopy the `Shenyu` gateway in cluster enviroment
 
 ### Start Apache ShenYu Boostrap
 
-* download and unzip [apache-shenyu-incubating-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz) in your Gateway Boostrap server.
+* download and unzip [apache-shenyu-incubating-$\{current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.0/apache-shenyu-incubating-2.4.0-bootstrap-bin.tar.gz) in your Gateway Boostrap server.
 
 * config your synchronization, go to the `/conf` directory, and modify `shenyu.sync` of configuration in `application.yaml` to `websocket`, `http`, `zookeeper`, `etcd`, `consul` or `nacos`, this configuaration must remain the same of `ShenyYu Admin`.
 

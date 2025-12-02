@@ -10,7 +10,7 @@ tags: ["PMC-Member Guide"]
 
 **1. Follow this [PMC MEMBERSHIP MANAGEMENT](https://www.apache.org/dev/pmc.html#pmcmembers) to complete the vote**
 
-* Vote new PMC member thread to <private@shenyu.apache.org>
+* Vote new PMC member thread to private@shenyu.apache.org
 
 ```
 Tilte: [VOTE] New PMC member (Nominee)
@@ -38,7 +38,7 @@ list Nominee all contributions：
 
 ```
 
-* Vote result list to <private@shenyu.apache.org>
+* Vote result list to private@shenyu.apache.org
 
 ```
 Title [RESULT] [VOTE] New PMC member :(Nominee)
@@ -58,7 +58,7 @@ hours after board notification.
 
 ```
 
-* Notice Apache Board <board@apache.org> and copied to <private@shenyu.apache.org>
+* Notice Apache Board board@apache.org and copied to private@shenyu.apache.org
 
 ```
 Tilte [NOTICE] （Nominee） for Apache ShenYu PMC
@@ -77,7 +77,7 @@ The vote result is available here:
 
 **3. Notify the new PMC members to subscribe to the private mailing list：[private-subscribe@shenyu.apache.org](mailto:private-subscribe@shenyu.apache.org)**
 
-**4. ANNOUNCE to <dev@shenyu.apache.org>**
+**4. ANNOUNCE to dev@shenyu.apache.org**
 
 ```
 Title: [ANNOUNCE] New PMC member: (Nominee)

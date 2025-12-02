@@ -6,8 +6,8 @@ export default [
     docsTitle: <Translate>Apache ShenYu Docs</Translate>,
     projectName: "Apache ShenYu",
     description: <Translate>The document for Apache ShenYu</Translate>,
-    latestVersion: "/docs/index",
-    nextVersion: "/docs/next/index",
+    latestVersion: "/docs/",
+    nextVersion: "/docs/next/",
     versionsList: [
       { next: "/docs/next/index" },
       { "2.7.0.3": "/docs/index" },
@@ -34,7 +34,7 @@ export default [
         upstream nodes by Service Register Center for OpenResty.
       </Translate>
     ),
-    latestVersion: "/shenyuNginx/index",
+    latestVersion: "/shenyuNginx/",
   },
   {
     docsTitle: <Translate>Shenyu Golang Client Docs</Translate>,
@@ -74,9 +74,9 @@ export default [
     description: (
       <Translate>Helm deployment documentation written for ShenYu</Translate>
     ),
-    latestVersion: "/helm/index",
+    latestVersion: "/helm/",
     versionsList: [
-      {"for ShenYu 2.5.0": "/helm/index"},
+      {"for ShenYu 2.5.0": "/helm/"},
     ]
   },
 ];

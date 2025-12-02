@@ -62,7 +62,7 @@ docker run -d -p 9195:9195 -e "shenyu.local.enabled=true" --net shenyu apache/sh
 
 ### Set router
 
-* Real requests  ：<http://127.0.0.1:8080/helloworld>,
+* Real requests  ：http://127.0.0.1:8080/helloworld,
 
 ```json
 {
@@ -98,7 +98,7 @@ curl --location --request POST 'http://localhost:9195/shenyu/plugin/selectorAndR
 }'
 ```
 
-* Proxy request ：<http://localhost:9195/helloworld>
+* Proxy request ：http://localhost:9195/helloworld
 
 ```json
 {

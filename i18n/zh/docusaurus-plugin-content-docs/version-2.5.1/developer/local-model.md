@@ -180,7 +180,7 @@ POST
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**paramType**|String|True| |参数类型（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |匹配方式（match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
+|**operator**|String|True| |匹配方式（match，=，regex，>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |参数名称（uri 参数类型时候，可以不传）|
 |**paramValue**|Integer|False| |匹配值|
 
@@ -254,7 +254,7 @@ POST
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**paramType**|String|True| |参数类型（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |匹配方式（match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
+|**operator**|String|True| |匹配方式（match，=，regex，>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |参数名称（uri 参数类型时候，可以不传）|
 |**paramValue**|Integer|False| |匹配值|
 
@@ -365,7 +365,7 @@ POST
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**paramType**|String|True| |参数类型（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |匹配方式（match，=，regex，>，<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
+|**operator**|String|True| |匹配方式（match，=，regex，>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
 |**paramName**|String|False| |参数名称（uri 参数类型时候，可以不传）|
 |**paramValue**|Integer|False| |匹配值|
 

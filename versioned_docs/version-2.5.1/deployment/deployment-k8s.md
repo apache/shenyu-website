@@ -838,6 +838,6 @@ spec:
 
 ## Test Access
 
-**Access Address**：http://{K8S_CLUSTER_IP}:31095/
+**Access Address**：http://\{K8S_CLUSTER_IP}:31095/
 
 **Account/password**：admin/123456

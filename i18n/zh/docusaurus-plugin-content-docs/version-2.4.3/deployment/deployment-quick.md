@@ -15,9 +15,9 @@ description: 单机快速部署
 
 ### 启动 Apache ShenYu Bootstrap
 
-* 下载 [apache-shenyu-incubating-${current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz)
+* 下载 [apache-shenyu-incubating-$\{current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.3/apache-shenyu-incubating-2.4.3-bootstrap-bin.tar.gz)
 
-* 解压缩 `apache-shenyu-incubating-${current.version}-bootstrap-bin.tar.gz`。 进入 bin 目录。
+* 解压缩 `apache-shenyu-incubating-$\{current.version}-bootstrap-bin.tar.gz`。 进入 bin 目录。
 
 ```
 > windwos : start.bat 

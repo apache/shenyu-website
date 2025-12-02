@@ -86,7 +86,7 @@ description: Logging-RabbitMQ插件
 | durable             | Boolean | 持久化                                          | 必须，默认true |
 | exclusive           | Boolean | 是否为排他队列                                      | 必须，默认false |
 | autoDelete          | String  | 自动删除                                         | 必须，默认false |
-| args                | String  | rabbitmq参数，例如：{"x-delay":"1000"}，表示延时队列，单位ms | 可选        |
+| args                | String  | rabbitmq参数，例如：\{"x-delay":"1000"\}，表示延时队列，单位ms | 可选        |
 | sampleRate          | String  | 采样率，范围0~1，0：关闭，0.01:采集1%，1：采集100%            | 可选，默认1，全部采集 |
 | maxResponseBody     | Ingeter | 最大响应体大小，超过阈值将不采集响应体                          | 可选，默认512KB |
 | maxRequestBody      | Ingeter | 最大请求体大小，超过阈值将不采集请求体                          | 可选，默认512KB |

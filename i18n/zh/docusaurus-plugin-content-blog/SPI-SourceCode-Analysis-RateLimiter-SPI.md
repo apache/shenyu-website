@@ -387,7 +387,7 @@ return { allowed_num, remain_request }
 
 前面已经设定`window_time`=1, 用Redis的 `zremrangebyscore`命令，移除有序集合中，score为[0- 当前时间-窗口大小]的元素，即移动一个窗口大小。设定tokens_key的过期时间为窗口大小。
 
-在`AbstractRateLimiterAlgorithm`的模板方法中，`getKeys(final String id)` 给出的第二个值(以`secondKey`指代)，是拼接了{id} (即resolve key)的一个固定字符串。从上面三个算法代码可以看到，在令牌桶算法中，`secondKey`在Lua代码执行中会更新为最新的时间，所以无所谓传入的值。而在并发限流算法中，会以此`secondKey`为条件，在java `callback`方法中移除对应的元素。而在滑动窗口算法中，这个`secondKey`的值，会作为一个新元素的key, 增加到当前有序集合中，并在做窗口滑动中，过期的资料会被删除掉。
+在`AbstractRateLimiterAlgorithm`的模板方法中，`getKeys(final String id)` 给出的第二个值(以`secondKey`指代)，是拼接了\{id} (即resolve key)的一个固定字符串。从上面三个算法代码可以看到，在令牌桶算法中，`secondKey`在Lua代码执行中会更新为最新的时间，所以无所谓传入的值。而在并发限流算法中，会以此`secondKey`为条件，在java `callback`方法中移除对应的元素。而在滑动窗口算法中，这个`secondKey`的值，会作为一个新元素的key, 增加到当前有序集合中，并在做窗口滑动中，过期的资料会被删除掉。
 
 总之，当设计新的限流算法时，要根据算法需要仔细设计`getKey()`方法。
 

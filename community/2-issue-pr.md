@@ -55,7 +55,7 @@ for example:
 
 ## Pull Request {#pull-request}
 
-First of all, before Pull Request, you have to create issueNo Format is : [ISSUE #{issue number}] `<body>`.
+First of all, before Pull Request, you have to create issueNo Format is : [ISSUE #\{issue number\}] `<body>`.
 
 Please note the following rules:
 

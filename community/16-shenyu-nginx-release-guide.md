@@ -244,7 +244,7 @@ Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display
 - All files have ASF licenses at the beginning
 - There are no `LICENSE` and `NOTICE` that do not depend on the software
 - There are no binaries that do not meet expectations
-- Compilation passes (luarocks make rockspec/shenyu-nginx-${PUBLISH.VERSION}.rockspec)
+- Compilation passes (luarocks make rockspec/shenyu-nginx-$\{PUBLISH.VERSION}.rockspec)
 - If third-party code dependencies exist.
   - Third-party code dependent licenses are compatible
 
@@ -386,7 +386,7 @@ After the Apache mirror links take effect (at least one hour), update the downlo
 [English version](https://shenyu.apache.org/download/) and
 [Chinese version](https://shenyu.apache.org/zh/download/)
 
-> Note: Project download links should use <https://www.apache.org/dyn/closer.lua> instead of closer.cgi or mirrors.cgi
+> Note: Project download links should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
 >
 > Note: Download links for GPG signature files and hash-check files must use this prefix: `https://downloads.apache.org/shenyu/`
 
@@ -484,7 +484,7 @@ Thanks a lot for all your help.
 
 **2. Clean stagingRepositories**
 
-Go to <https://repository.apache.org/#stagingRepositories>, After logging in with your Apache LDAP account, select the previous `Close` version and click `Drop`.
+Go to https://repository.apache.org/#stagingRepositories, After logging in with your Apache LDAP account, select the previous `Close` version and click `Drop`.
 
 **3。Deleting GitHub branches and tags**
 
@@ -513,19 +513,19 @@ Voting result and announcement emails do not need to be suffixed.
 
 **The content refers to**
 
-- [1] <https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management>
-- [2] <https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands>
-- [3] <https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options>
-- [4] <https://infra.apache.org/publishing-maven-artifacts.html>
-- [5] <https://infra.apache.org/release-signing.html#signing-basics>
-- [6] <https://infra.apache.org/release-publishing.html#uploading>
-- [7] <https://infra.apache.org/release-distribution#sigs-and-sums>
-- [8] <https://www.apache.org/info/verification.html#CheckingHashes>
-- [9] <https://www.apache.org/info/verification.html#CheckingSignatures>
-- [10] <https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist>
-- [11] <https://infra.apache.org/licensing-howto.html#binary>
-- [12] <https://www.apache.org/legal/release-policy.html#release-approval>
-- [13] <https://incubator.apache.org/policy/incubation.html#Releases>
-- [14] <https://www.apache.org/foundation/voting.html>
-- [15] <https://infra.apache.org/release-download-pages.html>
-- [16] <https://infra.apache.org/release-publishing.html#normal>
+- [1] https://www.gnupg.org/documentation/manuals/gnupg/OpenPGP-Key-Management.html#OpenPGP-Key-Management
+- [2] https://www.gnupg.org/documentation/manuals/gnupg/Operational-GPG-Commands.html#Operational-GPG-Commands
+- [3] https://www.gnupg.org/documentation/manuals/gnupg/Dirmngr-Options.html#Dirmngr-Options
+- [4] https://infra.apache.org/publishing-maven-artifacts.html
+- [5] https://infra.apache.org/release-signing.html#signing-basics
+- [6] https://infra.apache.org/release-publishing.html#uploading
+- [7] https://infra.apache.org/release-distribution#sigs-and-sums
+- [8] https://www.apache.org/info/verification.html#CheckingHashes
+- [9] https://www.apache.org/info/verification.html#CheckingSignatures
+- [10] https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+- [11] https://infra.apache.org/licensing-howto.html#binary
+- [12] https://www.apache.org/legal/release-policy.html#release-approval
+- [13] https://incubator.apache.org/policy/incubation.html#Releases
+- [14] https://www.apache.org/foundation/voting.html
+- [15] https://infra.apache.org/release-download-pages.html
+- [16] https://infra.apache.org/release-publishing.html#normal

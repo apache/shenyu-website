@@ -108,7 +108,7 @@ description: mock插件
 - **说明：** 按照 `item` 格式定义生成长度为 `length` 的数组, `item` 中可以嵌套使用上述的所有数据生成规则，结果会自动添加`[]`。
 - **示例：** `${array|{"name":"test"}|3}` 会生成 `[{"name":"test"},{"name":"test"},{"name":"test"}]`，`${array|{"age":${int|18-65}}|3}`
 
-**${expression|expression}**
+**$\{expression|expression}**
 
 目前支持spel表达式并内置了一些函数和参数，完全可替换旧的`${}`语法
 
@@ -179,16 +179,16 @@ description: mock插件
 
   | old                        | new                                 |
   | -------------------------- | ----------------------------------- |
-  | ${int\|min-max}            | ${expression\|#int(min,max)}        |
-  | ${double\|min-max\|format} | ${expression\|#double(min,max)}     |
-  | ${email}                   | ${expression\|#email()}             |
-  | ${phone}                   | ${expression\|#phone()}             |
-  | ${zh\|min-max}             | ${expression\|#zh(min,max)}         |
-  | ${en\|min-max}             | ${expression\|#en(min,max)}         |
-  | ${list\|[arg1,arg2...]}    | ${expression\|#oneOf(arg1,agr2...)} |
-  | ${current\|format}         | ${expression\|#current(format)}     |
-  | ${bool}                    | ${expression\|#bool()}              |
-  | ${array\|item\|length}     | ${expression#array(item,length)}    |
+  | $\{int\|min-max}            | $\{expression\|#int(min,max)}        |
+  | $\{double\|min-max\|format} | $\{expression\|#double(min,max)}     |
+  | $\{email}                   | $\{expression\|#email()}             |
+  | $\{phone}                   | $\{expression\|#phone()}             |
+  | $\{zh\|min-max}             | $\{expression\|#zh(min,max)}         |
+  | $\{en\|min-max}             | $\{expression\|#en(min,max)}         |
+  | $\{list\|[arg1,arg2...]}    | $\{expression\|#oneOf(arg1,agr2...)} |
+  | $\{current\|format}         | $\{expression\|#current(format)}     |
+  | $\{bool}                    | $\{expression\|#bool()}              |
+  | $\{array\|item\|length}     | $\{expression#array(item,length)}    |
 
 
 **注意：不需要使用 `""` 包裹 `${}` ,mock插件会根据 `generator`的定义增加前缀和后缀。**

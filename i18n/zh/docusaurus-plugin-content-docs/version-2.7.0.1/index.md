@@ -61,7 +61,7 @@ docker run -d -p 9195:9195 -e "shenyu.local.enabled=true" --net shenyu apache/sh
 
 ### 路由设置
 
-* Real requests  ：<http://127.0.0.1:8080/helloworld>,
+* Real requests  ：http://127.0.0.1:8080/helloworld,
   
   ```json
   {
@@ -97,7 +97,7 @@ docker run -d -p 9195:9195 -e "shenyu.local.enabled=true" --net shenyu apache/sh
   }'
   ```
 
-* 代理请求 ：<http://localhost:9195/helloworld>
+* 代理请求 ：http://localhost:9195/helloworld
 
   ```json
   {

@@ -1,6 +1,6 @@
 ---
-title: 发布指南
-sidebar_position: 8
+title: 主仓库发布指南
+sidebar_position: 1
 description: Apache ShenYu 发布指南
 cover: "/img/architecture/shenyu-framework.png"
 ---

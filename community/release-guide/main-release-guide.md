@@ -1,6 +1,6 @@
 ---
-title: Release Guide
-sidebar_position: 8
+title: Main Repository Release Guide
+sidebar_position: 1
 description: Apache ShenYu Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---
@@ -378,7 +378,7 @@ Title:
 Content:
 
 ```
-We’ve received 3 +1 binding votes and 2 +1 non-binding votes:
+We've received 3 +1 binding votes and 2 +1 non-binding votes:
 
 +1, xxx (binding)
 +1, xxx (binding)

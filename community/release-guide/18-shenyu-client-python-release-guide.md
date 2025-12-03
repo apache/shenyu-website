@@ -1,13 +1,13 @@
 ---
-title: ShenYu nginx Release Guide
-sidebar_position: 16
-description: Apache ShenYu-nginx Release Guide
+title: ShenYu client Python Release Guide
+sidebar_position: 6
+description: Apache ShenYu-client-python Release Guide
 cover: "/img/architecture/shenyu-framework.png"
 ---
 
 ## Update release notes
 
-Update [RELEASE-NOTES](https://github.com/apache/shenyu-nginx/blob/main/RELEASE-NOTES.md) in the following format:
+Update [RELEASE-NOTES](https://github.com/apache/shenyu-client-python/blob/main/RELEASE-NOTES.md) in the following format:
 
 ```
 ## ${PUBLISH.VERSION}
@@ -85,8 +85,8 @@ Is this correct? (y/N) y
 
 GnuPG needs to construct a user ID to identify your key.
 
-Real name: （Set username） (use your apache id)
-Email address: （Set email address）(use your apache email)
+Real name: （Set username）(use your apache id)
+Email address: （Set email address） (use your apache email)
 Comment: （Fill in the comments）
 You selected this USER-ID:
    "username (comments) <email>"
@@ -122,25 +122,25 @@ Follow [Dirmngr Options](https://www.gnupg.org/documentation/manuals/gnupg/Dirmn
 gpg --send-key 095E0D21BC28CFC7A8B8076DF7DF28D237A8048C
 ```
 
-## Before Release
+## Publish Prepare Work
 
-**1. Publish a new tag**
+**1. Publish with a new Tag**
 
 Download and install [Git](https://git-scm.com/downloads).
 
-Create a new tag called `${PUBLISH.VERSION}`.
+Create tag and switch to `${PUBLISH.VERSION}`.
 
 ```shell
-git clone https://github.com/apache/shenyu-nginx.git ~/shenyu-nginx
-cd ~/shenyu-nginx/
+git clone https://github.com/apache/shenyu-client-python.git ~/shenyu-client-python
+cd ~/shenyu-client-python/
 git checkout main
-git tag -a ${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu nginx"
+git tag -a ${PUBLISH.VERSION} -m "${PUBLISH.VERSION} release shenyu client python"
 ```
 
-Push new created tag to github.
+Submit the code with updated version number and new tags.
 
 ```shell
-git push origin ${PUBLISH.VERSION}
+git push origin --tags
 ```
 
 ## Publish to SVN dev repository
@@ -162,27 +162,19 @@ gpg -a --export ${GPG username} >> KEYS
 svn --username=${LDAP ID} commit -m "append to KEYS"
 ```
 
-**2. Adding source code packages**
+**2. Adding source code packages and binary packages**
 
 Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
-# create release folder and check out svn dev repo
 mkdir -p ~/svn_release/dev/
 cd ~/svn_release/dev/
 svn --username=${LDAP ID} co https://dist.apache.org/repos/dist/dev/shenyu
-mkdir -p ~/svn_release/dev/shenyu/shenyu-nginx/${PUBLISH.VERSION}
-
-# generate source file
-git archive --format=tar --prefix=shenyu-nginx-${PUBLISH.VERSION}/ ${PUBLISH.VERSION} | gzip > shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz
-
-# generate sign file for each files
-gpg -u <id>@apache.org --armor --output shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz.asc --detach-sign shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz
-
-# copy source files and
-cd ~/svn_release/dev/shenyu/shenyu-nginx/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-nginx/shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz ~/svn_release/dev/shenyu/shenyu-nginx/${PUBLISH.VERSION}
-cp -f ~/shenyu/shenyu-nginx/shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz.asc ~/svn_release/dev/shenyu/shenyu-nginx/${PUBLISH.VERSION}
+mkdir -p ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
+git archive --format=tar  --prefix=shenyu-client-python-${PUBLISH.VERSION}/ ${PUBLISH.VERSION} | gzip > shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz
+cd ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-python/*.src.tar.gz ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
+cp -f ~/shenyu/shenyu-client-python/*.src.tar.gz.asc ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
 ```
 
 **3. Adding hashes**
@@ -190,17 +182,15 @@ cp -f ~/shenyu/shenyu-nginx/shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz.asc ~/svn
 Follow [Requirements for cryptographic signatures and checksums](https://infra.apache.org/release-distribution#sigs-and-sums) [7] instructions.
 
 ```shell
-# go to release folder
-cd ~/svn_release/dev/shenyu/shenyu-nginx/${PUBLISH.VERSION}
-shasum -a 512 shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz > shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz.sha512
+shasum -a 512 shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz  > shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```
 
 **4. Submit the new release**
 
 ```shell
-cd ~/svn_release/dev/shenyu/shenyu-nginx
+cd ~/svn_release/dev/shenyu/shenyu-client-python
 svn add ${PUBLISH.VERSION}/
-svn --username=${LDAP ID} commit -m "release apache shenyu nginx ${PUBLISH.VERSION}"
+svn --username=${LDAP ID} commit -m "release shenyu-client-python ${PUBLISH.VERSION}"
 ```
 
 ## Check Release
@@ -210,7 +200,7 @@ svn --username=${LDAP ID} commit -m "release apache shenyu nginx ${PUBLISH.VERSI
 Follow [Checking Hashes](https://www.apache.org/info/verification.html#CheckingHashes) [8] instructions.
 
 ```shell
-shasum -c shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz.sha512
+shasum -c shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz.sha512
 ```
 
 **2. Verifying GPG Signatures**
@@ -220,7 +210,8 @@ Follow [Checking Signatures](https://www.apache.org/info/verification.html#Check
 ```shell
 curl https://downloads.apache.org/shenyu/KEYS >> KEYS
 gpg --import KEYS
-gpg --verify shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz.asc shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz
+cd ~/svn_release/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}
+gpg --verify shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz.asc shenyu-client-python-${PUBLISH.VERSION}-src.tar.gz
 ```
 
 **3. Ensure that SVN is consistent with GitHub source code**
@@ -228,11 +219,11 @@ gpg --verify shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz.asc shenyu-nginx-${PUBLI
 Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist) [10] instructions.
 
 ```
-wget https://github.com/apache/shenyu-nginx/archive/${PUBLISH.VERSION}.zip
-unzip ${PUBLISH.VERSION}.zip
-mvn shenyu-nginx-${PUBLISH.VERSION} shenyu-nginx-${PUBLISH.VERSION}-src 
-tar xzf shenyu-nginx-${PUBLISH.VERSION}-src.tar.gz
-diff -r shenyu-nginx-${PUBLISH.VERSION}-src shenyu-nginx-${PUBLISH.VERSION}
+wget https://github.com/apache/shenyu-client-python/archive/v${PUBLISH.VERSION}.zip
+unzip v${PUBLISH.VERSION}.zip
+mv shenyu-client-python-${PUBLISH.VERSION} shenyu-client-python-${PUBLISH.VERSION}-src
+unzip shenyu-client-python-${PUBLISH.VERSION}.zip
+diff -r -x "shenyu-examples" -x "shenyu-integrated-test" -x "static" shenyu-client-python-${PUBLISH.VERSION}-src shenyu-client-python-${PUBLISH.VERSION}
 ```
 
 **4. Check the source code package**
@@ -244,9 +235,12 @@ Follow [Incubator Release Checklist](https://cwiki.apache.org/confluence/display
 - All files have ASF licenses at the beginning
 - There are no `LICENSE` and `NOTICE` that do not depend on the software
 - There are no binaries that do not meet expectations
-- Compilation passes (luarocks make rockspec/shenyu-nginx-$\{PUBLISH.VERSION}.rockspec)
-- If third-party code dependencies exist.
-  - Third-party code dependent licenses are compatible
+- Compilation passes (. /mvnw install) (JAVA 8 is currently supported)
+- If there are third-party code dependencies.
+  - License compatibility for third-party code dependencies
+  - All licenses of third-party code dependencies are named in the `LICENSE` file
+  - The full version of the third-party code dependency license is in the `license` directory
+  - If the dependency is an Apache license and there are `NOTICE` files, then these `NOTICE` files need to be added to the project's `NOTICE` file
 
 **5. Check the binary package**
 
@@ -258,7 +252,10 @@ Follow [Binary distributions](https://infra.apache.org/licensing-howto.html#bina
 - No `LICENSE` and `NOTICE` for undependent software
 - If third-party code dependencies exist.
   - Third-party code dependent licenses are compatible
- 
+  - All licenses of third-party code dependencies are named in the `LICENSE` file
+  - The full version of the third-party code dependency license is in the `LICENSE` directory
+  - If the dependency is an Apache license and there are `NOTICE` files, then these `NOTICE` files need to be added to the project's `NOTICE` file
+
 ## Voting Process
 
 Follow [RELEASE APPROVAL](https://www.apache.org/legal/release-policy.html#release-approval) [12], [Releases](https://incubator.apache.org/policy/incubation.html#Releases) [13], [voting](https://www.apache.org/foundation/voting.html) [14] instructions.
@@ -276,7 +273,7 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[VOTE] Release Apache ShenYu Nginx ${PUBLISH.VERSION}
+[VOTE] Release Apache ShenYu Client Python ${PUBLISH.VERSION}
 ```
 
 Content:
@@ -284,26 +281,25 @@ Content:
 ```
 Hello ShenYu Community,
 
-This is a call for vote to release Apache ShenYu Nginx version ${PUBLISH.VERSION}.
+This is a call for vote to release Apache ShenYu Client Python version ${PUBLISH.VERSION}
 
 Release notes:
-https://github.com/apache/shenyu-nginx/blob/main/RELEASE-NOTES.md
+https://github.com/apache/shenyu-client-python/blob/main/RELEASE-NOTES.md
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/shenyu/shenyu-nginx/${PUBLISH.VERSION}/
+https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION}/
 
 Git tag for the release:
-https://github.com/apache/shenyu-nginx/tree/${PUBLISH.VERSION}
+https://github.com/apache/shenyu-client-python/tree/v${PUBLISH.VERSION}/
 
 Release Commit ID:
-https://github.com/apache/shenyu-nginx/commit/xxxxxxxxx
-
+https://github.com/apache/shenyu-client-python/commit/xxxxxxxxxxxxxxxxxxxxxxx
 
 Keys to verify the Release Candidate:
 https://downloads.apache.org/shenyu/KEYS
 
 Look at here for how to verify this release candidate:
-https://shenyu.apache.org/community/shenyu-nginx-release-guide/#check-release
+https://shenyu.apache.org/community/shenyu-client-python-release-guide/#check-release
 
 The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -323,7 +319,7 @@ Checklist for reference:
 
 [ ] Source code distributions have correct names matching the current release.
 
-[ ] LICENSE and NOTICE files are correct for each ShenYu Nginx repo.
+[ ] LICENSE and NOTICE files are correct for each ShenYu Client Python repo.
 
 [ ] All files have license headers if necessary.
 
@@ -341,7 +337,7 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[RESULT][VOTE] Release Apache ShenYu Nginx ${PUBLISH.VERSION}
+[RESULT][VOTE] Release Apache ShenYu Client Python ${PUBLISH.VERSION}
 ```
 
 Content:
@@ -361,8 +357,6 @@ https://lists.apache.org/thread/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Thanks everyone for taking the time to verify and vote for the release!
 ```
 
----
-
 ## Finish publishing
 
 **1. Finish SVN release**
@@ -370,13 +364,18 @@ Thanks everyone for taking the time to verify and vote for the release!
 Follow [Uploading packages](https://infra.apache.org/release-publishing.html#uploading) [6] instructions.
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-nginx/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-nginx -m "transfer packages for ${PUBLISH.VERSION}"
-svn delete https://dist.apache.org/repos/dist/release/shenyu/shenyu-nginx/${PREVIOUS.RELEASE.VERSION}
-``` 
+svn mv https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION} https://dist.apache.org/repos/dist/release/shenyu/shenyu-client-python/${PUBLISH.VERSION} -m "transfer packages for ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${PREVIOUS.RELEASE.VERSION}
+```
 
 **2. Finish GitHub release**
 
-Edit [Releases](https://github.com/apache/shenyu-nginx/releases) `${PUBLISH.VERSION}` and click release.
+Edit [Releases](https://github.com/apache/shenyu-client-python/releases) `${PUBLISH.VERSION}` and click release.
+
+```shell
+git tag -d ${PUBLISH.VERSION}
+git push origin :refs/tags/${PUBLISH.VERSION}
+```
 
 **3. Update download page**
 
@@ -416,7 +415,7 @@ announce@apache.org
 Title:
 
 ```
-[ANNOUNCE] Apache ShenYu Nginx ${PUBLISH.VERSION} available
+[ANNOUNCE] Apache ShenYu Client Python ${PUBLISH.VERSION} available
 ```
 
 Content:
@@ -424,7 +423,7 @@ Content:
 ```
 Hi,
 
-Apache ShenYu Team is glad to announce the new release of Apache ShenYu Nginx ${PUBLISH.VERSION}.
+Apache ShenYu Team is glad to announce the new release of Apache ShenYu Client Python ${PUBLISH.VERSION}.
 
 Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.
 Support various languages (http protocol), support Dubbo, Spring-Cloud, Grpc, Motan, Sofa, Tars and other protocols.
@@ -436,7 +435,7 @@ Support cluster deployment, A/B Test, blue-green release.
 
 Download Links: https://shenyu.apache.org/download/
 
-Release Notes: https://github.com/apache/shenyu-nginx/blob/main/RELEASE-NOTES.md
+Release Notes: https://github.com/apache/shenyu-client-python/blob/main/RELEASE-NOTES.md
 
 Website: https://shenyu.apache.org/
 
@@ -465,7 +464,7 @@ dev@shenyu.apache.org
 Title:
 
 ```
-[CANCEL][VOTE] Release Apache ShenYu Nginx ${PUBLISH.VERSION}
+[CANCEL][VOTE] Release Apache ShenYu Client Python ${PUBLISH.VERSION}
 ```
 
 Content:
@@ -498,7 +497,7 @@ git tag -d v${PUBLISH.VERSION}
 **4. Deleting SVN content to be published**
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-nginx/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
+svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-client-python/${PUBLISH.VERSION} -m "delete ${PUBLISH.VERSION}"
 ```
 
 **5. Update email title**
@@ -506,7 +505,7 @@ svn delete https://dist.apache.org/repos/dist/dev/shenyu/shenyu-nginx/${PUBLISH.
 After completing the above steps, you can start the re-posting operation. The next poll email title needs to have the `[ROUND ${n}]` suffix added. For example.
 
 ```
-[VOTE] Release Apache ShenYu Nginx ${PUBLISH.VERSION} [ROUND 2]
+[VOTE] Release Apache ShenYu Client Python ${PUBLISH.VERSION} [ROUND 2]
 ```
 
 Voting result and announcement emails do not need to be suffixed.

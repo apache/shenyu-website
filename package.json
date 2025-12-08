@@ -19,7 +19,7 @@
   "dependencies": {
     "@docusaurus/core": "3.0.0",
     "@docusaurus/preset-classic": "3.0.0",
-    "@docusaurus/theme-search-algolia": "^2.0.0-beta.4",
+    "@docusaurus/theme-search-algolia": "3.0.0",
     "@headlessui/react": "^1.4.1",
     "@mdx-js/react": "^3.0.0",
     "@svgr/webpack": "^5.5.0",

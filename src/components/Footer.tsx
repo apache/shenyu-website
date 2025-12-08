@@ -8,10 +8,10 @@ const Footer = (): React.ReactElement => (
             <div className={styles.copyRight}>
                 <div>
                     <div className={styles.logos}>
-                        <a href=''>< img src='/img/logo/support-apache.png' alt="Apache Support Logo" /></a>
-                        <a href=''>< img src='/img/logo/asf_logo.svg' alt="The Apache Software Foundation" /></a>
+                        <a href='https://www.apache.org/'>< img src='/img/logo/support-apache.png' alt="Apache Support Logo" /></a>
+                        <a href='https://www.apache.org/'>< img src='/img/logo/asf_logo.svg' alt="The Apache Software Foundation" /></a>
                     </div>
-                    <span className={styles.text}>Copyright  2023 The Apache Software Foundation, Licensed under the Apache License, Version 2.0. Apache ShenYu, Apache, the Apache feather logo, the Apache ShenYu logo are trademarks of The Apache Software Foundation.</span>
+                    <span className={styles.text}>Copyright {new Date().getFullYear()} The Apache Software Foundation, Licensed under the Apache License, Version 2.0. Apache ShenYu, Apache, the Apache feather logo, the Apache ShenYu logo are trademarks of The Apache Software Foundation.</span>
                 </div>
             </div>
             <div className={styles.footerLinks}>

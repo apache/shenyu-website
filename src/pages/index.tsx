@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Link from "@docusaurus/Link";
 import Translate, { translate } from "@docusaurus/Translate";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -96,9 +96,9 @@ function Home() {
             loop={true}
             speed={0}
             autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-                waitForTransition: false,
+              delay: 3000,
+              disableOnInteraction: false,
+              waitForTransition: false,
             }}
           >
             <SwiperSlide>
@@ -150,9 +150,9 @@ function Home() {
               />
             </SwiperSlide>
           </Swiper>
+          <div className="swiper-button-prev user-swiper-button-prev" style={{ left: "50px", color: '#000033', top: '50%', transform: 'translateY(-50%)' }}></div>
+          <div className="swiper-button-next user-swiper-button-next" style={{ right: "50px", color: '#000033', top: '50%', transform: 'translateY(-50%)' }}></div>
         </div>
-        <div className="swiper-button-prev user-swiper-button-prev" style={{ top:"880px", left: "50px", color:'#000033' }}></div>
-        <div className="swiper-button-next user-swiper-button-next" style={{ top:"880px", right: "50px", color:'#000033' }}></div>
         <div className={clsx(styles.section, styles.sectionAlt)}>
           <div className="container">
             <Features />

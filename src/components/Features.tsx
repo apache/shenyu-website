@@ -117,8 +117,8 @@ const Features = (): React.ReactElement => (
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="swiper-button-prev user-swiper-button-previous" style={{ top:"1545px", left: "50px", color:'#000033'}}></div>
-      <div className="swiper-button-next user-swiper-button-nextPage" style={{ top:"1545px", right: "50px", color:'#000033' }}></div>
+      <div className="swiper-button-prev user-swiper-button-previous" style={{ left: "50px", color: '#000033', top: '50%', transform: 'translateY(-50%)' }}></div>
+      <div className="swiper-button-next user-swiper-button-nextPage" style={{ right: "50px", color: '#000033', top: '50%', transform: 'translateY(-50%)' }}></div>
     </div>
   </section>
 );

@@ -1,5 +1,5 @@
 .primaryColor {
-  color:  var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
 }
 
 .section {
@@ -7,8 +7,9 @@
   width: 100%;
 }
 
-.sectionDashboard{
+.sectionDashboard {
   width: 100%;
+  position: relative;
 }
 
 .sectionAlt {
@@ -45,7 +46,7 @@
   color: #FF5C00;
 }
 
-.buttonGetStarted{
+.buttonGetStarted {
   width: 10rem;
   background-color: #000033;
   text-align: center;
@@ -56,12 +57,12 @@
   border-radius: 8px;
 }
 
-.buttonGetStarted:hover{
+.buttonGetStarted:hover {
   text-decoration: none;
   color: #fff;
 }
 
-.buttonGithub{
+.buttonGithub {
   width: 10rem;
   background-color: #fff;
   text-align: center;
@@ -72,20 +73,20 @@
   border-radius: 8px;
 }
 
-.buttonGithub:hover{
+.buttonGithub:hover {
   text-decoration: none;
   color: #000033;
 }
 
-.containerCenter{
+.containerCenter {
   text-align: center;
 }
 
-.dividingLineBorder{
+.dividingLineBorder {
   display: inline-block;
   width: 60%;
   height: 1px;
-  background: -webkit-linear-gradient(left,#fff -4%,#ccc 50%,#fff 100%);
+  background: -webkit-linear-gradient(left, #fff -4%, #ccc 50%, #fff 100%);
 }
 
 @keyframes jackInTheBox {
@@ -109,9 +110,9 @@
   }
 }
 
-.logoContainer{
+.logoContainer {
   border-radius: 8px;
-  box-shadow: 6px 6px 22px 2px  rgb(0 0 51 / 20%);
+  box-shadow: 6px 6px 22px 2px rgb(0 0 51 / 20%);
   animation-duration: 2s;
   animation-name: jackInTheBox;
   float: right;
@@ -122,7 +123,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(245,246,247);
+  background-color: rgb(245, 246, 247);
 }
 
 .heroLogo {
@@ -173,11 +174,11 @@
   text-shadow: 4px 6px 0 rgb(0 0 0 / 7%);
 }
 
-.blockDescription{
+.blockDescription {
   margin-top: 40px;
 }
 
-.userPart{
+.userPart {
   display: block;
   position: relative;
   height: 360px;
@@ -185,10 +186,10 @@
   overflow: hidden;
 }
 
-.scrollView{
+.scrollView {
   margin-top: 40px;
   animation: 15s linear 0s infinite alternate none running animation-autoplay;
-  position:absolute;
+  position: absolute;
 }
 
 @keyframes animation-autoplay {
@@ -201,75 +202,75 @@
   }
 }
 
-.scrollLine1{
+.scrollLine1 {
   display: flex;
   align-items: center;
 }
 
-.scrollLine2{
+.scrollLine2 {
   display: flex;
   align-items: center;
 }
 
-.scrollLine3{
+.scrollLine3 {
   display: flex;
   align-items: center;
 }
 
 
-.scrollItem{
+.scrollItem {
   flex-shrink: 0;
   width: 170px;
   padding: 15px 0px;
   height: 100px;
 }
 
-.scrollImage{
+.scrollImage {
   width: 68%;
   height: 68%;
   object-fit: contain;
 }
 
-.scrollItemLeft{
+.scrollItemLeft {
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
 }
 
-.scrollItemRight{
+.scrollItemRight {
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
 }
 
-.scrollItemLeftInner{
+.scrollItemLeftInner {
   background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
   width: 88px;
   height: 100%;
 }
 
-.scrollItemRightInner{
+.scrollItemRightInner {
   background: linear-gradient(-90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-    width: 88px;
-    height: 100%;
+  width: 88px;
+  height: 100%;
 }
 
-.contentImg{
+.contentImg {
   display: table;
   margin: 0 auto;
 }
 
-[data-theme='dark'] .hero{
+[data-theme='dark'] .hero {
   background-color: #1C1E21;
 }
 
-[data-theme='dark'] .scrollItemLeftInner{
+[data-theme='dark'] .scrollItemLeftInner {
   background: linear-gradient(90deg, #272a36 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-[data-theme='dark'] .scrollItemRightInner{
+[data-theme='dark'] .scrollItemRightInner {
   background: linear-gradient(-90deg, #272a36 0%, rgba(255, 255, 255, 0) 100%);
 }
 
@@ -297,7 +298,7 @@
     justify-content: center;
   }
 
-  .heroProjectTagline{
+  .heroProjectTagline {
     font-size: 20px;
     text-align: center;
   }
@@ -306,9 +307,9 @@
     justify-content: center;
   }
 
-  .logoContainer{
+  .logoContainer {
     border-radius: 8px;
-    box-shadow: 6px 6px 22px 2px  rgb(0 0 51 / 20%);
+    box-shadow: 6px 6px 22px 2px rgb(0 0 51 / 20%);
     animation-duration: 2s;
     animation-name: jackInTheBox;
     width: 100%;
@@ -318,7 +319,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(245,246,247);
+    background-color: rgb(245, 246, 247);
     float: none;
     margin-top: 2rem;
     padding: 1rem;
@@ -329,13 +330,15 @@
     height: auto;
   }
 
-  :global(.user-swiper-button-prev){
-    top:950px !important; 
+  :global(.user-swiper-button-prev) {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     left: 0px !important;
   }
 
-  :global(.user-swiper-button-next){
-    top:950px !important;
+  :global(.user-swiper-button-next) {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     right: 0px !important;
   }
 }

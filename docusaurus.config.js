@@ -1,4 +1,4 @@
-const {themes} = require('prism-react-renderer');
+const { themes } = require('prism-react-renderer');
 const lightTheme = themes.github;
 const darkTheme = themes.dracula;
 
@@ -12,6 +12,7 @@ module.exports = {
   onBrokenLinks: "log",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",
+  scripts: [{ src: '/js/error-suppression.js', async: false, defer: false }],
   organizationName: "apache", // Usually your GitHub org/user name.
   projectName: "shenyu", // Usually your repo name.
   i18n: {

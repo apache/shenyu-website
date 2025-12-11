@@ -40,6 +40,11 @@
 .heroProjectLogo {
   height: 1.2em;
   margin-right: .25em;
+  content: url('/img/logo.svg');
+}
+
+[data-theme='dark'] .heroProjectLogo {
+  content: url('/img/logo-light.svg');
 }
 
 .heroTitleTextHtml b {

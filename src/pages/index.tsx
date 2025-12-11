@@ -38,6 +38,8 @@ function Home() {
                 <img
                   src="/img/logo.svg"
                   className={styles.heroProjectLogo}
+                  data-light-logo="/img/logo.svg"
+                  data-dark-logo="/img/logo-light.svg"
                 ></img>
               </h1>
               <h3 className={styles.heroProjectTagline}>
@@ -55,7 +57,7 @@ function Home() {
                 />
               </h3>
               <div className={styles.indexCtas}>
-                <Link className={styles.buttonGetStarted} to="/docs/index">
+                <Link className={styles.buttonGetStarted} to="/docs">
                   <Translate>Get Started</Translate>
                 </Link>
                 <Link

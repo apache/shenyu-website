@@ -108,14 +108,14 @@ module.exports = {
         "protobuf",
       ],
     },
-    algolia: {
-      // apiKey: "5f882bef2dfc81f5f1b4e5ea87b2f165",
-      appId: 'DY1AXAPBQY',
-      apiKey: '391ef440955a44a32cbeb5e7db9a2b6c',
-      indexName: "apache_shenyu",
-      // Optional: see doc section below
-      contextualSearch: true,
-    },
+    // algolia: {
+    //   // apiKey: "5f882bef2dfc81f5f1b4e5ea87b2f165",
+    //   appId: 'DY1AXAPBQY',
+    //   apiKey: '391ef440955a44a32cbeb5e7db9a2b6c',
+    //   indexName: "apache_shenyu",
+    //   // Optional: see doc section below
+    //   contextualSearch: true,
+    // },
     imageZoom: {
       // CSS selector to apply the plugin to, defaults to '.markdown img'
       selector: '.markdown img',
@@ -153,6 +153,37 @@ module.exports = {
     ],
   ],
   plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["en", "zh"],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: true,
+        docsRouteBasePath: [
+          "/docs",
+          "/community",
+          "/event",
+          "/shenyuNginx",
+          "/shenyuClientGolang",
+          "/shenyuClientDotnet",
+          "/shenyuClientRust",
+          "/helm",
+        ],
+        blogRouteBasePath: ["/blog", "/news"],
+        searchResultLimits: 8,
+        searchResultContextMaxLength: 50,
+        // 忽略某些不需要索引的元素
+        ignoreFiles: [
+          /node_modules/,
+          /\.docusaurus/,
+          /build/,
+        ],
+      },
+    ],
     [
       "@docusaurus/plugin-content-docs",
       {

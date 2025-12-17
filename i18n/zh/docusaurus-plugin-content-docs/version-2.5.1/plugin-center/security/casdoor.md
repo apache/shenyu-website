@@ -14,9 +14,9 @@ ShenYu 有Casdoor插件去使用Casdoor
 
 在成功部署之后,我们需要确保:
 
-* Casdoor服务成功在 **http://localhost:8000**上运行
+* Casdoor服务成功在 [http://localhost:8000](http://localhost:8000)上运行
 
-* 打开你喜爱的浏览器浏览 **http://localhost:7001**,你可以看到Casdoor的登陆页面
+* 打开你喜爱的浏览器浏览 [http://localhost:7001](http://localhost:7001),你可以看到Casdoor的登陆页面
 
 * 输入`admin`和`123`去测试登录是否成功
 

@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[90002],{56407:e=>{e.exports=JSON.parse('{"label":"Integration Test","permalink":"/zh/blog/tags/integration-test","allTagsPath":"/zh/blog/tags","count":1,"unlisted":false}')}}]);

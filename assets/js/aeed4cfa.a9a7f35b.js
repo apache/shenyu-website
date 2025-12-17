@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[49542],{23316:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"shenyuClientGolang"}')}}]);

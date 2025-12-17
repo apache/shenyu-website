@@ -1095,8 +1095,8 @@ xcsnx,xiangqianZ,xiaoyu,yunlongn,ywwana,zhengke zhou,zhengpeng,ywj1352</p>
 <p>specific pr please see: <a href="https://github.com/apache/shenyu/pull/4607" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4607</a></p>
 <p><a href="https://github.com/apache/shenyu/pull/4766" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4766</a></p>
 </blockquote>
-<p><img loading="lazy" src="https://shenyu.apache.org/zh/assets/images/card_list_zh-5a32a8ec1b2a8eed4c649bb3e4f1c7f3.png" alt="" class="img_ev3q"></p>
-<p><img loading="lazy" src="https://shenyu.apache.org/zh/assets/images/discovery-design-3081f14fec1ef9322d39bd1b998f42a3.png" alt="" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://shenyu.apache.org/zh/assets/images/card_list_zh-5a32a8ec1b2a8eed4c649bb3e4f1c7f3.png" alt="" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://shenyu.apache.org/zh/assets/images/discovery-design-3081f14fec1ef9322d39bd1b998f42a3.png" alt="" class="img_ev3q"></p>
 <ol start="5">
 <li>Support springmvn(boot) to collect api-meta data from shenyu client</li>
 </ol>
@@ -2142,7 +2142,7 @@ xcsnx,xiangqianZ,xiaoyu,yunlongn,ywwana,zhengke zhou,zhengpeng,ywj1352</p>
 It aims to encourage students to actively participate in the development and maintenance of open source software, and to cultivate and discover more excellent developers Promote the vigorous development of excellent open source software communities and help the construction of open source software supply chains.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="participate-in-open-source-summer">Participate in Open Source Summer<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#participate-in-open-source-summer" class="hash-link" aria-label="Direct link to Participate in Open Source Summer" title="Direct link to Participate in Open Source Summer">​</a></h3>
 <p>Open source summer 2023 student registration officially opens on April 29! Students can select projects on the official website of Open Source Summer <a href="https://summer-ospp.ac.cn/" target="_blank" rel="noopener noreferrer">https://summer-ospp.ac.cn/</a>, communicate with mentor, prepare project application materials, and submit applications.</p>
-<p><img loading="lazy" alt="ospp-2023.jpg" src="https://shenyu.apache.org/assets/images/ospp-2023-109ea4dd83da92196b9ab95a9398a180.jpg" width="2256" height="1279" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="ospp-2023.jpg" src="https://shenyu.apache.org/assets/images/ospp-2023-109ea4dd83da92196b9ab95a9398a180.jpg" width="2256" height="1279" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="apache-shenyu-introduction">Apache ShenYu Introduction<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#apache-shenyu-introduction" class="hash-link" aria-label="Direct link to Apache ShenYu Introduction" title="Direct link to Apache ShenYu Introduction">​</a></h3>
 <p>Apache ShenYu is a Java gateway that supports multi-language, multi-protocol (Dubbo, SpringCloud, gRPC, Motan, SofaTars, BRPC), plug-in design, highly dynamic configuration, and highly self-developed. Built-in rich plug-in support, authentication, current limit, circuit breaker, firewall, etc. The traffic configuration is dynamic and the performance is extremely high. Support cluster deployment, support A/B Test, blue-green release and other functions.</p>
 <p>The Apache ShenYu community is an open source project community organized by the Apache Foundation. Up to now, a total of 340 contributors have gathered around the world. They participate in ShenYu in the spirit of "Apache Way", make contributions to ShenYu, and grow together with ShenYu!</p>
@@ -2255,7 +2255,7 @@ It aims to encourage students to actively participate in the development and mai
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="quickly-participate-in-open-source-summer">Quickly Participate in Open Source Summer<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#quickly-participate-in-open-source-summer" class="hash-link" aria-label="Direct link to Quickly Participate in Open Source Summer" title="Direct link to Quickly Participate in Open Source Summer">​</a></h3>
 <p>Open Source Summer 2023 community projects will start accepting students to participate in project applications from April 29th. Welcome to communicate with the tutors and prepare project application materials through the contact information above.</p>
-<p><img loading="lazy" src="https://shenyu.apache.org/assets/images/ospp-2023-flow-972bec951025962cd3d08ac56fd9837b.jpg" width="2010" height="836" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://shenyu.apache.org/assets/images/ospp-2023-flow-972bec951025962cd3d08ac56fd9837b.jpg" width="2010" height="836" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="shenyu-ingress-controller-ability-increased">shenyu-ingress-controller ability increased<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#shenyu-ingress-controller-ability-increased" class="hash-link" aria-label="Direct link to shenyu-ingress-controller ability increased" title="Direct link to shenyu-ingress-controller ability increased">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="project-background-1">Project background<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#project-background-1" class="hash-link" aria-label="Direct link to Project background" title="Direct link to Project background">​</a></h3>
 <p>Kubernetes Controller is an important step in the Apache ShenYu Cloud native construction. The community is building Shenyu-Ingress-Controller to enable the docking of K8s ingress resources. However, currently the shenyu-ingress-controller feature is relatively simple and only supports the resource definition native to K8s ingress.</p>
@@ -2299,7 +2299,7 @@ It aims to encourage students to actively participate in the development and mai
 It aims to encourage students to actively participate in the development and maintenance of open source software, and to cultivate and discover more excellent developers Promote the vigorous development of excellent open source software communities and help the construction of open source software supply chains.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="participate-in-open-source-summer-1">Participate in Open Source Summer<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#participate-in-open-source-summer-1" class="hash-link" aria-label="Direct link to Participate in Open Source Summer" title="Direct link to Participate in Open Source Summer">​</a></h3>
 <p>Open source summer 2023 student registration officially opens on April 29! Students can select projects on the official website of Open Source Summer <a href="https://summer-ospp.ac.cn/" target="_blank" rel="noopener noreferrer">https://summer-ospp.ac.cn/</a>, communicate with mentor, prepare project application materials, and submit applications.</p>
-<p><img loading="lazy" alt="ospp-2023.jpg" src="https://shenyu.apache.org/assets/images/ospp-2023-109ea4dd83da92196b9ab95a9398a180.jpg" width="2256" height="1279" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="ospp-2023.jpg" src="https://shenyu.apache.org/assets/images/ospp-2023-109ea4dd83da92196b9ab95a9398a180.jpg" width="2256" height="1279" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="apache-shenyu-introduction-1">Apache ShenYu Introduction<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#apache-shenyu-introduction-1" class="hash-link" aria-label="Direct link to Apache ShenYu Introduction" title="Direct link to Apache ShenYu Introduction">​</a></h3>
 <p>Apache ShenYu is a Java gateway that supports multi-language, multi-protocol (Dubbo, SpringCloud, gRPC, Motan, SofaTars, BRPC), plug-in design, highly dynamic configuration, and highly self-developed. Built-in rich plug-in support, authentication, current limit, circuit breaker, firewall, etc. The traffic configuration is dynamic and the performance is extremely high. Support cluster deployment, support A/B Test, blue-green release and other functions.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="apache-shenyu-tcp-proxy-task">Apache ShenYu Tcp Proxy Task<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#apache-shenyu-tcp-proxy-task" class="hash-link" aria-label="Direct link to Apache ShenYu Tcp Proxy Task" title="Direct link to Apache ShenYu Tcp Proxy Task">​</a></h3>
@@ -2352,7 +2352,7 @@ It aims to encourage students to actively participate in the development and mai
 <p><a href="mailto:mahaitao@apache.org" target="_blank" rel="noopener noreferrer">mahaitao@apache.org</a></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="quickly-participate-in-open-source-summer-1">Quickly Participate in Open Source Summer<a href="https://shenyu.apache.org/news/2023/05/19/Apache-ShenYu-OSPP2023-#quickly-participate-in-open-source-summer-1" class="hash-link" aria-label="Direct link to Quickly Participate in Open Source Summer" title="Direct link to Quickly Participate in Open Source Summer">​</a></h3>
 <p>Open Source Summer 2023 community projects will start accepting students to participate in project applications from April 29th. Welcome to communicate with the tutors and prepare project application materials through the contact information above.</p>
-<p><img loading="lazy" alt="ospp-2023.jpg" src="https://shenyu.apache.org/assets/images/ospp-2023-109ea4dd83da92196b9ab95a9398a180.jpg" width="2256" height="1279" class="img_ev3q"></p>]]></content:encoded>
+<p><img decoding="async" loading="lazy" alt="ospp-2023.jpg" src="https://shenyu.apache.org/assets/images/ospp-2023-109ea4dd83da92196b9ab95a9398a180.jpg" width="2256" height="1279" class="img_ev3q"></p>]]></content:encoded>
             <category>Apache ShenYu</category>
             <category>OSPP 2023</category>
         </item>
@@ -2702,7 +2702,7 @@ It aims to encourage students to actively participate in the development and mai
 <blockquote>
 <p><a href="https://github.com/apache/incubator-shenyu-helm-chart" target="_blank" rel="noopener noreferrer">https://github.com/apache/incubator-shenyu-helm-chart</a></p>
 </blockquote>
-<p><img loading="lazy" alt="helm-ci-pipeline" src="https://shenyu.apache.org/assets/images/helm-ci-pipeline-429d393437969120ed1a24dd3c18f23f.png" width="855" height="494" class="img_ev3q"></p>]]></content:encoded>
+<p><img decoding="async" loading="lazy" alt="helm-ci-pipeline" src="https://shenyu.apache.org/assets/images/helm-ci-pipeline-429d393437969120ed1a24dd3c18f23f.png" width="855" height="494" class="img_ev3q"></p>]]></content:encoded>
             <category>Apache ShenYu</category>
         </item>
         <item>

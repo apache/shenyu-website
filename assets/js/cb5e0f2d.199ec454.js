@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[20662],{45864(i){i.exports=JSON.parse('{"tag":{"label":"ICLA","permalink":"/community/tags/icla","allTagsPath":"/community/tags","count":1,"items":[{"id":"icla","title":"Sign ICLA Guide","description":"Sign ICLA Guide","permalink":"/community/icla"}],"unlisted":false}}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[87393],{69685:s=>{s.exports=JSON.parse('{"label":"OSPP 2023","permalink":"/zh/news/tags/ospp-2023","allTagsPath":"/zh/news/tags","count":1,"unlisted":false}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[72982],{53394:s=>{s.exports=JSON.parse('{"label":"GSOC 2023","permalink":"/news/tags/gsoc-2023","allTagsPath":"/news/tags","count":1,"unlisted":false}')}}]);

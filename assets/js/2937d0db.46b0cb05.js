@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkshenyu_website=globalThis.webpackChunkshenyu_website||[]).push([[34240],{46917:s=>{s.exports=JSON.parse('{"label":"SPI","permalink":"/blog/tags/spi","allTagsPath":"/blog/tags","count":5,"unlisted":false}')}}]);

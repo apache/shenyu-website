@@ -5,6 +5,7 @@ description: "Co-authoring the future with ShenYu"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2024-04-08
+slug: Apache-ShenYu-Committer-2024-04-08
 ---
 
 ### Self Introduction:

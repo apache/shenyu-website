@@ -5,6 +5,7 @@ description: "Soul 网关发布里程碑的2.3.0版本，新增支持GRPC，Tars
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2020-07-05
+slug: Soul-gateway-release-milestone-version-2.3.0
 cover: "/img/architecture/shenyu-framework.png"
 ---  
 

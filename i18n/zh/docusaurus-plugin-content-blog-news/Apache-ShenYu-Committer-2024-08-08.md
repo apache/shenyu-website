@@ -5,6 +5,7 @@ description: "我的 Apache ShenYu 开源之旅"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2024-08-08
+slug: Apache-ShenYu-Committer-2024-08-08
 ---
 
 ### 个人介绍

@@ -5,6 +5,7 @@ description: "与ShenYu共创未来"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2024-04-08
+slug: Apache-ShenYu-Committer-2024-04-08
 ---
 
 ### 个人介绍

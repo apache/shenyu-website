@@ -3,6 +3,16 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>Become a Committer</Translate>,
+        author: "shown",
+        description: <Translate>Become a Committer</Translate>,
+        categories: "Apache ShenYu Committers",
+        tags: ["Apache ShenYu"],
+        date: "2026-01-06",
+        cover: "https://avatars.githubusercontent.com/u/77964041?v=4",
+        src:'Apache-ShenYu-Committer-2026-01-06',
+    },
+    {
         title: <Translate>Apache ShenYu 2.7.0.3 Version Release</Translate>,
         description: <Translate>Apache ShenYu 2.7.0.3 Version Release</Translate>,
         categories: "Apache ShenYu",

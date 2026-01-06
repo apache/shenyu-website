@@ -4,6 +4,7 @@ description: "Apache ShenYu WASM 1.0.0 版本发布"
 categories: "Apache ShenYu WASM"
 tags: ["Apache ShenYu WASM", "WASM"]
 date: 2024-01-06
+slug: Apache-ShenYu-WASM-release-version-1.0.0
 ---
 
 ## 关于Apache ShenYu

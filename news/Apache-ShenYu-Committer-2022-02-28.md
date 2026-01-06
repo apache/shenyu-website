@@ -5,6 +5,7 @@ description: "The Open Source Path for Tech Veterans"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2021-02-28
+slug: Apache-ShenYu-Committer-2022-02-28
 ---
 
 ### Self Introduction:

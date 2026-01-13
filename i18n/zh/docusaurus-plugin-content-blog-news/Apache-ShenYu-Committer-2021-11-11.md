@@ -5,6 +5,7 @@ description: "从用户到Committer，别样体验和收获"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2021-11-11
+slug: Apache-ShenYu-Committer-2021-11-11
 ---
 
 ### 新晋Committer介绍

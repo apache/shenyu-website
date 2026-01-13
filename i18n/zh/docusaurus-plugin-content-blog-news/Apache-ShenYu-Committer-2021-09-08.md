@@ -5,6 +5,7 @@ description: "从用户到Committer，参与Apache ShenYu社区并不遥远"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2021-09-08
+slug: Apache-ShenYu-Committer-2021-09-08
 cover: "/img/committers/tangzhen.jpg"
 ---  
 

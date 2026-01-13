@@ -302,6 +302,8 @@ module.exports = {
         routeBasePath: "news",
         path: "news",
         blogSidebarCount: 0,
+        editLocalizedFiles: true,
+        editUrl: "https://github.com/apache/shenyu-website/edit/main/",
       },
     ],
     "plugin-image-zoom",

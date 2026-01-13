@@ -5,6 +5,7 @@ description: "The Student's Journey of Contributing to Apache ShenYu"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2023-06-14
+slug: Apache-ShenYu-Committer-2023-06-14
 ---
 
 ### 个人介绍

@@ -5,6 +5,7 @@ description: "从用户到Apache ShenYu Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2022-08-04
+slug: Apache-ShenYu-Committer-2022-08-04
 ---  
 
 ### 个人介绍

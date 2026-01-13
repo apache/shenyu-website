@@ -5,6 +5,7 @@ description: "Soul gateway release milestone version 2.3.0 New support for grpc,
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2020-07-05
+slug: Soul-gateway-release-milestone-version-2.3.0
 cover: "/img/architecture/shenyu-framework.png"
 ---
 

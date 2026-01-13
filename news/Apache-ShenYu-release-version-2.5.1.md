@@ -4,6 +4,7 @@ description: "Apache ShenYu 2.5.1 Version Release"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2022-02-04
+slug: Apache-ShenYu-release-version-2.5.1
 ---  
 
 Just after Chinese New Year, Apache ShenYu ushered in version 2.5.1. This release has 259 pull requests and 64 contributors. Several new features were added, bugs were fixed, and several optimizations were made.

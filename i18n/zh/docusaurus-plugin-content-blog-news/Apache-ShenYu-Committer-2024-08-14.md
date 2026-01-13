@@ -5,6 +5,7 @@ description: "从小事做起，逐渐成为开源社区的核心力量"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2024-08-14
+slug: Apache-ShenYu-Committer-2024-08-14
 ---
 
 ### 个人介绍

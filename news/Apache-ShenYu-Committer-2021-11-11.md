@@ -5,6 +5,7 @@ description: "From users to Committer, different experiences and gains"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2021-11-11
+slug: Apache-ShenYu-Committer-2021-11-11
 ---
 
 ### New Committer Introduction

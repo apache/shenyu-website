@@ -5,6 +5,7 @@ description: "发布Apache首个版本-2.4.0，让API网关变得简单"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2021-08-01
+slug: Apache-ShenYu-release-milestone-version-2.4.0
 cover: "/img/architecture/shenyu-framework.png"
 ---  
 

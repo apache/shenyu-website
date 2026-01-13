@@ -2,9 +2,10 @@
 <html lang="zh" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-news" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.6.3">
+<meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">【Apache ShenYu 2.6.0 版本发布】 | Apache ShenYu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.6.0"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="【Apache ShenYu 2.6.0 版本发布】 | Apache ShenYu"><meta data-rh="true" name="description" content="Apache ShenYu 2.6.0 版本发布"><meta data-rh="true" property="og:description" content="Apache ShenYu 2.6.0 版本发布"><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2023-08-15T00:00:00.000Z"><meta data-rh="true" property="article:tag" content="Apache ShenYu"><link data-rh="true" rel="icon" href="/zh/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.6.0"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.6.0" hreflang="en"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.6.0" hreflang="zh"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.6.0" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.6.0","mainEntityOfPage":"https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.6.0","url":"https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.6.0","headline":"【Apache ShenYu 2.6.0 版本发布】","name":"【Apache ShenYu 2.6.0 版本发布】","description":"Apache ShenYu 2.6.0 版本发布","datePublished":"2023-08-15T00:00:00.000Z","author":[],"keywords":[],"isPartOf":{"@type":"Blog","@id":"https://shenyu.apache.org/zh/news","name":"Blog"}}</script><link rel="alternate" type="application/rss+xml" href="/zh/blog/rss.xml" title="Apache ShenYu RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/zh/blog/atom.xml" title="Apache ShenYu Atom Feed">
+
 
 
 
@@ -19,718 +20,721 @@
 <link rel="alternate" type="application/rss+xml" href="/zh/news/rss.xml" title="Apache ShenYu RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/zh/news/atom.xml" title="Apache ShenYu Atom Feed">
 
-<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.a01611e7.css">
-<script src="/zh/assets/js/runtime~main.3dc4c34e.js" defer="defer"></script>
-<script src="/zh/assets/js/main.b3618ec3.js" defer="defer"></script>
+<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.5a6c781d.css">
+<script src="/zh/assets/js/runtime~main.6ce189bb.js" defer="defer"></script>
+<script src="/zh/assets/js/main.2e305dc4.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/zh/"><div class="navbar__logo"><img src="/zh/img/logo.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/zh/img/logo-light.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a></div><div class="navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/zh/download">下载</a><a class="navbar__item navbar__link" href="/zh/document">文档</a><a class="navbar__item navbar__link" href="/zh/community/contributor-guide">社区</a><a class="navbar__item navbar__link" href="/zh/team">团队</a><a class="navbar__item navbar__link" href="/zh/event">事件</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/zh/news">新闻</a><a class="navbar__item navbar__link" href="/zh/blog">博客</a><a class="navbar__item navbar__link" href="/zh/users">用户</a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">ASF</a><ul class="dropdown__menu"><li><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="dropdown__link">基金会</a></li><li><a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="dropdown__link">许可</a></li><li><a href="https://www.apache.org/events/current-event" target="_blank" rel="noopener noreferrer" class="dropdown__link">活动</a></li><li><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="dropdown__link">安全</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">赞助</a></li><li><a href="https://www.apache.org/foundation/policies/privacy.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">隐私</a></li><li><a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">致谢</a></li></ul></div><a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>简体中文</a><ul class="dropdown__menu"><li><a href="/news/Apache-ShenYu-release-version-2.6.0" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/zh/news/Apache-ShenYu-release-version-2.6.0" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh">简体中文</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input"><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="container margin-vert--lg"><div class="row"><main class="col col--9 col--offset-1"><article><header><h1 class="title_f1Hy">【Apache ShenYu 2.6.0 版本发布】</h1><div class="container_mt6G margin-vert--md"><time datetime="2023-08-15T00:00:00.000Z">2023年8月15日</time> · <!-- -->One min read</div></header><div id="__blog-post-container" class="markdown"><h2 class="anchor anchorWithStickyNavbar_LWe7" id="关于apache-shenyu">关于Apache ShenYu<a href="#关于apache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/zh/"><div class="navbar__logo"><img src="/zh/img/logo.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/zh/img/logo-light.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/zh/download">下载</a><a class="navbar__item navbar__link" href="/zh/document">文档</a><a class="navbar__item navbar__link" href="/zh/community/contributor-guide">社区</a><a class="navbar__item navbar__link" href="/zh/team">团队</a><a class="navbar__item navbar__link" href="/zh/event">事件</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/zh/news">新闻</a><a class="navbar__item navbar__link" href="/zh/blog">博客</a><a class="navbar__item navbar__link" href="/zh/users">用户</a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">ASF</a><ul class="dropdown__menu"><li><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="dropdown__link">基金会</a></li><li><a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="dropdown__link">许可</a></li><li><a href="https://www.apache.org/events/current-event" target="_blank" rel="noopener noreferrer" class="dropdown__link">活动</a></li><li><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="dropdown__link">安全</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">赞助</a></li><li><a href="https://www.apache.org/foundation/policies/privacy.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">隐私</a></li><li><a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">致谢</a></li></ul></div><a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>简体中文</a><ul class="dropdown__menu"><li><a href="/news/Apache-ShenYu-release-version-2.6.0" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/zh/news/Apache-ShenYu-release-version-2.6.0" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh">简体中文</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="container margin-vert--lg"><div class="row"><main class="col col--9 col--offset-1"><article class=""><header><h1 class="title_f1Hy">【Apache ShenYu 2.6.0 版本发布】</h1><div class="container_mt6G margin-vert--md"><time datetime="2023-08-15T00:00:00.000Z">2023年8月15日</time> · <!-- -->One min read</div></header><div id="__blog-post-container" class="markdown"><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="关于apache-shenyu">关于Apache ShenYu<a href="#关于apache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p><code>Apache ShenYu</code> 一款使用 <code>Java Reactor</code> 开发的响应式<code>API</code> 网关。以其高性能，动态灵活的流量管控，热插拔，易部署等特性，开箱即用为用户提供整套全生命周期的 <code>API</code>网关，包含 <code>API</code>注册、服务代理、协议转换、<code>API</code>文档与 <code>API</code>治理等功能。Apache ShenYu于<code>2022年7月</code>毕业成为<code>Apache</code>顶级项目。</p>
 <blockquote>
-<p>官网: <a href="https://shenyu.apache.org" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org</a>
-GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu</a></p>
+<p>官网: <a href="https://shenyu.apache.org" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org</a>
+GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu</a></p>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="版本预览">版本预览<a href="#版本预览" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="版本预览">版本预览<a href="#版本预览" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>时隔半年，<code>Apache ShenYu</code>发布了2.6.0版本，该版本共计提交了<code>280+个 Pull Request</code>,新增约<code>20+个新特性</code>，新增了若干增强，重构了若干功能，并且修复了若干个bug。共计<code>78位</code>贡献者参与其中，累计贡献者达350+位。</p>
 <blockquote>
-<p>版本记录：<a href="https://github.com/apache/shenyu/compare/v2.5.1...v2.6.0" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/compare/v2.5.1...v2.6.0</a></p>
+<p>版本记录：<a href="https://github.com/apache/shenyu/compare/v2.5.1...v2.6.0" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/compare/v2.5.1...v2.6.0</a></p>
 </blockquote>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="新特性">新特性<a href="#新特性" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="新特性">新特性<a href="#新特性" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
 <p>1.支持插件上传功能，支持网关热加载插件</p>
 <blockquote>
-<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/developer/custom-plugin" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/zh/docs/next/developer/custom-plugin</a></p>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4392" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4392</a></p>
+<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/developer/custom-plugin" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/next/developer/custom-plugin</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4392" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4392</a></p>
 </blockquote>
 <p>2.支持使用Apollo作为数据同步和注册中心</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">sheneyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">sync</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">apollo</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">appId</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> shenyu</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">meta</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> http</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain">//localhost</span><span class="token punctuation" style="color:#393A34">:</span><span class="token number" style="color:#36acaa">8080</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">env</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> dev</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">clusterName</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> test</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">namespace</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> application</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">sheneyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">sync</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">apollo</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">appId</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> shenyu</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">meta</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> http</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain">//localhost</span><span class="token punctuation" style="color:#393A34">:</span><span class="token number" style="color:#36acaa">8080</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">env</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> dev</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">clusterName</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> test</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">namespace</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> application</span><br></span></code></pre></div></div>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4532" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4532</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4532" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4532</a></p>
 </blockquote>
 <p>3.支持springboot client在shenyu client中动态配置</p>
 <p>4.添加TCP插件</p>
 <blockquote>
-<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/tcp-plugin" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/tcp-plugin</a></p>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4607" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4607</a></p>
-<p><a href="https://github.com/apache/shenyu/pull/4766" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4766</a></p>
+<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/tcp-plugin" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/tcp-plugin</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4607" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4607</a></p>
+<p><a href="https://github.com/apache/shenyu/pull/4766" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4766</a></p>
 </blockquote>
 <p><img decoding="async" loading="lazy" src="https://shenyu.apache.org/zh/assets/images/card_list_zh-5a32a8ec1b2a8eed4c649bb3e4f1c7f3.png" alt="" class="img_ev3q"></p>
 <p><img decoding="async" loading="lazy" src="https://shenyu.apache.org/zh/assets/images/discovery-design-3081f14fec1ef9322d39bd1b998f42a3.png" alt="" class="img_ev3q"></p>
 <p>5.支持springmvn(boot)在shenyu client中收集api-meta data</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4600" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4600</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4600" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4600</a></p>
 </blockquote>
 <p>6.添加shenyu ingress controller的支持</p>
 <blockquote>
-<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/build-deploy" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/build-deploy</a></p>
-<p><a href="https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/config" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/config</a></p>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4620" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4620</a></p>
+<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/build-deploy" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/build-deploy</a></p>
+<p><a href="https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/config" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/user-guide/kubernetes-controller/config</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4620" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4620</a></p>
 <p>配置如下：</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">netty</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">http</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">sni</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">mod</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> k8s </span><span class="token comment" style="color:#999988;font-style:italic">#k8s模式适用</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">defaultK8sSecretNamespace</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> shenyu</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">ingress </span><span class="token comment" style="color:#999988;font-style:italic">#默认secret资源的namespace</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">defaultK8sSecretName</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> default</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">cert </span><span class="token comment" style="color:#999988;font-style:italic">#默认secret资源名字</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">netty</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">http</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">sni</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">mod</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> k8s </span><span class="token comment" style="color:#999988;font-style:italic">#k8s模式适用</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">defaultK8sSecretNamespace</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> shenyu</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">ingress </span><span class="token comment" style="color:#999988;font-style:italic">#默认secret资源的namespace</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">defaultK8sSecretName</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> default</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">cert </span><span class="token comment" style="color:#999988;font-style:italic">#默认secret资 源名字</span><br></span></code></pre></div></div>
 </blockquote>
 <p>7.添加zookeeper,naocs,apollo,HttpLongPolling,consul作为shenyu服务发现</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4636" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4636</a></p>
-<p><a href="https://github.com/apache/shenyu/pull/4657" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4657</a></p>
-<p><a href="https://github.com/apache/shenyu/pull/4802" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4802</a></p>
-<p><a href="https://github.com/apache/shenyu/pull/4795" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4795</a></p>
-<p><a href="https://github.com/apache/shenyu/pull/4800" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4800</a></p>
-<p><a href="https://github.com/apache/shenyu/issues/4562" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/issues/4562</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4636" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4636</a></p>
+<p><a href="https://github.com/apache/shenyu/pull/4657" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4657</a></p>
+<p><a href="https://github.com/apache/shenyu/pull/4802" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4802</a></p>
+<p><a href="https://github.com/apache/shenyu/pull/4795" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4795</a></p>
+<p><a href="https://github.com/apache/shenyu/pull/4800" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4800</a></p>
+<p><a href="https://github.com/apache/shenyu/issues/4562" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/issues/4562</a></p>
 </blockquote>
 <p>8.添加华为云lts日志收集</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4812" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4812</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4812" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4812</a></p>
 </blockquote>
 <p>9.添加opengauss数据库支持</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4856" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4856</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4856" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4856</a></p>
 </blockquote>
 <p>10.添加polaris作为shenyu的数据同步和注册中心</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">sync</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">polaris</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">url</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> 127.0.0.1</span><span class="token punctuation" style="color:#393A34">:</span><span class="token number" style="color:#36acaa">8093</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">namespace</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      fileGroup</span><span class="token punctuation" style="color:#393A34">:</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">sync</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">polaris</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">url</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> 127.0.0.1</span><span class="token punctuation" style="color:#393A34">:</span><span class="token number" style="color:#36acaa">8093</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">namespace</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      fileGroup</span><span class="token punctuation" style="color:#393A34">:</span><br></span></code></pre></div></div>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4410" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4410</a></p>
-<p><a href="https://github.com/apache/shenyu/pull/4897" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4897</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4410" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4410</a></p>
+<p><a href="https://github.com/apache/shenyu/pull/4897" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4897</a></p>
 </blockquote>
 <p>11.添加shenyu匹配缓存</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">selectorMatchCache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic">## selector L1 cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">cache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">initialCapacity</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">10000</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># initial capacity in cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">maximumSize</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">10000</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># max size in cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic">## selector L2 cache, use trie as L2 cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">trie</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">cacheSize</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">128</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># the number of plug-ins</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">matchMode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> antPathMatch</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">ruleMatchCache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic">## rule L1 cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">cache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">initialCapacity</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">10000</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># initial capacity in cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">maximumSize</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">65536</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># max size in cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic">## rule L2 cache, use trie as L2 cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">trie</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">cacheSize</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1024</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># the number of selectors</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">matchMode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> antPathMatch</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">selectorMatchCache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic">## selector L1 cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">cache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">initialCapacity</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">10000</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># initial capacity in cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">maximumSize</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">10000</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># max size in cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic">## selector L2 cache, use trie as L2 cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">trie</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">cacheSize</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">128</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># the number of plug-ins</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">matchMode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> antPathMatch</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">ruleMatchCache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic">## rule L1 cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">cache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">initialCapacity</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">10000</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># initial capacity in cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">maximumSize</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">65536</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># max size in cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic">## rule L2 cache, use trie as L2 cache</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">trie</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">cacheSize</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1024</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># the number of selectors</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">matchMode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> antPathMatch</span><br></span></code></pre></div></div>
 <blockquote>
-<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/user-guide/property-config/client-property-config" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/zh/docs/next/user-guide/property-config/client-property-config</a></p>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4417" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4417</a></p>
-<p><a href="https://github.com/apache/shenyu/pull/4536" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4536</a></p>
+<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/user-guide/property-config/client-property-config" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/next/user-guide/property-config/client-property-config</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4417" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4417</a></p>
+<p><a href="https://github.com/apache/shenyu/pull/4536" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4536</a></p>
 </blockquote>
-<p>12.新增shenyu admin对prometheus  的支持</p>
+<p>12.新增shenyu admin对prometheus的支持</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4336" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4336</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4336" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4336</a></p>
 </blockquote>
 <p>13.暴露shenyu actuator端点</p>
 <blockquote>
 <p>说明：可通过pr查看shenyu网关的内存数据</p>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4637" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4637</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4637" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4637</a></p>
 <p>如何关闭请查看actuator配置：</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">management</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">endpoints</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">web</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">exposure</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">include</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;*&quot;</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># or health,info</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">management</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">endpoints</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">web</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">exposure</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">include</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;*&quot;</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># or health,info</span><br></span></code></pre></div></div>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="增强">增强<a href="#增强" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="增强">增强<a href="#增强" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>1.对API doc client增加tags属性</p>
 <blockquote>
-<p>具体使用请查看：<a href="https://shenyu.apache.org/docs/user-guide/api-doc/shenyu-annotation-apidoc" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/docs/user-guide/api-doc/shenyu-annotation-apidoc</a></p>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4362" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4362</a></p>
+<p>具体使用请查看：<a href="https://shenyu.apache.org/docs/user-guide/api-doc/shenyu-annotation-apidoc" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/docs/user-guide/api-doc/shenyu-annotation-apidoc</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4362" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4362</a></p>
 </blockquote>
 <p>2.添加Brpc的集成测试</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4319" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4319</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4319" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4319</a></p>
 </blockquote>
 <p>3.Brpc支持共享线程池</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4402" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4402</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4402" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4402</a></p>
 </blockquote>
 <p>4.为加密插件(cryptorRequst和cryptorResponse)增加映射类型</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4418" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4418</a></p>
+<p>具  体pr请查看：<a href="https://github.com/apache/shenyu/pull/4418" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4418</a></p>
 </blockquote>
 <p>5.加密插件支持多个个字段加密</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4435" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4435</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4435" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4435</a></p>
 </blockquote>
 <p>6.添加p2c负载均衡算法</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4451" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4451</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4451" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4451</a></p>
 </blockquote>
 <p>7.使用base64生成插件字符串，并存储到插件数据中</p>
 <blockquote>
-<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/developer/custom-plugin" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/zh/docs/next/developer/custom-plugin</a></p>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4473" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4473</a></p>
+<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/developer/custom-plugin" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/next/developer/custom-plugin</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4473" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4473</a></p>
 </blockquote>
 <p>8.添加最短响应负载均衡算法</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4488" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4488</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4488" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4488</a></p>
 </blockquote>
 <p>9.添加hash负载均衡测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4383" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4383</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4383" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4383</a></p>
 </blockquote>
 <p>10.添加<code>DetailSerivice</code>测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4450" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4450</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4450" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4450</a></p>
 </blockquote>
 <p>11.提供宽泛的路径策略</p>
 <blockquote>
 <p>具体配置如下：</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">switchConfig</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       </span><span class="token key atrule" style="color:#00a4db">local</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       </span><span class="token key atrule" style="color:#00a4db">collapseSlashes</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#true表示开启宽泛路径支持</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4522" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4522</a></p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">switchConfig</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       </span><span class="token key atrule" style="color:#00a4db">local</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       </span><span class="token key atrule" style="color:#00a4db">collapseSlashes</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#true表示开启宽泛路径支持</span><br></span></code></pre></div></div>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4522" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4522</a></p>
 </blockquote>
 <p>12.添加shenyu-common的enums包测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4541" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4541</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4541" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4541</a></p>
 </blockquote>
 <p>13.添加shenyu-common的dto包测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4549/" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4549/</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4549/" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4549/</a></p>
 </blockquote>
 <p>14.添加Add shenyu-admin的model包测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/issues/4540" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/issues/4540</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/issues/4540" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/issues/4540</a></p>
 </blockquote>
 <p>15.添加shenyu match cache测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4557" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4557</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4557" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4557</a></p>
 </blockquote>
 <p>16.支持k8s探针</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4567" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4567</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4567" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4567</a></p>
 </blockquote>
 <p>17.添加shenyu-admin的service包测试</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4579" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4579</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4579" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4579</a></p>
 </blockquote>
 <p>18.在API文档中添加json支持</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4591" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4591</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4591" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4591</a></p>
 </blockquote>
 <p>19.mock插件的SPEL默认为安全的</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4606" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4606</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4606" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4606</a></p>
 </blockquote>
 <p>20.添加<code>ShenyuClientApiDocExecutorSubscriber</code>的测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4632" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4632</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4632" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4632</a></p>
 </blockquote>
 <p>21.为shenyu-client-sofa模块添加测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4688" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4688</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4688" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4688</a></p>
 </blockquote>
 <p>22.为<code>shenyu api doc</code>添加<code>tag relation</code></p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4362" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4362</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4362" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4362</a></p>
 </blockquote>
 <p>23.添加windows下的启动、停止脚本</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4673" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4673</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4673" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4673</a></p>
 </blockquote>
 <p>24.添加<code>ShenyuSdkClientFactory</code>的测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4645" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4645</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4645" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4645</a></p>
 </blockquote>
 <p>25.添加shenyu e2e springcloud plugin的websocket同步支持</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4698" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4698</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4698" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4698</a></p>
 </blockquote>
 <p>26.支持divide插件自动下线</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4702" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4702</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4702" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4702</a></p>
 </blockquote>
 <p>27.添加springcloud service instance缓存</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4705" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4705</a></p>
-<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/spring-cloud-plugin" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/spring-cloud-plugin</a></p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">springCloudCache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># 为true是开启springcloud缓存</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4705" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4705</a></p>
+<p>具体使用请查看：<a href="https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/spring-cloud-plugin" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/next/plugin-center/proxy/spring-cloud-plugin</a></p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">springCloudCache</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># 为true是开启springcloud缓存</span><br></span></code></pre></div></div>
 </blockquote>
 <p>28.更改密码支持i18n</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4758" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4758</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4758" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4758</a></p>
 </blockquote>
 <p>29.shenyu discovery支持websocket同步</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4768" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4768</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4768" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4768</a></p>
 </blockquote>
 <p>30.升级<code>springboot</code>版本到<code>2.7.13</code></p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4783" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4783</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4783" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4783</a></p>
 </blockquote>
 <p>31.为e2e-springcloud添加nacos，zookeeper同步测试</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4747" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4747</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4747" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4747</a></p>
 </blockquote>
 <p>32.添加<code>api doc client</code>注解生成属性</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4845" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4845</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4845" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4845</a></p>
 </blockquote>
 <p>33.支持<code>zookeeper</code>客户端自动下线</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4806" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4806</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4806" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4806</a></p>
 </blockquote>
 <p>34.支持<code>Apollo client</code>自动下线</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4855" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4855</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4855" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4855</a></p>
 </blockquote>
 <p>35.支持swagger文档，并将文档存储到数据库</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4849" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4849</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4849" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4849</a></p>
 </blockquote>
 <p>36.支持<code>nacos client</code>自动下线</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4890" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4890</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4890" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4890</a></p>
 </blockquote>
 <p>37.添加alibaba dubbo e2e 测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4859" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4859</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4859" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4859</a></p>
 </blockquote>
 <p>38.添加apache dubbo e2e 测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4899" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4899</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4899" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4899</a></p>
 </blockquote>
 <p>39.添加shenyu spring sdk测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4913" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4913</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4913" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4913</a></p>
 </blockquote>
 <p>40.添加sofa e2e测试</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4919" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4919</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4919" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4919</a></p>
 </blockquote>
 <p>41.添加Apollo数据同步的测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4918" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4918</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4918" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4918</a></p>
 </blockquote>
 <p>42.添加数据库的连接池配置(hakari)</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4938" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4938</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4938" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4938</a></p>
 </blockquote>
 <p>43.为shenyu添加<code>idea icon</code></p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4951" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4951</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4951" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4951</a></p>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="重构">重构<a href="#重构" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="重构">重构<a href="#重构" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>1.重构shenyu admin</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4355" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4355</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4355" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4355</a></p>
 </blockquote>
 <p>2.优化least active balance算法</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4342" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4342</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4342" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4342</a></p>
 </blockquote>
 <p>3.优化shenyu sign插件的第一个版本的兼容性</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4332" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4332</a></p>
-<p>具体使用请查看：<a href="https://shenyu.apache.org/docs/plugin-center/security/sign-plugin" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/docs/plugin-center/security/sign-plugin</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4332" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4332</a></p>
+<p>具体使用请查看：<a href="https://shenyu.apache.org/docs/plugin-center/security/sign-plugin" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/docs/plugin-center/security/sign-plugin</a></p>
 </blockquote>
 <p>4.优化shenyu upstream check逻辑</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4386" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4386</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4386" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4386</a></p>
 </blockquote>
 <p>5.优化项目的全局版本</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4394" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4394</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4394" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4394</a></p>
 </blockquote>
 <p>6.优化<code>ShenyuConsulConfigWatch</code>的代码</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4400" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4400</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4400" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4400</a></p>
 </blockquote>
 <p>7.优化shenyu前缀树匹配逻辑</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4414" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4414</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4414" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4414</a></p>
 </blockquote>
 <p>8.优化rule condition提交时的校验</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4403" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4403</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4403" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4403</a></p>
 </blockquote>
 <p>9.优化shenyu-client-websocket的客户端注册代码</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4462" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4462</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4462" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4462</a></p>
 </blockquote>
 <p>10.添加shenyu admin依赖Micrometer的许可证</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4409" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4409</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4409" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4409</a></p>
 </blockquote>
 <p>11.更新 maven-assembly-plugin打包插件到3.5.0版本</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4673" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4673</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4673" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4673</a></p>
 </blockquote>
 <p>12.优化全局插件的排序</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4429" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4429</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4429" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4429</a></p>
 </blockquote>
 <p>13.在shenyu admin中使用BearerToken替代StatelessToken</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4516" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4516</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4516" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4516</a></p>
 </blockquote>
 <p>14.重构shenyu-logging模块</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4526" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4526</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4526" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4526</a></p>
 </blockquote>
 <p>15.对api doc支持校验</p>
 <blockquote>
-<p>具 体pr请查看：<a href="https://github.com/apache/shenyu/pull/4564" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4564</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4564" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4564</a></p>
 </blockquote>
 <p>16.优化shenyu前缀树，并支持<code>*</code>匹配</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4569" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4569</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4569" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4569</a></p>
 </blockquote>
 <p>17.优化插件的热加载</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4392" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4392</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4392" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4392</a></p>
 </blockquote>
 <p>18.优化<code>ShenyuWebHandler</code>的putPlugin方法</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4598" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4598</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4598" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4598</a></p>
 </blockquote>
 <p>19.重构Shenyu webfilter</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4614" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4614</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4614" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4614</a></p>
 </blockquote>
 <p>20.重构 oauth2 plguin插件</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4624" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4624</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4624" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4624</a></p>
 </blockquote>
 <p>21.重构shenyu选择器的continued字段</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4635" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4635</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4635" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4635</a></p>
 </blockquote>
 <p>22.重构shenyu选择和规则的匹配缓存</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4578" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4578</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4578" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4578</a></p>
 </blockquote>
 <p>23.删除了shenyu客户端中未使用的泛型</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4653" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4653</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4653" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4653</a></p>
 </blockquote>
 <p>24.重构shenyu对sentinel插件的支持</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4669" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4669</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4669" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4669</a></p>
 </blockquote>
 <p>25.将缓存数据通过actuator端点暴露</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4637" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4637</a></p>
-<p><a href="https://github.com/apache/shenyu/pull/4658" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4658</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4637" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4637</a></p>
+<p><a href="https://github.com/apache/shenyu/pull/4658" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4658</a></p>
 </blockquote>
 <p>26.重构<code>checkUserPassword</code>方法，启动时不打印已知错误日志</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4697" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4697</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4697" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4697</a></p>
 </blockquote>
 <p>27.添加打印日志的参数</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4637" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4637</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4637" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4637</a></p>
 </blockquote>
 <p>28.重构shenyu全局异常处理</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4709" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4709</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4709" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4709</a></p>
 </blockquote>
 <p>29.添加了shenyu插件上传的集成测试</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4679" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4679</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4679" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4679</a></p>
 </blockquote>
 <p>30.优化语法糖</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4700" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4700</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4700" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4700</a></p>
 </blockquote>
 <p>31.优化discovery_upstream的discovery_handler_id字段</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4710" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4710</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4710" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4710</a></p>
 </blockquote>
 <p>32.重构shenyu-plugin模块，将proxy插件分类归档</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4765" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4765</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4765" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4765</a></p>
 </blockquote>
 <p>33.重构<code>AlibabaDubboConfigCache</code>的缓存</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4772" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4772</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4772" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4772</a></p>
 </blockquote>
 <p>34.移除hutool的依赖</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4773" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4773</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4773" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4773</a></p>
 </blockquote>
 <p>35.重构<code>ShenyuClientShutdownHook</code></p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4780" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4780</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4780" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4780</a></p>
 </blockquote>
 <p>36.Extractor添加BaseAnnotationApiBeansExtractor</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4787" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4787</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4787" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4787</a></p>
 </blockquote>
 <p>37.支持多客户端注册</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4790" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4790</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4790" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4790</a></p>
 </blockquote>
 <p>38.重构Shenyu-e2e支持Shenyu的check style</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4799" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4799</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4799" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4799</a></p>
 </blockquote>
 <p>39.优化shenyu客户端注册逻辑</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4809" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4809</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4809" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4809</a></p>
 </blockquote>
 <p>40.添加shenyu divide插件的域名测试</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4803" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4803</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4803" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4803</a></p>
 </blockquote>
 <p>41.更新rpc_ext字段的扩展</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4821" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4821</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4821" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4821</a></p>
 </blockquote>
 <p>42.优化consul的连接操作</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4832" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4832</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4832" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4832</a></p>
 </blockquote>
 <p>43.重构shenyu e2e的springcloud的yaml添加方式</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4837" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4837</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4837" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4837</a></p>
 </blockquote>
 <p>44.为k8s ingress controller添加集成测试</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4820" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4820</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4820" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4820</a></p>
 </blockquote>
 <p>45.拆分apidoc明细接口的document字段，增加requestHeaders、responseParameters等字段</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4865" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4865</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4865" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4865</a></p>
 </blockquote>
 <p>46.加swagger示例项目，测试API文档的相关功能</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4825" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4825</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4825" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4825</a></p>
 </blockquote>
 <p>47.优化shenyu admin的json格式表单字段的显示</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4873" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4873</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4873" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4873</a></p>
 </blockquote>
 <p>48.重构shenyu日志可观测性</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4874" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4874</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4874" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4874</a></p>
 </blockquote>
 <p>49.添加bootstrap启动日志</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4879" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4879</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4879" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4879</a></p>
 </blockquote>
 <p>50.重构swagger的api文档</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4892" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4892</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4892" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4892</a></p>
 </blockquote>
 <p>51.升级grpc版本至1.53.0</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4841" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4841</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4841" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4841</a></p>
 </blockquote>
 <p>52.重构api元数据处理函数</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4948" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4948</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4948" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4948</a></p>
 </blockquote>
 <p>53.优化代码和pom依赖</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4945" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4945</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4945" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4945</a></p>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="bug修复">Bug修复<a href="#bug修复" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug修复">Bug修复<a href="#bug修复" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>1.优化h2的路径</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4351" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4351</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4351" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4351</a></p>
 </blockquote>
 <p>2.修复加密响应插件的调用错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4331" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4331</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4331" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4331</a></p>
 </blockquote>
 <p>3.修复jdk8 Map computeIfAbsent性能bug</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4338" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4338</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4338" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4338</a></p>
 </blockquote>
 <p>4.修复zombieRemovalTimes代码</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4368" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4368</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4368" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4368</a></p>
 </blockquote>
 <p>5.修复升级后的sql错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4374" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4374</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4374" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4374</a></p>
 </blockquote>
 <p>6.删除detectorOfflineLinks标签</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4382" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4382</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4382" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4382</a></p>
 </blockquote>
 <p>7.忽略扁平化的pom</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4390" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4390</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4390" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4390</a></p>
 </blockquote>
 <p>8.修复LOG调用方法</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4387" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4387</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4387" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4387</a></p>
 </blockquote>
 <p>9.使用nacos修复sheyu-example-springcloud的NPE</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4396" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4396</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4396" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4396</a></p>
 </blockquote>
 <p>10.修复 Shenyu-admin名称的类型争论</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4340" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4340</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4340" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4340</a></p>
 </blockquote>
 <p>11.修复负载平衡spi资源</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4411" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4411</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4411" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4411</a></p>
 </blockquote>
 <p>12.修复sql脚本错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4412" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4412</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4412" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4412</a></p>
 </blockquote>
 <p>13.修复jackson的24小时格式和时区</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4413" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4413</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4413" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4413</a></p>
 </blockquote>
 <p>14.修复JwtUtils错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4420" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4420</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4420" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4420</a></p>
 </blockquote>
 <p>15.修复dubbo调用者缓存bug</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4433" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4433</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4433" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4433</a></p>
 </blockquote>
 <p>16.修复丢失HOST的删除操作</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4425" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4425</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4425" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4425</a></p>
 </blockquote>
 <p>17.修复SpringMvcClientEventListener测试用例</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4252" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4252</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4252" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4252</a></p>
 </blockquote>
 <p>18.修复zombie更新PENDING_SYNC的错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4430" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4430</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4430" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4430</a></p>
 </blockquote>
 <p>19.修复windlfu的内存泄漏</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4486" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4486</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4486" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4486</a></p>
 </blockquote>
 <p>20.修复因规则过多导致规则查询失败的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4499" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4499</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4499" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4499</a></p>
 </blockquote>
 <p>21.修复示例http中缺少执行器依赖项和端口错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4506" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4506</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4506" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4506</a></p>
 </blockquote>
 <p>22.修复UpstreamCheckUtils的http和https错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4509" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4509</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4509" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4509</a></p>
 </blockquote>
 <p>23.修复FileFilter造成内存泄漏的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4507" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4507</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4507" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4507</a></p>
 </blockquote>
 <p>24.修复zookeeper同步错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4906" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4906</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4906" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4906</a></p>
 </blockquote>
 <p>25.修复MemorySafeWindowTinyLFUMap内存泄漏错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4524" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4524</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4524" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4524</a></p>
 </blockquote>
 <p>26.修复ApiDoc路径缺少分隔符的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4528" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4528</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4528" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4528</a></p>
 </blockquote>
 <p>27.修复 shenyu trie的NPE</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4533" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4533</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4533" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4533</a></p>
 </blockquote>
 <p>28.修复插件跳过错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4589" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4589</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4589" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4589</a></p>
 </blockquote>
 <p>29.修复oracle sql错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4595" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4595</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4595" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4595</a></p>
 </blockquote>
 <p>30.修复shenyu admin中无法加载shenyu图标的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4605" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4605</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4605" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4605</a></p>
 </blockquote>
 <p>31.修复hystrix fallback的bug</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4593" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4593</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4593" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4593</a></p>
 </blockquote>
 <p>32.修复divide和springcloud的预热时间</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4619" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4619</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4619" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4619</a></p>
 </blockquote>
 <p>33.修复springcloud服务选择器</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4639" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4639</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4639" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4639</a></p>
 </blockquote>
 <p>34.修复 shenyu-spring-boot-starter-plugin-mock添加spring.factories</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4644" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4644</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4644" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4644</a></p>
 </blockquote>
 <p>35.修复 shenyu-client-mvc和shenyu-client-springcloud丢失ip</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4681" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4681</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4681" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4681</a></p>
 </blockquote>
-<p>36.修复缓存中规则数据和选择器数据为 空的问题</p>
+<p>36.修复缓存中规则数据和选择器数据为空的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4716" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4716</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4716" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4716</a></p>
 </blockquote>
 <p>37.修复api文档模块更新api详情错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4720" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4720</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4720" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4720</a></p>
 </blockquote>
 <p>38.修复从KafkaLogCollectClient中的配置获取topic</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4756" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4756</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4756" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4756</a></p>
 </blockquote>
 <p>39.修复loggingConsole插件的线程安全问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4763" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4763</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4763" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4763</a></p>
 </blockquote>
 <p>40.修复brpc集成测试响应大小</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4784" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4784</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4784" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4784</a></p>
 </blockquote>
 <p>41.修复plugn-dubbo-common的选择器更新灰色发布删除缓存的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4762" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4762</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4762" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4762</a></p>
 </blockquote>
 <p>42.修复shenyu admin菜单名称bug</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4805" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4805</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4805" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4805</a></p>
 </blockquote>
 <p>43.修复shenyu admin无法配置consul端口的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4843" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4843</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4843" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4843</a></p>
 </blockquote>
 <p>44.修复shenyu客户端元数据和uri无法与apollo同步到admin的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4851" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4851</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4851" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4851</a></p>
 </blockquote>
 <p>45.修复PathVariable注解url无法匹配的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4852" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4852</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4852" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4852</a></p>
 </blockquote>
 <p>46.修复PathPattern模式下无法更新uri的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4854" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4854</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4854" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4854</a></p>
 </blockquote>
 <p>47.修复客户端关闭方法调用两次</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4867" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4867</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4867" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4867</a></p>
 </blockquote>
 <p>48.修复 shenyu 错误处理 consul 配置</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4872" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4872</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4872" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4872</a></p>
 </blockquote>
 <p>49.从Request、modifyResponse插件中删除未使用的配置</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4882" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4882</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4882" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4882</a></p>
 </blockquote>
 <p>50.修复http注册元数据错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4889" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4889</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4889" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4889</a></p>
 </blockquote>
 <p>51.修复websocket丢失用户自定义关闭状态的问题</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4844" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4844</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4844" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4844</a></p>
 </blockquote>
-<p>52.修复consul寄存器在特殊符号  时丢失元路径的属性</p>
+<p>52.修复consul寄存器在特殊符号时丢失元路径的属性</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4885" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4885</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4885" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4885</a></p>
 </blockquote>
 <p>53.修复etcd同步错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4911" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4911</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4911" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4911</a></p>
 </blockquote>
 <p>54.修复shenyu admin多次同步事件错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4941" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4941</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4941" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4941</a></p>
 </blockquote>
 <p>55.修复 Shenyu motan插件执行错误</p>
 <blockquote>
-<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4934" target="_blank" rel="noopener noreferrer">https://github.com/apache/shenyu/pull/4934</a></p>
+<p>具体pr请查看：<a href="https://github.com/apache/shenyu/pull/4934" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/pull/4934</a></p>
 </blockquote>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="贡献者">贡献者<a href="#贡献者" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="贡献者">贡献者<a href="#贡献者" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>特别感谢以下贡献者对 <code>2.6.0</code>版本的支持和参与（排名不分先后）。</p>
 <p>midnight2104,koonchen,847850277,balloon72,yu199195,iwangjie,damonxue,tian-pengfei,caojiajun,dragon-zhang,u3breeze,li-keguo,SuperMonkeyC,mahaitao617,tomsun28,moremind,liaolzy,Ceilzcx,misaya295,BoyuLi4,HaiqiQin,starlight2003,stulzq,ywj1352,yunlongn,aFlyBird0,dengliming,plutokaito,xuyicheng1995,lan-dian,sachin10fi,zuobiao-zhou, hudongdong129,crudboy,aoshiguchen,VampireAchao,JooKS-me,Redick01,huanccwang,lijay7674,omernaci,peng-heng,December-Pb,6freeair2016,jieyangxchen,lianjunwei,u3breeze,eurecalulu,wanyaoasiainfo,wanyaoasiainfo,Kakk22,xuziyang,menglujing,xcsnx,yu1183688986,lahmXu,fabian4,ileonli,VampireAchao,GOODBOY008,TeslaCN</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="成为贡献者">成为贡献者<a href="#成为贡献者" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="成为贡献者">成为贡献者<a href="#成为贡献者" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>我们欢迎每一位贡献者的加入ShenYu，欢迎贡献者以Apache Way的精神参与ShenYu！</p>
 <p>贡献者指南请参考：</p>
 <blockquote>
-<p><a href="https://shenyu.apache.org/zh/community/contributor-guide" target="_blank" rel="noopener noreferrer">https://shenyu.apache.org/zh/community/contributor-guide</a></p>
-</blockquote></div><footer class="docusaurus-mt-lg"><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/zh/news/tags/apache-shen-yu">Apache ShenYu</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/zh/news/Apache-ShenYu-WASM-release-version-1.0.0"><div class="pagination-nav__sublabel">Newer Post</div><div class="pagination-nav__label">【Apache ShenYu WASM 1.0.0 版本发布】</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/zh/news/2023/06/14/Apache-ShenYu-Committer-"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">【学生的Apache ShenYu贡献之路】</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#关于apache-shenyu" class="table-of-contents__link toc-highlight">关于Apache ShenYu</a></li><li><a href="#版本预览" class="table-of-contents__link toc-highlight">版本预览</a><ul><li><a href="#新特性" class="table-of-contents__link toc-highlight">新特性</a></li></ul></li><li><a href="#增强" class="table-of-contents__link toc-highlight">增强</a></li><li><a href="#重构" class="table-of-contents__link toc-highlight">重构</a></li><li><a href="#bug修复" class="table-of-contents__link toc-highlight">Bug修复</a></li><li><a href="#贡献者" class="table-of-contents__link toc-highlight">贡献者</a></li><li><a href="#成为贡献者" class="table-of-contents__link toc-highlight">成为贡献者</a></li></ul></div></div></div></div></div></div>
+<p><a href="https://shenyu.apache.org/zh/community/contributor-guide" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/community/contributor-guide</a></p>
+</blockquote></div><footer class="docusaurus-mt-lg"><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a rel="tag" class="tag_zVej tagRegular_sFm0" href="/zh/news/tags/apache-shen-yu">Apache ShenYu</a></li></ul></div></div><div class="row margin-top--sm theme-blog-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/apache/shenyu-website/edit/main/i18n/zh/docusaurus-plugin-content-blog-news/Apache-ShenYu-release-version-2.6.0.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑本文档</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/zh/news/Apache-ShenYu-WASM-release-version-1.0.0"><div class="pagination-nav__sublabel">Newer Post</div><div class="pagination-nav__label">【Apache ShenYu WASM 1.0.0 版本发布】</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/zh/news/Apache-ShenYu-Committer-2023-06-14"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">【学生的Apache ShenYu贡献之路】</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#关于apache-shenyu" class="table-of-contents__link toc-highlight">关于Apache ShenYu</a></li><li><a href="#版本预览" class="table-of-contents__link toc-highlight">版本预览</a><ul><li><a href="#新特性" class="table-of-contents__link toc-highlight">新特性</a></li></ul></li><li><a href="#增强" class="table-of-contents__link toc-highlight">增强</a></li><li><a href="#重构" class="table-of-contents__link toc-highlight">重构</a></li><li><a href="#bug修复" class="table-of-contents__link toc-highlight">Bug修复</a></li><li><a href="#贡献者" class="table-of-contents__link toc-highlight">贡献者</a></li><li><a href="#成为贡献者" class="table-of-contents__link toc-highlight">成为贡献者</a></li></ul></div></div></div></div></div></div>
 </body>
 </html>

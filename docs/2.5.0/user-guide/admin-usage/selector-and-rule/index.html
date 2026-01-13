@@ -2,9 +2,10 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-2.5.0 docs-doc-page docs-doc-id-user-guide/admin-usage/selector-and-rule" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.6.3">
-<title data-rh="true">Selector And Rule Config | Apache ShenYu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="2.5.0"><meta data-rh="true" name="docusaurus_tag" content="docs-default-2.5.0"><meta data-rh="true" name="docsearch:version" content="2.5.0"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-2.5.0"><meta data-rh="true" property="og:title" content="Selector And Rule Config | Apache ShenYu"><meta data-rh="true" name="description" content="detailed explanation of selector and rule"><meta data-rh="true" property="og:description" content="detailed explanation of selector and rule"><meta data-rh="true" name="keywords" content="Selector,Rule"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule" hreflang="en"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/zh/docs/2.5.0/user-guide/admin-usage/selector-and-rule" hreflang="zh"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Apache ShenYu RSS Feed">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Selector And Rule Config | Apache ShenYu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="2.5.0"><meta data-rh="true" name="docusaurus_tag" content="docs-default-2.5.0"><meta data-rh="true" name="docsearch:version" content="2.5.0"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-2.5.0"><meta data-rh="true" property="og:title" content="Selector And Rule Config | Apache ShenYu"><meta data-rh="true" name="description" content="detailed explanation of selector and rule"><meta data-rh="true" property="og:description" content="detailed explanation of selector and rule"><meta data-rh="true" name="keywords" content="Selector,Rule"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule" hreflang="en"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/zh/docs/2.5.0/user-guide/admin-usage/selector-and-rule" hreflang="zh"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Selector And Rule Config","item":"https://shenyu.apache.org/docs/2.5.0/user-guide/admin-usage/selector-and-rule"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Apache ShenYu RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Apache ShenYu Atom Feed">
+
 
 
 
@@ -19,164 +20,167 @@
 <link rel="alternate" type="application/rss+xml" href="/news/rss.xml" title="Apache ShenYu RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/news/atom.xml" title="Apache ShenYu Atom Feed">
 
-<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/assets/css/styles.a01611e7.css">
-<script src="/assets/js/runtime~main.ff2800fc.js" defer="defer"></script>
-<script src="/assets/js/main.c19c5583.js" defer="defer"></script>
+<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/assets/css/styles.5a6c781d.css">
+<script src="/assets/js/runtime~main.693bbef7.js" defer="defer"></script>
+<script src="/assets/js/main.f59f2164.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo-light.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a></div><div class="navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/download">Download</a><a class="navbar__item navbar__link" href="/document">Docs</a><a class="navbar__item navbar__link" href="/community/contributor-guide">Community</a><a class="navbar__item navbar__link" href="/team">Team</a><a class="navbar__item navbar__link" href="/event">Event</a><a class="navbar__item navbar__link" href="/news">News</a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/users">Users</a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">ASF</a><ul class="dropdown__menu"><li><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="dropdown__link">Foundation</a></li><li><a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="dropdown__link">License</a></li><li><a href="https://www.apache.org/events/current-event" target="_blank" rel="noopener noreferrer" class="dropdown__link">Events</a></li><li><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="dropdown__link">Security</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Sponsorship</a></li><li><a href="https://www.apache.org/foundation/policies/privacy.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Privacy</a></li><li><a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Thanks</a></li></ul></div><a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/docs/2.5.0/user-guide/admin-usage/selector-and-rule" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/zh/docs/2.5.0/user-guide/admin-usage/selector-and-rule" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh">简体中文</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input"><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/2.5.0/">Overview</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/design/database-design">Design</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/deployment/deployment-before">Deployment</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/quick-start/quick-start-dubbo">Quick Start</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/2.5.0/user-guide/admin-usage/data-permission">User Guide</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/data-permission">Admin Usage</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/data-permission">Data Permission Management</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/dictionary-management">Dictionary Management</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/plugin-handle-explanation">Plugin Config</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/role-management">Role Management</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/selector-and-rule">Selector And Rule Config</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/2.5.0/user-guide/property-config/admin-property-config">Property Config</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/2.5.0/user-guide/proxy/dubbo-proxy">Quick Connect to Your Service</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/plugin-center/http-process/contextpath-plugin">Plugin Center</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/developer/spi/custom-load-balance">Developer</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role="alert"><div>This is documentation for <!-- -->Apache ShenYu<!-- --> <b>2.5.0</b>, which is no longer actively maintained.</div><div class="margin-top--md">For up-to-date documentation, see the <b><a href="/docs/user-guide/admin-usage/selector-and-rule">latest version</a></b> (<!-- -->2.7.0.3<!-- -->).</div></div><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">User Guide</span><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Admin Usage</span><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Selector And Rule Config</span><meta itemprop="position" content="3"></li></ul></nav><span class="theme-doc-version-badge badge badge--secondary">Version: 2.5.0</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Selector And Rule Config</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h2>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo-light.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/download">Download</a><a class="navbar__item navbar__link" href="/document">Docs</a><a class="navbar__item navbar__link" href="/community/contributor-guide">Community</a><a class="navbar__item navbar__link" href="/team">Team</a><a class="navbar__item navbar__link" href="/event">Event</a><a class="navbar__item navbar__link" href="/news">News</a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/users">Users</a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">ASF</a><ul class="dropdown__menu"><li><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="dropdown__link">Foundation</a></li><li><a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="dropdown__link">License</a></li><li><a href="https://www.apache.org/events/current-event" target="_blank" rel="noopener noreferrer" class="dropdown__link">Events</a></li><li><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="dropdown__link">Security</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Sponsorship</a></li><li><a href="https://www.apache.org/foundation/policies/privacy.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Privacy</a></li><li><a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">Thanks</a></li></ul></div><a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/docs/2.5.0/user-guide/admin-usage/selector-and-rule" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/zh/docs/2.5.0/user-guide/admin-usage/selector-and-rule" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh">简体中文</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/2.5.0/"><span title="Overview" class="linkLabel_WmDU">Overview</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/design/database-design"><span title="Design" class="categoryLinkLabel_W154">Design</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/deployment/deployment-before"><span title="Deployment" class="categoryLinkLabel_W154">Deployment</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/quick-start/quick-start-dubbo"><span title="Quick Start" class="categoryLinkLabel_W154">Quick Start</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/2.5.0/user-guide/admin-usage/data-permission"><span title="User Guide" class="categoryLinkLabel_W154">User Guide</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/data-permission"><span title="Admin Usage" class="categoryLinkLabel_W154">Admin Usage</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/data-permission"><span title="Data Permission Management" class="linkLabel_WmDU">Data Permission Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/dictionary-management"><span title="Dictionary Management" class="linkLabel_WmDU">Dictionary Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/plugin-handle-explanation"><span title="Plugin Config" class="linkLabel_WmDU">Plugin Config</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/role-management"><span title="Role Management" class="linkLabel_WmDU">Role Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/2.5.0/user-guide/admin-usage/selector-and-rule"><span title="Selector And Rule Config" class="linkLabel_WmDU">Selector And Rule Config</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/2.5.0/user-guide/property-config/admin-property-config"><span title="Property Config" class="categoryLinkLabel_W154">Property Config</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/2.5.0/user-guide/proxy/dubbo-proxy"><span title="Quick Connect to Your Service" class="categoryLinkLabel_W154">Quick Connect to Your Service</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/plugin-center/http-process/contextpath-plugin"><span title="Plugin Center" class="categoryLinkLabel_W154">Plugin Center</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/2.5.0/developer/spi/custom-load-balance"><span title="Developer" class="categoryLinkLabel_W154">Developer</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role="alert"><div>This is documentation for <!-- -->Apache ShenYu<!-- --> <b>2.5.0</b>, which is no longer actively maintained.</div><div class="margin-top--md">For up-to-date documentation, see the <b><a href="/docs/user-guide/admin-usage/selector-and-rule">latest version</a></b> (<!-- -->2.7.0.3<!-- -->).</div></div><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">User Guide</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Admin Usage</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Selector And Rule Config</span></li></ul></nav><span class="theme-doc-version-badge badge badge--secondary">Version: 2.5.0</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Selector And Rule Config</h1></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
 <p>This document will introduce the use of selectors and rules in the Apache ShenYu background management system. For the concept and design of selectors and rules, please refer to <code>Flow Control</code>.</p>
 <img src="/img/shenyu/dataSync/flow-control-en.png" width="60%" height="50%">
-<p>Please refer to the <code>deployment</code> document, choose a way to start <code>shenyu-admin</code>. For example, <a href="/docs/2.5.0/deployment/deployment-local">local deployment</a>. After startup, visit <code>http://localhost:9095</code>, the default username and password are: <code>admin</code> and <code>123456</code> .</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="selector">Selector<a href="#selector" class="hash-link" aria-label="Direct link to Selector" title="Direct link to Selector">​</a></h2>
+<p>Please refer to the <code>deployment</code> document, choose a way to start <code>shenyu-admin</code>. For example, <a class="" href="/docs/2.5.0/deployment/deployment-local">local deployment</a>. After startup, visit <code>http://localhost:9095</code>, the default username and password are: <code>admin</code> and <code>123456</code> .</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="selector">Selector<a href="#selector" class="hash-link" aria-label="Direct link to Selector" title="Direct link to Selector" translate="no">​</a></h2>
 <p>All plugins are displayed in the PluginList, and selectors and rules can be added to each plugin:</p>
 <img src="/img/shenyu/basicConfig/pluginHandle/selector_rule_page_en.jpg" width="80%" height="80%">
 <p>For example, add a selector to the <code>divide</code> plugin:</p>
 <img src="/img/shenyu/basicConfig/pluginHandle/divide_selector_config_en.jpg" width="80%" height="80%">
 <ul>
-<li>
+<li class="">
 <p>selector detailed explanation：</p>
 <ul>
-<li>Name: create your selector with a distinguish name.</li>
-<li>Type: Choose request matching strategy.<!-- -->
+<li class="">Name: create your selector with a distinguish name.</li>
+<li class="">Type: Choose request matching strategy.<!-- -->
 <ul>
-<li><code>custom</code>: Only handle requests that meet the following matching conditions.</li>
-<li><code>full</code>: Handle all requests.</li>
+<li class=""><code>custom</code>: Only handle requests that meet the following matching conditions.</li>
+<li class=""><code>full</code>: Handle all requests.</li>
 </ul>
 </li>
-<li>MatchType: Condition combination type.<!-- -->
+<li class="">MatchType: Condition combination type.<!-- -->
 <ul>
-<li><code>and</code>： Need to meet all conditions.</li>
-<li><code>or</code>: Meet any of the conditions.</li>
+<li class=""><code>and</code>： Need to meet all conditions.</li>
+<li class=""><code>or</code>: Meet any of the conditions.</li>
 </ul>
 </li>
-<li>Conditions：<!-- -->
+<li class="">Conditions：<!-- -->
 <ul>
-<li>uri: filter request with uri.</li>
-<li>header: filter request with request header.</li>
-<li>query: filter request with query string.</li>
-<li>ip: filter request with your real ip.</li>
-<li>host: filter request with your real host.</li>
-<li>post: not recommend to use.</li>
-<li>cookie: filter request with cookie.</li>
-<li>req_method: filter request with request method.</li>
-<li>condition match:<!-- -->
+<li class="">uri: filter request with uri.</li>
+<li class="">header: filter request with request header.</li>
+<li class="">query: filter request with query string.</li>
+<li class="">ip: filter request with your real ip.</li>
+<li class="">host: filter request with your real host.</li>
+<li class="">post: not recommend to use.</li>
+<li class="">cookie: filter request with cookie.</li>
+<li class="">req_method: filter request with request method.</li>
+<li class="">condition match:<!-- -->
 <ul>
-<li>match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).</li>
-<li>= : matches only if they are equal.</li>
-<li>regEx : regex matching，match characters in regex expression.</li>
-<li>contains: when it contains the specified value, it matches.</li>
-<li>TimeBefore: before the specified time.</li>
-<li>TimeAfter: after the specified time.</li>
-<li>exclude: the inverse of the method of <code>match</code>.</li>
-<li>startsWith: when its prefix is equal to the specified value, it matches. In certain scenarios, <code>match</code> can be replaced (such as <code>/test/</code> instead of <code>/test/**</code>) for better performance.</li>
-<li>endsWith: when its suffix is equal to the specified value, it matches.</li>
-<li>pathPatter: it&#x27;s an optimized version of <code>match</code>, which has better performance than <code>match</code>, but does not support writing <code>**</code> in the middle of the path (such as <code>/api/**/xxx</code>).</li>
+<li class="">match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).</li>
+<li class="">= : matches only if they are equal.</li>
+<li class="">regEx : regex matching，match characters in regex expression.</li>
+<li class="">contains: when it contains the specified value, it matches.</li>
+<li class="">TimeBefore: before the specified time.</li>
+<li class="">TimeAfter: after the specified time.</li>
+<li class="">exclude: the inverse of the method of <code>match</code>.</li>
+<li class="">startsWith: when its prefix is equal to the specified value, it matches. In certain scenarios, <code>match</code> can be replaced (such as <code>/test/</code> instead of <code>/test/**</code>) for better performance.</li>
+<li class="">endsWith: when its suffix is equal to the specified value, it matches.</li>
+<li class="">pathPatter: it&#x27;s an optimized version of <code>match</code>, which has better performance than <code>match</code>, but does not support writing <code>**</code> in the middle of the path (such as <code>/api/**/xxx</code>).</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Continued: whether the subsequent selector is still executed.</li>
-<li>PrintLogs: it will print the matching log with the open option enabled.</li>
-<li>Enable: whether to enable the plugin.</li>
-<li>Order：the smaller will have high priority to execute among multi-selectors.</li>
-<li>Handler: The operation when the request matches the selector.</li>
+<li class="">Continued: whether the subsequent selector is still executed.</li>
+<li class="">PrintLogs: it will print the matching log with the open option enabled.</li>
+<li class="">Enable: whether to enable the plugin.</li>
+<li class="">Order：the smaller will have high priority to execute among multi-selectors.</li>
+<li class="">Handler: The operation when the request matches the selector.</li>
 </ul>
 </li>
-<li>
+<li class="">
 <p>the above picture means: when the prefix of the request uri is <code>/http</code>, it will redirect to this service <code>127.0.0.1:8080</code>.</p>
 </li>
-<li>
+<li class="">
 <p>selector advice : combine <code>uri</code> condition and <code>startsWith</code> prefix（/contextPath/）as the first request filter.</p>
 </li>
-<li>
+<li class="">
 <p>selector(the same for rule) match condition fuzzy string matching rule:</p>
 <ul>
-<li><code>?</code> matches one character</li>
-<li><code>*</code> matches zero or more characters</li>
-<li><code>**</code> matches zero or more directories in a path</li>
+<li class=""><code>?</code> matches one character</li>
+<li class=""><code>*</code> matches zero or more characters</li>
+<li class=""><code>**</code> matches zero or more directories in a path</li>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="rule">Rule<a href="#rule" class="hash-link" aria-label="Direct link to Rule" title="Direct link to Rule">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rule">Rule<a href="#rule" class="hash-link" aria-label="Direct link to Rule" title="Direct link to Rule" translate="no">​</a></h2>
 <img src="/img/shenyu/basicConfig/pluginHandle/plugin_rule_config_en.jpg" width="80%" height="80%">
 <ul>
-<li>when the request was passed by the selector, then it will be processed by the rule, the final filter.</li>
-<li>rule is the final confirmation about how to execute request logically.</li>
-<li>rule detailed explanation：<!-- -->
+<li class="">when the request was passed by the selector, then it will be processed by the rule, the final filter.</li>
+<li class="">rule is the final confirmation about how to execute request logically.</li>
+<li class="">rule detailed explanation：<!-- -->
 <ul>
-<li>
+<li class="">
 <p>Name：create your rule with a distinguish name.</p>
 </li>
-<li>
+<li class="">
 <p>MatchType: you can combine these conditions with &#x27;and&#x27; , &#x27;or&#x27; operators.</p>
 </li>
-<li>
+<li class="">
 <p>Conditions：</p>
 <ul>
-<li>
+<li class="">
 <p>uri: filter request with uri.</p>
 </li>
-<li>
+<li class="">
 <p>header: filter request with request header.</p>
 </li>
-<li>
+<li class="">
 <p>query: filter request with query string.</p>
 </li>
-<li>
+<li class="">
 <p>ip: filter request with your real ip.</p>
 </li>
-<li>
+<li class="">
 <p>host: filter request with your real host.</p>
 </li>
-<li>
+<li class="">
 <p>post: not recommend to use.</p>
 </li>
-<li>
+<li class="">
 <p>cookie: filter request with cookie.</p>
 </li>
-<li>
+<li class="">
 <p>req_method: filter request with request method.</p>
 </li>
-<li>
+<li class="">
 <p>condition match:</p>
 <ul>
-<li>match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).</li>
-<li>= : matches only if they are equal.</li>
-<li>regEx : regex matching，match characters in regex expression.</li>
-<li>contains: when it contains the specified value, it matches.</li>
-<li>TimeBefore: before the specified time.</li>
-<li>TimeAfter: after the specified time.</li>
-<li>exclude: Same function as <code>match</code>, flow selection is opposite.</li>
-<li>startsWith: when its prefix is equal to the specified value, it matches. In certain scenarios, <code>match</code> can be replaced (such as <code>/test/</code> instead of <code>/test/**</code>) for better performance.</li>
-<li>endsWith: when its suffix is equal to the specified value, it matches.</li>
-<li>pathPatter: it&#x27;s an optimized version of <code>match</code>, which has better performance than <code>match</code>, but does not support writing <code>**</code> in the middle of the path (such as <code>/api/**/xxx</code>).</li>
+<li class="">match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).</li>
+<li class="">= : matches only if they are equal.</li>
+<li class="">regEx : regex matching，match characters in regex expression.</li>
+<li class="">contains: when it contains the specified value, it matches.</li>
+<li class="">TimeBefore: before the specified time.</li>
+<li class="">TimeAfter: after the specified time.</li>
+<li class="">exclude: Same function as <code>match</code>, flow selection is opposite.</li>
+<li class="">startsWith: when its prefix is equal to the specified value, it matches. In certain scenarios, <code>match</code> can be replaced (such as <code>/test/</code> instead of <code>/test/**</code>) for better performance.</li>
+<li class="">endsWith: when its suffix is equal to the specified value, it matches.</li>
+<li class="">pathPatter: it&#x27;s an optimized version of <code>match</code>, which has better performance than <code>match</code>, but does not support writing <code>**</code> in the middle of the path (such as <code>/api/**/xxx</code>).</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
+<li class="">
 <p>PrintLogs: it will print the matching log with the open option enabled.</p>
 </li>
-<li>
+<li class="">
 <p>Enable: whether to enable the plugin.</p>
 </li>
-<li>
+<li class="">
 <p>Order：the smaller will have high priority to execute among multi-rules.</p>
 </li>
-<li>
+<li class="">
 <p>handle: The operation when the request matches the rule.</p>
 </li>
 </ul>
 </li>
-<li>above picture means: when the request <code>uri</code> equals to <code>/http/order/save</code>, it will execute based on this rule，load strategy is <code>random</code>.</li>
-<li>rule advice: combine <code>uri</code> condition with <code>match</code> the real <code>uri path</code> condition as the final filter.</li>
-<li>combine selector means ：when the request <code>uri</code> is <code>/http/order/save</code>, it will be redicted to <code>127.0.0.1:8080</code> by <code>random</code> method.</li>
+<li class="">above picture means: when the request <code>uri</code> equals to <code>/http/order/save</code>, it will execute based on this rule，load strategy is <code>random</code>.</li>
+<li class="">rule advice: combine <code>uri</code> condition with <code>match</code> the real <code>uri path</code> condition as the final filter.</li>
+<li class="">combine selector means ：when the request <code>uri</code> is <code>/http/order/save</code>, it will be redicted to <code>127.0.0.1:8080</code> by <code>random</code> method.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="match-strategy">Match Strategy<a href="#match-strategy" class="hash-link" aria-label="Direct link to Match Strategy" title="Direct link to Match Strategy">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="match-strategy">Match Strategy<a href="#match-strategy" class="hash-link" aria-label="Direct link to Match Strategy" title="Direct link to Match Strategy" translate="no">​</a></h2>
 <p>Matching mode refers to the matching mode between multiple conditions when a selector or rule is matched. Currently, <code>and</code> and <code>or</code> are supported.</p>
 <ul>
-<li>
+<li class="">
 <p><code>and</code></p>
 <p><code>and</code> indicates that a selector or rule can be matched only if more than one condition is met.</p>
 <p>The example below shows that a request must meet both the condition <code>uri = /http/order/findById</code> and the condition <code>id = 100</code>  to match this rule.</p>
@@ -185,7 +189,7 @@
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/match-strategy-and-en-3dc5ce5d8c0bc56e60b51e0f6abd12bd.png" width="1767" height="1255" class="img_ev3q"></p>
 <ul>
-<li>
+<li class="">
 <p><code>or</code></p>
 <p><code>or</code> indicates that one of the conditions matches a selector or rule.</p>
 <p>The example below shows that a request matches this rule if it meets either the condition <code>uri = /http/order/findById</code> or the condition <code>id = 100</code>.</p>
@@ -193,130 +197,130 @@
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/match-strategy-or-en-a9b2dc0ee90d0532004ef7f0defad516.png" width="1760" height="1250" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="condition-parameter-data">Condition Parameter Data<a href="#condition-parameter-data" class="hash-link" aria-label="Direct link to Condition Parameter Data" title="Direct link to Condition Parameter Data">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="condition-parameter-data">Condition Parameter Data<a href="#condition-parameter-data" class="hash-link" aria-label="Direct link to Condition Parameter Data" title="Direct link to Condition Parameter Data" translate="no">​</a></h2>
 <p>Conditional parameter Settings in selectors and rules are explained again. Suppose the following is a request header for an <code>Http</code> request:</p>
-<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">GET http://localhost:9195/http/order/findById?id=100</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Accept: application/json</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cookie: shenyu=shenyu_cookie</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">MyHeader: custom-header</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">GET http://localhost:9195/http/order/findById?id=100</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Accept: application/json</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cookie: shenyu=shenyu_cookie</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">MyHeader: custom-header</span><br></span></code></pre></div></div>
 <p>In <code>ShenYu</code> you can set different conditional parameters to get real data from the request information.</p>
 <ul>
-<li>If the condition parameter is <code>uri</code>, then the actual data retrieved is <code>/http/order/findById</code>;</li>
-<li>If the condition parameter is <code>header</code>, the field name is <code>MyHeader</code>, then the actual data retrieved is <code>custom-header</code>;</li>
-<li>If the condition parameter is <code>query</code>, the field name is <code>id</code>, then the actual data retrieved is <code>100</code>;</li>
-<li>If the condition parameter is <code>ip</code>, then the actual data retrieved is <code>0:0:0:0:0:0:0:1</code>;</li>
-<li>If the condition parameter is <code>host</code>, then the actual data retrieved is <code>0:0:0:0:0:0:0:1</code>;</li>
-<li>If the condition parameter is <code>post</code>, the field name is <code>contextPath</code>, then the actual data retrieved is <code>/http</code>;</li>
-<li>If the condition parameter is <code>cookie</code>, the field name is <code>shenyu</code>, then the actual data retrieved is <code>shenyu_cookie</code>;</li>
-<li>If the condition parameter is <code>req_method</code>, then the actual data retrieved is <code>GET</code>;</li>
+<li class="">If the condition parameter is <code>uri</code>, then the actual data retrieved is <code>/http/order/findById</code>;</li>
+<li class="">If the condition parameter is <code>header</code>, the field name is <code>MyHeader</code>, then the actual data retrieved is <code>custom-header</code>;</li>
+<li class="">If the condition parameter is <code>query</code>, the field name is <code>id</code>, then the actual data retrieved is <code>100</code>;</li>
+<li class="">If the condition parameter is <code>ip</code>, then the actual data retrieved is <code>0:0:0:0:0:0:0:1</code>;</li>
+<li class="">If the condition parameter is <code>host</code>, then the actual data retrieved is <code>0:0:0:0:0:0:0:1</code>;</li>
+<li class="">If the condition parameter is <code>post</code>, the field name is <code>contextPath</code>, then the actual data retrieved is <code>/http</code>;</li>
+<li class="">If the condition parameter is <code>cookie</code>, the field name is <code>shenyu</code>, then the actual data retrieved is <code>shenyu_cookie</code>;</li>
+<li class="">If the condition parameter is <code>req_method</code>, then the actual data retrieved is <code>GET</code>;</li>
 </ul>
 <ul>
-<li>
+<li class="">
 <p><code>uri</code>(recommended)</p>
 <ul>
-<li>
+<li class="">
 <p><code>uri</code> matches are based on the <code>uri</code> in the path you requested, and there is almost no change in the front end when accessing the gateway.</p>
 </li>
-<li>
+<li class="">
 <p>When using <code>match</code>, the principle is the same as <code>SpringMVC</code> fuzzy matching.</p>
 </li>
-<li>
+<li class="">
 <p>In selectors, it is recommended to use prefixes in <code>URI</code> for matching, while in rules, specific paths are used for matching.</p>
 </li>
-<li>
+<li class="">
 <p>When using this matching method, fill in the value of the matching field, as shown in the figure <code>/http/**</code>.</p>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/parameter-data-uri-en-8106039033485e12adc70d751e4ba81b.png" width="2398" height="1166" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>header</code></p>
 <ul>
-<li>
+<li class="">
 <p>The <code>header</code> is matched against the field values in your <code>http</code> request header.</p>
 </li>
-<li>
+<li class="">
 <p>When using this matching method, you need to fill in the field name and field value. The examples in the figure are <code>MyHeader</code> and <code>custom-header</code> respectively</p>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/parameter-data-header-en-2d7350e606875425ba7000a63f60bae4.png" width="2376" height="1161" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>query</code></p>
 <ul>
-<li>
+<li class="">
 <p>This matches the query parameters in your <code>uri</code>, such as <code>/test?id=1</code>, then the matching method can be selected.</p>
 </li>
-<li>
+<li class="">
 <p>When using this matching method, you need to fill in the field name and field value. The examples in the figure are <code>id</code> and 1 respectively.</p>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/parameter-data-query-en-ae199d298b7d11fb67e656e2c84c7d15.png" width="2406" height="1174" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>ip</code></p>
 <ul>
-<li>
+<li class="">
 <p>This is matched against the <code>http</code> caller&#x27;s <code>ip</code>.</p>
 </li>
-<li>
+<li class="">
 <p>Especially in waf plugin, if an <code>ip</code> address is found to be attacked, you can add a matching condition, fill in the <code>ip</code>, deny the <code>ip</code> access.</p>
 </li>
-<li>
-<p>If you use nginx proxy before ShenYu, you can get the right ip with refering to <a href="/docs/2.5.0/developer/custom-parsing-ip-and-host">parsing-ip-and-host</a></p>
+<li class="">
+<p>If you use nginx proxy before ShenYu, you can get the right ip with refering to <a class="" href="/docs/2.5.0/developer/custom-parsing-ip-and-host">parsing-ip-and-host</a></p>
 </li>
-<li>
+<li class="">
 <p>When using this matching method, fill in the value of the matching field, as shown in the example <code>192.168.236.75</code>.</p>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/parameter-data-ip-en-24cba6d24a6946934d4cae32b8c25520.png" width="2405" height="1183" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>host</code></p>
 <ul>
-<li>
+<li class="">
 <p>This is matched against the <code>http</code> caller&#x27;s <code>host</code>.</p>
 </li>
-<li>
+<li class="">
 <p>Especially in waf plugin, if an <code>host</code> address is found to be attacked, you can add a matching condition, fill in the <code>host</code>, deny the <code>host</code> access.</p>
 </li>
-<li>
-<p>If you use nginx proxy before ShenYu, you can get the right ip with refering to <a href="/docs/2.5.0/developer/custom-parsing-ip-and-host">parsing-ip-and-host</a></p>
+<li class="">
+<p>If you use nginx proxy before ShenYu, you can get the right ip with refering to <a class="" href="/docs/2.5.0/developer/custom-parsing-ip-and-host">parsing-ip-and-host</a></p>
 </li>
-<li>
+<li class="">
 <p>When using this matching method, fill in the value of the matching field, as shown in the example <code>localhost</code>.</p>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/parameter-data-host-en-e602968ecae139d1fd003b2088d93954.png" width="2393" height="1170" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>post</code></p>
 <ul>
-<li>
+<li class="">
 <p>To get condition parameters from the request context(<code>org.apache.shenyu.plugin.api.context.ShenyuContext</code>), reflection is required to get the value of the field, which is not recommended.</p>
 </li>
-<li>
+<li class="">
 <p>When using this matching method, the field name and value need to be specified. The examples in the figure are <code>contextPath</code> and <code>/http</code> respectively.</p>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/parameter-data-post-en-64c4fa2226342bdbfcc7e1110e7375da.png" width="2374" height="1155" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>cookie</code></p>
 <ul>
-<li>
+<li class="">
 <p>This is matched against the <code>Cookie</code> in the <code>http</code> caller&#x27;s request header as a condition parameter.</p>
 </li>
-<li>
+<li class="">
 <p>When using this matching method, you need to fill in the field name and field value. The examples in the figure are <code>shenyu</code> and <code>shenyu_cookie</code> respectively.</p>
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/parameter-data-cookie-en-d4f494e4ff70a1029c64946c0fc6d3be.png" width="2398" height="1168" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>req_method</code></p>
 <ul>
-<li>
+<li class="">
 <p>This matches the request form of the <code>http</code> caller, such as <code>GET</code>, <code>POST</code>, etc.</p>
 </li>
-<li>
+<li class="">
 <p>When using this matching method, fill in the value of the matching field, as shown in the example <code>GET</code>.</p>
 </li>
 </ul>
@@ -325,55 +329,55 @@
 </ul>
 <p>For a more in-depth understanding of condition parameter fetching, read the source code, package name is <code>org.apache.shenyu.plugin.base.condition.data</code>:</p>
 <table><thead><tr><th style="text-align:left">Condition Parameter</th><th style="text-align:left">Class</th></tr></thead><tbody><tr><td style="text-align:left"><code>uri</code></td><td style="text-align:left"><code>URIParameterData</code></td></tr><tr><td style="text-align:left"><code>header</code></td><td style="text-align:left"><code>HeaderParameterData</code></td></tr><tr><td style="text-align:left"><code>query</code></td><td style="text-align:left"><code>QueryParameterData</code></td></tr><tr><td style="text-align:left"><code>ip</code></td><td style="text-align:left"><code>IpParameterData</code></td></tr><tr><td style="text-align:left"><code>host</code></td><td style="text-align:left"><code>HostParameterData</code></td></tr><tr><td style="text-align:left"><code>post</code></td><td style="text-align:left"><code>PostParameterData</code></td></tr><tr><td style="text-align:left"><code>cookie</code></td><td style="text-align:left"><code>CookieParameterData</code></td></tr><tr><td style="text-align:left"><code>req_method</code></td><td style="text-align:left"><code>RequestMethodParameterData</code></td></tr></tbody></table>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="condition-match-strategy">Condition Match Strategy<a href="#condition-match-strategy" class="hash-link" aria-label="Direct link to Condition Match Strategy" title="Direct link to Condition Match Strategy">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="condition-match-strategy">Condition Match Strategy<a href="#condition-match-strategy" class="hash-link" aria-label="Direct link to Condition Match Strategy" title="Direct link to Condition Match Strategy" translate="no">​</a></h2>
 <p>Condition parameters allow you to retrieve the actual data of the request. How the real data matches the conditional data preset by the selector or rule is realized through the condition match strategy.</p>
 <ul>
-<li>
+<li class="">
 <p><code>match</code></p>
 <p><code>match</code> supports fuzzy matching (<code>/**</code>). Request <code>/http/order/findById</code> will match if your selector condition is set as follows.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-match-en-bfda0697b6762102f2a40f375d1be44b.png" width="2388" height="1166" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>=</code></p>
 <p><code>=</code> means that the requested real data is equal to the preset condition data. If your selector condition is set to request uri equal to <code>/http/order/findById</code>, then request<code>/http/order/findById?id=1</code> can match it.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-equals-en-a9e1c88ebd6b0c4e109ac6e030fb1b35.png" width="1758" height="1182" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>regex</code></p>
 <p><code>regex</code> means that the requested real data can meet the preset condition of the regular expression to match successfully. Suppose your rule conditions are sets as follows: the request parameter contains an <code>id</code> and is a three-digit number. So request <code>/http/order/findById?id=900</code> will match.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-regex-en-079903a9d60961830e37eab69821e0f7.png" width="1762" height="1189" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>contains</code></p>
 <p><code>contains</code> means that the requested real data contains the default condition data. Suppose your rule condition is set as follows: request uri contains <code>findById</code>. Request <code>/http/order/findById?id=1</code> will match.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-contains-en-b23ef6d367776827239d836ef55e1fd6.png" width="1766" height="1183" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>TimeBefore</code></p>
 <p><code>TimeBefore</code> indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are sets as follows: request parameters contain <code>date</code> and <code>date</code> is less than <code>2021-09-26 06:12:10</code>. Request <code>/http/order/findById?id=100&amp;date=2021-09-22 06:12:10</code> will match.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-timebefore-en-56c335cbe779dd1e56760a3d8c13ab94.png" width="1764" height="1179" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>TimeAfter</code></p>
 <p><code>TimeAfter</code> indicates that the request time will be matched before the preset condition time. Suppose your rule conditions are sets as follows: request parameters contain <code>date</code> and <code>date</code> is greater than <code>2021-09-26 06:12:10</code>. Request <code>/http/order/findById?id=100&amp;date=2021-09-22 06:12:10</code> will match.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-timeafter-en-c3a68a43426d513363d677dd6d1f5f44.png" width="1749" height="1177" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>exclude</code></p>
 <p><code>exclude</code> is the inverse of the method of <code>match</code>, and some functions of <code>match</code> are also available, but it is a matching filter. If your selector condition is set as follows, the request <code>/http/order/findById</code> will filter this.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-exclude-en-1715ee844304c48941ba38af56ea5f03.png" width="986" height="520" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>startsWith</code></p>
 <p><code>startsWith</code> indicates that the prefix of the requested real data is equal to the preset condition data. Suppose your rule conditions are sets as follows: the prefix in the request <code>uri</code> is equal to <code>/http/</code>, the request <code>/http/order/findById?id=1</code> can be matched.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-startswith-en-b2cca14e882a7608e314fbe0c0fdfbe0.png" width="1956" height="1334" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>endsWith</code></p>
 <p><code>endsWith</code> indicates that the suffix of the requested real data is equal to the preset condition data. Suppose your rule conditions are sets as follows: request <code>uri</code> suffix equals <code>Id</code>. Then the request <code>/http/order/findById?id=1</code> can be matched.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/predicate-judge-endswith-en-6da555605e5eebba2895ab8ee3f22b9d.png" width="1816" height="1262" class="img_ev3q"></p>
 </li>
-<li>
+<li class="">
 <p><code>pathPatter</code></p>
 <p>Like <code>match</code>, <code>pathPatter</code> supports fuzzy matching (<code>/**</code>). If your rule conditions are sets as follows, then the request <code>/http/order/findById</code> can be matched;</p>
 <p>Notice: writing <code>**</code> in the middle of the path (such as <code>/api/**/xxx</code>) is not supported!</p>
@@ -382,6 +386,6 @@
 </ul>
 <p>If you want to further understand conditions matching strategy, please read the source code, the package name is <code>org.apache.shenyu.plugin.base.condition.judge</code>:</p>
 <table><thead><tr><th style="text-align:left">Match Strategy</th><th style="text-align:left">Class</th></tr></thead><tbody><tr><td style="text-align:left"><code>match</code></td><td style="text-align:left"><code>MatchPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>=</code></td><td style="text-align:left"><code>EqualsPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>regex</code></td><td style="text-align:left"><code>RegexPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>contains</code></td><td style="text-align:left"><code>ContainsPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>TimeBefore</code></td><td style="text-align:left"><code>TimerBeforePredicateJudge</code></td></tr><tr><td style="text-align:left"><code>TimeAfter</code></td><td style="text-align:left"><code>TimerAfterPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>exclude</code></td><td style="text-align:left"><code>ExcludePredicateJudge</code></td></tr><tr><td style="text-align:left"><code>startsWith</code></td><td style="text-align:left"><code>StartsWithPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>endsWith</code></td><td style="text-align:left"><code>EndsWithPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>pathPatter</code></td><td style="text-align:left"><code>PathPatternPredicateJudge</code></td></tr></tbody></table>
-<p>The examples in this article illustrate the use of selectors and rules. The Settings of specific conditions need to be selected according to actual conditions.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/apache/shenyu-website/edit/main/versioned_docs/version-2.5.0/user-guide/admin-usage/selector-and-rule.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/2.5.0/user-guide/admin-usage/role-management"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Role Management</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/2.5.0/user-guide/property-config/admin-property-config"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Admin Property Config</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#features" class="table-of-contents__link toc-highlight">Features</a></li><li><a href="#selector" class="table-of-contents__link toc-highlight">Selector</a></li><li><a href="#rule" class="table-of-contents__link toc-highlight">Rule</a></li><li><a href="#match-strategy" class="table-of-contents__link toc-highlight">Match Strategy</a></li><li><a href="#condition-parameter-data" class="table-of-contents__link toc-highlight">Condition Parameter Data</a></li><li><a href="#condition-match-strategy" class="table-of-contents__link toc-highlight">Condition Match Strategy</a></li></ul></div></div></div></div></main></div></div></div></div>
+<p>The examples in this article illustrate the use of selectors and rules. The Settings of specific conditions need to be selected according to actual conditions.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/apache/shenyu-website/edit/main/versioned_docs/version-2.5.0/user-guide/admin-usage/selector-and-rule.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/2.5.0/user-guide/admin-usage/role-management"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Role Management</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/2.5.0/user-guide/property-config/admin-property-config"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Admin Property Config</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#features" class="table-of-contents__link toc-highlight">Features</a></li><li><a href="#selector" class="table-of-contents__link toc-highlight">Selector</a></li><li><a href="#rule" class="table-of-contents__link toc-highlight">Rule</a></li><li><a href="#match-strategy" class="table-of-contents__link toc-highlight">Match Strategy</a></li><li><a href="#condition-parameter-data" class="table-of-contents__link toc-highlight">Condition Parameter Data</a></li><li><a href="#condition-match-strategy" class="table-of-contents__link toc-highlight">Condition Match Strategy</a></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
 </html>

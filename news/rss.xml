@@ -4,10 +4,36 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Tue, 06 Jan 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Jan 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Yu Siheng 2025 Open Source Summer Summary | From Open Source Newbie to Campus Ambassador]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07</link>
+            <guid>https://shenyu.apache.org/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07</guid>
+            <pubDate>Wed, 07 Jan 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[From Open Source Newbie to Campus Ambassador]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>Reflecting on my connection with the Shenyu gateway, it feels like a destined encounter. Initially, I was just an ordinary student interested in the "Open Source Summer" program. At that time, I casually posted a question on a technical forum seeking advice on how to choose an open source community. Soon after, I received a warm reply from ZangZang in the Dromara community. Through the Dromara community, I read about A Chao’s legendary journey and also learned about the founder of Dromara, Mao Da. Unfortunately, the Dromara community was not participating in the Open Source Summer program.</p>
+<p>Therefore, I searched again on the OSPP platform for a community that resonated with me, and unexpectedly I discovered the Shenyu community there. I was deeply interested in Shenyu, and to my surprise, I found many of the big contributors I had seen in the Dromara community were also actively contributing to Shenyu. This coincidence sparked a strong interest in the Shenyu community. It was this wonderful fate that led me to step into the vibrant Shenyu open source community for the first time and started my own open source journey.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="from-theory-to-practice-taking-the-first-step-into-open-source">From Theory to Practice: Taking the First Step into Open Source<a href="https://shenyu.apache.org/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07#from-theory-to-practice-taking-the-first-step-into-open-source" class="hash-link" aria-label="Direct link to From Theory to Practice: Taking the First Step into Open Source" title="Direct link to From Theory to Practice: Taking the First Step into Open Source" translate="no">​</a></h2>
+<p>With the guidance and support of many community mentors, I successfully submitted my first PR. After going through rigorous CI checks, it was finally merged. At that moment, I truly felt a profound sense of accomplishment. I continuously delved into Shenyu’s code architecture, asynchronous programming, synchronization mechanisms, and plugin chain design, while steadily contributing code. Participating in open source gradually became a natural choice for me and no longer felt difficult. I deeply relate to a senior from my school who once said, “Open source is all around us.”</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-source-summer-the-transformation-from-participant-to-community-member">Open Source Summer: The Transformation from Participant to Community Member<a href="https://shenyu.apache.org/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07#open-source-summer-the-transformation-from-participant-to-community-member" class="hash-link" aria-label="Direct link to Open Source Summer: The Transformation from Participant to Community Member" title="Direct link to Open Source Summer: The Transformation from Participant to Community Member" translate="no">​</a></h2>
+<p>In the 2025 "Open Source Summer" event, I was fortunate to be selected for the "Apache ShenYu Proxy Plugin Fine-grained Service Configuration" project. This project aims to enhance the capabilities of the Apache Shenyu gateway by enabling flexible configuration of plugin behaviors at the Selector level. With the careful guidance of mentors and senior community members, I gained a deeper understanding of the plugin chain architecture and plugin scheduling process. Below is one of the diagrams I drew during my learning journey:</p>
+<p><img decoding="async" loading="lazy" alt="ospp-2025-478320-flow.png" src="https://shenyu.apache.org/assets/images/ospp-2025-478320-flow-f829ffe7d14925518ca336b803815e95.png" width="1257" height="731" class="img_ev3q"></p>
+<p>After three months of dedicated effort, I successfully delivered fine-grained configuration features for Proxy, Cache, Logging, AI, and other plugins. This significantly improved the flexibility of traffic management, meeting the needs of more complex business scenarios. This experience not only deepened my understanding of the Shenyu configuration system and SPI mechanism but also equipped me with practical skills in system call implementation, synchronization mechanism design, and efficient debugging.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="role-upgrade-the-responsibility-and-mission-of-a-campus-ambassador">Role Upgrade: The Responsibility and Mission of a Campus Ambassador<a href="https://shenyu.apache.org/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07#role-upgrade-the-responsibility-and-mission-of-a-campus-ambassador" class="hash-link" aria-label="Direct link to Role Upgrade: The Responsibility and Mission of a Campus Ambassador" title="Direct link to Role Upgrade: The Responsibility and Mission of a Campus Ambassador" translate="no">​</a></h2>
+<p>This "Open Source Summer" experience was deeply meaningful to me, making me fully realize the true essence of openness, open source, and sharing. Open source is not just about making code public; it embodies a spirit of collaborative creation. With this belief, I hope more students interested in open source can learn about and participate in Open Source Summer. Therefore, this year I applied to become a Campus Ambassador for Open Source Summer at Fuzhou University, aiming to share my experiences and insights, guide new students to get involved, and witness many beginners grow into active contributors within the community.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary-of-gains-valuable-lessons-on-the-path-of-growth">Summary of Gains: Valuable Lessons on the Path of Growth<a href="https://shenyu.apache.org/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07#summary-of-gains-valuable-lessons-on-the-path-of-growth" class="hash-link" aria-label="Direct link to Summary of Gains: Valuable Lessons on the Path of Growth" title="Direct link to Summary of Gains: Valuable Lessons on the Path of Growth" translate="no">​</a></h2>
+<p>Looking back on the entire OSPP process, I deeply appreciate the critical importance of maintaining high scalability and flexibility in programming. Avoiding rigid, hard-coded solutions greatly facilitates future feature expansion and maintenance. However, my greatest gain from this event was not just the improvement of coding skills but the broadening of my horizons. I realized what kind of code is truly needed and discovered that I was capable of achieving more than I had expected. Equally important, I learned how to communicate effectively with mentors and made many friends in the community. The help and support from all the senior contributors were invaluable, and I am sincerely grateful to everyone in the community.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="looking-ahead-continuing-the-open-source-journey">Looking Ahead: Continuing the Open Source Journey<a href="https://shenyu.apache.org/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07#looking-ahead-continuing-the-open-source-journey" class="hash-link" aria-label="Direct link to Looking Ahead: Continuing the Open Source Journey" title="Direct link to Looking Ahead: Continuing the Open Source Journey" translate="no">​</a></h2>
+<p>In the future, I look forward to expanding my technical knowledge while meeting more like-minded partners. I also hope that someday I can give back to the community and bring along new friends to grow together. Meanwhile, I plan to continue dedicating myself to the open source community and help more students experience the growth and joy that open source brings.</p>
+<p>This bond with Shenyu and my participation in OSPP have not only equipped me with valuable technical skills but also helped me understand the true meaning of sharing and collaboration. I wish to continue walking the open source path hand in hand with the Shenyu community in the years to come.</p>]]></content:encoded>
+            <category>Apache ShenYu</category>
+            <category>OSPP 2025</category>
+        </item>
         <item>
             <title><![CDATA[Become a Committer]]></title>
             <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-01-06</link>
@@ -2825,54 +2851,6 @@ It aims to encourage students to actively participate in the development and mai
 <blockquote>
 <p>dragon-zhang, zhengpeng, mahaitao, 愿凌飞, hdgaadd, dayu, SongTao Zhuang, Misaya295 , Shawn Jim , yunlongn , Will , moremind , RayayChung , Kevin Clair , huanccwang , 柯杨 , Kunshuai Zhu , fantiq , youzipi , class , kyeongsun , 杨阳洋 , Liming Deng , 杨文杰 , xcsnx , hnxiaoyuan , dependabot , xiaoyu , wzhangNJ , Zihao Huang , ywj1352 , pandaapo , WuLang , Nineteen , kyeongsun , ableYang , Runqi Zhao , WeiS , Luke.Z , lahmxu , Sinsy , Daming , BoyuLi4 , jakiuncle , Bowen Li , huanccwang , gitchenjh , DamonXue , Wu Daifu , Jiageng , nuo-promise , Guocheng Tang , likeguo , Sixh-PrFor , throwable , renzhuyan , wangteng , qinghai777 , zly123987123 , 奕仁 , 尔等同学 , qifanyyy , Jairo , ousinka</p>
 </blockquote>]]></content:encoded>
-            <category>Apache ShenYu</category>
-        </item>
-        <item>
-            <title><![CDATA[[The way from University Student to Apache Committer]]]></title>
-            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-12-08</link>
-            <guid>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-12-08</guid>
-            <pubDate>Wed, 08 Dec 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[The way from College Student to Apache Committer]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-committer-introduction">New Committer Introduction<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-12-08#new-committer-introduction" class="hash-link" aria-label="Direct link to New Committer Introduction" title="Direct link to New Committer Introduction" translate="no">​</a></h3>
-<p>Name: Kunshuai Zhu</p>
-<p>University: Northeastern University</p>
-<p>Role: Apache ShenYu Committer</p>
-<p>Email: <a href="mailto:jooks@apache.org" target="_blank" rel="noopener noreferrer" class="">jooks@apache.org</a></p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="contact-open-source">Contact Open Source<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-12-08#contact-open-source" class="hash-link" aria-label="Direct link to Contact Open Source" title="Direct link to Contact Open Source" translate="no">​</a></h3>
-<p>In the second semester of my sophomore year, by chance, I saw the promotion of the Open Source Software Supply Chain Lighting Program (hereinafter referred to as the Summer of Open Source) organized by the Institute of Software of the Chinese Academy of Sciences and the openEuler community. Later, I slowly learned that there were so many people active in the open source community in China, which greatly promoted the development of the open source ecosystem. It was also a very coincidence that I met the VP (Xiao Yu) of Apache ShenYu, who was my mentor in the Apache ShardingSphere community during the summer of open source. After I completed the task of open source summer ahead of schedule, I saw that ShenYu had just entered the Apache incubator, and it was in full swing, so I started to contact Apache ShenYu.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="grow-in-the-community">Grow In The Community<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-12-08#grow-in-the-community" class="hash-link" aria-label="Direct link to Grow In The Community" title="Direct link to Grow In The Community" translate="no">​</a></h3>
-<p>My earliest contribution to ShenYu was not code, but documentation. At that time, I found a few typo on the official website, so I decisively submitted a pr and  become ShenYu's Contributor.</p>
-<p>Later, after participating in the regular meeting of the community, I found that ShenYu, as an Apache incubator project, actually still has many places to be optimized and enriched. So, I started with integration testing and started the journey of fighting monsters and upgrading.</p>
-<p>In fact, there are a lot of things that can be learned by doing integration testing, from Docker, CI to ShenYu's functional implementation details, microservice ecology and so on. Sometimes inappropriateness of the official website documentation is found during testing, so you need to read the source code yourself, understand the code logic, and then improve or correct the documentation; sometimes some bugs are found, so you can be familiar with ShenYu gateway in locating bugs and fixing bugs details. Later, you can gradually implement some new features yourself.</p>
-<p>While getting familiar with the ShenYu project, the sense of awe for ShenYu is also getting higher and higher. Design patterns, asynchronous programming, functional programming, etc. in ShenYu are all very ingenious and worth learning.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="harvest-in-open-source">Harvest In Open Source<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-12-08#harvest-in-open-source" class="hash-link" aria-label="Direct link to Harvest In Open Source" title="Direct link to Harvest In Open Source" translate="no">​</a></h3>
-<p>Looking back on the past six months since I participated in open source, I feel that I have gained a lot, which is mainly reflected in the following aspects.</p>
-<ol>
-<li class="">
-<p>Improvement of technical level. Participating in open source can not only get in touch with a lot of knowledge that cannot be learned in school, but also can see the practical scene of "slaying dragon martial arts" that I have learned. As an API gateway, Apache ShenYu is the entrance to the entire microservice system. While participating in the project construction, you will naturally be exposed to various knowledge in the field of microservices.</p>
-</li>
-<li class="">
-<p>Broaden the horizons. Personally experiencing the discussion of the new feature of the project and participating in activities such as ApacheCon and the Open Source Annual Conference have enabled me to have a more systematic understanding and thinking about the microservice ecology and development trends.</p>
-</li>
-<li class="">
-<p>Help with job interviews. The addition of open source experience on my resume has really helped me in my interview for an internship, and it has also been affirmed by the interviewer.</p>
-</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="some-advice-for-newcomers">Some Advice For Newcomers<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2021-12-08#some-advice-for-newcomers" class="hash-link" aria-label="Direct link to Some Advice For Newcomers" title="Direct link to Some Advice For Newcomers" translate="no">​</a></h3>
-<ol>
-<li class="">
-<p>Adapt to asynchronous communication. Different from our usual communication methods, the open source community often uses asynchronous communication methods, such as mailing lists, GitHub issues, Jira, etc. The priority of the communication methods recommended by the Apache ShenYu community is: mailing list &gt; Github issue &gt; WeChat group . This is because through the mailing list and github, the discussion process and results of the issue can be retained, which is open and transparent. On the other hand, throwing questions on the mailing list is often the quickest and most effective solution.</p>
-</li>
-<li class="">
-<p>Actively participate in discussions. Community trumps code, this is what the Apache Way advocates. The code obtained through full communication and discussion is more vibrant. In addition, the Apache ShenYu community will hold an online regular meeting every two weeks, which will periodically summarize the work of the community, as well as the goals and tasks after the discussion (and will also be posted to the mailing list).</p>
-</li>
-<li class="">
-<p>How to contribute? The first is after the above-mentioned discussion, and then the hands-on. For those who have not applied ShenYu in their work, writing integration tests and source code analysis articles is a very good entry point. At the same time, the Apache ShenYu community often publishes a lot of easy or difficult tasks, and we all look forward to your participation.</p>
-</li>
-<li class="">
-<p>Advice for current students who want to get involved in open source but haven't done it yet. Participate in open source boldly. Among the several open source communities I have come into contact with, students are more friendly, expectant and tolerant. In addition, some organizations will hold activities to guide student groups to participate in open source, such as Open Source Summer (mentioned above), GSoC (Google Summer of Programming), etc., which are also very good ways to participate, not only will there be generous bonuses, but also Get to know a lot of friends and tech giants.</p>
-</li>
-</ol>]]></content:encoded>
             <category>Apache ShenYu</category>
         </item>
     </channel>

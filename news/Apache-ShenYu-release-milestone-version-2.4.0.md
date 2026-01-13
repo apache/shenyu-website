@@ -5,6 +5,7 @@ description: "【Release the first version of Apache ShenYu(Incubating)2.4.0】 
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2021-08-01
+slug: Apache-ShenYu-release-milestone-version-2.4.0
 cover: "/img/architecture/shenyu-framework.png"
 ---
 

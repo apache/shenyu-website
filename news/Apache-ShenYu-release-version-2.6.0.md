@@ -4,6 +4,7 @@ description: "Apache ShenYu 2.6.0 Version Release"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2023-08-15
+slug: Apache-ShenYu-release-version-2.6.0
 ---
 
 ## Apache ShenYu

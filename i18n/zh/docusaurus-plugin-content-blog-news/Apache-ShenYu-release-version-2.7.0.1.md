@@ -4,6 +4,7 @@ description: "Apache ShenYu 2.7.0.1 版本发布"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2025-05-03
+slug: Apache-ShenYu-release-version-2.7.0.1
 ---
 
 ## 关于Apache ShenYu

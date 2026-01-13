@@ -5,6 +5,7 @@ description: "How I became an Apache ShenYu Committer one year after graduation"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2021-07-27
+slug: Apache-ShenYu-Committer-2021-07-27
 cover: "/img/committers/liuliang.jpg"
 ---  
 

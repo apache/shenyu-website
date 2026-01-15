@@ -5,6 +5,7 @@ description: "你也可以成为Apache ShenYu Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2022-04-20
+slug: Apache-ShenYu-Committer-2022-04-20
 ---  
 
 ### 新晋Committer介绍

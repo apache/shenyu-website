@@ -5,6 +5,7 @@ description: "The way from College Student to Apache Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2021-12-08
+slug: Apache-ShenYu-Committer-2021-12-08
 ---
 
 ### New Committer Introduction

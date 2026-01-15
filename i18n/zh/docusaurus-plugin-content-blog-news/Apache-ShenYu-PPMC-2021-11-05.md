@@ -5,6 +5,7 @@ description: "Apache ShenYu(incubating）新晋PPMC"
 categories: "Apache ShenYu PPMC"
 tags: ["Apache ShenYu"]
 date: 2021-11-05
+slug: Apache-ShenYu-PPMC-2021-11-05
 ---  
 
 ### 新晋PPMC介绍

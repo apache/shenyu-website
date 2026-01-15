@@ -5,6 +5,7 @@ description: "Apache ShenYu GSOC 2023"
 categories: "GSOC 2023"
 tags: ["Apache ShenYu", "GSOC 2023"]
 date: 2023-04-18
+slug: Apache-ShenYu-GSOC2023-2023-04-18
 ---
 
 ## Google Summer of Code & Apache ShenYu springcloud e2e task is coming | Invite you to explore the high performance gateway

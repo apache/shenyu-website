@@ -5,6 +5,7 @@ description: "从CRUD Boy到Apache ShenYu Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2022-07-04
+slug: Apache-ShenYu-Committer-2022-07-04
 ---  
 
 ### 新晋Committer介绍

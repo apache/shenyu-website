@@ -4,6 +4,7 @@ description: "Apache ShenYu 2.4.3 Version Release"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2022-04-18
+slug: Apache-ShenYu-release-version-2.4.3
 ---  
 
 After 3 months, Apache ShenYu released version 2.4.3 again. The content of this version has 200+ pull requests, 30+ contributors participated, many new functions have been added, many bugs have been fixed, and many optimizations have been made.

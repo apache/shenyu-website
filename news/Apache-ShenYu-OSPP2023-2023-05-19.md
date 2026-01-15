@@ -5,6 +5,7 @@ description: "Apache ShenYu OSPP 2023"
 categories: "OSPP 2023"
 tags: ["Apache ShenYu", "OSPP 2023"]
 date: 2023-05-19
+slug: Apache-ShenYu-OSPP2023-2023-05-19
 ---
 
 

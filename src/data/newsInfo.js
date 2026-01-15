@@ -3,6 +3,15 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>Yu Siheng [2025 Open Source Summer] Summary | From Open Source Newbie to Campus Ambassador</Translate>,
+        description: <Translate>From Open Source Newbie to Campus Ambassador</Translate>,
+        categories: "OSPP 2025",
+        tags: ["Apache ShenYu", "OSPP 2025"],
+        date: '2026-01-07',
+        cover: "/img/news/ospp/ospp-2025.png",
+        src:'Apache-ShenYu-OSPP2025-Summary-2026-01-07',
+    },
+    {
         title: <Translate>Become a Committer</Translate>,
         author: "shown",
         description: <Translate>Become a Committer</Translate>,

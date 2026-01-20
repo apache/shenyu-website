@@ -18,7 +18,7 @@ export default [
         categories: "Apache ShenYu Committers",
         tags: ["Apache ShenYu"],
         date: "2026-01-06",
-        cover: "https://avatars.githubusercontent.com/u/77964041?v=4",
+        cover: "/img/news/shown.jpeg",
         src:'Apache-ShenYu-Committer-2026-01-06',
     },
     {

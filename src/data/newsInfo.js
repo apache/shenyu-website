@@ -3,6 +3,16 @@ import Translate from "@docusaurus/Translate";
 
 export default [
     {
+        title: <Translate>From Deep User to Apache ShenYu Committer</Translate>,
+        author: "Wei Wei",
+        description: <Translate>From Deep User to Apache ShenYu Committer</Translate>,
+        categories: "Apache ShenYu Committers",
+        tags: ["Apache ShenYu"],
+        date: "2026-01-21",
+        cover: "/img/news/4.png",
+        src:'Apache-ShenYu-Committer-2026-01-21',
+    },
+    {
         title: <Translate>Yu Siheng [2025 Open Source Summer] Summary | From Open Source Newbie to Campus Ambassador</Translate>,
         description: <Translate>From Open Source Newbie to Campus Ambassador</Translate>,
         categories: "OSPP 2025",

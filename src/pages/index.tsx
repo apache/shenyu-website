@@ -33,7 +33,7 @@ function Home() {
       <main>
         <div className={styles.hero}>
           <div className="row" style={{ alignItems: "center" }}>
-            <div className="col col--5  col--offset-1">
+            <div className="col col--5 col--offset-1">
               <h1 className={styles.heroProjectTitle}>
                 <img
                   src="/img/logo.svg"

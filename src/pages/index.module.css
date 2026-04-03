@@ -347,32 +347,3 @@
     right: 0px !important;
   }
 }
-
-@media screen and (max-width: 576px) {
-  .hero {
-    padding: 1.5rem 0.5rem;
-  }
-
-  .heroProjectTitle {
-    font-size: 2rem;
-  }
-
-  .heroProjectTagline {
-    font-size: 18px;
-  }
-
-  .buttonGetStarted,
-  .buttonGithub {
-    width: 8rem;
-    font-size: 14px;
-  }
-
-  .indexCtas a:last-of-type {
-    margin: 20px 16px;
-  }
-
-  .logoContainer {
-    min-height: 250px;
-    margin-top: 1.5rem;
-  }
-}

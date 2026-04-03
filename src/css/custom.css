@@ -27,3 +27,70 @@
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+/* ===== Navbar Style Overrides ===== */
+:root {
+  --ifm-navbar-height: 52px;
+  --ifm-navbar-padding-vertical: 0;
+  --ifm-navbar-padding-horizontal: 1rem;
+}
+
+.navbar {
+  height: var(--ifm-navbar-height);
+  min-height: var(--ifm-navbar-height);
+  padding: 0 var(--ifm-navbar-padding-horizontal);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__inner {
+  height: 100%;
+  flex-wrap: nowrap;
+}
+
+.navbar__brand {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  height: 28px;
+  max-width: 180px;
+  width: auto;
+}
+
+.navbar__title {
+  display: none;
+}
+
+.navbar__item {
+  padding: 0 0.6rem;
+  font-size: 0.9rem;
+}
+
+.navbar__link {
+  line-height: normal;
+}
+
+.navbar-sidebar {
+  top: var(--ifm-navbar-height);
+}
+
+/* ===== Responsive Breakpoint: Switch to Hamburger Menu when Viewport ≤ 1200px ===== */
+/* Coverage Scenario: Situations where the effective viewport size decreases—e.g., when the browser is zoomed in to 125%–250%. */
+/* Infima defaults to switching at 996px; however, due to the large number of menu items, the breakpoint needs to be shifted earlier to 1200px. */
+@media (max-width: 1200px) {
+  .navbar__toggle {
+    display: inherit;
+  }
+
+  .navbar__item {
+    display: none;
+  }
+
+  /* 保留搜索框在移动端可见 */
+  .navbar__search {
+    display: flex;
+  }
+}

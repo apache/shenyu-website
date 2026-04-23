@@ -11,7 +11,7 @@ This article introduces how to quickly start the `Apache ShenYu` gateway in the 
 
 ### Environmental preparation
 
-* Install JDK1.8+ locally
+* Install JDK17+ locally
 
 ### Start Apache ShenYu Bootstrap
 

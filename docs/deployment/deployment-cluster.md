@@ -13,8 +13,8 @@ This article introduces how to deploy the `Shenyu` gateway in cluster environmen
 
 ### Environmental Preparation
 
-* Two or more Gateway Boostrap servers, these servers must install JDK1.8+.
-* A server for Gateway Admin, this server must install mysql/pgsql/h2 and JDK1.8+.
+* Two or more Gateway Boostrap servers, these servers must install JDK17+.
+* A server for Gateway Admin, this server must install mysql/pgsql/h2 and JDK17+.
 * A server for nginx.
 
 ### Start Apache ShenYu Admin

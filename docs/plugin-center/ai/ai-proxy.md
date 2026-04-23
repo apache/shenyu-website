@@ -54,3 +54,49 @@ curl --location --request POST 'http://localhost:9195/ai/proxy/v1/chat/completio
 ```
 
 ![](/img/shenyu/plugin/ai-proxy/ai-proxy-api.png)
+
+## API Key Management
+
+The aiProxy plugin supports managing proxy API keys through the ShenYu Admin interface. Each proxy API key is scoped to a specific Selector and maps to a real upstream API key.
+
+### Admin Endpoints
+
+Base path: `/selector/{selectorId}/ai-proxy-apikey`
+
+| Method | Path                                                    | Description                        | Permission                      |
+|--------|---------------------------------------------------------|------------------------------------|---------------------------------|
+| POST   | `/selector/{selectorId}/ai-proxy-apikey`                | Create a proxy API key mapping     | `system:aiProxyApiKey:add`      |
+| GET    | `/selector/{selectorId}/ai-proxy-apikey`                | List proxy API key mappings (paged) | `system:aiProxyApiKey:list`     |
+| PUT    | `/selector/{selectorId}/ai-proxy-apikey/{id}`           | Update a proxy API key mapping     | `system:aiProxyApiKey:edit`     |
+| POST   | `/selector/{selectorId}/ai-proxy-apikey/batchDelete`    | Batch delete mappings              | `system:aiProxyApiKey:delete`   |
+| POST   | `/selector/{selectorId}/ai-proxy-apikey/batchEnabled`   | Batch enable or disable mappings   | `system:aiProxyApiKey:disable`  |
+
+### Query Parameters (GET)
+
+| Parameter      | Required | Description                      |
+|----------------|----------|----------------------------------|
+| `currentPage`  | Yes      | Page number                      |
+| `pageSize`     | Yes      | Page size                        |
+| `proxyApiKey`  | No       | Filter by proxy API key value    |
+
+## Proxy API Key Authentication
+
+When `proxyEnabled` is set to `true` in the Selector configuration, the plugin enforces API key authentication on all incoming requests.
+
+### Request Header
+
+Clients must include the following header:
+
+```
+X-API-KEY: <proxy-api-key>
+```
+
+### Authentication Behavior
+
+| Scenario                                         | HTTP Status       | Description                                                                                          |
+|--------------------------------------------------|-------------------|------------------------------------------------------------------------------------------------------|
+| `X-API-KEY` header present and valid             | 200               | Request forwarded; real upstream API key substituted transparently                                   |
+| `X-API-KEY` header missing                       | 401 Unauthorized  | Request rejected                                                                                     |
+| `X-API-KEY` header present but invalid           | 401 Unauthorized  | Request rejected                                                                                     |
+
+> **Note:** When proxy mode is enabled, the real upstream API key is never exposed to the client. The plugin resolves the mapping internally and substitutes the real key before forwarding the request to the LLM provider.

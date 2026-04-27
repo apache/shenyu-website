@@ -10,9 +10,13 @@ module.exports = {
   url: "https://shenyu.apache.org/",
   baseUrl: "/",
   onBrokenLinks: "log",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",
   scripts: [{ src: '/js/error-suppression.js', async: false, defer: false }],
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
   organizationName: "apache", // Usually your GitHub org/user name.
   projectName: "shenyu", // Usually your repo name.
   i18n: {
@@ -165,7 +169,7 @@ module.exports = {
           "/shenyuClientRust",
           "/helm",
         ],
-        blogRouteBasePath: ["/blog", "/news"],
+        blogRouteBasePath: ["/blog"], // 修复：只索引 /blog，避免与 /news 冲突
         searchResultLimits: 8,
         searchResultContextMaxLength: 50,
         // 忽略某些不需要索引的元素

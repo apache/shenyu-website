@@ -34,6 +34,9 @@
     "url-loader": "^4.1.1",
     "yarn": "^1.22.19"
   },
+  "resolutions": {
+    "webpack": "5.97.1"
+  },
   "browserslist": {
     "production": [
       ">0.5%",

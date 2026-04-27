@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[32130],{50936:e=>{e.exports=JSON.parse('{"blogBasePath":"/zh/news","blogTitle":"Blog","authorsListPath":"/zh/news/authors"}')}}]);

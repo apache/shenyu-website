@@ -2,7 +2,7 @@
 <html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-2.7.0.2 docs-doc-page docs-doc-id-deployment/deployment-local" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.9.2">
+<meta name="generator" content="Docusaurus v3.10.0">
 <title data-rh="true">本地部署 | Apache ShenYu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://shenyu.apache.org/zh/docs/2.7.0.2/deployment/deployment-local"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="2.7.0.2"><meta data-rh="true" name="docusaurus_tag" content="docs-default-2.7.0.2"><meta data-rh="true" name="docsearch:version" content="2.7.0.2"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-2.7.0.2"><meta data-rh="true" property="og:title" content="本地部署 | Apache ShenYu"><meta data-rh="true" name="description" content="本地部署"><meta data-rh="true" property="og:description" content="本地部署"><meta data-rh="true" name="keywords" content="Deployment"><link data-rh="true" rel="icon" href="/zh/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://shenyu.apache.org/zh/docs/2.7.0.2/deployment/deployment-local"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.0.2/deployment/deployment-local" hreflang="en"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/zh/docs/2.7.0.2/deployment/deployment-local" hreflang="zh"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.0.2/deployment/deployment-local" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"本地部署","item":"https://shenyu.apache.org/zh/docs/2.7.0.2/deployment/deployment-local"}]}</script><link rel="alternate" type="application/rss+xml" href="/zh/blog/rss.xml" title="Apache ShenYu RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/zh/blog/atom.xml" title="Apache ShenYu Atom Feed">
 
@@ -20,11 +20,11 @@
 <link rel="alternate" type="application/rss+xml" href="/zh/news/rss.xml" title="Apache ShenYu RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/zh/news/atom.xml" title="Apache ShenYu Atom Feed">
 
-<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.5a6c781d.css">
-<script src="/zh/assets/js/runtime~main.cfd3f138.js" defer="defer"></script>
-<script src="/zh/assets/js/main.13fe1d18.js" defer="defer"></script>
+<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.be5ddbfc.css">
+<script src="/zh/assets/js/runtime~main.4a186224.js" defer="defer"></script>
+<script src="/zh/assets/js/main.b1653d32.js" defer="defer"></script>
 </head>
-<body class="navigation-with-keyboard">
+<body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
@@ -43,7 +43,7 @@
 <ul>
 <li class="">下载代码</li>
 </ul>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git clone https://github.com/apache/shenyu.git</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cd shenyu</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mvn clean install &#x27;-Dmaven.javadoc.skip=true&#x27; &#x27;-B&#x27; &#x27;-Drat.skip=true&#x27; &#x27;-Djacoco.skip=true&#x27; &#x27;-DskipITs&#x27; &#x27;-DskipTests&#x27;</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">git clone https://github.com/apache/shenyu.git</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">cd shenyu</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">mvn clean install &#x27;-Dmaven.javadoc.skip=true&#x27; &#x27;-B&#x27; &#x27;-Drat.skip=true&#x27; &#x27;-Djacoco.skip=true&#x27; &#x27;-DskipITs&#x27; &#x27;-DskipTests&#x27;</span><br></div></code></pre></div></div>
 <ul>
 <li class="">
 <p>使用开发工具启动 <code>org.apache.shenyu.admin.ShenyuAdminBootstrap</code>，访问 <a href="http://localhost:9095" target="_blank" rel="noopener noreferrer" class="">http://localhost:9095</a> ， 默认用户名和密码分别为: <code>admin</code> 和 <code>123456</code>。</p>
@@ -55,7 +55,7 @@
 <p>如果使用<code>MySQL</code>来存储，需按照 <a class="" href="/zh/docs/2.7.0.2/deployment/deployment-before#mysql">指引文档</a> 初始化数据库和修改 <code>application-mysql.yml</code> 中的 <code>jdbc</code> 相关配置，再设置变量 <code>--spring.profiles.active = mysql</code> 启动服务。</p>
 </li>
 <li class="">
-<p>如果使用<code>PostgreSql</code>来存储，需按照 <a class="" href="/zh/docs/2.7.0.2/deployment/deployment-before#postgresql">指引文档</a> 初始化数据库和修改 <code>application-pg.yml</code> 中的 <code>jdbc</code> 相关配置，再设置变量 <code>--spring.profiles.active = pg</code> 启动服务。</p>
+<p>如果使用<code>PostgreSql</code>来存储，需按照 <a class="" href="/zh/docs/2.7.0.2/deployment/deployment-before#postgresql"> 指引文档</a> 初始化数据库和修改 <code>application-pg.yml</code> 中的 <code>jdbc</code> 相关配置，再设置变量 <code>--spring.profiles.active = pg</code> 启动服务。</p>
 </li>
 <li class="">
 <p>如果使用<code>Oracle</code>来存储，需按照 <a class="" href="/zh/docs/2.7.0.2/deployment/deployment-before#oracle">指引文档</a> 初始化数据库和修改 <code>application-oracle.yml</code> 中的 <code>jdbc</code> 相关配置，再设置变量 <code>--spring.profiles.active = oracle</code> 启动服务。</p>

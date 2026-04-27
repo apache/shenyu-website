@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[80457],{46599:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/zh/blog","page":1,"postsPerPage":10,"totalPages":3,"totalCount":22,"nextPage":"/zh/blog/page/2","blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

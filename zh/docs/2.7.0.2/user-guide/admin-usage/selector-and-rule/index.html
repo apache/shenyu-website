@@ -2,7 +2,7 @@
 <html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-2.7.0.2 docs-doc-page docs-doc-id-user-guide/admin-usage/selector-and-rule" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.9.2">
+<meta name="generator" content="Docusaurus v3.10.0">
 <title data-rh="true">选择器和规则管理 | Apache ShenYu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://shenyu.apache.org/zh/docs/2.7.0.2/user-guide/admin-usage/selector-and-rule"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="2.7.0.2"><meta data-rh="true" name="docusaurus_tag" content="docs-default-2.7.0.2"><meta data-rh="true" name="docsearch:version" content="2.7.0.2"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-2.7.0.2"><meta data-rh="true" property="og:title" content="选择器和规则管理 | Apache ShenYu"><meta data-rh="true" name="description" content="选择器和规则管理"><meta data-rh="true" property="og:description" content="选择器和规则管理"><meta data-rh="true" name="keywords" content="选择器,规则"><link data-rh="true" rel="icon" href="/zh/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://shenyu.apache.org/zh/docs/2.7.0.2/user-guide/admin-usage/selector-and-rule"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.0.2/user-guide/admin-usage/selector-and-rule" hreflang="en"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/zh/docs/2.7.0.2/user-guide/admin-usage/selector-and-rule" hreflang="zh"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.0.2/user-guide/admin-usage/selector-and-rule" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"选择器和规则管理","item":"https://shenyu.apache.org/zh/docs/2.7.0.2/user-guide/admin-usage/selector-and-rule"}]}</script><link rel="alternate" type="application/rss+xml" href="/zh/blog/rss.xml" title="Apache ShenYu RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/zh/blog/atom.xml" title="Apache ShenYu Atom Feed">
 
@@ -20,11 +20,11 @@
 <link rel="alternate" type="application/rss+xml" href="/zh/news/rss.xml" title="Apache ShenYu RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/zh/news/atom.xml" title="Apache ShenYu Atom Feed">
 
-<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.5a6c781d.css">
-<script src="/zh/assets/js/runtime~main.cfd3f138.js" defer="defer"></script>
-<script src="/zh/assets/js/main.13fe1d18.js" defer="defer"></script>
+<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.be5ddbfc.css">
+<script src="/zh/assets/js/runtime~main.4a186224.js" defer="defer"></script>
+<script src="/zh/assets/js/main.b1653d32.js" defer="defer"></script>
 </head>
-<body class="navigation-with-keyboard">
+<body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
@@ -176,7 +176,7 @@
 <p><img decoding="async" loading="lazy" src="/zh/assets/images/match-strategy-or-zh-235cf203decaac3bff7f9d4231c505ac.png" width="1761" height="1248" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="条件参数">条件参数<a href="#条件参数" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>对选择器和规则中的条件参数设置再次进行解释。假如下面是一个 <code>HTTP</code> 请求的请求头：</p>
-<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">GET http://localhost:9195/http/order/findById?id=100</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Accept: application/json</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cookie: shenyu=shenyu_cookie</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">MyHeader: custom-header</span><br></span></code></pre></div></div>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">GET http://localhost:9195/http/order/findById?id=100</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Accept: application/json</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Cookie: shenyu=shenyu_cookie</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">MyHeader: custom-header</span><br></div></code></pre></div></div>
 <p>在<code>ShenYu</code>中可以通过设置不同的条件参数从请求信息中获取真实数据。</p>
 <ul>
 <li class="">如果条件参数是<code>uri</code>，那么获取到的真实数据是 <code>/http/order/findById</code>；</li>
@@ -196,7 +196,7 @@
 <p><code>uri</code> 匹配是根据你请求路径中的 <code>uri</code> 来进行匹配，在接入网关的时候，前端几乎不用做任何更改。</p>
 </li>
 <li class="">
-<p>当 使用 <code>match</code> 方式匹配时候，同 <code>springmvc</code> 模糊匹配原理相同。</p>
+<p>当使用 <code>match</code> 方式匹配时候，同 <code>springmvc</code> 模糊匹配原理相同。</p>
 </li>
 <li class="">
 <p>在选择器中，推荐使用 <code>uri</code> 中的前缀来进行匹配，而在规则中，则使用具体路径来进行匹配。</p>
@@ -341,7 +341,7 @@
 </li>
 <li class="">
 <p><code>exclude</code></p>
-<p><code>exclude</code> 的方式是 <code>match</code> 方式的反选，<code>match</code> 有的功能也都  有，但是是匹配过滤。假如你的选择器条件设置如下，那么请求 <code>/http/order/findById</code> 就会过滤这个。</p>
+<p><code>exclude</code> 的方式是 <code>match</code> 方式的反选，<code>match</code> 有的功能也都有，但  是是匹配过滤。假如你的选择器条件设置如下，那么请求 <code>/http/order/findById</code> 就会过滤这个。</p>
 <p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-exclude-zh-72b327ed83f00139fdcb03d28ae9bd24.png" width="1000" height="520" class="img_ev3q"></p>
 </li>
 <li class="">

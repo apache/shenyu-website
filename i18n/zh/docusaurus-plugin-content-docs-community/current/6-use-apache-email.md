@@ -42,6 +42,8 @@ tags: ["use-apache-email"]
 
 ![](/img/email/add-apache-email.png)
 
+添加账户时请检查 SMTP 服务器地址, apache 的 SMTP 服务器地址为 `mail-relay.apache.org`, 有时候默认服务器地址不是该地址，需要修改
+
 ## 基于`163/126邮箱`的Apache邮箱使用方法
 
 > 当成为 Committer 后，你就会拥有一个 Apache 邮箱，本教程基于 `126邮箱` 使用 Apache 邮箱。

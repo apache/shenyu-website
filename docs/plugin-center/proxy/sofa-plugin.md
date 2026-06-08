@@ -194,7 +194,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 #### 2.6.1.2 Plugin Config
 
 - In shenyu-admin --> BasicConfig --> Plugin --> `sofa` set Status enabled, And adjust the registry configuration as needed.
-- Adjust to the actual situation [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) application.yml configuration in the project and start it.
+- Adjust to the actual situation [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa) application.yml configuration in the project and start it.
 
 #### 2.6.2.6 Request service and check result
 

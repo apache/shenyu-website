@@ -13,13 +13,13 @@ description: 集群部署
 
 ### 环境准备
 
-* 至少准备两台已经安装了JDK1.8+的服务器用于部署网关启动器。
-* 准备一台已经安装了mysql、pgsql、h2和JDK1.8+的服务器用于部署网关管理端。
+* 至少准备两台已经安装了 JDK17+ 的服务器用于部署网关启动器。
+* 准备一台已经安装了 mysql、pgsql、h2 和 JDK17+ 的服务器用于部署网关管理端。
 * 准备一台服务器用于部署Nginx。
 
 ### 启动 Apache ShenYu Admin
 
-* 在你的网关管理端服务器下载并解压[apache-shenyu-$\{current.version}-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.6.0/apache-shenyu-incubating-2.6.0-admin-bin.tar.gz) 。
+* 在你的网关管理端服务器下载并解压 [apache-shenyu-2.7.1-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-admin-bin.tar.gz) 。
 
 * 配置你的数据库，进入`/conf`目录，在`application.yaml`文件中修改`spring.profiles.active`节点为`mysql`, `pg` or `h2`。
 
@@ -35,7 +35,7 @@ description: 集群部署
 
 ### 启动 Apache ShenYu Boostrap
 
-* 在你的网关启动器服务器下载并解压[apache-shenyu-$\{current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.6.0/apache-shenyu-incubating-2.6.0-bootstrap-bin.tar.gz) 。
+* 在你的网关启动器服务器下载并解压 [apache-shenyu-2.7.1-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-bootstrap-bin.tar.gz) 。
 
 * 配置你的数据同步方式，进入`/conf`目录，在`application.yaml`文件中修改`shenyu.sync`节点为`websocket`, `http`, `zookeeper`, `etcd`, `consul` 或者 `nacos`，这个配置必须与`ShenyYu Admin`的配置保持相同。
 
@@ -92,9 +92,9 @@ server {
 >在集群模式下，Apache Shenyu支持部署多个Shenyu实例，随时可能有新的实例上线或下线。因此，Apache Shenyu引入了服务发现
 > OpenResty 模块来帮助客户端检测可用Shenyu实例。目前Apache Shenyu已经支持Zookeeper、Nacos、Etcd和Consul。Client或LoadBalancer
 > 可以通过这些Service注册中心获取可用的Shenyu实例。
-1. [Etcd](./deployment-cluster.md#Etcd开始)(支持)
-2. [Nacos](./deployment-cluster.md#Nacos开始)(支持)
-3. [Zookeeper](./deployment-cluster.md#Zookeeper开始)(支持)
+1. [Etcd](#greeting-etcd)(支持)
+2. [Nacos](#greeting-nacos)(支持)
+3. [Zookeeper](#greeting-zookeeper)(支持)
 4. Consul(进行中)
 
 #### 入门
@@ -118,7 +118,7 @@ cd shenyu-nginx
 luarocks make rockspec/shenyu-nginx-main-0.rockspec
 ```
 
-#### Etcd开始
+#### Etcd 开始 {#greeting-etcd}
 
 修改Nginx配置，创建并初始化Shenyu register模块,连接至目标注册中心。该模块将获取在同一个集群中注册到Etcd的
 所有Shenyu实例。它与Etcd客户端一样监视(基于长轮询)Shenyu实例列表。
@@ -145,7 +145,7 @@ openresty -s reload
 
 这就是一个完整的Etcd的使用[示例](https://github.com/apache/shenyu-nginx/blob/main/example/etcd/nginx.conf) 。
 
-#### Nacos开始
+#### Nacos 开始 {#greeting-nacos}
 
 修改Nginx配置，创建并初始化Shenyu register模块，连接至目标注册中心。以下是Nacos的示例：
 
@@ -189,7 +189,7 @@ openresty -s reload
 
 这就是一个完整的Nacos的使用[example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) 。
 
-#### Zookeeper开始
+#### Zookeeper 开始 {#greeting-zookeeper}
 
 修改Nginx配置，创建并初始化Shenyu register模块，连接目标注册中心。
 通过 zookeeper watch 事件监听Shenyu实例列表的变化。下面是 zookeeper 配置的示例。

@@ -10,7 +10,7 @@ The **aiProxy** plugin acts as a forwarding proxy for LLM requests, supporting m
 
 ## Plugin Configuration
 
-When configuring the plugin in the ShenYu admin interface, you first create a **Selector**, then create a **Rule**. A Selector is typically used to match request conditions (e.g., path, headers), while a Rule is used to configure plugin parameters or forwarding targets. For details on Selector and Rule configuration, see [Selector and Rule Management](../../user-guide/admin-usage/selector-and-rule.md).
+When configuring the plugin in the ShenYu admin interface, you first create a **Selector**, then create a **Rule**. A Selector is typically used to match request conditions (e.g., path, headers), while a Rule is used to configure plugin parameters or forwarding targets. For details on Selector and Rule configuration, see [Selector and Rule Management](../../user-guide/admin-usage/selector-and-rule).
 
 When using the aiProxy plugin, pay attention to the following fields:
 
@@ -29,7 +29,7 @@ Selector matching the incoming path, followed by Rule settings for provider, mod
 
 ![](/img/shenyu/plugin/ai-proxy/ai-proxy-rule-en.png)
 
-> **Note:** With this setup, you also need to configure the `contextPath` plugin to remove the matched prefix and assemble the correct call URL. See [contextPath Plugin Configuration](../http-process/contextPath-plugin.md) for details.
+> **Note:** With this setup, you also need to configure the `contextPath` plugin to remove the matched prefix and assemble the correct call URL. See [contextPath Plugin Configuration](../http-process/contextpath-plugin) for details.
 
 ## API Usage
 

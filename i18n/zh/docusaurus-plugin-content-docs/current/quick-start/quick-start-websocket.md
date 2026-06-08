@@ -35,7 +35,7 @@ description: Websocket快速开始
 
 ## 运行shenyu-examples-websocket项目
 
-1. 下载 [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-annotation-websocket)（`native-websocket` 和 `reactive-websocket` 可以参考[shenyu-examples-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket) 下的子项目）
+1. 下载 [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-annotation-websocket)（`native-websocket` 和 `reactive-websocket` 可以参考[shenyu-examples-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket) 下的子项目）
 
 2. 运行`org.apache.shenyu.examples.websocket.TestAnnotationWebsocketApplication` main方法启动项目。
 

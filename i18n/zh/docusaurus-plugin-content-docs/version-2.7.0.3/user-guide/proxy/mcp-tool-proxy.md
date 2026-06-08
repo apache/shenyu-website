@@ -6,11 +6,11 @@ description: McpTool服务接入
 
 本文档旨在帮助 `mcpTool` 服务接入到 `Apache ShenYu` 网关。`Apache ShenYu` 网关使用 `mcpServer` 插件来接入 `mcpTool` 服务。
 
-接入前，请正确启动 `shenyu-admin`，并开启`mcpServer`插件，在网关端和`mcpTool`服务端引入相关依赖。可以参考前面的 [McpServer快速开始](../../quick-start/quick-start-McpServer)。
+接入前，请正确启动 `shenyu-admin`，并开启`mcpServer`插件，在网关端和`mcpTool`服务端引入相关依赖。可以参考前面的 [McpServer快速开始](../../quick-start/quick-start-mcpServer)。
 
-应用客户端接入的相关配置请参考：[客户端接入配置](../../../../../../versioned_docs/version-2.7.0.2/user-guide/property-config/register-center-access.md)。
+应用客户端接入的相关配置请参考：[客户端接入配置](/zh/docs/2.7.0.3/user-guide/property-config/register-center-access)。
 
-数据同步的相关配置请参考：[数据同步配置](../../../../../../versioned_docs/version-2.7.0.2/user-guide/property-config/use-data-sync.md)。
+数据同步的相关配置请参考：[数据同步配置](/zh/docs/2.7.0.3/user-guide/property-config/use-data-sync)。
 
 ## 在网关中引入 mcpServer 和相关 proxy 插件
 
@@ -201,6 +201,6 @@ public OrderDTO findByName(@ShenyuMcpToolParam final String name) {
 
     * 其中 `localhost:9195` 为网关的`ip`端口，默认端口是`9195` ，`/mcp` 是你接入网关配置的 `contextPath`。
 
-* 第三点，`mcpServer`插件并不包含请求转发的功能，需要进行工具远程调用请启动相关的`proxy`插件进行插件代理。可以参考[McpServer快速开始](../../quick-start/quick-start-McpServer)。
+* 第三点，`mcpServer`插件并不包含请求转发的功能，需要进行工具远程调用请启动相关的`proxy`插件进行插件代理。可以参考[McpServer快速开始](../../quick-start/quick-start-mcpServer)。
 
 然后你就可以通过`mcpClient`进行工具调用了。

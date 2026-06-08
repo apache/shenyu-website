@@ -7,6 +7,7 @@ import Layout from '@theme/Layout';
 // import {useVersions, useLatestVersion} from '@theme/hooks/useDocs';
 import { useVersions, useLatestVersion } from '@docusaurus/plugin-content-docs/client';
 
+const currentReleaseVersion = '2.7.1';
 
 function Version() {
   const {
@@ -19,6 +20,8 @@ function Version() {
     (version) => version !== latestVersion && version.name !== 'current',
   );
   const repoUrl = `https://github.com/${organizationName}/${projectName}`;
+  const getReleaseVersion = (version) =>
+    version.name === 'current' ? currentReleaseVersion : version.name;
 
   return (
     <Layout
@@ -38,10 +41,10 @@ function Version() {
                 <tr>
                   <th>{latestVersion.label}</th>
                   <td>
-                    <Link to={latestVersion.path+"/index"}>Documentation</Link>
+                    <Link to={latestVersion.path}>Documentation</Link>
                   </td>
                   <td>
-                    <a href={`${repoUrl}/releases/tag/v${latestVersion.name}`}>
+                    <a href={`${repoUrl}/releases/tag/v${getReleaseVersion(latestVersion)}`}>
                       Release Notes
                     </a>
                   </td>
@@ -63,7 +66,7 @@ function Version() {
                 <tr>
                   <th>{currentVersion.label}</th>
                   <td>
-                    <Link to={currentVersion.path+"/index"}>Documentation</Link>
+                    <Link to={currentVersion.path}>Documentation</Link>
                   </td>
                 </tr>
               </tbody>
@@ -84,10 +87,10 @@ function Version() {
                   <tr key={version.name}>
                     <th>{version.label}</th>
                     <td>
-                      <Link to={version.path+"/index"}>Documentation</Link>
+                      <Link to={version.path}>Documentation</Link>
                     </td>
                     <td>
-                      <a href={`${repoUrl}/releases/tag/v${version.name}`}>
+                      <a href={`${repoUrl}/releases/tag/v${getReleaseVersion(version)}`}>
                         Release Notes
                       </a>
                     </td>

@@ -12,7 +12,7 @@ This article introduces the use of `docker-compose` to deploy the `Apache ShenYu
 ### Download shell script
 
 ```shell
-curl -O https://raw.githubusercontent.com/apache/shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
+curl -O https://raw.githubusercontent.com/apache/shenyu/v2.7.1/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
 ```
 
 ### execute script
@@ -20,7 +20,7 @@ curl -O https://raw.githubusercontent.com/apache/shenyu/master/shenyu-dist/sheny
 This script will download the required configuration files and mysql-connector, and can be executed repeatedly if the download fails.
 
 ```shell
-sh ./install.sh #The latest configuration is pulled by default. If you need to deploy the released version, you can add a parameter to indicate the version number, such as: v2.4.2 or latest
+sh ./install.sh v2.7.1
 ```
 
 ### Initialize the `shenyu-admin` database

@@ -131,6 +131,13 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           editLocalizedFiles: true,
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "2.7.1",
+              banner: "none",
+            },
+          },
           // Please change this to your repo.
           editUrl: "https://github.com/apache/shenyu-website/edit/main/",
         },
@@ -138,9 +145,14 @@ module.exports = {
           showReadingTime: true,
           blogSidebarCount: 0,
           blogSidebarTitle: "All Blog Posts",
+          onInlineAuthors: "ignore",
+          onUntruncatedBlogPosts: "ignore",
           editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl: "https://github.com/apache/shenyu-website/edit/main/",
+        },
+        pages: {
+          exclude: ["**/blog.tsx", "**/news.tsx"],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -298,6 +310,8 @@ module.exports = {
         routeBasePath: "news",
         path: "news",
         blogSidebarCount: 0,
+        onInlineAuthors: "ignore",
+        onUntruncatedBlogPosts: "ignore",
         editLocalizedFiles: true,
         editUrl: "https://github.com/apache/shenyu-website/edit/main/",
       },

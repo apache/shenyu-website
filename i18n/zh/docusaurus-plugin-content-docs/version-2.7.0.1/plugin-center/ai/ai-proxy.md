@@ -32,7 +32,7 @@ Selector 匹配路径后，Rule 中配置提供商、模型、API Key、上游�
 
 ![ai-proxy-rule-zh](/img/shenyu/plugin/ai-proxy/ai-proxy-rule-zh.png)
 
-注意， 在该设置下， 还需要进行contextPath插件的设置， 以移除匹配前缀头， 拼接正确调用url， 请参考：[contextPath插件设置](../http-process/contextPath-plugin.md)
+注意， 在该设置下， 还需要进行contextPath插件的设置， 以移除匹配前缀头， 拼接正确调用url， 请参考：[contextPath插件设置](../http-process/contextpath-plugin)
 
 
 

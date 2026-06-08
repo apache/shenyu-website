@@ -160,15 +160,15 @@ The example of websocket rule configuration, please refer to [selectors and rule
 
 ### 2.5.1 Spring Annotation Websocket Example
 
-[shenyu-example-spring-annotation-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-annotation-websocket)
+[shenyu-example-spring-annotation-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-annotation-websocket)
 
 ### 2.5.2 Spring Native Websocket Example
 
-[shenyu-example-spring-native-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-native-websocket)
+[shenyu-example-spring-native-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-native-websocket)
 
 ### 2.5.3 Spring Reactive Websocket Example
 
-[shenyu-example-spring-reactive-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-reactive-websocket)
+[shenyu-example-spring-reactive-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-reactive-websocket)
 
 # 3. How to disable plugin
 

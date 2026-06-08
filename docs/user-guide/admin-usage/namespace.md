@@ -70,4 +70,3 @@ Pages that display the namespace switch component in the top-right corner suppor
 #### 1. The concept of Plugins in the old version has changed to Plugin Templates. The current Plugin model is now under the namespace, while in the database, Plugin Templates correspond to the plugin table, and Plugins correspond to the namespace_plugin_rel table.
 
 #### 2. The Apidoc module has been decoupled from selectors, Rules, etc.
-

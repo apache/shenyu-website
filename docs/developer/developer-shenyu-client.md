@@ -94,10 +94,10 @@ description: A multilingual HTTP client
       | protocol    | String  | Yes       | protocol type                                                                                                                                                                                                      |
       | appName     | String  | Yes       | app name                                                                                                                                                                                                           |
       | contextPath | String  | Yes       | service path                                                                                                                                                                                                       |
-      | rpcType     | String  | Yes       | rpc type, supported type reference [RpcTypeEnum](https://github.com/apache/shenyu/blob/master/shenyu-common/src/main/java/org/apache/shenyu/common/enums/RpcTypeEnum.java)                                         |
+      | rpcType     | String  | Yes       | rpc type, supported type reference [RpcTypeEnum](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-common/src/main/java/org/apache/shenyu/common/enums/RpcTypeEnum.java)                                         |
       | host        | String  | Yes       | service IP                                                                                                                                                                                                         |
       | port        | Integer | Yes       | service port                                                                                                                                                                                                       |
-      | eventType   | String  | Yes       | event type, supported types reference [EventType](https://github.com/apache/shenyu/blob/master/shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/enums/EventType.java) |
+      | eventType   | String  | Yes       | event type, supported types reference [EventType](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/enums/EventType.java) |
 
     **Example**
 
@@ -144,7 +144,7 @@ description: A multilingual HTTP client
       | contextPath      | String  | Yes       | service path                                                                                                                                                               |
       | path             | String  | Yes       | path                                                                                                                                                                       |
       | pathDesc         | String  | Yes       | path description                                                                                                                                                           |
-      | rpcType          | String  | Yes       | rpc type, supported type reference [RpcTypeEnum](https://github.com/apache/shenyu/blob/master/shenyu-common/src/main/java/org/apache/shenyu/common/enums/RpcTypeEnum.java) |
+      | rpcType          | String  | Yes       | rpc type, supported type reference [RpcTypeEnum](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-common/src/main/java/org/apache/shenyu/common/enums/RpcTypeEnum.java) |
       | serviceName      | String  | Yes       | service name                                                                                                                                                               |
       | methodName       | String  | Yes       | method name                                                                                                                                                                |
       | ruleName         | String  | Yes       | rule name                                                                                                                                                                  |

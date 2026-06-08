@@ -28,9 +28,9 @@ aiProxy 插件用作 LLM 请求的转发代理，支持主流大模型服务。�
 
 Selector 匹配路径后，Rule 中配置提供商、模型、API Key、上游地址等参数。
 
-![](../../../../../../static/img/shenyu/plugin/ai-proxy/ai-proxy-selector-zh.png)
+![](/img/shenyu/plugin/ai-proxy/ai-proxy-selector-zh.png)
 
-![ai-proxy-rule-zh](../../../../../../static/img/shenyu/plugin/ai-proxy/ai-proxy-rule-zh.png)
+![ai-proxy-rule-zh](/img/shenyu/plugin/ai-proxy/ai-proxy-rule-zh.png)
 
 注意， 在该设置下， 还需要进行contextPath插件的设置， 以移除匹配前缀头， 拼接正确调用url， 请参考：[contextPath插件设置](../http-process/contextPath-plugin.md)
 
@@ -60,4 +60,4 @@ curl --location --request POST 'http://localhost:9195/ai/proxy/v1/chat/completio
 
 示例截图
 
-![ai-proxy-api](../../../../../../static/img/shenyu/plugin/ai-proxy/ai-proxy-api.png)
+![ai-proxy-api](/img/shenyu/plugin/ai-proxy/ai-proxy-api.png)

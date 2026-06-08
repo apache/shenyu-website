@@ -28,9 +28,9 @@ aiPrompt 插件用于在转发请求之前动态注入预设的 Prompt 内容（
 
 **注意**：aiPrompt插件依赖于aiProxy插件， 常的调用流程中，应先用 **AiPrompt**（如果需要注入 prompt），再用 **AiTokenLimiter** 做令牌统计/限流（如果需要token限流），最后由 **AiProxy** 将请求转发给 LLM 服务。确保在 “插件管理” 中，**AiTokenLimiter** 的 **sort** 值 **小于** **AiProxy**，并 **大于** **AiPrompt**。
 
-![](/static/img/shenyu/plugin/ai-prompt/ai-prompt-selector-zh.png)
+![](/img/shenyu/plugin/ai-prompt/ai-prompt-selector-zh.png)
 
-![ai-proxy-rule-zh](/static/img/shenyu/plugin/ai-prompt/ai-prompt-rule-zh.png)
+![ai-proxy-rule-zh](/img/shenyu/plugin/ai-prompt/ai-prompt-rule-zh.png)
 
 
 
@@ -54,4 +54,4 @@ curl --location --request POST 'http://localhost:9195/ai/proxy/v1/chat/completio
 
 示例截图
 
-![ai-proxy-api](/static/img/shenyu/plugin/ai-proxy/ai-proxy-api.png)
+![ai-proxy-api](/img/shenyu/plugin/ai-proxy/ai-proxy-api.png)

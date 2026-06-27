@@ -258,6 +258,7 @@ Spring ldap properties:
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | expired-seconds | long |  24 *60* 60 * 1000L    |  No  |expiration time(millisecond)|
+| secret-key | string |  `defaultSecretKey`   |  No  |the key of jwt sign|
 
 
 ##### shenyu.shiro config

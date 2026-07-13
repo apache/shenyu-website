@@ -52,7 +52,7 @@ Version history: https://github.com/apache/shenyu/compare/v2.7.0.3...v2.7.1
 - fix mcp config shenyu context error (#6266) by @MaMengzhen in [#6266](https://github.com/apache/shenyu/pull/6266)
 - [type:fix] fix database init script (#6277) by @eye-gu in [#6277](https://github.com/apache/shenyu/pull/6277)
 - chore(deps): bump org.assertj:assertj-core in /shenyu-e2e (#6278) by @dependabot[bot] in [#6278](https://github.com/apache/shenyu/pull/6278)
--  Fix: Preserve Gateway's independent upstream health check state when receiving config updates from Admin (#6274) by @guanzhenxing in [#6274](https://github.com/apache/shenyu/pull/6274)
+- Fix: Preserve Gateway's independent upstream health check state when receiving config updates from Admin (#6274) by @guanzhenxing in [#6274](https://github.com/apache/shenyu/pull/6274)
 - [Security] Harden Docker images to run as non-root user (#6273) by @RinZ27 in [#6273](https://github.com/apache/shenyu/pull/6273)
 - feat: Add new role search criteria (#6282) by @yangyx107 in [#6282](https://github.com/apache/shenyu/pull/6282)
 - feat:sync dashboard (#6283) by @yangyx107 in [#6283](https://github.com/apache/shenyu/pull/6283)

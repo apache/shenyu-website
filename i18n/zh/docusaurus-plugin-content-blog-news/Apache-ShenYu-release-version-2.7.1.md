@@ -1,0 +1,150 @@
+---
+title: "【Apache ShenYu 2.7.1 版本发布】"
+description: "Apache ShenYu 2.7.1 版本发布"
+categories: "Apache ShenYu"
+tags: ["Apache ShenYu"]
+date: 2026-07-13
+slug: Apache-ShenYu-release-version-2.7.1
+---
+
+## 关于Apache ShenYu
+
+ 一款使用  开发的响应式 网关。以其高性能，动态灵活的流量管控，热插拔，易部署等特性，开箱即用为用户提供整套全生命周期的 网关，包含 注册、服务代理、协议转换、文档与 治理等功能。Apache ShenYu于毕业成为顶级项目。
+
+> 官网: https://shenyu.apache.org
+> GitHub: https://github.com/apache/shenyu
+
+## 版本预览
+
+Apache ShenYu 发布了 2.7.1 版本，该版本共合并了 97 个 Pull Requests，包括 MCP Server 增强、WASM 运行时迁移、安全加固、基础设施改进等多项功能。
+版本记录：https://github.com/apache/shenyu/compare/v2.7.0.3...v2.7.1
+
+## 更新内容
+
+- fix non determinsitic tests (#6232)，由 @yonghanlin 在 [#6232](https://github.com/apache/shenyu/pull/6232) 中贡献
+- fix non deterministic test (#6229)，由 @annhchen89 在 [#6229](https://github.com/apache/shenyu/pull/6229) 中贡献
+- Fix mcp server real url error (#6228)，由 @478320 在 [#6228](https://github.com/apache/shenyu/pull/6228) 中贡献
+- fix HttpUtilsTest nondeterminism from param order (#6230)，由 @yonghanlin 在 [#6230](https://github.com/apache/shenyu/pull/6230) 中贡献
+- fix field-sqlmap.xml database reserved keywords (#6233)，由 @2823602869 在 [#6233](https://github.com/apache/shenyu/pull/6233) 中贡献
+- fix get the argument position mapping error and test method (#6236)，由 @MaMengzhen 在 [#6236](https://github.com/apache/shenyu/pull/6236) 中贡献
+- add reset cache in MethodDescriptor (#6244)，由 @annhchen89 在 [#6244](https://github.com/apache/shenyu/pull/6244) 中贡献
+- [Fix] the selector and rule pagination non-functional (#6239) (#6243)，由 @VampireAchao 在 [#6239](https://github.com/apache/shenyu/pull/6239) 中贡献
+- Fix Order Dependent Test in AiPromptPluginDataHandlerTest (#6245)，由 @annhchen89 在 [#6245](https://github.com/apache/shenyu/pull/6245) 中贡献
+- Fix non deterministic caused by Hashmap (#6246)，由 @annhchen89 在 [#6246](https://github.com/apache/shenyu/pull/6246) 中贡献
+- Enhance index method to build base URL from HTTP request, supporting reverse proxy scenarios (#6247)，由 @Aias00 在 [#6247](https://github.com/apache/shenyu/pull/6247) 中贡献
+- modify loadbalancer (#6251)，由 @yu199195 在 [#6251](https://github.com/apache/shenyu/pull/6251) 中贡献
+- feat: Introduce request body size limit, enhance AI proxy plugin's ChatClient caching with config hash, and refine prompt extraction from the request body. (#6248)，由 @Aias00 在 [#6248](https://github.com/apache/shenyu/pull/6248) 中贡献
+- fix ai proxy key (#6249)，由 @Aias00 在 [#6249](https://github.com/apache/shenyu/pull/6249) 中贡献
+- Refactor EtcdClient and RedisConnectionFactory for improved readability and maintainability (#6250)，由 @Aias00 在 [#6250](https://github.com/apache/shenyu/pull/6250) 中贡献
+- feat: Enhance IpUtils with Docker support, improved IP filtering (#6253)，由 @Aias00 在 [#6253](https://github.com/apache/shenyu/pull/6253) 中贡献
+- fix mcp tool sample error (#6259)，由 @MaMengzhen 在 [#6259](https://github.com/apache/shenyu/pull/6259) 中贡献
+- infra: refactor infra zk module (#6199)，由 @yuluo-yx 在 [#6199](https://github.com/apache/shenyu/pull/6199) 中贡献
+- feat: Rename ai proxy enhanced module to ai proxy and update related files (#6260)，由 @Aias00 在 [#6260](https://github.com/apache/shenyu/pull/6260) 中贡献
+- fix NettyHttpClientPlugin doRequest response unique headers error (#6258)，由 @MaMengzhen 在 [#6258](https://github.com/apache/shenyu/pull/6258) 中贡献
+- fix 'addCustomHeaders' header value replace bug (#6257)，由 @MaMengzhen 在 [#6257](https://github.com/apache/shenyu/pull/6257) 中贡献
+- fix order dependent test (#6261)，由 @annhchen89 在 [#6261](https://github.com/apache/shenyu/pull/6261) 中贡献
+- test(#5161): Improve test coverage for VersionUtils (#6264)，由 @airajena 在 [#5161](https://github.com/apache/shenyu/pull/5161) 中贡献
+- [#6262] Fix OrderlyExecutor resource leak in shenyu-disruptor (#6269)，由 @airajena 在 [#6269](https://github.com/apache/shenyu/pull/6269) 中贡献
+- Fix: Set isClosing flag in closeGracefully method as documented (#6263)，由 @airajena 在 [#6263](https://github.com/apache/shenyu/pull/6263) 中贡献
+- fix add custom headers error (#6268)，由 @MaMengzhen 在 [#6268](https://github.com/apache/shenyu/pull/6268) 中贡献
+- [ISSUE #6235] Set upstream check for each upstream. (#6272)，由 @jonasHanhan 在 [#6272](https://github.com/apache/shenyu/pull/6272) 中贡献
+- fix mcp config shenyu context error (#6266)，由 @MaMengzhen 在 [#6266](https://github.com/apache/shenyu/pull/6266) 中贡献
+- [type:fix] fix database init script (#6277)，由 @eye-gu 在 [#6277](https://github.com/apache/shenyu/pull/6277) 中贡献
+- chore(deps): bump org.assertj:assertj-core in /shenyu-e2e (#6278)，由 @dependabot[bot] 在 [#6278](https://github.com/apache/shenyu/pull/6278) 中贡献
+-  Fix: Preserve Gateway's independent upstream health check state when receiving config updates from Admin (#6274)，由 @guanzhenxing 在 [#6274](https://github.com/apache/shenyu/pull/6274) 中贡献
+- [Security] Harden Docker images to run as non-root user (#6273)，由 @RinZ27 在 [#6273](https://github.com/apache/shenyu/pull/6273) 中贡献
+- feat: Add new role search criteria (#6282)，由 @yangyx107 在 [#6282](https://github.com/apache/shenyu/pull/6282) 中贡献
+- feat:sync dashboard (#6283)，由 @yangyx107 在 [#6283](https://github.com/apache/shenyu/pull/6283) 中贡献
+- fix: handle tool not found error and update requestConfig type to JsonElement (#6284)，由 @Aias00 在 [#6284](https://github.com/apache/shenyu/pull/6284) 中贡献
+- [type:fix] set open (#6280)，由 @eye-gu 在 [#6280](https://github.com/apache/shenyu/pull/6280) 中贡献
+- feat:modify instance createOrUpdate method log level (#6285)，由 @yangyx107 在 [#6285](https://github.com/apache/shenyu/pull/6285) 中贡献
+- replace stream().forEach() to forEach() (#6275)，由 @VampireAchao 在 [#6275](https://github.com/apache/shenyu/pull/6275) 中贡献
+- fix: fix GsonUtils concurrent serialization exceptions (#6286) (#6287)，由 @fanpipi 在 [#6286](https://github.com/apache/shenyu/pull/6286) 中贡献
+- fix: enhance logging and improve request handling in HTTP client plugins (#6288)，由 @Aias00 在 [#6288](https://github.com/apache/shenyu/pull/6288) 中贡献
+- fix mcp streamable (#6289)，由 @Aias00 在 [#6289](https://github.com/apache/shenyu/pull/6289) 中贡献
+- feat: refactor aiRequest and aiResponse models to support asynchronou… (#6296)，由 @478320 在 [#6296](https://github.com/apache/shenyu/pull/6296) 中贡献
+- feat: add CORS support with configurable allowed headers in MCP server (#6295)，由 @Aias00 在 [#6295](https://github.com/apache/shenyu/pull/6295) 中贡献
+- fix: improve upstream cache management and add recovery test for empty events (#6294)，由 @Aias00 在 [#6294](https://github.com/apache/shenyu/pull/6294) 中贡献
+- fix: improve MCP server plugin path handling and backward compatibility for argsPosition (#6293)，由 @Aias00 在 [#6293](https://github.com/apache/shenyu/pull/6293) 中贡献
+- Fix: loggion console add rule bug (#6291)，由 @yangyx107 在 [#6291](https://github.com/apache/shenyu/pull/6291) 中贡献
+- [type:fix] remove java 18 ci (#6306)，由 @moremind 在 [#6306](https://github.com/apache/shenyu/pull/6306) 中贡献
+- [type:refactor] remove shenyu trie cache (#6303)，由 @moremind 在 [#6303](https://github.com/apache/shenyu/pull/6303) 中贡献
+- chore(deps): bump oshi from 6.7.0 to 6.10.0 (#6301)，由 @yangpixi 在 [#6301](https://github.com/apache/shenyu/pull/6301) 中贡献
+- chore(deps): bump org.apache.zookeeper:zookeeper from 3.9.4 to 3.9.5 (#6302)，由 @dependabot[bot] 在 [#6302](https://github.com/apache/shenyu/pull/6302) 中贡献
+- fix: replace Collections.EMPTY_MAP with Collections.emptyMap() (#6299)，由 @Senrian 在 [#6299](https://github.com/apache/shenyu/pull/6299) 中贡献
+- Fix: RuleServiceImpl#searchByPage() Selectors now populated from namespace only when condition selectors are null or empty. (#6305)，由 @bruce121 在 [#6305](https://github.com/apache/shenyu/pull/6305) 中贡献
+- fix(common): align PluginEnum sort values with DB schema.sql (#6310) (#6311)，由 @bwangll 在 [#6310](https://github.com/apache/shenyu/pull/6310) 中贡献
+- infra(ci): add CI action condition (#6316)，由 @yuluo-yx 在 [#6316](https://github.com/apache/shenyu/pull/6316) 中贡献
+- feat(mcp-server): enhance SDK compatibility with reflection caching and error handling (#6312)，由 @Aias00 在 [#6312](https://github.com/apache/shenyu/pull/6312) 中贡献
+- Align SSRF URL validation with OkHttp parsing (#6321)，由 @Aias00 在 [#6321](https://github.com/apache/shenyu/pull/6321) 中贡献
+- Hide registry passwords from admin API responses (#6322)，由 @Aias00 在 [#6322](https://github.com/apache/shenyu/pull/6322) 中贡献
+- Block redirect-based SSRF bypass in Swagger imports (#6320)，由 @Aias00 在 [#6320](https://github.com/apache/shenyu/pull/6320) 中贡献
+- Fix missing RBAC on selector, rule, and data-permission endpoints (#6319)，由 @Aias00 在 [#6319](https://github.com/apache/shenyu/pull/6319) 中贡献
+- Ci update cache (#6325)，由 @2823602869 在 [#6325](https://github.com/apache/shenyu/pull/6325) 中贡献
+- chore(deps): bump org.apache.kafka:kafka-clients from 3.9.1 to 3.9.2 (#6324)，由 @dependabot[bot] 在 [#6324](https://github.com/apache/shenyu/pull/6324) 中贡献
+- Stop exposing login AES secrets to anonymous callers (#6323)，由 @Aias00 在 [#6323](https://github.com/apache/shenyu/pull/6323) 中贡献
+- chore(deps): bump org.bouncycastle:bcprov-jdk18on from 1.78 to 1.84 (#6331)，由 @dependabot[bot] 在 [#6331](https://github.com/apache/shenyu/pull/6331) 中贡献
+- test(task#5161): improve test coverage for sync. (#6333)，由 @wy471x 在 [#6333](https://github.com/apache/shenyu/pull/6333) 中贡献
+- test(task#5161): improve test coverage for admin. (#6328)，由 @wy471x 在 [#6328](https://github.com/apache/shenyu/pull/6328) 中贡献
+- Fix websocket client spec builder reuse in plugin config (#6330)，由 @zhaoguhong 在 [#6330](https://github.com/apache/shenyu/pull/6330) 中贡献
+- chore(deps): bump com.sun.mail:jakarta.mail from 2.0.1 to 2.0.2 (#6329)，由 @dependabot[bot] 在 [#6329](https://github.com/apache/shenyu/pull/6329) 中贡献
+- Prevent duplicate full-mode URI heartbeats after repeated context refresh (#6337)，由 @Aias00 在 [#6337](https://github.com/apache/shenyu/pull/6337) 中贡献
+- [type:refactor] remove motan support (#6307)，由 @Aias00 在 [#6307](https://github.com/apache/shenyu/pull/6307) 中贡献
+- fix: correct instanceof check in addFailureUriDataRegister (#6345)，由 @eye-gu 在 [#6345](https://github.com/apache/shenyu/pull/6345) 中贡献
+- fix(ai-prompt): preserve all original messages in decorateBody (#6343)，由 @eye-gu 在 [#6343](https://github.com/apache/shenyu/pull/6343) 中贡献
+- fix: replace ArrayList with CopyOnWriteArrayList to avoid ConcurrentModificationException in URI heartbeat (#6352)，由 @eye-gu 在 [#6352](https://github.com/apache/shenyu/pull/6352) 中贡献
+- fix: eliminate race condition in UpstreamCheckServiceTest.testReplace (#6355)，由 @eye-gu 在 [#6355](https://github.com/apache/shenyu/pull/6355) 中贡献
+- Fix README documentation links (#6357)，由 @SPUERSAIYAN 在 [#6357](https://github.com/apache/shenyu/pull/6357) 中贡献
+- Codex/fix sandbox response leak (#6359)，由 @SPUERSAIYAN 在 [#6359](https://github.com/apache/shenyu/pull/6359) 中贡献
+- Stabilize k8s ingress startup healthchecks (#6361)，由 @Aias00 在 [#6361](https://github.com/apache/shenyu/pull/6361) 中贡献
+- Stabilize Sentinel integrated rate-limit assertions (#6374)，由 @Aias00 在 [#6374](https://github.com/apache/shenyu/pull/6374) 中贡献
+- Stabilize HTTP E2E compose startup readiness (#6363)，由 @Aias00 在 [#6363](https://github.com/apache/shenyu/pull/6363) 中贡献
+- Stabilize Sentinel CI assertion for PR 6375 (#6377)，由 @Aias00 在 [#6377](https://github.com/apache/shenyu/pull/6377) 中贡献
+- [ISSUE 6334] : Add uri validation for regex and other operators. (#6335)，由 @hengyuss 在 [#6335](https://github.com/apache/shenyu/pull/6335) 中贡献
+- fix(netty): support configurable httpRequestDecoder properties (#6378)，由 @hqbhonker 在 [#6378](https://github.com/apache/shenyu/pull/6378) 中贡献
+- Fix RocketMQ logging e2e bootstrap startup (#6379)，由 @Aias00 在 [#6379](https://github.com/apache/shenyu/pull/6379) 中贡献
+- fix(request): make add operations append existing values (#6375)，由 @SouthwestAsiaFloat 在 [#6375](https://github.com/apache/shenyu/pull/6375) 中贡献
+- fix: skip request body for GET and HEAD requests (#6350)，由 @zongmingzhi 在 [#6350](https://github.com/apache/shenyu/pull/6350) 中贡献
+- fix(ci): remove maven cache save to avoid incomplete cache pollution (#6383)，由 @eye-gu 在 [#6383](https://github.com/apache/shenyu/pull/6383) 中贡献
+- [type:refactor] replace inactive wasmtime-java with chicory pure-Java WASM runtime (#6356)，由 @eye-gu 在 [#6356](https://github.com/apache/shenyu/pull/6356) 中贡献
+- Prerelease/fix license (#6387)，由 @Aias00 在 [#6387](https://github.com/apache/shenyu/pull/6387) 中贡献
+- fix:fix local springmvc client cant register success (#6395)，由 @hengyuss 在 [#6395](https://github.com/apache/shenyu/pull/6395) 中贡献
+- fix: DividePlugin specify-domain header to prevent cache pollution and restrict to configured upstreams (#6412)，由 @hengyuss 在 [#6412](https://github.com/apache/shenyu/pull/6412) 中贡献
+- fix: Enforce account enabled check on every authenticated request in ShiroRealm [#6399] (#6415)，由 @hengyuss 在 [#6415](https://github.com/apache/shenyu/pull/6415) 中贡献
+- fix(admin): limit swagger import response body size (#6411)，由 @SouthwestAsiaFloat 在 [#6411](https://github.com/apache/shenyu/pull/6411) 中贡献
+- fix: Add decompression size limits to ZipUtil.unzip()[#6400] (#6416)，由 @hengyuss 在 [#6416](https://github.com/apache/shenyu/pull/6416) 中贡献
+- fix: add mounts for external libraries in docker-compose to prevent startup issues (missing database connector driver) when using an external database datasource other than H2 (#6389) (#6391)，由 @exyb 在 [#6389](https://github.com/apache/shenyu/pull/6389) 中贡献
+- [fix] Add missing permission annotations to /appAuth/updateSk and /sandbox/proxyGateway (#6388)，由 @Aias00 在 [#6388](https://github.com/apache/shenyu/pull/6388) 中贡献
+- Require permission for namespace plugin sync (#6384)，由 @Aias00 在 [#6384](https://github.com/apache/shenyu/pull/6384) 中贡献
+- fix: use come.google.re2j replace java.util.regex in RegexPredicateJu… (#6410)，由 @hengyuss 在 [#6410](https://github.com/apache/shenyu/pull/6410) 中贡献
+- fix: Remove appSecret from sandbox-beforesign response header[#6402] (#6417)，由 @hengyuss 在 [#6417](https://github.com/apache/shenyu/pull/6417) 中贡献
+
+## 新贡献者
+
+- @2823602869 首次贡献于 [#6233](https://github.com/apache/shenyu/pull/6233)
+- @airajena 首次贡献于 [#6264](https://github.com/apache/shenyu/pull/6264)
+- @bruce121 首次贡献于 [#6305](https://github.com/apache/shenyu/pull/6305)
+- @bwangll 首次贡献于 [#6311](https://github.com/apache/shenyu/pull/6311)
+- @exyb 首次贡献于 [#6391](https://github.com/apache/shenyu/pull/6391)
+- @fanpipi 首次贡献于 [#6287](https://github.com/apache/shenyu/pull/6287)
+- @hengyuss 首次贡献于 [#6335](https://github.com/apache/shenyu/pull/6335)
+- @hqbhonker 首次贡献于 [#6378](https://github.com/apache/shenyu/pull/6378)
+- @jonasHanhan 首次贡献于 [#6272](https://github.com/apache/shenyu/pull/6272)
+- @RinZ27 首次贡献于 [#6273](https://github.com/apache/shenyu/pull/6273)
+- @Senrian 首次贡献于 [#6299](https://github.com/apache/shenyu/pull/6299)
+- @SouthwestAsiaFloat 首次贡献于 [#6375](https://github.com/apache/shenyu/pull/6375)
+- @SPUERSAIYAN 首次贡献于 [#6357](https://github.com/apache/shenyu/pull/6357)
+- @wy471x 首次贡献于 [#6333](https://github.com/apache/shenyu/pull/6333)
+- @yangpixi 首次贡献于 [#6301](https://github.com/apache/shenyu/pull/6301)
+- @yangyx107 首次贡献于 [#6282](https://github.com/apache/shenyu/pull/6282)
+- @yonghanlin 首次贡献于 [#6232](https://github.com/apache/shenyu/pull/6232)
+- @zhaoguhong 首次贡献于 [#6330](https://github.com/apache/shenyu/pull/6330)
+- @zongmingzhi 首次贡献于 [#6350](https://github.com/apache/shenyu/pull/6350)
+
+## 成为贡献者
+
+我们欢迎每一位贡献者的加入ShenYu，欢迎贡献者以Apache Way的精神参与ShenYu！
+
+贡献者指南请参考：
+
+> https://shenyu.apache.org/zh/community/contributor-guide

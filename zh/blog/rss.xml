@@ -4,7 +4,7 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/zh/blog</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Mon, 13 Jul 2026 12:14:14 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Jul 2026 12:14:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Apollo数据同步源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-Apollo-Data-Sync</link>
             <guid>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-Apollo-Data-Sync</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[本文基于shenyu-2.6.1版本进行源码分析，官网的介绍请参考 数据同步原理 。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>本文基于<code>shenyu-2.6.1</code>版本进行源码分析，官网的介绍请参考 <a href="https://shenyu.apache.org/zh/docs/design/data-sync" target="_blank" rel="noopener noreferrer" class="">数据同步原理</a> 。</p>
@@ -119,7 +119,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[Etcd数据同步源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-Etcd-Data-Sync</link>
             <guid>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-Etcd-Data-Sync</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的 API 网关。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> 是一个异步的，高性能的，跨语言的，响应式的 <code>API</code> 网关。</p>
@@ -298,7 +298,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[Http长轮询数据同步源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-Http-Data-Sync</link>
             <guid>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-Http-Data-Sync</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的 API 网关。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> 是一个异步的，高性能的，跨语言的，响应式的 <code>API</code> 网关。</p>
@@ -571,7 +571,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[Nacos数据同步源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-Nacos-Data-Sync</link>
             <guid>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-Nacos-Data-Sync</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的 API 网关。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> 是一个异步的，高性能的，跨语言的，响应式的 <code>API</code> 网关。</p>
@@ -741,7 +741,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[WebSocket数据同步源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-WebSocket-Data-Sync</link>
             <guid>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-WebSocket-Data-Sync</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[在ShenYu网关中，数据同步是指，当在后台管理系统中，数据发送了更新后，如何将更新的数据同步到网关中。Apache ShenYu 网关当前支持ZooKeeper、WebSocket、Http长轮询、Nacos 、etcd 和 Consul 进行数据同步。本文的主要内容是基于WebSocket的数据同步源码分析。]]></description>
             <content:encoded><![CDATA[<p>在<code>ShenYu</code>网关中，数据同步是指，当在后台管理系统中，数据发送了更新后，如何将更新的数据同步到网关中。<code>Apache ShenYu</code> 网关当前支持<code>ZooKeeper</code>、<code>WebSocket</code>、<code>Http长轮询</code>、<code>Nacos</code> 、<code>etcd</code> 和 <code>Consul</code> 进行数据同步。本文的主要内容是基于<code>WebSocket</code>的数据同步源码分析。</p>
 <blockquote>
@@ -952,7 +952,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[ZooKeeper数据同步源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-ZooKeeper-Data-Sync</link>
             <guid>https://shenyu.apache.org/zh/blog/DataSync-SourceCode-Analysis-ZooKeeper-Data-Sync</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的 API 网关。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> 是一个异步的，高性能的，跨语言的，响应式的 <code>API</code> 网关。</p>
@@ -1125,7 +1125,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[e2e测试详解]]></title>
             <link>https://shenyu.apache.org/zh/blog/E2eTest-Analysis</link>
             <guid>https://shenyu.apache.org/zh/blog/E2eTest-Analysis</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[这篇文章将会对Apache ShenYu的e2e模块进行深入剖析。]]></description>
             <content:encoded><![CDATA[<p>这篇文章将会对Apache ShenYu的e2e模块进行深入剖析。</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="什么是e2e">什么是e2e<a href="https://shenyu.apache.org/zh/blog/E2eTest-Analysis#%E4%BB%80%E4%B9%88%E6%98%AFe2e" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
@@ -1173,7 +1173,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[集成测试剖析]]></title>
             <link>https://shenyu.apache.org/zh/blog/IntegrationTest-Analysis</link>
             <guid>https://shenyu.apache.org/zh/blog/IntegrationTest-Analysis</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[这篇文章将会对Apache ShenYu的集成测试进行深入剖析。]]></description>
             <content:encoded><![CDATA[<p>这篇文章将会对Apache ShenYu的集成测试进行深入剖析。</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="什么是集成测试">什么是集成测试？<a href="https://shenyu.apache.org/zh/blog/IntegrationTest-Analysis#%E4%BB%80%E4%B9%88%E6%98%AF%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
@@ -1261,7 +1261,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[扩展插件加载逻辑]]></title>
             <link>https://shenyu.apache.org/zh/blog/Loader-SourceCode-Analysis-ExtLoader</link>
             <guid>https://shenyu.apache.org/zh/blog/Loader-SourceCode-Analysis-ExtLoader</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[本文基于shenyu-2.6.1版本进行源码分析.]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>本文基于<code>shenyu-2.6.1</code>版本进行源码分析.</p>
@@ -1337,7 +1337,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[Context-Path插件源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Context-Path-Plugin</link>
             <guid>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Context-Path-Plugin</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[开始前，可以参考 这篇文章 运行shenyu网关]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>开始前，可以参考 <a class="" href="https://shenyu.apache.org/zh/blog/Start-SourceCode-Analysis-Start-Demo">这篇文章</a> 运行shenyu网关</p>
@@ -1374,7 +1374,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[Divide插件源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Divide-Plugin</link>
             <guid>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Divide-Plugin</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的 API 网关。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> 是一个异步的，高性能的，跨语言的，响应式的 <code>API</code> 网关。</p>
@@ -1637,7 +1637,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[Dubbo插件源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Dubbo-Plugin</link>
             <guid>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Dubbo-Plugin</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的 API 网关。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> 是一个异步的，高性能的，跨语言的，响应式的 <code>API</code> 网关。</p>
@@ -1922,7 +1922,7 @@ consul、etcd 等是以path的方式进行分层级来查找的。</p>
             <title><![CDATA[McpServer 插件源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Mcp-Server-Plugin</link>
             <guid>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Mcp-Server-Plugin</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[在 shenyu 网关中，启动该插件，shenyu 将成为一个功能丰富的 mcpServer,]]></description>
             <content:encoded><![CDATA[<p>在 shenyu 网关中，启动该插件，shenyu 将成为一个功能丰富的 mcpServer,
 你可以通过简单配置来将一个服务作为 tool 注册到 shenyu 网关中，并使用网关提供的扩展功能。</p>
@@ -2141,7 +2141,7 @@ mcpServer 插件让 shenyu 成为一个功能强大，集中管理的 mcpServer�
             <title><![CDATA[Param-Mapping插件源码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Param-Mapping-Plugin</link>
             <guid>https://shenyu.apache.org/zh/blog/Plugin-SourceCode-Analysis-Param-Mapping-Plugin</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[开始前，可以参考 这篇文章 运行shenyu网关]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>开始前，可以参考 <a class="" href="https://shenyu.apache.org/zh/blog/Start-SourceCode-Analysis-Start-Demo">这篇文章</a> 运行shenyu网关</p>
@@ -2199,7 +2199,7 @@ mcpServer 插件让 shenyu 成为一个功能强大，集中管理的 mcpServer�
             <title><![CDATA[注册中心实现原理之Http注册]]></title>
             <link>https://shenyu.apache.org/zh/blog/RegisterCenter-SourceCode-Analysis-Http-Register</link>
             <guid>https://shenyu.apache.org/zh/blog/RegisterCenter-SourceCode-Analysis-Http-Register</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的 API 网关。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> 是一个异步的，高性能的，跨语言的，响应式的 <code>API</code> 网关。</p>
@@ -2550,7 +2550,7 @@ mcpServer 插件让 shenyu 成为一个功能强大，集中管理的 mcpServer�
             <title><![CDATA[LoadBalancer SPI 代码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-LoadBalance-SPI</link>
             <guid>https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-LoadBalance-SPI</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[​        网关应用需要支持多种负载均衡的方案，包括随机选择、Hash、轮询等方式。Apache Shenyu网关中不仅实现了传统网关的这些均衡策略，还通过流量预热(warmup)等细节处理，对服务器节点的加入，做了更平滑的流量处理，获得了更好的整体稳定性。让我们来看看Shenyu是是如何设计和实现这部分功能的。]]></description>
             <content:encoded><![CDATA[<p>​        网关应用需要支持多种负载均衡的方案，包括随机选择、Hash、轮询等方式。<code>Apache Shenyu</code>网关中不仅实现了传统网关的这些均衡策略，还通过流量预热(warmup)等细节处理，对服务器节点的加入，做了更平滑的流量处理，获得了更好的整体稳定性。让我们来看看Shenyu是是如何设计和实现这部分功能的。</p>
 <blockquote>
@@ -2686,7 +2686,7 @@ $$
             <title><![CDATA[MatchStrategy--基于SPI的代码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-MatchStrategy-SPI</link>
             <guid>https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-MatchStrategy-SPI</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[Apache Shenyu 网关的各个Plugin（包括Dubbo, gRPC,Spring-cloud等) 中，routing参数均设计为可以接受多个条件的组合。 为了实现这样的目的，遵循其SPI的机制进行将参数及行为抽象为如下三部分，这些SPI 在shenyu-plugin-base模组中实现]]></description>
             <content:encoded><![CDATA[<p><code>Apache Shenyu</code> 网关的各个<code>Plugin</code>（包括<code>Dubbo</code>, <code>gRPC</code>,<code>Spring-cloud</code>等) 中，<code>routing</code>参数均设计为可以接受多个条件的组合。 为了实现这样的目的，遵循其<code>SPI</code>的机制进行将参数及行为抽象为如下三部分，这些<code>SPI</code> 在<em><strong>shenyu-plugin-base</strong></em>模组中实现</p>
 <ul>
@@ -2747,7 +2747,7 @@ $$
             <title><![CDATA[PredicateJudge-- 基于SPI的设计实现分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI</link>
             <guid>https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[灵活的插件和规则定义，是Shenyu网关的一大特色。它以插件形式支持多种网络协议和多种流行的微服务框架，如Dubbo, gRPC和 Spring-Cloud 等。 为了实现对各种协议及插件的配置规则的解析，网关在规则策略解析方面，采用了优雅的SPI(Service Provider Interface)实现，当添加新的插件时，规则解析部分可以沿用现有实现或采用SPI机制快速实现，具有良好的可扩展性。]]></description>
             <content:encoded><![CDATA[<p>灵活的插件和规则定义，是<a href="http://shenyu.apache.org/" target="_blank" rel="noopener noreferrer" class="">Shenyu网关</a>的一大特色。它以插件形式支持多种网络协议和多种流行的微服务框架，如Dubbo, gRPC和 Spring-Cloud 等。 为了实现对各种协议及插件的配置规则的解析，网关在规则策略解析方面，采用了优雅的<code>SPI</code>(Service Provider Interface)实现，当添加新的插件时，规则解析部分可以沿用现有实现或采用<code>SPI</code>机制快速实现，具有良好的可扩展性。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="spi-的顶层设计"><code>SPI</code> 的顶层设计<a href="https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI#spi-%E7%9A%84%E9%A1%B6%E5%B1%82%E8%AE%BE%E8%AE%A1" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
@@ -2825,7 +2825,7 @@ $$
             <title><![CDATA[RateLimiter SPI 代码分析]]></title>
             <link>https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-RateLimiter-SPI</link>
             <guid>https://shenyu.apache.org/zh/blog/SPI-SourceCode-Analysis-RateLimiter-SPI</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[限流是网关必备的功能，用来应对高并发请求的场景。当系统受到异常攻击，短期内聚集了大量的流量；当有大量低级别的请求，处理这些请求会影响关键业务的处理，需要限制这些请求的访问速度; 或者系统内部出现一些异常，不能满负荷的服务整个应用请求等等。这些情况下，都需要启用限流来保护系统。可以拒绝服务、等待或降级处理，将流量限制到系统可接受的量，或者只允许某些域名(或某些业务)的请求优先处理。]]></description>
             <content:encoded><![CDATA[<p>限流是网关必备的功能，用来应对高并发请求的场景。当系统受到异常攻击，短期内聚集了大量的流量；当有大量低级别的请求，处理这些请求会影响关键业务的处理，需要限制这些请求的访问速度; 或者系统内部出现一些异常，不能满负荷的服务整个应用请求等等。这些情况下，都需要启用限流来保护系统。可以拒绝服务、等待或降级处理，将流量限制到系统可接受的量，或者只允许某些域名(或某些业务)的请求优先处理。</p>
 <p>针对以上的场景需求，在设计一个<code>API</code>网关的限流功能时，就需要考虑如下的扩展点：</p>
@@ -2984,7 +2984,7 @@ $$
             <title><![CDATA[社区新人开发者启动及开发防踩坑指南]]></title>
             <link>https://shenyu.apache.org/zh/blog/Start-SourceCode-Analysis-Start-Demo-for-Contributor</link>
             <guid>https://shenyu.apache.org/zh/blog/Start-SourceCode-Analysis-Start-Demo-for-Contributor</guid>
-            <pubDate>Mon, 13 Jul 2026 12:14:14 GMT</pubDate>
+            <pubDate>Mon, 13 Jul 2026 12:14:27 GMT</pubDate>
             <description><![CDATA[前言]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="前言">前言<a href="https://shenyu.apache.org/zh/blog/Start-SourceCode-Analysis-Start-Demo-for-Contributor#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>作为 <code>Shenyu</code> 社区初来乍到的开发者，我在按照相关教程进行项目启动及开发的过程中，遇到了一些教程中并未提及到的 “坑” ， 我将我启动<code>shenyu</code> , <code>shenyu-dashboard</code>, <code>shenyu-website</code> 的详细步骤记录在这篇博客中，希望可以帮到社区中更多的新人开发者。</p>

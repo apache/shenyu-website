@@ -2,11 +2,156 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenyu.apache.org/zh/news</id>
     <title>Apache ShenYu Blog</title>
-    <updated>2026-01-07T00:00:00.000Z</updated>
+    <updated>2026-07-13T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://shenyu.apache.org/zh/news"/>
     <subtitle>Apache ShenYu Blog</subtitle>
     <icon>https://shenyu.apache.org/zh/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[【Apache ShenYu 2.7.1 版本发布】]]></title>
+        <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1</id>
+        <link href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1"/>
+        <updated>2026-07-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Apache ShenYu 2.7.1 版本发布]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="关于apache-shenyu">关于Apache ShenYu<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1#%E5%85%B3%E4%BA%8Eapache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>一款使用  开发的响应式 网关。以其高性能，动态灵活的流量管控，热插拔，易部署等特性，开箱即用为用户提供整套全生命周期的 网关，包含 注册、服务代理、协议转换、文档与 治理等功能。Apache ShenYu于毕业成为顶级项目。</p>
+<blockquote>
+<p>官网: <a href="https://shenyu.apache.org/" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org</a>
+GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu</a></p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="版本预览">版本预览<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1#%E7%89%88%E6%9C%AC%E9%A2%84%E8%A7%88" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>Apache ShenYu 发布了 2.7.1 版本，该版本共合并了 97 个 Pull Requests，包括 MCP Server 增强、WASM 运行时迁移、安全加固、基础设施改进等多项功能。
+版本记录：<a href="https://github.com/apache/shenyu/compare/v2.7.0.3...v2.7.1" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/compare/v2.7.0.3...v2.7.1</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="更新内容">更新内容<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1#%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">fix non determinsitic tests (#6232)，由 @yonghanlin 在 <a href="https://github.com/apache/shenyu/pull/6232" target="_blank" rel="noopener noreferrer" class="">#6232</a> 中贡献</li>
+<li class="">fix non deterministic test (#6229)，由 @annhchen89 在 <a href="https://github.com/apache/shenyu/pull/6229" target="_blank" rel="noopener noreferrer" class="">#6229</a> 中贡献</li>
+<li class="">Fix mcp server real url error (#6228)，由 @478320 在 <a href="https://github.com/apache/shenyu/pull/6228" target="_blank" rel="noopener noreferrer" class="">#6228</a> 中贡献</li>
+<li class="">fix HttpUtilsTest nondeterminism from param order (#6230)，由 @yonghanlin 在 <a href="https://github.com/apache/shenyu/pull/6230" target="_blank" rel="noopener noreferrer" class="">#6230</a> 中贡献</li>
+<li class="">fix field-sqlmap.xml database reserved keywords (#6233)，由 @2823602869 在 <a href="https://github.com/apache/shenyu/pull/6233" target="_blank" rel="noopener noreferrer" class="">#6233</a> 中贡献</li>
+<li class="">fix get the argument position mapping error and test method (#6236)，由 @MaMengzhen 在 <a href="https://github.com/apache/shenyu/pull/6236" target="_blank" rel="noopener noreferrer" class="">#6236</a> 中贡献</li>
+<li class="">add reset cache in MethodDescriptor (#6244)，由 @annhchen89 在 <a href="https://github.com/apache/shenyu/pull/6244" target="_blank" rel="noopener noreferrer" class="">#6244</a> 中贡献</li>
+<li class="">[Fix] the selector and rule pagination non-functional (#6239) (#6243)，由 @VampireAchao 在 <a href="https://github.com/apache/shenyu/pull/6239" target="_blank" rel="noopener noreferrer" class="">#6239</a> 中贡献</li>
+<li class="">Fix Order Dependent Test in AiPromptPluginDataHandlerTest (#6245)，由 @annhchen89 在 <a href="https://github.com/apache/shenyu/pull/6245" target="_blank" rel="noopener noreferrer" class="">#6245</a> 中贡献</li>
+<li class="">Fix non deterministic caused by Hashmap (#6246)，由 @annhchen89 在 <a href="https://github.com/apache/shenyu/pull/6246" target="_blank" rel="noopener noreferrer" class="">#6246</a> 中贡献</li>
+<li class="">Enhance index method to build base URL from HTTP request, supporting reverse proxy scenarios (#6247)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6247" target="_blank" rel="noopener noreferrer" class="">#6247</a> 中贡献</li>
+<li class="">modify loadbalancer (#6251)，由 @yu199195 在 <a href="https://github.com/apache/shenyu/pull/6251" target="_blank" rel="noopener noreferrer" class="">#6251</a> 中贡献</li>
+<li class="">feat: Introduce request body size limit, enhance AI proxy plugin's ChatClient caching with config hash, and refine prompt extraction from the request body. (#6248)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6248" target="_blank" rel="noopener noreferrer" class="">#6248</a> 中贡献</li>
+<li class="">fix ai proxy key (#6249)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6249" target="_blank" rel="noopener noreferrer" class="">#6249</a> 中贡献</li>
+<li class="">Refactor EtcdClient and RedisConnectionFactory for improved readability and maintainability (#6250)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6250" target="_blank" rel="noopener noreferrer" class="">#6250</a> 中贡献</li>
+<li class="">feat: Enhance IpUtils with Docker support, improved IP filtering (#6253)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6253" target="_blank" rel="noopener noreferrer" class="">#6253</a> 中贡献</li>
+<li class="">fix mcp tool sample error (#6259)，由 @MaMengzhen 在 <a href="https://github.com/apache/shenyu/pull/6259" target="_blank" rel="noopener noreferrer" class="">#6259</a> 中贡献</li>
+<li class="">infra: refactor infra zk module (#6199)，由 @yuluo-yx 在 <a href="https://github.com/apache/shenyu/pull/6199" target="_blank" rel="noopener noreferrer" class="">#6199</a> 中贡献</li>
+<li class="">feat: Rename ai proxy enhanced module to ai proxy and update related files (#6260)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6260" target="_blank" rel="noopener noreferrer" class="">#6260</a> 中贡献</li>
+<li class="">fix NettyHttpClientPlugin doRequest response unique headers error (#6258)，由 @MaMengzhen 在 <a href="https://github.com/apache/shenyu/pull/6258" target="_blank" rel="noopener noreferrer" class="">#6258</a> 中贡献</li>
+<li class="">fix 'addCustomHeaders' header value replace bug (#6257)，由 @MaMengzhen 在 <a href="https://github.com/apache/shenyu/pull/6257" target="_blank" rel="noopener noreferrer" class="">#6257</a> 中贡献</li>
+<li class="">fix order dependent test (#6261)，由 @annhchen89 在 <a href="https://github.com/apache/shenyu/pull/6261" target="_blank" rel="noopener noreferrer" class="">#6261</a> 中贡献</li>
+<li class="">test(#5161): Improve test coverage for VersionUtils (#6264)，由 @airajena 在 <a href="https://github.com/apache/shenyu/pull/5161" target="_blank" rel="noopener noreferrer" class="">#5161</a> 中贡献</li>
+<li class="">[#6262] Fix OrderlyExecutor resource leak in shenyu-disruptor (#6269)，由 @airajena 在 <a href="https://github.com/apache/shenyu/pull/6269" target="_blank" rel="noopener noreferrer" class="">#6269</a> 中贡献</li>
+<li class="">Fix: Set isClosing flag in closeGracefully method as documented (#6263)，由 @airajena 在 <a href="https://github.com/apache/shenyu/pull/6263" target="_blank" rel="noopener noreferrer" class="">#6263</a> 中贡献</li>
+<li class="">fix add custom headers error (#6268)，由 @MaMengzhen 在 <a href="https://github.com/apache/shenyu/pull/6268" target="_blank" rel="noopener noreferrer" class="">#6268</a> 中贡献</li>
+<li class="">[ISSUE #6235] Set upstream check for each upstream. (#6272)，由 @jonasHanhan 在 <a href="https://github.com/apache/shenyu/pull/6272" target="_blank" rel="noopener noreferrer" class="">#6272</a> 中贡献</li>
+<li class="">fix mcp config shenyu context error (#6266)，由 @MaMengzhen 在 <a href="https://github.com/apache/shenyu/pull/6266" target="_blank" rel="noopener noreferrer" class="">#6266</a> 中贡献</li>
+<li class="">[type<!-- -->:fix<!-- -->] fix database init script (#6277)，由 @eye-gu 在 <a href="https://github.com/apache/shenyu/pull/6277" target="_blank" rel="noopener noreferrer" class="">#6277</a> 中贡献</li>
+<li class="">chore(deps): bump org.assertj<!-- -->:assertj-core<!-- --> in /shenyu-e2e (#6278)，由 @dependabot[bot] 在 <a href="https://github.com/apache/shenyu/pull/6278" target="_blank" rel="noopener noreferrer" class="">#6278</a> 中贡献</li>
+<li class="">Fix: Preserve Gateway's independent upstream health check state when receiving config updates from Admin (#6274)，由 @guanzhenxing 在 <a href="https://github.com/apache/shenyu/pull/6274" target="_blank" rel="noopener noreferrer" class="">#6274</a> 中贡献</li>
+<li class="">[Security] Harden Docker images to run as non-root user (#6273)，由 @RinZ27 在 <a href="https://github.com/apache/shenyu/pull/6273" target="_blank" rel="noopener noreferrer" class="">#6273</a> 中贡献</li>
+<li class="">feat: Add new role search criteria (#6282)，由 @yangyx107 在 <a href="https://github.com/apache/shenyu/pull/6282" target="_blank" rel="noopener noreferrer" class="">#6282</a> 中贡献</li>
+<li class="">feat<!-- -->:sync<!-- --> dashboard (#6283)，由 @yangyx107 在 <a href="https://github.com/apache/shenyu/pull/6283" target="_blank" rel="noopener noreferrer" class="">#6283</a> 中贡献</li>
+<li class="">fix: handle tool not found error and update requestConfig type to JsonElement (#6284)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6284" target="_blank" rel="noopener noreferrer" class="">#6284</a> 中贡献</li>
+<li class="">[type<!-- -->:fix<!-- -->] set open (#6280)，由 @eye-gu 在 <a href="https://github.com/apache/shenyu/pull/6280" target="_blank" rel="noopener noreferrer" class="">#6280</a> 中贡献</li>
+<li class="">feat<!-- -->:modify<!-- --> instance createOrUpdate method log level (#6285)，由 @yangyx107 在 <a href="https://github.com/apache/shenyu/pull/6285" target="_blank" rel="noopener noreferrer" class="">#6285</a> 中贡献</li>
+<li class="">replace stream().forEach() to forEach() (#6275)，由 @VampireAchao 在 <a href="https://github.com/apache/shenyu/pull/6275" target="_blank" rel="noopener noreferrer" class="">#6275</a> 中贡献</li>
+<li class="">fix: fix GsonUtils concurrent serialization exceptions (#6286) (#6287)，由 @fanpipi 在 <a href="https://github.com/apache/shenyu/pull/6286" target="_blank" rel="noopener noreferrer" class="">#6286</a> 中贡献</li>
+<li class="">fix: enhance logging and improve request handling in HTTP client plugins (#6288)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6288" target="_blank" rel="noopener noreferrer" class="">#6288</a> 中贡献</li>
+<li class="">fix mcp streamable (#6289)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6289" target="_blank" rel="noopener noreferrer" class="">#6289</a> 中贡献</li>
+<li class="">feat: refactor aiRequest and aiResponse models to support asynchronou… (#6296)，由 @478320 在 <a href="https://github.com/apache/shenyu/pull/6296" target="_blank" rel="noopener noreferrer" class="">#6296</a> 中贡献</li>
+<li class="">feat: add CORS support with configurable allowed headers in MCP server (#6295)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6295" target="_blank" rel="noopener noreferrer" class="">#6295</a> 中贡献</li>
+<li class="">fix: improve upstream cache management and add recovery test for empty events (#6294)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6294" target="_blank" rel="noopener noreferrer" class="">#6294</a> 中贡献</li>
+<li class="">fix: improve MCP server plugin path handling and backward compatibility for argsPosition (#6293)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6293" target="_blank" rel="noopener noreferrer" class="">#6293</a> 中贡献</li>
+<li class="">Fix: loggion console add rule bug (#6291)，由 @yangyx107 在 <a href="https://github.com/apache/shenyu/pull/6291" target="_blank" rel="noopener noreferrer" class="">#6291</a> 中贡献</li>
+<li class="">[type<!-- -->:fix<!-- -->] remove java 18 ci (#6306)，由 @moremind 在 <a href="https://github.com/apache/shenyu/pull/6306" target="_blank" rel="noopener noreferrer" class="">#6306</a> 中贡献</li>
+<li class="">[type<!-- -->:refactor<!-- -->] remove shenyu trie cache (#6303)，由 @moremind 在 <a href="https://github.com/apache/shenyu/pull/6303" target="_blank" rel="noopener noreferrer" class="">#6303</a> 中贡献</li>
+<li class="">chore(deps): bump oshi from 6.7.0 to 6.10.0 (#6301)，由 @yangpixi 在 <a href="https://github.com/apache/shenyu/pull/6301" target="_blank" rel="noopener noreferrer" class="">#6301</a> 中贡献</li>
+<li class="">chore(deps): bump org.apache.zookeeper<!-- -->:zookeeper<!-- --> from 3.9.4 to 3.9.5 (#6302)，由 @dependabot[bot] 在 <a href="https://github.com/apache/shenyu/pull/6302" target="_blank" rel="noopener noreferrer" class="">#6302</a> 中贡献</li>
+<li class="">fix: replace Collections.EMPTY_MAP with Collections.emptyMap() (#6299)，由 @Senrian 在 <a href="https://github.com/apache/shenyu/pull/6299" target="_blank" rel="noopener noreferrer" class="">#6299</a> 中贡献</li>
+<li class="">Fix: RuleServiceImpl#searchByPage() Selectors now populated from namespace only when condition selectors are null or empty. (#6305)，由 @bruce121 在 <a href="https://github.com/apache/shenyu/pull/6305" target="_blank" rel="noopener noreferrer" class="">#6305</a> 中贡献</li>
+<li class="">fix(common): align PluginEnum sort values with DB schema.sql (#6310) (#6311)，由 @bwangll 在 <a href="https://github.com/apache/shenyu/pull/6310" target="_blank" rel="noopener noreferrer" class="">#6310</a> 中贡献</li>
+<li class="">infra(ci): add CI action condition (#6316)，由 @yuluo-yx 在 <a href="https://github.com/apache/shenyu/pull/6316" target="_blank" rel="noopener noreferrer" class="">#6316</a> 中贡献</li>
+<li class="">feat(mcp-server): enhance SDK compatibility with reflection caching and error handling (#6312)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6312" target="_blank" rel="noopener noreferrer" class="">#6312</a> 中贡献</li>
+<li class="">Align SSRF URL validation with OkHttp parsing (#6321)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6321" target="_blank" rel="noopener noreferrer" class="">#6321</a> 中贡献</li>
+<li class="">Hide registry passwords from admin API responses (#6322)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6322" target="_blank" rel="noopener noreferrer" class="">#6322</a> 中贡献</li>
+<li class="">Block redirect-based SSRF bypass in Swagger imports (#6320)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6320" target="_blank" rel="noopener noreferrer" class="">#6320</a> 中贡献</li>
+<li class="">Fix missing RBAC on selector, rule, and data-permission endpoints (#6319)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6319" target="_blank" rel="noopener noreferrer" class="">#6319</a> 中贡献</li>
+<li class="">Ci update cache (#6325)，由 @2823602869 在 <a href="https://github.com/apache/shenyu/pull/6325" target="_blank" rel="noopener noreferrer" class="">#6325</a> 中贡献</li>
+<li class="">chore(deps): bump org.apache.kafka<!-- -->:kafka-clients<!-- --> from 3.9.1 to 3.9.2 (#6324)，由 @dependabot[bot] 在 <a href="https://github.com/apache/shenyu/pull/6324" target="_blank" rel="noopener noreferrer" class="">#6324</a> 中贡献</li>
+<li class="">Stop exposing login AES secrets to anonymous callers (#6323)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6323" target="_blank" rel="noopener noreferrer" class="">#6323</a> 中贡献</li>
+<li class="">chore(deps): bump org.bouncycastle<!-- -->:bcprov-jdk18on<!-- --> from 1.78 to 1.84 (#6331)，由 @dependabot[bot] 在 <a href="https://github.com/apache/shenyu/pull/6331" target="_blank" rel="noopener noreferrer" class="">#6331</a> 中贡献</li>
+<li class="">test(task#5161): improve test coverage for sync. (#6333)，由 @wy471x 在 <a href="https://github.com/apache/shenyu/pull/6333" target="_blank" rel="noopener noreferrer" class="">#6333</a> 中贡献</li>
+<li class="">test(task#5161): improve test coverage for admin. (#6328)，由 @wy471x 在 <a href="https://github.com/apache/shenyu/pull/6328" target="_blank" rel="noopener noreferrer" class="">#6328</a> 中贡献</li>
+<li class="">Fix websocket client spec builder reuse in plugin config (#6330)，由 @zhaoguhong 在 <a href="https://github.com/apache/shenyu/pull/6330" target="_blank" rel="noopener noreferrer" class="">#6330</a> 中贡献</li>
+<li class="">chore(deps): bump com.sun.mail<!-- -->:jakarta<!-- -->.mail from 2.0.1 to 2.0.2 (#6329)，由 @dependabot[bot] 在 <a href="https://github.com/apache/shenyu/pull/6329" target="_blank" rel="noopener noreferrer" class="">#6329</a> 中贡献</li>
+<li class="">Prevent duplicate full-mode URI heartbeats after repeated context refresh (#6337)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6337" target="_blank" rel="noopener noreferrer" class="">#6337</a> 中贡献</li>
+<li class="">[type<!-- -->:refactor<!-- -->] remove motan support (#6307)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6307" target="_blank" rel="noopener noreferrer" class="">#6307</a> 中贡献</li>
+<li class="">fix: correct instanceof check in addFailureUriDataRegister (#6345)，由 @eye-gu 在 <a href="https://github.com/apache/shenyu/pull/6345" target="_blank" rel="noopener noreferrer" class="">#6345</a> 中贡献</li>
+<li class="">fix(ai-prompt): preserve all original messages in decorateBody (#6343)，由 @eye-gu 在 <a href="https://github.com/apache/shenyu/pull/6343" target="_blank" rel="noopener noreferrer" class="">#6343</a> 中贡献</li>
+<li class="">fix: replace ArrayList with CopyOnWriteArrayList to avoid ConcurrentModificationException in URI heartbeat (#6352)，由 @eye-gu 在 <a href="https://github.com/apache/shenyu/pull/6352" target="_blank" rel="noopener noreferrer" class="">#6352</a> 中贡献</li>
+<li class="">fix: eliminate race condition in UpstreamCheckServiceTest.testReplace (#6355)，由 @eye-gu 在 <a href="https://github.com/apache/shenyu/pull/6355" target="_blank" rel="noopener noreferrer" class="">#6355</a> 中贡献</li>
+<li class="">Fix README documentation links (#6357)，由 @SPUERSAIYAN 在 <a href="https://github.com/apache/shenyu/pull/6357" target="_blank" rel="noopener noreferrer" class="">#6357</a> 中贡献</li>
+<li class="">Codex/fix sandbox response leak (#6359)，由 @SPUERSAIYAN 在 <a href="https://github.com/apache/shenyu/pull/6359" target="_blank" rel="noopener noreferrer" class="">#6359</a> 中贡献</li>
+<li class="">Stabilize k8s ingress startup healthchecks (#6361)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6361" target="_blank" rel="noopener noreferrer" class="">#6361</a> 中贡献</li>
+<li class="">Stabilize Sentinel integrated rate-limit assertions (#6374)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6374" target="_blank" rel="noopener noreferrer" class="">#6374</a> 中贡献</li>
+<li class="">Stabilize HTTP E2E compose startup readiness (#6363)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6363" target="_blank" rel="noopener noreferrer" class="">#6363</a> 中贡献</li>
+<li class="">Stabilize Sentinel CI assertion for PR 6375 (#6377)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6377" target="_blank" rel="noopener noreferrer" class="">#6377</a> 中贡献</li>
+<li class="">[ISSUE 6334] : Add uri validation for regex and other operators. (#6335)，由 @hengyuss 在 <a href="https://github.com/apache/shenyu/pull/6335" target="_blank" rel="noopener noreferrer" class="">#6335</a> 中贡献</li>
+<li class="">fix(netty): support configurable httpRequestDecoder properties (#6378)，由 @hqbhonker 在 <a href="https://github.com/apache/shenyu/pull/6378" target="_blank" rel="noopener noreferrer" class="">#6378</a> 中贡献</li>
+<li class="">Fix RocketMQ logging e2e bootstrap startup (#6379)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6379" target="_blank" rel="noopener noreferrer" class="">#6379</a> 中贡献</li>
+<li class="">fix(request): make add operations append existing values (#6375)，由 @SouthwestAsiaFloat 在 <a href="https://github.com/apache/shenyu/pull/6375" target="_blank" rel="noopener noreferrer" class="">#6375</a> 中贡献</li>
+<li class="">fix: skip request body for GET and HEAD requests (#6350)，由 @zongmingzhi 在 <a href="https://github.com/apache/shenyu/pull/6350" target="_blank" rel="noopener noreferrer" class="">#6350</a> 中贡献</li>
+<li class="">fix(ci): remove maven cache save to avoid incomplete cache pollution (#6383)，由 @eye-gu 在 <a href="https://github.com/apache/shenyu/pull/6383" target="_blank" rel="noopener noreferrer" class="">#6383</a> 中贡献</li>
+<li class="">[type<!-- -->:refactor<!-- -->] replace inactive wasmtime-java with chicory pure-Java WASM runtime (#6356)，由 @eye-gu 在 <a href="https://github.com/apache/shenyu/pull/6356" target="_blank" rel="noopener noreferrer" class="">#6356</a> 中贡献</li>
+<li class="">Prerelease/fix license (#6387)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6387" target="_blank" rel="noopener noreferrer" class="">#6387</a> 中贡献</li>
+<li class="">fix<!-- -->:fix<!-- --> local springmvc client cant register success (#6395)，由 @hengyuss 在 <a href="https://github.com/apache/shenyu/pull/6395" target="_blank" rel="noopener noreferrer" class="">#6395</a> 中贡献</li>
+<li class="">fix: DividePlugin specify-domain header to prevent cache pollution and restrict to configured upstreams (#6412)，由 @hengyuss 在 <a href="https://github.com/apache/shenyu/pull/6412" target="_blank" rel="noopener noreferrer" class="">#6412</a> 中贡献</li>
+<li class="">fix: Enforce account enabled check on every authenticated request in ShiroRealm [#6399] (#6415)，由 @hengyuss 在 <a href="https://github.com/apache/shenyu/pull/6415" target="_blank" rel="noopener noreferrer" class="">#6415</a> 中贡献</li>
+<li class="">fix(admin): limit swagger import response body size (#6411)，由 @SouthwestAsiaFloat 在 <a href="https://github.com/apache/shenyu/pull/6411" target="_blank" rel="noopener noreferrer" class="">#6411</a> 中贡献</li>
+<li class="">fix: Add decompression size limits to ZipUtil.unzip()[#6400] (#6416)，由 @hengyuss 在 <a href="https://github.com/apache/shenyu/pull/6416" target="_blank" rel="noopener noreferrer" class="">#6416</a> 中贡献</li>
+<li class="">fix: add mounts for external libraries in docker-compose to prevent startup issues (missing database connector driver) when using an external database datasource other than H2 (#6389) (#6391)，由 @exyb 在 <a href="https://github.com/apache/shenyu/pull/6389" target="_blank" rel="noopener noreferrer" class="">#6389</a> 中贡献</li>
+<li class="">[fix] Add missing permission annotations to /appAuth/updateSk and /sandbox/proxyGateway (#6388)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6388" target="_blank" rel="noopener noreferrer" class="">#6388</a> 中贡献</li>
+<li class="">Require permission for namespace plugin sync (#6384)，由 @Aias00 在 <a href="https://github.com/apache/shenyu/pull/6384" target="_blank" rel="noopener noreferrer" class="">#6384</a> 中贡献</li>
+<li class="">fix: use come.google.re2j replace java.util.regex in RegexPredicateJu… (#6410)，由 @hengyuss 在 <a href="https://github.com/apache/shenyu/pull/6410" target="_blank" rel="noopener noreferrer" class="">#6410</a> 中贡献</li>
+<li class="">fix: Remove appSecret from sandbox-beforesign response header[#6402] (#6417)，由 @hengyuss 在 <a href="https://github.com/apache/shenyu/pull/6417" target="_blank" rel="noopener noreferrer" class="">#6417</a> 中贡献</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="新贡献者">新贡献者<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1#%E6%96%B0%E8%B4%A1%E7%8C%AE%E8%80%85" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">@2823602869 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6233" target="_blank" rel="noopener noreferrer" class="">#6233</a></li>
+<li class="">@airajena 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6264" target="_blank" rel="noopener noreferrer" class="">#6264</a></li>
+<li class="">@bruce121 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6305" target="_blank" rel="noopener noreferrer" class="">#6305</a></li>
+<li class="">@bwangll 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6311" target="_blank" rel="noopener noreferrer" class="">#6311</a></li>
+<li class="">@exyb 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6391" target="_blank" rel="noopener noreferrer" class="">#6391</a></li>
+<li class="">@fanpipi 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6287" target="_blank" rel="noopener noreferrer" class="">#6287</a></li>
+<li class="">@hengyuss 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6335" target="_blank" rel="noopener noreferrer" class="">#6335</a></li>
+<li class="">@hqbhonker 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6378" target="_blank" rel="noopener noreferrer" class="">#6378</a></li>
+<li class="">@jonasHanhan 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6272" target="_blank" rel="noopener noreferrer" class="">#6272</a></li>
+<li class="">@RinZ27 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6273" target="_blank" rel="noopener noreferrer" class="">#6273</a></li>
+<li class="">@Senrian 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6299" target="_blank" rel="noopener noreferrer" class="">#6299</a></li>
+<li class="">@SouthwestAsiaFloat 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6375" target="_blank" rel="noopener noreferrer" class="">#6375</a></li>
+<li class="">@SPUERSAIYAN 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6357" target="_blank" rel="noopener noreferrer" class="">#6357</a></li>
+<li class="">@wy471x 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6333" target="_blank" rel="noopener noreferrer" class="">#6333</a></li>
+<li class="">@yangpixi 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6301" target="_blank" rel="noopener noreferrer" class="">#6301</a></li>
+<li class="">@yangyx107 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6282" target="_blank" rel="noopener noreferrer" class="">#6282</a></li>
+<li class="">@yonghanlin 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6232" target="_blank" rel="noopener noreferrer" class="">#6232</a></li>
+<li class="">@zhaoguhong 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6330" target="_blank" rel="noopener noreferrer" class="">#6330</a></li>
+<li class="">@zongmingzhi 首次贡献于 <a href="https://github.com/apache/shenyu/pull/6350" target="_blank" rel="noopener noreferrer" class="">#6350</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="成为贡献者">成为贡献者<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1#%E6%88%90%E4%B8%BA%E8%B4%A1%E7%8C%AE%E8%80%85" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>我们欢迎每一位贡献者的加入ShenYu，欢迎贡献者以Apache Way的精神参与ShenYu！</p>
+<p>贡献者指南请参考：</p>
+<blockquote>
+<p><a href="https://shenyu.apache.org/zh/community/contributor-guide" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/community/contributor-guide</a></p>
+</blockquote>]]></content>
+        <category label="Apache ShenYu" term="Apache ShenYu"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Yu Siheng 2025 Open Source Summer Summary | From Open Source Newbie to Campus Ambassador]]></title>
         <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07</id>
@@ -2335,106 +2480,6 @@ GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener
         <author>
             <name>张子成</name>
         </author>
-        <category label="Apache ShenYu" term="Apache ShenYu"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【Apache ShenYu 2.4.3 版本发布】]]></title>
-        <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3</id>
-        <link href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3"/>
-        <updated>2022-04-18T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Apache ShenYu 2.4.3 版本发布]]></summary>
-        <content type="html"><![CDATA[<p>时隔3个月，Apache ShenYu再次发布2.4.3版本，本次版本内容，有200+的pull Request，30+的贡献者参与，新增了非常多的功能，修复了很多bug，以及优化了很多内容。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="新增功能">新增功能<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ul>
-<li class="">增加 Http 注册客户端的重试机制。</li>
-<li class="">支持 Content-Type 类型为 octet-stream。</li>
-<li class="">支持 Bootstrap 的URIs 的重定向。</li>
-<li class="">增加本地 API 授权。</li>
-<li class="">支持配置 Dubbo消费者线程池大小。</li>
-<li class="">支持 Divide 插件的失败重试机制。</li>
-<li class="">支持 Webscoket 的客户端配置。</li>
-<li class="">支持 MemoryLimitedLinkedBlockingQueue。</li>
-<li class="">支持 Alibaba Dubbo 插件共享线程池。</li>
-<li class="">支持 gRPC 插件共享线程池。</li>
-<li class="">增加 Metrics 插件。</li>
-<li class="">增加 Cache 插件。</li>
-<li class="">增加 Logging RocketMQ 插件。</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="优化项">优化项<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E4%BC%98%E5%8C%96%E9%A1%B9" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ul>
-<li class="">更新 JUnit4 为 JUnit5。</li>
-<li class="">优化 password encryption。</li>
-<li class="">优化和校验 shenyu-admin 模块的接口参数。</li>
-<li class="">优化同步数据时，初始化数据的代码。</li>
-<li class="">增加 LoggingRocketMQ 插件的集成测试。</li>
-<li class="">在 ScheduledExecutorService 类中使用定时轮算法。</li>
-<li class="">重构admin 中注册 URI 的 buildHandle 方法。</li>
-<li class="">优化 Spring Cloud 客户端自动设置端口。</li>
-<li class="">重构 JWT 插件支持多等级 Tokens。</li>
-<li class="">优化网关netty参数自定义可配置</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fix-bug">Fix Bug<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#fix-bug" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ul>
-<li class="">修复 CommonUpstreamUtils 类初始化时的空指针异常。</li>
-<li class="">修复 Nacos 注册失败时进行判断。</li>
-<li class="">修复登录未注册用户时的空指针异常。</li>
-<li class="">修复重复打印启动日志的问题。</li>
-<li class="">修复重试次数，超时时间不生效的问题。</li>
-<li class="">修复 Token 解析报错的问题。</li>
-<li class="">修复 Websocket 传输大数据异常的问题。</li>
-<li class="">修复 NettyHttpClient 插件在失败时未重试的问题。</li>
-<li class="">修复 CVE-2021-41303 漏洞。</li>
-<li class="">修复判断所有插件包含条件不生效的问题。</li>
-<li class="">修复 Http Headers 丢失数据的问题。</li>
-<li class="">修复 Rewrite 插件不支持 URL 占位符的问题。</li>
-<li class="">修复 Nacos 同步数据异常的问题。</li>
-<li class="">修复当 ContextPath 插件打开时，Websocket 代理失败或者空指针异常的问题。</li>
-<li class="">修复 Http 注册客户端的端口占用检查。</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="移除项">移除项<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E7%A7%BB%E9%99%A4%E9%A1%B9" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ul>
-<li class="">移除 Monitor 插件。</li>
-<li class="">移除 shenyu-agent 模块。</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="metrics-插件使用说明">Metrics 插件使用说明<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#metrics-%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>Metrics 插件 插件是网关用来监控自身运行状态（JVM 相关），请求的响应迟延，QPS、TPS等相关 metrics。</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="插件的使用">插件的使用<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<p>在网关的 pom.xml 文件中添加 metrics 的依赖。</p>
-<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">org.apache.shenyugroupId&gt;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">shenyu-spring-boot-starter-plugin-metricsartifactId&gt;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">${project.version}version&gt;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><br></div></code></pre></div></div>
-<p>在网关的配置 yaml 文件中编辑如下内容</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">metrics</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">#设置为 true 表示开启</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">name</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> prometheus </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">host</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> 127.0.0.1 </span><span class="token comment" style="color:#999988;font-style:italic">#暴露的ip</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">port</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">8090</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#暴露的端口</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">jmxConfig</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#jmx配置</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">props</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">jvm_enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#开启jvm的监控指标</span><br></div></code></pre></div></div>
-<p>具体 Metrics 的指标信息可查看官网说明：<a href="https://shenyu.apache.org/zh/docs/plugin-center/observability/metrics-plugin" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/plugin-center/observability/metrics-plugin</a></p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cache-插件使用说明">Cache 插件使用说明<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#cache-%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>Cache 插件能够缓存目标服务的结果，还可以允许用户配置缓存结果失效时间。</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="插件的使用-1">插件的使用<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8-1" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<p>在网关的 pom.xml 文件中添加 Cache 的依赖。</p>
-<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">org.apache.shenyu</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">shenyu-spring-boot-starter-plugin-cache</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">${project.version}</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><br></div></code></pre></div></div>
-<p>适用于数据不会频繁更新、需要大量调用、对于数据一致性要求不高的场景。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging-rocketmq-插件使用说明">Logging RocketMQ 插件使用说明<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#logging-rocketmq-%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>Apache ShenYu 网关接收客户端请求，向服务端转发请求，并将服务端结果返回给客户端。网关可以记录下每次请求对应的详细信息，例如：请求时间、请求参数、请求路径、响应结果、响应状态码、耗时、上游IP、异常信息等。</p>
-<p>Logging-RocketMQ 插件是记录访问日志并将访问日志发送到 RocketMQ 集群的插件.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="插件的使用-2">插件的使用<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8-2" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<p>在网关的 pom.xml 文件中添加依赖。</p>
-<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">org.apache.shenyu</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">shenyu-spring-boot-starter-plugin-logging-rocketmq</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">${project.version}</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><br></div></code></pre></div></div>
-<p>具体配置以及各个参数的作用等信息可查看官网说明：<a href="https://shenyu.apache.org/zh/docs/plugin-center/observability/logging-rocketmq" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/plugin-center/observability/logging-rocketmq</a></p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="下个版本规划">下个版本规划<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E4%B8%8B%E4%B8%AA%E7%89%88%E6%9C%AC%E8%A7%84%E5%88%92" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="新增集群方案">新增集群方案<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E6%96%B0%E5%A2%9E%E9%9B%86%E7%BE%A4%E6%96%B9%E6%A1%88" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<ul>
-<li class="">新增shenyu-proxy模块，支持ShenYu的集群模式，以及网关的动态扩缩容</li>
-<li class="">新增shenyu-nginx子项目，对接Nginx-upstream模块</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="新增多语言sdk">新增多语言SDK<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E6%96%B0%E5%A2%9E%E5%A4%9A%E8%AF%AD%E8%A8%80sdk" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<p>多语言的SDK主要是为了让其他类型的语言快速的接入shenyu网关</p>
-<blockquote>
-<p><a href="https://github.com/apache/incubator-shenyu-client-donet" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/incubator-shenyu-client-donet</a></p>
-<p><a href="https://github.com/apache/incubator-shenyu-client-golang" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/incubator-shenyu-client-golang</a></p>
-<p><a href="https://github.com/apache/incubator-shenyu-client-python" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/incubator-shenyu-client-python</a></p>
-</blockquote>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="新增-helm-chart">新增 Helm Chart<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.4.3#%E6%96%B0%E5%A2%9E-helm-chart" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<blockquote>
-<p><a href="https://github.com/apache/incubator-shenyu-helm-chart" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/incubator-shenyu-helm-chart</a></p>
-</blockquote>
-<p><img decoding="async" loading="lazy" alt="helm-ci-pipeline" src="https://shenyu.apache.org/zh/assets/images/helm-ci-pipeline-429d393437969120ed1a24dd3c18f23f.png" width="855" height="494" class="img_ev3q"></p>]]></content>
         <category label="Apache ShenYu" term="Apache ShenYu"/>
     </entry>
 </feed>

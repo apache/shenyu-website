@@ -2,11 +2,156 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenyu.apache.org/news</id>
     <title>Apache ShenYu Blog</title>
-    <updated>2026-01-07T00:00:00.000Z</updated>
+    <updated>2026-07-13T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://shenyu.apache.org/news"/>
     <subtitle>Apache ShenYu Blog</subtitle>
     <icon>https://shenyu.apache.org/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[[Apache ShenYu 2.7.1 Version Release]]]></title>
+        <id>https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1</id>
+        <link href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1"/>
+        <updated>2026-07-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Apache ShenYu 2.7.1 Version Release]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="apache-shenyu">Apache ShenYu<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1#apache-shenyu" class="hash-link" aria-label="Direct link to Apache ShenYu" title="Direct link to Apache ShenYu" translate="no">​</a></h2>
+<p>Apache ShenYu is a responsive API gateway developed using Java Reactor. With its high performance, dynamic and flexible traffic control, hot swap, easy deployment and other features, out of the box to provide users with a full lifecycle of 'API' gateway, including 'API' registration, service proxy, protocol conversion, 'API' documentation and 'API' governance and other functions. Apache ShenYu graduated as an Apache top-level project in 'July 2022'.</p>
+<blockquote>
+<p>website: <a href="https://shenyu.apache.org/" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org</a></p>
+<p>GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu</a></p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-preview">Version preview<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1#version-preview" class="hash-link" aria-label="Direct link to Version preview" title="Direct link to Version preview" translate="no">​</a></h2>
+<p>Apache ShenYu released version 2.7.1. This version merged 97 pull requests, including bug fixes, improvements, and new features such as MCP server enhancements, WASM runtime migration, security hardening, and infrastructure improvements.
+Version history: <a href="https://github.com/apache/shenyu/compare/v2.7.0.3...v2.7.1" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/compare/v2.7.0.3...v2.7.1</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-changed">What's Changed<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1#whats-changed" class="hash-link" aria-label="Direct link to What's Changed" title="Direct link to What's Changed" translate="no">​</a></h2>
+<ul>
+<li class="">fix non determinsitic tests (#6232) by @yonghanlin in <a href="https://github.com/apache/shenyu/pull/6232" target="_blank" rel="noopener noreferrer" class="">#6232</a></li>
+<li class="">fix non deterministic test (#6229) by @annhchen89 in <a href="https://github.com/apache/shenyu/pull/6229" target="_blank" rel="noopener noreferrer" class="">#6229</a></li>
+<li class="">Fix mcp server real url error (#6228) by @478320 in <a href="https://github.com/apache/shenyu/pull/6228" target="_blank" rel="noopener noreferrer" class="">#6228</a></li>
+<li class="">fix HttpUtilsTest nondeterminism from param order (#6230) by @yonghanlin in <a href="https://github.com/apache/shenyu/pull/6230" target="_blank" rel="noopener noreferrer" class="">#6230</a></li>
+<li class="">fix field-sqlmap.xml database reserved keywords (#6233) by @2823602869 in <a href="https://github.com/apache/shenyu/pull/6233" target="_blank" rel="noopener noreferrer" class="">#6233</a></li>
+<li class="">fix get the argument position mapping error and test method (#6236) by @MaMengzhen in <a href="https://github.com/apache/shenyu/pull/6236" target="_blank" rel="noopener noreferrer" class="">#6236</a></li>
+<li class="">add reset cache in MethodDescriptor (#6244) by @annhchen89 in <a href="https://github.com/apache/shenyu/pull/6244" target="_blank" rel="noopener noreferrer" class="">#6244</a></li>
+<li class="">[Fix] the selector and rule pagination non-functional (#6239) (#6243) by @VampireAchao in <a href="https://github.com/apache/shenyu/pull/6239" target="_blank" rel="noopener noreferrer" class="">#6239</a></li>
+<li class="">Fix Order Dependent Test in AiPromptPluginDataHandlerTest (#6245) by @annhchen89 in <a href="https://github.com/apache/shenyu/pull/6245" target="_blank" rel="noopener noreferrer" class="">#6245</a></li>
+<li class="">Fix non deterministic caused by Hashmap (#6246) by @annhchen89 in <a href="https://github.com/apache/shenyu/pull/6246" target="_blank" rel="noopener noreferrer" class="">#6246</a></li>
+<li class="">Enhance index method to build base URL from HTTP request, supporting reverse proxy scenarios (#6247) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6247" target="_blank" rel="noopener noreferrer" class="">#6247</a></li>
+<li class="">modify loadbalancer (#6251) by @yu199195 in <a href="https://github.com/apache/shenyu/pull/6251" target="_blank" rel="noopener noreferrer" class="">#6251</a></li>
+<li class="">feat: Introduce request body size limit, enhance AI proxy plugin's ChatClient caching with config hash, and refine prompt extraction from the request body. (#6248) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6248" target="_blank" rel="noopener noreferrer" class="">#6248</a></li>
+<li class="">fix ai proxy key (#6249) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6249" target="_blank" rel="noopener noreferrer" class="">#6249</a></li>
+<li class="">Refactor EtcdClient and RedisConnectionFactory for improved readability and maintainability (#6250) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6250" target="_blank" rel="noopener noreferrer" class="">#6250</a></li>
+<li class="">feat: Enhance IpUtils with Docker support, improved IP filtering (#6253) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6253" target="_blank" rel="noopener noreferrer" class="">#6253</a></li>
+<li class="">fix mcp tool sample error (#6259) by @MaMengzhen in <a href="https://github.com/apache/shenyu/pull/6259" target="_blank" rel="noopener noreferrer" class="">#6259</a></li>
+<li class="">infra: refactor infra zk module (#6199) by @yuluo-yx in <a href="https://github.com/apache/shenyu/pull/6199" target="_blank" rel="noopener noreferrer" class="">#6199</a></li>
+<li class="">feat: Rename ai proxy enhanced module to ai proxy and update related files (#6260) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6260" target="_blank" rel="noopener noreferrer" class="">#6260</a></li>
+<li class="">fix NettyHttpClientPlugin doRequest response unique headers error (#6258) by @MaMengzhen in <a href="https://github.com/apache/shenyu/pull/6258" target="_blank" rel="noopener noreferrer" class="">#6258</a></li>
+<li class="">fix 'addCustomHeaders' header value replace bug (#6257) by @MaMengzhen in <a href="https://github.com/apache/shenyu/pull/6257" target="_blank" rel="noopener noreferrer" class="">#6257</a></li>
+<li class="">fix order dependent test (#6261) by @annhchen89 in <a href="https://github.com/apache/shenyu/pull/6261" target="_blank" rel="noopener noreferrer" class="">#6261</a></li>
+<li class="">test(#5161): Improve test coverage for VersionUtils (#6264) by @airajena in <a href="https://github.com/apache/shenyu/pull/5161" target="_blank" rel="noopener noreferrer" class="">#5161</a></li>
+<li class="">[#6262] Fix OrderlyExecutor resource leak in shenyu-disruptor (#6269) by @airajena in <a href="https://github.com/apache/shenyu/pull/6269" target="_blank" rel="noopener noreferrer" class="">#6269</a></li>
+<li class="">Fix: Set isClosing flag in closeGracefully method as documented (#6263) by @airajena in <a href="https://github.com/apache/shenyu/pull/6263" target="_blank" rel="noopener noreferrer" class="">#6263</a></li>
+<li class="">fix add custom headers error (#6268) by @MaMengzhen in <a href="https://github.com/apache/shenyu/pull/6268" target="_blank" rel="noopener noreferrer" class="">#6268</a></li>
+<li class="">[ISSUE #6235] Set upstream check for each upstream. (#6272) by @jonasHanhan in <a href="https://github.com/apache/shenyu/pull/6272" target="_blank" rel="noopener noreferrer" class="">#6272</a></li>
+<li class="">fix mcp config shenyu context error (#6266) by @MaMengzhen in <a href="https://github.com/apache/shenyu/pull/6266" target="_blank" rel="noopener noreferrer" class="">#6266</a></li>
+<li class="">[type<!-- -->:fix<!-- -->] fix database init script (#6277) by @eye-gu in <a href="https://github.com/apache/shenyu/pull/6277" target="_blank" rel="noopener noreferrer" class="">#6277</a></li>
+<li class="">chore(deps): bump org.assertj<!-- -->:assertj-core<!-- --> in /shenyu-e2e (#6278) by @dependabot[bot] in <a href="https://github.com/apache/shenyu/pull/6278" target="_blank" rel="noopener noreferrer" class="">#6278</a></li>
+<li class="">Fix: Preserve Gateway's independent upstream health check state when receiving config updates from Admin (#6274) by @guanzhenxing in <a href="https://github.com/apache/shenyu/pull/6274" target="_blank" rel="noopener noreferrer" class="">#6274</a></li>
+<li class="">[Security] Harden Docker images to run as non-root user (#6273) by @RinZ27 in <a href="https://github.com/apache/shenyu/pull/6273" target="_blank" rel="noopener noreferrer" class="">#6273</a></li>
+<li class="">feat: Add new role search criteria (#6282) by @yangyx107 in <a href="https://github.com/apache/shenyu/pull/6282" target="_blank" rel="noopener noreferrer" class="">#6282</a></li>
+<li class="">feat<!-- -->:sync<!-- --> dashboard (#6283) by @yangyx107 in <a href="https://github.com/apache/shenyu/pull/6283" target="_blank" rel="noopener noreferrer" class="">#6283</a></li>
+<li class="">fix: handle tool not found error and update requestConfig type to JsonElement (#6284) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6284" target="_blank" rel="noopener noreferrer" class="">#6284</a></li>
+<li class="">[type<!-- -->:fix<!-- -->] set open (#6280) by @eye-gu in <a href="https://github.com/apache/shenyu/pull/6280" target="_blank" rel="noopener noreferrer" class="">#6280</a></li>
+<li class="">feat<!-- -->:modify<!-- --> instance createOrUpdate method log level (#6285) by @yangyx107 in <a href="https://github.com/apache/shenyu/pull/6285" target="_blank" rel="noopener noreferrer" class="">#6285</a></li>
+<li class="">replace stream().forEach() to forEach() (#6275) by @VampireAchao in <a href="https://github.com/apache/shenyu/pull/6275" target="_blank" rel="noopener noreferrer" class="">#6275</a></li>
+<li class="">fix: fix GsonUtils concurrent serialization exceptions (#6286) (#6287) by @fanpipi in <a href="https://github.com/apache/shenyu/pull/6286" target="_blank" rel="noopener noreferrer" class="">#6286</a></li>
+<li class="">fix: enhance logging and improve request handling in HTTP client plugins (#6288) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6288" target="_blank" rel="noopener noreferrer" class="">#6288</a></li>
+<li class="">fix mcp streamable (#6289) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6289" target="_blank" rel="noopener noreferrer" class="">#6289</a></li>
+<li class="">feat: refactor aiRequest and aiResponse models to support asynchronou… (#6296) by @478320 in <a href="https://github.com/apache/shenyu/pull/6296" target="_blank" rel="noopener noreferrer" class="">#6296</a></li>
+<li class="">feat: add CORS support with configurable allowed headers in MCP server (#6295) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6295" target="_blank" rel="noopener noreferrer" class="">#6295</a></li>
+<li class="">fix: improve upstream cache management and add recovery test for empty events (#6294) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6294" target="_blank" rel="noopener noreferrer" class="">#6294</a></li>
+<li class="">fix: improve MCP server plugin path handling and backward compatibility for argsPosition (#6293) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6293" target="_blank" rel="noopener noreferrer" class="">#6293</a></li>
+<li class="">Fix: loggion console add rule bug (#6291) by @yangyx107 in <a href="https://github.com/apache/shenyu/pull/6291" target="_blank" rel="noopener noreferrer" class="">#6291</a></li>
+<li class="">[type<!-- -->:fix<!-- -->] remove java 18 ci (#6306) by @moremind in <a href="https://github.com/apache/shenyu/pull/6306" target="_blank" rel="noopener noreferrer" class="">#6306</a></li>
+<li class="">[type<!-- -->:refactor<!-- -->] remove shenyu trie cache (#6303) by @moremind in <a href="https://github.com/apache/shenyu/pull/6303" target="_blank" rel="noopener noreferrer" class="">#6303</a></li>
+<li class="">chore(deps): bump oshi from 6.7.0 to 6.10.0 (#6301) by @yangpixi in <a href="https://github.com/apache/shenyu/pull/6301" target="_blank" rel="noopener noreferrer" class="">#6301</a></li>
+<li class="">chore(deps): bump org.apache.zookeeper<!-- -->:zookeeper<!-- --> from 3.9.4 to 3.9.5 (#6302) by @dependabot[bot] in <a href="https://github.com/apache/shenyu/pull/6302" target="_blank" rel="noopener noreferrer" class="">#6302</a></li>
+<li class="">fix: replace Collections.EMPTY_MAP with Collections.emptyMap() (#6299) by @Senrian in <a href="https://github.com/apache/shenyu/pull/6299" target="_blank" rel="noopener noreferrer" class="">#6299</a></li>
+<li class="">Fix: RuleServiceImpl#searchByPage() Selectors now populated from namespace only when condition selectors are null or empty. (#6305) by @bruce121 in <a href="https://github.com/apache/shenyu/pull/6305" target="_blank" rel="noopener noreferrer" class="">#6305</a></li>
+<li class="">fix(common): align PluginEnum sort values with DB schema.sql (#6310) (#6311) by @bwangll in <a href="https://github.com/apache/shenyu/pull/6310" target="_blank" rel="noopener noreferrer" class="">#6310</a></li>
+<li class="">infra(ci): add CI action condition (#6316) by @yuluo-yx in <a href="https://github.com/apache/shenyu/pull/6316" target="_blank" rel="noopener noreferrer" class="">#6316</a></li>
+<li class="">feat(mcp-server): enhance SDK compatibility with reflection caching and error handling (#6312) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6312" target="_blank" rel="noopener noreferrer" class="">#6312</a></li>
+<li class="">Align SSRF URL validation with OkHttp parsing (#6321) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6321" target="_blank" rel="noopener noreferrer" class="">#6321</a></li>
+<li class="">Hide registry passwords from admin API responses (#6322) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6322" target="_blank" rel="noopener noreferrer" class="">#6322</a></li>
+<li class="">Block redirect-based SSRF bypass in Swagger imports (#6320) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6320" target="_blank" rel="noopener noreferrer" class="">#6320</a></li>
+<li class="">Fix missing RBAC on selector, rule, and data-permission endpoints (#6319) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6319" target="_blank" rel="noopener noreferrer" class="">#6319</a></li>
+<li class="">Ci update cache (#6325) by @2823602869 in <a href="https://github.com/apache/shenyu/pull/6325" target="_blank" rel="noopener noreferrer" class="">#6325</a></li>
+<li class="">chore(deps): bump org.apache.kafka<!-- -->:kafka-clients<!-- --> from 3.9.1 to 3.9.2 (#6324) by @dependabot[bot] in <a href="https://github.com/apache/shenyu/pull/6324" target="_blank" rel="noopener noreferrer" class="">#6324</a></li>
+<li class="">Stop exposing login AES secrets to anonymous callers (#6323) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6323" target="_blank" rel="noopener noreferrer" class="">#6323</a></li>
+<li class="">chore(deps): bump org.bouncycastle<!-- -->:bcprov-jdk18on<!-- --> from 1.78 to 1.84 (#6331) by @dependabot[bot] in <a href="https://github.com/apache/shenyu/pull/6331" target="_blank" rel="noopener noreferrer" class="">#6331</a></li>
+<li class="">test(task#5161): improve test coverage for sync. (#6333) by @wy471x in <a href="https://github.com/apache/shenyu/pull/6333" target="_blank" rel="noopener noreferrer" class="">#6333</a></li>
+<li class="">test(task#5161): improve test coverage for admin. (#6328) by @wy471x in <a href="https://github.com/apache/shenyu/pull/6328" target="_blank" rel="noopener noreferrer" class="">#6328</a></li>
+<li class="">Fix websocket client spec builder reuse in plugin config (#6330) by @zhaoguhong in <a href="https://github.com/apache/shenyu/pull/6330" target="_blank" rel="noopener noreferrer" class="">#6330</a></li>
+<li class="">chore(deps): bump com.sun.mail<!-- -->:jakarta<!-- -->.mail from 2.0.1 to 2.0.2 (#6329) by @dependabot[bot] in <a href="https://github.com/apache/shenyu/pull/6329" target="_blank" rel="noopener noreferrer" class="">#6329</a></li>
+<li class="">Prevent duplicate full-mode URI heartbeats after repeated context refresh (#6337) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6337" target="_blank" rel="noopener noreferrer" class="">#6337</a></li>
+<li class="">[type<!-- -->:refactor<!-- -->] remove motan support (#6307) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6307" target="_blank" rel="noopener noreferrer" class="">#6307</a></li>
+<li class="">fix: correct instanceof check in addFailureUriDataRegister (#6345) by @eye-gu in <a href="https://github.com/apache/shenyu/pull/6345" target="_blank" rel="noopener noreferrer" class="">#6345</a></li>
+<li class="">fix(ai-prompt): preserve all original messages in decorateBody (#6343) by @eye-gu in <a href="https://github.com/apache/shenyu/pull/6343" target="_blank" rel="noopener noreferrer" class="">#6343</a></li>
+<li class="">fix: replace ArrayList with CopyOnWriteArrayList to avoid ConcurrentModificationException in URI heartbeat (#6352) by @eye-gu in <a href="https://github.com/apache/shenyu/pull/6352" target="_blank" rel="noopener noreferrer" class="">#6352</a></li>
+<li class="">fix: eliminate race condition in UpstreamCheckServiceTest.testReplace (#6355) by @eye-gu in <a href="https://github.com/apache/shenyu/pull/6355" target="_blank" rel="noopener noreferrer" class="">#6355</a></li>
+<li class="">Fix README documentation links (#6357) by @SPUERSAIYAN in <a href="https://github.com/apache/shenyu/pull/6357" target="_blank" rel="noopener noreferrer" class="">#6357</a></li>
+<li class="">Codex/fix sandbox response leak (#6359) by @SPUERSAIYAN in <a href="https://github.com/apache/shenyu/pull/6359" target="_blank" rel="noopener noreferrer" class="">#6359</a></li>
+<li class="">Stabilize k8s ingress startup healthchecks (#6361) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6361" target="_blank" rel="noopener noreferrer" class="">#6361</a></li>
+<li class="">Stabilize Sentinel integrated rate-limit assertions (#6374) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6374" target="_blank" rel="noopener noreferrer" class="">#6374</a></li>
+<li class="">Stabilize HTTP E2E compose startup readiness (#6363) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6363" target="_blank" rel="noopener noreferrer" class="">#6363</a></li>
+<li class="">Stabilize Sentinel CI assertion for PR 6375 (#6377) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6377" target="_blank" rel="noopener noreferrer" class="">#6377</a></li>
+<li class="">[ISSUE 6334] : Add uri validation for regex and other operators. (#6335) by @hengyuss in <a href="https://github.com/apache/shenyu/pull/6335" target="_blank" rel="noopener noreferrer" class="">#6335</a></li>
+<li class="">fix(netty): support configurable httpRequestDecoder properties (#6378) by @hqbhonker in <a href="https://github.com/apache/shenyu/pull/6378" target="_blank" rel="noopener noreferrer" class="">#6378</a></li>
+<li class="">Fix RocketMQ logging e2e bootstrap startup (#6379) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6379" target="_blank" rel="noopener noreferrer" class="">#6379</a></li>
+<li class="">fix(request): make add operations append existing values (#6375) by @SouthwestAsiaFloat in <a href="https://github.com/apache/shenyu/pull/6375" target="_blank" rel="noopener noreferrer" class="">#6375</a></li>
+<li class="">fix: skip request body for GET and HEAD requests (#6350) by @zongmingzhi in <a href="https://github.com/apache/shenyu/pull/6350" target="_blank" rel="noopener noreferrer" class="">#6350</a></li>
+<li class="">fix(ci): remove maven cache save to avoid incomplete cache pollution (#6383) by @eye-gu in <a href="https://github.com/apache/shenyu/pull/6383" target="_blank" rel="noopener noreferrer" class="">#6383</a></li>
+<li class="">[type<!-- -->:refactor<!-- -->] replace inactive wasmtime-java with chicory pure-Java WASM runtime (#6356) by @eye-gu in <a href="https://github.com/apache/shenyu/pull/6356" target="_blank" rel="noopener noreferrer" class="">#6356</a></li>
+<li class="">Prerelease/fix license (#6387) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6387" target="_blank" rel="noopener noreferrer" class="">#6387</a></li>
+<li class="">fix<!-- -->:fix<!-- --> local springmvc client cant register success (#6395) by @hengyuss in <a href="https://github.com/apache/shenyu/pull/6395" target="_blank" rel="noopener noreferrer" class="">#6395</a></li>
+<li class="">fix: DividePlugin specify-domain header to prevent cache pollution and restrict to configured upstreams (#6412) by @hengyuss in <a href="https://github.com/apache/shenyu/pull/6412" target="_blank" rel="noopener noreferrer" class="">#6412</a></li>
+<li class="">fix: Enforce account enabled check on every authenticated request in ShiroRealm [#6399] (#6415) by @hengyuss in <a href="https://github.com/apache/shenyu/pull/6415" target="_blank" rel="noopener noreferrer" class="">#6415</a></li>
+<li class="">fix(admin): limit swagger import response body size (#6411) by @SouthwestAsiaFloat in <a href="https://github.com/apache/shenyu/pull/6411" target="_blank" rel="noopener noreferrer" class="">#6411</a></li>
+<li class="">fix: Add decompression size limits to ZipUtil.unzip()[#6400] (#6416) by @hengyuss in <a href="https://github.com/apache/shenyu/pull/6416" target="_blank" rel="noopener noreferrer" class="">#6416</a></li>
+<li class="">fix: add mounts for external libraries in docker-compose to prevent startup issues (missing database connector driver) when using an external database datasource other than H2 (#6389) (#6391) by @exyb in <a href="https://github.com/apache/shenyu/pull/6389" target="_blank" rel="noopener noreferrer" class="">#6389</a></li>
+<li class="">[fix] Add missing permission annotations to /appAuth/updateSk and /sandbox/proxyGateway (#6388) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6388" target="_blank" rel="noopener noreferrer" class="">#6388</a></li>
+<li class="">Require permission for namespace plugin sync (#6384) by @Aias00 in <a href="https://github.com/apache/shenyu/pull/6384" target="_blank" rel="noopener noreferrer" class="">#6384</a></li>
+<li class="">fix: use come.google.re2j replace java.util.regex in RegexPredicateJu… (#6410) by @hengyuss in <a href="https://github.com/apache/shenyu/pull/6410" target="_blank" rel="noopener noreferrer" class="">#6410</a></li>
+<li class="">fix: Remove appSecret from sandbox-beforesign response header[#6402] (#6417) by @hengyuss in <a href="https://github.com/apache/shenyu/pull/6417" target="_blank" rel="noopener noreferrer" class="">#6417</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-contributors">New Contributors<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1#new-contributors" class="hash-link" aria-label="Direct link to New Contributors" title="Direct link to New Contributors" translate="no">​</a></h2>
+<ul>
+<li class="">@2823602869 made their first contribution in <a href="https://github.com/apache/shenyu/pull/6233" target="_blank" rel="noopener noreferrer" class="">#6233</a></li>
+<li class="">@airajena made their first contribution in <a href="https://github.com/apache/shenyu/pull/6264" target="_blank" rel="noopener noreferrer" class="">#6264</a></li>
+<li class="">@bruce121 made their first contribution in <a href="https://github.com/apache/shenyu/pull/6305" target="_blank" rel="noopener noreferrer" class="">#6305</a></li>
+<li class="">@bwangll made their first contribution in <a href="https://github.com/apache/shenyu/pull/6311" target="_blank" rel="noopener noreferrer" class="">#6311</a></li>
+<li class="">@exyb made their first contribution in <a href="https://github.com/apache/shenyu/pull/6391" target="_blank" rel="noopener noreferrer" class="">#6391</a></li>
+<li class="">@fanpipi made their first contribution in <a href="https://github.com/apache/shenyu/pull/6287" target="_blank" rel="noopener noreferrer" class="">#6287</a></li>
+<li class="">@hengyuss made their first contribution in <a href="https://github.com/apache/shenyu/pull/6335" target="_blank" rel="noopener noreferrer" class="">#6335</a></li>
+<li class="">@hqbhonker made their first contribution in <a href="https://github.com/apache/shenyu/pull/6378" target="_blank" rel="noopener noreferrer" class="">#6378</a></li>
+<li class="">@jonasHanhan made their first contribution in <a href="https://github.com/apache/shenyu/pull/6272" target="_blank" rel="noopener noreferrer" class="">#6272</a></li>
+<li class="">@RinZ27 made their first contribution in <a href="https://github.com/apache/shenyu/pull/6273" target="_blank" rel="noopener noreferrer" class="">#6273</a></li>
+<li class="">@Senrian made their first contribution in <a href="https://github.com/apache/shenyu/pull/6299" target="_blank" rel="noopener noreferrer" class="">#6299</a></li>
+<li class="">@SouthwestAsiaFloat made their first contribution in <a href="https://github.com/apache/shenyu/pull/6375" target="_blank" rel="noopener noreferrer" class="">#6375</a></li>
+<li class="">@SPUERSAIYAN made their first contribution in <a href="https://github.com/apache/shenyu/pull/6357" target="_blank" rel="noopener noreferrer" class="">#6357</a></li>
+<li class="">@wy471x made their first contribution in <a href="https://github.com/apache/shenyu/pull/6333" target="_blank" rel="noopener noreferrer" class="">#6333</a></li>
+<li class="">@yangpixi made their first contribution in <a href="https://github.com/apache/shenyu/pull/6301" target="_blank" rel="noopener noreferrer" class="">#6301</a></li>
+<li class="">@yangyx107 made their first contribution in <a href="https://github.com/apache/shenyu/pull/6282" target="_blank" rel="noopener noreferrer" class="">#6282</a></li>
+<li class="">@yonghanlin made their first contribution in <a href="https://github.com/apache/shenyu/pull/6232" target="_blank" rel="noopener noreferrer" class="">#6232</a></li>
+<li class="">@zhaoguhong made their first contribution in <a href="https://github.com/apache/shenyu/pull/6330" target="_blank" rel="noopener noreferrer" class="">#6330</a></li>
+<li class="">@zongmingzhi made their first contribution in <a href="https://github.com/apache/shenyu/pull/6350" target="_blank" rel="noopener noreferrer" class="">#6350</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="become-a-contributor">Become a contributor<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1#become-a-contributor" class="hash-link" aria-label="Direct link to Become a contributor" title="Direct link to Become a contributor" translate="no">​</a></h2>
+<p>We welcome every contributor to join ShenYu, and welcome contributors to participate in ShenYu in the spirit of Apache Way!</p>
+<p>See the contributor guidelines:</p>
+<blockquote>
+<p><a href="https://shenyu.apache.org/zh/community/contributor-guide" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/community/contributor-guide</a></p>
+</blockquote>]]></content>
+        <category label="Apache ShenYu" term="Apache ShenYu"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Yu Siheng 2025 Open Source Summer Summary | From Open Source Newbie to Campus Ambassador]]></title>
         <id>https://shenyu.apache.org/news/Apache-ShenYu-OSPP2025-Summary-2026-01-07</id>
@@ -2731,106 +2876,6 @@ It aims to encourage students to actively participate in the development and mai
         <author>
             <name>Zicheng Zhang</name>
         </author>
-        <category label="Apache ShenYu" term="Apache ShenYu"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[Apache ShenYu 2.4.3 Version Release]]]></title>
-        <id>https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3</id>
-        <link href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3"/>
-        <updated>2022-04-18T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Apache ShenYu 2.4.3 Version Release]]></summary>
-        <content type="html"><![CDATA[<p>After 3 months, Apache ShenYu released version 2.4.3 again. The content of this version has 200+ pull requests, 30+ contributors participated, many new functions have been added, many bugs have been fixed, and many optimizations have been made.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-features">new features<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#new-features" class="hash-link" aria-label="Direct link to new features" title="Direct link to new features" translate="no">​</a></h3>
-<ul>
-<li class="">Added retry mechanism for Http registration client.</li>
-<li class="">Support Content-Type of type octet-stream.</li>
-<li class="">Support redirection of Bootstrap URIs.</li>
-<li class="">Added local API authorization.</li>
-<li class="">Support configuring Dubbo consumer thread pool size.</li>
-<li class="">Support failure retry mechanism for Divide plugin.</li>
-<li class="">Supports client configuration for Webscoket.</li>
-<li class="">Support MemoryLimitedLinkedBlockingQueue.</li>
-<li class="">Support Alibaba Dubbo plugin to share thread pool.</li>
-<li class="">Support gRPC plugin shared thread pool.</li>
-<li class="">Added Metrics plugin.</li>
-<li class="">Added Cache plugin.</li>
-<li class="">Added Logging RocketMQ plugin.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="optimizations">Optimizations<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#optimizations" class="hash-link" aria-label="Direct link to Optimizations" title="Direct link to Optimizations" translate="no">​</a></h3>
-<ul>
-<li class="">Updated JUnit4 to JUnit5.</li>
-<li class="">Optimize password encryption.</li>
-<li class="">Optimize and verify the interface parameters of the shenyu-admin module.</li>
-<li class="">Optimize the code for initializing data when synchronizing data.</li>
-<li class="">Added integration tests for LoggingRocketMQ plugin.</li>
-<li class="">Use the timing wheel algorithm in the ScheduledExecutorService class.</li>
-<li class="">Refactored the buildHandle method of the registered URI in admin.</li>
-<li class="">Optimized the Spring Cloud client to automatically set the port.</li>
-<li class="">Refactored JWT plugin to support multi-level Tokens.</li>
-<li class="">Optimized gateway netty parameter customization and configurable</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fix-bug">Fix Bug<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#fix-bug" class="hash-link" aria-label="Direct link to Fix Bug" title="Direct link to Fix Bug" translate="no">​</a></h3>
-<ul>
-<li class="">Fix the null pointer exception when the CommonUpstreamUtils class is initialized.</li>
-<li class="">Fix the judgment when Nacos registration fails.</li>
-<li class="">Fixed null pointer exception when logging in unregistered users.</li>
-<li class="">Fixed the problem of repeatedly printing the startup log.</li>
-<li class="">Fixed the problem that the number of retries and the timeout period did not take effect.</li>
-<li class="">Fixed Token parsing error.</li>
-<li class="">Fixed the problem that Websocket transmits large data abnormally.</li>
-<li class="">Fixed NettyHttpClient plugin not retrying on failure.</li>
-<li class="">Fixed CVE-2021-41303 vulnerability.
--Fixed the problem that judging all plugin inclusion conditions did not take effect.</li>
-<li class="">Fixed Http Headers losing data.</li>
-<li class="">Fixed Rewrite plugin not supporting URL placeholders.</li>
-<li class="">Fixed the problem of abnormal synchronization data in Nacos.</li>
-<li class="">Fix Websocket proxy failure or null pointer exception when ContextPath plugin is open.</li>
-<li class="">Fixed port occupancy check for Http registered clients.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="remove-item">remove item<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#remove-item" class="hash-link" aria-label="Direct link to remove item" title="Direct link to remove item" translate="no">​</a></h3>
-<ul>
-<li class="">Remove Monitor plugin.</li>
-<li class="">Remove shenyu-agent module.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="metrics-plugin-instructions">Metrics Plugin Instructions<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#metrics-plugin-instructions" class="hash-link" aria-label="Direct link to Metrics Plugin Instructions" title="Direct link to Metrics Plugin Instructions" translate="no">​</a></h3>
-<p>Metrics plugin The plugin is used by the gateway to monitor its own running status (JVM related), request response delay, QPS, TPS and other related metrics.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-of-plugins">Use of plugins<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#use-of-plugins" class="hash-link" aria-label="Direct link to Use of plugins" title="Direct link to Use of plugins" translate="no">​</a></h4>
-<p>Add the metrics dependency in the gateway's pom.xml file.</p>
-<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">org.apache.shenyu</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">shenyu-spring-boot-starter-plugin-metrics</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">${project.version}</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><br></div></code></pre></div></div>
-<p>Edit the following in the gateway's configuration yaml file</p>
-<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">shenyu</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">metrics</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">false</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#Set to true to enable</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">name</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> prometheus</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">host</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> 127.0.0.1 </span><span class="token comment" style="color:#999988;font-style:italic">#exposed ip</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">port</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">8090</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#Exposed port</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">jmxConfig</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#jmxConfiguration</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">props</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">jvm_enabled</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#Enable jvm monitoring indicators</span><br></div></code></pre></div></div>
-<p>For specific metrics information, please check the official website description: <a href="https://shenyu.apache.org/zh/docs/plugin-center/observability/metrics-plugin" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/plugin-center/observability/metrics-plugin</a></p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cache-plugin-instructions">Cache plugin instructions<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#cache-plugin-instructions" class="hash-link" aria-label="Direct link to Cache plugin instructions" title="Direct link to Cache plugin instructions" translate="no">​</a></h3>
-<p>The Cache plugin can cache the results of the target service, and also allows the user to configure the expiration time of the cached results.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-of-plugins-1">Use of plugins<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#use-of-plugins-1" class="hash-link" aria-label="Direct link to Use of plugins" title="Direct link to Use of plugins" translate="no">​</a></h4>
-<p>Add the Cache dependency in the gateway's pom.xml file.</p>
-<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">org.apache.shenyu</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">shenyu-spring-boot-starter-plugin-cache</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">${project.version}</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><br></div></code></pre></div></div>
-<p>It is suitable for scenarios where data is not frequently updated, requires a large number of calls, and does not require high data consistency.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging-rocketmq-plugin-instructions">Logging RocketMQ plugin instructions<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#logging-rocketmq-plugin-instructions" class="hash-link" aria-label="Direct link to Logging RocketMQ plugin instructions" title="Direct link to Logging RocketMQ plugin instructions" translate="no">​</a></h3>
-<p>The Apache ShenYu gateway receives the client request, forwards the request to the server, and returns the server result to the client. The gateway can record the detailed information corresponding to each request, such as: request time, request parameters, request path, response result, response status code, time-consuming, upstream IP, exception information, etc.</p>
-<p>Logging-RocketMQ plugin is a plugin that records and sends access logs to the RocketMQ cluster.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-of-plugins-2">Use of plugins<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#use-of-plugins-2" class="hash-link" aria-label="Direct link to Use of plugins" title="Direct link to Use of plugins" translate="no">​</a></h4>
-<p>Add dependencies in the gateway's pom.xml file.</p>
-<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">org.apache.shenyu</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">shenyu-spring-boot-starter-plugin-logging-rocketmq</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">${project.version}</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><br></div></code></pre></div></div>
-<p>The specific configuration and the function of each parameter can be found on the official website: <a href="https://shenyu.apache.org/zh/docs/plugin-center/observability/logging-rocketmq" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/zh/docs/plugin-center/observability/logging-rocketmq</a></p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-version-planning">Next version planning<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#next-version-planning" class="hash-link" aria-label="Direct link to Next version planning" title="Direct link to Next version planning" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="add-cluster-plan">Add cluster plan<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#add-cluster-plan" class="hash-link" aria-label="Direct link to Add cluster plan" title="Direct link to Add cluster plan" translate="no">​</a></h4>
-<ul>
-<li class="">Added shenyu-proxy module to support ShenYu's cluster mode and dynamic expansion and contraction of gateways</li>
-<li class="">Added shenyu-nginx sub-project to connect to Nginx-upstream module</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added-multi-language-sdk">Added multi-language SDK<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#added-multi-language-sdk" class="hash-link" aria-label="Direct link to Added multi-language SDK" title="Direct link to Added multi-language SDK" translate="no">​</a></h4>
-<p>The multi-language SDK is mainly to allow other types of languages to quickly access the shenyu gateway</p>
-<blockquote>
-<p><a href="https://github.com/apache/incubator-shenyu-client-donet" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/incubator-shenyu-client-donet</a></p>
-<p><a href="https://github.com/apache/incubator-shenyu-client-golang" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/incubator-shenyu-client-golang</a></p>
-<p><a href="https://github.com/apache/incubator-shenyu-client-python" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/incubator-shenyu-client-python</a></p>
-</blockquote>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="added-helm-chart">Added Helm Chart<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.4.3#added-helm-chart" class="hash-link" aria-label="Direct link to Added Helm Chart" title="Direct link to Added Helm Chart" translate="no">​</a></h4>
-<blockquote>
-<p><a href="https://github.com/apache/incubator-shenyu-helm-chart" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/incubator-shenyu-helm-chart</a></p>
-</blockquote>
-<p><img decoding="async" loading="lazy" alt="helm-ci-pipeline" src="https://shenyu.apache.org/assets/images/helm-ci-pipeline-429d393437969120ed1a24dd3c18f23f.png" width="855" height="494" class="img_ev3q"></p>]]></content>
         <category label="Apache ShenYu" term="Apache ShenYu"/>
     </entry>
 </feed>

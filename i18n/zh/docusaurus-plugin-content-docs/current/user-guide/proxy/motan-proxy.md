@@ -50,7 +50,7 @@ description: Motan服务接入
 
 ## Motan服务接入网关
 
-可以参考： [shenyu-examples-motan](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-motan)
+可以参考： [shenyu-examples-motan](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-motan)
 
 1. 在由`Motan`构建的微服务中，引入如下依赖：
 

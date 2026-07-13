@@ -334,7 +334,7 @@ shenyu:
 
 ### Apollo Synchronization Config
 
-Apollo just support Java [8,17), if you want to use apollo as data sync center, please make sure your JDK version is between [8,17).
+If you want to use Apollo as the data sync center, make sure the Apollo deployment and client runtime are compatible with JDK 17.
 
 * `Apache ShenYu` gateway config
 

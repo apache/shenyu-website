@@ -157,7 +157,7 @@ Automatically configure the rules with the `@ShenyuTarsClient` annotation.
 #### 2.6.1.2 Plugin Config
 
 - In shenyu-admin --> BasicConfig --> Plugin --> `tars` set Status enabled, And adjust the registry configuration as needed.
-- Adjust to the actual situation [shenyu-examples-tars](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-tars) application.yml configuration in the project and start it.
+- Adjust to the actual situation [shenyu-examples-tars](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-tars) application.yml configuration in the project and start it.
 
 #### 2.6.2.6 Request service and check result
 

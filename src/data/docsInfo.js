@@ -7,10 +7,9 @@ export default [
     projectName: "Apache ShenYu",
     description: <Translate>The document for Apache ShenYu</Translate>,
     latestVersion: "/docs/",
-    nextVersion: "/docs/next/",
     versionsList: [
-      { next: "/docs/next/" },
-      { "2.7.0.3": "/docs/" },
+      { "2.7.1": "/docs/" },
+      { "2.7.0.3": "/docs/2.7.0.3/" },
       { "2.7.0.2": "/docs/2.7.0.2/" },
       { "2.7.0.1": "/docs/2.7.0.1/" },
       { "2.7.0": "/docs/2.7.0/" },

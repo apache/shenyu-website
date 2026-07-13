@@ -11,7 +11,7 @@ This article introduces how to start the `Apache ShenYu` gateway in the local en
 
 ### Environmental preparation
 
-* Install JDK1.8+ locally
+* Install JDK17+ locally
 * Install Git locally
 * Install Maven locally
 * Choose a development tool, such as IDEA
@@ -39,7 +39,6 @@ mvn clean install '-Dmaven.javadoc.skip=true' '-B' '-Drat.skip=true' '-Djacoco.s
   * If you use `OpenGuass` for storage, follow the [guide document](./deployment-before.md#opengauss) to initialize the database and modify the `JDBC` configuration in `application-og.yml`, set the variable `--spring.profiles.active = og`.
 
 * use the development tool to start `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`.
-
 
 
 

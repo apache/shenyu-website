@@ -58,7 +58,7 @@ description: divide plugin
 
 ### 2.4.1 Configure access parameters in the client project configuration file
 
-* Client access method and server address. The following example uses the http access method. Currently, the client supports the following access methods: http, zookeeper, etcd, nacos, consul. For detailed access configuration parameters, please refer to [Client Access Configuration](../../user-guide/register-center-access).
+* Client access method and server address. The following example uses the http access method. Currently, the client supports the following access methods: http, zookeeper, etcd, nacos, consul. For detailed access configuration parameters, please refer to [Client Access Configuration](/docs/2.3.0-Legacy/register-center/register-center-access).
 * Client configuration, including the protocol name and the routing address of the service, please use the http protocol here, and the value of contextPath must be configured as the routing address of each service.
 
 ```yaml
@@ -77,7 +77,7 @@ description: divide plugin
 
 ### 2.4.2 Configure upstream validity detection parameters in the shenyu-admin configuration file
 
-The following example uses the http access method. Currently, the client supports the following access methods: http, zookeeper, etcd, nacos, consul. For detailed access configuration parameters, please refer to [Client Access Configuration](../../user-guide/register-center-access).
+The following example uses the http access method. Currently, the client supports the following access methods: http, zookeeper, etcd, nacos, consul. For detailed access configuration parameters, please refer to [Client Access Configuration](/docs/2.3.0-Legacy/register-center/register-center-access).
 > Only http-type registries support upstream detection.
 
 ```yaml

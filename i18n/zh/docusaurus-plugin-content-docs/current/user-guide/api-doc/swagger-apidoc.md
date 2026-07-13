@@ -25,7 +25,7 @@ description: 远程拉取swagger 注册 API文档
 
 ## 3. 运行示例项目
 
-3.1. 下载 [shenyu-examples-http-swagger2](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http-swagger2)
+3.1. 下载 [shenyu-examples-http-swagger2](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http-swagger2)
 
 3.2. 运行`org.apache.shenyu.examples.http.ShenyuTestSwaggerApplication` main方法启动项目。
 

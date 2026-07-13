@@ -64,7 +64,7 @@ description: modifyResponse plugin
 
 ## 2.5 Examples
 
-Here is an example of client project [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http).
+Here is an example of client project [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http).
 
 ### 2.5.1 Example reset HTTP response status code
 

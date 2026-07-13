@@ -6,7 +6,7 @@ description: McpTool Service Integration
 
 This document is intended to help the `mcpTool` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `mcpServer` plugin to connect with `mcpTool` services.
 
-Before the connection, start `shenyu-admin` correctly, start  `mcpServer` plugin and add related dependencies on the gateway and `mcpTool` application client service side. You can refer to the previous [Quick Start with McpServer](../../quick-start/quick-start-McpServer).
+Before the connection, start `shenyu-admin` correctly, start  `mcpServer` plugin and add related dependencies on the gateway and `mcpTool` application client service side. You can refer to the previous [Quick Start with McpServer](../../quick-start/quick-start-mcpServer).
 
 For details about client access configuration, see [Application Client Access Config](../property-config/register-center-access.md) .
 
@@ -203,6 +203,6 @@ After your `mcpTool` service is connected to the `Apache ShenYu` gateway, you ca
 
     * Here, `localhost:9195` is the IP and port of your gateway (default port is `9195`), and `/mcp` is the `contextPath` configured during integration.
 
-* Third, the mcpServer plugin does not include request forwarding functionality. To perform remote tool invocation, please enable the corresponding proxy plugin for proxying. You can refer to [Quick Start with McpServer](../../quick-start/quick-start-McpServer).
+* Third, the mcpServer plugin does not include request forwarding functionality. To perform remote tool invocation, please enable the corresponding proxy plugin for proxying. You can refer to [Quick Start with McpServer](../../quick-start/quick-start-mcpServer).
 
 Then you can invoke tools via the `mcpClient` through the gateway easily.

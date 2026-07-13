@@ -64,13 +64,13 @@ spring:
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-sdk-core</artifactId>
-        <version>2.5.1-SNAPSHOT</version>
+        <version>2.7.1</version>
     </dependency>
 
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sdk</artifactId>
-        <version>2.5.1-SNAPSHOT</version>
+        <version>2.7.1</version>
     </dependency>
 </dependencies>
 ```
@@ -84,7 +84,7 @@ spring:
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-sdk-httpclient</artifactId>
-    <version>2.5.1-SNAPSHOT</version>
+    <version>2.7.1</version>
 </dependency>
 
 <!-- okhttp -->
@@ -92,7 +92,7 @@ spring:
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-sdk-okhttp</artifactId>
-    <version>2.5.1-SNAPSHOT</version>
+    <version>2.7.1</version>
 </dependency>
 -->
 ```
@@ -178,4 +178,4 @@ public interface ShenyuHttpClientApi {
 }
 ```
 
-更多可参考示例工程 [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sdk)
+更多可参考示例工程 [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sdk)

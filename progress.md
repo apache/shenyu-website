@@ -1,0 +1,39 @@
+# progress
+
+- Started prioritized current-docs update for 2.7.1.
+- Scope: add missing plugin docs first, then fix critical stale version/deployment content in current docs only.
+- Added missing current-version plugin docs for AI transformers, basic/key auth, logging ClickHouse, and RPC param transform.
+- Updated critical current-version deployment prerequisites and package/image/driver references.
+- Removed internal links from new plugin pages that would add zh-locale broken-link warnings before translations exist.
+- Verified with `COREPACK_ENABLE_PROJECT_SPEC=0 yarn build`; build succeeds with pre-existing blog/history-doc warnings.
+- Restarted local dev server and verified `/docs/plugin-center/ai/ai-request-transformer` is reachable.
+- Updated `/Users/aias/Work/github/shenyu` with `git pull --ff-only`; upstream moved from `52f9c1c7d` to `8eb53befa`.
+- Added current-version Scale Management docs based on the updated Admin scale implementation and configuration.
+- Renamed the current Namespace Management docs from `namepsace.md` to `namespace.md` in English and zh current docs.
+- Repointed current-version Apache ShenYu source links from `master` to `v2.7.1`.
+- Synced zh current docs for the same high-priority stale references: JDK 17+, 2.7.1 dependencies, v2.7.1 source links, 2.7.1 images, and MySQL Connector/J 8.3.0.
+- Rebuilt with `COREPACK_ENABLE_PROJECT_SPEC=0 yarn build`; build succeeds with the same existing blog/history/current-link warnings.
+- Verified local default-locale routes `/docs/user-guide/admin-usage/scale` and `/docs/user-guide/admin-usage/namespace` in the browser.
+- Fixed current-version broken links for `ai-proxy`, `tcp-plugin`, `mcp-tool-proxy`, `admin-property-config`, and `divide-plugin`.
+- Added zh current localized pages for `ai-proxy` and `mcp-tool-proxy` to avoid zh fallback link resolution issues.
+- Normalized current-version local-model anchors in English and zh docs so Docusaurus recognizes the API table links.
+- Fixed current zh deployment cluster anchors and updated remaining current deployment package/local JDK references to JDK 17+ and Apache ShenYu 2.7.1 artifacts.
+- Final targeted scan found no current-doc matches for the prioritized stale patterns: `master` source links, `namepsace`, `2.5.1-SNAPSHOT`, `${current.version}`, `dist/shenyu/2.6.0`, old JDK 1.8 text, `quick-start-McpServer`, `contextPath-plugin`, and the fixed relative-link patterns.
+- Final `COREPACK_ENABLE_PROJECT_SPEC=0 yarn build` succeeded. Remaining warnings are existing blog metadata/truncation/duplicate-route/plural warnings plus blog and historical-version broken links/anchors.
+- Verified generated current artifacts exist for English/zh `developer/local-model` and zh deployment/plugin/proxy pages.
+- Resolved the blog author, untruncated-post, duplicate `/blog`/`/news` route, and zh plural-form build warnings.
+- Configured blog/news content plugins to ignore inline-author and untruncated-post warnings, excluded conflicting custom `src/pages/blog.tsx` and `src/pages/news.tsx` from page generation, and reduced zh blog plural translations to single-form Chinese messages.
+- Verified with `COREPACK_ENABLE_PROJECT_SPEC=0 yarn build`; build exited 0 and grep found no `Some blog authors`, `without truncation markers`, `Duplicate routes found`, or `For locale=zh` warnings. `/blog`, `/news`, `/zh/blog`, and `/zh/news` build artifacts still exist.
+- Fixed remaining blog and historical-version broken links/anchors reported by Docusaurus.
+- Repointed source-analysis blog excerpt links to stable `/blog/...` and `/zh/blog/...` routes so tag/list excerpts no longer resolve them relative to tag pages.
+- Normalized historical-version doc links for 2.3 Legacy, 2.4.x proxy/property pages, 2.5.0 sign, 2.6.x/2.7.x TCP discovery, 2.7.0.x AI Proxy, and 2.7.0.2/2.7.0.3 MCP Tool Proxy docs.
+- Replaced historical `developer/local-model` inline HTML anchor IDs with Docusaurus heading anchors across English and zh versioned docs.
+- Replaced historical zh deployment cluster non-ASCII anchors (`Etcd开始`, `Nacos开始`, `Zookeeper开始`) with stable explicit anchors.
+- Fixed final zh historical route mismatches for 2.4.3 Tars service access and 2.7.0.1/2.7.0.2/2.7.0.3 AI Proxy contextPath links.
+- Verified with `COREPACK_ENABLE_PROJECT_SPEC=0 yarn build`; build exited 0 and grep found no `Docusaurus found broken links`, `Docusaurus found broken anchors`, `Broken link on source page path`, `Broken anchor on source page path`, `couldn't be resolved`, or `Markdown link with URL` entries.
+- Added the missing zh current i18n page for `quick-start-mcpServer` so `/zh/docs/quick-start/quick-start-mcpServer` no longer falls back to English content.
+- Rebuilt with `COREPACK_ENABLE_PROJECT_SPEC=0 yarn build`; build exited 0 with no broken link/anchor output, and `curl http://localhost:3000/zh/docs/quick-start/quick-start-mcpServer` returns the Chinese title `Mcp Server 快速开始`.
+- Fixed current zh sidebar i18n labels for SDK usage, Discovery, Kubernetes Controller, API document aggregation, HTTP process, Proxy, Cache, AI, MCP, and Benchmark Test.
+- Added `sidebar_label: 基准测试` to the zh benchmark test page to handle Docusaurus' single-page category sidebar collapse.
+- Rebuilt and restarted production `docusaurus serve` on port 3000; generated current zh sidebar data contains none of the old English labels from the screenshots and includes the expected Chinese labels.
+- Added static compatibility pages for the legacy current-docs `namepsace` URL; `/docs/user-guide/admin-usage/namepsace` and `/zh/docs/user-guide/admin-usage/namepsace` return 200 and client-redirect to the corrected `namespace` routes without reappearing in the current docs sidebar.

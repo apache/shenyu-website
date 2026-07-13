@@ -25,7 +25,7 @@ It is enabled by default. In the `Apache ShenYu` gateway management system --> B
 
 ## 3. Run the Sample Project
 
-3.1. Download [shenyu-examples-http-swagger2](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http-swagger2)
+3.1. Download [shenyu-examples-http-swagger2](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http-swagger2)
 
 3.2. Run `org.apache.shenyu.examples.http.ShenyuTestSwaggerApplication` main method to start the project.
 

@@ -127,4 +127,4 @@ public interface ShenyuFeignClientApi {
 }
 ```
 
-For more information, refer to the sample project [shenyu-examples-sdk-feign](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sdk/shenyu-examples-sdk-feign)
+For more information, refer to the sample project [shenyu-examples-sdk-feign](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sdk/shenyu-examples-sdk-feign)

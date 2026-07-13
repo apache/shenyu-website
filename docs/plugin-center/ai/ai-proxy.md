@@ -29,7 +29,7 @@ Selector matching the incoming path, followed by Rule settings for provider, mod
 
 ![](/img/shenyu/plugin/ai-proxy/ai-proxy-rule-en.png)
 
-> **Note:** With this setup, you also need to configure the `contextPath` plugin to remove the matched prefix and assemble the correct call URL. See [contextPath Plugin Configuration](../http-process/contextPath-plugin.md) for details.
+> **Note:** With this setup, you also need to configure the `contextPath` plugin to remove the matched prefix and assemble the correct call URL. See [contextPath Plugin Configuration](../http-process/contextpath-plugin.md) for details.
 
 ## API Usage
 

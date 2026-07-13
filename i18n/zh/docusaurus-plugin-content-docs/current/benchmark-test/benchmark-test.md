@@ -1,5 +1,6 @@
 ---
 sidebar_position: 8
+sidebar_label: 基准测试
 title: 基准测试报告
 keywords: ["test", "benchmark-test"]
 description: ShenYu 基准测试报告
@@ -298,4 +299,3 @@ httpclient:
 
 <img src="/img/shenyu/benchmark-test/http/1200-currency/8-thread/1-netty-cache-selector.jpg" width="100%" height="100%" />
 <img src="/img/shenyu/benchmark-test/http/1200-currency/8-thread/2-netty-cache-selector.jpg" width="100%" height="100%" />        
-

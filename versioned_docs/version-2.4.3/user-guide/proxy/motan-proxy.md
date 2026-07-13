@@ -7,9 +7,9 @@ This document is intended to help the `Motan` service access the `Apache ShenYu`
 
 Before the connection, start `shenyu-admin` correctly, start `Motan` plugin, and add related dependencies on the gateway and `Motan` application client. Refer to the previous [Quick start with Motan](../../quick-start/quick-start-motan) .
 
-For details about client access configuration, see [Application Client Access Config](./register-center-access) .
+For details about client access configuration, see [Application Client Access Config](../register-center-access) .
 
-For details about data synchronization configurations, see [Data Synchronization Config](./use-data-sync) .
+For details about data synchronization configurations, see [Data Synchronization Config](../use-data-sync) .
 
 ## Add motan plugin in gateway
 

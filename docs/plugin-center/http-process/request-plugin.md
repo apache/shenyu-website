@@ -77,9 +77,9 @@ description: request plugin
 1. Refer to [Local Deployment](https://shenyu.apache.org/docs/deployment/deployment-local)启动 admin 和网关
 2. Refer to 2.2 importing pom and restarting the gateway.
 3. Refer to 2.3 enabling Plugin
-4. Start the project [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) 
+4. Start the project [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http) 
 5. Refer to 2.4 and [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule), configuring plugin rules.
-6. Call interface：[http-test-api.http](https://github.com/apache/shenyu/blob/master/shenyu-examples/shenyu-examples-http/src/main/http/http-test-api.http)
+6. Call interface：[http-test-api.http](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-examples/shenyu-examples-http/src/main/http/http-test-api.http)
 - Calling the interface declared by the selector and rule will see the request parameters configured in the request plugin.
 
   <img src="/img/shenyu/plugin/request/request-plugin-example-zh.png" width="70%" height="60%" />

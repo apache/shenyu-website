@@ -21,7 +21,7 @@ This article introduces the use of `K8s` to deploy the `Apache ShenYu` gateway.
 >
 > Similar to the h2 process, there are two points to note
 >
-> 1. you need to load [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar), the download command is executed when the container is started
+> 1. you need to load [mysql-connector.jar](https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar), the download command is executed when the container is started
 > 2. you need to specify an external MySQL database configuration
 >
 > The process is as follows.
@@ -355,7 +355,7 @@ spec:
             path: shenyu-admin-application-h2.yml
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:latest
+        image: apache/shenyu-admin:2.7.1
         imagePullPolicy: Always
         ports:
         - containerPort: 9095
@@ -419,7 +419,7 @@ spec:
             path: shenyu-bootstrap-application.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:latest
+        image: apache/shenyu-bootstrap:2.7.1
         ports:
         - containerPort: 9195
         env:
@@ -761,20 +761,20 @@ spec:
       - name: download-mysql-jar
         image: busybox:1.35.0
         command: [ "sh","-c"]
-        args: ["wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.23/mysql-connector-java-8.0.23.jar;
-            wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.23/mysql-connector-java-8.0.23.jar.md5;
-            if [ $(md5sum mysql-connector-java-8.0.23.jar | cut -d ' ' -f1) = $(cat mysql-connector-java-8.0.23.jar.md5) ];
+        args: ["wget https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar;
+            wget https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar.md5;
+            if [ $(md5sum mysql-connector-j-8.3.0.jar | cut -d ' ' -f1) = $(cat mysql-connector-j-8.3.0.jar.md5) ];
             then echo success;
             else echo failed;
             exit 1;
             fi;
-            mv /mysql-connector-java-8.0.23.jar /opt/shenyu-admin/ext-lib/mysql-connector-java.jar" ]
+            mv /mysql-connector-j-8.3.0.jar /opt/shenyu-admin/ext-lib/mysql-connector.jar" ]
         volumeMounts:
         - name: mysql-connector-volume
           mountPath: /opt/shenyu-admin/ext-lib
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:latest
+        image: apache/shenyu-admin:2.7.1
         imagePullPolicy: Always
         ports:
         - containerPort: 9095
@@ -842,7 +842,7 @@ spec:
                 path: shenyu-bootstrap-application.yml
       containers:
         - name: shenyu-bootstrap
-          image: apache/shenyu-bootstrap:latest
+          image: apache/shenyu-bootstrap:2.7.1
           ports:
             - containerPort: 9195
           env:

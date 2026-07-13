@@ -76,7 +76,7 @@ description: contextPath plugin
 
 #### 2.5.1.4 Client project config contextPath.
 
-Client project can directly use [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http), and config contextPath in application.yml.
+Client project can directly use [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http), and config contextPath in application.yml.
 
 ![](/img/shenyu/plugin/context-path/client-project-config.png)
 
@@ -98,7 +98,7 @@ Client project can directly use [shenyu-examples-http](https://github.com/apache
 
 #### 2.5.2.4 Client project config contextPath.
 
-For client project we can directly use [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http), and config contextPath in application.yml.
+For client project we can directly use [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http), and config contextPath in application.yml.
 
 ![](/img/shenyu/plugin/context-path/client-project-config.png)
 
@@ -130,7 +130,7 @@ Since this example uses the service of the http protocol, we need to modify the 
 
 #### 2.5.3.4 Run client projects.
 
-For client project we can directly use [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) and [shenyu-examples-https](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-https).
+For client project we can directly use [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http) and [shenyu-examples-https](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-https).
 
 - After the client projects started, you can see that there are two additional context selectors and rules configuration in shenyu-admin.
 

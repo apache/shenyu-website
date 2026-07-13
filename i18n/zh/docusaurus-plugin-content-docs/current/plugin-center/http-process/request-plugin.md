@@ -76,9 +76,9 @@ description: RequestPlugin
 1. 参考[本地部署](https://shenyu.apache.org/zh/docs/deployment/deployment-local)启动 admin 和网关
 2. 参考2.2导入 pom 并重启网关
 3. 参考2.3启用插件
-4. 启动 [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http) 项目
+4. 启动 [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http) 项目
 5. 参考2.4及[选择器规则管理](../../user-guide/admin-usage/selector-and-rule)配置插件规则
-6. 接口调用：[http-test-api.http](https://github.com/apache/shenyu/blob/master/shenyu-examples/shenyu-examples-http/src/main/http/http-test-api.http)
+6. 接口调用：[http-test-api.http](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-examples/shenyu-examples-http/src/main/http/http-test-api.http)
 - 调用选择器和规则声明的接口，将会看到request插件中配置的请求参数。
 
   <img src="/img/shenyu/plugin/request/request-plugin-example-zh.png" width="70%" height="60%" />

@@ -1,81 +1,114 @@
 {
   "version.label": {
-    "message": "当前版本",
+    "message": "2.7.1",
     "description": "The label for version current"
   },
   "sidebar.tutorialSidebar.category.Design": {
     "message": "设计文档",
-    "description": "The label for category Design in sidebar tutorialSidebar"
+    "description": "The label for category 'Design' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Deployment": {
     "message": "运维部署",
-    "description": "The label for category Deployment in sidebar tutorialSidebar"
+    "description": "The label for category 'Deployment' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Quick Start": {
     "message": "快速开始",
-    "description": "The label for category Quick Start in sidebar tutorialSidebar"
+    "description": "The label for category 'Quick Start' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.User Guide": {
     "message": "用户指南",
-    "description": "The label for category User Guide in sidebar tutorialSidebar"
+    "description": "The label for category 'User Guide' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Admin Usage": {
     "message": "Admin使用",
-    "description": "The label for category Admin Usage in sidebar tutorialSidebar"
+    "description": "The label for category 'Admin Usage' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Property Config": {
     "message": "属性配置",
-    "description": "The label for category Property-Config in sidebar tutorialSidebar"
+    "description": "The label for category 'Property Config' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Shenyu-Sdk Usage": {
+    "message": "ShenYu SDK 使用",
+    "description": "The label for category 'Shenyu-Sdk Usage' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Discovery": {
+    "message": "服务发现",
+    "description": "The label for category 'Discovery' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Quick Connect to Your Service": {
     "message": "快速接入",
-    "description": "The label for category User-Guide/Proxy in sidebar tutorialSidebar"
+    "description": "The label for category 'Quick Connect to Your Service' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kubernetes Controller": {
+    "message": "Kubernetes 控制器",
+    "description": "The label for category 'Kubernetes Controller' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.API Document Aggregation": {
+    "message": "API 文档聚合",
+    "description": "The label for category 'API Document Aggregation' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Plugin Center": {
     "message": "插件集合",
-    "description": "The label for category Plugin-Center in sidebar tutorialSidebar"
+    "description": "The label for category 'Plugin Center' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Http Handle": {
     "message": "Http处理",
     "description": "The label for category Http-Handle in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Http Process": {
+    "message": "HTTP 处理",
+    "description": "The label for category 'Http Process' in sidebar 'tutorialSidebar'"
+  },
   "sidebar.tutorialSidebar.category.RPC Proxy": {
     "message": "RPC代理",
     "description": "The label for category RPC-Proxy in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Proxy": {
+    "message": "代理",
+    "description": "The label for category 'Proxy' in sidebar 'tutorialSidebar'"
+  },
   "sidebar.tutorialSidebar.category.Fault Tolerance": {
     "message": "熔断限流",
-    "description": "The label for category Fault-Tolerance in sidebar tutorialSidebar"
+    "description": "The label for category 'Fault Tolerance' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Security": {
     "message": "安全性",
-    "description": "The label for category Security in sidebar tutorialSidebar"
+    "description": "The label for category 'Security' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Mock": {
     "message": "Mock",
-    "description": "The label for mock"
+    "description": "The label for category 'Mock' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Common": {
     "message": "通用组件",
-    "description": "The label for category Common"
+    "description": "The label for category 'Common' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Observability": {
     "message": "可观测性",
-    "description": "The label for category Observability in sidebar tutorialSidebar"
+    "description": "The label for category 'Observability' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Cache": {
+    "message": "缓存",
+    "description": "The label for category 'Cache' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Ai": {
+    "message": "AI",
+    "description": "The label for category 'Ai' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Mcp": {
+    "message": "MCP",
+    "description": "The label for category 'Mcp' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Developer": {
     "message": "开发者文档",
-    "description": "The label for category Developer-Documentation in sidebar tutorialSidebar"
+    "description": "The label for category 'Developer' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.SPI": {
     "message": "SPI",
-    "description": "The label for category SPI in sidebar tutorialSidebar"
+    "description": "The label for category 'SPI' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Benchmark Test": {
-
     "message": "基准测试",
-
     "description": "ShenYu Benchmark Test"
-
   }
 }

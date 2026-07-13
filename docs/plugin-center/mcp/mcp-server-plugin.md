@@ -14,7 +14,7 @@ description: mcp Server Plugin
 
 * To add the necessary dependencies and enable the plugin, please refer to: [Quick Start with McpServer](../../quick-start/quick-start-mcpServer).
 
-* For McpTool client integration, please refer to: [McpTool Service Integration](../../user-guide/proxy/mcp-tool-proxy.md).
+* For McpTool client integration, please refer to: [McpTool Service Integration](/docs/user-guide/proxy/mcp-tool-proxy).
 
 * For selector and rule configuration, please refer to: [Selector and Rule Management](../../user-guide/admin-usage/selector-and-rule).
 

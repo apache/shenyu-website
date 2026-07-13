@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-2.7.1 docs-doc-page docs-doc-id-plugin-center/fault-tolerance/rate-limiter-plugin" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">RateLimiter插件 | Apache ShenYu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://shenyu.apache.org/zh/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="2.7.1"><meta data-rh="true" name="docusaurus_tag" content="docs-default-2.7.1"><meta data-rh="true" name="docsearch:version" content="2.7.1"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-2.7.1"><meta data-rh="true" property="og:title" content="RateLimiter插件 | Apache ShenYu"><meta data-rh="true" name="description" content="rateLimiter插件"><meta data-rh="true" property="og:description" content="rateLimiter插件"><meta data-rh="true" name="keywords" content="rateLimiter"><link data-rh="true" rel="icon" href="/zh/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://shenyu.apache.org/zh/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin" hreflang="en"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/zh/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin" hreflang="zh"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"RateLimiter插件","item":"https://shenyu.apache.org/zh/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin"}]}</script><link rel="alternate" type="application/rss+xml" href="/zh/blog/rss.xml" title="Apache ShenYu RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/zh/blog/atom.xml" title="Apache ShenYu Atom Feed">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/zh/news/rss.xml" title="Apache ShenYu RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/zh/news/atom.xml" title="Apache ShenYu Atom Feed">
+
+<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.5b3f4205.css">
+<script src="/zh/assets/js/runtime~main.6d99de7f.js" defer="defer"></script>
+<script src="/zh/assets/js/main.e9565172.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/zh/"><div class="navbar__logo"><img src="/zh/img/logo.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/zh/img/logo-light.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/zh/download">下载</a><a class="navbar__item navbar__link" href="/zh/document">文档</a><a class="navbar__item navbar__link" href="/zh/community/contributor-guide">社区</a><a class="navbar__item navbar__link" href="/zh/team">团队</a><a class="navbar__item navbar__link" href="/zh/event">事件</a><a class="navbar__item navbar__link" href="/zh/news">新闻</a><a class="navbar__item navbar__link" href="/zh/blog">博客</a><a class="navbar__item navbar__link" href="/zh/users">用户</a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">ASF</a><ul class="dropdown__menu"><li><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="dropdown__link">基金会</a></li><li><a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="dropdown__link">许可</a></li><li><a href="https://www.apache.org/events/current-event" target="_blank" rel="noopener noreferrer" class="dropdown__link">活动</a></li><li><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="dropdown__link">安全</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">赞助</a></li><li><a href="https://www.apache.org/foundation/policies/privacy.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">隐私</a></li><li><a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">致谢</a></li></ul></div><a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>简体中文</a><ul class="dropdown__menu"><li><a href="/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/zh/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh">简体中文</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/zh/docs/2.7.1/"><span class="linkLabel_WmDU">Apache ShenYu 介绍</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/design/database-design"><span class="categoryLinkLabel_W154">设计文档</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/deployment/deployment-before"><span class="categoryLinkLabel_W154">运维部署</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/quick-start/quick-start-dubbo"><span class="categoryLinkLabel_W154">快速开始</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/user-guide/admin-usage/api-document"><span class="categoryLinkLabel_W154">用户指南</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/zh/docs/2.7.1/plugin-center/http-process/contextpath-plugin"><span class="categoryLinkLabel_W154">插件集合</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/http-process/contextpath-plugin"><span class="categoryLinkLabel_W154">Http Process</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/proxy/divide-plugin"><span class="categoryLinkLabel_W154">Proxy</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/zh/docs/2.7.1/plugin-center/fault-tolerance/hystrix-plugin"><span class="categoryLinkLabel_W154">熔断限流</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/plugin-center/fault-tolerance/hystrix-plugin"><span class="linkLabel_WmDU">Hystrix插件</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/zh/docs/2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin"><span class="linkLabel_WmDU">RateLimiter插件</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/plugin-center/fault-tolerance/resilience4j-plugin"><span class="linkLabel_WmDU">Resilience4j插件</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/plugin-center/fault-tolerance/sentinel-plugin"><span class="linkLabel_WmDU">Sentinel插件</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/security/casdoor"><span class="categoryLinkLabel_W154">安全性</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/observability/logging-aliyun-sls"><span class="categoryLinkLabel_W154">可观测性</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/common/general-context-plugin"><span class="categoryLinkLabel_W154">通用组件</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/cache/cache-plugin"><span class="categoryLinkLabel_W154">Cache</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/mock/mock-plugin"><span class="categoryLinkLabel_W154">Mock</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/ai/ai-prompt"><span class="categoryLinkLabel_W154">Ai</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/plugin-center/mcp/mcp-server-plugin"><span class="categoryLinkLabel_W154">Mcp</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/developer/spi/custom-load-balance"><span class="categoryLinkLabel_W154">开发者文档</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/zh/docs/2.7.1/benchmark-test/"><span class="linkLabel_WmDU">Benchmark Test</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role="alert"><div>This is documentation for <!-- -->Apache ShenYu<!-- --> <b>当前版本</b>, which is no longer actively maintained.</div><div class="margin-top--md">For up-to-date documentation, see the <b><a href="/zh/docs/plugin-center/fault-tolerance/rate-limiter-plugin">latest version</a></b> (<!-- -->2.7.1<!-- -->).</div></div><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/zh/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">插件集合</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">熔断限流</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">RateLimiter插件</span></li></ul></nav><span class="theme-doc-version-badge badge badge--secondary">版本：当前版本</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>1. 概述</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-插件名称">1.1 插件名称<a href="#11-插件名称" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">RateLimiter 插件</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-适用场景">1.2 适用场景<a href="#12-适用场景" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">在网关集群环境下进行流量控制</li>
+<li class="">根据特定规则进行流量控制</li>
+<li class="">可以到接口级别，也可以到参数级别。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="13-插件功能">1.3 插件功能<a href="#13-插件功能" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">基于redis进行流量控制</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="14-插件代码">1.4 插件代码<a href="#14-插件代码" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p>核心模块 <code>shenyu-plugin-ratelimiter</code>.</p>
+</li>
+<li class="">
+<p>核心类 <code>org.apache.shenyu.plugin.ratelimiter.RateLimiterPlugin</code></p>
+</li>
+<li class="">
+<p>核心类 <code>org.apache.shenyu.plugin.ratelimiter.executor.RedisRateLimiter</code></p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="15-添加自哪个shenyu版本">1.5 添加自哪个shenyu版本<a href="#15-添加自哪个shenyu版本" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">ShenYu 2.4.0</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="16-技术方案">1.6 技术方案<a href="#16-技术方案" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="161-采用redis令牌桶算法进行限流">1.6.1 采用redis令牌桶算法进行限流<a href="#161-采用redis令牌桶算法进行限流" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<ul>
+<li class="">系统以恒定的速率产⽣令牌，然后将令牌放⼊令牌桶中。</li>
+<li class="">令牌桶有⼀个容量，当令牌桶满了的时候，再向其中放⼊的令牌就会被丢弃。</li>
+<li class="">每次⼀个请求过来，需要从令牌桶中获取⼀个令牌，如果有令牌，则提供服务；如果没有令牌，则拒绝服务。</li>
+</ul>
+<ul>
+<li class="">流程图：
+<img decoding="async" loading="lazy" src="/zh/assets/images/tokenbucket-a11a51776844dc57cb9ba82904dc4ca6.png" width="1412" height="675" class="img_ev3q"></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="162-采用redis漏桶算法进行限流">1.6.2 采用redis漏桶算法进行限流。<a href="#162-采用redis漏桶算法进行限流" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<ul>
+<li class="">⽔（请求）先进⼊到漏桶⾥，漏桶以⼀定的速度出⽔，当⽔流⼊速度过⼤会直接溢出（拒绝服务）</li>
+</ul>
+<ul>
+<li class="">流程图：
+<img decoding="async" loading="lazy" src="/zh/assets/images/leakybucket-cc829d5529e0847152a90793867e9f96.png" width="1402" height="675" class="img_ev3q"></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="163-基于redis实现的滑动窗口算法">1.6.3 基于redis实现的滑动窗口算法<a href="#163-基于redis实现的滑动窗口算法" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<ul>
+<li class="">滑动时间窗口通过维护⼀个单位时间内的计数值，每当⼀个请求通过时，就将计数值加1，当计数值超过预先设定的阈值时，就拒绝单位时间内的其他请求。如果单位时间已经结束，则将计数器清零，开启下⼀轮的计数。</li>
+</ul>
+<ul>
+<li class="">
+<p>算法图：
+<img decoding="async" loading="lazy" src="/zh/assets/images/huadongwindow-26a67dc9b1cc954375a3e4a3bfc56d59.jpg" width="1282" height="472" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>流程图：
+<img decoding="async" loading="lazy" src="/zh/assets/images/sldingwindow-c529b50727afb275845585edb72b0215.png" width="1406" height="675" class="img_ev3q"></p>
+</li>
+</ul>
+<h1>2. 如何使用插件</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-插件使用流程图">2.1 插件使用流程图<a href="#21-插件使用流程图" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/plugin_use_zh-cf88744e5c4b7cc85accbcf32af6e1a3.jpg" width="343" height="964" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-导入pom">2.2 导入pom<a href="#22-导入pom" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">在网关的 <code>pom.xml</code> 文件中添加 <code>rateLimiter</code> 的依赖。</li>
+</ul>
+<div class="language-xml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-xml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">&lt;!-- apache shenyu ratelimiter plugin start--&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">org.apache.shenyu</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">groupId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">shenyu-spring-boot-starter-plugin-ratelimiter</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">artifactId</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">${project.version}</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">version</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">dependency</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">&lt;!-- apache shenyu ratelimiter plugin end--&gt;</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-启用插件">2.3 启用插件<a href="#23-启用插件" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>在 <code>shenyu-admin</code> --&gt; 基础配置 --&gt; 插件管理 --&gt; <code>rateLimiter</code> 设置为开启。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-配置插件">2.4 配置插件<a href="#24-配置插件" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="241-插件配置">2.4.1 插件配置<a href="#241-插件配置" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/ratelimiter-plugin-zh-8f1639066159c3c720f6d8db34a6ea90.png" width="2256" height="1279" class="img_ev3q"></p>
+<ul>
+<li class="">
+<p><code>mode</code>：redis的工作模式，默认为单点模式：<code>standalone</code>，此外还有集群模式：<code>cluster</code>，哨兵模式：<code>sentinel</code>。</p>
+</li>
+<li class="">
+<p><code>master</code>：默认为master。</p>
+</li>
+<li class="">
+<p><code>url</code> :配置 redis 数据库的IP和端口，通过冒号连接配置，示例：<code>192.168.1.1:6379</code>。</p>
+</li>
+<li class="">
+<p><code>password</code>: redis 数据库的密码，如果没有的话，可以不配置。</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="242-选择器配置">2.4.2 选择器配置<a href="#242-选择器配置" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<ul>
+<li class="">选择器和规则设置，请参考：<a class="" href="/zh/docs/2.7.1/user-guide/admin-usage/selector-and-rule">选择器和规则管理</a>。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="243-规则配置">2.4.3 规则配置<a href="#243-规则配置" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/ratelimiter-plugin-rule-zh-631f8d3db2136da163710ce34cac04ea.png" width="2256" height="1279" class="img_ev3q"></p>
+<ul>
+<li class="">
+<p>令牌桶算法/并发令牌桶算法</p>
+<ul>
+<li class="">
+<p><code>algorithmName</code>（算法名）：<code>tokenBucket/concurrent</code>。</p>
+</li>
+<li class="">
+<p><code>replenishRate</code>（速率）：允许用户每秒执行多少请求，而丢弃任何请求。这是令牌桶的填充速率。</p>
+</li>
+<li class="">
+<p><code>burstCapacity</code>（容量）：允许用户在一秒钟内执行的最大请求数。这是令牌桶可以保存的令牌数。</p>
+</li>
+<li class="">
+<p><code>keyResolverName</code>（限流依据）：<code>whole</code>表示按网关每秒限流，<code>remoteAddress</code>表示按IP每秒限流。</p>
+</li>
+</ul>
+</li>
+<li class="">
+<p>漏桶算法</p>
+<ul>
+<li class="">
+<p><code>algorithmName</code>（算法名）：<code>leakyBucket</code>。</p>
+</li>
+<li class="">
+<p><code>replenishRate</code>（速率）：单位时间内执行请求的速率，漏桶中水滴漏出的速率。</p>
+</li>
+<li class="">
+<p><code>burstCapacity</code>（容量）：允许用户在一秒钟内执行的最大请求数。这是桶中的水量。</p>
+</li>
+<li class="">
+<p><code>keyResolverName</code>（限流依据）：<code>whole</code>表示按网关每秒限流，<code>remoteAddress</code>表示按IP每秒限流。</p>
+</li>
+</ul>
+</li>
+<li class="">
+<p>滑动窗口算法</p>
+<ul>
+<li class="">
+<p><code>algorithmName</code>（算法名）：<code>slidingWindow</code>。</p>
+</li>
+<li class="">
+<p><code>replenishRate</code>（速率）：单位时间内执行请求的速率，用于计算时间窗口大小。</p>
+</li>
+<li class="">
+<p><code>burstCapacity</code>（容量）：时间窗口内（单位时间内）最大的请求数量。</p>
+</li>
+<li class="">
+<p><code>keyResolverName</code>（限流依据）：<code>whole</code>表示按网关每秒限流，<code>remoteAddress</code>表示按IP每秒限流。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="25-示例">2.5 示例<a href="#25-示例" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="251-使用ratelimiter插件在网关集群环境中进行流量控制">2.5.1 使用<code>RateLimiter</code>插件在网关集群环境中进行流量控制<a href="#251-使用ratelimiter插件在网关集群环境中进行流量控制" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2511-准备工作">2.5.1.1 准备工作<a href="#2511-准备工作" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
+<ul>
+<li class="">在<code>10.10.10.10:9095</code>启动<code>ShenYu Admin</code></li>
+<li class="">在<code>10.10.10.20:9195</code>和<code>10.10.10.30:9195</code>启动<code>ShenYu Bootstrap</code>, 配置<code>ShenYu Bootstrap</code>配置同步<code>10.10.10.10:9095</code></li>
+<li class="">配置nginx，例如：</li>
+</ul>
+<div class="language-nginx codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-nginx codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token directive keyword" style="color:#00009f">upstream</span><span class="token directive"> shenyu_gateway_cluster</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token directive keyword" style="color:#00009f">ip_hash</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token directive keyword" style="color:#00009f">server</span><span class="token directive"> 10.1.1.1:9195 max_fails=3 fail_timeout=10s weight=50</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token directive keyword" style="color:#00009f">server</span><span class="token directive"> 10.1.1.2:9195 max_fails=3 fail_timeout=10s weight=50</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token directive keyword" style="color:#00009f">server</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token directive keyword" style="color:#00009f">location</span><span class="token directive"> /</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token directive keyword" style="color:#00009f">proxy_pass</span><span class="token directive"> http://shenyu_gateway_cluster</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token directive keyword" style="color:#00009f">proxy_set_header</span><span class="token directive"> HOST </span><span class="token directive variable" style="color:#36acaa">$host</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token directive keyword" style="color:#00009f">proxy_read_timeout</span><span class="token directive"> </span><span class="token directive number" style="color:#36acaa">10s</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token directive keyword" style="color:#00009f">proxy_connect_timeout</span><span class="token directive"> </span><span class="token directive number" style="color:#36acaa">10s</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></div></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2512-插件选择器规则配置">2.5.1.2 插件、选择器、规则配置<a href="#2512-插件选择器规则配置" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
+<ul>
+<li class="">
+<p>配置ratelimiter插件的redis的配置</p>
+</li>
+<li class="">
+<p>配置插件的选择器</p>
+</li>
+<li class="">
+<p>配置规则</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/rule-example-zh-d307d1fa29f3539232d4e4c5b3ebb29e.png" width="2256" height="1279" class="img_ev3q"></p>
+<p>replenishRate为3, burstCapacity为10</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2513-使用apache-jmeter发送请求到nginx">2.5.1.3 使用<code>Apache Jmeter</code>发送请求到Nginx<a href="#2513-使用apache-jmeter发送请求到nginx" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
+<ul>
+<li class="">jmeter线程组配置</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/jmeter-thread-group-d9b10e917818cec79120a61e3c3451b6.png" width="1755" height="719" class="img_ev3q"></p>
+<ul>
+<li class="">jmeter http request配置</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/jmeter-http-request-0023ff8824d62685af80b3c2de6d40e4.png" width="1771" height="615" class="img_ev3q"></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2514-验证结果">2.5.1.4 验证结果<a href="#2514-验证结果" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/jmeter-result-cc7f6f7a1d678078ae3d3058b6d0afff.png" width="1769" height="1031" class="img_ev3q"></p>
+<h1>3. 如何禁用插件</h1>
+<p>在 <code>shenyu-admin</code> --&gt; 基础配置 --&gt; 插件管理 --&gt; <code>rateLimiter</code> 设置为关闭。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/apache/shenyu-website/edit/main/i18n/zh/docusaurus-plugin-content-docs/version-2.7.1/plugin-center/fault-tolerance/rate-limiter-plugin.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑本文档</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/zh/docs/2.7.1/plugin-center/fault-tolerance/hystrix-plugin"><div class="pagination-nav__sublabel">上一篇</div><div class="pagination-nav__label">Hystrix插件</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/zh/docs/2.7.1/plugin-center/fault-tolerance/resilience4j-plugin"><div class="pagination-nav__sublabel">下一篇</div><div class="pagination-nav__label">Resilience4j插件</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#11-插件名称" class="table-of-contents__link toc-highlight">1.1 插件名称</a></li><li><a href="#12-适用场景" class="table-of-contents__link toc-highlight">1.2 适用场景</a></li><li><a href="#13-插件功能" class="table-of-contents__link toc-highlight">1.3 插件功能</a></li><li><a href="#14-插件代码" class="table-of-contents__link toc-highlight">1.4 插件代码</a></li><li><a href="#15-添加自哪个shenyu版本" class="table-of-contents__link toc-highlight">1.5 添加自哪个shenyu版本</a></li><li><a href="#16-技术方案" class="table-of-contents__link toc-highlight">1.6 技术方案</a><ul><li><a href="#161-采用redis令牌桶算法进行限流" class="table-of-contents__link toc-highlight">1.6.1 采用redis令牌桶算法进行限流</a></li><li><a href="#162-采用redis漏桶算法进行限流" class="table-of-contents__link toc-highlight">1.6.2 采用redis漏桶算法进行限流。</a></li><li><a href="#163-基于redis实现的滑动窗口算法" class="table-of-contents__link toc-highlight">1.6.3 基于redis实现的滑动窗口算法</a></li></ul></li><li><a href="#21-插件使用流程图" class="table-of-contents__link toc-highlight">2.1 插件使用流程图</a></li><li><a href="#22-导入pom" class="table-of-contents__link toc-highlight">2.2 导入pom</a></li><li><a href="#23-启用插件" class="table-of-contents__link toc-highlight">2.3 启用插件</a></li><li><a href="#24-配置插件" class="table-of-contents__link toc-highlight">2.4 配置插件</a><ul><li><a href="#241-插件配置" class="table-of-contents__link toc-highlight">2.4.1 插件配置</a></li><li><a href="#242-选择器配置" class="table-of-contents__link toc-highlight">2.4.2 选择器配置</a></li><li><a href="#243-规则配置" class="table-of-contents__link toc-highlight">2.4.3 规则配置</a></li></ul></li><li><a href="#25-示例" class="table-of-contents__link toc-highlight">2.5 示例</a><ul><li><a href="#251-使用ratelimiter插件在网关集群环境中进行流量控制" class="table-of-contents__link toc-highlight">2.5.1 使用<code>RateLimiter</code>插件在网关集群环境中进行流量控制</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>

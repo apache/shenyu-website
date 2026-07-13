@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-2.7.1 docs-doc-page docs-doc-id-user-guide/admin-usage/selector-and-rule" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">选择器和规则管理 | Apache ShenYu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://shenyu.apache.org/zh/docs/2.7.1/user-guide/admin-usage/selector-and-rule"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="2.7.1"><meta data-rh="true" name="docusaurus_tag" content="docs-default-2.7.1"><meta data-rh="true" name="docsearch:version" content="2.7.1"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-2.7.1"><meta data-rh="true" property="og:title" content="选择器和规则管理 | Apache ShenYu"><meta data-rh="true" name="description" content="选择器和规则管理"><meta data-rh="true" property="og:description" content="选择器和规则管理"><meta data-rh="true" name="keywords" content="选择器,规则"><link data-rh="true" rel="icon" href="/zh/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://shenyu.apache.org/zh/docs/2.7.1/user-guide/admin-usage/selector-and-rule"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.1/user-guide/admin-usage/selector-and-rule" hreflang="en"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/zh/docs/2.7.1/user-guide/admin-usage/selector-and-rule" hreflang="zh"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.1/user-guide/admin-usage/selector-and-rule" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"选择器和规则管理","item":"https://shenyu.apache.org/zh/docs/2.7.1/user-guide/admin-usage/selector-and-rule"}]}</script><link rel="alternate" type="application/rss+xml" href="/zh/blog/rss.xml" title="Apache ShenYu RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/zh/blog/atom.xml" title="Apache ShenYu Atom Feed">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/zh/news/rss.xml" title="Apache ShenYu RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/zh/news/atom.xml" title="Apache ShenYu Atom Feed">
+
+<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.5b3f4205.css">
+<script src="/zh/assets/js/runtime~main.6d99de7f.js" defer="defer"></script>
+<script src="/zh/assets/js/main.e9565172.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/zh/"><div class="navbar__logo"><img src="/zh/img/logo.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/zh/img/logo-light.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/zh/download">下载</a><a class="navbar__item navbar__link" href="/zh/document">文档</a><a class="navbar__item navbar__link" href="/zh/community/contributor-guide">社区</a><a class="navbar__item navbar__link" href="/zh/team">团队</a><a class="navbar__item navbar__link" href="/zh/event">事件</a><a class="navbar__item navbar__link" href="/zh/news">新闻</a><a class="navbar__item navbar__link" href="/zh/blog">博客</a><a class="navbar__item navbar__link" href="/zh/users">用户</a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">ASF</a><ul class="dropdown__menu"><li><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="dropdown__link">基金会</a></li><li><a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="dropdown__link">许可</a></li><li><a href="https://www.apache.org/events/current-event" target="_blank" rel="noopener noreferrer" class="dropdown__link">活动</a></li><li><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="dropdown__link">安全</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">赞助</a></li><li><a href="https://www.apache.org/foundation/policies/privacy.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">隐私</a></li><li><a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">致谢</a></li></ul></div><a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>简体中文</a><ul class="dropdown__menu"><li><a href="/docs/2.7.1/user-guide/admin-usage/selector-and-rule" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/zh/docs/2.7.1/user-guide/admin-usage/selector-and-rule" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh">简体中文</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/zh/docs/2.7.1/"><span class="linkLabel_WmDU">Apache ShenYu 介绍</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/design/database-design"><span class="categoryLinkLabel_W154">设计文档</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/deployment/deployment-before"><span class="categoryLinkLabel_W154">运维部署</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/quick-start/quick-start-dubbo"><span class="categoryLinkLabel_W154">快速开始</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/zh/docs/2.7.1/user-guide/admin-usage/api-document"><span class="categoryLinkLabel_W154">用户指南</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/api-document"><span class="categoryLinkLabel_W154">Admin使用</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/api-document"><span class="linkLabel_WmDU">API文档管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/data-permission"><span class="linkLabel_WmDU">数据权限管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/dictionary-management"><span class="linkLabel_WmDU">字典管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/instance"><span class="linkLabel_WmDU">服务健康状态可视化</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/namepsace"><span class="linkLabel_WmDU">命名空间（namespace）管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/plugin-handle-explanation"><span class="linkLabel_WmDU">插件配置</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/role-management"><span class="linkLabel_WmDU">用户资源管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/zh/docs/2.7.1/user-guide/admin-usage/selector-and-rule"><span class="linkLabel_WmDU">选择器和规则管理</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/user-guide/property-config/admin-property-config"><span class="categoryLinkLabel_W154">属性配置</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/user-guide/sdk-usage/shenyu-sdk-consul"><span class="categoryLinkLabel_W154">Shenyu-Sdk Usage</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/user-guide/discovery/discovery-mode"><span class="categoryLinkLabel_W154">Discovery</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/user-guide/proxy/dubbo-proxy"><span class="categoryLinkLabel_W154">快速接入</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/user-guide/kubernetes-controller/build-deploy"><span class="categoryLinkLabel_W154">Kubernetes Controller</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/zh/docs/2.7.1/user-guide/api-doc/shenyu-annotation-apidoc"><span class="categoryLinkLabel_W154">API Document Aggregation</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/plugin-center/http-process/contextpath-plugin"><span class="categoryLinkLabel_W154">插件集合</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/developer/spi/custom-load-balance"><span class="categoryLinkLabel_W154">开发者文档</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/zh/docs/2.7.1/benchmark-test/"><span class="linkLabel_WmDU">Benchmark Test</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role="alert"><div>This is documentation for <!-- -->Apache ShenYu<!-- --> <b>当前版本</b>, which is no longer actively maintained.</div><div class="margin-top--md">For up-to-date documentation, see the <b><a href="/zh/docs/user-guide/admin-usage/selector-and-rule">latest version</a></b> (<!-- -->2.7.1<!-- -->).</div></div><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/zh/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">用户指南</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Admin使用</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">选择器和规则管理</span></li></ul></nav><span class="theme-doc-version-badge badge badge--secondary">版本：当前版本</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>选择器和规则管理</h1></header><p>本文档将介绍<code>Apache ShenYu</code>后台管理系统中选择器和规则的使用，关于选择器和规则的概念及设计请参考 <a class="" href="/zh/docs/2.7.1/design/flow-control">流量控制</a>。</p>
+<p>请参考运维部署的内容，选择一种方式启动<code>shenyu-admin</code>。比如，通过 <a class="" href="/zh/docs/2.7.1/deployment/deployment-local">本地部署</a> 启动<code>Apache ShenYu</code>后台管理系统。 启动成功后，可以直接访问 <code>http://localhost:9095</code> ，默认用户名和密码分别为: <code>admin</code> 和 <code>123456</code>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="选择器">选择器<a href="#选择器" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>在插件列表中展示了当前的所有插件，可以给每个插件添加选择器和规则：</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/selector_example-83c08aae1fc1ced7477b97844480022c.png" width="2469" height="713" class="img_ev3q"></p>
+<p>例如，给<code>divide</code>插件添加选择器：</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/selector_add-c4666ca1ce45ccaad4b5bf76c10af906.png" width="2418" height="1195" class="img_ev3q"></p>
+<ul>
+<li class="">
+<p>选择器详解：</p>
+<ul>
+<li class="">名称：给选择器取一个名字。</li>
+<li class="">类型：自定义流量(<code>custom flow</code>) 或 全流量(<code>full flow</code>)。自定义流量就是请求会走下面的匹配方式与条件。全流量则不走。</li>
+<li class="">匹配方式：<code>and</code>或者 <code>or</code> 是指下面多个条件是按照 并(<code>and</code>) 还是 或(<code>or</code>) 的方式来组合。</li>
+<li class="">条件：<!-- -->
+<ul>
+<li class=""><code>uri</code>：根据 <code>uri</code> 的方式来筛选流量，<code>match</code> 的方式支持模糊匹配（<code>/**</code>）</li>
+<li class=""><code>header</code>：根据请求头里面的字段来筛选流量。</li>
+<li class=""><code>query</code>：根据 <code>uri</code> 的查询条件来进行筛选流量。</li>
+<li class=""><code>ip</code>：根据请求的真实 <code>ip</code> 来筛选流量。</li>
+<li class=""><code>host</code>：根据请求的真实 <code>host</code> 来筛选流量。</li>
+<li class=""><code>post</code>：根据请求上下文获取参数，不建议使用。</li>
+<li class=""><code>cookie</code>：根据请求的 <code>cookie</code> 来筛选流量。</li>
+<li class=""><code>req_method</code>：根据请求的方式来筛选流量。</li>
+<li class="">条件匹配：<!-- -->
+<ul>
+<li class=""><code>match</code>：模糊匹配，建议和<code>uri</code>条件搭配，支持 <code>restful</code> 风格的匹配。（<code>/test/**</code>）</li>
+<li class=""><code>=</code>：前后值相等，才能匹配。</li>
+<li class=""><code>regEx</code>：正则匹配，表示前面一个值去匹配后面的正则表达式。</li>
+<li class=""><code>contains</code>：请求包含指定的值，才能匹配。</li>
+<li class=""><code>TimeBefore</code>：指定时间之前。</li>
+<li class=""><code>TimeAfter</code>：指定时间之后。</li>
+<li class=""><code>exclude</code>： 是 <code>match</code> 方式的反选。</li>
+<li class=""><code>startsWith</code>：请求前缀等于指定的值，才能匹配。在特定场景下，可替换 <code>match</code> （如用<code>/test/</code>来替换<code>/test/**</code>）以获得更好的性能。</li>
+<li class=""><code>endsWith</code>：请求后缀等于指定的值，才能匹配。</li>
+<li class=""><code>pathPattern</code>：是 <code>match</code> 的优化版，性能比<code>match</code>更好，但是不支持将<code>**</code>写在path中间（如<code>/api/**/xxx</code>）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">继续后续选择器：后续选择器还是否执行。</li>
+<li class="">是否开启：打开才会生效。</li>
+<li class="">打印日志：打开时，当匹配上的时候，会打印匹配日志。</li>
+<li class="">执行顺序：当多个选择器的时候，执行顺序小的优先执行，值越小优先级越高。</li>
+<li class="">处理：即<code>handle</code>字段，在 <a class="" href="/zh/docs/2.7.1/user-guide/admin-usage/plugin-handle-explanation">插件处理管理</a> 中进行设置。作用是：当请求流量匹配上该选择器时，做什么样的处理操作。 在选择器中，<code>handle</code>字段往往用来表示用户手动维护的服务实例列表，每条服务实例信息包含以下字段：<!-- -->
+<ul>
+<li class=""><code>host</code>：host地址</li>
+<li class=""><code>ip:port</code>：ip+port地址</li>
+<li class=""><code>protocol</code>：协议</li>
+<li class=""><code>weight</code>：服务实例的权重</li>
+<li class=""><code>warmupTime</code>：服务预热时间</li>
+<li class=""><code>startupTime</code>：服务开启时间</li>
+<li class=""><code>status</code>：true: 服务节点可用，false: 服务节点不可用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：对于引入了服务发现模块的插件（如Divide插件、Grpc插件和WebSocket插件），选择器页面上不展示处理（即<code>handle</code>字段），而是通过<code>服务发现</code>标签页下的local模式来手动维护服务下游实例列表，详见<a class="" href="/zh/docs/2.7.1/user-guide/discovery/discovery-mode">服务发现模块</a> 。</p>
+</blockquote>
+<ul>
+<li class="">上述图片中表示: 当请求的 <code>uri</code> 前缀是 <code>/http</code>，会转发到 <code>127.0.0.1:8080</code> 这个服务上。</li>
+<li class="">选择器建议：可以通过设置 <code>uri</code> 条件， <code>startsWith</code> 前缀（<code>/contextPath/</code>）匹配，进行第一道流量筛选。</li>
+<li class="">选择器(同规则)模糊匹配条件规则：<!-- -->
+<ul>
+<li class=""><code>?</code> 匹配1个字符</li>
+<li class=""><code>*</code> 匹配0个或多个字符</li>
+<li class=""><code>**</code>  匹配0个或多个目录</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="规则">规则<a href="#规则" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/rule_handle-c4290b99e8bfc5253308641ea4bf803a.png" width="1764" height="1196" class="img_ev3q"></p>
+<ul>
+<li class="">
+<p>当流量经过选择器匹配成功之后，会进入规则来进行最终的流量匹配。</p>
+</li>
+<li class="">
+<p>规则是对流量最终执行逻辑的确认。</p>
+</li>
+<li class="">
+<p>规则详解：</p>
+<ul>
+<li class="">名称：给规则取一个名字。</li>
+<li class="">匹配方式：<code>and</code> 或者 <code>or</code> 是指下面多个条件的组合方式。</li>
+<li class="">条件：<!-- -->
+<ul>
+<li class=""><code>uri</code>：根据 <code>uri</code> 的方式来筛选流量，<code>match</code> 的方式支持模糊匹配（<code>/**</code>）</li>
+<li class=""><code>header</code>：根据请求头里面的字段来筛选流量。</li>
+<li class=""><code>query</code>：根据 <code>uri</code> 的查询条件来进行筛选流量。</li>
+<li class=""><code>ip</code>：根据请求的真实 <code>ip</code> 来筛选流量。</li>
+<li class=""><code>host</code>：根据请求的真实 <code>host</code> 来筛选流量。</li>
+<li class=""><code>post</code>：不建议使用。</li>
+<li class=""><code>cookie</code>：根据请求的 <code>cookie</code> 来筛选流量。</li>
+<li class=""><code>req_method</code>：根据请求的 <code>req_method</code> 来筛选流量。</li>
+<li class="">条件匹配：<!-- -->
+<ul>
+<li class=""><code>match</code>：模糊匹配，建议和<code>uri</code>条件搭配，支持 <code>restful</code> 风格的匹配。（<code>/test/**</code>）</li>
+<li class=""><code>=</code>：前后值相等，才能匹配。</li>
+<li class=""><code>regEx</code>：正则匹配，表示前面一个值去匹配后面的正则表达式。</li>
+<li class=""><code>contains</code>：请求包含指定的值，才能匹配。</li>
+<li class=""><code>TimeBefore</code>：指定时间之前。</li>
+<li class=""><code>TimeAfter</code>：指定时间之后。</li>
+<li class=""><code>exclude</code>： 是 <code>match</code> 方式的反选。</li>
+<li class=""><code>startsWith</code>：请求前缀等于指定的值，才能匹配。在特定场景下，可替换 <code>match</code> （如用<code>/test/</code>来替换<code>/test/**</code>）以获得更好的性能。</li>
+<li class=""><code>endsWith</code>：请求后缀等于指定的值，才能匹配。</li>
+<li class=""><code>pathPattern</code>：是 <code>match</code> 的优化版，性能比<code>match</code>更好，但是不支持将<code>**</code>写在path中间（如<code>/api/**/xxx</code>）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">是否开启：打开才会生效。</li>
+<li class="">打印日志：打开时，当匹配上的时候，才会打印匹配日志。</li>
+<li class="">执行顺序：当多个规则的时候，执行顺序小的优先执行。</li>
+<li class="">处理：即<code>handle</code>字段，在 <a class="" href="/zh/docs/2.7.1/user-guide/admin-usage/plugin-handle-explanation">插件处理管理</a> 中进行设置。每个插件的规则处理不一样，具体请查看每个对应插件的处理。</li>
+</ul>
+</li>
+<li class="">
+<p>上图表示：当 <code>uri</code> 等于  <code>/http/order/save</code> 的时候能够匹配上该规则，就会执行该规则中，负载策略是 <code>random</code>，重试次数是 <code>3</code> 等处理操作。</p>
+</li>
+<li class="">
+<p>规则建议：可以<code>uri</code> 条件， <code>match</code> 最真实的<code>uri路径</code>，进行流量的最终筛选 。</p>
+</li>
+</ul>
+<p>联合选择器，我们来表述一下：当一个请求的 <code>uri</code> 为 <code>/http/order/save</code>，会通过 <code>random</code> 的方式，转发到 <code>127.0.0.1:8080</code> 机器上。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="匹配方式">匹配方式<a href="#匹配方式" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>匹配方式是指在选择器或规则匹配时，多个条件之间的匹配方式，当前支持 <code>and</code> 和 <code>or</code>。</p>
+<ul>
+<li class="">
+<p><code>and</code></p>
+<p><code>and</code>表示多个条件同时满足才能匹配上选择器或规则。</p>
+<p>下图中的示例表示，请求必须同时满足条件 <code>uri = /http/order/findById</code> 和 条件 <code>id = 100</code> 才能匹配上该条规则。</p>
+<p>比如一个真实的请求 <code>http://localhost:9195/http/order/findById?id=100</code> 能够同时满足上述两个条件，所以可以匹配上该条规则。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/match-strategy-and-zh-10f996e238caa8b956024540ac565809.png" width="1763" height="1264" class="img_ev3q"></p>
+<ul>
+<li class="">
+<p><code>or</code></p>
+<p><code>or</code>表示多个条件中满足一个就能匹配上选择器或规则。</p>
+<p>下图中的示例表示，请求满足条件 <code>uri = /http/order/findById</code> 或者 条件 <code>id = 100</code> 就能匹配上该条规则。</p>
+<p>比如一个真实的请求 <code>http://localhost:9195/http/order/findById?id=99</code> 能够满足上述第一个条件 <code>uri = /http/order/findById</code>，所以也可以匹配上该条规则。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/match-strategy-or-zh-235cf203decaac3bff7f9d4231c505ac.png" width="1761" height="1248" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="条件参数">条件参数<a href="#条件参数" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>对选择器和规则中的条件参数设置再次进行解释。假如下面是一个 <code>HTTP</code> 请求的请求头：</p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">GET http://localhost:9195/http/order/findById?id=100</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Accept: application/json</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Cookie: shenyu=shenyu_cookie</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">MyHeader: custom-header</span><br></div></code></pre></div></div>
+<p>在<code>ShenYu</code>中可以通过设置不同的条件参数从请求信息中获取真实数据。</p>
+<ul>
+<li class="">如果条件参数是<code>uri</code>，那么获取到的真实数据是 <code>/http/order/findById</code>；</li>
+<li class="">如果条件参数是<code>header</code>，字段名称是<code>MyHeader</code>，那么获取到的真实数据是 <code>custom-header</code>；</li>
+<li class="">如果条件参数是<code>query</code>，字段名称是<code>id</code>，那么获取到的真实数据是 <code>100</code>；</li>
+<li class="">如果条件参数是<code>ip</code>，那么获取到的真实数据 <code>0:0:0:0:0:0:0:1</code>；</li>
+<li class="">如果条件参数是<code>host</code>，那么获取到的真实数据是 <code>0:0:0:0:0:0:0:1</code>；</li>
+<li class="">如果条件参数是<code>post</code>，字段名称是<code>contextPath</code>，那么获取到的真实数据是 <code>/http</code>；</li>
+<li class="">如果条件参数是<code>cookie</code>，字段名称是<code>shenyu</code>，那么获取到的真实数据是 <code>shenyu_cookie</code>；</li>
+<li class="">如果条件参数是<code>req_method</code>，那么获取到的真实数据是 <code>GET</code>。</li>
+</ul>
+<ul>
+<li class="">
+<p><code>uri</code>  （推荐）</p>
+<ul>
+<li class="">
+<p><code>uri</code> 匹配是根据你请求路径中的 <code>uri</code> 来进行匹配，在接入网关的时候，前端几乎不用做任何更改。</p>
+</li>
+<li class="">
+<p>当使用 <code>match</code> 方式匹配时候，同 <code>springmvc</code> 模糊匹配原理相同。</p>
+</li>
+<li class="">
+<p>在选择器中，推荐使用 <code>uri</code> 中的前缀来进行匹配，而在规则中，则使用具体路径来进行匹配。</p>
+</li>
+<li class="">
+<p>使用该匹配方式的时候，填写匹配字段的值，图中的示例是<code>/http/**</code>。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/parameter-data-uri-zh-46a99708699beeb342340338a49913d0.png" width="2395" height="1175" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>header</code></p>
+<ul>
+<li class="">
+<p><code>header</code> 是根据你的 <code>http</code> 请求头中的字段值来匹配。</p>
+</li>
+<li class="">
+<p>使用该匹配方式的时候，需要填写字段名称和字段值，图中的示例分别是<code>MyHeader</code>和<code>custom-header</code>。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/parameter-data-header-zh-9709829d7af21e665bf146498b8ee922.png" width="2387" height="1178" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>query</code></p>
+<ul>
+<li class="">
+<p>这个是根据你的 <code>uri</code> 中的查询参数来进行匹配，比如 <code>/test?id=1</code>，那么可以选择该匹配方式。</p>
+</li>
+<li class="">
+<p>使用该匹配方式的时候，需要填写字段名称和字段值，图中的示例分别是<code>id</code>和<code>1</code>。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/parameter-data-query-zh-b2b21dd7a65306ca4ea81d938f574c23.png" width="2403" height="1186" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>ip</code></p>
+<ul>
+<li class="">
+<p>这个是根据 <code>http</code> 调用方的 <code>ip</code> 来进行匹配。</p>
+</li>
+<li class="">
+<p>尤其是在 <code>waf</code> 插件里面，如果发现一个 <code>ip</code>地址有攻击，可以新增一条匹配条件，填上该 <code>ip</code>，拒绝该 <code>ip</code> 的访问。</p>
+</li>
+<li class="">
+<p>如果在 <code>Apache ShenYu</code> 前面使用了 <code>nginx</code> 代理，为了获取正确的 <code>ip</code>，可以参考 <a class="" href="/zh/docs/2.7.1/developer/custom-parsing-ip-and-host">自定义解析IP与Host</a> 。</p>
+</li>
+<li class="">
+<p>使用该匹配方式的时候，填写匹配字段的 值，图中的示例是<code>192.168.236.75</code>。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/parameter-data-ip-zh-e93a7c18af803ed70186359443bc1525.png" width="2401" height="1168" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>host</code></p>
+<ul>
+<li class="">
+<p>这个是根据 <code>http</code> 调用方的 <code>host</code> 来进行匹配。</p>
+</li>
+<li class="">
+<p>尤其是在 <code>waf</code> 插件里面，如果发现一个 <code>host</code> 地址有攻击，可以新增一条匹配条件，填上该 <code>host</code>，拒绝该 <code>host</code> 的访问。</p>
+</li>
+<li class="">
+<p>如果在 <code>Apache ShenYu</code> 前面使用了 <code>nginx</code> 代理，为了获取正确的 <code>host</code>，可以参考 <a class="" href="/zh/docs/2.7.1/developer/custom-parsing-ip-and-host">自定义解析IP与Host</a> 。</p>
+</li>
+<li class="">
+<p>使用该匹配方式的时候，填写匹配字段的值，图中的示例是<code>localhost</code>。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/parameter-data-host-zh-c7823938a86c552856746b0e08a1fe14.png" width="2398" height="1178" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>post</code></p>
+<ul>
+<li class="">
+<p>从请求上下文（<code>org.apache.shenyu.plugin.api.context.ShenyuContext</code>）中获取条件参数，需要通过反射获取字段的值，不推荐使用此方式。</p>
+</li>
+<li class="">
+<p>使用该匹配方式的时候，需要填写字段名称和字段值，图中的示例分别是<code>contextPath</code>和<code>/http</code>。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/parameter-data-post-zh-acf747bb43aff131b9f0c6e2ad15c02c.png" width="2382" height="1185" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>cookie</code></p>
+<ul>
+<li class="">
+<p>这个是根据 <code>http</code> 调用方的请求头中<code>Cookie</code>作为条件参数进行匹配。</p>
+</li>
+<li class="">
+<p>使用该匹配方式的时候，需要填写字段名称和字段值，图中的示例分别是<code>shenyu</code>和<code>shenyu_cookie</code>。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/parameter-data-cookie-zh-e2d0a15cbec98f24084d464c7cac0d19.png" width="2394" height="1158" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>req_method</code></p>
+<ul>
+<li class="">
+<p>这个是根据 <code>http</code> 调用方的请求形式来进行匹配，比如<code>GET</code>、<code>POST</code>等。</p>
+</li>
+<li class="">
+<p>使用该匹配方式的时候，填写匹配字段的值，图中的示例是<code>GET</code>。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/parameter-data-req_method-zh-e3469e3a3e4e1fdc3a96343ec2cc0db1.png" width="2398" height="1162" class="img_ev3q"></p>
+</li>
+</ul>
+<p>如果想更深入理解条件参数的获取，请阅读相关源码，包名是<code>org.apache.shenyu.plugin.base.condition.data</code>：</p>
+<table><thead><tr><th style="text-align:left">条件参数</th><th style="text-align:left">源码类</th></tr></thead><tbody><tr><td style="text-align:left"><code>uri</code></td><td style="text-align:left"><code>URIParameterData</code></td></tr><tr><td style="text-align:left"><code>header</code></td><td style="text-align:left"><code>HeaderParameterData</code></td></tr><tr><td style="text-align:left"><code>query</code></td><td style="text-align:left"><code>QueryParameterData</code></td></tr><tr><td style="text-align:left"><code>ip</code></td><td style="text-align:left"><code>IpParameterData</code></td></tr><tr><td style="text-align:left"><code>host</code></td><td style="text-align:left"><code>HostParameterData</code></td></tr><tr><td style="text-align:left"><code>post</code></td><td style="text-align:left"><code>PostParameterData</code></td></tr><tr><td style="text-align:left"><code>cookie</code></td><td style="text-align:left"><code>CookieParameterData</code></td></tr><tr><td style="text-align:left"><code>req_method</code></td><td style="text-align:left"><code>RequestMethodParameterData</code></td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="条件匹配策略">条件匹配策略<a href="#条件匹配策略" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>通过条件参数能够获取到请求的真实数据。真实数据如何匹配上选择器或规则预设的条件数据，是通过条件匹配策略来实现。</p>
+<ul>
+<li class="">
+<p><code>match</code></p>
+<p><code>match</code> 的方式支持模糊匹配（<code>/**</code>）。假如你的选择器条件设置如下，那么请求 <code>/http/order/findById</code> 就可以匹配上。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-match-zh-f1d580331000bd4c2cbc1a7b6f203e5e.png" width="2382" height="1172" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>=</code></p>
+<p><code>=</code> 的方式表示请求的真实数据和预设的条件数据相等。假如你的选择器条件设置如下：请求<code>uri</code>等于<code>/http/order/findById</code>，那么请求 <code>/http/order/findById?id=1</code> 就可以匹配上。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-equals-zh-ec24b42555dc145ceac61dc425497175.png" width="1761" height="1185" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>regex</code></p>
+<p><code>regex</code> 的方式表示请求的真实数据能够满足预设条件的正则表达式才能匹配成功。假如你的规则条件设置如下：请求参数中包含<code>id</code>，并且是3位数字。那么请求 <code>/http/order/findById?id=900</code> 就可以匹配上。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-regex-zh-5cf42a509fb0f12863c222b798b099c3.png" width="1754" height="1183" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>contains</code></p>
+<p><code>contains</code> 的方式表示请求的真实数据包含预设的条  件数据。假如你的规则条件设置如下：请求<code>uri</code>中包含<code>findById</code>。那么请求 <code>/http/order/findById?id=1</code> 就可以匹配上。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-contains-zh-38132ad301724189cc6bd2ab4548a7d6.png" width="1768" height="1181" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>TimeBefore</code></p>
+<p><code>TimeBefore</code> 的方式表示请求时间在预设的条件时间之前才能匹配成功。假如你的规则条件设置如下：请求参数中包含<code>date</code>，并且<code>date</code>小于<code>2021-09-26 06:12:10</code>。那么请求 <code>/http/order/findById?id=100&amp;date=2021-09-22 06:12:10</code> 就可以匹配上。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-timebefore-zh-b708a6a812ed3aec8a05dd3418995742.png" width="1747" height="1189" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>TimeAfter</code></p>
+<p><code>TimeAfter</code> 的方式表示请求时间在预设的条件时间之后才能匹配成功。假如你的规则条件设置如下：请求参数中包含<code>date</code>，并且<code>date</code>大于<code>2021-09-26 06:12:10</code>。那么请求 <code>/http/order/findById?id=100&amp;date=2021-09-29 06:12:10</code> 就可以匹配上。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-timeafter-zh-f7b6af84e2c6e3debe202e3f43e0a871.png" width="1764" height="1176" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>exclude</code></p>
+<p><code>exclude</code> 的方式是 <code>match</code> 方式的反选，<code>match</code> 有的功能也都有，但是是匹配过滤。假如你的选择器条件设置如下，那么请求 <code>/http/order/findById</code> 就会过滤这个。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-exclude-zh-72b327ed83f00139fdcb03d28ae9bd24.png" width="1000" height="520" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>startsWith</code></p>
+<p><code>startsWith</code> 的方式表示请求的真实数据的前缀和预设的条件数据相等。假如你的规则条件设置如下：请求<code>uri</code>中前缀等于<code>/http/</code>。那么请求 <code>/http/order/findById?id=1</code> 就可以匹配上。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-startswith-zh-ac50703963f7c72f29e89b82d1cf1ac9.png" width="1956" height="1336" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>endsWith</code></p>
+<p><code>endsWith</code> 的方式表示请求的真实数据的后缀和预设的条件数据相等。假如你的规则条件设置如下：请求<code>uri</code>中后缀等于<code>Id</code>。那么请求 <code>/http/order/findById?id=1</code> 就可以匹配上。</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-endswith-zh-4a45bc3e458b36d9215bcdb20fe7c5d3.png" width="1818" height="1262" class="img_ev3q"></p>
+</li>
+<li class="">
+<p><code>pathPattern</code></p>
+<p>跟 <code>match</code> 类似， <code>pathPattern</code> 支持模糊匹配（<code>/**</code>）。假如你的规则条件设置如下，那么请求 <code>/http/order/findById</code> 就可以匹配上；</p>
+<p>但是注意：不支持将<code>**</code>写在path中间（如<code>/api/**/xxx</code>）!</p>
+<p><img decoding="async" loading="lazy" src="/zh/assets/images/predicate-judge-pathpattern-zh-1123d15b1604ceb9e11b0605f181715e.png" width="1816" height="1262" class="img_ev3q"></p>
+</li>
+</ul>
+<p>如果想更深入理解条件匹配策略，请阅读相关源码，包名是<code>org.apache.shenyu.plugin.base.condition.judge</code>：</p>
+<table><thead><tr><th style="text-align:left">匹配策略</th><th style="text-align:left">源码类</th></tr></thead><tbody><tr><td style="text-align:left"><code>match</code></td><td style="text-align:left"><code>MatchPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>=</code></td><td style="text-align:left"><code>EqualsPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>regex</code></td><td style="text-align:left"><code>RegexPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>contains</code></td><td style="text-align:left"><code>ContainsPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>TimeBefore</code></td><td style="text-align:left"><code>TimerBeforePredicateJudge</code></td></tr><tr><td style="text-align:left"><code>TimeAfter</code></td><td style="text-align:left"><code>TimerAfterPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>exclude</code></td><td style="text-align:left"><code>ExcludePredicateJudge</code></td></tr><tr><td style="text-align:left"><code>startsWith</code></td><td style="text-align:left"><code>StartsWithPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>endsWith</code></td><td style="text-align:left"><code>EndsWithPredicateJudge</code></td></tr><tr><td style="text-align:left"><code>pathPattern</code></td><td style="text-align:left"><code>PathPatternPredicateJudge</code></td></tr></tbody></table>
+<p>文中的示例是为了说明选择器和规则的使用，具体条件的设置需要根据实际情况选择。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/apache/shenyu-website/edit/main/i18n/zh/docusaurus-plugin-content-docs/version-2.7.1/user-guide/admin-usage/selector-and-rule.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑本文档</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/zh/docs/2.7.1/user-guide/admin-usage/role-management"><div class="pagination-nav__sublabel">上一篇</div><div class="pagination-nav__label">用户资源管理</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/zh/docs/2.7.1/user-guide/property-config/admin-property-config"><div class="pagination-nav__sublabel">下一篇</div><div class="pagination-nav__label">Admin属性配置</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#选择器" class="table-of-contents__link toc-highlight">选择器</a></li><li><a href="#规则" class="table-of-contents__link toc-highlight">规则</a></li><li><a href="#匹配方式" class="table-of-contents__link toc-highlight">匹配方式</a></li><li><a href="#条件参数" class="table-of-contents__link toc-highlight">条件参数</a></li><li><a href="#条件匹配策略" class="table-of-contents__link toc-highlight">条件匹配策略</a></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>

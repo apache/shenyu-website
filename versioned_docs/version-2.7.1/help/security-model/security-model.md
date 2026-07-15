@@ -1,3 +1,9 @@
+---
+title: Security Model
+keywords: ["Security Model", "Trust Boundaries", "Vulnerability Scope"]
+description: Apache ShenYu security model defining trust boundaries, deployment controls, and vulnerability scope
+---
+
 # Apache ShenYu Security Model
 
 This document defines the security model and trust boundaries of Apache ShenYu. It is intended for:

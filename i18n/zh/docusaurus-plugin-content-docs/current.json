@@ -110,5 +110,9 @@
   "sidebar.tutorialSidebar.category.Benchmark Test": {
     "message": "基准测试",
     "description": "ShenYu Benchmark Test"
+  },
+  "sidebar.tutorialSidebar.category.Help": {
+    "message": "帮助",
+    "description": "The label for category 'Help' in sidebar 'tutorialSidebar'"
   }
 }

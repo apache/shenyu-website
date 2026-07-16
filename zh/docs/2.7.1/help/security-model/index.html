@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-2.7.1 docs-doc-page docs-doc-id-help/security-model/security-model" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">安全模型 | Apache ShenYu</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://shenyu.apache.org/zh/docs/2.7.1/help/security-model/"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="2.7.1"><meta data-rh="true" name="docusaurus_tag" content="docs-default-2.7.1"><meta data-rh="true" name="docsearch:version" content="2.7.1"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-2.7.1"><meta data-rh="true" property="og:title" content="安全模型 | Apache ShenYu"><meta data-rh="true" name="description" content="Apache ShenYu 安全模型，定义信任边界、部署控制和漏洞范围"><meta data-rh="true" property="og:description" content="Apache ShenYu 安全模型，定义信任边界、部署控制和漏洞范围"><meta data-rh="true" name="keywords" content="安全模型,信任边界,漏洞范围"><link data-rh="true" rel="icon" href="/zh/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://shenyu.apache.org/zh/docs/2.7.1/help/security-model/"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.1/help/security-model/" hreflang="en"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/zh/docs/2.7.1/help/security-model/" hreflang="zh"><link data-rh="true" rel="alternate" href="https://shenyu.apache.org/docs/2.7.1/help/security-model/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Security Model","item":"https://shenyu.apache.org/zh/docs/2.7.1/help/security-model/"}]}</script><link rel="alternate" type="application/rss+xml" href="/zh/blog/rss.xml" title="Apache ShenYu RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/zh/blog/atom.xml" title="Apache ShenYu Atom Feed">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/zh/news/rss.xml" title="Apache ShenYu RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/zh/news/atom.xml" title="Apache ShenYu Atom Feed">
+
+<script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.5b3f4205.css">
+<script src="/zh/assets/js/runtime~main.98f72f10.js" defer="defer"></script>
+<script src="/zh/assets/js/main.82205871.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/zh/"><div class="navbar__logo"><img src="/zh/img/logo.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/zh/img/logo-light.svg" alt="Apache ShenYu Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/zh/download">下载</a><a class="navbar__item navbar__link" href="/zh/document">文档</a><a class="navbar__item navbar__link" href="/zh/community/contributor-guide">社区</a><a class="navbar__item navbar__link" href="/zh/team">团队</a><a class="navbar__item navbar__link" href="/zh/event">事件</a><a class="navbar__item navbar__link" href="/zh/news">新闻</a><a class="navbar__item navbar__link" href="/zh/blog">博客</a><a class="navbar__item navbar__link" href="/zh/users">用户</a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">ASF</a><ul class="dropdown__menu"><li><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="dropdown__link">基金会</a></li><li><a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="dropdown__link">许可</a></li><li><a href="https://www.apache.org/events/current-event" target="_blank" rel="noopener noreferrer" class="dropdown__link">活动</a></li><li><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="dropdown__link">安全</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">赞助</a></li><li><a href="https://www.apache.org/foundation/policies/privacy.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">隐私</a></li><li><a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="dropdown__link">致谢</a></li></ul></div><a href="https://github.com/apache/shenyu" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>简体中文</a><ul class="dropdown__menu"><li><a href="/docs/2.7.1/help/security-model/" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/zh/docs/2.7.1/help/security-model/" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh">简体中文</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/zh/docs/2.7.1/"><span class="linkLabel_WmDU">Apache ShenYu 介绍</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/design/database-design"><span class="categoryLinkLabel_W154">设计文档</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/deployment/deployment-before"><span class="categoryLinkLabel_W154">运维部署</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/quick-start/quick-start-dubbo"><span class="categoryLinkLabel_W154">快速开始</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/user-guide/admin-usage/api-document"><span class="categoryLinkLabel_W154">用户指南</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/plugin-center/http-process/contextpath-plugin"><span class="categoryLinkLabel_W154">插件集合</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/zh/docs/2.7.1/developer/spi/custom-load-balance"><span class="categoryLinkLabel_W154">开发者文档</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/zh/docs/2.7.1/benchmark-test/"><span class="linkLabel_WmDU">Benchmark Test</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/zh/docs/2.7.1/help/security-model/"><span class="categoryLinkLabel_W154">帮助</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/zh/docs/2.7.1/help/security-model/"><span class="linkLabel_WmDU">Security Model</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role="alert"><div>This is documentation for <!-- -->Apache ShenYu<!-- --> <b>当前版本</b>, which is no longer actively maintained.</div><div class="margin-top--md">For up-to-date documentation, see the <b><a href="/zh/docs/help/security-model/">latest version</a></b> (<!-- -->2.7.1<!-- -->).</div></div><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/zh/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">帮助</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Security Model</span></li></ul></nav><span class="theme-doc-version-badge badge badge--secondary">版本：当前版本</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Apache ShenYu 安全模型</h1></header>
+<p>本文档定义了 Apache ShenYu 的安全模型和信任边界，适用于：</p>
+<ul>
+<li class=""><strong>运维人员</strong>：了解所需的部署控制措施和安全假设。</li>
+<li class=""><strong>安全研究人员</strong>：判断某个报告的行为是否在 ShenYu 的预期信任边界内。</li>
+<li class=""><strong>ASF 安全团队</strong>：根据本模型对收到的漏洞报告进行分诊。</li>
+</ul>
+<p>违反本模型的行为报告属于有效范围。假设了本模型明确排除的边界的行为报告则不在范围内。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-部署边界">1. 部署边界<a href="#1-部署边界" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><strong>Admin 服务（shenyu-admin）设计用于在受信任的内部网络中运行。</strong></p>
+<p>Admin 端口（默认：<code>9095</code>）<strong>不得</strong>暴露到公共互联网。Admin 服务默认绑定到 <code>0.0.0.0</code>，是为了方便容器化和内部网络部署；这并不意味着它对外部暴露是安  全的。</p>
+<p>运维人员负责：</p>
+<ul>
+<li class="">将 Admin 服务放置于防火墙或私有 VPC 之后。</li>
+<li class="">使用网络级访问控制（安全组、入站规则、VPN）限制对 Admin 端口的访问。</li>
+<li class="">在生产环境中，可选择将 Admin 服务器绑定到特定的内部地址。</li>
+</ul>
+<p>将 Admin 端口暴露到公共互联网是部署配置错误，而非 ShenYu 的漏洞。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-认证边界">2. 认证边界<a href="#2-认证边界" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><strong>所有已认证的 Admin 用户都是完全受信任的。账号管理是安全边界。</strong></p>
+<p>Admin 服务使用 Apache Shiro 进行认证。一旦用户通过认证（通过用户名/密码、LDAP 或其他配置的机制），他们就被视为 ShenYu 部署的受信任操作者。</p>
+<p>安全边界在于：</p>
+<ul>
+<li class=""><strong>账号创建和凭证管理</strong> — 只有授权人员才能创建 Admin 账号。</li>
+<li class=""><strong>凭证存储</strong> — ShenYu 存储的密码和密钥（例如在数据库中）必须受到保护。</li>
+</ul>
+<p>已认证的 Admin 用户（包括任何拥有有效登录凭据的用户）执行的操作不属于安全漏洞。如果攻击者能够认证，则部署已经被攻破。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-rbac-模型">3. RBAC 模型<a href="#3-rbac-模型" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><strong><code>@RequiresPermissions</code> 控制的是 UI 功能的可见性，而非已认证 Admin 用户之间的安全隔离。</strong></p>
+<p>ShenYu 使用 Apache Shiro 注解（<code>@RequiresPermissions</code>）实现了基于角色的访问控制（RBAC）系统。该系统的设计目标是：</p>
+<ul>
+<li class="">简化 Admin 界面，仅向每个用户展示与其角色相关的功能。</li>
+<li class="">通过限制哪些用户可以修改特定资源（插件、规则、选择器等），防止意外误配置。</li>
+</ul>
+<p>ShenYu 中的 RBAC <strong>不是</strong>硬安全边界。它<strong>不能</strong>防护：</p>
+<ul>
+<li class="">恶意的已认证用户故意提升权限。</li>
+<li class="">用户通过 Admin UI 以外的方式发现或调用未被分配的 API 端点。</li>
+<li class="">同一部署的 Admin 用户之间的跨租户隔离。</li>
+</ul>
+<p><strong>所有已认证的 Admin 用户共享同一信任域。</strong> 如果需要操作者之间的严格隔离，请部署独立的 ShenYu Admin 实例。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-websocket-同步通道">4. WebSocket 同步通道<a href="#4-websocket-同步通道" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><strong><code>/websocket</code> 端点是有意不进行认证的，必须通过网络级访问控制来保护。</strong></p>
+<p>Admin 服务在 <code>/websocket</code> 暴露一个 WebSocket 端点，供 Gateway（bootstrap）实例接收实时配置更新。该端点被明确排除在 Shiro 认证之外（参见 <code>application.yml</code> 中的 <code>shenyu.shiro.white-list</code>）。</p>
+<p>由于 Gateway 必须连接到此端点以同步插件、选择器和规则数据，WebSocket 通道在应用层没有认证机制。此通道的安全性完全取决于：</p>
+<ul>
+<li class=""><strong>网络隔离</strong>：<code>/websocket</code> 端点只能被受信任内部网络中的 Gateway 实例访问。</li>
+<li class=""><strong>防火墙规则</strong>：阻止外部访问 Admin 端口，同时也就保护了 WebSocket 端点。</li>
+</ul>
+<p>任何能够访问 <code>/websocket</code> 端点的人都可以接收 Gateway 的完整配置状态，包括插件规则、上游服务地址和认证密钥。这是有意为之：在受信任网络内，Gateway 是这些数据的合法消费者。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-控制面与数据面">5. 控制面与数据面<a href="#5-控制面与数据面" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><strong>Admin（控制面）和 Gateway（数据面）属于不同的信任域。</strong></p>
+<table><thead><tr><th>组件</th><th>角色</th><th>信任级别</th></tr></thead><tbody><tr><td>shenyu-admin</td><td>控制面 — 管理配置、插件、规则、元数据</td><td>仅限受信任的内部网络</td></tr><tr><td>shenyu-bootstrap</td><td>数据面 — 处理实时流量路由、限流、认证</td><td>对流量暴露（面向互联网或 DMZ）</td></tr></tbody></table>
+<p>关键含义：</p>
+<ul>
+<li class="">Gateway <strong>不会</strong>隐式信任 Admin 来做运行时的流量决策。Gateway 会针对入站请求执行自己的认证、限流和路由规则。</li>
+<li class="">Admin 被攻破<strong>不会</strong>直接危及流经 Gateway 的流量，但会允许攻击者修改 Gateway 的配置（添加/删除插件、修改路由规则等）。</li>
+<li class="">Gateway 被攻破<strong>不会</strong>授予对 Admin 或其数据库的访问权限。</li>
+<li class="">WebSocket 同步通道（<code>/websocket</code>）是这两个信任域之间的桥梁，必须按照第 4 节所述进行保护。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-数据库安全">6. 数据库安全<a href="#6-数据库安全" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><strong>数据库是受信任的基础设施。数据库被攻破是一个独立的安全事件，不在 ShenYu 的软件威胁模型范围内。</strong></p>
+<p>ShenYu 将配置、用户凭证、插件数据和元数据存储在数据库中（开发环境使用 H2，生产环境使用 MySQL/PostgreSQL）。</p>
+<p>ShenYu 假设：</p>
+<ul>
+<li class="">数据库部署在安全环境中，具有独立于 ShenYu 的访问控制。</li>
+<li class="">ShenYu 使用的数据库凭证受到保护且不对外暴露。</li>
+<li class="">数据库网络端口不暴露给不受信任的网络。</li>
+</ul>
+<p>如果攻击者获得对数据库的直接访问权限（例如通过其他应用程序的 SQL 注入、凭证泄露或网络配置错误），他们可以读取或修改所有 ShenYu 状态。这是基础设施层面的安全事件，而非 ShenYu 应用程序逻辑中的漏洞。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-范围总结">7. 范围总结<a href="#7-范围总结" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p><strong>在范围内</strong>（请报告至 <a href="mailto:security@apache.org" target="_blank" rel="noopener noreferrer" class="">security@apache.org</a>）：</p>
+<ul>
+<li class="">未经认证的远程代码执行。</li>
+<li class="">允许无需有效凭证即可访问的认证绕过。</li>
+<li class="">Gateway（bootstrap）请求处理漏洞，可通过构造的 HTTP 流量利用。</li>
+<li class="">允许绕过 Gateway 强制执行的认证或限流的插件级漏洞。</li>
+<li class="">通过未经认证的 Gateway 请求路径可到达的注入攻击（SQL、命令、模板）。</li>
+</ul>
+<p><strong>不在范围内</strong>（部署或基础设施问题）：</p>
+<ul>
+<li class="">已认证的 Admin 用户执行的操作。</li>
+<li class="">已认证的 Admin 用户对功能的误用（例如，Admin 用户修改了通过 RBAC 他们&quot;不应该&quot;访问的规则）。</li>
+<li class="">Admin 端口或 WebSocket 端点暴露给不受信任的网络。</li>
+<li class="">拥有数据库凭证的攻击者直接访问数据库。</li>
+<li class="">与 ShenYu 一起使用的第三方基础设施（LDAP 服务器、数据库、Kubernetes 集群）中的漏洞。</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="参考资料">参考资料<a href="#参考资料" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://shenyu.apache.org/" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu 官网</a></li>
+<li class=""><a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="">安全漏洞报告</a></li>
+<li class=""><a href="https://community.apache.org/apache-way/apache-project-maturity-model.html" target="_blank" rel="noopener noreferrer" class="">Apache 项目成熟度模型</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/apache/shenyu-website/edit/main/i18n/zh/docusaurus-plugin-content-docs/version-2.7.1/help/security-model/security-model.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑本文档</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/zh/docs/2.7.1/benchmark-test/"><div class="pagination-nav__sublabel">上一篇</div><div class="pagination-nav__label">Benchmark Test</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-部署边界" class="table-of-contents__link toc-highlight">1. 部署边界</a></li><li><a href="#2-认证边界" class="table-of-contents__link toc-highlight">2. 认证边界</a></li><li><a href="#3-rbac-模型" class="table-of-contents__link toc-highlight">3. RBAC 模型</a></li><li><a href="#4-websocket-同步通道" class="table-of-contents__link toc-highlight">4. WebSocket 同步通道</a></li><li><a href="#5-控制面与数据面" class="table-of-contents__link toc-highlight">5. 控制面与数据面</a></li><li><a href="#6-数据库安全" class="table-of-contents__link toc-highlight">6. 数据库安全</a></li><li><a href="#7-范围总结" class="table-of-contents__link toc-highlight">7. 范围总结</a></li><li><a href="#参考资料" class="table-of-contents__link toc-highlight">参考资料</a></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>

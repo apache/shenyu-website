@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenyu.apache.org/blog</id>
     <title>Apache ShenYu Blog</title>
-    <updated>2026-07-16T08:23:57.000Z</updated>
+    <updated>2026-07-19T03:32:34.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://shenyu.apache.org/blog"/>
     <subtitle>Apache ShenYu Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Apollo Data Synchronization Source Code Analysis]]></title>
         <id>https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-Apollo-Data-Sync</id>
         <link href="https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-Apollo-Data-Sync"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[This article is based on the source code analysis of version 'shenyu-2.6.1'. Please refer to the official website for an introduction Data Synchronization Design.]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p>This article is based on the source code analysis of version 'shenyu-2.6.1'. Please refer to the official website for an introduction <a href="https://shenyu.apache.org/docs/design/data-sync/" target="_blank" rel="noopener noreferrer" class="">Data Synchronization Design</a>.</p>
@@ -122,7 +122,7 @@ There is no data in the local cache, only `plugin${plugin.name} will be  focus.<
         <title type="html"><![CDATA[Etcd Data Synchronization Source Code Analysis]]></title>
         <id>https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-Etcd-Data-Sync</id>
         <link href="https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-Etcd-Data-Sync"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> is an asynchronous, high-performance, cross-language, responsive API gateway.</p>
@@ -312,7 +312,7 @@ There is no data in the local cache, only `plugin${plugin.name} will be  focus.<
         <title type="html"><![CDATA[Http Long Polling Data Synchronization Source Code Analysis]]></title>
         <id>https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-Http-Data-Sync</id>
         <link href="https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-Http-Data-Sync"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> is an asynchronous, high-performance, cross-language, responsive API gateway.</p>
@@ -589,7 +589,7 @@ If the gateway layer is not processed in time, or the administrator updates the 
         <title type="html"><![CDATA[Nacos Data Synchronization Source Code Analysis]]></title>
         <id>https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-Nacos-Data-Sync</id>
         <link href="https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-Nacos-Data-Sync"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> is an asynchronous, high-performance, cross-language, responsive API gateway.</p>
@@ -776,7 +776,7 @@ If the gateway layer is not processed in time, or the administrator updates the 
         <title type="html"><![CDATA[WebSocket Data Synchronization Source Code Analysis]]></title>
         <id>https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-WebSocket-Data-Sync</id>
         <link href="https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-WebSocket-Data-Sync"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[In ShenYu gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for ZooKeeper, WebSocket, http long poll, Nacos, etcd and Consul. The main content of this article is based on WebSocket data synchronization source code analysis.]]></summary>
         <content type="html"><![CDATA[<p>In <code>ShenYu</code> gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for <code>ZooKeeper</code>, <code>WebSocket</code>, <code>http long poll</code>, <code>Nacos</code>, <code>etcd</code> and <code>Consul</code>. The main content of this article is based on <code>WebSocket</code> data synchronization source code analysis.</p>
 <blockquote>
@@ -1012,7 +1012,7 @@ If the gateway layer is not processed in time, or the administrator updates the 
         <title type="html"><![CDATA[ZooKeeper Data Synchronization Source Code Analysis]]></title>
         <id>https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-ZooKeeper-Data-Sync</id>
         <link href="https://shenyu.apache.org/blog/DataSync-SourceCode-Analysis-ZooKeeper-Data-Sync"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> is an asynchronous, high-performance, cross-language, responsive API gateway.</p>
@@ -1197,7 +1197,7 @@ If the gateway layer is not processed in time, or the administrator updates the 
         <title type="html"><![CDATA[E2e Test Analysis]]></title>
         <id>https://shenyu.apache.org/blog/E2eTest-Analysis</id>
         <link href="https://shenyu.apache.org/blog/E2eTest-Analysis"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[This article will conduct an in-depth analysis of Apache ShenYu e2e module.]]></summary>
         <content type="html"><![CDATA[<p>This article will conduct an in-depth analysis of Apache ShenYu e2e module.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-e2e">what is e2e<a href="https://shenyu.apache.org/blog/E2eTest-Analysis#what-is-e2e" class="hash-link" aria-label="Direct link to what is e2e" title="Direct link to what is e2e" translate="no">​</a></h3>
@@ -1249,7 +1249,7 @@ If the gateway layer is not processed in time, or the administrator updates the 
         <title type="html"><![CDATA[Integration Test Analysis]]></title>
         <id>https://shenyu.apache.org/blog/IntegrationTest-Analysis</id>
         <link href="https://shenyu.apache.org/blog/IntegrationTest-Analysis"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[This article will provide an in-depth analysis of Apache ShenYu's integration tests.]]></summary>
         <content type="html"><![CDATA[<p>This article will provide an in-depth analysis of Apache ShenYu's integration tests.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-are-integration-tests">What are integration tests?<a href="https://shenyu.apache.org/blog/IntegrationTest-Analysis#what-are-integration-tests" class="hash-link" aria-label="Direct link to What are integration tests?" title="Direct link to What are integration tests?" translate="no">​</a></h3>
@@ -1341,7 +1341,7 @@ If the gateway layer is not processed in time, or the administrator updates the 
         <title type="html"><![CDATA[Extension plugin loading logic]]></title>
         <id>https://shenyu.apache.org/blog/Loader-SourceCode-Analysis-ExtLoader</id>
         <link href="https://shenyu.apache.org/blog/Loader-SourceCode-Analysis-ExtLoader"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[This article is based on the source code analysis of version 'shenyu-2.6.1']]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p>This article is based on the source code analysis of version 'shenyu-2.6.1'</p>
@@ -1439,7 +1439,7 @@ By default, it will scan every 300 seconds after 30 seconds of startup.</p>
         <title type="html"><![CDATA[Code Analysis For Context-Path Plugin]]></title>
         <id>https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Context-Path-Plugin</id>
         <link href="https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Context-Path-Plugin"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Before starting, you can refer to this article to start the gateway]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p>Before starting, you can refer to <a class="" href="https://shenyu.apache.org/blog/Start-SourceCode-Analysis-Start-Demo">this article</a> to start the gateway</p>
@@ -1480,7 +1480,7 @@ By default, it will scan every 300 seconds after 30 seconds of startup.</p>
         <title type="html"><![CDATA[Code Analysis For Divide Plugin]]></title>
         <id>https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Divide-Plugin</id>
         <link href="https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Divide-Plugin"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[The ShenYu gateway uses the divide plugin to handle http requests. You can see the official documentation Quick start with Http to learn how to use this plugin.]]></summary>
         <content type="html"><![CDATA[<p>The <code>ShenYu</code> gateway uses the <code>divide</code> plugin to handle <code>http</code> requests. You can see the official documentation <a href="https://shenyu.apache.org/docs/quick-start/quick-start-http" target="_blank" rel="noopener noreferrer" class="">Quick start with Http</a> to learn how to use this plugin.</p>
 <blockquote>
@@ -1742,7 +1742,7 @@ By default, it will scan every 300 seconds after 30 seconds of startup.</p>
         <title type="html"><![CDATA[Code Analysis For Dubbo Plugin]]></title>
         <id>https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Dubbo-Plugin</id>
         <link href="https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Dubbo-Plugin"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/zh/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> is an asynchronous, high-performance, cross-language, responsive <code>API</code> gateway.</p>
@@ -2031,7 +2031,7 @@ By default, it will scan every 300 seconds after 30 seconds of startup.</p>
         <title type="html"><![CDATA[McpServer Plugin Source Code Analysis]]></title>
         <id>https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Mcp-Server-Plugin</id>
         <link href="https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Mcp-Server-Plugin"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[In the Shenyu gateway, when you start this plugin, Shenyu becomes a fully-featured McpServer.]]></summary>
         <content type="html"><![CDATA[<p>In the Shenyu gateway, when you start this plugin, Shenyu becomes a fully-featured McpServer.<br>
 <!-- -->You can easily register a service as a tool within the Shenyu gateway by simple configuration and use the extended functions the gateway offers.</p>
@@ -2231,7 +2231,7 @@ By default, it will scan every 300 seconds after 30 seconds of startup.</p>
         <title type="html"><![CDATA[Code Analysis For Param-Mapping Plugin]]></title>
         <id>https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Param-Mapping-Plugin</id>
         <link href="https://shenyu.apache.org/blog/Plugin-SourceCode-Analysis-Param-Mapping-Plugin"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Before starting, you can refer to this article to start the gateway]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p>Before starting, you can refer to <a class="" href="https://shenyu.apache.org/blog/Start-SourceCode-Analysis-Start-Demo">this article</a> to start the gateway</p>
@@ -2294,7 +2294,7 @@ By default, it will scan every 300 seconds after 30 seconds of startup.</p>
         <title type="html"><![CDATA[Register Center Source Code Analysis of Http Register]]></title>
         <id>https://shenyu.apache.org/blog/RegisterCenter-SourceCode-Analysis-Http-Register</id>
         <link href="https://shenyu.apache.org/blog/RegisterCenter-SourceCode-Analysis-Http-Register"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Apache ShenYu is an asynchronous, high-performance, cross-language, responsive API gateway.]]></summary>
         <content type="html"><![CDATA[<blockquote>
 <p><a href="https://shenyu.apache.org/docs/index" target="_blank" rel="noopener noreferrer" class="">Apache ShenYu</a> is an asynchronous, high-performance, cross-language, responsive API gateway.</p>
@@ -2664,7 +2664,7 @@ By default, it will scan every 300 seconds after 30 seconds of startup.</p>
         <title type="html"><![CDATA[LoadBalancer SPI Source Code Analysis]]></title>
         <id>https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-LoadBalance-SPI</id>
         <link href="https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-LoadBalance-SPI"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Gateway applications need to support a variety of load balancing  strategies, including random,Hashing, RoundRobin and so on. In Apache Shenyu gateway, it not only realizes such traditional algorithms, but also makes smoother traffic processing for the entry of server nodes through detailed processing such as traffic warm-up, so as to obtain better overall stability. In this article, let's walk through how Apache Shenyu is designed and implemented this part of the function.]]></summary>
         <content type="html"><![CDATA[<p>Gateway applications need to support a variety of load balancing  strategies, including <code>random</code>,<code>Hashing</code>, <code>RoundRobin</code> and so on. In <code>Apache Shenyu</code> gateway, it not only realizes such traditional algorithms, but also makes smoother traffic processing for the entry of server nodes through detailed processing such as traffic <code>warm-up,</code> so as to obtain better overall stability. In this article, let's walk through how <code>Apache Shenyu</code> is designed and implemented this part of the function.</p>
 <blockquote>
@@ -2799,7 +2799,7 @@ It can be seen from the formula that the final weight(<code>ww</code>) is propor
         <title type="html"><![CDATA[MatchStrategy  -- analyze the design based on SPI]]></title>
         <id>https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-MatchStrategy-SPI</id>
         <link href="https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-MatchStrategy-SPI"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[In most of the plugins ( such as Dubbo, gRPC,Spring-cloud, etc) of Apache Shenyu, the routingparameters are designed to support the combination of multiple conditions. In order to realize such requirements,  the parameters and behaviors are abstracted to three parts according to its SPI mechanism,  and implemented in shenyu-plugin-base  module.]]></summary>
         <content type="html"><![CDATA[<p>In most of the <code>plugins</code> ( such as <code>Dubbo</code>, <code>gRPC</code>,<code>Spring-cloud</code>, etc) of <code>Apache Shenyu</code>, the <code>routing</code>parameters are designed to support the combination of multiple conditions. In order to realize such requirements,  the parameters and behaviors are abstracted to three parts according to its <code>SPI</code> mechanism,  and implemented in <em><strong>shenyu-plugin-base</strong></em>  module.</p>
 <ul>
@@ -2864,7 +2864,7 @@ It can be seen from the formula that the final weight(<code>ww</code>) is propor
         <title type="html"><![CDATA[PredicateJudge -- analyze the design based on SPI]]></title>
         <id>https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI</id>
         <link href="https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Apache Shenyu has been identified as a gateway application which supports a variety of protocols and  microservice frameworks such as  Dubbo, gRPC, Spring-Cloud, etc.  To do this, the product has accomplished an elegant SPI (Service Provider Interface) as its foundation, and make the  Rule data parsing and predicting program very simple , resiliency and security. As to rule data parsing processing,  the SPI design increases the product's scalability. When appending new plugin, in most cases, the   existing module is enough for rule data parsing , otherwise it can be rapidly carry out with tiny effort.]]></summary>
         <content type="html"><![CDATA[<p><strong>Apache Shenyu</strong> has been identified as a gateway application which supports a variety of protocols and  microservice frameworks such as  Dubbo, gRPC, Spring-Cloud, etc.  To do this, the product has accomplished an elegant <code>SPI</code> (Service Provider Interface) as its foundation, and make the  Rule data parsing and predicting program very simple , resiliency and security. As to rule data parsing processing,  the <code>SPI</code> design increases the product's scalability. When appending new plugin, in most cases, the   existing module is enough for rule data parsing , otherwise it can be rapidly carry out with tiny effort.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="top-level-design-of-spi">Top level design of SPI<a href="https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-PredicateJudge-SPI#top-level-design-of-spi" class="hash-link" aria-label="Direct link to Top level design of SPI" title="Direct link to Top level design of SPI" translate="no">​</a></h2>
@@ -2943,7 +2943,7 @@ It can be seen from the formula that the final weight(<code>ww</code>) is propor
         <title type="html"><![CDATA[RateLimiter SPI code analysis]]></title>
         <id>https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-RateLimiter-SPI</id>
         <link href="https://shenyu.apache.org/blog/SPI-SourceCode-Analysis-RateLimiter-SPI"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Rate limiter is a very important integral of  gateway application, to deal with  high traffic.  When the system is attacked abnormally by a large number of traffic gathered in a short time;  When there are a large number of lower priority request need to be slow down or else it  will effect your high  priority transactions;  Or sometimes your system can not afford the regular traffic; in these  scenarios, we need to start rate limiter component to protect our system,  through rejection, wait, load  shedding,etc,  limit the requests to an acceptable quantities, or only  certain domains (or services) requests can get through.]]></summary>
         <content type="html"><![CDATA[<p><em>Rate limiter</em> is a very important integral of  gateway application, to deal with  high traffic.  When the system is attacked abnormally by a large number of traffic gathered in a short time;  When there are a large number of lower priority request need to be slow down or else it  will effect your high  priority transactions;  Or sometimes your system can not afford the regular traffic; in these  scenarios, we need to start <em>rate limiter</em> component to protect our system,  through rejection, wait, load  shedding,etc,  limit the requests to an acceptable quantities, or only  certain domains (or services) requests can get through.</p>
 <p>Facing above scenarios, following need to be considered when designing the rate limiter component of an gateway.</p>
@@ -3114,7 +3114,7 @@ It can be seen from the formula that the final weight(<code>ww</code>) is propor
         <title type="html"><![CDATA[Guide for New Contributors to Start avoid Pitfalls]]></title>
         <id>https://shenyu.apache.org/blog/Start-SourceCode-Analysis-Start-Demo-for-Contributor</id>
         <link href="https://shenyu.apache.org/blog/Start-SourceCode-Analysis-Start-Demo-for-Contributor"/>
-        <updated>2026-07-16T08:23:57.000Z</updated>
+        <updated>2026-07-19T03:32:34.000Z</updated>
         <summary type="html"><![CDATA[Preface]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="preface">Preface<a href="https://shenyu.apache.org/blog/Start-SourceCode-Analysis-Start-Demo-for-Contributor#preface" class="hash-link" aria-label="Direct link to Preface" title="Direct link to Preface" translate="no">​</a></h2>
 <p>As a first-time developer in the <code>Shenyu</code> community, I encountered some "Pitfalls" that were not mentioned in the tutorials I followed to start and develop the project. I have documented the detailed steps I took to start <code>shenyu</code>, <code>shenyu-dashboard</code>, <code>shenyu-website</code> in this blog, hoping to help more new contributors in the community.</p>

@@ -1,0 +1,18 @@
+# Overrides the default Content-Security-Policy that ASF infra applies to
+# *.apache.org sites. The default only allows scripts from apache.org, which
+# blocks the kapa.ai "Ask AI" widget. This policy keeps the ASF defaults and
+# adds the domains kapa.ai requires (widget, proxy, metrics, reCAPTCHA /
+# hCaptcha bot protection), plus GitHub for avatars and the contributors API.
+# Reference: https://docs.kapa.ai/integrations/faq
+<IfModule mod_headers.c>
+    Header set Content-Security-Policy "default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://*.apache.org/ https://apache.org/ https://www.apachecon.com/ https://www.communityovercode.org/ https://*.scarf.sh/; \
+script-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://*.apache.org/ https://apache.org/ https://www.apachecon.com/ https://www.communityovercode.org/ https://*.scarf.sh/ https://widget.kapa.ai https://www.google.com https://www.gstatic.com https://hcaptcha.com https://*.hcaptcha.com; \
+style-src 'self' data: blob: 'unsafe-inline' https://*.apache.org/ https://apache.org/ https://hcaptcha.com https://*.hcaptcha.com; \
+connect-src 'self' https://*.apache.org/ https://apache.org/ https://*.scarf.sh/ https://api.github.com https://proxy.kapa.ai https://kapa-widget-proxy-la7dkmplpq-uc.a.run.app https://metrics.kapa.ai https://www.google.com https://hcaptcha.com https://*.hcaptcha.com; \
+img-src 'self' data: blob: https:; \
+font-src 'self' data: blob: https://*.apache.org/; \
+frame-src 'self' data: blob: https://*.apache.org/ https://apache.org/ https://www.apachecon.com/ https://www.communityovercode.org/ https://www.google.com https://hcaptcha.com https://*.hcaptcha.com; \
+frame-ancestors 'self'; \
+worker-src 'self' data: blob:; \
+object-src 'none'"
+</IfModule>

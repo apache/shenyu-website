@@ -348,7 +348,7 @@ module.exports = {
             exampleQuestions: [
               "How do I deploy ShenYu with Docker?",
               "How do I configure the Divide plugin?",
-              "How does ShenYu integrate with Spring Cloud?",
+              "How do I use ShenYu with Spring Cloud?",
               "How do I enable rate limiting?",
             ],
           },

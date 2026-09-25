@@ -17,8 +17,8 @@ module.exports = {
       onBrokenMarkdownLinks: "warn",
     },
   },
-  organizationName: "apache", // Usually your GitHub org/user name.
-  projectName: "shenyu", // Usually your repo name.
+  organizationName: "apache",
+  projectName: "shenyu",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "zh"],
@@ -138,7 +138,6 @@ module.exports = {
               banner: "none",
             },
           },
-          // Please change this to your repo.
           editUrl: "https://github.com/apache/shenyu-website/edit/main/",
         },
         blog: {
@@ -148,11 +147,7 @@ module.exports = {
           onInlineAuthors: "ignore",
           onUntruncatedBlogPosts: "ignore",
           editLocalizedFiles: true,
-          // Please change this to your repo.
           editUrl: "https://github.com/apache/shenyu-website/edit/main/",
-        },
-        pages: {
-          exclude: ["**/blog.tsx", "**/news.tsx"],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

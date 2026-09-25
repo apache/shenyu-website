@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useState } from 'react';
 import Translate, { translate } from '@docusaurus/Translate';
-import styles from './DownloadCompoent.module.css';
+import styles from './DownloadComponent.module.css';
 
 const data = [
     {
@@ -350,7 +350,7 @@ const data = [
     }
 ]
 
-function DownloadCompoent() {
+function DownloadComponent() {
     const defaultShowItemArray = Array(data.length).fill(false);
     const [showItem, setShowItem] = useState(defaultShowItemArray);
 
@@ -426,4 +426,4 @@ function DownloadCompoent() {
     )
 };
 
-export default DownloadCompoent;
+export default DownloadComponent;

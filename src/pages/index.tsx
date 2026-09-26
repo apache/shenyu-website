@@ -49,7 +49,7 @@ function Home() {
                     __html: translate({
                       id: "homepage.hero.title",
                       message:
-                        "Java native API Gateway for <b> service proxy, protocol conversion and API governance.</b>",
+                        "Java native API Gateway for <b>service proxy, protocol conversion and API governance.</b>",
                       description:
                         "Home page hero title, can contain simple html tags",
                     }),
@@ -71,7 +71,7 @@ function Home() {
             <div className="col col--5 col--offset-1">
               <div className={styles.logoContainer}>
                 <img
-                  alt={translate({ message: "Docusaurus with Keytar" })}
+                  alt={translate({ message: "Apache ShenYu architecture" })}
                   className={styles.heroLogo}
                   src={useBaseUrl("/img/architecture/shenyu-architecture-3d.png")}
                 />

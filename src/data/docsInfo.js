@@ -29,19 +29,19 @@ export default [
     projectName: "ShenYu Nginx",
     description: (
       <Translate>
-        This module provided SDK to watch available ShenYu instance list as
+        This module provides an SDK to watch the available ShenYu instance list as
         upstream nodes by Service Register Center for OpenResty.
       </Translate>
     ),
     latestVersion: "/shenyuNginx/",
   },
   {
-    docsTitle: <Translate>Shenyu Golang Client Docs</Translate>,
+    docsTitle: <Translate>ShenYu Golang Client Docs</Translate>,
     projectName: "Shenyu-client-golang",
     description: (
       <Translate>
         Shenyu-client-golang for Go client allows you to access ShenYu
-        Gateway,it supports register go service to ShenYu Gateway.
+        Gateway. It supports registering Go services to ShenYu Gateway.
       </Translate>
     ),
     latestVersion: "/shenyuClientGolang/http",

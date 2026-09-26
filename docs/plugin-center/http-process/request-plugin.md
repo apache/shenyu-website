@@ -74,7 +74,7 @@ description: request plugin
 - When we configure a custom path in `Rules`, it should be a reachable service path.
 - When a request is matched, based on the customized path, the `Apache ShenYu` gateway performs a service hop.
 
-1. Refer to [Local Deployment](https://shenyu.apache.org/docs/deployment/deployment-local)启动 admin 和网关
+1. Refer to [Local Deployment](https://shenyu.apache.org/docs/deployment/deployment-local) to start admin and gateway.
 2. Refer to 2.2 importing pom and restarting the gateway.
 3. Refer to 2.3 enabling Plugin
 4. Start the project [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http) 

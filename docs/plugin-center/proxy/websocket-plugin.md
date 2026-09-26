@@ -156,7 +156,7 @@ The example of websocket rule configuration, please refer to [selectors and rule
 - `timeout`: The timeout period for calling the client.
 - `retryCount`: The number of retries to call client timeout failures.
 
-## 2.5 示例
+## 2.5 Example
 
 ### 2.5.1 Spring Annotation Websocket Example
 

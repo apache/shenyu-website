@@ -80,13 +80,13 @@ ShenYu 2.6.0
 | baseRetryBackoffMs        | The backoff time for the first retry                         | long    | optional |
 | maxRetryBackoffMs         | Maximum backoff time for retries                             | long    | optional |
 | giveUpExtraLongSingleLog  | For logs exceeding 1M, the data larger than 1M will be discarded after splitting | boolean | optional |
-| enableLocalTest           | 是否开启跨云上报日志                                         | boolean | optional |
+| enableLocalTest           | Whether to enable cross-cloud log reporting                                         | boolean | optional |
 
 - get `regionName`
 
 ![](/img/shenyu/plugin/logging/logging-huawei-lts/huawei-lts-regionName.png)
 
-| **区域名称** | **RegionName** |
+| **Region Name** | **RegionName** |
 | ------------ | -------------- |
 | 华北-北京二  | cn-north-2     |
 | 华北-北京四  | cn-north-4     |

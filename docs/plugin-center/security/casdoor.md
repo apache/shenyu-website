@@ -46,7 +46,7 @@ You can copy it and paste it on the certificate of shenyu casdoor config.
 
 **You don't need save it in Casdoor certificate editing page**,because it just for copying.
 
-### 2. Confing Shenyu Casdoor's plugin
+### 2. Config Shenyu Casdoor's plugin
 
   ![casdoor_casdoor](/img/shenyu/plugin/casdoor/casdoor_casdoor.png)
 

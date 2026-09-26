@@ -54,7 +54,7 @@ Selector Handler, the `handle` field, is an operation that can be processed by t
   
   * `weight`：the server instance and participate in load balancing calculation.
   
-  * `warmupTime`：the server's warm up time and and participate in load balancing calculation.
+  * `warmupTime`：the server's warm up time and participate in load balancing calculation.
   
   * `startupTime`：the server's start time.
   

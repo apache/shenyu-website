@@ -392,7 +392,7 @@ public class Test2 {
 
 ### 2.6.2 Verify api with sign plugin（2.0.0）
 
-All the configuration parts are the same, so let's look directly at the the calculation part of parameter of request header and the part of sending request.
+All the configuration parts are the same, so let's look directly at the calculation part of parameter of request header and the part of sending request.
 
 #### 2.6.2.1 Request Service and check result
 
@@ -450,7 +450,7 @@ All the configuration parts are the same, so let's look directly at the the calc
   eyJhbGciOiJNRDUiLCJhcHBLZXkiOiJCRDc5ODBGNTY4OEE0REU2QkNGMUI1MzI3RkUwN0Y1QyIsInRpbWVzdGFtcCI6IjE2NzM3MDgzNTM5OTYifQ==.33ED53DF79CA5B53C0BF2448B670AF35
   ```
 
-  发送请求：
+  Send Request:
 
   ![image-20230114230500887](/img/shenyu/plugin/sign/version2_sign_request.png)
 

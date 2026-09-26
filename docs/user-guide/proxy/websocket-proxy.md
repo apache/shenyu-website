@@ -60,7 +60,7 @@ shenyu:
 
 3. Add `@ShenyuSpringWebSocketClient` annotation to the `Websocket` service interface implementation class, start your service and after successful registration, go to `Client List -> Proxy -> Websocket` in the `shenyu-admin` management system and you will see the auto-registered selector and rule information.
 
-示例：
+Example:
 
 ```java
 @ShenyuSpringWebSocketClient("/myWs")

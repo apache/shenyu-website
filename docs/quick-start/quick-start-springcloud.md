@@ -34,7 +34,7 @@ shenyu:
 
 ## Configure the registration center related information on the admin side
 
-- Currently, the SpringCloudPlugin plugin on Shenyu implements support for service discovery of the registry center. However, it is not possible to dynamically switch the registry center. In order to allow users to use the plugin more clearly and switch the configuration of the registry center more conveniently, shenyu supports developers to configure and switch the registry center on the admin page, thereby reducing the user's usage cost and experience.
+- Currently, the SpringCloudPlugin plugin on ShenYu implements support for service discovery of the registry center. However, it is not possible to dynamically switch the registry center. In order to allow users to use the plugin more clearly and switch the configuration of the registry center more conveniently, ShenYu supports developers to configure and switch the registry center on the admin page, thereby reducing the user's usage cost and experience.
 
 Specific operation process:
 
@@ -124,10 +124,10 @@ Use PostMan to simulate HTTP to request your SpringCloud service:
 
 ![](/img/shenyu/quick-start/springcloud/postman-test.png)
 
-Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[local:no Shenyu proxy]:
+Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[local:no ShenYu proxy]:
 
 ![](/img/shenyu/quick-start/springcloud/idea-http-test-local.png)
 
-Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[Shenyu proxy]:
+Use IDEA HTTP Client Plugin to simulate HTTP to request your SpringCloud service[ShenYu proxy]:
 
 ![](/img/shenyu/quick-start/springcloud/idea-http-test-proxy.png)

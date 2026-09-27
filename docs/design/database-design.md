@@ -5,7 +5,7 @@ keywords: ["db"]
 description: ShenYu Admin Database Design
 ---
 
-Apache Shenyu Admin is the management system of the gateway, which can manage all plugins, selectors and rules visually, set users, roles and resources.
+Apache ShenYu Admin is the management system of the gateway, which can manage all plugins, selectors and rules visually, set users, roles and resources.
 
 ## Plugin, Selector And Rule {#plugin-selector-and-rule}
 

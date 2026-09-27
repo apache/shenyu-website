@@ -140,7 +140,7 @@ When the mouse hovers over the cards, the creation time, update time and propert
 you can click the "Sync" icon to force synchronization to the gateway.
 
 
-## 2.5 Shenyu log
+## 2.5 ShenYu log
 
 - shenyu-gateway port start log
 ![gateway_start_port_log.png](/img/shenyu/plugin/tcp/gateway_start_port_log.png)

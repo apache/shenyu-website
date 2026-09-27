@@ -152,7 +152,7 @@ Automatically configure the rules with the `@ShenyuTarsClient` annotation.
 #### 2.6.1.1 Preparation
 
 - Start `ShenYu Admin`.
-- Start `Shenyu Bootstrap`.
+- Start `ShenYu Bootstrap`.
 
 #### 2.6.1.2 Plugin Config
 

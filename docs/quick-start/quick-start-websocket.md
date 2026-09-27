@@ -8,7 +8,7 @@ This document introduces how to quickly access the Apache ShenYu gateway using W
 
 ## Environment to prepare
 
-> Refer to [local deployment](../deployment/deployment-local) to deploy the Shenyu gateway.
+> Refer to [local deployment](../deployment/deployment-local) to deploy the ShenYu gateway.
 
 1. Deploy the `shenyu-admin` service.
 

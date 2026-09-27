@@ -189,7 +189,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 - Start `Zookeeper` service.
 - Start `ShenYu Admin`.
-- Start `Shenyu Bootstrap`.
+- Start `ShenYu Bootstrap`.
 
 #### 2.6.1.2 Plugin Config
 

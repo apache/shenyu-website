@@ -17,7 +17,7 @@ description: Logging-ElasticSearch Plugin
 
 >`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request，    
 >The list includes: request time, request parameters, request path, response result, response status code, time consumption, upstream IP, exception information waiting.
->Shenyu gateway can record access logs through logging-elasticsearch-plugin and send access logs to elasticsearch database.
+>ShenYu gateway can record access logs through logging-elasticsearch-plugin and send access logs to elasticsearch database.
 
 ## 1.4 Plugin code
 

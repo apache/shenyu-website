@@ -38,7 +38,7 @@ description: Websocket Plugin
 ![image-20220726223545558](/img/shenyu/plugin/websocket/procedure_chart_en.png)
 
 **Explanation of terms**
-- Shenyu gateway service：Include shenyu-admin and shenyu-bootstrap services.
+- ShenYu gateway service：Include shenyu-admin and shenyu-bootstrap services.
 - Client services：Real backend websocket service.
 
 **Explanation of the process**
@@ -200,7 +200,7 @@ Possible cause: BasicConfig -> Plugin -> websocket -> multiSelectorHandle option
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html" />
-    <title>Shenyu WebSocket Test</title>
+    <title>ShenYu WebSocket Test</title>
     <script>
         var websocket;
         function connect() {

@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2022-08-04
 
 大家好，我是[何凤恩](https://github.com/moremind) ，目前从事Java开发，非常荣幸在受邀成为Apache ShenYu社区的Committer，下面跟大家分享一下我参与Apache ShenYu社区这段时间的成长和建议。
 
+<!-- truncate -->
+
 ### 初识ShenYu网关
 
 最早接触shenyu在2021年3月左右，当时还叫soul，由于部门业务场景需要统一网关的使用，选择shenyu网关的主要原因是shenyu的插件化设计很符合我们所需的场景，当时主要使用的一些功能插件包括divide、sentinel熔断、ratelimiter、公司内部rpc的协议转换以及log2Mongo等。随着shenyu的不断升级发版，我们也在不断地升级我们的代码。

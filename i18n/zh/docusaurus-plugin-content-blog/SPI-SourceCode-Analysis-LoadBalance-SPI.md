@@ -4,9 +4,12 @@ author: Huihui Yin
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/changanjennifer/
 tags: [load balance,SPI,Apache ShenYu]
+date: 2021-10-11
 ---
 
 ​        网关应用需要支持多种负载均衡的方案，包括随机选择、Hash、轮询等方式。`Apache Shenyu`网关中不仅实现了传统网关的这些均衡策略，还通过流量预热(warmup)等细节处理，对服务器节点的加入，做了更平滑的流量处理，获得了更好的整体稳定性。让我们来看看Shenyu是是如何设计和实现这部分功能的。
+
+<!-- truncate -->
 
 > 本文基于`shenyu-2.5.0`版本进行源码分析.
 

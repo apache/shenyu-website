@@ -17,6 +17,8 @@ slug: Apache-ShenYu-OSPP2023-2023-05-19
 Open Source Summer is a summer open source activity initiated and long-term supported by the "Open Source Software Supply Chain Lighting Project" of the Institute of Software, Chinese Academy of Sciences. 
 It aims to encourage students to actively participate in the development and maintenance of open source software, and to cultivate and discover more excellent developers Promote the vigorous development of excellent open source software communities and help the construction of open source software supply chains.
 
+<!-- truncate -->
+
 ### Participate in Open Source Summer
 
 Open source summer 2023 student registration officially opens on April 29! Students can select projects on the official website of Open Source Summer https://summer-ospp.ac.cn/, communicate with mentor, prepare project application materials, and submit applications.

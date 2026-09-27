@@ -4,9 +4,12 @@ author: Huihui Yin
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/changanjennifer/
 tags: [load balance,SPI,Apache ShenYu]
+date: 2021-10-11
 ---
 
 Gateway applications need to support a variety of load balancing  strategies, including `random`,`Hashing`, `RoundRobin` and so on. In `Apache Shenyu` gateway, it not only realizes such traditional algorithms, but also makes smoother traffic processing for the entry of server nodes through detailed processing such as traffic `warm-up,` so as to obtain better overall stability. In this article, let's walk through how `Apache Shenyu` is designed and implemented this part of the function.
+
+<!-- truncate -->
 
 > This article based on `shenyu-2.5.0` version of the source code analysis.
 

@@ -4,10 +4,13 @@ author: yusiheng
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/478320
 tags: [plugin,mcp,Apache ShenYu]
+date: 2025-10-18
 ---
 
 In the Shenyu gateway, when you start this plugin, Shenyu becomes a fully-featured McpServer.  
 You can easily register a service as a tool within the Shenyu gateway by simple configuration and use the extended functions the gateway offers.
+
+<!-- truncate -->
 
 > This article is based on version `shenyu-2.7.0.2`. Here, I will track the Shenyu Mcp plugin chain and analyze the source code of its SSE communication.
 

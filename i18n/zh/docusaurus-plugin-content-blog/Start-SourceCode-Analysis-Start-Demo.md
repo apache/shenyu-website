@@ -5,6 +5,7 @@ author_title: Apache ShenYu Contributor
 author_url: https://github.com/JooKS-me
 author_image_url: https://avatars1.githubusercontent.com/u/62384022?v=4
 tags: [Apache ShenYu]
+date: 2021-09-08
 ---
 
 ### 环境准备
@@ -13,6 +14,8 @@ tags: [Apache ShenYu]
 - 本地正确安装Git
 - 本地正确安装Maven
 - 选择一款开发工具，比如IDEA
+
+<!-- truncate -->
 
 ### 拉取ShenYu代码
 

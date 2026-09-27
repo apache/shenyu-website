@@ -1,5 +1,6 @@
 ---
 title: "【Apache ShenYu 2.7.1 版本发布】"
+author: "aias00"
 description: "Apache ShenYu 2.7.1 版本发布"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
@@ -10,6 +11,8 @@ slug: Apache-ShenYu-release-version-2.7.1
 ## 关于Apache ShenYu
 
  一款使用  开发的响应式 网关。以其高性能，动态灵活的流量管控，热插拔，易部署等特性，开箱即用为用户提供整套全生命周期的 网关，包含 注册、服务代理、协议转换、文档与 治理等功能。Apache ShenYu于毕业成为顶级项目。
+
+<!-- truncate -->
 
 > 官网: https://shenyu.apache.org
 > GitHub: https://github.com/apache/shenyu

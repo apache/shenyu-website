@@ -4,7 +4,7 @@ author: "Wei Wei"
 description: "From Deep User to Apache ShenYu Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
-date: 2025-01-21
+date: 2026-01-21
 slug: Apache-ShenYu-Committer-2026-01-21
 ---
 
@@ -17,6 +17,8 @@ Github: https://github.com/Wweiei/
 Email: weiwei@apache.org
 
 Hello everyone, I am Wei Wei. I am very honored to be invited to become a Committer of the Apache ShenYu community. It is a great honor to grow with the community and contribute my part to the ShenYu project.
+
+<!-- truncate -->
 
 ### First Encounter with Apache ShenYu Gateway
 

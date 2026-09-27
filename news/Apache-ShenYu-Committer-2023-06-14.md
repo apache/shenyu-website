@@ -20,6 +20,8 @@ Email：haiqi@apache.org
 
 Github：https://github.com/HaiqiQin
 
+<!-- truncate -->
+
 ### First encounter shenyu
 
 The earliest contact with Shenyu was through the introduction of classmate Zhu Kunshuai (jooks me), who had already made many contributions in the community and had some experience. After introducing me to the Shenyu community, he constantly guided me, led me to understand the project, explained the relevant regulations of the community, and under his encouragement, I submitted my first PR about open source projects in my life. In the following days, I mainly tried to study the code of Shenyu, modify some small errors, and do some unit tests or Integration testing of plugins.

@@ -13,6 +13,8 @@ cover: "/img/committers/tangzhen.jpg"
 
  大家好，我叫唐震，目前在多点Dmall中间件工作，工作方向是分布式任务调度和消息中间件。非常荣幸收到Apache ShenYu社区的邀请成为Apache ShenYu的Committer，下面跟大家分享一下我参与Apache ShenYu社区这段时间的成长和建议。
 
+<!-- truncate -->
+
 ### 一、初识Apache Shenyu社区
 
 ​	今年年初，我在调研API网关期间了解到Apache ShenYu网关（以下以ShenYu指代Apache ShenYu (incubating)）。ShenYu有着高性能、多协议、易扩展、响应式的特性，并且已经提供了多种插件，开箱即用，非常有潜力，就想着学习一下。

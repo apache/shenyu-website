@@ -4,10 +4,13 @@ author: midnight2104
 author_title: Apache ShenYu Committer
 author_url: https://github.com/midnight2104
 tags: [plugin,dubbo,Apache ShenYu]
+date: 2022-05-26
 ---
 
 
 > [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) is an asynchronous, high-performance, cross-language, responsive `API` gateway.
+
+<!-- truncate -->
 
 
 The `Apache ShenYu` gateway uses the `dubbo` plugin to make calls to the `dubbo` service. You can see the official documentation [Dubbo Quick Start](https://shenyu.apache.org/docs/quick-start/quick-start-dubbo) to learn how to use the plugin.

@@ -16,6 +16,8 @@ GitHub: https://github.com/Aias00/
 
 Email: liuhongyu@apache.org
 
+<!-- truncate -->
+
 ### First Encounter with Apache ShenYu Gateway
 
 I first came across the Apache ShenYu Gateway during a business transformation project at my company when we were evaluating gateway technologies. At that time, Apache ShenYu was still in the Apache Incubator. Compared to other similar products, Apache ShenYu offered a user-friendly control management interface, rich plugin features, and a perfect match with our technology stack. The active community was the icing on the cake, making Apache ShenYu our ultimate choice for the gateway solution. It has been widely used in various business scenarios since then.

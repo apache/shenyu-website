@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2022-04-20
 
 Hello everyone, my name is [Zicheng Zhang](https://github.com/dragon-zhang) , java/rust developer, currently engaged in middleware development in a medium-sized Internet company, work direction includes gateway/RPC/MQ. It is my honor to be invited by the Apache ShenYu community as the Committer. Let me share with you my first meet, acquaintance, understanding, growth and suggestions with the Apache ShenYu community.
 
+<!-- truncate -->
+
 ### First Meet
 
 In mid-August 2021, I joined the current company and transformed into middleware developer (doing business development in my previous company). The first task I received was to familiarize myself with the company's gateway middleware as soon as possible. So a gateway called Soul entered my field of vision (Soul is the predecessor of ShenYu, ShenYu entered the Apache incubator in 2021, the following Soul/ShenYu refers to Apache ShenYu(incubating) ).

@@ -10,6 +10,8 @@ date: 2022-09-12
 
 最近研读`Apache`开源项目`Shenyu`网关的源码，网关的多个核心组件加载都用到了`SPI`模块。本文就`Shenyu`中的`SPI`设计和源码实现进行分析。
 
+<!-- truncate -->
+
 ## 什么是SPI
 
 `SPI`就是`Service Provider Interface`，直译"服务提供方接口"，是一种动态的服务发现机制，可以基于接口运行时动态加载接口的实现类（也就是接口编程 + 策略模式 + 配置文件的一种开发模式）。最常见的就是`JDK`内置的数据库驱动接口`java.sql.Driver`，不同的厂商可以对该接口完成不同的实现，例如`MySQL`（`MySQL`驱动包中的`com.mysql.jdbc.Driver`）、`PostgreSQL`（`PostgreSQL`驱动包中的`org.postgresql.Driver`）等等。

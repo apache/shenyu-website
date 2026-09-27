@@ -11,6 +11,8 @@ cover: "/img/architecture/shenyu-framework.png"
 
 It's half a year since the last release. In this half a year, our community friends and I have done too much. Completed nearly 200 PR, published nearly 300 articles of source code analysis, added more than 120 contributors, promoted 7 members of the commiter who  won the legitimate JetBrains. We have completed many, many functions  With their help. Thank you very much.
 
+<!-- truncate -->
+
 
 ## soul-admin（dashboard）
 

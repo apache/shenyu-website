@@ -20,6 +20,8 @@ slug: Apache-ShenYu-Committer-2023-06-14
 
 github：https://github.com/HaiqiQin
 
+<!-- truncate -->
+
 ### 初遇shenyu
 
 最早接触shenyu是经同学朱坤帅(jooks-me)的介绍，当时坤帅已经在社区做过了很多贡献，有一定的经验。在介绍我进入shenyu社区后，他不断的指点着我，带领我了解项目，讲解社区的相关规约，在他的鼓励下我提交了人生中第一个有关开源项目的pr。之后的日子里，我主要尝试研读shenyu的代码，同时修改一些小的错误，做一些插件的单元测试或者集成测试。

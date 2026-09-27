@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2021-11-11
 
 Hello everyone, my name is qicz, and I am very honored to be invited by the Apache ShenYu community to become Apache ShenYu Committer. I am a "unknown" programmer. Miscellaneous, because I was also a part of entrepreneurship that year and that month. At that time, I often had to choose a different programming language to practice miscellaneous. In the process, there were more opportunities to learn about and contact many varieties of projects. . I am also an open source enthusiast, and I like "playing with code", so I often find myself in the open source community. I have always been adhering to the concept of open source and have worked on several open source projects. There are often many fun and interesting open source projects in the community, and Apache ShenYu is one of them. Next, I will briefly share with you my feelings during the time I participated in the Apache ShenYu community。
 
+<!-- truncate -->
+
 ### Mental journey
 
 ​	I learned that Soul is a very early time. The official contact with Apache ShenYu was in September of this year. At that time, I just received the company's gateway demand, and it took a short time to master and produce something.

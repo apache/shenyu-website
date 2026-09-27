@@ -1,5 +1,6 @@
 ---
 title: McpServer 插件源码分析
+description: 从服务注册、会话管理到 SSE 通信，深入解析 ShenYu MCP Server 插件如何将服务转化为可调用的工具。
 author: yusiheng
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/478320

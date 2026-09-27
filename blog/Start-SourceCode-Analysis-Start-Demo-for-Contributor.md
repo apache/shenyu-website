@@ -1,5 +1,6 @@
 ---
 title: Guide for New Contributors to Start avoid Pitfalls
+description: Set up ShenYu, the dashboard, and the website locally with practical tips for first-time community contributors.
 author: Yuxuan Zhang
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/zuobiao-zhou

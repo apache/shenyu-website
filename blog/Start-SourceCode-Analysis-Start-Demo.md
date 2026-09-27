@@ -1,5 +1,6 @@
 ---
 title: Apache ShenYu Start Demo
+description: Walk through local environment setup, building ShenYu from source, and starting the gateway and a sample application.
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/JooKS-me

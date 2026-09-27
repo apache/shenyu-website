@@ -1,0 +1,61 @@
+.content { padding-block: 44px 72px; }
+.sectionNav { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 28px; font-size: 16px; }
+.sectionNav a { display: inline-flex; align-items: center; gap: 12px; color: var(--blog-ink); }
+.sectionNav a:hover { color: var(--ifm-color-primary); text-decoration: none; }
+.sectionNav span { color: var(--ifm-color-primary); }
+.section + .section { margin-top: 52px; }
+.sectionHeading { margin-bottom: 24px; }
+.sectionHeading h2 { margin: 0 0 12px; font-size: 28px; line-height: 1.35; scroll-margin-top: calc(var(--ifm-navbar-height) + 24px); }
+.sectionHeading p { max-width: 800px; margin: 0; font-size: 17px; line-height: 1.8; color: var(--blog-muted); }
+.members { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 0; list-style: none; }
+.member { display: flex; align-items: flex-start; gap: 16px; min-width: 0; padding: 22px 18px; border: 1px solid var(--blog-line); border-radius: 10px; transition: border-color .18s ease; }
+.member:hover, .member:focus-within { border-color: var(--ifm-color-primary); }
+.avatar { display: flex; flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; overflow: hidden; background: var(--blog-surface); }
+.avatar > img, .avatar > svg { display: block; width: 100%; height: 100%; object-fit: cover; }
+.memberInfo { min-width: 0; }
+.memberInfo h3 { margin: 0 0 5px; font-size: 18px; font-weight: 650; line-height: 1.45; }
+.memberInfo h3 a { color: var(--blog-ink); }
+.memberInfo a:hover { color: var(--ifm-color-primary); text-decoration: none; }
+.apacheId { font-size: 14px; color: var(--blog-muted); overflow-wrap: anywhere; }
+.profileLinks { display: flex; align-items: center; gap: 16px; margin-top: 12px; }
+.profileLinks a { display: inline-flex; align-items: center; gap: 5px; color: var(--blog-muted); font-size: 13px; line-height: 1.5; }
+.role { display: block; margin-top: 10px; color: var(--ifm-color-primary); font-size: 12px; line-height: 1.6; }
+.repositories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; list-style: none; margin: 0; padding: 0; }
+.repositories li { min-width: 0; border-top: 1px solid var(--blog-line); }
+.repository { display: flex; align-items: center; gap: 16px; padding: 22px 0; color: var(--blog-ink); }
+.repository:hover { color: var(--ifm-color-primary); text-decoration: none; }
+.repositoryIcon { flex-shrink: 0; font-size: 24px; }
+.repositoryInfo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.repositoryName { font-size: 19px; font-weight: 600; }
+.repositoryPath { font-size: 14px; color: var(--blog-muted); overflow-wrap: anywhere; }
+.repositoryAction { margin-left: auto; flex-shrink: 0; color: var(--ifm-color-primary); font-size: 14px; }
+.join { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-top: 48px; padding: 36px 40px; border-radius: 12px; background: var(--blog-surface); }
+.join h2 { margin: 0 0 12px; font-size: 28px; }
+.join p:last-child { max-width: 700px; margin: 0; font-size: 17px; line-height: 1.8; color: var(--blog-muted); }
+.join > a { display: inline-flex; align-items: center; gap: 24px; flex-shrink: 0; padding: 12px 18px; border: 1px solid var(--ifm-color-primary); border-radius: 7px; font-size: 16px; font-weight: 600; }
+.join > a:hover { background: var(--blog-tint); text-decoration: none; }
+.page a:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: 4px; border-radius: 3px; }
+@media (max-width: 1100px) {
+  .members { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .repository { flex-wrap: wrap; }
+  .repositoryAction { width: 100%; padding-left: 40px; }
+}
+@media (max-width: 760px) {
+  .content { padding-block: 32px 48px; }
+  .section + .section { margin-top: 40px; }
+  .sectionHeading h2 { font-size: 25px; }
+  .members { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .member { padding: 20px 16px; gap: 12px; }
+  .repositories { grid-template-columns: 1fr; }
+  .repositoryAction { width: auto; padding-left: 0; }
+  .join { flex-direction: column; align-items: flex-start; gap: 24px; padding: 28px 24px; }
+  .join h2 { font-size: 25px; }
+}
+@media (max-width: 540px) {
+  .members { grid-template-columns: 1fr; }
+  .member { padding: 20px; gap: 18px; }
+  .repositoryAction { width: 100%; padding-left: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .member { transition: none; }
+}

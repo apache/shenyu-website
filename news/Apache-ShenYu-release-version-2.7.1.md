@@ -1,6 +1,6 @@
 ---
 title: "[Apache ShenYu 2.7.1 Version Release]"
-description: "Apache ShenYu 2.7.1 Version Release"
+description: "ShenYu 2.7.1 brings MCP server enhancements, a WASM runtime migration, security hardening, and infrastructure improvements."
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2026-07-13

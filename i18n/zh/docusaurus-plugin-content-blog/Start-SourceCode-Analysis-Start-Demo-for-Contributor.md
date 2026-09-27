@@ -1,5 +1,6 @@
 ---
 title: 社区新人开发者启动及开发防踩坑指南
+description: 面向社区新开发者，记录 ShenYu 后端、Dashboard 与官网的本地启动步骤，整理环境配置和开发中的常见问题。
 author: Yuxuan Zhang
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/zuobiao-zhou

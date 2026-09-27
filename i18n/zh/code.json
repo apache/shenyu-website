@@ -26,15 +26,15 @@
     "description": "The ARIA label for close button of announcement bar"
   },
   "theme.blog.paginator.navAriaLabel": {
-    "message": "Blog list page navigation",
+    "message": "博客分页",
     "description": "The ARIA label for the blog pagination"
   },
   "theme.blog.paginator.newerEntries": {
-    "message": "Newer Entries",
+    "message": "较新的文章",
     "description": "The label used to navigate to the newer blog posts page (previous page)"
   },
   "theme.blog.paginator.olderEntries": {
-    "message": "Older Entries",
+    "message": "更早的文章",
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
   "theme.blog.post.readingTime.plurals": {
@@ -42,7 +42,7 @@
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.tags.tagsListLabel": {
-    "message": "Tags:",
+    "message": "标签：",
     "description": "The label alongside a tag list"
   },
   "theme.blog.post.readMore": {
@@ -50,19 +50,19 @@
     "description": "The label used in blog post item excerpts to link to full blog posts"
   },
   "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Blog post page navigation",
+    "message": "文章导航",
     "description": "The ARIA label for the blog posts pagination"
   },
   "theme.blog.post.paginator.newerPost": {
-    "message": "Newer Post",
+    "message": "上一篇",
     "description": "The blog post button label to navigate to the newer/previous post"
   },
   "theme.blog.post.paginator.olderPost": {
-    "message": "Older Post",
+    "message": "下一篇",
     "description": "The blog post button label to navigate to the older/next post"
   },
   "theme.tags.tagsPageTitle": {
-    "message": "Tags",
+    "message": "全部主题",
     "description": "The title of the tag list page"
   },
   "theme.blog.sidebar.navAriaLabel": {
@@ -74,11 +74,11 @@
     "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.blog.tagTitle": {
-    "message": "{nPosts} tagged with \"{tagName}\"",
+    "message": "“{tagName}”主题下的 {nPosts}",
     "description": "The title of the page for a blog tag"
   },
   "theme.tags.tagsPageLink": {
-    "message": "View All Tags",
+    "message": "查看全部主题",
     "description": "The label of the link targeting the tag list page"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
@@ -430,5 +430,683 @@
   },
   "Next Version": {
     "message": "下一版本"
+  },
+  "blog.title": {
+    "message": "ShenYu 博客"
+  },
+  "document.connect": {
+    "message": "接入第一个服务"
+  },
+  "download.title": {
+    "message": "下载 Apache ShenYu"
+  },
+  "releases.latest": {
+    "message": "最新网关版本"
+  },
+  "users.refresh.joinTitle": {
+    "message": "下一位社区用户，就是你。"
+  },
+  "users.refresh.start": {
+    "message": "开始使用 ShenYu"
+  },
+  "releases.ecosystem": {
+    "message": "生态组件"
+  },
+  "releases.summary.client-golang-1.0.0-release": {
+    "message": "支持通过 HTTP、Nacos 或 Consul 注册 Go 服务。"
+  },
+  "blog.readingTime": {
+    "message": "{minutes} 分钟阅读"
+  },
+  "homepage.refresh.footerCommunity": {
+    "message": "社区"
+  },
+  "download.packageLabel": {
+    "message": "下载 {name} {version}"
+  },
+  "blog.topicsDescription": {
+    "message": "从感兴趣的主题出发，阅读源码解析、插件设计与工程实践。"
+  },
+  "releases.summary.client-dotnet-1.0.0-release": {
+    "message": "支持通过 HTTP、Nacos 或 Consul 注册 .NET 服务。"
+  },
+  "homepage.refresh.privacy": {
+    "message": "隐私"
+  },
+  "homepage.refresh.newsBody": {
+    "message": "了解项目新闻、版本发布与社区进展。"
+  },
+  "homepage.refresh.download": {
+    "message": "下载"
+  },
+  "news.archive": {
+    "message": "新闻归档"
+  },
+  "releases.summary.2.3.0-release": {
+    "message": "扩展签名认证配置，优化插件模板与处理器参数校验。"
+  },
+  "releases.summary.2.6.0-release": {
+    "message": "支持 Prometheus 指标、一级与二级缓存，以及扩展插件 JAR 管理。"
+  },
+  "releases.summary.2.4.2-release": {
+    "message": "新增 MQTT 支持，通过 ShenYu Agent 与 OpenTelemetry 提供可观测能力。"
+  },
+  "homepage.refresh.auth": {
+    "message": "身份认证"
+  },
+  "document.latest": {
+    "message": "最新发布"
+  },
+  "download.keys": {
+    "message": "下载签名公钥（KEYS）"
+  },
+  "homepage.refresh.learnMore": {
+    "message": "查看相关文档"
+  },
+  "homepage.refresh.sponsor": {
+    "message": "赞助"
+  },
+  "releases.description": {
+    "message": "了解 Apache ShenYu 网关与生态组件的版本演进、功能更新和修复记录。"
+  },
+  "homepage.refresh.governanceTitle": {
+    "message": "精细治理流量"
+  },
+  "document.read": {
+    "message": "阅读文档"
+  },
+  "download.latest": {
+    "message": "最新"
+  },
+  "team.join": {
+    "message": "开始贡献"
+  },
+  "homepage.refresh.adminCaption": {
+    "message": "ShenYu Admin 管理控制台"
+  },
+  "homepage.refresh.deployBody": {
+    "message": "支持本地、Docker 和 Kubernetes 部署，选择适合现有基础设施的运行方式。"
+  },
+  "homepage.refresh.architectureTitle": {
+    "message": "Apache ShenYu 整体架构"
+  },
+  "news.description": {
+    "message": "关注 Apache ShenYu 的版本更新、社区故事与最新动态。"
+  },
+  "homepage.refresh.observe": {
+    "message": "可观测"
+  },
+  "download.bootstrapDescription": {
+    "message": "开箱即用的网关运行程序，使用二进制发行包启动 ShenYu 网关。"
+  },
+  "releases.summary.2.4.1-release": {
+    "message": "Admin 支持 PostgreSQL，新增动态插件加载与本地数据更新能力。"
+  },
+  "users.refresh.editUsers": {
+    "message": "编辑用户列表"
+  },
+  "homepage.refresh.adminLink": {
+    "message": "了解管理控制台"
+  },
+  "document.download": {
+    "message": "下载 ShenYu"
+  },
+  "team.navigation": {
+    "message": "团队导航"
+  },
+  "blog.description": {
+    "message": "来自 Apache ShenYu 社区的源码解读、工程实践与开发指南。"
+  },
+  "download.gatewayDescription": {
+    "message": "Apache 官方源码发行版，同时提供便于部署的二进制包。"
+  },
+  "download.verifyTitle": {
+    "message": "校验下载文件"
+  },
+  "homepage.refresh.communityBody": {
+    "message": "提出问题、分享想法，或开发一个插件。与全球开发者一起，参与 Apache ShenYu 的未来。"
+  },
+  "homepage.refresh.blogTitle": {
+    "message": "实践与技术"
+  },
+  "download.allReleases": {
+    "message": "全部历史版本"
+  },
+  "blog.shareTitle": {
+    "message": "分享你的 ShenYu 实践"
+  },
+  "homepage.refresh.adminPoint1": {
+    "message": "可视化配置插件"
+  },
+  "users.refresh.eyebrow": {
+    "message": "APACHE SHENYU / 社区用户"
+  },
+  "homepage.refresh.diagramSwitcher": {
+    "message": "网关示意图"
+  },
+  "team.joinDescription": {
+    "message": "编写代码、完善文档、分享想法，或帮助其他用户。每一份贡献都值得感谢。"
+  },
+  "releases.back": {
+    "message": "返回版本列表"
+  },
+  "homepage.refresh.featuresTitle": {
+    "message": "流量治理，面面俱到。"
+  },
+  "blog.browse": {
+    "message": "浏览博客"
+  },
+  "team.contributors": {
+    "message": "贡献者"
+  },
+  "releases.summary.shenyu-wasm-1.0.0-release": {
+    "message": "简化使用方式，并支持用户自定义动态链接库。"
+  },
+  "homepage.refresh.adminTitle": {
+    "message": "看得清全局，\n管得好流量。"
+  },
+  "homepage.refresh.adminPoint2": {
+    "message": "精细管理选择器与规则"
+  },
+  "homepage.refresh.footerFoundation": {
+    "message": "Apache 软件基金会"
+  },
+  "homepage.refresh.github": {
+    "message": "在 GitHub 上探索"
+  },
+  "homepage.refresh.architectureEnlarge": {
+    "message": "查看完整架构图"
+  },
+  "blog.onThisPage": {
+    "message": "本文目录"
+  },
+  "download.moreResources": {
+    "message": "更多资源"
+  },
+  "homepage.refresh.adminPoint3": {
+    "message": "动态更新网关配置"
+  },
+  "document.nginxDescription": {
+    "message": "通过注册中心发现网关实例，在 OpenResty 中动态管理上游节点。"
+  },
+  "news.latest": {
+    "message": "最新动态"
+  },
+  "blog.latest": {
+    "message": "最新文章"
+  },
+  "homepage.refresh.communityLink": {
+    "message": "加入社区"
+  },
+  "blog.readArticle": {
+    "message": "阅读全文"
+  },
+  "homepage.refresh.proxyTitle": {
+    "message": "连接多种协议"
+  },
+  "releases.summary.2.5.1-release": {
+    "message": "新增 BRPC 插件、示例与 Spring Boot Starter 支持。"
+  },
+  "document.helmDescription": {
+    "message": "使用 Helm Chart 在 Kubernetes 上部署和配置 ShenYu。"
+  },
+  "news.heading": {
+    "message": "社区动态与版本发布"
+  },
+  "document.next": {
+    "message": "开发版"
+  },
+  "download.checksumHelp": {
+    "message": "根据操作系统执行相应命令，将输出与下载的 SHA-512 文件内容进行比对。"
+  },
+  "homepage.refresh.events": {
+    "message": "社区活动"
+  },
+  "homepage.refresh.mailingList": {
+    "message": "邮件列表"
+  },
+  "news.readLabel": {
+    "message": "阅读详情：{title}"
+  },
+  "homepage.refresh.observeTitle": {
+    "message": "洞察请求全貌"
+  },
+  "download.openArchive": {
+    "message": "浏览历史归档"
+  },
+  "document.ecosystemDescription": {
+    "message": "按开发语言与部署环境，找到适合你的使用指南。"
+  },
+  "releases.ecosystemDescription": {
+    "message": "WASM、Nginx 与多语言客户端的发布记录。"
+  },
+  "team.heading": {
+    "message": "认识 ShenYu 社区"
+  },
+  "team.founder": {
+    "message": "创始人 · V.P. / PMC 主席"
+  },
+  "homepage.refresh.footerProject": {
+    "message": "项目"
+  },
+  "users.refresh.note": {
+    "message": "以下为已知在生产环境使用 ShenYu 全部或部分组件的用户，排名不分先后。"
+  },
+  "homepage.refresh.adminNext": {
+    "message": "下一张 Admin 截图"
+  },
+  "users.refresh.external": {
+    "message": "访问官网（在新标签页打开）"
+  },
+  "document.projectLabel": {
+    "message": "{project} 文档"
+  },
+  "homepage.refresh.openSource": {
+    "message": "开源开放 · 社区驱动 · Apache 2.0"
+  },
+  "document.pluginsDescription": {
+    "message": "理解插件、选择器与规则的工作方式。"
+  },
+  "homepage.refresh.headlineAccent": {
+    "message": "连接所有服务。"
+  },
+  "download.checksum": {
+    "message": "比对 SHA-512 校验和"
+  },
+  "releases.browse": {
+    "message": "浏览版本发布记录"
+  },
+  "homepage.refresh.incoming": {
+    "message": "接入请求"
+  },
+  "homepage.refresh.newsTitle": {
+    "message": "社区动态"
+  },
+  "document.contributeDescription": {
+    "message": "发现遗漏的步骤或不清晰的示例？欢迎参与文档改进。"
+  },
+  "homepage.refresh.extendTitle": {
+    "message": "按需扩展能力"
+  },
+  "news.back": {
+    "message": "返回新闻"
+  },
+  "releases.summary.nginx-1.0.0-1-release": {
+    "message": "通过 ZooKeeper、etcd 与 Nacos 监听网关节点变化。"
+  },
+  "document.contribute": {
+    "message": "贡献指南"
+  },
+  "download.sourceDescription": {
+    "message": "完整的 Apache ShenYu 源码，用于本地构建、定制开发和社区贡献。"
+  },
+  "homepage.refresh.communityTitle": {
+    "message": "下一份贡献，\n从这里开始。"
+  },
+  "homepage.refresh.gateway": {
+    "message": "统一 API 网关"
+  },
+  "download.adminDescription": {
+    "message": "网关管理控制台，集中配置插件、路由规则与流量策略。"
+  },
+  "homepage.refresh.flowLabel": {
+    "message": "让每一次请求，井然有序"
+  },
+  "blog.readArticleLabel": {
+    "message": "阅读全文：{title}"
+  },
+  "news.updates": {
+    "message": "社区新闻"
+  },
+  "releases.summary.2.4.3-release": {
+    "message": "支持 HTTP 注册重试与 octet-stream 内容类型，并改进重定向能力。"
+  },
+  "releases.summary.2.4.0-release": {
+    "message": "改进初始化脚本加载、插件菜单分类与 Admin SQL 脚本执行。"
+  },
+  "news.topicsDescription": {
+    "message": "按主题浏览版本发布、社区故事与开源活动。"
+  },
+  "releases.summary.2.7.0-release": {
+    "message": "升级至 Java 17 与 Spring Boot 3，并支持 ShenYu Admin 集群。"
+  },
+  "download.signature": {
+    "message": "验证 PGP 签名"
+  },
+  "download.pdfTitle": {
+    "message": "离线阅读文档"
+  },
+  "users.refresh.accent": {
+    "message": "用于真实业务。"
+  },
+  "download.ecosystemDescription": {
+    "message": "多语言客户端、Nginx 与 WebAssembly 扩展的源码发行包。"
+  },
+  "homepage.refresh.security": {
+    "message": "安全"
+  },
+  "document.gatewayDescription": {
+    "message": "查阅网关部署、服务接入、流量管理与自定义开发指南，逐步搭建和扩展你的 API 网关。"
+  },
+  "homepage.refresh.flowNote": {
+    "message": "多种协议，一个入口，统一治理。"
+  },
+  "blog.back": {
+    "message": "返回博客"
+  },
+  "releases.notesLabel": {
+    "message": "查看发布说明：{name} {version}"
+  },
+  "news.title": {
+    "message": "ShenYu 新闻"
+  },
+  "team.pmcDescription": {
+    "message": "负责项目治理、发展方向与社区建设，支持 ShenYu 持续成长。"
+  },
+  "homepage.refresh.foundation": {
+    "message": "基金会"
+  },
+  "blog.heading": {
+    "message": "探索 ShenYu 的技术与实践"
+  },
+  "homepage.refresh.footerTagline": {
+    "message": "一个网关，连接所有服务。"
+  },
+  "releases.summary.2.7.0.2-release": {
+    "message": "新增 AI 请求转换能力，修复代理配置与数据缓冲区泄漏问题。"
+  },
+  "homepage.refresh.adminShowSlide": {
+    "message": "查看 Admin 截图"
+  },
+  "homepage.refresh.securityBody": {
+    "message": "使用 JWT、OAuth 2.0、WAF 等认证与安全插件，为 API 构建统一的访问防护。"
+  },
+  "download.pdfDescription": {
+    "message": "下载 PDF 文档，随时查阅 ShenYu 使用与开发指南。"
+  },
+  "download.version": {
+    "message": "版本"
+  },
+  "releases.summary.2.2.0-release": {
+    "message": "完善可热插拔的插件架构，支持多个 Dubbo 版本与泛化调用。"
+  },
+  "document.current": {
+    "message": "最新"
+  },
+  "team.description": {
+    "message": "Apache ShenYu 由来自各地的维护者和贡献者共同构建。我们相信社区的力量，在开放协作中一起成长。"
+  },
+  "homepage.refresh.extendBody": {
+    "message": "以插件组合网关能力，通过 Java 扩展业务逻辑，支持插件动态加载。"
+  },
+  "homepage.refresh.observeBody": {
+    "message": "集成链路追踪、指标与日志，让请求路径和系统运行状态清晰可见。"
+  },
+  "document.plugins": {
+    "message": "配置插件与规则"
+  },
+  "homepage.refresh.adminBody": {
+    "message": "在可视化控制台中统一管理插件、选择器和路由规则，让网关配置成为清晰直观的日常操作。"
+  },
+  "homepage.refresh.eyebrow": {
+    "message": "APACHE SHENYU · JAVA 原生 API 网关"
+  },
+  "users.refresh.register": {
+    "message": "登记你的团队"
+  },
+  "news.read": {
+    "message": "阅读详情"
+  },
+  "homepage.refresh.adminGalleryRole": {
+    "message": "轮播图"
+  },
+  "users.refresh.directory": {
+    "message": "他们正在使用 ShenYu"
+  },
+  "blog.archive": {
+    "message": "文章归档"
+  },
+  "releases.gateway": {
+    "message": "网关版本"
+  },
+  "homepage.refresh.communityEyebrow": {
+    "message": "开放共建，共同成长"
+  },
+  "document.deployDescription": {
+    "message": "快速启动 Admin 管理端与 Bootstrap 网关。"
+  },
+  "releases.summary.2.7.1-release": {
+    "message": "增强 MCP Server，迁移 WASM 运行时，并改进安全性与基础设施。"
+  },
+  "homepage.refresh.ecosystem": {
+    "message": "与你的技术生态，无缝协作"
+  },
+  "team.title": {
+    "message": "社区团队"
+  },
+  "document.goDescription": {
+    "message": "将 Go 服务注册到 ShenYu，通过网关统一接入与管理。"
+  },
+  "download.gateway": {
+    "message": "网关发行包"
+  },
+  "homepage.refresh.route": {
+    "message": "路由转发"
+  },
+  "homepage.refresh.blog": {
+    "message": "博客"
+  },
+  "download.ecosystem": {
+    "message": "客户端与扩展"
+  },
+  "download.signatureHelp": {
+    "message": "以下以当前选中的源码版本为例。将发行包、对应的 ASC 签名及 KEYS 放在同一目录，然后执行："
+  },
+  "users.refresh.joinInstructions": {
+    "message": "正在使用 Apache ShenYu？将 Logo 放入 {logos}，在 {users} 中添加公司名称、Logo 路径和官网链接，然后向 {repository} 提交 PR。"
+  },
+  "homepage.refresh.usersEyebrow": {
+    "message": "与众多团队同行"
+  },
+  "download.howToVerify": {
+    "message": "如何校验"
+  },
+  "homepage.refresh.governanceBody": {
+    "message": "通过限流、熔断和请求转换管理流量，从容应对业务变化。"
+  },
+  "homepage.refresh.securityTitle": {
+    "message": "守好服务入口"
+  },
+  "releases.summary.2.7.0.3-release": {
+    "message": "改进 MCP 工具、Nacos 数据同步与 Redis 限流，修复相关稳定性问题。"
+  },
+  "download.action": {
+    "message": "下载"
+  },
+  "releases.summary.2.7.0.1-release": {
+    "message": "修复 HTTP 轮询问题，扩展 JWT 载荷解析，并支持 Dubbo 方法配置。"
+  },
+  "download.verifyDescription": {
+    "message": "使用前请校验发行包的签名与校验和。从 Apache 下载 KEYS 及对应的 ASC、SHA-512 文件。"
+  },
+  "document.rustDescription": {
+    "message": "使用 Rust 客户端 SDK，将 Rust 服务接入 ShenYu 网关。"
+  },
+  "team.contributorsDescription": {
+    "message": "每一次代码提交、问题反馈和文档完善，都让 ShenYu 变得更好。通过各仓库的贡献记录，认识参与其中的伙伴。"
+  },
+  "users.refresh.intro": {
+    "message": "认识使用 Apache ShenYu 连接服务的团队与组织。不同的业务场景，同一个开源社区。"
+  },
+  "homepage.refresh.architectureDescription": {
+    "message": "从配置管理、请求处理到上游服务。"
+  },
+  "users.refresh.headline": {
+    "message": "源于开源，"
+  },
+  "download.verifyFiles": {
+    "message": "校验说明"
+  },
+  "homepage.refresh.adminEyebrow": {
+    "message": "SHENYU ADMIN"
+  },
+  "news.browse": {
+    "message": "浏览新闻"
+  },
+  "team.committersDescription": {
+    "message": "维护项目代码、评审社区贡献，与大家一起推动 ShenYu 不断进步。"
+  },
+  "document.connectDescription": {
+    "message": "通过 ShenYu 代理你的 HTTP 服务。"
+  },
+  "document.deploy": {
+    "message": "启动网关"
+  },
+  "download.description": {
+    "message": "获取 Apache ShenYu 源码、网关发行包，以及客户端与扩展组件。"
+  },
+  "homepage.refresh.getStarted": {
+    "message": "快速开始"
+  },
+  "team.viewContributors": {
+    "message": "查看贡献者"
+  },
+  "homepage.refresh.usersLink": {
+    "message": "查看社区用户"
+  },
+  "homepage.refresh.docs": {
+    "message": "文档"
+  },
+  "homepage.refresh.contribute": {
+    "message": "参与贡献"
+  },
+  "users.refresh.title": {
+    "message": "社区用户"
+  },
+  "homepage.refresh.proxyBody": {
+    "message": "通过统一网关接入 HTTP、Dubbo、gRPC、WebSocket 和 MQTT 等多种协议的服务。"
+  },
+  "download.resources": {
+    "message": "版本相关资源"
+  },
+  "homepage.refresh.featuresIntro": {
+    "message": "从第一个请求，到不断扩展的服务生态，让网关保持灵活，让架构始终清晰。"
+  },
+  "download.source": {
+    "message": "源代码"
+  },
+  "document.dotnetDescription": {
+    "message": "自动注册 .NET 应用，使用 ShenYu 网关代理服务请求。"
+  },
+  "download.archiveDescription": {
+    "message": "在 Apache 归档中查看 ShenYu 的全部历史发行版。"
+  },
+  "homepage.refresh.usersTitle": {
+    "message": "在真实业务中，持续创造价值。"
+  },
+  "document.startHere": {
+    "message": "从这里开始"
+  },
+  "document.contributeTitle": {
+    "message": "一起完善文档"
+  },
+  "homepage.refresh.license": {
+    "message": "许可证"
+  },
+  "homepage.refresh.featuresEyebrow": {
+    "message": "为真实业务而构建"
+  },
+  "blog.topics": {
+    "message": "全部主题"
+  },
+  "download.archiveTitle": {
+    "message": "寻找更早的版本？"
+  },
+  "releases.title": {
+    "message": "版本发布记录"
+  },
+  "homepage.refresh.adminPrevious": {
+    "message": "上一张 Admin 截图"
+  },
+  "document.title": {
+    "message": "文档中心"
+  },
+  "homepage.refresh.upstream": {
+    "message": "后端服务"
+  },
+  "team.pmc": {
+    "message": "项目管理委员会（PMC）"
+  },
+  "document.ecosystem": {
+    "message": "客户端与部署工具"
+  },
+  "document.version": {
+    "message": "文档版本"
+  },
+  "blog.shareDescription": {
+    "message": "把你的使用经验、技术探索与开发心得带给社区。"
+  },
+  "document.readVersion": {
+    "message": "阅读 {version} 版本文档"
+  },
+  "homepage.refresh.architectureAlt": {
+    "message": "Apache ShenYu 架构：Admin 向网关实例同步配置，网关通过插件链处理请求并转发至上游服务。"
+  },
+  "homepage.refresh.adminAlt": {
+    "message": "Apache ShenYu Admin 控制台截图"
+  },
+  "releases.notes": {
+    "message": "查看发布说明"
+  },
+  "blog.contribute": {
+    "message": "参与贡献"
+  },
+  "homepage.refresh.headline": {
+    "message": "一个网关，"
+  },
+  "document.description": {
+    "message": "从部署网关到接入服务，了解 Apache ShenYu 的使用、配置与扩展开发。"
+  },
+  "releases.download": {
+    "message": "下载 ShenYu"
+  },
+  "homepage.refresh.showArchitecture": {
+    "message": "将整体架构图切到前面"
+  },
+  "homepage.refresh.flowTab": {
+    "message": "请求流程"
+  },
+  "users.refresh.joinNote": {
+    "message": "Fork 网站仓库后，向 main 分支提交 PR。"
+  },
+  "releases.summary.2.5.0-release": {
+    "message": "新增 Mock、阿里云 SLS 日志与 Elasticsearch 日志插件。"
+  },
+  "homepage.refresh.intro": {
+    "message": "以可扩展的多协议网关，统一连接服务、保障安全、治理流量。Java 原生，融入你的技术栈。"
+  },
+  "homepage.refresh.blogBody": {
+    "message": "阅读技术解析，探索 ShenYu 用户的实践经验。"
+  },
+  "homepage.refresh.deployTitle": {
+    "message": "灵活选择部署"
+  },
+  "blog.articles": {
+    "message": "社区文章"
+  },
+  "homepage.refresh.architectureTab": {
+    "message": "整体架构"
+  },
+  "homepage.refresh.showFlow": {
+    "message": "将请求流程图切到前面"
+  },
+  "download.releaseNotes": {
+    "message": "发布说明"
+  },
+  "releases.summary.2.6.1-release": {
+    "message": "支持告警通知、Dubbo 注解解析，并扩展服务发现集成。"
+  },
+  "team.joinTitle": {
+    "message": "期待与你一起构建 ShenYu"
   }
 }

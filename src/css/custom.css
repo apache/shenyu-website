@@ -1,63 +1,63 @@
-/* stylelint-disable docusaurus/copyright-header */
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* Shared ShenYu brand tokens for the homepage and documentation. */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #c44712;
+  --ifm-color-primary-dark: #b04010;
+  --ifm-color-primary-darker: #a73c0f;
+  --ifm-color-primary-darkest: #89320d;
+  --ifm-color-primary-light: #d84e14;
+  --ifm-color-primary-lighter: #e15115;
+  --ifm-color-primary-lightest: #ed6b33;
+  --ifm-background-color: #ffffff;
+  --ifm-font-color-base: #262923;
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --ifm-line-height-base: 1.75;
+  --ifm-heading-font-weight: 650;
+  --ifm-code-font-size: 90%;
+  --ifm-navbar-height: 72px;
+  --ifm-navbar-padding-horizontal: 2.5rem;
+  --ifm-navbar-shadow: none;
+  --ifm-toc-border-color: #e7e5e0;
+  --ifm-menu-color-active: #b33e0d;
+  --ifm-menu-color-background-active: #fff0e8;
 }
 
-.docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
-}
-
-html[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* ===== Navbar Style Overrides ===== */
-:root {
-  --ifm-navbar-height: 52px;
-  --ifm-navbar-padding-vertical: 0;
-  --ifm-navbar-padding-horizontal: 1rem;
+html[data-theme='dark'] {
+  --ifm-color-primary: #ff9b6b;
+  --ifm-color-primary-dark: #ff8246;
+  --ifm-color-primary-darker: #ff7633;
+  --ifm-color-primary-darkest: #f34f00;
+  --ifm-color-primary-light: #ffb490;
+  --ifm-color-primary-lighter: #ffc0a3;
+  --ifm-color-primary-lightest: #ffe5db;
+  --ifm-background-color: #191c18;
+  --ifm-background-surface-color: #20231f;
+  --ifm-navbar-background-color: #191c18;
+  --ifm-font-color-base: #edeee9;
+  --ifm-toc-border-color: #343731;
+  --ifm-menu-color-active: #ffad85;
+  --ifm-menu-color-background-active: #35271e;
 }
 
 .navbar {
-  height: var(--ifm-navbar-height);
-  min-height: var(--ifm-navbar-height);
-  padding: 0 var(--ifm-navbar-padding-horizontal);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
 .navbar__inner {
-  height: 100%;
-  flex-wrap: nowrap;
-}
-
-.navbar__brand {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .navbar__logo {
-  height: 28px;
-  max-width: 180px;
-  width: auto;
+  height: 30px;
+}
+
+.navbar__brand {
+  flex-shrink: 0;
+}
+
+.navbar__items:not(.navbar__items--right) {
+  min-width: max-content;
 }
 
 .navbar__title {
@@ -65,32 +65,111 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .navbar__item {
-  padding: 0 0.6rem;
-  font-size: 0.9rem;
+  font-size: 16px;
+  padding-inline: .7rem;
 }
 
 .navbar__link {
-  line-height: normal;
+  font-weight: 550;
 }
 
-.navbar-sidebar {
-  top: var(--ifm-navbar-height);
+.navbar .dropdown__menu {
+  border: 1px solid var(--ifm-toc-border-color);
+  box-shadow: 0 8px 28px #0000000c;
+  border-radius: 8px;
 }
 
-/* ===== Responsive Breakpoint: Switch to Hamburger Menu when Viewport ≤ 1200px ===== */
-/* Coverage Scenario: Situations where the effective viewport size decreases—e.g., when the browser is zoomed in to 125%–250%. */
-/* Infima defaults to switching at 996px; however, due to the large number of menu items, the breakpoint needs to be shifted earlier to 1200px. */
-@media (max-width: 1200px) {
-  .navbar__toggle {
-    display: inherit;
+.navbar .dropdown__link {
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+.navbar-github {
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 6px;
+  padding: 6px 12px;
+  margin: 0 10px;
+}
+
+.navbar__search-input {
+  border-radius: 6px;
+}
+
+.menu__link {
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.markdown {
+  --ifm-heading-line-height: 1.4;
+}
+
+.markdown h1 {
+  letter-spacing: -.8px;
+}
+
+.markdown h2 {
+  margin-top: 2.2rem;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: #c4471210;
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: #ff9b6b18;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 4px;
+}
+
+/* Keep Infima's 996px menu breakpoint so the drawer and toggle agree. */
+
+@media (max-width: 1200px) and (min-width: 997px) {
+  .navbar {
+    padding-inline: 1rem;
   }
-
   .navbar__item {
+    padding-inline: .4rem;
+  }
+  .navbar__logo {
+    height: 25px;
+  }
+  .navbar-github {
+    margin-inline: 4px;
+  }
+  .navbar__search-input {
+    width: 120px;
+  }
+  .navbar__search [class*='searchHintContainer'] {
     display: none;
   }
+}
 
-  /* 保留搜索框在移动端可见 */
-  .navbar__search {
-    display: flex;
+@media (max-width: 996px) {
+  :root {
+    --ifm-navbar-height: 64px;
+    --ifm-navbar-padding-horizontal: 1.25rem;
+  }
+  .navbar__logo {
+    height: 27px;
+  }
+  .navbar-github {
+    border: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo {
+    height: 24px;
+  }
+  .navbar__search-input {
+    max-width: 120px;
   }
 }

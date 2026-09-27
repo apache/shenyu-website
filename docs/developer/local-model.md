@@ -78,7 +78,7 @@ GET
 
 ### Clean Plugin
 
-Clear plugin data（selector, rule）
+Clear plugin data(selector, rule)
 
 ##### Request Method
 
@@ -168,7 +168,7 @@ POST
 |**pluginName**|String|True| |plugin name|
 |**name**|String|False| |Selector name (default is plugin:selector+random number if not filled)|
 |**matchMode**|Integer|False| |Matching mode (0:and;1:or), not filled with the default generation And mode|
-|**type**|Integer|False| |Traffic type（0: full traffic; 1: custom traffic) do not fill in the default generation of full traffic|
+|**type**|Integer|False| |Traffic type(0: full traffic; 1: custom traffic) do not fill in the default generation of full traffic|
 |**sort**|Integer|False| |Sort by, not filled by default generate 10|
 |**enabled**|Boolean|False| |Whether to turn on, not fill in the default generation true|
 |**logged**|Boolean|False| |Whether or not to print the log, do not fill in the default generated into false|
@@ -179,9 +179,9 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |operator （match，=，regex，\>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
-|**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
+|**paramType**|String|True| |param type(post,uri,query,host,header,cookie,req_method,domain)|
+|**operator**|String|True| |operator (match,=,regex,\>,\<,contains,SpEL,Groovy,TimeBefore,TimeAfter)|
+|**paramName**|String|False| |param mame(The uri parameter type can be passed without)|
 |**paramValue**|Integer|False| |param value|
 
 
@@ -246,7 +246,7 @@ POST
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
 |**ruleName**|String|False| |rule name|
-|**ruleHandler**|String|True| |Rule handler (different plugins pass different values)）|
+|**ruleHandler**|String|True| |Rule handler (different plugins pass different values))|
 |**matchMode**|Integer|False| |Matching pattern (0:and;1:or)|
 |**conditionList**|[ConditionData](#condition-data)|True| |Rule condition collection (Json List object)|
 
@@ -254,9 +254,9 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |operator （match，=，regex，\>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
-|**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
+|**paramType**|String|True| |param type(post,uri,query,host,header,cookie,req_method,domain)|
+|**operator**|String|True| |operator (match,=,regex,\>,\<,contains,SpEL,Groovy,TimeBefore,TimeAfter)|
+|**paramName**|String|False| |param mame(The uri parameter type can be passed without)|
 |**paramValue**|Integer|False| |param value|
 
 ##### Example
@@ -365,9 +365,9 @@ POST
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**paramType**|String|True| |param type（post，uri，query，host，header，cookie，req_method，domain）|
-|**operator**|String|True| |operator （match，=，regex，\>，\<，contains，SpEL，Groovy，TimeBefore，TimeAfter）|
-|**paramName**|String|False| |param mame（The uri parameter type can be passed without）|
+|**paramType**|String|True| |param type(post,uri,query,host,header,cookie,req_method,domain)|
+|**operator**|String|True| |operator (match,=,regex,\>,\<,contains,SpEL,Groovy,TimeBefore,TimeAfter)|
+|**paramName**|String|False| |param mame(The uri parameter type can be passed without)|
 |**paramValue**|Integer|False| |param value|
 
 ##### Example
@@ -461,7 +461,7 @@ POST
 |**appName**|String|True| |app name|
 |**contextPath**|String|True| |contextPath|
 |**path**|String|True| |path|
-|**rpcType**|String|True| |rpc type（dubbo，sofa，tars，springCloud，motan，grpc）|
+|**rpcType**|String|True| |rpc type(dubbo,sofa,tars,springCloud,motan,grpc)|
 |**serviceName**|String|True| |service name|
 |**methodName**|String|True| |method name|
 |**parameterTypes**|String|True| |parameter types|
@@ -484,7 +484,7 @@ GET
 
 |Name|Type|Required|Default|Description|
 |---|---|---|---|---|
-|**rpcType**|String|true| |rpc type（dubbo，sofa，tars，springCloud，motan，grpc） |
+|**rpcType**|String|true| |rpc type(dubbo,sofa,tars,springCloud,motan,grpc) |
 |**path**|String|true| |path |
 
 ## App Sign Data

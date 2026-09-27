@@ -69,7 +69,7 @@ description:  paramMapping-plugin
 ![](/img/shenyu/plugin/param-mapping/param-mapping.png)
 * param details:
   * `addParameterKeys`: add a new `key-value` on body
-  * `replaceParameterKeys`: replace request body's `key` ，`key` is the value to be replaced，`value` is the value after replacement
+  * `replaceParameterKeys`: replace request body's `key` ,`key` is the value to be replaced,`value` is the value after replacement
   * `removeParameterKeys`: remove a body `key`
 
 * param_mapping modify the request body is achieved through `JSONPath` , `$.` represents the root directory.
@@ -88,7 +88,7 @@ description:  paramMapping-plugin
 
 ![](/img/shenyu/plugin/param-mapping/param-mapping.png)
 
-use the configuration，unopened the plugin，request body is:
+use the configuration,unopened the plugin,request body is:
 
 ```json
 {"id":3,"data":{"value":"18","age":"36"}}
@@ -96,7 +96,7 @@ use the configuration，unopened the plugin，request body is:
 
 #### 2.5.1.4 Check Result
 
-open the plugin，the final request body is
+open the plugin,the final request body is
 
 ```json
 {"name":"shenyu","userId":3,"data":{"age":"36"}}

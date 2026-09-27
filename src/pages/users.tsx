@@ -56,7 +56,7 @@ function Users() {
           <div className="container">
             <h1 className={styles.blockTitle}><Translate>Our Users</Translate></h1>
             <p className={styles.blockDescription}>
-              <Translate>Here is a list of companies or organizations that we know have used all or some of Apache ShenYu’s components in production.This list is in no particular order.</Translate>
+              <Translate>Here is a list of companies or organizations that we know have used all or some of Apache ShenYu’s components in production. This list is in no particular order.</Translate>
             </p >
             <div className={styles.userPart}>
               <div className={styles.scrollView}>
@@ -127,7 +127,7 @@ function Users() {
                 })
               }
             </Swiper> */}
-            <p><Translate>To better serve you, please register</Translate><a target="_blank" href="https://github.com/apache/shenyu/issues/68"><Translate>[Here].</Translate></ a></p >
+            <p><Translate>To better serve you, please register </Translate><a target="_blank" href="https://github.com/apache/shenyu/issues/68"><Translate>[Here].</Translate></ a></p >
           </div>
           {/* <div className="swiper-button-prev user-swiper-button-prev" style={{ left: "50px" }}></div>
           <div className="swiper-button-next user-swiper-button-next" style={{ right: "50px" }}></div> */}

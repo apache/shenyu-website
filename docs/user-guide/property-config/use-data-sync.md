@@ -11,11 +11,11 @@ This document focuses on how to use different data synchronization strategies. D
 
 For details about the data synchronization principles, see [Data Synchronization Design](../../design/data-sync) in the design document.
 
-### WebSocket Synchronization Config（default strategy, recommend）
+### WebSocket Synchronization Config(default strategy, recommend)
 
 * `Apache ShenYu` gateway config
 
-  Add these dependencies in `pom.xml`：
+  Add these dependencies in `pom.xml`:
 
 ```xml
     <!-- apache shenyu data sync start use websocket-->
@@ -35,7 +35,7 @@ Add these config values in  yaml file:
 shenyu:
   sync:
     websocket :
-      # urls: address of shenyu-admin，multi-address will be separated with (,).
+      # urls: address of shenyu-admin,multi-address will be separated with (,).
       urls: ws://localhost:9095/websocket
       allowOrigin: ws://localhost:9195
 ```
@@ -63,7 +63,7 @@ After the connection is established, the data will be fully obtained once, and t
 
 * `Apache ShenYu` gateway config
 
-  Add these dependencies in `pom.xml`：
+  Add these dependencies in `pom.xml`:
 
  ```xml
         <!-- apache shenyu data sync start use zookeeper-->
@@ -120,7 +120,7 @@ It is a good idea to use ZooKeeper synchronization mechanism with high timelines
 
 * `Apache ShenYu` gateway config
 
-Add these dependencies in `pom.xml`：
+Add these dependencies in `pom.xml`:
 
 ```xml
         <!-- apache shenyu data sync start use http-->
@@ -141,7 +141,7 @@ shenyu:
     sync:
         http:
              url: http://localhost:9095
-        #url: config your shenyu-admin  ip and port，cluster IP by split by (,)
+        #url: config your shenyu-admin  ip and port,cluster IP by split by (,)
 ```
 
    <img src="/img/shenyu/dataSync/shenyu-data-sync-http-yml.png" width="80%" height="70%" />
@@ -170,7 +170,7 @@ HTTP long-polling makes the gateway lightweight, but less time-sensitive. It pul
 * `Apache ShenYu` gateway config
 
 
-Add these dependencies in `pom.xml`：
+Add these dependencies in `pom.xml`:
 
 ```xml
         <!-- apache shenyu data sync start use nacos-->
@@ -201,7 +201,7 @@ shenyu:
         namespace:
         accessKey:
         secretKey:
-     # other configure，please refer to the naocs website.
+     # other configure,please refer to the naocs website.
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-nacos-yml.png" width="80%" height="70%" />
@@ -226,7 +226,7 @@ shenyu:
           accessKey:
           secretKey:
         # url: config with your nacos address, pls use (,) to split your cluster environment.
-        # other configure，pls refer to the naocs website.
+        # other configure,pls refer to the naocs website.
 ```
 
   <img src="/img/shenyu/dataSync/shenyu-data-sync-admin-nacos-yml.png" width="80%" height="70%" />
@@ -236,7 +236,7 @@ shenyu:
 
 * `Apache ShenYu` gateway config
 
-  Add these dependencies in `pom.xml`：
+  Add these dependencies in `pom.xml`:
 
 ```xml
         <!-- apache shenyu data sync start use etcd-->
@@ -291,7 +291,7 @@ shenyu:
 
 * `Apache ShenYu` gateway config
 
-Add these dependencies in `pom.xml`：
+Add these dependencies in `pom.xml`:
 
 ```xml
 <!-- apache shenyu data sync start use consul-->

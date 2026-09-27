@@ -45,7 +45,7 @@ shenyu:
       port: xx
 # registerType: service registration type, fill in zookeeper.
 # serverList: Enter the zookeeper address(es), separated by commas in English.
-# appName：Your application name. If not configured, the default value will be taken from spring.application.name.
+# appName:Your application name. If not configured, the default value will be taken from spring.application.name.
 # port: Your project's startup port, currently springmvc/tars/grpc needs to be filled in.
 
 # for detailed reference, please see the `user-guide> Property Config> Register Center Instance Config` configuration document.

@@ -112,7 +112,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
     @Override
     @ShenyuSofaClient("/findByIdsAndName")
     public SofaSimpleTypeBean findByIdsAndName(final List<Integer> ids, final String name) {
-        return new SofaSimpleTypeBean(ids.toString(), "hello world shenyu sofa param findByIdsAndName ：" + name);
+        return new SofaSimpleTypeBean(ids.toString(), "hello world shenyu sofa param findByIdsAndName :" + name);
     }
 }
 ```
@@ -130,12 +130,12 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 ![image-20220829193913149](/img/shenyu/plugin/sofa/sofa_registry_en.png)
 
-- `protocol`:  Register center protocol, currently supports zookeeper、consul、nacos.
+- `protocol`:  Register center protocol, currently supports zookeeper,consul,nacos.
 - `register`: The service IP and PORT of the registry.
-- `threadpool`：There are five types of business thread pools: `fixed`, `eager`, `cached`, `limited` and `shared`. The first 4 types correspond to the thread pools officially provided by dubbo. Let's talk about `shared`, as its name implies, `all proxy plugins` share a `shared` thread pool, the advantage of this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization.
-- `corethreads`：The number of core threads in the business thread pool.
-- `threads`：The maximum number of threads in the business thread pool.
-- `queues`：The length of the blocking queue of the business thread pool, 0 means `unbounded blocking queue`.
+- `threadpool`:There are five types of business thread pools: `fixed`, `eager`, `cached`, `limited` and `shared`. The first 4 types correspond to the thread pools officially provided by dubbo. Let's talk about `shared`, as its name implies, `all proxy plugins` share a `shared` thread pool, the advantage of this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization.
+- `corethreads`:The number of core threads in the business thread pool.
+- `threads`:The maximum number of threads in the business thread pool.
+- `queues`:The length of the blocking queue of the business thread pool, 0 means `unbounded blocking queue`.
 
 ### 2.5.2 Selector config
 
@@ -171,15 +171,15 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 - RpcExpand: other configurations of the `sofa` interface, which support the `JSON` format.
 
-  examples：`{"loadbalance":"hash","retries":3,"timeout":-1}`
+  examples:`{"loadbalance":"hash","retries":3,"timeout":-1}`
 
-    - `loadbalance`：Load balancing policy, currently supports roundRobin, random and hash.
-    - `retries`：Number of retries to call client timeout failures.
-    - `timeout`：Calling the client's timeout time.
+    - `loadbalance`:Load balancing policy, currently supports roundRobin, random and hash.
+    - `retries`:Number of retries to call client timeout failures.
+    - `timeout`:Calling the client's timeout time.
 
 - Interface: The fully qualified class name of the `sofa` interface.
 
-- RpcType：choose `sofa`.
+- RpcType:choose `sofa`.
 
 ## 2.6 Examples
 
@@ -189,7 +189,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 - Start `Zookeeper` service.
 - Start `ShenYu Admin`.
-- Start `Shenyu Bootstrap`.
+- Start `ShenYu Bootstrap`.
 
 #### 2.6.1.2 Plugin Config
 

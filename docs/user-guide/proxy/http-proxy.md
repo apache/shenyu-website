@@ -35,7 +35,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 * SpringBoot  
 
-  Please refer this：[shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http)
+  Please refer this:[shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http)
 
   1. Add the following dependencies to the `pom.xml` file in your `Http` service:
 
@@ -67,7 +67,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 * SpringMvc
 
-  Please refer this：[shenyu-examples-springmvc](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-springmvc)
+  Please refer this:[shenyu-examples-springmvc](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-springmvc)
 
   Add the following dependencies to the `pom.xml` file in your `Http` service:  
 
@@ -182,7 +182,7 @@ The following indicates that `/order/save` is proxied by the gateway, while `/or
   }
 ```
 
-example (3)：This is a simplified way to use it, just need a simple annotation to register to the gateway using metadata.
+example (3):This is a simplified way to use it, just need a simple annotation to register to the gateway using metadata.
 Special note: currently only supports `@RequestMapping, @GetMapping, @PostMapping, @DeleteMapping, @PutMapping` annotations, and only valid for the first path in `@XXXMapping`
 
 ```java
@@ -243,7 +243,7 @@ Special note: currently only supports `@RequestMapping, @GetMapping, @PostMappin
 
 * First, find `divide` plugin in `shenyu-admin`, add selector, and rules, and filter traffic matching.
 * If you don't know how to configure, please refer to [Selector Detailed Explanation](../admin-usage/selector-and-rule).
-* You can also develop your customized http-client，refer to [multi-language Http client development](../../developer/developer-shenyu-client)。
+* You can also develop your customized http-client,refer to [multi-language Http client development](../../developer/developer-shenyu-client).
 
 ## User request
 
@@ -254,7 +254,7 @@ Special note: currently only supports `@RequestMapping, @GetMapping, @PostMappin
 
   * Now need to change to:  `http://localhost:9195/order/test/save`
 
-  * We can see `localhost:9195` is your gateway's `ip` port，default port number is `9195` ，`/order` is your `contextPath` which you configured with gateway.
+  * We can see `localhost:9195` is your gateway's `ip` port,default port number is `9195` ,`/order` is your `contextPath` which you configured with gateway.
 
   * Other parameters doesn't change in request method.
 

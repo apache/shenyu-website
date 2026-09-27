@@ -43,8 +43,6 @@ function Home() {
                 <img
                   src="/img/logo.svg"
                   className={styles.heroProjectLogo}
-                  data-light-logo="/img/logo.svg"
-                  data-dark-logo="/img/logo-light.svg"
                 ></img>
               </h1>
               <h3 className={styles.heroProjectTagline}>
@@ -54,7 +52,7 @@ function Home() {
                     __html: translate({
                       id: "homepage.hero.title",
                       message:
-                        "Java native API Gateway for <b> service proxy, protocol conversion and API governance.</b>",
+                        "Java native API Gateway for <b>service proxy, protocol conversion and API governance.</b>",
                       description:
                         "Home page hero title, can contain simple html tags",
                     }),
@@ -76,7 +74,7 @@ function Home() {
             <div className="col col--5 col--offset-1">
               <div className={styles.logoContainer}>
                 <img
-                  alt={translate({ message: "Docusaurus with Keytar" })}
+                  alt={translate({ message: "Apache ShenYu architecture" })}
                   className={styles.heroLogo}
                   src={useBaseUrl("/img/architecture/shenyu-architecture-3d.png")}
                 />

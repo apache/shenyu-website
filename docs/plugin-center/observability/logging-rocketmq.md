@@ -16,8 +16,8 @@ description: Logging-RocketMQ Plugin
 
 ## 1.3 Plugin functionality
 
->`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request，    
-> The list includes: request time, request parameters, request path, response result, response status code, time consumption, upstream IP, exception information waiting.    
+>`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request,
+> The list includes: request time, request parameters, request path, response result, response status code, time consumption, upstream IP, exception information waiting.
 > The Logging-RocketMQ plugin is a plugin that records access logs and sends them to the RocketMQ cluster.
 
 ## 1.4 Plugin code
@@ -33,7 +33,7 @@ description: Logging-RocketMQ Plugin
 
 ## 1.6 Technical Solutions
 
-* Architecture Diagram  
+* Architecture Diagram
 
 ![](/img/shenyu/plugin/logging/shenyu-agent-logging-arch.png)
 
@@ -90,8 +90,8 @@ Except for topic, namesrvAddr, producerGroup, all others are optional, in most c
 
 * For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
 
-In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
-then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
+In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,
+then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.
 The operation is shown below:
 ![](/img/shenyu/plugin/logging/logging-option-topic-en.png)
 
@@ -136,8 +136,8 @@ Open the plugin and configure rocketmq, configure it as follows.
 
 For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
 
-In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
-then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
+In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,
+then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.
 The operation is shown below:
 ![](/img/shenyu/plugin/logging/logging-option-topic-en.png)
 
@@ -151,15 +151,15 @@ The operation is shown below:
 
 #### 2.6.1.5 Consumption and display of Logging
 
-As each logging platform has differences, such as storage available clickhouse, ElasticSearch, etc., visualization has self-developed or open source Grafana, Kibana, etc..  
+As each logging platform has differences, such as storage available clickhouse, ElasticSearch, etc., visualization has self-developed or open source Grafana, Kibana, etc..
 Logging-RocketMQ plugin uses RocketMQ to decouple production and consumption, while outputting logs in json format,
 consumption and visualization require users to choose different technology stacks to achieve their own situation.
 
 
 #### 2.6.1.6 Panel Display
 
-Users can choose to visualize the implementation according to their own situation.   
-The following shows the effect of `Grafana`:  
+Users can choose to visualize the implementation according to their own situation.
+The following shows the effect of `Grafana`:
 [Grafana Sandbox Experience](https://play.grafana.org)
 
 ![](/img/shenyu/plugin/logging/grafana-loki-gateway.png)

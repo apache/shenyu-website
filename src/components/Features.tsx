@@ -45,7 +45,7 @@ const FEATURES = [
     title: translate({ message: 'Observability' }),
     subtitle: translate({
       message:
-        'Tracing, metrics, logging plugin',
+        'Tracing, metrics, logging plugin.',
     }),
   },
   {
@@ -77,7 +77,7 @@ const FEATURES = [
     title: translate({ message: 'Language' }),
     subtitle: translate({
       message:
-        'provides .NET, Python, Go, Java client for API register',
+        'Provides .NET, Python, Go and Java clients for API registration.',
     }),
   },
 ];

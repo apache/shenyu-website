@@ -24,7 +24,7 @@ const Footer = (): React.ReactElement => (
                         </div>
                     </div>
                     <div className={styles.item}>
-                        <span className={styles.linkSpan}>Shenyu</span>
+                        <span className={styles.linkSpan}>ShenYu</span>
                         <div className={styles.link}>
                             <div className={styles.linkItem}><Link className={styles.linkA} to='/download'><Translate>Download</Translate></Link></div>
                             <div className={styles.linkItem}><Link className={styles.linkA} to='/docs/'><Translate>Document</Translate></Link></div>

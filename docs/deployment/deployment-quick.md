@@ -29,7 +29,7 @@ This article introduces how to quickly start the `Apache ShenYu` gateway in the 
 
 please refer to [Developer Local Model](../developer/local-model#add-selector-and-rules) add the selector and rule.
 
-example：
+example:
 
 * your service address is`http://127.0.0.1:8080/helloworld` and the response like follow:
 
@@ -46,7 +46,7 @@ example：
 
 > Add `localKey: 123456` to Headers. If you need to customize the localKey, you can use the sha512 tool to generate the key based on plaintext and update the `shenyu.local.sha512Key` property.
 >
-> `POST` method，address`http://localhost:9195/shenyu/plugin/selectorAndRules`, body use `raw json` content：
+> `POST` method, address`http://localhost:9195/shenyu/plugin/selectorAndRules`, body use `raw json` content:
 
 ```
 Headers

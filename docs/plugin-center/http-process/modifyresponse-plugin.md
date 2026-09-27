@@ -50,13 +50,13 @@ description: modifyResponse plugin
 ## 2.3 Enable plugin
 
 - In `shenyu-admin` --> BasicConfig --> Plugin --> `modifyResponse` set Status enable.
-- 
+-
 ![](/img/shenyu/plugin/modify-response/enable-en.png)
 
 ## 2.4 Config plugin
 
 * Selector and rule config, please refer: [Selector and rule config](../../user-guide/admin-usage/selector-and-rule).
-* In `shenyu-admin` --> `PluginList` --> `HttpProcess` --> `modifyResponse`, add selector config first，then add rule config：
+* In `shenyu-admin` --> `PluginList` --> `HttpProcess` --> `modifyResponse`, add selector config first,then add rule config:
   * Add selector config
     ![](/img/shenyu/plugin/modify-response/plugin-selector-config-en.png)
   * Add rule config
@@ -136,11 +136,11 @@ for modifying response headers:
 
 * `addHeaders`: add response headers, `k-v` format
 * `setHeaders`: set response headers, `k-v` format
-* `replaceHeaderKeys`: replace response headers，`key` is matching to the header key that should be replacing, value is target value after replacing 
-* `removeHeaderKeys`: remove response headers，`key` is matching to the header key that should be removing
+* `replaceHeaderKeys`: replace response headers,`key` is matching to the header key that should be replacing, value is target value after replacing
+* `removeHeaderKeys`: remove response headers,`key` is matching to the header key that should be removing
 
 for modifying response body:
 
 * `addBodyKeys`: add response body parameters
-* `replaceBodyKeys`: replace response body parameters，`key` is matching to the body(JSON) key that should be replacing, value is target value after replacing
-* `removeBodyKeys`: remove response body parameters，`key` is matching to the body(JSON) key that should be removing
+* `replaceBodyKeys`: replace response body parameters,`key` is matching to the body(JSON) key that should be replacing, value is target value after replacing
+* `removeBodyKeys`: remove response body parameters,`key` is matching to the body(JSON) key that should be removing

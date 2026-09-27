@@ -25,7 +25,7 @@ description: custom Metrics Monitor
 </dependencies>
 ```
 
-* Create a new class `${you class}`，implements `org.apache.shenyu.plugin.metrics.spi.MetricsService`
+* Create a new class `${you class}`,implements `org.apache.shenyu.plugin.metrics.spi.MetricsService`
 
 ```
 public class ${you class} implements MetricsService {
@@ -49,7 +49,7 @@ public class ${you class} implements MetricsService {
 }
 ```
 
-* In the project  `resources` directory，Create a new `META-INF/shenyu` directory， and the new file name is : `org.apache.shenyu.plugin.metrics.spi.MetricsService`.
+* In the project  `resources` directory,Create a new `META-INF/shenyu` directory, and the new file name is: `org.apache.shenyu.plugin.metrics.spi.MetricsService`.
 add `${you spi name}` = `${you class path}`:
 
 ```

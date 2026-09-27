@@ -65,4 +65,4 @@ Each `motan` interface method, will correspond to a metadata, when the `motan` a
 
 * Interface: The fully qualified class name of the `motan` interface.
 
-* RpcType：choose `motan`.
+* RpcType:choose `motan`.

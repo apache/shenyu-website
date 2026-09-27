@@ -26,7 +26,7 @@ cd shenyu
 mvn clean install '-Dmaven.javadoc.skip=true' '-B' '-Drat.skip=true' '-Djacoco.skip=true' '-DskipITs' '-DskipTests'
 ```
 
-* use the development tool to start `org.apache.shenyu.admin.ShenyuAdminBootstrap`，Visit http://localhost:9095, the default username and password are: `admin` and `123456` respectively.
+* use the development tool to start `org.apache.shenyu.admin.ShenyuAdminBootstrap`,Visit http://localhost:9095, the default username and password are: `admin` and `123456` respectively.
 
   * If you use `h2` for storage, set the variable `--spring.profiles.active = h2` and start the server.
 

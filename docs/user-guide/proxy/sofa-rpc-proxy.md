@@ -8,7 +8,7 @@ This document is intended to help the `Sofa` service access the `Apache ShenYu` 
 
 Before the connection, start `shenyu-admin` correctly, start `Sofa` plugin, and add related dependencies on the gateway and `Sofa` application client. Refer to the previous [Quick start with Sofa](../../quick-start/quick-start-sofa) .
 
-For the use of the plugin, see：[Sofa Plugin](../../plugin-center/proxy/sofa-plugin.md)
+For the use of the plugin, see:[Sofa Plugin](../../plugin-center/proxy/sofa-plugin.md)
 
 For details about client access configuration, see [Application Client Access Config](../property-config/register-center-access.md) .
 
@@ -18,7 +18,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 > In the current version, this dependency has been introduced by default.
 
-1. Add the following dependencies in the gateway's `pom.xml` file：
+1. Add the following dependencies in the gateway's `pom.xml` file:
 
  ```xml
         <dependency>
@@ -58,9 +58,9 @@ For details about data synchronization configurations, see [Data Synchronization
 
 ## Sofa service access gateway
 
-Please refer to：[shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa)
+Please refer to:[shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa)
 
-1. Based on the `springboot` project，Introduce the following dependencies：
+1. Based on the `springboot` project,Introduce the following dependencies:
 
  ```xml
          <dependency>
@@ -128,7 +128,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
     @Override
     @ShenyuSofaClient("/findByIdsAndName")
     public SofaSimpleTypeBean findByIdsAndName(final List<Integer> ids, final String name) {
-        return new SofaSimpleTypeBean(ids.toString(), "hello world shenyu sofa param findByIdsAndName ：" + name);
+        return new SofaSimpleTypeBean(ids.toString(), "hello world shenyu sofa param findByIdsAndName :" + name);
     }
 }
 ```
@@ -144,13 +144,13 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 > For example, if you have an `order` service, it has an interface and its registration path `/order/test/save`
 >
-> Now it's to request the gateway via post：`http://localhost:9195/order/test/save`
+> Now it's to request the gateway via post:`http://localhost:9195/order/test/save`
 >
 > Where `localhost:9195` is the IP port of the gateway, default port is `9195`, `/order` is the `contextPath` of your sofa access gateway configuration.
 
 
-* Parameter passing：
-  - Access the gateway through http post，and pass through body and json.
+* Parameter passing:
+  - Access the gateway through http post,and pass through body and json.
   - For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
 
 * Single java bean parameter type (default)
@@ -174,7 +174,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 * `body` is the json string passed by body in http.
 * `parameterTypes`: list of matched method parameter types, If there are multiple, use `,` to separate.
-* In Pair，left is the parameter type，and right is the parameter value. This is the standard for sofa generalization calls.
+* In Pair,left is the parameter type,and right is the parameter value. This is the standard for sofa generalization calls.
 * Register your class as a String bean and override the default implementation.
 
  ```java

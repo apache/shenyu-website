@@ -65,7 +65,7 @@ serverLists indicates the IP address of the registration center, and props is th
 
 In the example project we used `Eureka` as the registry for `Spring Cloud`. You can use the local `Eureka` or the application provided in the example.
 
-Download [shenyu-examples-eureka](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-eureka) 、[shenyu-examples-springcloud](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-springcloud) .
+Download [shenyu-examples-eureka](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-eureka) ,[shenyu-examples-springcloud](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-springcloud) .
 
 Startup the Eureka service:
 Execute the `org.apache.shenyu.examples.eureka.EurekaServerApplication` main method to start project.

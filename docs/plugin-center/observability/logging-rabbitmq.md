@@ -16,8 +16,8 @@ description: Logging-RabbitMQ Plugin
 
 ## 1.3 Plugin functionality
 
->`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request，    
-> The list includes: request time, request parameters, request path, response result, response status code, time consumption, upstream IP, exception information waiting.    
+>`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request,
+> The list includes: request time, request parameters, request path, response result, response status code, time consumption, upstream IP, exception information waiting.
 > The Logging-RabbitMQ plugin is a plugin that records access logs and sends them to the RabbitMQ cluster.
 
 ## 1.4 Plugin code
@@ -33,7 +33,7 @@ description: Logging-RabbitMQ Plugin
 
 ## 1.6 Technical Solutions
 
-* Architecture Diagram  
+* Architecture Diagram
 
 ![](/img/shenyu/plugin/logging/shenyu-agent-logging-arch.png)
 
@@ -76,19 +76,19 @@ description: Logging-RabbitMQ Plugin
 
 | config-item     | type    | description                                         | remarks     |
 |:----------------|:--------|:----------------------------------------------------|:------------|
-| host            | type    | IP                                                  | 必须          |
-| port            | type    | PORT                                                | 必须          |
-| username        | String  | rabbitmq username                                   | 可选          |
-| password        | String  | rabbitmq password                                   | 可选          |
-| virtualHost     | String  | rabbitmq virtualHost                                | 必须，默认/      |
-| exchangeType    | String  | rabbitmq exchange type                              | 必须，默认direct |
-| exchangeName    | String  | rabbitmq exchange name                              | 必须          |
-| queueName       | String  | rabbitmq queue name                                 | 必须          |
-| routingKey      | String  | rabbitmq routing key                                | 必须          |
-| durable         | Boolean | message durable                                     | 必须，默认true   |
-| exclusive       | Boolean | message exclusive                                   | 必须，默认false  |                                   | 必须，默认false  |
-| autoDelete      | String  | message auto delete                                 | 必须，默认false  |
-| args            | String  | rabbitmq args，example：\{"x-delay":"1000"\}，delay queue | 可选          |
+| host            | type    | IP                                                  | Required          |
+| port            | type    | PORT                                                | Required          |
+| username        | String  | rabbitmq username                                   | Optional          |
+| password        | String  | rabbitmq password                                   | Optional          |
+| virtualHost     | String  | rabbitmq virtualHost                                | Required,default/      |
+| exchangeType    | String  | rabbitmq exchange type                              | Required,defaultdirect |
+| exchangeName    | String  | rabbitmq exchange name                              | Required          |
+| queueName       | String  | rabbitmq queue name                                 | Required          |
+| routingKey      | String  | rabbitmq routing key                                | Required          |
+| durable         | Boolean | message durable                                     | Required,defaulttrue   |
+| exclusive       | Boolean | message exclusive                                   | Required,defaultfalse  |                                   | Required,defaultfalse  |
+| autoDelete      | String  | message auto delete                                 | Required,defaultfalse  |
+| args            | String  | rabbitmq args,example:\{"x-delay":"1000"\},delay queue | Optional          |
 | sampleRate                        | String               | Sampling rate, range 0~1, 0: off, 0.01: acquisition 1%, 1: acquisition 100% | Optional, default 1, all collection |
 | maxResponseBody                   | Ingeter              | Maximum response size, above the threshold no response will be collected                | Optional, default 512KB |
 | maxRequestBody                    | Ingeter              | Maximum request body size, above the threshold no request body will be collected               | Optional, default 512KB  |
@@ -98,8 +98,8 @@ Except for host,port,virtualHost,exchangeType,exchangeName,queueName,routingKey,
 
 * For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
 
-In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
-then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
+In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,
+then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.
 The operation is shown below:
 ![](/img/shenyu/plugin/logging/logging-rabbitmq/logging-option-topic-en.png)
 
@@ -144,8 +144,8 @@ Open the plugin and configure rabbitmq, configure it as follows.
 
 For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
 
-In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
-then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
+In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,
+then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.
 The operation is shown below:
 ![](/img/shenyu/plugin/logging/logging-option-topic-en.png)
 
@@ -159,15 +159,15 @@ The operation is shown below:
 
 #### 2.6.1.5 Consumption and display of Logging
 
-As each logging platform has differences, such as storage available clickhouse, ElasticSearch, etc., visualization has self-developed or open source Grafana, Kibana, etc..  
+As each logging platform has differences, such as storage available clickhouse, ElasticSearch, etc., visualization has self-developed or open source Grafana, Kibana, etc..
 Logging-RabbitMQ plugin uses RabbitMQ to decouple production and consumption, while outputting logs in json format,
 consumption and visualization require users to choose different technology stacks to achieve their own situation.
 
 
 #### 2.6.1.6 Panel Display
 
-Users can choose to visualize the implementation according to their own situation.   
-The following shows the effect of `Grafana`:  
+Users can choose to visualize the implementation according to their own situation.
+The following shows the effect of `Grafana`:
 [Grafana Sandbox Experience](https://play.grafana.org)
 
 ![](/img/shenyu/plugin/logging/grafana-loki-gateway.png)

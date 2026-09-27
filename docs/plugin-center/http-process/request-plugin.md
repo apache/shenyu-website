@@ -58,7 +58,7 @@ description: request plugin
 ## 2.4 Config plugin
 
 - selectors and rules, only requests that match are forwarded and redirected, see the [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule)
-- `shenyu-admin` Plugin --> `HttpProcess` --> `Request`. Add the selector first, then add the rule：
+- `shenyu-admin` Plugin --> `HttpProcess` --> `Request`. Add the selector first, then add the rule:
 - Add the selector:
 
   <img src="/img/shenyu/plugin/request/request-plugin-selector-en.png" width="70%" height="60%" />
@@ -79,7 +79,7 @@ description: request plugin
 3. Refer to 2.3 enabling Plugin
 4. Start the project [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http) 
 5. Refer to 2.4 and [Selector And Rule Config](../../user-guide/admin-usage/selector-and-rule), configuring plugin rules.
-6. Call interface：[http-test-api.http](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-examples/shenyu-examples-http/src/main/http/http-test-api.http)
+6. Call interface:[http-test-api.http](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-examples/shenyu-examples-http/src/main/http/http-test-api.http)
 - Calling the interface declared by the selector and rule will see the request parameters configured in the request plugin.
 
   <img src="/img/shenyu/plugin/request/request-plugin-example-zh.png" width="70%" height="60%" />

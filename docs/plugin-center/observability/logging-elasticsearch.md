@@ -15,7 +15,7 @@ description: Logging-ElasticSearch Plugin
 
 ## 1.3 Plugin functionality
 
->`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request，    
+>`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request,
 >The list includes: request time, request parameters, request path, response result, response status code, time consumption, upstream IP, exception information waiting.
 >ShenYu gateway can record access logs through logging-elasticsearch-plugin and send access logs to elasticsearch database.
 
@@ -81,8 +81,8 @@ Except for host, port, all others are optional, in most cases only these 3 items
 ### 2.4.2 Configuring Selectors and Rulers
 
 For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
-In addition sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
-then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
+In addition sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,
+then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.
 The operation is shown below:
 
 ![](/img/shenyu/plugin/logging/logging-elasticsearch/logging-elasticsearch-option.png)

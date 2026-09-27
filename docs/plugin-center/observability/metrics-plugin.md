@@ -46,7 +46,7 @@ shenyu:
 
 ## Metrics Detail
 
-* All JVM，thread，memory，and other related information will be made event tracking，you can add a JVM module in the Grafana' panel, and it will be fully displayed, please refer to： https://github.com/prometheus/jmx_exporter
+* All JVM,thread,memory,and other related information will be made event tracking,you can add a JVM module in the Grafana' panel, and it will be fully displayed, please refer to: https://github.com/prometheus/jmx_exporter
 
 * There are also the following custom `metrics`
 
@@ -177,7 +177,7 @@ Users need to install `Prometheus` service to collect
 
 ### Install Prometheus in the macOS 
 
-* Install prometheus with brew，After installation `prometheus` is in the `Cellar` folder under `homebrew`。
+* Install prometheus with brew,After installation `prometheus` is in the `Cellar` folder under `homebrew`。
 
 ```
 brew install prometheus
@@ -228,7 +228,7 @@ Visit `http://localhost:3000/` to verify that it starts normally.
 
 ![](/img/shenyu/monitor/request-metric-8.png)
 
-* Config Custom Metric Dashboard `request_total`、`http_request_total`
+* Config Custom Metric Dashboard `request_total`,`http_request_total`
 
 Click `Create` - `Import` and enter the [panel config json](https://shenyu.apache.org/img/shenyu/monitor/request_metric_dashboard.json)
 

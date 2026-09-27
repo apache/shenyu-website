@@ -27,9 +27,9 @@ Discovery
 
 ### 1.3 Module Functionality
 
-The Discovery module endows the ShenYu Gateway with the ability to actively perceive and respond to changes in the list of services being proxied. 
-By actively listening to the admin service of the Discovery Gateway, the ShenYu Gateway can promptly track changes in the services being proxied. 
-This functionality is designed to be flexible and can be configured at either **the selector level or the plugin level**, as needed. 
+The Discovery module endows the ShenYu Gateway with the ability to actively perceive and respond to changes in the list of services being proxied.
+By actively listening to the admin service of the Discovery Gateway, the ShenYu Gateway can promptly track changes in the services being proxied.
+This functionality is designed to be flexible and can be configured at either **the selector level or the plugin level**, as needed.
 Currently, plugins that have incorporated the Discovery feature include TCP, Divide, Websocket and gRPC plugins.
 
 
@@ -45,9 +45,9 @@ LOCAL, ZOOKEEPER, NACOS, EUREKA, ETCD
 
 ### 1.5 Scope of Effect
 
-- Plugin Level: Impacts the entire plugin, 
+- Plugin Level: Impacts the entire plugin,
 and all selectors under that plugin will default to the current listening mode.
-- Selector Level: Applies to the current selector, 
+- Selector Level: Applies to the current selector,
 allowing different selectors under the same plugin to use different listening modes.
 
 ## 2. Usage
@@ -56,9 +56,9 @@ allowing different selectors under the same plugin to use different listening mo
 
 #### 2.1.1 Service Discovery Configuration
 
-- In plugins that support the Discovery module (currently, only the TCP plugin supports plugin-level discovery 
-configuration on the admin console page; other plugins can configure plugin-level discovery through shenyu-client, 
-as described in the "Using Shenyu-client" section below), click on `Discovery Configuration`. In the popup form, 
+- In plugins that support the Discovery module (currently, only the TCP plugin supports plugin-level discovery
+configuration on the admin console page; other plugins can configure plugin-level discovery through shenyu-client,
+as described in the "Using Shenyu-client" section below), click on `Discovery Configuration`. In the popup form,
 select the desired listening mode and fill in the service discovery name, registration server URL, registry configuration parameters, etc.:
 
 
@@ -69,12 +69,12 @@ select the desired listening mode and fill in the service discovery name, regist
 #### 2.1.2 Usage within Selectors
 
 - To add a new selector, click on `Add Selector`. In the new selector page, you will notice that the `Type` field enforces the previously configured plugin-level listening mode,
-indicating that the added selector will also adopt the same configuration. 
+indicating that the added selector will also adopt the same configuration.
 At this point, simply input the desired `ListeningNode`:
 
   ![add-selector-under-plugin-discovery-en.png](/img/shenyu/plugin/discovery/add-selector-under-plugin-discovery-en.png)
 
-- The `Handler` here refers to ShenYu's specified JSON format for transmitting upstream registration data, 
+- The `Handler` here refers to ShenYu's specified JSON format for transmitting upstream registration data,
 as shown below:
   - url: URL of the upstream
   - protocol: communication protocol of the upstream
@@ -84,45 +84,45 @@ as shown below:
 
   ```json
   {
-      "url": "127.0.0.1::6379", 
+      "url": "127.0.0.1::6379",
       "protocol": "tcp",
-      "status": 0, 
+      "status": 0,
       "weight": 10
   }
   ```
 
-- If your service alias does not match ShenYu's defined JSON format, 
+- If your service alias does not match ShenYu's defined JSON format,
 you can perform alias mapping in `Handler`.
-For example, as shown in the above image, 
-if you need to change `status` to "healthy" while keeping other keys unchanged, 
-follow these steps: create a new alias, map `status` to `healthy`, 
+For example, as shown in the above image,
+if you need to change `status` to "healthy" while keeping other keys unchanged,
+follow these steps: create a new alias, map `status` to `healthy`,
 and retain the original JSON keys' format.
 - Configure the remaining properties for the selector according to the specific plugin's documentation.
 
 ### 2.2 Selector-Level Configuration
 
-- In plugins that support the Discovery module, click on `Add Selector`. 
-In the `Discovery Config` tab, configure the fields such as type, 
-listening node, server URL list, and registry properties. 
+- In plugins that support the Discovery module, click on `Add Selector`.
+In the `Discovery Config` tab, configure the fields such as type,
+listening node, server URL list, and registry properties.
 This configuration only applies to the current selector and must be reconfigured each time a new selector is added.
 
 ![add-selector-en.png](/img/shenyu/plugin/discovery/add-selector-en.png)
 
-- For the Divide, gRPC, and Websocket plugins, 
-the `Import Background Discovery Config` function on the selector creation page 
-allows you to import and use the backend configuration if the service connecting to the ShenYu Gateway 
-was configured with shenyu-discovery-related properties (see usage with shenyu-client). 
+- For the Divide, gRPC, and Websocket plugins,
+the `Import Background Discovery Config` function on the selector creation page
+allows you to import and use the backend configuration if the service connecting to the ShenYu Gateway
+was configured with shenyu-discovery-related properties (see usage with shenyu-client).
 As shown in the following image, click `Import Background Discovery Config` to view the backend configuration:
 
 ![config-import-en.png](/img/shenyu/plugin/discovery/config-import-en.png)
 
-- If you confirm the import, clicking the `Import` button in the backend configuration popup will automatically populate the form with the backend service discovery properties. 
+- If you confirm the import, clicking the `Import` button in the backend configuration popup will automatically populate the form with the backend service discovery properties.
 At this point, you only need to configure the listening node:
 
 ![after-import-en.png](/img/shenyu/plugin/discovery/after-import-en.png)
 
-> **Note**: If you confirm importing the backend configuration, 
-the backend service discovery properties will be automatically filled in the form and will continue to use the previous discovery object. 
+> **Note**: If you confirm importing the backend configuration,
+the backend service discovery properties will be automatically filled in the form and will continue to use the previous discovery object.
 In this case, modifying service discovery properties in the form will be ineffective, and the backend configuration will be retained.
 
 - If you choose the LOCAL mode, there is no need to connect to a registry, and users must manually maintain the upstream list.
@@ -132,8 +132,8 @@ In this case, modifying service discovery properties in the form will be ineffec
 
 ### 3.1 Local Mode
 
-- Local mode only supports configuration at the **selector level**. 
-There is no need to connect to a registry, and users must manually maintain the upstream list. 
+- Local mode only supports configuration at the **selector level**.
+There is no need to connect to a registry, and users must manually maintain the upstream list.
 This list is an editable table. Click the `Edit` button for each row in the table to modify each parameter of the upstream:
 
 ![local-selector-en.png](/img/shenyu/plugin/discovery/local-selector-en.png)
@@ -141,10 +141,10 @@ This list is an editable table. Click the `Edit` button for each row in the tabl
 ### 3.2 ZooKeeper/Nacos/Eureka/Etcd Modes
 
 - In the ZooKeeper/Nacos/Eureka/Etcd modes, service discovery configuration is supported at both the plugin level and the selector level.
-- For each registry property under these modes, taking ZooKeeper as an example, users can go to `shenyu-admin` --> `BasicConfig` --> `Dictionary`, 
+- For each registry property under these modes, taking ZooKeeper as an example, users can go to `shenyu-admin` --> `BasicConfig` --> `Dictionary`,
 search for the dictionary name "zookeeper", and edit the dictionary values corresponding to the default properties
 (**Note**: You cannot modify the dictionary type and dictionary name).
-- In these modes, the gateway dynamically retrieves service instance information from the registry. Additions, removals, modifications, 
+- In these modes, the gateway dynamically retrieves service instance information from the registry. Additions, removals, modifications,
 and other changes to service instances will be displayed in real-time in the upstream list.
 
 ![zk_dict_en.png](/img/shenyu/plugin/tcp/zk_dict_en.png)
@@ -153,7 +153,7 @@ and other changes to service instances will be displayed in real-time in the ups
 
 ### 4.1 Introduction
 
-- To use Shenyu-client, you need to depend on the corresponding mode's registry middleware: ZooKeeper, Nacos, Etcd, Eureka. 
+- To use Shenyu-client, you need to depend on the corresponding mode's registry middleware: ZooKeeper, Nacos, Etcd, Eureka.
 These modes can automatically detect service up and down events through ShenYu Admin.
 - Additionally, if you are using the local mode, you will need to manually maintain the upstream list.
 - For detailed instructions on using Shenyu-client, refer to the Shenyu-client module documentation.
@@ -162,9 +162,9 @@ These modes can automatically detect service up and down events through ShenYu A
 
 #### 4.2.1 Using Shenyu-client
 
-- Shenyu-client defaults to the Local mode, so there is no need for any special discovery configuration. 
+- Shenyu-client defaults to the Local mode, so there is no need for any special discovery configuration.
 It will automatically register the current service.
-- For services that are automatically registered, you can manually add, modify, 
+- For services that are automatically registered, you can manually add, modify,
 or delete them in the upstream list on the page:
 
 ![local-selector-en.png](/img/shenyu/plugin/discovery/local-selector-en.png)
@@ -172,7 +172,7 @@ or delete them in the upstream list on the page:
 #### 4.2.2 Without Using Shenyu-client
 
 
-- If you are not using Shenyu-client, you can manually add, modify, 
+- If you are not using Shenyu-client, you can manually add, modify,
 or delete service information on the `Discovery Config` tab under `Add Selector`:
 
 ![add-selector-local-en.png](/img/shenyu/plugin/discovery/add-selector-local-en.png)
@@ -190,7 +190,7 @@ or delete service information on the `Discovery Config` tab under `Add Selector`
 ```text
 curl http://localhost:9195/http/hello
 
-hello! I'm Shenyu-Gateway System. Welcome!% 
+hello! I'm Shenyu-Gateway System. Welcome!%
 ```
 
 ### 4.2 Zookeeper Mode Example
@@ -232,12 +232,12 @@ shenyu:
 ```
 
 - Start the shenyu-examples-http service.
-- Once the service registration is successful, 
+- Once the service registration is successful,
 you can view the list of automatically registered service instances on the selector page:
 
 ![zk-selector-en.png](/img/shenyu/plugin/discovery/zk-selector-en.png)
 
-- Users can click on `Edit` in the service instance list to edit the service instance information 
+- Users can click on `Edit` in the service instance list to edit the service instance information
 (Note that in non-Local mode, the URL is maintained by the registry and cannot be manually edited):
 
 
@@ -248,7 +248,7 @@ you can view the list of automatically registered service instances on the selec
 ```text
 curl http://localhost:9195/http/hello
 
-hello! I'm Shenyu-Gateway System. Welcome!% 
+hello! I'm Shenyu-Gateway System. Welcome!%
 ```
 
 ### 4.3 Etcd Mode Example
@@ -285,7 +285,7 @@ shenyu:
          etcdTTL: 5
 ```
 
-- Start the shenyu-examples-http service. Similarly, on the selector page, 
+- Start the shenyu-examples-http service. Similarly, on the selector page,
 you can see the list of automatically registered service instances and edit them as needed:
 ![etcd-selector-en.png](/img/shenyu/plugin/discovery/etcd-selector-en.png)
 
@@ -294,7 +294,7 @@ you can see the list of automatically registered service instances and edit them
 ```text
 curl http://localhost:9195/http/hello
 
-hello! I'm Shenyu-Gateway System. Welcome!% 
+hello! I'm Shenyu-Gateway System. Welcome!%
 ```
 
 ### 4.4 Eureka Mode Example
@@ -332,7 +332,7 @@ shenyu:
          eurekaClientRegistryFetchIntervalSeconds: 10
 ```
 
-- Start the shenyu-examples-http service. Similarly, on the selector page, 
+- Start the shenyu-examples-http service. Similarly, on the selector page,
 you can see the list of automatically registered service instances and edit them as needed:
 
 ![eureka-selector-en.png](/img/shenyu/plugin/discovery/eureka-selector-en.png)
@@ -342,7 +342,7 @@ you can see the list of automatically registered service instances and edit them
 ```text
 curl http://localhost:9195/http/hello
 
-hello! I'm Shenyu-Gateway System. Welcome!% 
+hello! I'm Shenyu-Gateway System. Welcome!%
 ```
 
 ### 4.5 Nacos Mode Example
@@ -364,7 +364,7 @@ hello! I'm Shenyu-Gateway System. Welcome!%
 </dependencies>
 ```
 
-- Add the Following Configuration in application.yml 
+- Add the Following Configuration in application.yml
 (Here, `registerPath` can also be understood as the name of the service to be monitored.)
 
 ```yaml
@@ -379,7 +379,7 @@ shenyu:
          groupName: SHENYU_GROUP
 ```
 
-- Start the shenyu-examples-http service. Similarly, on the selector page, 
+- Start the shenyu-examples-http service. Similarly, on the selector page,
 you can view the list of automatically registered service instances and edit them as needed.
 
 ![nacos-selector-en.png](/img/shenyu/plugin/discovery/nacos-selector-en.png)
@@ -389,17 +389,17 @@ you can view the list of automatically registered service instances and edit the
 ```text
 curl http://localhost:9195/http/hello
 
-hello! I'm Shenyu-Gateway System. Welcome!% 
+hello! I'm Shenyu-Gateway System. Welcome!%
 ```
 
-> **Note**：Configuring service discovery using Shenyu-client essentially configures service discovery at the plugin level. 
-Under the same service discovery mode, there is, in fact, only one discovery object 
+> **Note**:Configuring service discovery using Shenyu-client essentially configures service discovery at the plugin level.
+Under the same service discovery mode, there is, in fact, only one discovery object
 (meaning you can only configure the same set of type, server URL, and service discovery parameters), while multiple listening nodes can be configured.
 
 
 ![ws-selector-en.png](/img/shenyu/plugin/discovery/ws-selector-en.png)
 
-> **Note**：In the Divide and gRPC plugins, you can modify the protocol by configuring the protocol in the application.yml file.
+> **Note**:In the Divide and gRPC plugins, you can modify the protocol by configuring the protocol in the application.yml file.
 The default protocol for the Websocket plugin is 'ws'.
 
 

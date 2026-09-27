@@ -8,6 +8,9 @@ import Layout from '@theme/Layout';
 import { useVersions, useLatestVersion } from '@docusaurus/plugin-content-docs/client';
 
 const currentReleaseVersion = '2.7.1';
+const releaseVersionAliases = {
+  '2.3.0-Legacy': '2.3.0',
+};
 
 function Version() {
   const {
@@ -21,7 +24,9 @@ function Version() {
   );
   const repoUrl = `https://github.com/${organizationName}/${projectName}`;
   const getReleaseVersion = (version) =>
-    version.name === 'current' ? currentReleaseVersion : version.name;
+    version.name === 'current'
+      ? currentReleaseVersion
+      : releaseVersionAliases[version.name] ?? version.name;
 
   return (
     <Layout
@@ -32,7 +37,7 @@ function Version() {
 
         {latestVersion && (
           <div className="margin-bottom--lg">
-            <h3 id="next">Current version (Stable)</h3>
+            <h3 id="latest">Current version (Stable)</h3>
             <p>
               Here you can find the documentation for current released version.
             </p>
@@ -56,7 +61,7 @@ function Version() {
 
         {currentVersion !== latestVersion && (
           <div className="margin-bottom--lg">
-            <h3 id="latest">Next version (Unreleased)</h3>
+            <h3 id="next">Next version (Unreleased)</h3>
             <p>
               Here you can find the documentation for work-in-process unreleased
               version.

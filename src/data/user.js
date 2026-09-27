@@ -7,7 +7,7 @@ export default [
     {name:"Kenyatta University",src:"/img/users/KenyattaUniversity.png",link:"http://www.ku.ac.ke/"},
     {name:"中国电力科学研究院",src:"/img/users/guojiadianwang.jpeg",link:"http://www.epri.sgcc.com.cn/"},
     {name:"芒果TV",src:"/img/users/mgtv.jpg",link:"http://www.mgtv.com"},
-    {name:"苏州安软信息科技有限公司",src:"/img/users/safesoft.png",link:"http:/www.safesoftcorp.com"},
+    {name:"苏州安软信息科技有限公司",src:"/img/users/safesoft.png",link:"http://www.safesoftcorp.com"},
     {name:"阿帕科蓝",src:"/img/users/songguo.png",link:"https://songguo7.com/"},
     {name:"吉祥航空",src:"/img/users/jixiang.jpg",link:"http://www.juneyaoair.com/"},
     {name:"闪送科技",src:"/img/users/shansong_logo.png",link:"http://www.ishansong.com/"},
@@ -45,4 +45,4 @@ export default [
     {name:"ShipOut",src:"/img/users/shipout_logo.png",link:"https://www.ShipOut.com"},
     {name:"驿通科技",src:"/img/users/etcp.png",link:"https://www.etcp.cn"},
     {name:"铁骑力士集团",src:"/img/users/tql.png",link:"https://www.tqlsgroup.com/"},
-]    
+]

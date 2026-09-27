@@ -1,5 +1,5 @@
 import React from 'react';
-import Translate from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Pagination,
@@ -30,16 +30,27 @@ function group(array, subGroupLength) {
   return newArray;
 }
 
+function UserLogo({ user }) {
+  const localImageUrl = useBaseUrl(user.src || '');
+  const imageUrl = user.src?.startsWith('http') ? user.src : localImageUrl;
+  const image = <img className={styles.scrollImage} src={imageUrl} alt={user.name} />;
+
+  return user.link ? (
+    <a href={user.link} rel="noopener noreferrer" target="_blank">
+      {image}
+    </a>
+  ) : image;
+}
+
 function Users() {
   const {
     siteConfig: {
       customFields: { description },
-      tagline,
     },
   } = useDocusaurusContext();
   const userGroups = group(users, (users.length) / 3);
   return (
-    <Layout title={tagline} description={description as string}>
+    <Layout title={translate({ message: 'Our Users' })} description={description as string}>
       <main>
         <div className={clsx(styles.section, styles.userSwiperContainer)}>
           <div className="container">
@@ -54,9 +65,7 @@ function Users() {
                     userGroups[0].map((user, i) => {
                       return (
                         <div className={styles.scrollItem} key={i}>
-                          <a href="noopener noreferrer" target="_blank">
-                            <img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
-                          </a>
+                          <UserLogo user={user} />
                         </div>
                       )
                     })
@@ -67,9 +76,7 @@ function Users() {
                     userGroups[1].map((user, i) => {
                       return (
                         <div className={styles.scrollItem} key={i}>
-                          <a href={user.link} rel="noopener noreferrer" target="_blank">
-                            <img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
-                          </a>
+                          <UserLogo user={user} />
                         </div>
                       )
                     })
@@ -80,9 +87,7 @@ function Users() {
                     userGroups[2].map((user, i) => {
                       return (
                         <div className={styles.scrollItem} key={i}>
-                          <a href={user.link} rel="noopener noreferrer" target="_blank">
-                            <img className={styles.scrollImage} src={user.src && (user.src.startsWith("http") ? user.src : useBaseUrl(user.src))} alt={user.name} />
-                          </a>
+                          <UserLogo user={user} />
                         </div>
                       )
                     })

@@ -31,7 +31,7 @@ Suggestion: You can also make some suggestions to the project or community to pr
 
 Even minor corrections to typos, or corrections to 404 links, are very welcome :)
 
-### Join the Discussion
+### Join the Discussion {#join-the-discussion}
 
 We believe: [Community Over Code](https://www.apache.org/theapacheway/index.html).
 

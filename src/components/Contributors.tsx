@@ -1,38 +1,81 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default (props) => {
-    const [contributers, setContributers] = useState([]);
-    useEffect(() => {
-        const repo = props.repo ?? 'apache/incubator-shenyu';
+const DEFAULT_REPOSITORY = 'apache/shenyu';
+const CONTRIBUTORS_PER_PAGE = 100;
+const CONTRIBUTORS_PER_ROW = 5;
 
-        if (!contributers || contributers.length === 0) {
-            fetch(`https://api.github.com/repos/${repo}/contributors?page=1&per_page=10000`).then(function (response) {
-                return response.json();
-            }).then((res) => {
-                setContributers(res);
-            });
-        }
-    });
-    let html = '<table>';
-    if (contributers && Array.isArray(contributers)) {
-        contributers.forEach((c, i) => {
-            if (i % 5 === 0) {
-                if (i > 0) {
-                    html += '</tr>';
-                }
-                html += '<tr>';
-            }
-            html += `<td>
-                        <a href="${c.html_url}" target="_blank">
-                            <img src="${c.avatar_url}" height="20" /> 
-                            <span style={{ whiteSpace: 'nowrap' }}>@${c.login}</span>
-                        </a>
-                    </td>`;
-            if (i === contributers.length - 1) {
-                html += '</tr>';
-            }
-        });
+function getNextPageUrl(linkHeader) {
+    if (!linkHeader) {
+        return null;
     }
-    html += '</table>';
-    return <div dangerouslySetInnerHTML={{ __html: html }}/>;
+
+    const nextLink = linkHeader
+        .split(',')
+        .find((link) => link.includes('rel="next"'));
+    return nextLink?.match(/<([^>]+)>/)?.[1] ?? null;
+}
+
+async function fetchAllContributors(repo, signal) {
+    const contributors = [];
+    let nextPageUrl = `https://api.github.com/repos/${repo}/contributors?per_page=${CONTRIBUTORS_PER_PAGE}`;
+
+    while (nextPageUrl) {
+        const response = await fetch(nextPageUrl, { signal });
+        if (!response.ok) {
+            throw new Error(`Unable to load contributors for ${repo}: ${response.status}`);
+        }
+
+        const page = await response.json();
+        if (!Array.isArray(page)) {
+            throw new Error(`Unexpected contributors response for ${repo}`);
+        }
+
+        contributors.push(...page);
+        nextPageUrl = getNextPageUrl(response.headers.get('Link'));
+    }
+
+    return contributors;
+}
+
+export default function Contributors({ repo = DEFAULT_REPOSITORY }) {
+    const [contributors, setContributors] = useState([]);
+
+    useEffect(() => {
+        const controller = new AbortController();
+
+        setContributors([]);
+        fetchAllContributors(repo, controller.signal)
+            .then(setContributors)
+            .catch((error) => {
+                if (error.name !== 'AbortError') {
+                    console.error(error);
+                }
+            });
+
+        return () => controller.abort();
+    }, [repo]);
+
+    const rows = [];
+    for (let index = 0; index < contributors.length; index += CONTRIBUTORS_PER_ROW) {
+        rows.push(contributors.slice(index, index + CONTRIBUTORS_PER_ROW));
+    }
+
+    return (
+        <table>
+            <tbody>
+                {rows.map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                        {row.map((contributor) => (
+                            <td key={contributor.id}>
+                                <a href={contributor.html_url} rel="noopener noreferrer" target="_blank">
+                                    <img src={contributor.avatar_url} height="20" alt="" />{' '}
+                                    <span style={{ whiteSpace: 'nowrap' }}>@{contributor.login}</span>
+                                </a>
+                            </td>
+                        ))}
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    );
 }

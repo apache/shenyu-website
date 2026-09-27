@@ -23,10 +23,15 @@ function Home() {
   const {
     siteConfig: {
       customFields: { description },
+      baseUrl,
       tagline,
     },
+    i18n: { currentLocale, defaultLocale },
   } = useDocusaurusContext();
-  useEffect(() => autoRedirect(), []);
+  useEffect(
+    () => autoRedirect({ baseUrl, currentLocale, defaultLocale }),
+    [baseUrl, currentLocale, defaultLocale]
+  );
 
   return (
     <Layout title={tagline} description={description as string}>
@@ -166,13 +171,18 @@ function Home() {
   );
 }
 
-function autoRedirect() {
-  let lang = global.navigator?.language || navigator?.language
-  if (lang != null && lang.toLowerCase() === 'zh-cn') {
+function autoRedirect({ baseUrl, currentLocale, defaultLocale }) {
+  if (currentLocale !== defaultLocale) {
+    return;
+  }
+
+  const lang = window.navigator.language;
+  const languageCode = lang?.toLowerCase().split('-')[0];
+  if (languageCode === 'zh') {
     if (sessionStorage.getItem('auto_detect_redirect') !== 'true') {
       console.log('Current lang is ' + lang);
       sessionStorage.setItem('auto_detect_redirect', 'true')
-      window.location.href = '/zh/';
+      window.location.href = `${baseUrl}zh/`;
     }
   }
 }

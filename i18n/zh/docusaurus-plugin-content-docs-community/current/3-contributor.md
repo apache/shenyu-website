@@ -31,7 +31,7 @@ tags: ["Contributor"]
 
 即便是小到错别字的修正，或者是对404链接的修正，我们也都非常欢迎 :)
 
-### 参与讨论
+### 参与讨论 {#join-the-discussion}
 
 我们认为：[社区胜于代码](https://www.apache.org/theapacheway/index.html)。
 

@@ -365,9 +365,9 @@ function DownloadCompoent() {
     }, [])
 
     useEffect(() => {
-        document.addEventListener('click', (e) => { closeList(e) });
-        return document.removeEventListener('click', (e) => { closeList(e) });
-    }, []);
+        document.addEventListener('click', closeList);
+        return () => document.removeEventListener('click', closeList);
+    }, [closeList]);
 
     const showList = useCallback(index => {
         const newShowItem = showItem.map((item, key) => {

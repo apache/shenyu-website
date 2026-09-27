@@ -1,6 +1,7 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import styles from './Footer.module.css';
-import Translate, { translate } from "@docusaurus/Translate";
+import Translate from "@docusaurus/Translate";
 
 const Footer = (): React.ReactElement => (
     <section className={styles.footer}>
@@ -25,17 +26,17 @@ const Footer = (): React.ReactElement => (
                     <div className={styles.item}>
                         <span className={styles.linkSpan}>Shenyu</span>
                         <div className={styles.link}>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/download'><Translate>Download</Translate></a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/docs/index/'><Translate>Document</Translate></a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/news'><Translate>News</Translate></a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/blog'><Translate>Blog</Translate></a></div>
+                            <div className={styles.linkItem}><Link className={styles.linkA} to='/download'><Translate>Download</Translate></Link></div>
+                            <div className={styles.linkItem}><Link className={styles.linkA} to='/docs/'><Translate>Document</Translate></Link></div>
+                            <div className={styles.linkItem}><Link className={styles.linkA} to='/news'><Translate>News</Translate></Link></div>
+                            <div className={styles.linkItem}><Link className={styles.linkA} to='/blog'><Translate>Blog</Translate></Link></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu/releases'><Translate>Release</Translate></a></div>
                         </div>
                     </div>
                     <div className={styles.item}>
                         <span className={styles.linkSpan}><Translate>Community</Translate></span>
                         <div className={styles.link}>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='/community/contributor-guide'><Translate>Community</Translate></a></div>
+                            <div className={styles.linkItem}><Link className={styles.linkA} to='/community/contributor-guide'><Translate>Community</Translate></Link></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu'>Github</a></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu/issues'>Issue Tracker</a></div>
                         </div>
@@ -43,7 +44,7 @@ const Footer = (): React.ReactElement => (
                     <div className={styles.item}>
                         <span className={styles.linkSpan}><Translate>Subscribe mailing list</Translate></span>
                         <div className={styles.link}>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='./community/contributor-guide#join-the-discussion'><Translate>How to subscribe</Translate></a></div>
+                            <div className={styles.linkItem}><Link className={styles.linkA} to='/community/contributor-guide#join-the-discussion'><Translate>How to subscribe</Translate></Link></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='mailto:dev-subscribe@shenyu.apache.org'><Translate>Subscribe Mail</Translate></a></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='https://lists.apache.org/list.html?dev@shenyu.apache.org'><Translate>Mail Archive</Translate></a></div>                            
                         </div>

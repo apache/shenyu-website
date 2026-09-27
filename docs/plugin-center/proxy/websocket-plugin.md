@@ -38,8 +38,8 @@ description: Websocket Plugin
 ![image-20220726223545558](/img/shenyu/plugin/websocket/procedure_chart_en.png)
 
 **Explanation of terms**
-- Shenyu gateway service：Include shenyu-admin and shenyu-bootstrap services.
-- Client services：Real backend websocket service.
+- ShenYu gateway service:Include shenyu-admin and shenyu-bootstrap services.
+- Client services:Real backend websocket service.
 
 **Explanation of the process**
 1. Start shenyu gateway service: Refer to the deployment, start shenyu-admin and shenyu-bootstrap to make sure shenyu gateway service is normal.
@@ -136,13 +136,13 @@ The example of websocket selector configuration, please refer to [selectors and 
 
 ##### 2.4.2.1.1 Selector handler configuration
 
-- `host`：Fill in `localhost`, this field is not used for now.
-- `ip:port`：`ip` and port, here fill in the `ip` + port of your real service.
-- `protocol`：`ws` protocol, do not fill in the default: `ws://`.
-- `startupTime`：Start-up time in milliseconds.
-- `weight`：The default value for load balancing weight, which is automatically registered for service startup, is 50.
-- `warmupTime`：Warm-up time, in milliseconds, the server in warm-up will calculate the instantaneous weight, the calculated value will be less than the actual weight configured to protect the server just started, the default value of service start registration is 10. For example, the warm-up time is 100 milliseconds, currently started 50 milliseconds, the configured weight is 50, the actual weight is 25.
-- `status`：open or close, the start state of this processor is only valid.
+- `host`:Fill in `localhost`, this field is not used for now.
+- `ip:port`:`ip` and port, here fill in the `ip` + port of your real service.
+- `protocol`:`ws` protocol, do not fill in the default: `ws://`.
+- `startupTime`:Start-up time in milliseconds.
+- `weight`:The default value for load balancing weight, which is automatically registered for service startup, is 50.
+- `warmupTime`:Warm-up time, in milliseconds, the server in warm-up will calculate the instantaneous weight, the calculated value will be less than the actual weight configured to protect the server just started, the default value of service start registration is 10. For example, the warm-up time is 100 milliseconds, currently started 50 milliseconds, the configured weight is 50, the actual weight is 25.
+- `status`:open or close, the start state of this processor is only valid.
 
 #### 2.4.2.2 Configuration of rules
 
@@ -156,7 +156,7 @@ The example of websocket rule configuration, please refer to [selectors and rule
 - `timeout`: The timeout period for calling the client.
 - `retryCount`: The number of retries to call client timeout failures.
 
-## 2.5 示例
+## 2.5 Example
 
 ### 2.5.1 Spring Annotation Websocket Example
 
@@ -200,7 +200,7 @@ Possible cause: BasicConfig -> Plugin -> websocket -> multiSelectorHandle option
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html" />
-    <title>Shenyu WebSocket Test</title>
+    <title>ShenYu WebSocket Test</title>
     <script>
         var websocket;
         function connect() {

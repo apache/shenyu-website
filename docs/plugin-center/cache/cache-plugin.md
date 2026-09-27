@@ -67,9 +67,9 @@ description: Cache Plugin
 
 * `cacheType`: Cache currently supports two modes of caching data.
 
-* memory：local memory mode
+* memory:local memory mode
 
-* redis：redis mode
+* redis:redis mode
 
 The current default is `local memory mode`, the results of the target service are stored in the local memory, if the
 gateway is deployed by way of cluster, it is not recommended to use `local memory mode`, it is recommended to

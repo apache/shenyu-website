@@ -193,13 +193,13 @@ httpclient:
 
 * Direct Access to Back-end Test Result
 
-| **QPS** | **50% latency (ms)** | **75% latency (ms)** | **90% latency (ms)** | **99% latency (ms)** | **平均响应时间(ms)** | **最大响应时间(ms)** |
+| **QPS** | **50% latency (ms)** | **75% latency (ms)** | **90% latency (ms)** | **99% latency (ms)** | **Average response time (ms)** | **Maximum response time (ms)** |
 |:---------------:|:----------------------:|:----------------------:|:----------------------:|:----------------------:|:----------------:|:----------------:|
 | 28998.20      | 19.81                | 23.78                | 28.26                | 41.24                | 20.92          | 402.90          |
 
 * netty
 
-|   currency    | QPS      | 50% latency (ms) | 75% latency (ms) | 90% latency (ms) | 99% latency (ms) | 平均响应时间(ms) | 最大响应时间(ms) |
+|   currency    | QPS      | 50% latency (ms) | 75% latency (ms) | 90% latency (ms) | 99% latency (ms) | Average response time (ms) | Maximum response time (ms) |
 |:-------------:|:----------:|:------------------:|:------------------:|:------------------:|:------------------:|:------------:|:------------:|
 | 600  currency | 20472.95 | 19.37            | 25.36            | 32.89            | 69.92            | 22.09      | 1043.33    |
 |    800  currency    | 20703.55 | 23.57            | 31.32            | 40.11            | 77.28            | 26.11      | 576.47     |
@@ -208,7 +208,7 @@ httpclient:
 
 * webClient
 
-| currency | QPS      | 50% latency (ms) | 75% latency (ms) | 90% latency (ms) | 99% latency (ms) | 平均响应时间(ms) | 最大响应时间(ms) |
+| currency | QPS      | 50% latency (ms) | 75% latency (ms) | 90% latency (ms) | 99% latency (ms) | Average response time (ms) | Maximum response time (ms) |
 |:--------:|:----------:|:------------------:|:------------------:|:------------------:|:------------------:|:------------:|:------------:|
 | 600  currency  | 18640.47 | 15.77            | 24.77            | 38.26            | 80.31            | 20.32      | 852.06     |
 | 800  currency  | 18723.44 | 18.12            | 28.69            | 44.96            | 95.3             | 23.52      | 765.26     |

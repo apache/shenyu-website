@@ -85,9 +85,9 @@ description: A multilingual HTTP client
 
         - `contentType: application/json`
 
-        - `X-Access-Token: {token}`，token is the token obtained by `Get token`.
+        - `X-Access-Token: {token}`,token is the token obtained by `Get token`.
 
-    - `Body`，`json` format
+    - `Body`,`json` format
 
       | Field        | Type    | Required | Desc                                                                                                                                                                                                                 |
           | ----------- | ------- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------ |
@@ -134,9 +134,9 @@ description: A multilingual HTTP client
 
         - `contentType: application/json`
 
-        - `X-Access-Token: {token}`，token is the token obtained by `Get token`.
+        - `X-Access-Token: {token}`,token is the token obtained by `Get token`.
 
-    - `Body`，`json` format.
+    - `Body`,`json` format.
 
       | Field             | Type    | Required | Desc                                                                                                                                                                         |
           | ---------------- | ------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------ |

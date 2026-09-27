@@ -89,7 +89,7 @@ public final class HealthFilter implements WebFilter {
      *
      * @param exchange the current server exchange
      * @param chain    provides a way to delegate to the next filter
-     * @return {@code Mono<Boolean>} result：TRUE (is pass)，and flow next filter；FALSE (is not pass) execute doDenyResponse(ServerWebExchange exchange)
+     * @return {@code Mono<Boolean>} result: TRUE (is pass), and flow next filter; FALSE (is not pass) execute doDenyResponse(ServerWebExchange exchange)
      */
     protected abstract Mono<Boolean> doFilter(ServerWebExchange exchange, WebFilterChain chain);
 

@@ -7,7 +7,7 @@ description: Binary Packages Deployment
 
 This article introduces the deployment of the `Apache ShenYu` gateway using the binary packages.
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying ShenYu according to the [Deployment Prerequisites document](./deployment-before.md).
 
 ### Start Apache ShenYu Admin
 
@@ -17,7 +17,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 > After version 2.5.1, `start.sh` started to support custom JVM startup parameters through the environment variable `ADMIN_JVM`.
 
-* use `h2` to store data：
+* use `h2` to store data:
 
 ```
 > windows: start.bat

@@ -92,11 +92,11 @@ description: mock plugin
 
 **~~`${current|format}`~~**
 - **Description:** Returns the current time and uses `format` to format, `format` can be default, the default is `YYYY-MM-dd HH:mm:ss`.
-- **Example:** `${current}`，`${current|YYYY-MM-dd}`
+- **Example:** `${current}`,`${current|YYYY-MM-dd}`
 
 **~~`${array|item|length}`~~**
 - **Description:** According to the `item` format definition, an array of length `length` can be generated. All the above data generation rules can be nested in `item`, and the result will be automatically added with `[]`.
-- **Example:** `${array|{"name":"test"}|3}` result is `[{"name":"test"},{"name":"test"},{"name":"test"}]`，`${array|{"age":${int|18-65}}|3}`.
+- **Example:** `${array|{"name":"test"}|3}` result is `[{"name":"test"},{"name":"test"},{"name":"test"}]`,`${array|{"age":${int|18-65}}|3}`.
 
 **$\{expression|expression}**
 
@@ -106,7 +106,7 @@ description: mock plugin
 
   - **Description:** Generate random integers from `min` to `max`, inclusive of `min` and `max`.
 
-  - **Example：** `${expression|#int(1,2)}`
+  - **Example:** `${expression|#int(1,2)}`
 
 - **`${expression|#double(min,max)}`**
 
@@ -124,7 +124,7 @@ description: mock plugin
 - **`${expression|zh(min,max)}`**
 
   - **Description:** Generate random Chinese strings of length `min` to `max`.
-  - **Example：** `${expression|#zh(1,10)}`
+  - **Example:** `${expression|#zh(1,10)}`
 
 - **`${expression|#bool()}`**
 
@@ -133,12 +133,12 @@ description: mock plugin
 - **`${expression|#oneOf(arg1,arg2...)}`**
 
   - **Description:** Randomly returns any value in a list.
-  - **Example：** `${expression|#oneOf('shenyu','number',1)}`  will return `'shenyu'` or `'number'`or`1`
+  - **Example:** `${expression|#oneOf('shenyu','number',1)}`  will return `'shenyu'` or `'number'`or`1`
 
 - **`${expression|current()}`**
 
   + **Description:** Returns the current time and uses `format` to format, `format` can be default, the default is `YYYY-MM-dd HH:mm:ss`.
-  + **Example：**  `${expression|#current()}`，`${expression|#current('YYYY-MM-dd')}`
+  + **Example:**  `${expression|#current()}`,`${expression|#current('YYYY-MM-dd')}`
 
 - **`${expression|#array(item,length)}`**
 
@@ -151,11 +151,11 @@ description: mock plugin
 - **`${expression|#req}`**
 
   - **Description:** Req is built-in request parameters ,which can generate response data based on request content
-  - **Example:**`${expression|#req.method}`、`${expression|#req.queries['query_name']}`、`${req.queries.query_name}`、`${expression|#req.uri}`。`jsonPath` is used when the request body is json . For example ,when the request body is `{"name":"shenyu"}`，`${expression|#req.json.name}`would return "shenyu"
+  - **Example:**`${expression|#req.method}`,`${expression|#req.queries['query_name']}`,`${req.queries.query_name}`,`${expression|#req.uri}`.`jsonPath` is used when the request body is json . For example ,when the request body is `{"name":"shenyu"}`,`${expression|#req.json.name}`would return "shenyu"
 + **`${expression|spel}`**
 
-  + **Description**：Use Spel expressions directly to generate data
-  + **Example**：`${expression|T(java.time.LocalDate).now()}`、`${expression|1==1}`
+  + **Description**:Use Spel expressions directly to generate data
+  + **Example**:`${expression|T(java.time.LocalDate).now()}`,`${expression|1==1}`
 
 It is recommended to use the new '${}' syntax. The old syntax may be removed at an later date.
 

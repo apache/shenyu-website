@@ -23,7 +23,7 @@ const Footer = (): React.ReactElement => (
                         </div>
                     </div>
                     <div className={styles.item}>
-                        <span className={styles.linkSpan}>Shenyu</span>
+                        <span className={styles.linkSpan}>ShenYu</span>
                         <div className={styles.link}>
                             <div className={styles.linkItem}><a className={styles.linkA} href='/download'><Translate>Download</Translate></a></div>
                             <div className={styles.linkItem}><a className={styles.linkA} href='/docs/index/'><Translate>Document</Translate></a></div>

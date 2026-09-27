@@ -24,7 +24,7 @@ In [the mysql initialization scripts directory](https://github.com/apache/shenyu
 
 ### PostgreSql
 
-In [the pg initialization scripts directory](https://github.com/apache/shenyu/tree/v2.7.1/db/init/pg) found in the initialization script `create-database.sql`、 `create-table.sql`, and use the client connection tool to connect to your PostgreSql service. so you get a database named `shenyu`, which can later be used as a database for the `Shenyu-admin` project.
+In [the pg initialization scripts directory](https://github.com/apache/shenyu/tree/v2.7.1/db/init/pg) found in the initialization script `create-database.sql`, `create-table.sql`, and use the client connection tool to connect to your PostgreSql service. so you get a database named `shenyu`, which can later be used as a database for the `Shenyu-admin` project.
 
 * sql script: https://github.com/apache/shenyu/tree/v2.7.1/db/init/pg
 

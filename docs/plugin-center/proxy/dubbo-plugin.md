@@ -22,13 +22,13 @@ description: dubbo plugin
 
 <img src="/img/shenyu/plugin/dubbo/dubbo_plugin.png" width="80%" height="80%" />
 
-  * `corethreads`：The number of core threads in the business thread pool。
+  * `corethreads`: The number of core threads in the business thread pool.
 
-  * `queues`：The length of the blocking queue of the business thread pool, 0 means `unbounded blocking queue`。
+  * `queues`: The length of the blocking queue of the business thread pool, 0 means `unbounded blocking queue`。
 
-  * `threadpool`：There are five types of business thread pools: `fixed`, `eager`, `cached`, `limited` and `shared`. The first 4 types correspond to the thread pools officially provided by dubbo. Let's talk about `shared`, as its name implies, `all proxy plugins` share a `shared` thread pool, the advantage of this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization。
+  * `threadpool`: There are five types of business thread pools: `fixed`, `eager`, `cached`, `limited` and `shared`. The first 4 types correspond to the thread pools officially provided by dubbo. Let's talk about `shared`, as its name implies, `all proxy plugins` share a `shared` thread pool, the advantage of this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization.
 
-  * `threads`：The maximum number of threads in the business thread pool。
+  * `threads`: The maximum number of threads in the business thread pool.
 
 ## Plugin Detail
 
@@ -40,27 +40,27 @@ After the client accesses the `ShenYu` gateway, it will automatically register t
 
 Selector Handler, the `handle` field, is an operation that can be processed by the gateway after matching the traffic. For more information, please refer to [Plugin handle management](../../user-guide/admin-usage/plugin-handle-explanation.md) in Plugin Config.
 
-* details：
+* details:
 
-  * `host`：host string.
+  * `host`: host string.
   
-  * `ip:port`：ip+port string.
+  * `ip:port`: ip+port string.
     
-  * `protocol`：protocol default is 'http'.
+  * `protocol`: protocol default is 'http'.
   
-  * `group`：the group of dubbo service.
+  * `group`: the group of dubbo service.
   
-  * `version`：the version of dubbo service.
+  * `version`: the version of dubbo service.
   
-  * `weight`：the server instance and participate in load balancing calculation.
+  * `weight`: the server instance and participate in load balancing calculation.
   
-  * `warmupTime`：the server's warm up time and and participate in load balancing calculation.
+  * `warmupTime`: the server's warm up time and participate in load balancing calculation.
   
-  * `startupTime`：the server's start time.
+  * `startupTime`: the server's start time.
   
-  * `status`：true: the server is available，false: the server is unavailable.
+  * `status`: true: the server is available, false: the server is unavailable.
       
-  * `gray`：enable gray routing.
+  * `gray`: enable gray routing.
   
 Gray routing
 
@@ -77,9 +77,9 @@ It should be noted that,if your business instance not use the client jar of 'she
 
 Rule Handler, the `handle` field, can be performed by the gateway after the final matching of traffic. For more information, please refer to [Plugin handle management](../../user-guide/admin-usage/plugin-handle-explanation.md) in Plugin Config.
 
-* details：
+* details:
 
-  * `loadbalance`：the loadbalance of dubbo service, if the gray node selection fails, the default load balancing method will be used.
+  * `loadbalance`: the loadbalance of dubbo service, if the gray node selection fails, the default load balancing method will be used.
 
 * Apache ShenYu will obtain the real IP of the corresponding service and initiate rpc proxy calls from registration center of dubbo.
 

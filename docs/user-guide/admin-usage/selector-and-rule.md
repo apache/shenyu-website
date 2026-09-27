@@ -21,16 +21,16 @@ For example, add a selector to the `divide` plugin:
 
 <img src="/img/shenyu/basicConfig/pluginHandle/divide_selector_config_en.jpg" width="80%" height="80%" />
 
-* selector detailed explanation：
+* selector detailed explanation:
 
   * Name: create your selector with a distinguish name.
   * Type: Choose request matching strategy.
     * `custom`: Only handle requests that meet the following matching conditions.
     * `full`: Handle all requests.
   * MatchType: Condition combination type.
-    * `and`： Need to meet all conditions.
+    * `and`: Need to meet all conditions.
     * `or`: Meet any of the conditions.
-  * Conditions：
+  * Conditions:
     * uri: filter request with uri.
     * header: filter request with request header.
     * query: filter request with query string.
@@ -40,9 +40,9 @@ For example, add a selector to the `divide` plugin:
     * cookie: filter request with cookie.
     * req_method: filter request with request method.
     * condition match:
-      * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
+      * match : fuzzy string matching, recommend to combine with uri, support path-matching. (/test/**).
       * = : matches only if they are equal.
-      * regEx : regex matching，match characters in regex expression.
+      * regEx : regex matching, match characters in regex expression.
       * contains: when it contains the specified value, it matches.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
@@ -53,7 +53,7 @@ For example, add a selector to the `divide` plugin:
   * Continued: whether the subsequent selector is still executed.
   * PrintLogs: it will print the matching log with the open option enabled.
   * Enable: whether to enable the plugin.
-  * Order：the smaller will have high priority to execute among multi-selectors.
+  * Order:the smaller will have high priority to execute among multi-selectors.
   * Handler: The `handle` field, configured in [Plugin handle management](./plugin-handle-explanation). Its purpose is to determine the actions to take when the request matches this selector. Within the selector, the `handle` field is often used to represent a manually maintained list of service instances. Each service instance includes the following fields:
     - `host`: Host address
     - `ip:port`: IP+port address
@@ -66,7 +66,7 @@ For example, add a selector to the `divide` plugin:
 > **Note**: For plugins that incorporate service discovery modules (such as the Divide plugin, Grpc plugin, and WebSocket plugin), the selector page does not display the handler (i.e., the `handle` field). Instead, it is manually managed through the `Service Discovery` tab under local mode. See [Discovery Module](../discovery/discovery-mode) for details.
 
 * the above picture means: when the prefix of the request uri is `/http`, it will redirect to this service `127.0.0.1:8080`.
-* selector advice : combine `uri` condition and `startsWith` prefix（/contextPath/）as the first request filter.
+* selector advice : combine `uri` condition and `startsWith` prefix (/contextPath/) as the first request filter.
 * selector(the same for rule) match condition fuzzy string matching rule:
   * `?` matches one character
   * `*` matches zero or more characters
@@ -78,12 +78,12 @@ For example, add a selector to the `divide` plugin:
 
 * when the request was passed by the selector, then it will be processed by the rule, the final filter.
 * rule is the final confirmation about how to execute request logically.
-* rule detailed explanation：
-  * Name：create your rule with a distinguish name.
+* rule detailed explanation:
+  * Name:create your rule with a distinguish name.
 
   * MatchType: you can combine these conditions with 'and' , 'or' operators.
 
-  * Conditions：
+  * Conditions:
 
     * uri: filter request with uri.
     * header: filter request with request header.
@@ -95,9 +95,9 @@ For example, add a selector to the `divide` plugin:
     * req_method: filter request with request method.
 
     * condition match:
-      * match : fuzzy string matching，recommend to combine with uri，support path-matching.（/test/**).
+      * match : fuzzy string matching, recommend to combine with uri, support path-matching. (/test/**).
       * = : matches only if they are equal.
-      * regEx : regex matching，match characters in regex expression.
+      * regEx : regex matching, match characters in regex expression.
       * contains: when it contains the specified value, it matches.
       * TimeBefore: before the specified time.
       * TimeAfter: after the specified time.
@@ -110,12 +110,12 @@ For example, add a selector to the `divide` plugin:
 
   * Enable: whether to enable the plugin.
 
-  * Order：the smaller will have high priority to execute among multi-rules.
+  * Order:the smaller will have high priority to execute among multi-rules.
 
   * handle: The operation when the request matches the rule.
-* above picture means: when the request `uri` equals to `/http/order/save`, it will execute based on this rule，load strategy is `random`.
+* above picture means: when the request `uri` equals to `/http/order/save`, it will execute based on this rule, load strategy is `random`.
 * rule advice: combine `uri` condition with `match` the real `uri path` condition as the final filter.
-* combine selector means ：when the request `uri` is `/http/order/save`, it will be redicted to `127.0.0.1:8080` by `random` method.
+* combine selector means:when the request `uri` is `/http/order/save`, it will be redicted to `127.0.0.1:8080` by `random` method.
 
 
 ## Match Strategy

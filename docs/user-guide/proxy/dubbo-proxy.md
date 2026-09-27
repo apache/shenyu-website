@@ -119,7 +119,7 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
 
   * Spring
 
-      Add these dependencies：
+      Add these dependencies:
 
        ```xml
           <dependency>
@@ -129,7 +129,7 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
           </dependency>
        ```
 
-      Inject these properties into your Spring beans XML file：
+      Inject these properties into your Spring beans XML file:
 
        ```xml
        <bean id="clientConfig" class="org.apache.shenyu.register.common.config.PropertiesConfig">
@@ -271,7 +271,7 @@ Dubbo integration with gateway, please refer to : [shenyu-examples-dubbo](https:
 
 # now we can communicate with gateway through POST request http://localhost:9195/order/test/save
 
-# localhost:9195 is gateway's ip port，default port is 9195 ，/order is the contextPath you set through gateway.
+# localhost:9195 is gateway's ip port,default port is 9195 ,/order is the contextPath you set through gateway.
 ```
 
 * parameter deliver:
@@ -306,8 +306,8 @@ public interface DubboParamResolveService {
 ```
 
 * `body` is the json string in http request.
-* `parameterTypes`: the list of method parameter types that are matched，split with `,`.
-* in Pair，left is parmeter type，right is parameter value, it's the standard of dubbo generalization calls.
+* `parameterTypes`: the list of method parameter types that are matched,split with `,`.
+* in Pair,left is parmeter type,right is parameter value, it's the standard of dubbo generalization calls.
 * Inject your class into Spring bean, cover the default implementation.
 
 ```java
@@ -422,7 +422,7 @@ If you have a function like this, the config value in contextPath is `/dubbo`
 
 So our request path is: http://localhost:9195/dubbo/insert, localhost:9195 is the gateway's domain name,if you changed before,so does with yours here..
 
-`DubboTest` is a java bean object，has 2 parameters, id and name, so we can transfer the value's json type through request body.
+`DubboTest` is a java bean object,has 2 parameters, id and name, so we can transfer the value's json type through request body.
 
 ```
 {"id":"1234","name":"XIAO5y"}

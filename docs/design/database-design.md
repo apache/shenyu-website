@@ -5,7 +5,7 @@ keywords: ["db"]
 description: ShenYu Admin Database Design
 ---
 
-Apache Shenyu Admin is the management system of the gateway, which can manage all plugins, selectors and rules visually, set users, roles and resources.
+Apache ShenYu Admin is the management system of the gateway, which can manage all plugins, selectors and rules visually, set users, roles and resources.
 
 ## Plugin, Selector And Rule {#plugin-selector-and-rule}
 
@@ -59,7 +59,7 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
 <img src="/img/shenyu/db/mata_data_table.png" width="30%" height="30%" />
 
 
-* Detailed design：
+* Detailed design:
   * `path`: When the gateway is requested, a piece of data will be matched according to `path`, and then the subsequent process will be carried out.
 
   * `rpc_ext`: Used to hold extended information for the RPC proxy.。
@@ -87,7 +87,7 @@ Apache Shenyu Admin is the management system of the gateway, which can manage al
   * A parameter/field has its own type (model), and each type have multiple fields.
   * A field has its own type, which corresponds to multiple values.
   * A value can be used as either a request example value, or a response example value (for example, 200 indicates OK, and 400 indicates illegal parameters).
-  * The `query`, `header` and `body`, all of them are `json` stored in `mock_request_record`，but `body` does not support special types such as file。
+  * The `query`, `header` and `body`, all of them are `json` stored in `mock_request_record`,but `body` does not support special types such as file.
   * The `ext` of the `tag` table stores the full amount of json data of its parent tag (including the parent tag of the parent tag, and so on).
   * The `ext` of the `api` table may store the IP list and the service name of `SpringCloud`.
   * The `type` of the `parameter` table mainly includes `requestUrlParam`, `requestHeader`, `requestBody`, `requestPathVariable`, `responseHeader`, and `responseBody`; If the returned type is a special type (such as file), do not associate `model_id`.

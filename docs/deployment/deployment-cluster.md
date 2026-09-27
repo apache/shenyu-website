@@ -5,7 +5,7 @@ keywords: ["Gateway Cluster Environment", "Cluster Environment"]
 description: Cluster Deployment
 ---
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying ShenYu according to the [Deployment Prerequisites document](./deployment-before.md).
 
 This article introduces how to deploy the `Shenyu` gateway in cluster environment.
 

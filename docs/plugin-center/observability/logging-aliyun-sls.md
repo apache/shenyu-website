@@ -16,7 +16,7 @@ description: logging plugin
 
 ## 1.3 Plugin functionality
 
-* The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request，
+* The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request,
 * the plugin records access logs and sends to aliyun sls platform.
 
 ## 1.4 Plugin code

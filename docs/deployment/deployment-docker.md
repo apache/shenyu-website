@@ -7,7 +7,7 @@ description: Docker Deployment
 
 This article introduces the use of `docker` to deploy the `Apache ShenYu` gateway.
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying ShenYu according to the [Deployment Prerequisites document](./deployment-before.md).
 
 ### Create Docker Network
 
@@ -29,49 +29,49 @@ docker pull apache/shenyu-admin:2.7.1
 docker run -d -p 9095:9095 --name shenyu-admin --net shenyu apache/shenyu-admin:2.7.1
 ```
 
-* use `MySQL` to store data, follow the [guide document](./deployment-before.md#mysql) to initialize the database, copy [mysql-connector.jar](https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar) to `/$(your_work_dir)/ext-lib`：
+* use `MySQL` to store data, follow the [guide document](./deployment-before.md#mysql) to initialize the database, copy [mysql-connector.jar](https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar) to `/$(your_work_dir)/ext-lib`:
 
 ```
 docker run --name shenyu-admin -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -e "SPRING_PROFILES_ACTIVE=mysql" -e "spring.datasource.url=jdbc:mysql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.7.1
 ```
 
-another way is to put the `application.yml`、`application-mysql.yml` configuration in  $\{your_work_dir}/conf from [Configure address](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-admin/src/main/resources/) , modify the configuration `spring.profiles.active = mysql` in `application.yml`, and then execute the following statement：
+another way is to put the `application.yml`,`application-mysql.yml` configuration in  $\{your_work_dir}/conf from [Configure address](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-admin/src/main/resources/) , modify the configuration `spring.profiles.active = mysql` in `application.yml`, and then execute the following statement:
 
 ```          
 docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -v /${your_work_dir}/ext-lib:/opt/shenyu-admin/ext-lib -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.7.1
 ```
 
-* use `PostgreSql` to store data, follow the [guide document](./deployment-before.md#postgresql) to initialize the database, execute the following statement：
+* use `PostgreSql` to store data, follow the [guide document](./deployment-before.md#postgresql) to initialize the database, execute the following statement:
 
 ```
 docker run --name shenyu-admin -e "SPRING_PROFILES_ACTIVE=pg" -e "spring.datasource.url=jdbc:postgresql://${your_ip_port}/shenyu?useUnicode=true&characterEncoding=utf-8&useSSL=false" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.7.1
 ```
 
-another way is to put the `application.yml`、`application-pg.yml` configuration in $\{your_work_dir}/conf, modify the configuration `spring.profiles.active = pg` in `application.yml`,and then execute the following statement：
+another way is to put the `application.yml`,`application-pg.yml` configuration in $\{your_work_dir}/conf, modify the configuration `spring.profiles.active = pg` in `application.yml`,and then execute the following statement:
 
 ```
 docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.7.1
 ```
 
-* use `Oracle` to store data, follow the [guide document](./deployment-before.md#oracle) to initialize the database, execute the following statement：
+* use `Oracle` to store data, follow the [guide document](./deployment-before.md#oracle) to initialize the database, execute the following statement:
 
 ```
 docker run --name shenyu-admin -e "SPRING_PROFILES_ACTIVE=oracle" -e "spring.datasource.url=jdbc:oracle:thin:@localhost:1521/shenyu" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.7.1
 ```
 
-another way is to put the `application.yml`、`application-oracle.yml` configuration in $\{your_work_dir}/conf, modify the configuration `spring.profiles.active = oracle` in `application.yml`, and then execute the following statement：
+another way is to put the `application.yml`,`application-oracle.yml` configuration in $\{your_work_dir}/conf, modify the configuration `spring.profiles.active = oracle` in `application.yml`, and then execute the following statement:
 
 ```
 docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.7.1
 ```
 
-* use `OpenGauss` to store data, follow the [guide document](./deployment-before.md#opengauss) to initialize the database, execute the following statement：
+* use `OpenGauss` to store data, follow the [guide document](./deployment-before.md#opengauss) to initialize the database, execute the following statement:
 
 ```
 docker run --name shenyu-admin -e "SPRING_PROFILES_ACTIVE=og" -e "spring.datasource.url=jdbc:opengauss://localhost:5432/shenyu" -e "spring.datasource.username=${your_username}" -e "spring.datasource.password=${your_password}" -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.7.1
 ```
 
-another way is to put the `application.yml`、`application-og.yml` configuration in $\{your_work_dir}/conf, modify the configuration `spring.profiles.active = og` in `application.yml`, and then execute the following statement：
+another way is to put the `application.yml`,`application-og.yml` configuration in $\{your_work_dir}/conf, modify the configuration `spring.profiles.active = og` in `application.yml`, and then execute the following statement:
 
 ```
 docker run --name shenyu-admin -v ${your_work_dir}/conf:/opt/shenyu-admin/conf -d -p 9095:9095 --net shenyu apache/shenyu-admin:2.7.1

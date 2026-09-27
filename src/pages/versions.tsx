@@ -34,7 +34,7 @@ function Version() {
           <div className="margin-bottom--lg">
             <h3 id="next">Current version (Stable)</h3>
             <p>
-              Here you can find the documentation for current released version.
+              Here you can find the documentation for the current released version.
             </p>
             <table>
               <tbody>
@@ -58,7 +58,7 @@ function Version() {
           <div className="margin-bottom--lg">
             <h3 id="latest">Next version (Unreleased)</h3>
             <p>
-              Here you can find the documentation for work-in-process unreleased
+              Here you can find the documentation for work-in-progress unreleased
               version.
             </p>
             <table>

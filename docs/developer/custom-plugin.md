@@ -214,13 +214,13 @@ edition = "2021"
 crate-type = ["cdylib"]
 ```
 
-* Generate the wasm file：
+* Generate the wasm file:
 
 ```shell
 cargo build --target wasm32-wasi --release
 ```
 
-* You will see `{shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main/{your_plugin_name}/target/wasm32-wasi/release/{your_plugin_name}.wasm`, then rename it, due to the `x.y.z.MyShenyuWasmPlugin`，the final wasm file name should be `x.y.z.MyShenyuWasmPlugin.wasm`, finally, put the wasm file in the `resources` folder of your plugin module.
+* You will see `{shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main/{your_plugin_name}/target/wasm32-wasi/release/{your_plugin_name}.wasm`, then rename it, due to the `x.y.z.MyShenyuWasmPlugin`,the final wasm file name should be `x.y.z.MyShenyuWasmPlugin.wasm`, finally, put the wasm file in the `resources` folder of your plugin module.
 
 ## Matching Traffic Processing Plugin
 
@@ -451,7 +451,7 @@ public PluginDataHandler pluginDataHandler() {
 
 * When using this feature, the above extensions `ShenyuPlugin`, `PluginDataHandler`, do not need to be `spring bean`. You just need to build the jar package of the extension project.
 
-* Config in Yaml：
+* Config in Yaml:
 
 ```yaml
 shenyu:
@@ -467,9 +467,9 @@ shenyu:
 
 * This path is for the directory where the extended plugin jar package is stored。
 
-* Used `-Dplugin-ext=xxxx`, Also used `shenyu.extPlugin.path` in yaml，If neither is configured, the `ext-lib` directory in the apache shenyu gateway boot path will be loaded by default.
+* Used `-Dplugin-ext=xxxx`, Also used `shenyu.extPlugin.path` in yaml, If neither is configured, the `ext-lib` directory in the apache shenyu gateway boot path will be loaded by default.
 
-* Priority ：`shenyu.extPlugin.path` > `-Dplugin-ext=xxxx` > `ext-lib(default)`
+* Priority:`shenyu.extPlugin.path` > `-Dplugin-ext=xxxx` > `ext-lib(default)`
 
 
 ## Plugin jar upload

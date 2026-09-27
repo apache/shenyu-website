@@ -13,7 +13,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 ## Add Websocket plugin in gateway
 
-Add the following dependencies to the gateway's `pom.xml` file , which is introduced by default：
+Add the following dependencies to the gateway's `pom.xml` file, which is introduced by default:
 
 ```xml
         <!--shenyu websocket plugin start-->
@@ -28,7 +28,7 @@ Add the following dependencies to the gateway's `pom.xml` file , which is introd
 
 ## Websocket service access gateway
 
-> Please refer to： [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket), Contains examples of the three implementations of  `annotation websocket`、`spring native websocket`、`spring reactive websocket`
+> Please refer to: [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket), Contains examples of the three implementations of  `annotation websocket`, `spring native websocket`, `spring reactive websocket`
 
 1. In the `Websocket` service, add the following dependencies:
 
@@ -60,7 +60,7 @@ shenyu:
 
 3. Add `@ShenyuSpringWebSocketClient` annotation to the `Websocket` service interface implementation class, start your service and after successful registration, go to `Client List -> Proxy -> Websocket` in the `shenyu-admin` management system and you will see the auto-registered selector and rule information.
 
-示例：
+Example:
 
 ```java
 @ShenyuSpringWebSocketClient("/myWs")
@@ -78,7 +78,7 @@ public class WsServerEndpoint {
 
     @OnMessage
     public String onMsg(final String text) {
-        return "server send message：" + text;
+        return "server send message:" + text;
     }
 }
 ```

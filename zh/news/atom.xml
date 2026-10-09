@@ -2,11 +2,42 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenyu.apache.org/zh/news</id>
     <title>Apache ShenYu Blog</title>
-    <updated>2026-09-30T00:00:00.000Z</updated>
+    <updated>2026-10-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://shenyu.apache.org/zh/news"/>
     <subtitle>Apache ShenYu Blog</subtitle>
     <icon>https://shenyu.apache.org/zh/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[一名学生的开源之旅]]></title>
+        <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-10-09</id>
+        <link href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-10-09"/>
+        <updated>2026-10-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[一名学生的开源之旅]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="个人信息">个人信息<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-10-09#%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>姓名：马宇恒
+GitHub：<a href="https://github.com/hengyuss" target="_blank" rel="noopener noreferrer" class="">https://github.com/hengyuss</a>
+邮箱：<a href="mailto:hengyuss@apache.org" target="_blank" rel="noopener noreferrer" class="">hengyuss@apache.org</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="我与-apache-shenyu-网关的初次相遇">我与 Apache ShenYu 网关的初次相遇<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-10-09#%E6%88%91%E4%B8%8E-apache-shenyu-%E7%BD%91%E5%85%B3%E7%9A%84%E5%88%9D%E6%AC%A1%E7%9B%B8%E9%81%87" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>一天下午，我向 AI 询问有哪些开源项目适合参与贡献。Apache ShenYu 是它最推荐的项目，于是我打开 GitHub，下载了源代码，并
+尝试将项目运行起来。</p>
+<p>在探索代码库的过程中，我发现了一处可以着手解决的 TODO 注释。印象中，它与为 URI 匹配规则添加校验支持有关。我完成修复
+后，提交了自己的第一个 Pull Request。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="社区参与与成长">社区参与与成长<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-10-09#%E7%A4%BE%E5%8C%BA%E5%8F%82%E4%B8%8E%E4%B8%8E%E6%88%90%E9%95%BF" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>在 ShenYu 社区里，我提出的想法和问题总能得到回应，社区成员也一直乐于提供指导。作为一名学生，我从中收获了许多在学校里无
+法学到的知识与经验。</p>
+<p>社区成员都非常友善，并给予了我许多帮助。在此，我尤其想向 <a href="https://github.com/Aias00/" target="_blank" rel="noopener noreferrer" class="">Aias00</a> 表达感谢。他在技术和职业发展方面都为我提供了宝贵的指
+导。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="给开源开发者的建议">给开源开发者的建议<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-10-09#%E7%BB%99%E5%BC%80%E6%BA%90%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%BB%BA%E8%AE%AE" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>打开 GitHub，下载源代码，并尝试运行你感兴趣的软件。你可以从文档中选择一个简单的功能，对它进行调试，然后阅读相关代码。
+我相信这是最有效的学习方式之一。</p>
+<p>放手去做，不要害怕犯错。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="结语">结语<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-10-09#%E7%BB%93%E8%AF%AD" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>我会继续沿着这条道路前进，并持续为开源社区贡献自己的力量。</p>]]></content>
+        <author>
+            <name>Yuheng Ma</name>
+        </author>
+        <category label="Apache ShenYu" term="Apache ShenYu"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【从观察者到Apache ShenYu Committer】]]></title>
         <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-09-30</id>
@@ -2383,53 +2414,6 @@ GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener
 <p>2.如果你想参与shenyu的功能开发和问题修复，可关注shenyu的github issues，<a href="https://github.com/apache/shenyu/issues" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/issues</a></p>]]></content>
         <author>
             <name>何凤恩</name>
-        </author>
-        <category label="Apache ShenYu" term="Apache ShenYu"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【从CRUD Boy到Apache ShenYu Committer】]]></title>
-        <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04</id>
-        <link href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04"/>
-        <updated>2022-07-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[从CRUD Boy到Apache ShenYu Committer]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="新晋committer介绍">新晋Committer介绍<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04#%E6%96%B0%E6%99%8Bcommitter%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>大家好，我是<a href="https://github.com/renzhuyan" target="_blank" rel="noopener noreferrer" class="">鄢仁柱</a> ，目前在微众银行做java/大数据业务开发。非常荣幸受邀成为Apache ShenYu社区的Committer，作为一名业务开发人员，平常关注点更多是在业务上，然后去写CRUD，而参与Apache Shenyu社区开源，让我有别样体验，更多关注点是放在代码本身，考虑如何支持各种协议、插件拓展、数据同步等。下面跟大家分享一下我参与Apache ShenYu社区这段时间的成长和建议。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="初识apache-shenyu社区">初识Apache Shenyu社区<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04#%E5%88%9D%E8%AF%86apache-shenyu%E7%A4%BE%E5%8C%BA" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>故事时间线还得回到2020年底开始说起，当时部门为了让我们能更好的成长，给我们报名了极客时间的JAVA进阶训练营，也就是在这个训练营里有幸结识了猫大人，在猫大人读源码活动的带领下，我第一次接触到了Apache Shenyu，当时还没进入Apache孵化器，还叫Soul（下面都称Apache Shenyu）。读Apache Shenyu源码活动，总共持续三周，在三周里我们每天读源码、写博客，从搭环境到跑示例工程，再到读插件链及数据同步等源码，收获巨大，对Apache Shenyu也有了一定的了解。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="开始提交pr">开始提交PR<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04#%E5%BC%80%E5%A7%8B%E6%8F%90%E4%BA%A4pr" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>一直到2021年5月份，我开始提交了我的第一个pr，当时是给Admin模块添加了一个单元测试，功能很小，但它的意义却是非凡的，它意味的我从学习开始到贡献，从自己玩开始到开源，在开源之路上有了一个很好的开始。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="持续的开源贡献与收获">持续的开源贡献与收获<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04#%E6%8C%81%E7%BB%AD%E7%9A%84%E5%BC%80%E6%BA%90%E8%B4%A1%E7%8C%AE%E4%B8%8E%E6%94%B6%E8%8E%B7" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>到目前为止，参与Apache Shenyu社区开源已有一年多一点时间，贡献了许多，也成长收获了许多。具体如下：</p>
-<ul>
-<li class="">参与soul迁移至Apache孵化器，并改名为Apache Shenyu。</li>
-<li class="">参与各模块单元测试的编写。</li>
-<li class="">负责整合TarsResponsePlugin,GrpcResponsePlugin,SofaResponsePlugin,DubboResponsePlugin等重构为ResponsePlugin统一处理。</li>
-<li class="">负责Admin Oracle数据库的支持。</li>
-<li class="">负责Shenyu网关实例注册到Consul的支持。</li>
-<li class="">参与一些已发现问题的修复、示例工程编写、jar包替换及升级、集成测试编写等。</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="感谢社区小伙伴">感谢社区小伙伴<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04#%E6%84%9F%E8%B0%A2%E7%A4%BE%E5%8C%BA%E5%B0%8F%E4%BC%99%E4%BC%B4" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>感谢无偿帮助过我或给过我启发的小伙伴(排名不分先后)：yu199195，dragon-zhang，li-keguo，qicz，moremind，zouchangfu，lianjunwei</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="给新人的一点建议">给新人的一点建议<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04#%E7%BB%99%E6%96%B0%E4%BA%BA%E7%9A%84%E4%B8%80%E7%82%B9%E5%BB%BA%E8%AE%AE" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>Apache Way有个理念：社区大于代码，坚信健康的社区比好的代码更重要。这一年多参与下来也让我感受到了Apache Shenyu社区这一点践行的非常好，双周会议、任务遵从共识自愿、社区公开透明、小伙伴们热心帮助等。所以今天同样将这句话送给新人，社区大于代码，在这里，你都可以试一试。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="如何参与apache-shenyu">如何参与Apache ShenYu<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-07-04#%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8Eapache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ol>
-<li class="">
-<p>如何成为贡献者</p>
-<p>Apache ShenYu社区特意写了非常全面的<a href="https://shenyu.apache.org/zh/community/contributor-guide" target="_blank" rel="noopener noreferrer" class="">贡献者指南</a></p>
-</li>
-<li class="">
-<p>Github <a href="https://github.com/apache/incubator-ShenYu/issues" target="_blank" rel="noopener noreferrer" class="">Issues</a></p>
-</li>
-<li class="">
-<p>订阅邮件</p>
-<p>向<a href="mailto:dev-subscribe@ShenYu.apache.org" target="_blank" rel="noopener noreferrer" class="">dev-subscribe@ShenYu.apache.org</a> 发送一封邮件；</p>
-<p>发送成功后，您会收到来自 <a href="mailto:dev-help@ShenYu.apache.org" target="_blank" rel="noopener noreferrer" class="">dev-help@ShenYu.apache.org</a> 的回信，请按照邮件的提示回复这封邮件，确认订阅；</p>
-<p>在回复确认后，您会收到一封欢迎邮件，表示您已经成功订阅了邮件。</p>
-</li>
-</ol>]]></content>
-        <author>
-            <name>鄢仁柱</name>
         </author>
         <category label="Apache ShenYu" term="Apache ShenYu"/>
     </entry>

@@ -4,10 +4,39 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Wed, 30 Sep 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 09 Oct 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[A student's journey into open source]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-10-09</link>
+            <guid>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-10-09</guid>
+            <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[A student's journey into open source]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="personal-information">Personal Information<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-10-09#personal-information" class="hash-link" aria-label="Direct link to Personal Information" title="Direct link to Personal Information" translate="no">​</a></h3>
+<p>Name: Yuheng Ma
+GitHub: <a href="https://github.com/hengyuss" target="_blank" rel="noopener noreferrer" class="">https://github.com/hengyuss</a>
+Email: <a href="mailto:hengyuss@apache.org" target="_blank" rel="noopener noreferrer" class="">hengyuss@apache.org</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="my-first-encounter-with-apache-shenyu-gateway">My First Encounter with Apache ShenYu Gateway<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-10-09#my-first-encounter-with-apache-shenyu-gateway" class="hash-link" aria-label="Direct link to My First Encounter with Apache ShenYu Gateway" title="Direct link to My First Encounter with Apache ShenYu Gateway" translate="no">​</a></h3>
+<p>One afternoon, I asked AI which open-source project I could contribute to. Apache ShenYu was the top recommendation,
+so I opened GitHub, downloaded the source code, and tried to run it.</p>
+<p>While exploring the codebase, I found a TODO comment that I could address. As I recall, it was about adding validation
+support for URI matching rules. I fixed it and submitted my first pull request.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-participation-and-growth">Community Participation and Growth<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-10-09#community-participation-and-growth" class="hash-link" aria-label="Direct link to Community Participation and Growth" title="Direct link to Community Participation and Growth" translate="no">​</a></h3>
+<p>In the ShenYu community, my ideas and questions always receive feedback, and community members are always willing to
+offer guidance. As a student, I have gained knowledge and experience that I could not have learned at school.</p>
+<p>The community members are very kind and have given me a great deal of help. I would especially like to express my
+gratitude to <a href="https://github.com/Aias00/" target="_blank" rel="noopener noreferrer" class="">Aias00</a>. He has provided me with valuable guidance on both technology and career development.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="suggestions-for-open-source-developers">Suggestions for Open-Source Developers<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-10-09#suggestions-for-open-source-developers" class="hash-link" aria-label="Direct link to Suggestions for Open-Source Developers" title="Direct link to Suggestions for Open-Source Developers" translate="no">​</a></h3>
+<p>Open GitHub, download the source code, and try to run the software you are interested in. You can choose a simple
+feature from the documentation, debug it, and then read the related code. I believe this is one of the most effective
+ways to learn.</p>
+<p>Just do it, and do not be afraid of making mistakes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="conclusion">Conclusion<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-10-09#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion" translate="no">​</a></h3>
+<p>I will continue along this path and keep contributing to open source.</p>]]></content:encoded>
+            <category>Apache ShenYu</category>
+        </item>
         <item>
             <title><![CDATA[【From Observer to Apache ShenYu Committer】]]></title>
             <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-09-30</link>
@@ -2743,50 +2772,6 @@ It aims to encourage students to actively participate in the development and mai
 </li>
 <li class="">
 <p>Github <a href="https://github.com/apache/incubator-ShenYu/issues" target="_blank" rel="noopener noreferrer" class="">Issues</a></p>
-</li>
-</ol>]]></content:encoded>
-            <category>Apache ShenYu</category>
-        </item>
-        <item>
-            <title><![CDATA[【From CRUD Boy to Apache ShenYu Committer】]]></title>
-            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04</link>
-            <guid>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04</guid>
-            <pubDate>Mon, 04 Jul 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[From CRUD Boy to Apache ShenYu Committer]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="introduction-of-new-committer">Introduction of new Committer<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04#introduction-of-new-committer" class="hash-link" aria-label="Direct link to Introduction of new Committer" title="Direct link to Introduction of new Committer" translate="no">​</a></h3>
-<p>Hello everyone, my name is <a href="https://github.com/renzhuyan" target="_blank" rel="noopener noreferrer" class="">Renzhu Yan</a> , currently engaged in Java/big data business development in Shenzhen Qianhai WeBank Co., Ltd. I am honored to be invited to be a Committer of Apache ShenYu community. As a business developer, I usually focus on business and then write CRUD, while participating in the open source of Apache ShenYu community gives me a different experience. More attention is paid to the code itself,  consider how to support various protocols, plug-in extensions, data synchronization, and more.  I would like to share with you my growth and suggestions during my participation in the Apache ShenYu community.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="meet-the-apache-shenyu-community-for-the-first-time">Meet the Apache Shenyu community for the first time<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04#meet-the-apache-shenyu-community-for-the-first-time" class="hash-link" aria-label="Direct link to Meet the Apache Shenyu community for the first time" title="Direct link to Meet the Apache Shenyu community for the first time" translate="no">​</a></h3>
-<p>The story timeline has to go back to the end of 2020. At that time, in order to allow us to grow better, the department signed us up for the JAVA advanced training camp of Geek Time, that is, in this training camp, we were fortunate enough to get to know Mr. Cat. Under the leadership of Mr. Mao's source code reading activity, I first came into contact with Apache Shenyu, which was not yet in the Apache incubator, and was also called Soul (hereinafter referred to as Apache Shenyu). The activity of reading the source code of Apache Shenyu lasted for three weeks in total. During the three weeks, we read the source code and blogged every day, from setting up the environment to running the example project, to reading the source code of the plug-in chain and data synchronization. Also have a certain understanding.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="start-submitting-pr">Start submitting PR<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04#start-submitting-pr" class="hash-link" aria-label="Direct link to Start submitting PR" title="Direct link to Start submitting PR" translate="no">​</a></h3>
-<p>In May 2021, I started to submit my first PR. At that time, I added a unit test to the Admin module. The function was small, but its significance was extraordinary, it meant that I started from learning to contributing, from playing to open source, which made a good start on the road of open source.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ongoing-open-source-contributions-and-gains">Ongoing open source contributions and gains<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04#ongoing-open-source-contributions-and-gains" class="hash-link" aria-label="Direct link to Ongoing open source contributions and gains" title="Direct link to Ongoing open source contributions and gains" translate="no">​</a></h3>
-<p>So far, I have participated in the open source of Apache Shenyu community for more than a year, and I have made a lot of contributions and gained a lot of growth.  Details are as follows:</p>
-<ul>
-<li class="">Participated in soul's migration to Apache Incubator and renamed Apache Shenyu.</li>
-<li class="">Participate in the writing of unit tests for each module.</li>
-<li class="">Responsible for integrating TarsResponsePlugin, GrpcResponsePlugin, SofaResponsePlugin, DubboResponsePlugin, etc. and refactoring them into ResponsePlugin for unified processing.</li>
-<li class="">Responsible for Admin Oracle database support.</li>
-<li class="">Responsible for the support of Shenyu gateway instance registration to Consul.</li>
-<li class="">Participated in the repair of some found problems, sample project writing, JAR package replacement and upgrade, integration test writing, etc.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="thanks-to-the-community">Thanks to the community<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04#thanks-to-the-community" class="hash-link" aria-label="Direct link to Thanks to the community" title="Direct link to Thanks to the community" translate="no">​</a></h3>
-<p>Thanks to my friends who helped me or inspired me for free (in no particular order): yu199195，dragon-zhang，li-keguo，qicz，moremind，zouchangfu，lianjunwei</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-little-advice-for-newcomers">A little advice for newcomers<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04#a-little-advice-for-newcomers" class="hash-link" aria-label="Direct link to A little advice for newcomers" title="Direct link to A little advice for newcomers" translate="no">​</a></h3>
-<p>Apache Way has a philosophy: community is greater than code, and we firmly believe that a healthy community is more important than good code. After more than a year of participation, I also felt that Apache Shenyu community has put this into practice very well, such as bi-weekly meetings, consensual voluntary tasks, open and transparent community, and enthusiastic help from partners.  So today I will also give this sentence to newcomers. The community is bigger than the code. Here, you can try it.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-to-join-apache-shenyu">How to join Apache ShenYu<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2022-07-04#how-to-join-apache-shenyu" class="hash-link" aria-label="Direct link to How to join Apache ShenYu" title="Direct link to How to join Apache ShenYu" translate="no">​</a></h3>
-<ol>
-<li class="">
-<p>How to become a Contributor</p>
-<p>The Apache ShenYu community has purposely written a very comprehensive <a href="https://shenyu.apache.org/community/contributor-guide/" target="_blank" rel="noopener noreferrer" class="">Contributor Guide</a></p>
-</li>
-<li class="">
-<p>Github <a href="https://github.com/apache/incubator-ShenYu/issues" target="_blank" rel="noopener noreferrer" class="">Issues</a></p>
-</li>
-<li class="">
-<p>Subscribe emails</p>
-<p>Email <a href="mailto:dev-subscribe@ShenYu.apache.org" target="_blank" rel="noopener noreferrer" class="">dev-subscribe@ShenYu.apache.org</a>;</p>
-<p>After the sending is successful, you will receive a reply from <a href="mailto:dev-subscribe@ShenYu.apache.org" target="_blank" rel="noopener noreferrer" class="">dev-subscribe@ShenYu.apache.org</a>, please reply to this email according to the prompt of the email to confirm the subscription;</p>
-<p>After replying to confirm, you will receive a welcome email indicating that you have successfully subscribed to emails.</p>
 </li>
 </ol>]]></content:encoded>
             <category>Apache ShenYu</category>

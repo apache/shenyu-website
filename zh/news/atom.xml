@@ -2,11 +2,37 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://shenyu.apache.org/zh/news</id>
     <title>Apache ShenYu Blog</title>
-    <updated>2026-07-13T00:00:00.000Z</updated>
+    <updated>2026-09-30T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://shenyu.apache.org/zh/news"/>
     <subtitle>Apache ShenYu Blog</subtitle>
     <icon>https://shenyu.apache.org/zh/img/favicon.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[【从观察者到Apache ShenYu Committer】]]></title>
+        <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-09-30</id>
+        <link href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-09-30"/>
+        <updated>2026-09-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[从观察者到Apache ShenYu Committer]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="个人介绍">个人介绍<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-09-30#%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>姓名: Yong Wan</p>
+<p>github: <a href="https://github.com/wy471x" target="_blank" rel="noopener noreferrer" class="">https://github.com/wy471x</a></p>
+<p>email: <a href="mailto:wanyong@apache.org" target="_blank" rel="noopener noreferrer" class="">wanyong@apache.org</a></p>
+<p>大家好，我是 Yong Wan，很荣幸受邀成为 Apache ShenYu 社区的 Committer，很高兴能够和社区一起成长，为 ShenYu 项目贡献自己的一份力量。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="初识-apache-shenyu">初识 Apache ShenYu<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-09-30#%E5%88%9D%E8%AF%86-apache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>在调研 API 网关的过程中，我发现了 Apache ShenYu —— 一款高性能的 Java 原生 API 网关。</p>
+<p>优秀的 API 网关在业务系统中发挥着至关重要的作用，它是服务对外提供访问的关键入口。随着对 ShenYu 了解的不断深入，我越来越被它出色的架构设计、整洁的代码风格等诸多优点所吸引。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="在社区中成长">在社区中成长<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-09-30#%E5%9C%A8%E7%A4%BE%E5%8C%BA%E4%B8%AD%E6%88%90%E9%95%BF" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>我与 ShenYu 的开源之旅始于学习和探索，在这个过程中，我收获了很多成长，也对良好的架构设计有了更深入的理解。</p>
+<p>Apache ShenYu 社区非常包容和开放，每一位新贡献者都能找到参与开源项目的机会，并在贡献中获得成长与快乐。从开源社区的观察者，成长为一名积极的贡献者，对我而言是一段非常有意义的旅程：我不仅提升了技术能力，也体会到了与社区交流分享的快乐，我非常享受这一切！</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="致谢">致谢<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-09-30#%E8%87%B4%E8%B0%A2" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>特别感谢 Apache ShenYu PMC 成员 Hongyu Liu（Aias00）对我的指导，也感谢每一位为我提供代码评审建议的朋友。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="结语">结语<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-09-30#%E7%BB%93%E8%AF%AD" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>受邀成为 Apache ShenYu Committer，是我开源之旅的一个新起点。未来，我会继续积极参与社区，为开源贡献自己的一份力量！</p>]]></content>
+        <author>
+            <name>Yong Wan</name>
+        </author>
+        <category label="Apache ShenYu" term="Apache ShenYu"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【Apache ShenYu 2.7.1 版本发布】]]></title>
         <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1</id>
@@ -2404,81 +2430,6 @@ GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener
 </ol>]]></content>
         <author>
             <name>鄢仁柱</name>
-        </author>
-        <category label="Apache ShenYu" term="Apache ShenYu"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【你也可以成为Apache ShenYu Committer】]]></title>
-        <id>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20</id>
-        <link href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20"/>
-        <updated>2022-04-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[你也可以成为Apache ShenYu Committer]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="新晋committer介绍">新晋Committer介绍<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20#%E6%96%B0%E6%99%8Bcommitter%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>大家好，我是<a href="https://github.com/dragon-zhang" target="_blank" rel="noopener noreferrer" class="">张子成</a> ，java/rust开发者，目前在某中型互联网公司从事中间件开发，工作方向包括网关/RPC/MQ。非常荣幸受邀成为Apache ShenYu社区的Committer，下面跟大家分享一下我与Apache ShenYu社区的相遇、相识、相知、成长和建议。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="相遇">相遇<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20#%E7%9B%B8%E9%81%87" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>2021年8月中旬的时候，我加入现公司，转型为中间件开发(在上家做业务开发)，接到的第一个任务就是尽快熟悉公司的网关中间件，于是一款叫Soul的网关进入了我的视野(Soul是ShenYu的前身，ShenYu于2021年进入了Apache孵化器，以下的Soul/ShenYu都指代Apache ShenYu（incubating）)。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="相识">相识<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20#%E7%9B%B8%E8%AF%86" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>在经过大概一周的学习后，我对Soul的主链路有了一定程度的认识。在后续2-3个月的时间里，随着不断地帮公司业务开发回答/解决问题，慢慢地我也发现了一些Soul不符合人体工程学的地方。</p>
-<p>直到2021年12月的时候，出于公司需要和个人兴趣，我开始着手调研ShenYu，并考虑升级方案，此时才算真正开始接触ShenYu和社区。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="相知">相知<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20#%E7%9B%B8%E7%9F%A5" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>ShenYu是一个异步的，高性能的，跨语言的，响应式的API网关，其坚持插件化、全链路异步化的设计理念，目前已经集成了很多插件供用户选择，如果已有插件不满足需求，可以对着<a href="https://shenyu.apache.org/zh/docs/next/developer/custom-plugin/" target="_blank" rel="noopener noreferrer" class="">官网文档</a> 自己上手做定制化开发。</p>
-<p>ShenYu社区是活跃的、友善的，为了让更多的同学成为Contributor/Commiter，在github的<a href="https://github.com/apache/incubator-ShenYu/issues" target="_blank" rel="noopener noreferrer" class="">issues</a> 页面时不时就有<a href="https://github.com/apache/incubator-ShenYu/issues?q=is%3Aopen+is%3Aissue+label%3A%22status%3A+volunteer+wanted%22" target="_blank" rel="noopener noreferrer" class="">新任务</a> 发布，其中有不少<a href="https://github.com/apache/incubator-ShenYu/issues?q=is%3Aopen+is%3Aissue+label%3A%22status%3A+volunteer+wanted%22+label%3A%22good+first+issue%22" target="_blank" rel="noopener noreferrer" class="">非常适合新人的任务</a> 。即使发布的任务对你来说有一定难度，你仍然可以尝试提交PR，社区的小伙伴会review你的PR并提供一些指导建议，帮助你在思想碰撞中提升自己。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="我的社区成长">我的社区成长<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20#%E6%88%91%E7%9A%84%E7%A4%BE%E5%8C%BA%E6%88%90%E9%95%BF" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>首先感谢无偿帮助过我的小伙伴(排名不分先后)：yu199195，JooKS-me，KevinClair，lianjunwei，qicz，AhahaGe，hutaishi</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="贡献与收获">贡献与收获<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20#%E8%B4%A1%E7%8C%AE%E4%B8%8E%E6%94%B6%E8%8E%B7" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<ul>
-<li class="">学习如何同时兼容spring-boot 1.x和2.x，并贡献了非常多的方案。</li>
-<li class="">熟悉project-reactor和spring-webflux的使用，然后贡献大量的优化。</li>
-<li class="">熟悉netty后，贡献了netty线程池设置。</li>
-<li class="">熟悉dubbo后，扩展了ShenYu中的dubbo线程池。</li>
-<li class="">了解grpc和motan等RPC，贡献了共享线程池技术。</li>
-<li class="">提供MemoryLimitedLinkedBlockingQueue和MemorySafeLRUMap，较好地解决了技术悖论。</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="贡献apache-shenyu的建议">贡献Apache ShenYu的建议<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20#%E8%B4%A1%E7%8C%AEapache-shenyu%E7%9A%84%E5%BB%BA%E8%AE%AE" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<ol>
-<li class="">
-<p>初窥门径</p>
-<p>从官网文档开始，首先是<a href="https://shenyu.apache.org/zh/docs/next/deployment/deployment-local/" target="_blank" rel="noopener noreferrer" class="">admin/bootstrap的部署</a> ，其次选择一种你最熟悉的方式<a href="https://shenyu.apache.org/zh/docs/next/quick-start/quick-start-dubbo/" target="_blank" rel="noopener noreferrer" class="">接入ShenYu</a> ，最后发起请求，验证是否接入成功。</p>
-</li>
-<li class="">
-<p>驾轻就熟</p>
-<p>在一段时间后，你对ShenYu的使用已经比较熟悉了。此时你可以从一种接入方式入手，看看数据最终是如何发送到admin并存储的。</p>
-</li>
-<li class="">
-<p>略有小成</p>
-<p>你已经熟悉了注册阶段的某一条链路，可以开始按照你的接入方式来梳理运行阶段bootstrap的主链路了，此时不建议深挖每个插件的细节。</p>
-</li>
-<li class="">
-<p>炉火纯青</p>
-<p>这个时候你已经对ShenYu的全局有一定认识了，也许在这个阶段你已经发现了一些ShenYu的小bug，或者你觉得ShenYu的某些使用姿势不符合人体工程学，那还等什么？</p>
-<p>到社区看看是否有人遇到了跟你一样的问题，你可以提交一些BUG/ISSUE/PR，社区会尽快回复你的。</p>
-</li>
-<li class="">
-<p>出类拔萃</p>
-<p>随着不断地参与社区，你对社区的贡献越来越多，最后能够帮助他人解决问题，能够指导他人。</p>
-<p>你一直保持好奇，深入学习，能立足于底层。</p>
-<p>你具备一定的大局观，可以从全局的角度看待优化。</p>
-<p>你能够看到问题本质，并解决根本问题。</p>
-</li>
-</ol>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="如何参与apache-shenyu">如何参与Apache ShenYu<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-04-20#%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8Eapache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h4>
-<ol>
-<li class="">
-<p>如何成为贡献者</p>
-<p>Apache ShenYu社区特意写了非常全面的<a href="https://shenyu.apache.org/zh/community/contributor-guide" target="_blank" rel="noopener noreferrer" class="">贡献者指南</a></p>
-</li>
-<li class="">
-<p>Github <a href="https://github.com/apache/incubator-ShenYu/issues" target="_blank" rel="noopener noreferrer" class="">Issues</a></p>
-</li>
-<li class="">
-<p>订阅邮件</p>
-<p>向<a href="mailto:dev-subscribe@ShenYu.apache.org" target="_blank" rel="noopener noreferrer" class="">dev-subscribe@ShenYu.apache.org</a> 发送一封邮件；</p>
-<p>发送成功后，您会收到来自 <a href="mailto:dev-help@ShenYu.apache.org" target="_blank" rel="noopener noreferrer" class="">dev-help@ShenYu.apache.org</a> 的回信，请按照邮件的提示回复这封邮件，确认订阅；</p>
-<p>在回复确认后，您会收到一封欢迎邮件，表示您已经成功订阅了邮件。</p>
-</li>
-</ol>]]></content>
-        <author>
-            <name>张子成</name>
         </author>
         <category label="Apache ShenYu" term="Apache ShenYu"/>
     </entry>

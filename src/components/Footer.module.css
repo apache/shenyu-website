@@ -32,6 +32,34 @@
   color: #929b8d;
 }
 
+.apacheLogos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.apacheLogos a {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.apacheLogos a:focus-visible {
+  outline: 2px solid #ffad85;
+  outline-offset: 5px;
+}
+
+.apacheLogos img {
+  display: block;
+}
+
+.foundationLogo {
+  padding: 10px 12px;
+  background: #fff;
+}
+
 .group h2 {
   font-size: 16px;
   font-weight: 600;

@@ -76,10 +76,6 @@ export function getHomepageContent() {
       id: "homepage.refresh.flowNote",
       message: "Many protocols. One place to manage them."
     }),
-    ecosystem: translate({
-      id: "homepage.refresh.ecosystem",
-      message: "AT HOME IN YOUR ECOSYSTEM"
-    }),
     featuresEyebrow: translate({
       id: "homepage.refresh.featuresEyebrow",
       message: "BUILT FOR REAL-WORLD APIS"

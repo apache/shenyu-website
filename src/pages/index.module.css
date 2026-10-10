@@ -263,44 +263,6 @@
   color: var(--home-accent);
 }
 
-.ecosystem {
-  margin-top: 70px;
-  padding: 25px 0;
-  border-top: 1px solid var(--home-line);
-  border-bottom: 1px solid var(--home-line);
-  display: flex;
-  align-items: center;
-  gap: 42px;
-}
-
-.ecosystem > span {
-  font-size: 13px;
-  line-height: 1.7;
-  letter-spacing: 1.5px;
-  color: var(--home-muted);
-  max-width: 130px;
-  flex-shrink: 0;
-}
-
-.ecosystem ul {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-  gap: 18px 28px;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.ecosystem li {
-  font-size: 18px;
-  font-weight: 650;
-  letter-spacing: -.4px;
-  color: var(--home-muted);
-}
-
 .section {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -601,9 +563,6 @@
   .adminGrid {
     gap: 36px;
   }
-  .ecosystem {
-    gap: 24px;
-  }
 }
 
 @media (max-width: 800px) {
@@ -627,18 +586,6 @@
     width: 100%;
     max-width: 560px;
     justify-self: center;
-  }
-  .ecosystem {
-    margin-top: 38px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-  .ecosystem > span {
-    max-width: none;
-  }
-  .ecosystem ul {
-    justify-content: flex-start;
   }
   .section {
     padding-top: 58px;

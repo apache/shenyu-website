@@ -4,7 +4,7 @@ author: "Wei Wei"
 description: "从深度使用到Apache ShenYu Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
-date: 2025-01-21
+date: 2026-01-21
 slug: Apache-ShenYu-Committer-2026-01-21
 ---
 
@@ -17,6 +17,8 @@ github: https://github.com/Wweiei/
 email: weiwei@apache.org
 
 大家好，我是魏巍，很荣幸受邀成为Apache ShenYu社区的Committer，能够和社区一起成长，为 ShenYu 项目尽自己的一份力量。
+
+<!-- truncate -->
 
 ### 初识 Apache ShenYu 网关
 

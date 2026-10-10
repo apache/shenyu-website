@@ -1,7 +1,7 @@
 ---
-title: "【From company gateway framework selection to Apache ShenYu Committer】" 
+title: "【从公司网关框架选型到 Apache ShenYu Committer】"
 author: "Shuo Li"
-description: "From company gateway framework selection to Apache ShenYu Committer" 
+description: "从公司网关框架选型到 Apache ShenYu Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2022-08-08
@@ -11,6 +11,8 @@ slug: Apache-ShenYu-Committer-2022-08-08
 ### Introduction of new Committer
 
 Hello everyone, my name is [Shuo Li](https://github.com/lishuo5263) , java architect, currently engaged in  a big-sized Internet company,  It is my honor to be invited by the Apache ShenYu community as the Committer. Let me share with you my first meet, acquaintance, understanding, growth and suggestions with the Apache ShenYu community.
+
+<!-- truncate -->
 
 ### Meet the Apache Shenyu community for the first time
 

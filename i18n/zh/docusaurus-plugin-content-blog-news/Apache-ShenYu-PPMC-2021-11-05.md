@@ -16,6 +16,8 @@ slug: Apache-ShenYu-PPMC-2021-11-05
 
 - Email: midnight2104@apache.org
 
+<!-- truncate -->
+
 ### 社区贡献
 
 - 深度参与`Apache ShenYu`插件体系的开发（`GRPC`插件等）。

@@ -4,9 +4,12 @@ author: midnight2104
 author_title: Apache ShenYu Committer
 author_url: https://github.com/midnight2104
 tags: [http,register center,Apache ShenYu]
+date: 2021-12-02
 ---
 
 > [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) 是一个异步的，高性能的，跨语言的，响应式的 `API` 网关。
+
+<!-- truncate -->
 
 在`ShenYu`网关中，注册中心是用于将客户端信息注册到`shenyu-admin`，`admin`再通过数据同步将这些信息同步到网关，网关通过这些数据完成流量筛选。客户端信息主要包括`接口信息`和`URI信息`。
 

@@ -1,6 +1,7 @@
 ---
-title: "[Apache ShenYu 2.7.3 Version Release]"
-description: "Apache ShenYu 2.7.3 Version Release"
+title: "[Apache ShenYu 2.7.0.3 Version Release]"
+author: "2823602869"
+description: "Apache ShenYu 2.7.0.3 Version Release"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2025-11-24
@@ -10,6 +11,8 @@ slug: Apache-ShenYu-release-version-2.7.0.3
 ## Apache ShenYu
 
 Apache ShenYu is a responsive API gateway developed using Java Reactor. With its high performance, dynamic and flexible traffic control, hot swap, easy deployment and other features, out of the box to provide users with a full lifecycle of 'API' gateway, including 'API' registration, service proxy, protocol conversion, 'API' documentation and 'API' governance and other functions. Apache ShenYu graduated as an Apache top-level project in 'July 2022'.
+
+<!-- truncate -->
 
 > website: https://shenyu.apache.org
 >

@@ -4,9 +4,12 @@ author: midnight2104
 author_title: Apache ShenYu Committer
 author_url: https://github.com/midnight2104
 tags: [http,register center,Apache ShenYu]
+date: 2021-12-02
 ---
 
 > [Apache ShenYu](https://shenyu.apache.org/docs/index) is an asynchronous, high-performance, cross-language, responsive API gateway.
+
+<!-- truncate -->
 
 
 In `ShenYu` gateway, the registration center is used to register the client information to `shenyu-admin`, `admin` then synchronizes this information to the gateway through data synchronization, and the gateway completes traffic filtering through these data. The client information mainly includes `interface information` and `URI information`.

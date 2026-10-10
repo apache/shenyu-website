@@ -6,11 +6,14 @@ author_title: Apache ShenYu Contributor
 author_url: https://github.com/zuobiao-zhou
 author_image_url: https://avatars.githubusercontent.com/u/61108539?s=400&u=f065b78a2944f2cea9160de7f7df054e2f157867&v=4
 tags: [first-start,Apache ShenYu]
+date: 2023-04-18
 ---
 
 ## Preface
 
 As a first-time developer in the `Shenyu` community, I encountered some "Pitfalls" that were not mentioned in the tutorials I followed to start and develop the project. I have documented the detailed steps I took to start `shenyu`, `shenyu-dashboard`, `shenyu-website` in this blog, hoping to help more new contributors in the community.
+
+<!-- truncate -->
 
 ## Environmental Preparation
 

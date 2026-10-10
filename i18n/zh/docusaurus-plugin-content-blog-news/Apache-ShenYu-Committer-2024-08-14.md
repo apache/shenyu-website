@@ -14,6 +14,8 @@ slug: Apache-ShenYu-Committer-2024-08-14
 - **GitHub**: [VampireAchao](https://github.com/VampireAchao)
 - **Email**: [achao@apache.org](mailto:achao@apache.org)
 
+<!-- truncate -->
+
 ### 初识 Apache ShenYu 网关
 
 最初接触 Apache ShenYu 时，我正参与 Dromara 社区的开发工作。当时，猫大人（Apache ShenYu 的创始人和 VP）在社区中发起了一个前端开发需求。由于我正好熟悉 ShenYu 使用的 React 技术，我便决定加入贡献者的行列。虽然我并非 ShenYu 的直接用户，但为社区贡献我的前端技术，感觉是一个非常自然的选择。

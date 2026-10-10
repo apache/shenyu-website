@@ -3,9 +3,12 @@ title: PredicateJudge-- 基于SPI的设计实现分析
 author: Huihui Yin
 author_title: Apache ShenYu Contributor
 tags: [SPI, Apache ShenYu]
+date: 2021-09-08
 ---
 
 灵活的插件和规则定义，是[Shenyu网关](http://shenyu.apache.org/)的一大特色。它以插件形式支持多种网络协议和多种流行的微服务框架，如Dubbo, gRPC和 Spring-Cloud 等。 为了实现对各种协议及插件的配置规则的解析，网关在规则策略解析方面，采用了优雅的`SPI`(Service Provider Interface)实现，当添加新的插件时，规则解析部分可以沿用现有实现或采用`SPI`机制快速实现，具有良好的可扩展性。
+
+<!-- truncate -->
 
 
 ## `SPI` 的顶层设计

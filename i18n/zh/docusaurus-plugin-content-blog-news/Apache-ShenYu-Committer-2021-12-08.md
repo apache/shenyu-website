@@ -18,6 +18,8 @@ slug: Apache-ShenYu-Committer-2021-12-08
 
 邮箱：jooks@apache.org
 
+<!-- truncate -->
+
 ### 接触开源
 
 大二下学期，一个偶然的机会，我看到了中科院软件研究所和openEuler社区举办的开源软件供应链点亮计划（下文简称开源之夏）的宣传。后来慢慢地了解到，原来在中国有那么多人活跃在开源社区，极大推动了开源生态的发展。之后也是非常巧合，认识了Apache ShenYu的VP (肖宇)，他是我在开源之夏Apache ShardingSphere社区的导师。我提前完成开源之夏的任务之后，看到ShenYu刚进入Apache孵化器没多久，如火如荼，于是就开始接触到了Apache ShenYu。

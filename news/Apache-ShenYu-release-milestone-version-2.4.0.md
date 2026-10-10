@@ -16,6 +16,8 @@ cover: "/img/architecture/shenyu-framework.png"
 > Author: Xiao Yu Apache ShenYu(incubating) Founder && PPMC
 > 2.4.0 Release Manager: Zhang Yonglun Apache ShenYu(incubating) PPMC && Apache ShardingSphere PMC
 
+<!-- truncate -->
+
 The `Apache ShenYu` gateway is renamed from the original `Dromara/soul` gateway after donated to the `Apache` foundation.
 The `2.4.0` version released this time is the first version after the `Apache ShenYu` gateway enters the `Apache Incubator`. This version involves many new features,The project name, package name, and `maven` coordinates are changed.
 

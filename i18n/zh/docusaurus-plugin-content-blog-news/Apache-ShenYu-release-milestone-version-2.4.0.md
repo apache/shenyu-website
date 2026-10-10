@@ -16,6 +16,8 @@ cover: "/img/architecture/shenyu-framework.png"
 > 本人作者：肖宇 Apache ShenYu(incubating) Founder && PPMC
 > 2.4.0 Release Manager ： 张永伦 Apache ShenYu(incubating) PPMC  && Apache ShardingSphere PMC
 
+<!-- truncate -->
+
 `Apache ShenYu`网关是原 `Dromara/soul` 网关捐献给`Apache`基金会后改名而来，
 此次发布的 `2.4.0` 版本是 `Apache ShenYu` 网关进入`Apache孵化器`后的首个版本。这个版本涉及很多新功能的增加，
 项目名称,包名以及`maven`依赖坐标的变更。

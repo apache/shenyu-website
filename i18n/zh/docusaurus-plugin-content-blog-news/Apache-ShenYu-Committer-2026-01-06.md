@@ -1,7 +1,7 @@
 ---
-title: "Become a Committer"
+title: "成为 Apache ShenYu Committer"
 author: "shown"
-description: "Become a Committer"
+description: "成为 Apache ShenYu Committer"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
 date: 2026-01-06
@@ -13,6 +13,8 @@ slug: Apache-ShenYu-Committer-2026-01-06
 ## Self-Introduction
 
 大家好，我是牧生，目前是一位 Go/Java 开发工程师。非常高兴能够收到 Apache ShenYu 项目的 Committer 邀请。正式成为 Apache ShenYu 项目的 Committer，为 ShenYu 项目添砖加瓦。
+
+<!-- truncate -->
 
 个人一直热衷于开源社区，同时也是 Apache Hertzbeat 的 Committer 和 Spring AI Alibaba 项目的 PMC，
 

@@ -878,9 +878,6 @@
   "releases.summary.2.7.1-release": {
     "message": "增强 MCP Server，迁移 WASM 运行时，并改进安全性与基础设施。"
   },
-  "homepage.refresh.ecosystem": {
-    "message": "与你的技术生态，无缝协作"
-  },
   "team.title": {
     "message": "社区团队"
   },

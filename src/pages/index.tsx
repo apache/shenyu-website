@@ -56,7 +56,7 @@ function RequestFlow({
     </div>;
 }
 function DiagramDeck({copy}: {copy: ReturnType<typeof getHomepageContent>}) {
-  const [active, setActive] = useState<'flow' | 'architecture'>('flow');
+  const [active, setActive] = useState<'flow' | 'architecture'>('architecture');
   const architecture = useBaseUrl('/img/architecture/shenyu-readme-architecture.png');
   return <div className={styles.diagramDeck} role="group" aria-label={copy.diagramSwitcher}>
     <div className={styles.deckStage}>
@@ -67,7 +67,7 @@ function DiagramDeck({copy}: {copy: ReturnType<typeof getHomepageContent>}) {
       <div className={`${styles.deckCard} ${active === 'architecture' ? styles.frontCard : styles.backCard}`}>
         <div aria-hidden={active !== 'architecture'} className={styles.cardContent}>
           <div className={`${styles.flow} ${styles.architectureCard}`}>
-            <div className={styles.flowTop}><span className={styles.statusDot} />{copy.architectureTitle}<span className={styles.flowIndex}>02 / 02</span></div>
+            <div className={styles.flowTop}><span className={styles.statusDot} />{copy.architectureTitle}<span className={styles.flowIndex}>01 / 02</span></div>
             <a className={styles.architectureImage} href={architecture} target="_blank" rel="noopener noreferrer" tabIndex={active === 'architecture' ? 0 : -1} aria-label={copy.architectureEnlarge}>
               <img src={architecture} alt={copy.architectureAlt} width="3360" height="2016" />
             </a>
@@ -78,8 +78,8 @@ function DiagramDeck({copy}: {copy: ReturnType<typeof getHomepageContent>}) {
       </div>
     </div>
     <div className={styles.deckControls}>
-      <button type="button" aria-pressed={active === 'flow'} onClick={() => setActive('flow')}>01<span>{copy.flowTab}</span></button>
-      <button type="button" aria-pressed={active === 'architecture'} onClick={() => setActive('architecture')}>02<span>{copy.architectureTab}</span></button>
+      <button type="button" aria-pressed={active === 'architecture'} onClick={() => setActive('architecture')}>01<span>{copy.architectureTab}</span></button>
+      <button type="button" aria-pressed={active === 'flow'} onClick={() => setActive('flow')}>02<span>{copy.flowTab}</span></button>
     </div>
   </div>;
 }
@@ -158,10 +158,6 @@ export default function Home() {
                 <p className={styles.openSource}><span aria-hidden="true">◈</span>{copy.openSource}</p>
               </div>
               <DiagramDeck copy={copy} />
-            </div>
-            <div className={styles.ecosystem}>
-              <span>{copy.ecosystem}</span>
-              <ul>{['Apache Dubbo', 'Spring Cloud', 'gRPC', 'Kubernetes', 'Apache SkyWalking'].map(name => <li key={name}>{name}</li>)}</ul>
             </div>
           </div>
         </section>

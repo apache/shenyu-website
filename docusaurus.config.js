@@ -26,10 +26,12 @@ module.exports = {
       en: {
         label: "English",
         direction: "ltr",
+        baseUrl: "/",
       },
       zh: {
         label: "简体中文",
         direction: "ltr",
+        baseUrl: "/zh/",
       },
     },
   },
@@ -41,19 +43,26 @@ module.exports = {
         srcDark: "img/logo-light.svg",
       },
       items: [
-        { to: "/download", label: "Download", position: "right" },
         { to: "/document", label: "Docs", position: "right" },
+        { to: "/download", label: "Download", position: "right" },
         {
-          to: "/community/contributor-guide",
           label: "Community",
           position: "right",
-          activeBaseRegex: `/community/`,
+          items: [
+            { to: "/community/contributor-guide", label: "Contribute" },
+            { to: "/team", label: "Team" },
+            { to: "/event", label: "Event" },
+            { to: "/users", label: "Users" },
+          ],
         },
-        { to: "/team", label: "Team", position: "right" },
-        { to: "/event", label: "Event", position: "right" },
-        { to: "/news", label: "News", position: "right" },
-        { to: "/blog", label: "Blog", position: "right" },
-        { to: "/users", label: "Users", position: "right" },
+        {
+          label: "Resources",
+          position: "right",
+          items: [
+            { to: "/blog", label: "Blog" },
+            { to: "/news", label: "News" },
+          ],
+        },
         {
           label: "ASF",
           position: "right",
@@ -91,6 +100,7 @@ module.exports = {
         {
           href: "https://github.com/apache/shenyu",
           label: "GitHub",
+          className: "navbar-github",
           position: "right",
         },
         {
@@ -322,16 +332,24 @@ module.exports = {
         // ShenYu brand orange (same as the logo mark) and the site favicon as icon.
         projectColor: "#FF5C00",
         projectLogo: "https://shenyu.apache.org/img/favicon.svg",
-        // The favicon is an orange mark on a transparent background, so the
-        // launcher button and modal header use contrasting backgrounds.
+        // Keep the orange mark clear on warm light and charcoal dark surfaces.
         extraAttributes: {
-          "data-launcher-button-background-color": "#000033",
-          "data-launcher-button-hover-background-color": "#1a1a4d",
-          "data-launcher-button-color": "#ffffff",
+          // Keep Cmd/Ctrl + K assigned to the existing documentation search.
+          "data-modal-open-on-command-k": "false",
+          "data-launcher-button-background-color": "#fff7f1",
+          "data-launcher-button-hover-background-color": "#ffe8d9",
+          "data-launcher-button-color": "#c44712",
+          "data-launcher-button-border": "1px solid #edc1a8",
+          "data-launcher-button-box-shadow": "0 4px 16px rgba(74, 35, 15, 0.12)",
+          "data-launcher-button-background-color-dark": "#20231f",
+          "data-launcher-button-hover-background-color-dark": "#35271e",
+          "data-launcher-button-color-dark": "#ffad85",
+          "data-launcher-button-border-dark": "1px solid #72503c",
+          "data-launcher-button-box-shadow-dark": "0 4px 16px rgba(0, 0, 0, 0.24)",
           "data-modal-header-background-color": "#ffffff",
-          "data-modal-header-color": "#000033",
-          "data-modal-header-background-color-dark": "#17171a",
-          "data-modal-header-color-dark": "#e4e4e7",
+          "data-modal-header-color": "#20201e",
+          "data-modal-header-background-color-dark": "#20231f",
+          "data-modal-header-color-dark": "#edeee9",
         },
         i18n: {
           en: {

@@ -1,0 +1,82 @@
+export interface TeamMember {
+  name: string;
+  apacheId: string;
+  github: string;
+  role: 'pmc' | 'committer';
+  founder?: boolean;
+  socialUrl?: string;
+}
+
+// Shared by both locales. Add or update members here, keeping their Apache ID unique.
+export const members: TeamMember[] = [
+  {"name": "Yu Xiao", "apacheId": "xiaoyu", "github": "yu199195", "role": "pmc", "founder": true, "socialUrl": "https://twitter.com/yu199195"},
+  {"name": "Yonglun Zhang", "apacheId": "zhangyonglun", "github": "tuohai666", "role": "pmc"},
+  {"name": "Willem Ning Jiang", "apacheId": "ningjiang", "github": "WillemJiang", "role": "pmc"},
+  {"name": "Justin Mclean", "apacheId": "jmclean", "github": "justinmclean", "role": "pmc"},
+  {"name": "Duo Zhang", "apacheId": "zhangduo", "github": "Apache9", "role": "pmc"},
+  {"name": "Atri Sharma", "apacheId": "atri", "github": "atris", "role": "pmc"},
+  {"name": "Jincheng Sun", "apacheId": "jincheng", "github": "sunjincheng121", "role": "pmc"},
+  {"name": "Kevin Ratnasekera", "apacheId": "djkevincr", "github": "djkevincr", "role": "pmc"},
+  {"name": "Liming Deng", "apacheId": "dengliming", "github": "dengliming", "role": "pmc"},
+  {"name": "JianMing Ding", "apacheId": "nuoyan", "github": "nuo-promise", "role": "pmc"},
+  {"name": "Tang Yudong", "apacheId": "tydhot", "github": "tydhot", "role": "pmc"},
+  {"name": "Lei Zhang", "apacheId": "sabersola", "github": "SaberSola", "role": "pmc"},
+  {"name": "Congqi Zhu", "apacheId": "qicz", "github": "qicz", "role": "pmc"},
+  {"name": "Yi Liu", "apacheId": "yui", "github": "HessTina-YuI", "role": "pmc"},
+  {"name": "ZiCheng Zhang", "apacheId": "zhangzicheng", "github": "loongs-zhang", "role": "pmc"},
+  {"name": "Kunshuai Zhu", "apacheId": "jooks", "github": "JooKS-me", "role": "pmc"},
+  {"name": "Liang Liu", "apacheId": "midnight2104", "github": "midnight2104", "role": "pmc"},
+  {"name": "Keguo Li", "apacheId": "likeguo", "github": "li-keguo", "role": "pmc"},
+  {"name": "SiYing Zheng", "apacheId": "impactcn", "github": "impactCn", "role": "pmc"},
+  {"name": "MingJie Song", "apacheId": "kevinclair", "github": "KevinClair", "role": "pmc"},
+  {"name": "Zhenbing Feng", "apacheId": "fengzhenbing", "github": "fengzhenbing", "role": "pmc"},
+  {"name": "Asxing", "apacheId": "asxing", "github": "asxing", "role": "pmc"},
+  {"name": "Wei Liu", "apacheId": "lw1243925457", "github": "lw1243925457", "role": "pmc"},
+  {"name": "Fengen He", "apacheId": "hefengen", "github": "moremind", "role": "pmc"},
+  {"name": "Yunlong Lee", "apacheId": "yunlong", "github": "yunlongn", "role": "pmc"},
+  {"name": "Hongyu Liu", "apacheId": "liuhongyu", "github": "aias00", "role": "pmc"},
+  {"name": "Bin Chen", "apacheId": "sixh", "github": "prFor", "role": "committer"},
+  {"name": "Haibo Duan", "apacheId": "haiboduan", "github": "haibo-duan", "role": "committer"},
+  {"name": "RenZhu Yan", "apacheId": "renzhuyan", "github": "renzhuyan", "role": "committer"},
+  {"name": "Han Gao", "apacheId": "gaohan", "github": "hgaol", "role": "committer"},
+  {"name": "TaiShi Hu", "apacheId": "hutaishi", "github": "hutaishi", "role": "committer"},
+  {"name": "WenYu Dai", "apacheId": "dayu", "github": "daiwenyu", "role": "committer"},
+  {"name": "XiaoLong Luo", "apacheId": "luoxiaolong", "github": "lxl910128", "role": "committer"},
+  {"name": "Zhen Tang", "apacheId": "alextang", "github": "ttttangzhen", "role": "committer"},
+  {"name": "TingTing Wang", "apacheId": "fightingting", "github": "fightingting", "role": "committer"},
+  {"name": "Kimm King", "apacheId": "kimmking", "github": "kimmking", "role": "committer"},
+  {"name": "David Liu", "apacheId": "hex12fd16b", "github": "0x12FD16B", "role": "committer"},
+  {"name": "XiaoFeng Huang", "apacheId": "huangxfchn", "github": "huangxfchn", "role": "committer"},
+  {"name": "Meng Gao", "apacheId": "zjntgao", "github": "xlgm", "role": "committer"},
+  {"name": "Nicholas Jiang", "apacheId": "nicholasjiang", "github": "SteNicholas", "role": "committer"},
+  {"name": "Xianjun Chen", "apacheId": "ccloomi", "github": "ccloomi", "role": "committer"},
+  {"name": "Shuo Li", "apacheId": "lishuo", "github": "lishuo5263", "role": "committer"},
+  {"name": "Jun Xu", "apacheId": "lahmxu", "github": "lahmxu", "role": "committer"},
+  {"name": "Haochao Zhuang", "apacheId": "daming", "github": "zhc00", "role": "committer"},
+  {"name": "mahaitao", "apacheId": "mahaitao", "github": "mahaitao617", "role": "committer"},
+  {"name": "Zhenxiao Jin", "apacheId": "jinzhenxiao", "github": "ShawnJim", "role": "committer"},
+  {"name": "Pengfei Tian", "apacheId": "tianpengfei", "github": "tian-pengfei", "role": "committer"},
+  {"name": "Haiqi Qin", "apacheId": "haiqi", "github": "HaiqiQin", "role": "committer"},
+  {"name": "Peng Zheng", "apacheId": "penzheng", "github": "847850277", "role": "committer"},
+  {"name": "Junwei Lian", "apacheId": "lianjunwei", "github": "lianjunwei", "role": "committer"},
+  {"name": "Damon Xue", "apacheId": "xuehuilang", "github": "damonxue", "role": "committer"},
+  {"name": "Wenkang Chen", "apacheId": "chenwenkang", "github": "misaya295", "role": "committer"},
+  {"name": "Le Zhang", "apacheId": "kerwin612", "github": "kerwin612", "role": "committer"},
+  {"name": "achao", "apacheId": "achao", "github": "VampireAchao", "role": "committer"},
+  {"name": "xcsnx", "apacheId": "xcsnx", "github": "xcsnx", "role": "committer"},
+  {"name": "Wei Wei", "apacheId": "weiwei", "github": "Wweiei", "role": "committer"},
+  {"name": "yuluo-yx", "apacheId": "yuluo-yx", "github": "yuluo-yx", "role": "committer"},
+  {"name": "Yong Wan", "apacheId": "wanyong", "github": "wy471x", "role": "committer", "socialUrl": "https://twitter.com/wy471x"},
+  {"name": "Yuheng Ma", "apacheId": "hengyuss", "github": "hengyuss", "role": "committer"},
+];
+
+export const contributorRepositories = [
+  {name: 'ShenYu', repository: 'shenyu'},
+  {name: 'Dashboard', repository: 'shenyu-dashboard'},
+  {name: 'Website', repository: 'shenyu-website'},
+  {name: 'Helm Chart', repository: 'shenyu-helm-chart'},
+  {name: 'Nginx', repository: 'shenyu-nginx'},
+  {name: 'Python Client', repository: 'shenyu-client-python'},
+  {name: '.NET Client', repository: 'shenyu-client-dotnet'},
+  {name: 'Go Client', repository: 'shenyu-client-golang'},
+];

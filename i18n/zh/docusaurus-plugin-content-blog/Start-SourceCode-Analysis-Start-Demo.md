@@ -1,5 +1,6 @@
 ---
 title: Apache ShenYu 启动示例
+description: 从本地环境准备、源码编译到启动网关与示例服务，逐步完成 ShenYu 的首次运行。
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/JooKS-me

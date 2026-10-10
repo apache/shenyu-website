@@ -1,5 +1,6 @@
 ---
 title: McpServer Plugin Source Code Analysis  
+description: Explore how the ShenYu MCP server plugin registers services as tools, manages sessions, and handles SSE communication.
 author: yusiheng
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/478320

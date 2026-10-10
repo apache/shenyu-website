@@ -1,11 +1,11 @@
 ---
 title: "【Apache ShenYu 2.7.1 版本发布】"
-description: "ShenYu 2.7.1 带来 MCP Server 增强、WASM 运行时迁移、安全加固与基础设施改进。"
-author: "aias00"
+description: "Apache ShenYu 2.7.1 版本发布"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
 date: 2026-07-13
 slug: Apache-ShenYu-release-version-2.7.1
+author: "aias00"
 ---
 
 ## 关于Apache ShenYu

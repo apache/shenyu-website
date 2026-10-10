@@ -65,7 +65,7 @@ ways to learn.</p>
             <link>https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1</link>
             <guid>https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1</guid>
             <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Apache ShenYu 2.7.1 Version Release]]></description>
+            <description><![CDATA[ShenYu 2.7.1 brings MCP server enhancements, a WASM runtime migration, security hardening, and infrastructure improvements.]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="apache-shenyu">Apache ShenYu<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.1#apache-shenyu" class="hash-link" aria-label="Direct link to Apache ShenYu" title="Direct link to Apache ShenYu" translate="no">​</a></h2>
 <p>Apache ShenYu is a responsive API gateway developed using Java Reactor. With its high performance, dynamic and flexible traffic control, hot swap, easy deployment and other features, out of the box to provide users with a full lifecycle of 'API' gateway, including 'API' registration, service proxy, protocol conversion, 'API' documentation and 'API' governance and other functions. Apache ShenYu graduated as an Apache top-level project in 'July 2022'.</p>
 <blockquote>

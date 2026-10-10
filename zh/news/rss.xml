@@ -64,7 +64,7 @@ GitHub：<a href="https://github.com/hengyuss" target="_blank" rel="noopener nor
             <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1</link>
             <guid>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1</guid>
             <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Apache ShenYu 2.7.1 版本发布]]></description>
+            <description><![CDATA[ShenYu 2.7.1 带来 MCP Server 增强、WASM 运行时迁移、安全加固与基础设施改进。]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="关于apache-shenyu">关于Apache ShenYu<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.1#%E5%85%B3%E4%BA%8Eapache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <p>一款使用  开发的响应式 网关。以其高性能，动态灵活的流量管控，热插拔，易部署等特性，开箱即用为用户提供整套全生命周期的 网关，包含 注册、服务代理、协议转换、文档与 治理等功能。Apache ShenYu于毕业成为顶级项目。</p>
 <blockquote>

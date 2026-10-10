@@ -1,140 +1,83 @@
 import React from 'react';
 import Translate, { translate } from '@docusaurus/Translate';
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {
-  Pagination,
-  Navigation
-} from 'swiper';
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
+import users from '../data/user';
+import styles from './users.module.css';
 
-import clsx from 'clsx';
-import styles from './index.module.css';
-import users from '../data/user'
+const websiteRepository = 'https://github.com/apache/shenyu-website';
+const registrationUrl = `${websiteRepository}/blob/main/src/data/user.js`;
+const editUsersUrl = `${websiteRepository}/edit/main/src/data/user.js`;
+const logosUrl = `${websiteRepository}/tree/main/static/img/users`;
+const userRows = Array.from({ length: 5 }, (_, row) => users.filter((_, index) => index % 5 === row));
 
-// install Swiper modules
-SwiperCore.use([Navigation, Pagination]);
-
-function group(array, subGroupLength) {
-  var index = 0;
-  var newArray = [];
-
-  while (index < array.length) {
-    newArray.push(array.slice(index, index += subGroupLength));
-  }
-  return newArray;
+function UserCard({ user, duplicate = false }: { user: (typeof users)[number]; duplicate?: boolean }) {
+  const imageUrl = useBaseUrl(user.src);
+  const logo = <img src={imageUrl} alt={user.name} loading="eager" width="104" height="36" />;
+  return <li aria-hidden={duplicate || undefined}>
+    {user.link
+      ? <a className={styles.card} href={user.link} title={user.name} tabIndex={duplicate ? -1 : undefined} target="_blank" rel="noopener noreferrer">{logo}<span className={styles.srOnly}> — {translate({ id: 'users.refresh.external', message: 'Visit website (opens in a new tab)' })}</span></a>
+      : <div className={styles.card} title={user.name}>{logo}</div>}
+  </li>;
 }
 
-function UserLogo({ user }) {
-  const localImageUrl = useBaseUrl(user.src || '');
-  const imageUrl = user.src?.startsWith('http') ? user.src : localImageUrl;
-  const image = <img className={styles.scrollImage} src={imageUrl} alt={user.name} />;
+export default function Users() {
+  const copy = {
+    title: translate({ id: 'users.refresh.title', message: 'Our users' }),
+    eyebrow: translate({ id: 'users.refresh.eyebrow', message: 'APACHE SHENYU / COMMUNITY' }),
+    headline: translate({ id: 'users.refresh.headline', message: 'Built in the open.' }),
+    accent: translate({ id: 'users.refresh.accent', message: 'Used in the real world.' }),
+    intro: translate({ id: 'users.refresh.intro', message: 'Meet the teams and organizations using Apache ShenYu to connect their services. Different businesses, one open-source community.' }),
+    register: translate({ id: 'users.refresh.register', message: 'Add your organization' }),
+    start: translate({ id: 'users.refresh.start', message: 'Get started with ShenYu' }),
+    directory: translate({ id: 'users.refresh.directory', message: 'Our community in production' }),
+    note: translate({ id: 'users.refresh.note', message: 'Known users of all or part of Apache ShenYu in production. Listed in no particular order.' }),
+    joinTitle: translate({ id: 'users.refresh.joinTitle', message: 'Your team belongs here, too.' }),
+    editUsers: translate({ id: 'users.refresh.editUsers', message: 'Edit the user list' }),
+    joinNote: translate({ id: 'users.refresh.joinNote', message: 'Fork the website repository and submit your changes to the main branch.' }),
+  };
 
-  return user.link ? (
-    <a href={user.link} rel="noopener noreferrer" target="_blank">
-      {image}
-    </a>
-  ) : image;
-}
-
-function Users() {
-  const {
-    siteConfig: {
-      customFields: { description },
-    },
-  } = useDocusaurusContext();
-  const userGroups = group(users, (users.length) / 3);
-  return (
-    <Layout title={translate({ message: 'Our Users' })} description={description as string}>
-      <main>
-        <div className={clsx(styles.section, styles.userSwiperContainer)}>
-          <div className="container">
-            <h1 className={styles.blockTitle}><Translate>Our Users</Translate></h1>
-            <p className={styles.blockDescription}>
-              <Translate>Here is a list of companies or organizations that we know have used all or some of Apache ShenYu’s components in production. This list is in no particular order.</Translate>
-            </p >
-            <div className={styles.userPart}>
-              <div className={styles.scrollView}>
-                <div className={styles.scrollLine1}>
-                  {
-                    userGroups[0].map((user, i) => {
-                      return (
-                        <div className={styles.scrollItem} key={i}>
-                          <UserLogo user={user} />
-                        </div>
-                      )
-                    })
-                  }
-                </div>
-                <div className={styles.scrollLine2}>
-                  {
-                    userGroups[1].map((user, i) => {
-                      return (
-                        <div className={styles.scrollItem} key={i}>
-                          <UserLogo user={user} />
-                        </div>
-                      )
-                    })
-                  }
-                </div>
-                <div className={styles.scrollLine3}>
-                  {
-                    userGroups[2].map((user, i) => {
-                      return (
-                        <div className={styles.scrollItem} key={i}>
-                          <UserLogo user={user} />
-                        </div>
-                      )
-                    })
-                  }
-                </div>
-              </div>
-              <div className={styles.scrollItemLeft}>
-                <div className={styles.scrollItemLeftInner}></div>
-              </div>
-              <div className={styles.scrollItemRight}>
-                <div className={styles.scrollItemRightInner}></div>
-              </div>
+  return <Layout title={copy.title} description={copy.intro}>
+    <main className={styles.page}>
+      <section className={styles.hero} aria-labelledby="users-title">
+        <div className={`${styles.container} ${styles.heroGrid}`}>
+          <div>
+            <p className={styles.eyebrow}>{copy.eyebrow}</p>
+            <h1 id="users-title">{copy.headline}<br /><span>{copy.accent}</span></h1>
+            <p className={styles.intro}>{copy.intro}</p>
+            <div className={styles.actions}>
+              <a className={styles.primaryButton} href={registrationUrl} target="_blank" rel="noopener noreferrer">{copy.register}<span aria-hidden="true">↗</span></a>
+              <Link className={styles.textLink} to="/docs/deployment/deployment-quick">{copy.start}<span aria-hidden="true">→</span></Link>
             </div>
-            {/* <Swiper navigation={{
-              nextEl: '.user-swiper-button-next',
-              prevEl: '.user-swiper-button-prev',
-            }}
-              modules={[Navigation, Pagination]}
-              slidesPerView={7}
-              spaceBetween={20} pagination={{
-                "clickable": true
-              }}
-              className={styles.userSwiperContent}>
-              {
-                userGroups.map((userList, i) => {
-                  return <SwiperSlide key={i} >
-                    {
-                      userList.map((user, j) => {
-                        return <div key={j} className={styles["swiper-slide"]}>
-                          < a href={user.link} rel="noopener noreferrer" target="_blank">
-                            < img src={user.src&&(user.src.startsWith("http")?user.src:useBaseUrl(user.src))} alt={user.name} />
-                          </ a>
-                        </div>
-                      })
-                    }
-                  </SwiperSlide>
-                })
-              }
-            </Swiper> */}
-            <p><Translate>To better serve you, please register </Translate><a target="_blank" href="https://github.com/apache/shenyu/issues/68"><Translate>[Here].</Translate></ a></p >
           </div>
-          {/* <div className="swiper-button-prev user-swiper-button-prev" style={{ left: "50px" }}></div>
-          <div className="swiper-button-next user-swiper-button-next" style={{ right: "50px" }}></div> */}
         </div>
-      </main>
-    </Layout>
-  );
-}
+      </section>
 
-export default Users;
+      <section className={`${styles.container} ${styles.directory}`} aria-labelledby="directory-title">
+        <div className={styles.directoryHeader}>
+          <div><h2 id="directory-title">{copy.directory}</h2><p>{copy.note}</p></div>
+        </div>
+        <div className={styles.marquee} id="user-directory">
+          {userRows.map((row, index) => <div className={styles.marqueeRow} key={index}>
+            <div className={`${styles.track} ${index % 2 ? styles.reverse : ''}`} style={{ '--row-duration': `${row.length * 4}s` } as React.CSSProperties}>
+              <ul className={styles.logoGroup}>{row.map(user => <UserCard user={user} key={user.name} />)}</ul>
+              <ul className={`${styles.logoGroup} ${styles.duplicate}`} aria-hidden="true">{row.map(user => <UserCard user={user} key={user.name} duplicate />)}</ul>
+            </div>
+          </div>)}
+        </div>
+      </section>
+
+      <section className={`${styles.container} ${styles.join}`} aria-labelledby="join-title">
+        <div><p className={styles.eyebrow}>GROW WITH SHENYU</p><h2 id="join-title">{copy.joinTitle}</h2>
+          <p><Translate id="users.refresh.joinInstructions" values={{
+            logos: <a href={logosUrl} target="_blank" rel="noopener noreferrer"><code>static/img/users/</code></a>,
+            users: <a href={registrationUrl} target="_blank" rel="noopener noreferrer"><code>src/data/user.js</code></a>,
+            repository: <a href={websiteRepository} target="_blank" rel="noopener noreferrer">apache/shenyu-website</a>,
+          }}>{'Using Apache ShenYu? Add your logo to {logos}, add your company name, logo path and website to {users}, then submit a pull request to {repository}.'}</Translate></p>
+        </div>
+        <div className={styles.joinAction}><a className={styles.primaryButton} href={editUsersUrl} target="_blank" rel="noopener noreferrer">{copy.editUsers}<span aria-hidden="true">↗</span></a><span>{copy.joinNote}</span></div>
+      </section>
+    </main>
+  </Layout>;
+}

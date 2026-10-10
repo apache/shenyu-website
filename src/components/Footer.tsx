@@ -1,58 +1,31 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import { getHomepageContent } from '../data/homepage';
 import styles from './Footer.module.css';
-import Translate from "@docusaurus/Translate";
-
-const Footer = (): React.ReactElement => (
-    <section className={styles.footer}>
-        <div className={styles.containerContent}>
-            <div className={styles.copyRight}>
-                <div>
-                    <div className={styles.logos}>
-                        <a href='https://www.apache.org/'>< img src='/img/logo/support-apache.png' alt="Apache Support Logo" /></a>
-                        <a href='https://www.apache.org/'>< img src='/img/logo/asf_logo.svg' alt="The Apache Software Foundation" /></a>
-                    </div>
-                    <span className={styles.text}>Copyright {new Date().getFullYear()} The Apache Software Foundation, Licensed under the Apache License, Version 2.0. Apache ShenYu, Apache, the Apache feather logo, the Apache ShenYu logo are trademarks of The Apache Software Foundation.</span>
-                </div>
-            </div>
-            <div className={styles.footerLinks}>
-                <nav className={styles.footerNav}>
-                    <div className={styles.item}>
-                        <span className={styles.linkSpan}><Translate>Events</Translate></span>
-                        <div className={styles.link}>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='https://www.apachecon.com'>ApacheCon</a></div>
-                        </div>
-                    </div>
-                    <div className={styles.item}>
-                        <span className={styles.linkSpan}>ShenYu</span>
-                        <div className={styles.link}>
-                            <div className={styles.linkItem}><Link className={styles.linkA} to='/download'><Translate>Download</Translate></Link></div>
-                            <div className={styles.linkItem}><Link className={styles.linkA} to='/docs/'><Translate>Document</Translate></Link></div>
-                            <div className={styles.linkItem}><Link className={styles.linkA} to='/news'><Translate>News</Translate></Link></div>
-                            <div className={styles.linkItem}><Link className={styles.linkA} to='/blog'><Translate>Blog</Translate></Link></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu/releases'><Translate>Release</Translate></a></div>
-                        </div>
-                    </div>
-                    <div className={styles.item}>
-                        <span className={styles.linkSpan}><Translate>Community</Translate></span>
-                        <div className={styles.link}>
-                            <div className={styles.linkItem}><Link className={styles.linkA} to='/community/contributor-guide'><Translate>Community</Translate></Link></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu'>Github</a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='https://github.com/apache/shenyu/issues'>Issue Tracker</a></div>
-                        </div>
-                    </div>
-                    <div className={styles.item}>
-                        <span className={styles.linkSpan}><Translate>Subscribe mailing list</Translate></span>
-                        <div className={styles.link}>
-                            <div className={styles.linkItem}><Link className={styles.linkA} to='/community/contributor-guide#join-the-discussion'><Translate>How to subscribe</Translate></Link></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='mailto:dev-subscribe@shenyu.apache.org'><Translate>Subscribe Mail</Translate></a></div>
-                            <div className={styles.linkItem}><a className={styles.linkA} href='https://lists.apache.org/list.html?dev@shenyu.apache.org'><Translate>Mail Archive</Translate></a></div>                            
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </section>
-);
-
-export default Footer;
+export default function Footer(): React.ReactElement {
+  const copy = getHomepageContent();
+  const logo = useBaseUrl('/img/logo-light.svg');
+  const groups = [{
+    title: copy.footerProject,
+    links: [[copy.docs, '/document'], [copy.download, '/download'], [copy.blog, '/blog'], ['GitHub', 'https://github.com/apache/shenyu']]
+  }, {
+    title: copy.footerCommunity,
+    links: [[copy.contribute, '/community/contributor-guide'], [copy.events, '/event'], [copy.mailingList, 'https://lists.apache.org/list.html?dev@shenyu.apache.org']]
+  }, {
+    title: copy.footerFoundation,
+    links: [[copy.foundation, 'https://www.apache.org/'], [copy.license, 'https://www.apache.org/licenses/'], [copy.security, 'https://www.apache.org/security/'], [copy.privacy, 'https://privacy.apache.org/policies/privacy-policy-public.html'], [copy.sponsor, 'https://www.apache.org/foundation/sponsorship.html']]
+  }];
+  return <footer className={styles.footer}>
+    <div className={styles.container}>
+      <div className={styles.top}>
+        <div className={styles.brand}><Link to="/"><img src={logo} alt="Apache ShenYu" width="200" height="40" /></Link><p>{copy.footerTagline}</p><span>Open source. Apache 2.0.</span></div>
+        {groups.map(group => <div className={styles.group} key={group.title}><h2>{group.title}</h2><ul>{group.links.map(([label, to]) => <li key={label}><Link to={to}>{label}</Link></li>)}</ul></div>)}
+      </div>
+      <div className={styles.legal}>
+        <p>Copyright © {new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0.</p>
+        <p>Apache ShenYu, Apache, the Apache feather logo, and the Apache ShenYu logo are trademarks of The Apache Software Foundation.</p>
+      </div>
+    </div>
+  </footer>;
+}

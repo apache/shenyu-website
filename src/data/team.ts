@@ -66,6 +66,8 @@ export const members: TeamMember[] = [
   {"name": "xcsnx", "apacheId": "xcsnx", "github": "xcsnx", "role": "committer"},
   {"name": "Wei Wei", "apacheId": "weiwei", "github": "Wweiei", "role": "committer"},
   {"name": "yuluo-yx", "apacheId": "yuluo-yx", "github": "yuluo-yx", "role": "committer"},
+  {"name": "Yong Wan", "apacheId": "wanyong", "github": "wy471x", "role": "committer", "socialUrl": "https://twitter.com/wy471x"},
+  {"name": "Yuheng Ma", "apacheId": "hengyuss", "github": "hengyuss", "role": "committer"},
 ];
 
 export const contributorRepositories = [

@@ -89,7 +89,7 @@ Detailed instruction of interface methods:
 
 ## Single Responsibility Plugin in Multiple Languages
 
-* The above is about writing a single responsibility plugin in Java. If you want to write plugins in another language, at least the language you are good at supporting `WASM`, you can find resources [here](https://shenyu.apache.org/docs/next/design/wasm-plugin-design/) . After you have learned about `WASM`, let's introduce the following dependency to build the Java part of the plugin:
+* The above is about writing a single responsibility plugin in Java. If you want to write plugins in another language, at least the language you are good at supporting `WASM`, you can find resources [here](https://shenyu.apache.org/docs/design/wasm-plugin-design/) . After you have learned about `WASM`, let's introduce the following dependency to build the Java part of the plugin:
 
 ```xml
 <dependency>
@@ -339,7 +339,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
 ## Matching Traffic Processing Plugin in Multiple Languages
 
-* The general logic is similar to [Single Responsibility Plugin in Multiple Languages](#Single Responsibility Plugin in Multiple Languages) , but the dependency in Java and the methods that need to be added in other languages are different from `Single Responsibility Plugin in Multiple Languages`. The following are the dependency required for the Java part of the `Multi Language Matching Traffic Processing Plugin`:
+* The general logic is similar to [Single Responsibility Plugin in Multiple Languages](#single-responsibility-plugin-in-multiple-languages) , but the dependency in Java and the methods that need to be added in other languages are different from `Single Responsibility Plugin in Multiple Languages`. The following are the dependency required for the Java part of the `Multi Language Matching Traffic Processing Plugin`:
 
 ```xml
 <dependency>

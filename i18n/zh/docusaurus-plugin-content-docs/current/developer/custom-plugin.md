@@ -94,7 +94,7 @@ public interface ShenyuPlugin {
 
 ## 单一职责插件与多语言
 
-* 上述用java写单一职责插件，如果想用其他语言写插件，至少需要你擅长的语言支持`WASM`，你可以在[这里](https://shenyu.apache.org/zh/docs/next/design/wasm-plugin-design/) 找到一些资料。在你了解过`WASM`后，我们引入以下依赖来构建插件的java部分：
+* 上述用java写单一职责插件，如果想用其他语言写插件，至少需要你擅长的语言支持`WASM`，你可以在[这里](https://shenyu.apache.org/zh/docs/design/wasm-plugin-design/) 找到一些资料。在你了解过`WASM`后，我们引入以下依赖来构建插件的java部分：
 
 ```xml
 <dependency>

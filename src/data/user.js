@@ -45,4 +45,5 @@ export default [
     {name:"ShipOut",src:"/img/users/shipout_logo.png",link:"https://www.ShipOut.com"},
     {name:"驿通科技",src:"/img/users/etcp.png",link:"https://www.etcp.cn"},
     {name:"铁骑力士集团",src:"/img/users/tql.png",link:"https://www.tqlsgroup.com/"},
-]    
+    {name:"Wordfully",src:"/img/users/wordfully.png",link:"https://wordfully.ai"},
+]

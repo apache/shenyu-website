@@ -71,7 +71,7 @@ for example:
 
 ## Issue Label {#issue-label}
 
-We need to Label to all issues. All of Apache ShenYu community's lists are here : https://github.com/dromara/shenyu/labels.
+We need to Label to all issues. All of Apache ShenYu community's lists are here : https://github.com/apache/shenyu/labels.
 
 In general, an issue should be marked with 2 Label. One is the type of issue, and the other is the project module to which the issue belongs.
 

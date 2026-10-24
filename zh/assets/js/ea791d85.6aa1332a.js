@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkshenyu_website=self.webpackChunkshenyu_website||[]).push([[52635],{91:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"shenyuClientRust"}')}}]);

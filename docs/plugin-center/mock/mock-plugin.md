@@ -100,7 +100,7 @@ description: mock plugin
 
 **$\{expression|expression}**
 
-`Spel` expressions are currently supported with built-in functions and arguments, which fully replace the old ${} syntax
+`Spel` expressions are currently supported with built-in functions and arguments, which fully replace the old `${}` syntax
 
 - **`${expression|#int(min,max)}`**
 

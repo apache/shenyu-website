@@ -20,8 +20,10 @@ function Version() {
     (version) => version !== latestVersion && version.name !== 'current',
   );
   const repoUrl = `https://github.com/${organizationName}/${projectName}`;
-  const getReleaseVersion = (version) =>
-    version.name === 'current' ? currentReleaseVersion : version.name;
+  const getReleaseTag = (version) => {
+    const releaseVersion = version.name === 'current' ? currentReleaseVersion : version.name;
+    return releaseVersion === '2.3.0-Legacy' ? '2.3.0' : `v${releaseVersion}`;
+  };
 
   return (
     <Layout
@@ -32,7 +34,7 @@ function Version() {
 
         {latestVersion && (
           <div className="margin-bottom--lg">
-            <h3 id="next">Current version (Stable)</h3>
+            <h3 id="latest">Current version (Stable)</h3>
             <p>
               Here you can find the documentation for the current released version.
             </p>
@@ -44,7 +46,7 @@ function Version() {
                     <Link to={latestVersion.path}>Documentation</Link>
                   </td>
                   <td>
-                    <a href={`${repoUrl}/releases/tag/v${getReleaseVersion(latestVersion)}`}>
+                    <a href={`${repoUrl}/releases/tag/${getReleaseTag(latestVersion)}`}>
                       Release Notes
                     </a>
                   </td>
@@ -56,7 +58,7 @@ function Version() {
 
         {currentVersion !== latestVersion && (
           <div className="margin-bottom--lg">
-            <h3 id="latest">Next version (Unreleased)</h3>
+            <h3 id="next">Next version (Unreleased)</h3>
             <p>
               Here you can find the documentation for work-in-progress unreleased
               version.
@@ -90,7 +92,7 @@ function Version() {
                       <Link to={version.path}>Documentation</Link>
                     </td>
                     <td>
-                      <a href={`${repoUrl}/releases/tag/v${getReleaseVersion(version)}`}>
+                      <a href={`${repoUrl}/releases/tag/${getReleaseTag(version)}`}>
                         Release Notes
                       </a>
                     </td>

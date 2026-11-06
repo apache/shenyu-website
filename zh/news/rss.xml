@@ -4,10 +4,39 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/zh/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Fri, 09 Oct 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 06 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
+        <item>
+            <title><![CDATA[【Apache ShenYu 2.7.2 版本发布】]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.2</link>
+            <guid>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.2</guid>
+            <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Apache ShenYu 2.7.2 版本发布]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="apache-shenyu-272">Apache ShenYu 2.7.2<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.2#apache-shenyu-272" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<p>Apache ShenYu 2.7.2 现已发布。本版本包含从 2.7.1 到通过投票的 RC4 候选版本
+之间的完整变更。</p>
+<p>发布信息：</p>
+<ul>
+<li class="">GitHub Release：<a href="https://github.com/apache/shenyu/releases/tag/v2.7.2" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/releases/tag/v2.7.2</a></li>
+<li class="">源码与二进制包：<a href="https://shenyu.apache.org/download/" target="_blank" rel="noopener noreferrer" class="">https://shenyu.apache.org/download/</a></li>
+<li class="">Maven Central：<a href="https://central.sonatype.com/namespace/org.apache.shenyu" target="_blank" rel="noopener noreferrer" class="">https://central.sonatype.com/namespace/org.apache.shenyu</a></li>
+<li class="">发布说明：<a href="https://github.com/apache/shenyu/blob/v2.7.2/RELEASE-NOTES.md" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/blob/v2.7.2/RELEASE-NOTES.md</a></li>
+<li class="">完整变更记录：<a href="https://github.com/apache/shenyu/compare/v2.7.1...v2.7.2" target="_blank" rel="noopener noreferrer" class="">https://github.com/apache/shenyu/compare/v2.7.1...v2.7.2</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="主要内容">主要内容<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.2#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
+<ul>
+<li class="">Request Transformer 支持重放只能读取一次的请求体，并保留下游执行错误。</li>
+<li class="">Redis 不可用时，敏感词检查遵循 <code>failClosed</code>；检查前解析 JSON Unicode 转义。</li>
+<li class="">Token Limiter 仅从 provider 协议字段读取 usage 信息。</li>
+<li class="">依赖升级到 Spring Boot 3.5 和 Spring Cloud 2025.0.3，并提供 H2 2.x 与
+<code>logged</code> 字段迁移说明。</li>
+<li class="">修正并审计 Maven 与发行包中的 LICENSE/NOTICE、Dashboard 资源和源码归档。</li>
+</ul>
+<p>请使用 Apache ShenYu KEYS 中的公钥校验下载文件的 SHA-512 校验和与 PGP 签名。</p>]]></content:encoded>
+            <category>Apache ShenYu</category>
+        </item>
         <item>
             <title><![CDATA[一名学生的开源之旅]]></title>
             <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-10-09</link>
@@ -2392,52 +2421,6 @@ GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener
 <blockquote>
 <p>dragon-zhang, zhengpeng, mahaitao, 愿凌飞, hdgaadd, dayu, SongTao Zhuang, Misaya295 , Shawn Jim , yunlongn , Will , moremind , RayayChung , Kevin Clair , huanccwang , 柯杨 , Kunshuai Zhu , fantiq , youzipi , class , kyeongsun , 杨阳洋 , Liming Deng , 杨文杰 , xcsnx , hnxiaoyuan , dependabot , xiaoyu , wzhangNJ , Zihao Huang , ywj1352 , pandaapo , WuLang , Nineteen , kyeongsun , ableYang , Runqi Zhao , WeiS , Luke.Z , lahmxu , Sinsy , Daming , BoyuLi4 , jakiuncle , Bowen Li , huanccwang , gitchenjh , DamonXue , Wu Daifu , Jiageng , nuo-promise , Guocheng Tang , likeguo , Sixh-PrFor , throwable , renzhuyan , wangteng , qinghai777 , zly123987123 , 奕仁 , 尔等同学 , qifanyyy , Jairo , ousinka</p>
 </blockquote>]]></content:encoded>
-            <category>Apache ShenYu</category>
-        </item>
-        <item>
-            <title><![CDATA[【从公司网关框架选型到 Apache ShenYu Committer】]]></title>
-            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08</link>
-            <guid>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08</guid>
-            <pubDate>Mon, 08 Aug 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[从公司网关框架选型到 Apache ShenYu Committer]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="introduction-of-new-committer">Introduction of new Committer<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08#introduction-of-new-committer" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>Hello everyone, my name is <a href="https://github.com/lishuo5263" target="_blank" rel="noopener noreferrer" class="">Shuo Li</a> , java architect, currently engaged in  a big-sized Internet company,  It is my honor to be invited by the Apache ShenYu community as the Committer. Let me share with you my first meet, acquaintance, understanding, growth and suggestions with the Apache ShenYu community.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="meet-the-apache-shenyu-community-for-the-first-time">Meet the Apache Shenyu community for the first time<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08#meet-the-apache-shenyu-community-for-the-first-time" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>The story starts from 2020. In the early stage, I used SpringCloud Gateway + Nacos Config Event to realize the dynamic routing of gateway by myself. Because there was no dashboard of Gateway at that time, it was very painful. My team made a dashboard based on Micro Enterprise, which has a lot of functionality and limitations. From then on, I started to pursue a good gateway. One day, I found ShenYu, and saw that ShenYu's overall architecture was in sharper contrast to SpringCloud Gateway. ShenYu outperforms Gateway in terms of overall architecture design, function design, plug-in design, etc. ShenYu can be said to be the next generation gateway product. After that, I started to have a certain understanding of Apache ShenYu from building environment to running example project, and then to read plug-in chain and data synchronization, SPI mechanism and other source code.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="start-submitting-pr">Start submitting PR<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08#start-submitting-pr" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>It was not until January 2022 that I started to submit my first PR, which was to fix a problem that caused null Pointers when the Admin module started the default load instance. The function was small, but its significance was remarkable. It meant that I had a good start on the open source road from learning to contributing.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ongoing-open-source-contributions-and-gains">Ongoing open source contributions and gains<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08#ongoing-open-source-contributions-and-gains" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>So far, I have participated in the open source of Apache ShenYu community for more than half a year, contributing a lot and growing and harvesting a lot. The details are as follows:</p>
-<ul>
-<li class="">Witnessed Shenyu graduate from Apache Incubator and become a top Apache project.</li>
-<li class="">Fixed ShenYu admin starting null pointer problem.</li>
-<li class="">Added ShenYu Rewrite plugin support for PathVariable functionality.</li>
-<li class="">Responsible for the functional support of the entire Shenyu-Client-Golang project.</li>
-<li class="">Participated in the repair of some discovered problems, integration test writing, code of other CR contributors, corresponding functional documentation writing, etc.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="thanks-to-the-community">Thanks to the community<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08#thanks-to-the-community" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>Thanks to my friends who helped me or inspired me for free (in no particular order): yu199195，yonglun，luoxiaolong，lianjunwei，gaohan.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-little-advice-for-newcomers">A little advice for newcomers<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08#a-little-advice-for-newcomers" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<p>1.Be sure to check out the website or Github first
-2.Follow the official website or project documents to try to run the relevant functional modules of Example
-3.Feel free to submit an issue to the community if you have any ideas</p>
-<p>Attend ShenYu biweekly meetings to keep up with the community and meet with developers one-on-one to ask questions</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-to-join-apache-shenyu">How to join Apache ShenYu<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2022-08-08#how-to-join-apache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ol>
-<li class="">
-<p>How to become a Contributor</p>
-<p>The Apache ShenYu community has purposely written a very comprehensive <a href="https://shenyu.apache.org/community/contributor-guide/" target="_blank" rel="noopener noreferrer" class="">Contributor Guide</a></p>
-</li>
-<li class="">
-<p>Github <a href="https://github.com/apache/ShenYu/issues" target="_blank" rel="noopener noreferrer" class="">Issues</a></p>
-</li>
-<li class="">
-<p>Subscribe emails</p>
-<p>Email <a href="mailto:dev-subscribe@ShenYu.apache.org" target="_blank" rel="noopener noreferrer" class="">dev-subscribe@ShenYu.apache.org</a>;</p>
-<p>After the sending is successful, you will receive a reply from <a href="mailto:dev-subscribe@ShenYu.apache.org" target="_blank" rel="noopener noreferrer" class="">dev-subscribe@ShenYu.apache.org</a>, please reply to this email according to the prompt of the email to confirm the subscription;</p>
-<p>After replying to confirm, you will receive a welcome email indicating that you have successfully subscribed to emails.</p>
-</li>
-</ol>]]></content:encoded>
             <category>Apache ShenYu</category>
         </item>
     </channel>

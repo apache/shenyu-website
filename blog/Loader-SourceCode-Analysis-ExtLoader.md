@@ -4,9 +4,12 @@ author: hql0312
 author_title: hql0312 Coder
 author_url: https://github.com/hql0312
 tags: [plugin,ext,Apache ShenYu]
+date: 2024-02-04
 ---
 
 > This article is based on the source code analysis of version 'shenyu-2.6.1'
+
+<!-- truncate -->
 
 # Content
 

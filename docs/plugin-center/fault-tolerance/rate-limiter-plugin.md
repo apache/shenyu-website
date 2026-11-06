@@ -39,7 +39,7 @@ description: rateLimiter plugin
 - The token bucket's capacity. When the bucket is full, the token put into it will be discarded.
 - Each time requests come, you need to obtain a token from the token bucket. If there are tokens, the service will be provided; if there are no tokens, the service will be rejected.
 
-* Flow Diagram：
+* Flow Diagram:
   ![](/img/shenyu/plugin/ratelimiter/tokenbucket.png)
 
 
@@ -47,7 +47,7 @@ description: rateLimiter plugin
 
 - water (request) go to the leaky bucket first. The leaky bucket goes out at a fixed speed. When the flow speed is too fast, it will overflow directly (reject service)
 
-* Flow Diagram：
+* Flow Diagram:
   ![](/img/shenyu/plugin/ratelimiter/leakybucket.png)
 
 
@@ -55,7 +55,7 @@ description: rateLimiter plugin
 
 - The sliding time window maintains the count value of unit time. Whenever a requests pass, the count value will be increased by 1. When the count value exceeds the preset threshold, other requests in unit time will be rejected. If the unit time has ended, clear the counter to zero and start the next round counting.
 
-* Flow Diagram：
+* Flow Diagram:
   ![](/img/shenyu/plugin/ratelimiter/sldingwindow.png)
 
 # 2. How to use plugin

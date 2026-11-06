@@ -12,6 +12,8 @@ cover: "/img/architecture/shenyu-framework.png"
 距离上一次发布长达半年之久，在这半年的时间里，我与我的社区小伙伴们，做了太多太多的事情。
 完成了将近 `200` 多次PR，发表了将近`300` 篇文章的源码解析，新增贡献者 `120` 多位，晋升了 `7` 位committer，并且全部获得正版 `jetbrains` 全家桶。非常感谢他们，在他们的帮助下，我们完成了非常多非常多的功能。
 
+<!-- truncate -->
+
 ## soul-admin（dashboard）
 
 `admin`是整个网关的控制面板，掌管所有的流量，规则的匹配。

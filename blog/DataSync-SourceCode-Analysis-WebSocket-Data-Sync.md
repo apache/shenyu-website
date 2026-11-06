@@ -4,10 +4,13 @@ author: midnight2104
 author_title: Apache ShenYu Committer
 author_url: https://github.com/midnight2104
 tags: [websocket,data sync,Apache ShenYu]
+date: 2021-09-14
 ---
 
 
 In `ShenYu` gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for `ZooKeeper`, `WebSocket`, `http long poll`, `Nacos`, `etcd` and `Consul`. The main content of this article is based on `WebSocket` data synchronization source code analysis.
+
+<!-- truncate -->
 
 
 > This paper based on `shenyu-2.4.0` version of the source code analysis, the official website of the introduction of please refer to the [Data Synchronization Design](https://shenyu.apache.org/docs/design/data-sync/) .

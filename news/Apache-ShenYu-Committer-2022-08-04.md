@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2022-08-04
 
 Hi, everyone, I'm [Fengen he](https://github.com/moremind), Working as a Java Developer,I am very honored to be invited to be the Committer of the Apache ShenYu community. Let me share with you my growth and suggestions during my participation in the Apache ShenYu community.
 
+<!-- truncate -->
+
 ## First acquaintance with ShenYu gateway
 
 The earliest contact with shenyu was around March 2021. It named soul at that time. Since the business scenarios of the department required the use of a unified gateway, the main reason for choosing the shenyu gateway was that the plug-in design of shenyu was very suitable for the scenarios we needed. Functional plug-ins include divide, sentinel fuse, ratelimiter, protocol conversion of the company's internal rpc, and log2Mongo, etc. With the continuous upgrade of shenyu version, we are also constantly upgrading our code.

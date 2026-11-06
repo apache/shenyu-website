@@ -55,10 +55,10 @@ shenyu:
       		port: 8188  
       		isFull: false
 # registerType : register type, set http
-# serverList: when register type is http，set shenyu-admin address list，pls note 'http://' is necessary.
+# serverList: when register type is http,set shenyu-admin address list,pls note 'http://' is necessary.
 # port: your project port number; apply to springmvc/tars/grpc
-# contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
-# appName：your project name,the default value is`spring.application.name`.
+# contextPath: your project's route prefix through shenyu gateway, such as /order ,/product etc,gateway will route based on it.
+# appName:your project name,the default value is`spring.application.name`.
 # isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 ```
 
@@ -93,11 +93,11 @@ shenyu:
       		port: 28080
     props:
       nacosNameSpace: ShenyuRegisterCenter
-# registerType : register type, set nacos 
-# serverList: when register type is nacos, add nacos address list
+# registerType : register type, set http
+# serverList: when register type is http, set shenyu-admin address list, pls note 'http://' is necessary.
 # http.port: your project port number; apply to springmvc
-# http.contextPath: your project's route prefix through shenyu gateway, such as /order ，/product etc，gateway will route based on it.
-# http.appName：your project name,the default value is`spring.application.name`.
+# http.contextPath: your project's route prefix through shenyu gateway, such as /order ,/product etc,gateway will route based on it.
+# http.appName:your project name,the default value is`spring.application.name`.
 # http.isFull: set true means providing proxy for your entire service, or only a few controller. apply to springmvc/springcloud
 # dubbo.contextPath: your project dubbo service's context path
 # dubbo.port: your project dubbo rpc port
@@ -105,5 +105,4 @@ shenyu:
 # nacosNameSpace: nacos namespace
 ```
 
-In conclusion, this paper mainly describes how to connect your microservices (currently supporting `Http`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa`, `Tars` and other protocols) to the `Apache ShenYu` gateway. the Apache ShenYu gateway support registry has `Http` This paper introduces the different ways to register configuration information when `Http` service is used as the client to access `Apache ShenYu` gateway.
-
+In conclusion, this paper mainly describes how to connect your microservices (currently supporting `Http`, `Dubbo`, `Spring Cloud`, `gRPC`, `Motan`, `Sofa`, `Tars` and other protocols) to the `Apache ShenYu` gateway. After ShenYu 2.6.1, client metadata is registered to `shenyu-admin` through the `Http` register type.

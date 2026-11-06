@@ -4,9 +4,12 @@ author: midnight2104
 author_title: Apache ShenYu Committer
 author_url: https://github.com/midnight2104
 tags: [http,data sync,Apache ShenYu]
+date: 2021-11-02
 ---
 
 > [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) is an asynchronous, high-performance, cross-language, responsive API gateway.
+
+<!-- truncate -->
 
 In `ShenYu` gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for `ZooKeeper`, `WebSocket`, `http long poll`, `Nacos`, `etcd` and `Consul`. The main content of this article is based on `http long poll` data synchronization source code analysis.
 

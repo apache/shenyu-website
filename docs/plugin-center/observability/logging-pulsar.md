@@ -16,8 +16,8 @@ description: Logging-Pulsar Plugin
 
 ## 1.3 Plugin functionality
 
->`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request，    
-> The list includes: request time, request parameters, request path, response result, response status code, time consumption, upstream IP, exception information waiting.    
+>`Apache ShenYu` The gateway receives requests from the client, forwards them to the server, and returns the server results to the client. The gateway can record the details of each request,
+> The list includes: request time, request parameters, request path, response result, response status code, time consumption, upstream IP, exception information waiting.
 > The Logging-Pulsar plugin is a plugin that records access logs and sends them to the Pulsar cluster.
 
 ## 1.4 Plugin code
@@ -89,8 +89,8 @@ Except for topic, serviceUrl, all others are optional, in most cases only these 
 
 * For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
 
-In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
-then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
+In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,
+then you can configure different topics (optional) and sampling rate (optional) by selector, the meaning of the configuration items as shown in the table above.
 The operation is shown below:
 ![](/img/shenyu/plugin/logging/logging-config.png)
 
@@ -135,8 +135,8 @@ Open the plugin and configure pulsar, configure it as follows.
 
 For detailed configuration of selectors and rules, please refer to: [Selector and rule management](../../user-guide/admin-usage/selector-and-rule)。
 
-In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,  
-then you can configure different topics (optional) and samplingf rate (optional) by selector, the meaning of the configuration items as shown in the table above.   
+In addition, sometimes a large gateway cluster corresponds to multiple applications (business), different applications (business) corresponds to different topics, related to isolation,
+then you can configure different topics (optional) and samplingf rate (optional) by selector, the meaning of the configuration items as shown in the table above.
 The operation is shown below:
 ![](/img/shenyu/plugin/logging/logging-pulsar/logging-option-topic.jpg)
 
@@ -150,7 +150,7 @@ The operation is shown below:
 
 #### 2.6.1.5 Consumption and display of Logging
 
-As each logging platform has differences, such as storage available clickhouse, ElasticSearch, etc., visualization has self-developed or open source Grafana, Kibana, etc..  
+As each logging platform has differences, such as storage available clickhouse, ElasticSearch, etc., visualization has self-developed or open source Grafana, Kibana, etc..
 Logging-Pulsar plugin uses Pulsar to decouple production and consumption, while outputting logs in json format,
 consumption and visualization require users to choose different technology stacks to achieve their own situation.=
 

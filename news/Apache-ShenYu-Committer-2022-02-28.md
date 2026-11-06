@@ -4,13 +4,15 @@ author: "Haibo Duan"
 description: "The Open Source Path for Tech Veterans"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
-date: 2021-02-28
+date: 2022-02-28
 slug: Apache-ShenYu-Committer-2022-02-28
 ---
 
 ### Self Introduction:
 
 Hello everyone, my name is Duan Haibo, my github account is [haibo-duan](https://github.com/haibo-duan). It is my honor to be invited by the Apache ShenYu community as the Committer. Here, I would like to share with you my growth and advice from participating in the Apache ShenYu community.
+
+<!-- truncate -->
 
 ### Getting to know Apache ShenYu
 

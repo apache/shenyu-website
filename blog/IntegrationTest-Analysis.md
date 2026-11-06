@@ -5,9 +5,12 @@ author_title: Apache ShenYu Committer
 author_url: https://github.com/JooKS-me
 author_image_url: https://avatars1.githubusercontent.com/u/62384022?v=4
 tags: [Integration Test, Apache ShenYu]
+date: 2022-01-27
 ---
 
 This article will provide an in-depth analysis of Apache ShenYu's integration tests.
+
+<!-- truncate -->
 
 ### What are integration tests?
 

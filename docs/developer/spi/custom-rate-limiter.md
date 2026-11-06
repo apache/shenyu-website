@@ -61,7 +61,7 @@ public class ${you class} implements RateLimiterAlgorithm<T> {
 }
 ```
 
-* In the project  `resources` directory，Create a new `META-INF/shenyu` directory， and the new file name is : `org.apache.shenyu.plugin.ratelimiter.algorithm.RateLimiterAlgorithm`.
+* In the project  `resources` directory,Create a new `META-INF/shenyu` directory, and the new file name is : `org.apache.shenyu.plugin.ratelimiter.algorithm.RateLimiterAlgorithm`.
 add `${you spi name}` = `${you class path}`:
 
 ```
@@ -74,7 +74,7 @@ ${you spi name} = ${you class path}
 
 <img src="/img/shenyu/custom/custom-rate-limiter-en.jpg" width="40%" height="30%" />
 
-* Or execute the following custom `SQL` statement：
+* Or execute the following custom `SQL` statement:
 
 ```sql
 INSERT IGNORE INTO `shenyu_dict` (

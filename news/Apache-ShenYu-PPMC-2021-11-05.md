@@ -16,6 +16,8 @@ slug: Apache-ShenYu-PPMC-2021-11-05
 
 - Email: midnight2104@apache.org
 
+<!-- truncate -->
+
 ### Community Contribution
 
 - Deeply involved in the development of `Apache ShenYu` plug-in system (`GRPC` plugin, etc.).

@@ -64,7 +64,7 @@ description: modifyResponse插件
 
 ## 2.5 示例
 
-客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http)，注意该示例项目的`contextPath`为`/http`，需要在`shenyu-admin`和`shenyu-gateway`启动完成后启动。
+客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http)，注意该示例项目的`contextPath`为`/http`，需要在`shenyu-admin`和`shenyu-gateway`启动完成后启动。
 
 ### 2.5.1 示例 设置HTTP响应状态码
 

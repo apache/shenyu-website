@@ -9,7 +9,7 @@ This article focuses on the `admin` console to manage `admin` operation permissi
 
 ## Resource
 
-Add Menus and Buttons Resource in "System Manage >> Resouce".
+Add Menus and Buttons Resource in "System Manage >> Resource".
 
 <img src="/img/shenyu/basicConfig/roleManagement/resource-dashboard-en.png" width="80%" height="50%" />
 

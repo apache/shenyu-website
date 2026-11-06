@@ -3,9 +3,12 @@ title: "PredicateJudge -- analyze the design based on SPI"
 author: Huihui Yin
 author_title: Apache ShenYu Contributor
 tags: ["SPI","Apache ShenYu"]
+date: 2021-09-08
 ---
 
 **Apache Shenyu** has been identified as a gateway application which supports a variety of protocols and  microservice frameworks such as  Dubbo, gRPC, Spring-Cloud, etc.  To do this, the product has accomplished an elegant `SPI` (Service Provider Interface) as its foundation, and make the  Rule data parsing and predicting program very simple , resiliency and security. As to rule data parsing processing,  the `SPI` design increases the product's scalability. When appending new plugin, in most cases, the   existing module is enough for rule data parsing , otherwise it can be rapidly carry out with tiny effort. 
+
+<!-- truncate -->
 
 
 ## Top level design of SPI

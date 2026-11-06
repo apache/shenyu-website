@@ -54,3 +54,11 @@ In [the openGuass initialization scripts directory](https://github.com/apache/sh
 
   * maven repository: https://mvnrepository.com/artifact/org.opengauss/opengauss-jdbc/5.0.0-og
   * homepage:  https://gitee.com/opengauss/openGauss-connector-jdbc
+
+## Deployment Security Checklist
+
+Before deploying Apache ShenYu in production, verify the following Admin-plane network controls:
+
+- [ ] Restrict the ShenYu Admin listening port to trusted internal networks and authorized operators or Gateway nodes by using firewall rules, security groups, Kubernetes `NetworkPolicy`, or equivalent controls.
+- [ ] Do not expose the Admin `/websocket` endpoint to public or otherwise untrusted networks. The endpoint is unauthenticated by design because it is used for data synchronization between ShenYu Admin and Gateway nodes, so it must be protected by network-level access controls.
+- [ ] Expose the Gateway data plane separately, and do not publish the Admin plane through a public load balancer or Ingress.

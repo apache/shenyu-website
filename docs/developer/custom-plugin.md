@@ -10,7 +10,7 @@ description: plugins
 * There are two kinds of plugins in the `Apache ShenYu` gateway.
   * The first type is a chain with single responsibility, and can not custom filtering of traffic.
   * The other one can do its own chain of responsibility for matched traffic.
-* You could reference from [shenyu-plugin](https://github.com/apache/shenyu/tree/master/shenyu-plugin) module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
+* You could reference from [shenyu-plugin](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-plugin) module and develop plugins by yourself. Please fire pull requests of your wonderful plugins without hesitate.
 
 ## Single Responsibility Plugins
 
@@ -89,7 +89,7 @@ Detailed instruction of interface methods:
 
 ## Single Responsibility Plugin in Multiple Languages
 
-* The above is about writing a single responsibility plugin in Java. If you want to write plugins in another language, at least the language you are good at supporting `WASM`, you can find resources [here](https://shenyu.apache.org/docs/next/design/wasm-plugin-design/) . After you have learned about `WASM`, let's introduce the following dependency to build the Java part of the plugin:
+* The above is about writing a single responsibility plugin in Java. If you want to write plugins in another language, at least the language you are good at supporting `WASM`, you can find resources [here](https://shenyu.apache.org/docs/design/wasm-plugin-design/) . After you have learned about `WASM`, let's introduce the following dependency to build the Java part of the plugin:
 
 ```xml
 <dependency>
@@ -214,13 +214,13 @@ edition = "2021"
 crate-type = ["cdylib"]
 ```
 
-* Generate the wasm file：
+* Generate the wasm file:
 
 ```shell
 cargo build --target wasm32-wasi --release
 ```
 
-* You will see `{shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main/{your_plugin_name}/target/wasm32-wasi/release/{your_plugin_name}.wasm`, then rename it, due to the `x.y.z.MyShenyuWasmPlugin`，the final wasm file name should be `x.y.z.MyShenyuWasmPlugin.wasm`, finally, put the wasm file in the `resources` folder of your plugin module.
+* You will see `{shenyu}/shenyu-plugin/{your_plugin_moodule}/src/main/{your_plugin_name}/target/wasm32-wasi/release/{your_plugin_name}.wasm`, then rename it, due to the `x.y.z.MyShenyuWasmPlugin`,the final wasm file name should be `x.y.z.MyShenyuWasmPlugin.wasm`, finally, put the wasm file in the `resources` folder of your plugin module.
 
 ## Matching Traffic Processing Plugin
 
@@ -339,7 +339,7 @@ public class CustomPlugin extends AbstractShenyuPlugin {
 
 ## Matching Traffic Processing Plugin in Multiple Languages
 
-* The general logic is similar to [Single Responsibility Plugin in Multiple Languages](#Single Responsibility Plugin in Multiple Languages) , but the dependency in Java and the methods that need to be added in other languages are different from `Single Responsibility Plugin in Multiple Languages`. The following are the dependency required for the Java part of the `Multi Language Matching Traffic Processing Plugin`:
+* The general logic is similar to [Single Responsibility Plugin in Multiple Languages](#single-responsibility-plugin-in-multiple-languages) , but the dependency in Java and the methods that need to be added in other languages are different from `Single Responsibility Plugin in Multiple Languages`. The following are the dependency required for the Java part of the `Multi Language Matching Traffic Processing Plugin`:
 
 ```xml
 <dependency>
@@ -451,7 +451,7 @@ public PluginDataHandler pluginDataHandler() {
 
 * When using this feature, the above extensions `ShenyuPlugin`, `PluginDataHandler`, do not need to be `spring bean`. You just need to build the jar package of the extension project.
 
-* Config in Yaml：
+* Config in Yaml:
 
 ```yaml
 shenyu:
@@ -467,9 +467,9 @@ shenyu:
 
 * This path is for the directory where the extended plugin jar package is stored。
 
-* Used `-Dplugin-ext=xxxx`, Also used `shenyu.extPlugin.path` in yaml，If neither is configured, the `ext-lib` directory in the apache shenyu gateway boot path will be loaded by default.
+* Used `-Dplugin-ext=xxxx`, Also used `shenyu.extPlugin.path` in yaml, If neither is configured, the `ext-lib` directory in the apache shenyu gateway boot path will be loaded by default.
 
-* Priority ：`shenyu.extPlugin.path` > `-Dplugin-ext=xxxx` > `ext-lib(default)`
+* Priority:`shenyu.extPlugin.path` > `-Dplugin-ext=xxxx` > `ext-lib(default)`
 
 
 ## Plugin jar upload

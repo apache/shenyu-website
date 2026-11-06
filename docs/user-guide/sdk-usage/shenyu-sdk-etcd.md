@@ -46,7 +46,7 @@ shenyu:
       
 # registerType: service registration type, fill in etcd.
 # serverList: Enter the etcd address(es), separated by commas in English.
-# appName：Your application name. If not configured, the default value will be taken from spring.application.name.
+# appName:Your application name. If not configured, the default value will be taken from spring.application.name.
 # port: Your project's startup port, currently springmvc/tars/grpc needs to be filled in.
 
 # for detailed reference, please see the `user-guide> Property Config> Register Center Instance Config` configuration document.
@@ -65,13 +65,13 @@ In the `pom.xml` file of the application client, introduce the following depende
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-sdk-core</artifactId>
-        <version>2.5.1-SNAPSHOT</version>
+        <version>2.7.1</version>
     </dependency>
 
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sdk</artifactId>
-        <version>2.5.1-SNAPSHOT</version>
+        <version>2.7.1</version>
     </dependency>
 </dependencies>
 ```
@@ -85,7 +85,7 @@ In the `pom.xml` file of the application client, introduce the following depende
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-sdk-httpclient</artifactId>
-    <version>2.5.1-SNAPSHOT</version>
+    <version>2.7.1</version>
 </dependency>
 
 <!-- okhttp -->
@@ -93,7 +93,7 @@ In the `pom.xml` file of the application client, introduce the following depende
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-sdk-okhttp</artifactId>
-    <version>2.5.1-SNAPSHOT</version>
+    <version>2.7.1</version>
 </dependency>
 -->
 ```
@@ -181,4 +181,4 @@ public interface ShenyuHttpClientApi {
 }
 ```
 
-For more information, refer to the sample project [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sdk)
+For more information, refer to the sample project [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sdk)

@@ -81,7 +81,7 @@ You can search for the tcp plugin in `shenyu-admin` --> BasicConfig --> PluginHa
 
 ## 2.3 Configure service discovery
 
-`discovery` see  [discovery-mode](../discovery/discovery-mode.md)
+`discovery` see [discovery-mode](../../user-guide/discovery/discovery-mode.md)
 
 The TCP plugin supports two levels of discovery configuration: plugin-level and selector-level:
 
@@ -101,7 +101,7 @@ Discovery `Zookeeper` and `Local` modes are currently supported.
 ### 2.3.1 Zookeeper Mode
 
 
-- When the type of service Discovery is Zookeeper, you need to fill out the Discovery-ZooKeeper configuration training for details [discovery-mode](../discovery/discovery-mode.md)
+- When the type of service Discovery is Zookeeper, you need to fill out the Discovery-ZooKeeper configuration. For details, see [discovery-mode](../../user-guide/discovery/discovery-mode.md)
 
 - In zookeeper mode, the discovery module will automatically monitor the user's zookeeper registration center 
 and automatically maintain discovery upstreams:
@@ -140,7 +140,7 @@ When the mouse hovers over the cards, the creation time, update time and propert
 you can click the "Sync" icon to force synchronization to the gateway.
 
 
-## 2.5 Shenyu log
+## 2.5 ShenYu log
 
 - shenyu-gateway port start log
 ![gateway_start_port_log.png](/img/shenyu/plugin/tcp/gateway_start_port_log.png)
@@ -153,4 +153,3 @@ you can click the "Sync" icon to force synchronization to the gateway.
 Take proxying redis as an example, use `redis-cli -p {forwardPort}` to access.
 
 ![connection.png](/img/shenyu/plugin/tcp/redis_connection.png)
-

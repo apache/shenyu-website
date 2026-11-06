@@ -18,10 +18,10 @@ description:  grpc-plugin
 
 * New fields and meanings of grpc plugin since `2.4.3`:
 
-  * `threadpool`：There are two types of business thread pools, `cached` and `shared`. 
-    
-    `cached` is equivalent to the default thread pool officially provided by grpc; 
-    
+  * `threadpool`:There are two types of business thread pools, `cached` and `shared`.
+
+    `cached` is equivalent to the default thread pool officially provided by grpc;
+
     `shared` thread pool, just as its name, `all proxy plugins` share a `shared` `Thread pool, the advantage of doing this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization.
 
 
@@ -39,15 +39,15 @@ After the client accesses the `Apache ShenYu` gateway, it will automatically reg
 Selector Handler, the `handle` field, is the processing operation that the gateway can perform after matching the traffic.
 
 
-* config details：
+* config details:
 
-  * `ip:port`：enter the ip:port of your real service .
+  * `ip:port`:enter the ip:port of your real service .
 
-  * `protocol`：indicates the Http protocol. Generally, the value is `http://` or `https://`. If the value is not specified, the default value is `http://` .
+  * `protocol`:indicates the Http protocol. Generally, the value is `http://` or `https://`. If the value is not specified, the default value is `http://` .
 
-  * `weight`：service weight.
+  * `weight`:service weight.
 
-  * `status`：open or close.
+  * `status`:open or close.
 
 
 ## Metadata
@@ -78,4 +78,4 @@ Each `grpc` interface method, will correspond to a metadata, when the `grpc` app
 
 * Interface: The fully qualified class name of the `grpc` interface.
 
-* RpcType：choose `grpc`.
+* RpcType:choose `grpc`.

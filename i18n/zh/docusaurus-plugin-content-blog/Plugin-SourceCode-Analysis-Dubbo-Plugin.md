@@ -4,9 +4,12 @@ author: midnight2104
 author_title: Apache ShenYu Committer
 author_url: https://github.com/midnight2104
 tags: [plugin,dubbo,Apache ShenYu]
+date: 2022-05-26
 ---
 
 > [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) 是一个异步的，高性能的，跨语言的，响应式的 `API` 网关。
+
+<!-- truncate -->
 
 `Apache ShenYu` 网关使用 `dubbo` 插件完成对 `dubbo`服务的调用。你可以查看官方文档 [Dubbo快速开始](https://shenyu.apache.org/docs/quick-start/quick-start-dubbo) 了解如何使用该插件。
 

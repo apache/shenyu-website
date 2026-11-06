@@ -69,7 +69,7 @@ description: JWT plugin
 * jwtVal: jwt of body name
 * headerVal: jwt header name
 
-custom covert algorithm：[custom-jwt-covert-algorithm](../../developer/custom-jwt-covert-algorithm.md)
+custom covert algorithm:[custom-jwt-covert-algorithm](../../developer/custom-jwt-covert-algorithm.md)
 
 ## 2.5 Examples
 

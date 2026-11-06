@@ -14,6 +14,8 @@ slug: Apache-ShenYu-GSOC2023-2023-04-18
 
 Shenyu is a native API gateway for service proxy, protocol translation and API governance. but Shenyu lack of End-To-End Tests.
 
+<!-- truncate -->
+
 Relevant skills：
 * Understand the architecture of ShenYu
 * Understand SpringCloud micro-service and ShenYu SpringCloud proxy plugin.

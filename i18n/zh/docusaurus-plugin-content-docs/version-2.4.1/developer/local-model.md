@@ -34,9 +34,9 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**PluginData**|[PluginData](#PluginData)|True| |插件对象（Body里面传Json对象）|
+|**PluginData**|[PluginData](#plugin-data)|True| |插件对象（Body里面传Json对象）|
 
-##### <div id="PluginData">PluginData</div>
+##### PluginData {#plugin-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
@@ -149,9 +149,9 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**SelectorData**|[SelectorData](#SelectorData)|True| |选择器对象（Body里面传Json对象）|
+|**SelectorData**|[SelectorData](#selector-data)|True| |选择器对象（Body里面传Json对象）|
 
-##### <div id="SelectorData">SelectorData</div>
+##### SelectorData {#selector-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
@@ -164,9 +164,9 @@ POST
 |**enabled**|Boolean|False| |是否开启，不填默认生成 true|
 |**logged**|Boolean|False| |是否打印日志，不填默认生成为false|
 |**handle**|String|False| |选择器处理（Json对象，根据每个插件不同，传的对象不同）|
-|**conditionList**|[Condition](#Condition)|False| |条件集合，自定义流量需要传，全流量不用传（Json List对象）|
+|**conditionList**|[Condition](#condition)|False| |条件集合，自定义流量需要传，全流量不用传（Json List对象）|
 
-##### <div id="Condition">Condition</div>
+##### Condition {#condition}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
@@ -218,9 +218,9 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**SelectorRulesData**|[SelectorRulesData](#SelectorRulesData)|True| |选择器规则对象（Body里面传Json对象）|
+|**SelectorRulesData**|[SelectorRulesData](#selector-rules-data)|True| |选择器规则对象（Body里面传Json对象）|
 
-##### <div id="SelectorRulesData">SelectorRulesData</div>
+##### SelectorRulesData {#selector-rules-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
@@ -228,19 +228,19 @@ POST
 |**selectorName**|String|False| |选择器名称（不填则默认生成 plugin:selector+随机数字）|
 |**matchMode**|Integer|False| |匹配模式（0：and;1：or），不填默认生成 And模式|
 |**selectorHandler**|String|False| |选择器处理（Json对象，根据每个插件不同，传的对象不同）|
-|**conditionList**|[ConditionData](#ConditionData)|True| |选择器条件集合（Json List对象）|
-|**ruleDataList**|[RuleLocalData](#RuleLocalData)|True| |规则对象集合（Json List对象）|
+|**conditionList**|[ConditionData](#condition-data)|True| |选择器条件集合（Json List对象）|
+|**ruleDataList**|[RuleLocalData](#rule-local-data)|True| |规则对象集合（Json List对象）|
 
-##### <div id="RuleLocalData">RuleLocalData</div>
+##### RuleLocalData {#rule-local-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**ruleName**|String|False| |规则名称|
 |**ruleHandler**|String|True| |规则处理（不同的插件传不同的值）|
 |**matchMode**|Integer|False| |匹配模式（0：and;1：or)|
-|**conditionList**|[ConditionData](#ConditionData)|True| |规则条件集合（Json List对象）|
+|**conditionList**|[ConditionData](#condition-data)|True| |规则条件集合（Json List对象）|
 
-##### <div id="ConditionData">ConditionData</div>
+##### ConditionData {#condition-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
@@ -334,9 +334,9 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**RuleData**|[RuleData](#RuleData)|True| |规则对象（Body里面传Json对象）|
+|**RuleData**|[RuleData](#rule-data)|True| |规则对象（Body里面传Json对象）|
 
-##### <div id="RuleData">RuleData</div>
+##### RuleData {#rule-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
@@ -349,7 +349,7 @@ POST
 |**enabled**|Boolean|False| |是否开启，不填默认生成 true|
 |**logged**|Boolean|False| |是否打印日志，不填默认生成为false|
 |**handle**|String|False| |规则处理（Json对象，根据每个插件不同，传的对象不同）|
-|**conditionList**|[ConditionData](#ConditionData)|False| |条件集合（Json List对象）|
+|**conditionList**|[ConditionData](#condition-data)|False| |条件集合（Json List对象）|
 
 ##### <div id="conditionList">conditionList</div>
 
@@ -441,9 +441,9 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**MetaData**|[MetaData](#MetaData)|True| |元数据对象（Body里面传Json对象）|
+|**MetaData**|[MetaData](#meta-data)|True| |元数据对象（Body里面传Json对象）|
 
-##### <div id="MetaData">MetaData</div>
+##### MetaData {#meta-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
@@ -495,9 +495,9 @@ POST
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
-|**AppAuthData**|[AppAuthData](#AppAuthData)|True| |签名对象（Body里面传Json对象）|
+|**AppAuthData**|[AppAuthData](#app-auth-data)|True| |签名对象（Body里面传Json对象）|
 
-##### <div id="AppAuthData">AppAuthData</div>
+##### AppAuthData {#app-auth-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
@@ -505,17 +505,17 @@ POST
 |**appSecret**|String|True| |app secret|
 |**enabled**|Boolean|False| |是否开启|
 |**open**|Boolean|False| |是否是开放平台|
-|**paramDataList**|[AuthParamData](#AuthParamData)|false| |参数集合，open为true时候需要传（Json list对象）|
-|**AuthPathData**|[AuthPathData](#AuthPathData)|false| |路径集合，open为true时候需要传（Json list对象）|
+|**paramDataList**|[AuthParamData](#auth-param-data)|false| |参数集合，open为true时候需要传（Json list对象）|
+|**AuthPathData**|[AuthPathData](#auth-path-data)|false| |路径集合，open为true时候需要传（Json list对象）|
 
-##### <div id="AuthParamData">AuthParamData</div>
+##### AuthParamData {#auth-param-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|
 |**appName**|String|True| |应用名称|
 |**appParam**|String|True| |应用参数|
 
-##### <div id="AuthPathData">AuthPathData</div>
+##### AuthPathData {#auth-path-data}
 
 |名称|类型|是否必需|默认值|描述|
 |---|---|---|---|---|

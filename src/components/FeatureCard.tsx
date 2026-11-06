@@ -8,7 +8,7 @@ type FeatureCardProps = {
 };
 const FeatureCard = ({ title, subtitle, image }: FeatureCardProps): React.ReactElement => (
   <div className={styles.featureCard}>
-    <img loading="lazy" src={image} alt="Feature Logo" />
+    <img loading="lazy" src={image} alt={title} />
     <div>
       <h3>{title}</h3>
       <p>{subtitle}</p>

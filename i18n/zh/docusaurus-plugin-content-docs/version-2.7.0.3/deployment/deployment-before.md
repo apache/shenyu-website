@@ -54,3 +54,11 @@ description: 部署先决条件
 
   * maven repository: https://mvnrepository.com/artifact/org.opengauss/opengauss-jdbc/5.0.0-og
   * homepage:  https://gitee.com/opengauss/openGauss-connector-jdbc
+
+## 部署安全检查清单
+
+在生产环境部署 Apache ShenYu 前，请确认管理平面已采取以下网络安全措施：
+
+- [ ] 通过防火墙规则、安全组、Kubernetes `NetworkPolicy` 或同等措施，将 ShenYu Admin 监听端口限制在可信内部网络，并仅允许授权运维人员或 Gateway 节点访问。
+- [ ] 不要将 Admin 的 `/websocket` 端点暴露到公网或其他不可信网络。该端点用于 ShenYu Admin 与 Gateway 节点之间的数据同步，因此按设计不进行身份认证，必须依靠网络层访问控制进行保护。
+- [ ] 将 Gateway 数据平面与 Admin 管理平面分开暴露，不要通过公网负载均衡器或 Ingress 发布 Admin 管理平面。

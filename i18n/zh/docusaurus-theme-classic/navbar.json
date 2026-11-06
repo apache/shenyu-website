@@ -66,5 +66,11 @@
   "item.label.Thanks": {
     "message": "致谢",
     "description": "Navbar item with label Thanks"
+  },
+  "item.label.Resources": {
+    "message": "资源"
+  },
+  "item.label.Contribute": {
+    "message": "参与贡献"
   }
 }

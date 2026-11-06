@@ -14,6 +14,8 @@ slug: Apache-ShenYu-Committer-2024-08-14
 - **GitHub**: [VampireAchao](https://github.com/VampireAchao)
 - **Email**: [achao@apache.org](mailto:achao@apache.org)
 
+<!-- truncate -->
+
 ### First Encounter with Apache ShenYu Gateway
 
 When I first came into contact with Apache ShenYu, I was involved in development work with the Dromara community. At that time, Yu Xiao (the founder and VP of Apache ShenYu) initiated a frontend development request within the community. Since I was familiar with the React technology used by ShenYu, I decided to join the contributors. Although I was not a direct user of ShenYu, contributing my frontend skills to the community felt like a very natural choice.

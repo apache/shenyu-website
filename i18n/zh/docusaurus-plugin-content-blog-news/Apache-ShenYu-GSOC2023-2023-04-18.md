@@ -1,5 +1,5 @@
 ---
-title: "[Google Summer of Code & Apache ShenYu task is coming | Invite you to explore the high performance gateway]"
+title: "【Google Summer of Code 与 Apache ShenYu 课题来袭｜邀您探索高性能网关】"
 author: "moremind"
 description: "Apache ShenYu GSOC 2023"
 categories: "GSOC 2023"
@@ -13,6 +13,8 @@ slug: Apache-ShenYu-GSOC2023-2023-04-18
 ### Description
 
 Shenyu is a native API gateway for service proxy, protocol translation and API governance. but Shenyu lack of End-To-End Tests.
+
+<!-- truncate -->
 
 Relevant skills：
 * Understand the architecture of ShenYu

@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2022-07-04
 
 Hello everyone, my name is [Renzhu Yan](https://github.com/renzhuyan) , currently engaged in Java/big data business development in Shenzhen Qianhai WeBank Co., Ltd. I am honored to be invited to be a Committer of Apache ShenYu community. As a business developer, I usually focus on business and then write CRUD, while participating in the open source of Apache ShenYu community gives me a different experience. More attention is paid to the code itself,  consider how to support various protocols, plug-in extensions, data synchronization, and more.  I would like to share with you my growth and suggestions during my participation in the Apache ShenYu community.
 
+<!-- truncate -->
+
 ### Meet the Apache Shenyu community for the first time
 
 The story timeline has to go back to the end of 2020. At that time, in order to allow us to grow better, the department signed us up for the JAVA advanced training camp of Geek Time, that is, in this training camp, we were fortunate enough to get to know Mr. Cat. Under the leadership of Mr. Mao's source code reading activity, I first came into contact with Apache Shenyu, which was not yet in the Apache incubator, and was also called Soul (hereinafter referred to as Apache Shenyu). The activity of reading the source code of Apache Shenyu lasted for three weeks in total. During the three weeks, we read the source code and blogged every day, from setting up the environment to running the example project, to reading the source code of the plug-in chain and data synchronization. Also have a certain understanding.

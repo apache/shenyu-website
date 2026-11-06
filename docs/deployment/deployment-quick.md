@@ -7,15 +7,15 @@ description: Local Quick Deployment
 
 This article introduces how to quickly start the `Apache ShenYu` gateway in the standalone environment.
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying ShenYu according to the [Deployment Prerequisites document](./deployment-before.md).
 
 ### Environmental preparation
 
-* Install JDK1.8+ locally
+* Install JDK17+ locally
 
 ### Start Apache ShenYu Bootstrap
 
-* download [apache-shenyu-$\{current.version}-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.6.0/apache-shenyu-2.6.0-bootstrap-bin.tar.gz)
+* download [apache-shenyu-2.7.1-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-bootstrap-bin.tar.gz)
 
 * unzip `apache-shenyu-$\{current.version}-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 
@@ -29,7 +29,7 @@ This article introduces how to quickly start the `Apache ShenYu` gateway in the 
 
 please refer to [Developer Local Model](../developer/local-model#add-selector-and-rules) add the selector and rule.
 
-example：
+example:
 
 * your service address is`http://127.0.0.1:8080/helloworld` and the response like follow:
 
@@ -46,7 +46,7 @@ example：
 
 > Add `localKey: 123456` to Headers. If you need to customize the localKey, you can use the sha512 tool to generate the key based on plaintext and update the `shenyu.local.sha512Key` property.
 >
-> `POST` method，address`http://localhost:9195/shenyu/plugin/selectorAndRules`, body use `raw json` content：
+> `POST` method, address`http://localhost:9195/shenyu/plugin/selectorAndRules`, body use `raw json` content:
 
 ```
 Headers

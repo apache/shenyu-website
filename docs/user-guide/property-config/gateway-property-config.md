@@ -404,7 +404,7 @@ File filter properties.
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | enabled | Boolean |  false  |    No    | enable file size filtering |
-| maxSize | Integer |  10  |    No    | upload file maxSize （MB） |
+| maxSize | Integer |  10  |    No    | upload file maxSize (MB) |
 
 
 - `shenyu.cross` config
@@ -454,7 +454,7 @@ Configuration related to service health status.
 | Name    | Type    |                 Default                  | Required | Description                             |
 | :------ | :------ |:----------------------------------------:| :------: | :-------------------------------------- |
 | enabled | Boolean |                  false                   |    No    | Whether to turn on health detection.    |
-| paths   | Array   | `"/actuator/health"` 、`"/health_check"`  |    No    | Set up service health monitoring paths. |
+| paths   | Array   | `"/actuator/health"` ,`"/health_check"`  |    No    | Set up service health monitoring paths. |
 
 - `shenyu.local` config
 
@@ -597,7 +597,7 @@ The apache shenyu polling interval configuration.
 
 ##### shenyu.metrics config
 
-The apache shenyu metrics config，the gateway is used to monitor its own operational status.
+The apache shenyu metrics config,the gateway is used to monitor its own operational status.
 
 | Name      |             |  Type   | Default | Required | Description                                                  |
 | :-------- | :---------- | :-----: | :-----: | :------- | ------------------------------------------------------------ |

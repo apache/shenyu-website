@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2024-04-08
 
 大家好，我是张乐，github-id: [kerwin612](https://github.com/kerwin612)，非常感谢Apache ShenYu社区对我的认可，让我有幸成为这个杰出开源项目的Committer。在此，我想与大家分享我参与Apache ShenYu项目的经历，以及我从中获得的成长和一些建议。
 
+<!-- truncate -->
+
 ### 初识Apache ShenYu
 
 与Apache ShenYu的缘分始于我在公司网关技术选型时的探索。当时，我了解到Apache ShenYu这一项目，它不仅拥有高性能、多协议、易扩展的特性，还提供了丰富的开箱即用的插件，让我对其产生了浓厚的兴趣。于是，我决定深入探索，并在本地环境中成功运行了ShenYu的dev版本。

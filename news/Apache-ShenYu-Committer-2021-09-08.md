@@ -13,6 +13,8 @@ cover: "/img/committers/tangzhen.jpg"
 
   Hello everyone, my name is Tang Zhen. I am currently working in Dmall(Chengdu)E-commerce Co.,Ltd, and I focus on distributed task scheduling and messaging engine. I am very honored to receive an invitation from the Apache ShenYu community to become the Committer of Apache ShenYu. Let me share with you my growth and suggestions during the time I participated in the Apache ShenYu community.
 
+<!-- truncate -->
+
 ### Getting to know the Apache Shenyu community for the first time
 
   At the beginning of this year, I learned about the Apache ShenYu gateway during the research of the API gateway (hereafter referred to as Apache ShenYu (incubating) by ShenYu). ShenYu has high-performance, multi-protocol, easy to expand, and reactive features, and has provided a variety of plug-ins, out-of-the-box, very potential, I try to learn it.

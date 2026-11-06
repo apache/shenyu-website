@@ -3,7 +3,7 @@ title: gRPC快速开始
 description: gRPC快速开始
 ---
 
-本文档演示如何将`gRPC`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-grpc) 。
+本文档演示如何将`gRPC`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-grpc) 。
 
 ## 环境准备
 
@@ -31,7 +31,7 @@ description: gRPC快速开始
 
 ## 运行 shenyu-examples-grpc 项目
 
-下载 [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)
+下载 [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-grpc)
 
 在 `shenyu-examples-grpc` 下执行以下命令生成 `java` 代码:
 
@@ -41,7 +41,7 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 ```
 
 或者，如果你是通过 `IntelliJ IDEA` 打开 `Apache ShenYu` 工程，首先在`maven root`下`install`整个项目
-<img src="/img/shenyu/quick-start/grpc/gen-install.png" width="40%" height="50%" />
+<img src="/img/shenyu/quick-start/grpc/grpc-install.png" width="40%" height="50%" />
 然后在 `Maven` 工具栏中选中 `protobuf:compile` 和 `protobuf:compile-custom`，然后右键 `Run Maven Build` 一键生成 `proto` 文件对应的 `java`代码。
 <img src="/img/shenyu/quick-start/grpc/gen-proto.png" width="40%" height="50%" />
 然后让`idea`识别生成的`target`文件夹

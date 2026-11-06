@@ -48,7 +48,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Motan service access gateway
 
-Please refer to: [shenyu-examples-motan](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-motan)
+Please refer to: [shenyu-examples-motan](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-motan)
 
 1. In the microservice built by `Motan`, add the following dependencies:
 

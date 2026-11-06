@@ -12,6 +12,8 @@ date: 2026-01-07
 >
 > Therefore, I searched again on the OSPP platform for a community that resonated with me, and unexpectedly I discovered the Shenyu community there. I was deeply interested in Shenyu, and to my surprise, I found many of the big contributors I had seen in the Dromara community were also actively contributing to Shenyu. This coincidence sparked a strong interest in the Shenyu community. It was this wonderful fate that led me to step into the vibrant Shenyu open source community for the first time and started my own open source journey.
 
+<!-- truncate -->
+
 ## From Theory to Practice: Taking the First Step into Open Source
 
 With the guidance and support of many community mentors, I successfully submitted my first PR. After going through rigorous CI checks, it was finally merged. At that moment, I truly felt a profound sense of accomplishment. I continuously delved into Shenyu’s code architecture, asynchronous programming, synchronization mechanisms, and plugin chain design, while steadily contributing code. Participating in open source gradually became a natural choice for me and no longer felt difficult. I deeply relate to a senior from my school who once said, “Open source is all around us.”

@@ -1,13 +1,17 @@
 ---
 title: McpServer 插件源码分析
+description: 从服务注册、会话管理到 SSE 通信，深入解析 ShenYu MCP Server 插件如何将服务转化为可调用的工具。
 author: yusiheng
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/478320
 tags: [plugin,mcp,Apache ShenYu]
+date: 2025-10-18
 ---
 
 在 shenyu 网关中，启动该插件，shenyu 将成为一个功能丰富的 mcpServer,
 你可以通过简单配置来将一个服务作为 tool 注册到 shenyu 网关中，并使用网关提供的扩展功能。
+
+<!-- truncate -->
 
 > 本文基于`shenyu-2.7.0.2`版本进行源码分析， 在本篇中我将追踪 Shenyu Mcp 插件链路，对 Mcp 插件的 sse 通信方式进行源码分析
 

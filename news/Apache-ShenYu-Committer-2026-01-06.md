@@ -14,6 +14,8 @@ slug: Apache-ShenYu-Committer-2026-01-06
 
 Hello everyone, I'm Musheng (shown), currently a Go/Java development engineer. I'm very excited to receive the invitation to become a Committer of the Apache ShenYu project. It's an honor to officially join as an Apache ShenYu Committer and contribute to the project's growth.
 
+<!-- truncate -->
+
 I've always been passionate about open source communities and am also a Committer for Apache Hertzbeat and a PMC member of the Spring AI Alibaba project.
 
 ## My Journey with Apache ShenYu

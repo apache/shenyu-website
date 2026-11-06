@@ -4,13 +4,15 @@ author: "段海波"
 description: "The Open Source Path for Tech Veterans"
 categories: "Apache ShenYu Committers"
 tags: ["Apache ShenYu"]
-date: 2021-02-28
+date: 2022-02-28
 slug: Apache-ShenYu-Committer-2022-02-28
 ---
 
 ### 个人介绍
 
 大家好，我是段海波，github账号[haibo-duan](https://github.com/haibo-duan),非常荣幸收到Apache ShenYu社区的邀请成为Apache ShenYu的Committer，下面跟大家分享一下我参与Apache ShenYu社区这段时间的成长和建议。
+
+<!-- truncate -->
 
 ### 初识Apache ShenYu
 

@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2022-07-04
 
 大家好，我是[鄢仁柱](https://github.com/renzhuyan) ，目前在微众银行做java/大数据业务开发。非常荣幸受邀成为Apache ShenYu社区的Committer，作为一名业务开发人员，平常关注点更多是在业务上，然后去写CRUD，而参与Apache Shenyu社区开源，让我有别样体验，更多关注点是放在代码本身，考虑如何支持各种协议、插件拓展、数据同步等。下面跟大家分享一下我参与Apache ShenYu社区这段时间的成长和建议。
 
+<!-- truncate -->
+
 ### 初识Apache Shenyu社区
 
 故事时间线还得回到2020年底开始说起，当时部门为了让我们能更好的成长，给我们报名了极客时间的JAVA进阶训练营，也就是在这个训练营里有幸结识了猫大人，在猫大人读源码活动的带领下，我第一次接触到了Apache Shenyu，当时还没进入Apache孵化器，还叫Soul（下面都称Apache Shenyu）。读Apache Shenyu源码活动，总共持续三周，在三周里我们每天读源码、写博客，从搭环境到跑示例工程，再到读插件链及数据同步等源码，收获巨大，对Apache Shenyu也有了一定的了解。

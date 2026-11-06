@@ -56,7 +56,7 @@ description: redirect plugin
 ## 2.4 Config plugin
 
   - Selector and rule config, please refer: [Selector and rule config](../../user-guide/admin-usage/selector-and-rule).
-  - In `shenyu-admin` --> `PluginList` --> `HttpProcess` --> `Redirect`, add selector config first，then add rule config：
+  - In `shenyu-admin` --> `PluginList` --> `HttpProcess` --> `Redirect`, add selector config first,then add rule config:
     - Add selector config
 
       <img src="/img/shenyu/plugin/redirect/redirect-plugin-forward-rule-en.png" width="80%" height="60%" />

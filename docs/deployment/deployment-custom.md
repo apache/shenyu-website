@@ -7,7 +7,7 @@ description: Custom Deployment
 
 This article describes how to build your own gateway based on `Apache ShenYu`.
 
-> Before you read this document, you need to complete some preparations before deploying Shenyu according to the [Deployment Prerequisites document](./deployment-before.md).
+> Before you read this document, you need to complete some preparations before deploying ShenYu according to the [Deployment Prerequisites document](./deployment-before.md).
 
 ### Start Apache ShenYu Admin
 
@@ -36,17 +36,17 @@ This article describes how to build your own gateway based on `Apache ShenYu`.
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
-        <version>${current.version}</version>
+        <version>2.7.1</version>
    </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>${current.version}</version>
+        <version>2.7.1</version>
    </dependency>
 </dependencies>
 ```
 
-among them, `${project.version}` please use the current latest version.
+among them, use the current latest version for the ShenYu dependencies.
 
 * add the following configuration to your `application.yaml` file:
 

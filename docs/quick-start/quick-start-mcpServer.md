@@ -3,7 +3,7 @@ title: Quick start with Mcp Server
 description: Quick start with Mcp Server
 ---
 
-This document introduces how to quickly access the Apache ShenYu gateway using McpServer . You can get the code example of this document by clicking [here](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-mcp).
+This document introduces how to quickly access the Apache ShenYu gateway using McpServer . You can get the code example of this document by clicking [here](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-mcp).
 
 ## Environment to prepare
 
@@ -46,7 +46,7 @@ To support `McpServer`, include the following dependencies in the gateway's `pom
 
 ## Running the shenyu-examples-mcp Project
 
-Download [shenyu-examples-mcp](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-mcp).
+Download [shenyu-examples-mcp](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-mcp).
 
 Execute the `org.apache.shenyu.examples.http.ShenyuTestHttpApplication` main method to start project.
 

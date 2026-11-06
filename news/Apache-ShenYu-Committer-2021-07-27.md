@@ -13,6 +13,8 @@ cover: "/img/committers/liuliang.jpg"
 
 Hello, everyone. My name is Liu Liang. I am working as a software development engineer in China Merchants Network Technology Co., LTD. It is my great honor to receive the invitation of Apache ShenYu community to become a Committer of Apache ShenYu. Now I would like to share with you my growth and suggestions during my participation in Apache ShenYu community.
 
+<!-- truncate -->
+
 
 ### Know Open Source
 

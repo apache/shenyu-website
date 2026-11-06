@@ -35,17 +35,17 @@ description: 自定义部署
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
-        <version>${current.version}</version>
+        <version>2.7.1</version>
     </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>${current.version}</version>
+        <version>2.7.1</version>
     </dependency>
 </dependencies>
 ```
 
-其中， `${project.version}` 请使用当前最新版本。
+其中，ShenYu 依赖请使用当前最新版本。
 
 * 在你的 `application.yaml` 文件中加上如下配置：
 
@@ -63,7 +63,6 @@ shenyu:
       urls: ws://localhost:9095/websocket  //设置成你的 shenyu-admin 地址
       allowOrigin: ws://localhost:9195
 ```
-
 
 
 

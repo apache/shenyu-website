@@ -193,7 +193,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 #### 2.6.1.2 插件配置
 
 - 打开插件，在 `shenyu-admin` --> 基础配置 --> 插件管理-> `sofa` ，设置为开启，并且根据需要调整注册中心配置。
-- 根据实际情况调整 [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-sofa) 项目中 application.yml 配置并启动。
+- 根据实际情况调整 [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa) 项目中 application.yml 配置并启动。
 
 #### 2.6.2.6 请求服务并且验证结果
 

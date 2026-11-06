@@ -4,10 +4,13 @@ author: midnight2104
 author_title: Apache ShenYu Committer
 author_url: https://github.com/midnight2104
 tags: [websocket,data sync,Apache ShenYu]
+date: 2021-09-14
 ---
 
 
 在`ShenYu`网关中，数据同步是指，当在后台管理系统中，数据发送了更新后，如何将更新的数据同步到网关中。`Apache ShenYu` 网关当前支持`ZooKeeper`、`WebSocket`、`Http长轮询`、`Nacos` 、`etcd` 和 `Consul` 进行数据同步。本文的主要内容是基于`WebSocket`的数据同步源码分析。
+
+<!-- truncate -->
 
 > 本文基于`shenyu-2.4.0`版本进行源码分析，官网的介绍请参考 [数据同步原理](https://shenyu.apache.org/zh/docs/design/data-sync) 。
 

@@ -10,7 +10,7 @@ description: Shenyu客户端注册API文档
 
 ## API文档暴露到网关
 
-可以参考[shenyu-examples](https://github.com/apache/shenyu/tree/master/shenyu-examples)下面任意一个example的代码。
+可以参考[shenyu-examples](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples)下面任意一个example的代码。
 
 唯一需要做的就是在你的服务中的新增`@ApiModule`和`@ApiDoc`注解，以下是`shenyu-examples-http`中的例子:
 

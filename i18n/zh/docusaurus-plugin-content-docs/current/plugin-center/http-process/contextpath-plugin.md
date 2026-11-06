@@ -75,7 +75,7 @@ description: contextPath插件
 
 #### 2.5.1.4 客户端项目配置 contextPath
 
-客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http)，并在 application.yml 中配置 contextPath。
+客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http)，并在 application.yml 中配置 contextPath。
 
 ![](/img/shenyu/plugin/context-path/client-project-config.png)
 
@@ -97,7 +97,7 @@ description: contextPath插件
 
 #### 2.5.2.4 客户端项目配置 contextPath
 
-客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http)，并在 application.yml 中配置 contextPath。
+客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http)，并在 application.yml 中配置 contextPath。
 
 ![](/img/shenyu/plugin/context-path/client-project-config.png)
 
@@ -127,7 +127,7 @@ description: contextPath插件
 
 #### 2.5.3.4 客户端项目启动
 
-客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-http)和 [shenyu-examples-https](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-https)。
+客户端项目可以直接使用 [shenyu-examples-http](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http)和 [shenyu-examples-https](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-https)。
 
 启动后，可以看到 shenyu-admin 中多了2条 context 的 selector 和 rule 配置。
 

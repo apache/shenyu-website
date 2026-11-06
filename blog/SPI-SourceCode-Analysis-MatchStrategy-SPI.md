@@ -3,9 +3,12 @@ title: "MatchStrategy  -- analyze the design based on SPI"
 author: "Huihui Yin"
 author_title: Apache ShenYu Contributor
 tags: ["SPI","Apache ShenYu"]
+date: 2021-09-14
 ---
 
 In most of the `plugins` ( such as `Dubbo`, `gRPC`,`Spring-cloud`, etc) of `Apache Shenyu`, the `routing`parameters are designed to support the combination of multiple conditions. In order to realize such requirements,  the parameters and behaviors are abstracted to three parts according to its `SPI` mechanism,  and implemented in ***shenyu-plugin-base***  module.
+
+<!-- truncate -->
 
 - `ParameterData`-parameters
 - `PredictJudge`-predicate

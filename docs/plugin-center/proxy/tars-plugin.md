@@ -94,12 +94,12 @@ public class HelloServantImpl implements HelloServant {
 
 ![plugin_config_en](/img/shenyu/plugin/tars/plugin_config_en.png)
 
-- `multiSelectorHandle`：Set to enable multiple selector processing, multiple selector processing services can be configured in the selector list.
-- `multiRuleHandle`：Set to multiple rules processing, configure multiple processing rules in the rule list, it is recommended to configure as single rule.
-- `threadpool`：There are five types of business thread pools: `fixed`, `eager`, `cached`, `limited` and `shared`. The first 4 types correspond to the thread pools officially provided by dubbo. Let's talk about `shared`, as its name implies, `all proxy plugins` share a `shared` thread pool, the advantage of this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization.
-- `corethreads`：The number of core threads in the business thread pool.
-- `threads`：The maximum number of threads in the business thread pool.
-- `queues`：The length of the blocking queue of the business thread pool, 0 means `unbounded blocking queue`.
+- `multiSelectorHandle`:Set to enable multiple selector processing, multiple selector processing services can be configured in the selector list.
+- `multiRuleHandle`:Set to multiple rules processing, configure multiple processing rules in the rule list, it is recommended to configure as single rule.
+- `threadpool`:There are five types of business thread pools: `fixed`, `eager`, `cached`, `limited` and `shared`. The first 4 types correspond to the thread pools officially provided by dubbo. Let's talk about `shared`, as its name implies, `all proxy plugins` share a `shared` thread pool, the advantage of this is that it can reduce the number of thread pools, thereby reducing memory and improving resource utilization.
+- `corethreads`:The number of core threads in the business thread pool.
+- `threads`:The maximum number of threads in the business thread pool.
+- `queues`:The length of the blocking queue of the business thread pool, 0 means `unbounded blocking queue`.
 
 ### 2.5.2 Selector config
 
@@ -135,15 +135,15 @@ Automatically configure the rules with the `@ShenyuTarsClient` annotation.
 
 - RpcExpand: other configurations of the `Tars` interface, which support the `JSON` format.
 
-  examples：`{"loadbalance":"hash","retries":3,"timeout":-1}`
+  examples:`{"loadbalance":"hash","retries":3,"timeout":-1}`
 
-  - `loadbalance`：Load balancing policy, currently supports roundRobin, random and hash.
-  - `retries`：Number of retries to call client timeout failures.
-  - `timeout`：Calling the client's timeout time.
+  - `loadbalance`:Load balancing policy, currently supports roundRobin, random and hash.
+  - `retries`:Number of retries to call client timeout failures.
+  - `timeout`:Calling the client's timeout time.
 
 - Interface: The fully qualified class name of the `Tars` interface.
 
-- RpcType：Auto-registration defaults to `Tars`.
+- RpcType:Auto-registration defaults to `Tars`.
 
 ## 2.6 Examples
 
@@ -152,12 +152,12 @@ Automatically configure the rules with the `@ShenyuTarsClient` annotation.
 #### 2.6.1.1 Preparation
 
 - Start `ShenYu Admin`.
-- Start `Shenyu Bootstrap`.
+- Start `ShenYu Bootstrap`.
 
 #### 2.6.1.2 Plugin Config
 
 - In shenyu-admin --> BasicConfig --> Plugin --> `tars` set Status enabled, And adjust the registry configuration as needed.
-- Adjust to the actual situation [shenyu-examples-tars](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-tars) application.yml configuration in the project and start it.
+- Adjust to the actual situation [shenyu-examples-tars](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-tars) application.yml configuration in the project and start it.
 
 #### 2.6.2.6 Request service and check result
 

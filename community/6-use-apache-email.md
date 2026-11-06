@@ -42,6 +42,10 @@ You should have an email from `root@apache.org` like this in your mailbox:
 
 ![](/img/email/add-apache-email.png)
 
+When adding the account, please check the SMTP server address.
+Apache’s SMTP server address is `mail-relay.apache.org`.
+Sometimes the default server address is not this address, so you need to change it manually.
+
 ## Apache email usage based on 163/126-email
 
 > When you become a committer, you will have an apache email. This tutorial uses apache email based on `126-email`.

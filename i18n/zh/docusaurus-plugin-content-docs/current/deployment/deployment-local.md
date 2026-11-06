@@ -11,7 +11,7 @@ description: 本地部署
 
 ### 环境准备
 
-* 本地正确安装JDK1.8+
+* 本地正确安装 JDK17+
 * 本地正确安装Git
 * 本地正确安装Maven
 * 选择一款开发工具，比如IDEA
@@ -39,7 +39,6 @@ mvn clean install '-Dmaven.javadoc.skip=true' '-B' '-Drat.skip=true' '-Djacoco.s
   * 如果使用`OpenGuass`来存储，需按照 [指引文档](./deployment-before.md#opengauss) 初始化数据库和修改 `application-og.yml` 中的 `jdbc` 相关配置，再设置变量 `--spring.profiles.active = og` 启动服务。
 
 * 使用开发工具启动 `org.apache.shenyu.bootstrap.ShenyuBootstrapApplication`。
-
 
 
 

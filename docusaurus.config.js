@@ -10,11 +10,15 @@ module.exports = {
   url: "https://shenyu.apache.org/",
   baseUrl: "/",
   onBrokenLinks: "log",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",
   scripts: [{ src: '/js/error-suppression.js', async: false, defer: false }],
-  organizationName: "apache", // Usually your GitHub org/user name.
-  projectName: "shenyu", // Usually your repo name.
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
+  organizationName: "apache",
+  projectName: "shenyu",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "zh"],
@@ -22,10 +26,12 @@ module.exports = {
       en: {
         label: "English",
         direction: "ltr",
+        baseUrl: "/",
       },
       zh: {
         label: "简体中文",
         direction: "ltr",
+        baseUrl: "/zh/",
       },
     },
   },
@@ -37,19 +43,26 @@ module.exports = {
         srcDark: "img/logo-light.svg",
       },
       items: [
-        { to: "/download", label: "Download", position: "right" },
         { to: "/document", label: "Docs", position: "right" },
+        { to: "/download", label: "Download", position: "right" },
         {
-          to: "/community/contributor-guide",
           label: "Community",
           position: "right",
-          activeBaseRegex: `/community/`,
+          items: [
+            { to: "/community/contributor-guide", label: "Contribute" },
+            { to: "/team", label: "Team" },
+            { to: "/event", label: "Event" },
+            { to: "/users", label: "Users" },
+          ],
         },
-        { to: "/team", label: "Team", position: "right" },
-        { to: "/event", label: "Event", position: "right" },
-        { to: "/news", label: "News", position: "right" },
-        { to: "/blog", label: "Blog", position: "right" },
-        { to: "/users", label: "Users", position: "right" },
+        {
+          label: "Resources",
+          position: "right",
+          items: [
+            { to: "/blog", label: "Blog" },
+            { to: "/news", label: "News" },
+          ],
+        },
         {
           label: "ASF",
           position: "right",
@@ -87,6 +100,7 @@ module.exports = {
         {
           href: "https://github.com/apache/shenyu",
           label: "GitHub",
+          className: "navbar-github",
           position: "right",
         },
         {
@@ -108,14 +122,6 @@ module.exports = {
         "protobuf",
       ],
     },
-    // algolia: {
-    //   // apiKey: "5f882bef2dfc81f5f1b4e5ea87b2f165",
-    //   appId: 'DY1AXAPBQY',
-    //   apiKey: '391ef440955a44a32cbeb5e7db9a2b6c',
-    //   indexName: "apache_shenyu",
-    //   // Optional: see doc section below
-    //   contextualSearch: true,
-    // },
     imageZoom: {
       // CSS selector to apply the plugin to, defaults to '.markdown img'
       selector: '.markdown img',
@@ -135,15 +141,22 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           editLocalizedFiles: true,
-          // Please change this to your repo.
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "2.7.1",
+              banner: "none",
+            },
+          },
           editUrl: "https://github.com/apache/shenyu-website/edit/main/",
         },
         blog: {
           showReadingTime: true,
           blogSidebarCount: 0,
           blogSidebarTitle: "All Blog Posts",
+          onInlineAuthors: "ignore",
+          onUntruncatedBlogPosts: "ignore",
           editLocalizedFiles: true,
-          // Please change this to your repo.
           editUrl: "https://github.com/apache/shenyu-website/edit/main/",
         },
         theme: {
@@ -173,7 +186,7 @@ module.exports = {
           "/shenyuClientRust",
           "/helm",
         ],
-        blogRouteBasePath: ["/blog", "/news"],
+        blogRouteBasePath: ["/blog"], // 修复：只索引 /blog，避免与 /news 冲突
         searchResultLimits: 8,
         searchResultContextMaxLength: 50,
         // 忽略某些不需要索引的元素
@@ -302,10 +315,71 @@ module.exports = {
         routeBasePath: "news",
         path: "news",
         blogSidebarCount: 0,
+        onInlineAuthors: "ignore",
+        onUntruncatedBlogPosts: "ignore",
         editLocalizedFiles: true,
         editUrl: "https://github.com/apache/shenyu-website/edit/main/",
       },
     ],
     "plugin-image-zoom",
+    [
+      require.resolve("./plugins/kapa-widget"),
+      {
+        // Website ID from https://app.kapa.ai -> Integrations -> Website Widget.
+        // The KAPA_WEBSITE_ID environment variable overrides this value.
+        websiteId: "b6a69ccf-2d41-41cd-96dd-855ef71b46c7",
+        projectName: "Apache ShenYu",
+        // ShenYu brand orange (same as the logo mark) and the site favicon as icon.
+        projectColor: "#FF5C00",
+        projectLogo: "https://shenyu.apache.org/img/favicon.svg",
+        // Keep the orange mark clear on warm light and charcoal dark surfaces.
+        extraAttributes: {
+          // Keep Cmd/Ctrl + K assigned to the existing documentation search.
+          "data-modal-open-on-command-k": "false",
+          "data-launcher-button-background-color": "#fff7f1",
+          "data-launcher-button-hover-background-color": "#ffe8d9",
+          "data-launcher-button-color": "#c44712",
+          "data-launcher-button-border": "1px solid #edc1a8",
+          "data-launcher-button-box-shadow": "0 4px 16px rgba(74, 35, 15, 0.12)",
+          "data-launcher-button-background-color-dark": "#20231f",
+          "data-launcher-button-hover-background-color-dark": "#35271e",
+          "data-launcher-button-color-dark": "#ffad85",
+          "data-launcher-button-border-dark": "1px solid #72503c",
+          "data-launcher-button-box-shadow-dark": "0 4px 16px rgba(0, 0, 0, 0.24)",
+          "data-modal-header-background-color": "#ffffff",
+          "data-modal-header-color": "#20201e",
+          "data-modal-header-background-color-dark": "#20231f",
+          "data-modal-header-color-dark": "#edeee9",
+        },
+        i18n: {
+          en: {
+            modalTitle: "Apache ShenYu Docs AI",
+            launcherButtonText: "Ask AI",
+            inputPlaceholder: "Ask a question about Apache ShenYu...",
+            disclaimer:
+              "Answers are generated by AI from the Apache ShenYu documentation and may be inaccurate. Please verify against the official docs.",
+            exampleQuestions: [
+              "How do I deploy ShenYu with Docker?",
+              "How do I configure the Divide plugin?",
+              "How do I use ShenYu with Spring Cloud?",
+              "How do I enable rate limiting?",
+            ],
+          },
+          zh: {
+            modalTitle: "Apache ShenYu 文档 AI 助手",
+            launcherButtonText: "AI 问答",
+            inputPlaceholder: "输入关于 Apache ShenYu 的问题...",
+            disclaimer:
+              "回答由 AI 基于 Apache ShenYu 文档生成，可能存在错误，请以官方文档为准。",
+            exampleQuestions: [
+              "如何使用 Docker 部署 ShenYu？",
+              "如何配置 Divide 插件？",
+              "ShenYu 如何接入 Spring Cloud？",
+              "如何开启限流？",
+            ],
+          },
+        },
+      },
+    ],
   ],
 };

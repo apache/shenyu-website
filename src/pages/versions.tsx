@@ -7,6 +7,7 @@ import Layout from '@theme/Layout';
 // import {useVersions, useLatestVersion} from '@theme/hooks/useDocs';
 import { useVersions, useLatestVersion } from '@docusaurus/plugin-content-docs/client';
 
+const currentReleaseVersion = '2.7.1';
 
 function Version() {
   const {
@@ -19,6 +20,10 @@ function Version() {
     (version) => version !== latestVersion && version.name !== 'current',
   );
   const repoUrl = `https://github.com/${organizationName}/${projectName}`;
+  const getReleaseTag = (version) => {
+    const releaseVersion = version.name === 'current' ? currentReleaseVersion : version.name;
+    return releaseVersion === '2.3.0-Legacy' ? '2.3.0' : `v${releaseVersion}`;
+  };
 
   return (
     <Layout
@@ -29,19 +34,19 @@ function Version() {
 
         {latestVersion && (
           <div className="margin-bottom--lg">
-            <h3 id="next">Current version (Stable)</h3>
+            <h3 id="latest">Current version (Stable)</h3>
             <p>
-              Here you can find the documentation for current released version.
+              Here you can find the documentation for the current released version.
             </p>
             <table>
               <tbody>
                 <tr>
                   <th>{latestVersion.label}</th>
                   <td>
-                    <Link to={latestVersion.path+"/index"}>Documentation</Link>
+                    <Link to={latestVersion.path}>Documentation</Link>
                   </td>
                   <td>
-                    <a href={`${repoUrl}/releases/tag/v${latestVersion.name}`}>
+                    <a href={`${repoUrl}/releases/tag/${getReleaseTag(latestVersion)}`}>
                       Release Notes
                     </a>
                   </td>
@@ -53,9 +58,9 @@ function Version() {
 
         {currentVersion !== latestVersion && (
           <div className="margin-bottom--lg">
-            <h3 id="latest">Next version (Unreleased)</h3>
+            <h3 id="next">Next version (Unreleased)</h3>
             <p>
-              Here you can find the documentation for work-in-process unreleased
+              Here you can find the documentation for work-in-progress unreleased
               version.
             </p>
             <table>
@@ -63,7 +68,7 @@ function Version() {
                 <tr>
                   <th>{currentVersion.label}</th>
                   <td>
-                    <Link to={currentVersion.path+"/index"}>Documentation</Link>
+                    <Link to={currentVersion.path}>Documentation</Link>
                   </td>
                 </tr>
               </tbody>
@@ -84,10 +89,10 @@ function Version() {
                   <tr key={version.name}>
                     <th>{version.label}</th>
                     <td>
-                      <Link to={version.path+"/index"}>Documentation</Link>
+                      <Link to={version.path}>Documentation</Link>
                     </td>
                     <td>
-                      <a href={`${repoUrl}/releases/tag/v${version.name}`}>
+                      <a href={`${repoUrl}/releases/tag/${getReleaseTag(version)}`}>
                         Release Notes
                       </a>
                     </td>

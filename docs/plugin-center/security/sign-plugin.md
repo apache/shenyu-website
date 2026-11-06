@@ -54,7 +54,7 @@ description: sign plugin
 
 * In `shenyu-admin`--> BasicConfig --> Plugin --> `sign` set to enable.
 
-## 2.4 Config Plugin With Authorize（1.0.0）
+## 2.4 Config Plugin With Authorize (1.0.0)
 
 ### 2.4.1 AK/SK Config
 
@@ -73,17 +73,17 @@ Then configure this authentication information
 
 <img src="/img/shenyu/basicConfig/authorityManagement/auth_param_en.jpg" width="50%" height="40%"/>
 
-- AppName：The application name associated with this account, it can can fill in or choose (data comes from the application name configured in the Metadata).
-- TelPhone：Telphone information.
-- AppParams：When the requested context path is the same as the AppName，add this value to the header, the key is `appParam`.
-- UserId：Give the user a name, just as an information record.
-- ExpandInfo：Description of the account.
-- PathAuth：After opening, the account only allows access to the resource path configured below.
-- ResourcePath：Allow access to the resource path, support path matching，e.g. `/order/**` .
+- AppName: The application name associated with this account, it can can fill in or choose (data comes from the application name configured in the Metadata).
+- TelPhone: Telphone information.
+- AppParams: When the requested context path is the same as the AppName, add this value to the header, the key is `appParam`.
+- UserId: Give the user a name, just as an information record.
+- ExpandInfo: Description of the account.
+- PathAuth: After opening, the account only allows access to the resource path configured below.
+- ResourcePath: Allow access to the resource path, support path matching, e.g. `/order/**` .
 
 After submit, a piece of authentication information is generated, which contains `AppKey` and `AppSecret`, which is the `AK/SK` in the `Sign` plugin.
 
-Please refer to the detailed instructions of the `Sign` plugin： [Sign Plugin](../../plugin-center/security/sign-plugin).
+Please refer to the detailed instructions of the `Sign` plugin: [Sign Plugin](../../plugin-center/security/sign-plugin).
 
 #### 2.4.1.3 PathOperation
 
@@ -111,7 +111,7 @@ For the created authentication information, you can click `PathOperation` at the
 
 | Field      | Value    |  Description  |
 | --------   | --------  | :--------: |
-| timestamp  |  current timestamp(String)   |  The number of milliseconds of the current time（gateway will filter requests the before 5 minutes）    |
+| timestamp  |  current timestamp(String)   |  The number of milliseconds of the current time (gateway will filter requests the before 5 minutes)    |
 | path       | /api/service/abc  | The path that you want to request(Modify by yourself according to your configuration of gateway) |
 | version       | 1.0.0  |  `1.0.0` is a fixed string value |
 
@@ -198,7 +198,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 
 * Address: http: domain name of gateway `/api/service/abc`.
 
-* Set `header`，`header` Parameter：
+* Set `header`, `header` Parameter:
 
 | Field        | Value    |  Description  |
 | --------   | -----:  | :----: |
@@ -238,7 +238,7 @@ DigestUtils.md5DigestAsHex(sign.getBytes()).toUpperCase()
 * close(signRequestBody): generate signature with request header.  
 * open(signRequestBody): generate signature with request header and request body.
 
-## 2.5 Config Plugin With Authorize（2.0.0）
+## 2.5 Config Plugin With Authorize (2.0.0)
 
 This authentication algorithm is the version 2.0.0 algorithm, which is same as version1's except **Authentication Guide** and **Request GateWay.**
 
@@ -266,14 +266,14 @@ Authentication algorithm of Version 2.0.0 generates a Token based on the signatu
   }
   ```
 
-  **alg**: signature algorithm（result is uppercase HEX string）
+  **alg**: signature algorithm (result is uppercase HEX string)
 
   - MD5: MD5-HASH(data+key)
   - HMD5:HMAC-MD5
   - HS256:HMAC-SHA-256
   - HS512:HMAC-SHA-512
 
-  **appKey**：appKey
+  **appKey**: appKey
 
   **timestamp**: timestamp of the length is 13
 
@@ -307,7 +307,7 @@ Authentication algorithm of Version 2.0.0 generates a Token based on the signatu
 
 ## 2.6 Examples
 
-### 2.6.1 Verify api with sign plugin（1.0.0）
+### 2.6.1 Verify api with sign plugin (1.0.0)
 
 #### 2.6.1.1 Plugin Config
 
@@ -390,9 +390,9 @@ public class Test2 {
 
 ![](/img/shenyu/plugin/sign/result-with-body.png)
 
-### 2.6.2 Verify api with sign plugin（2.0.0）
+### 2.6.2 Verify api with sign plugin (2.0.0)
 
-All the configuration parts are the same, so let's look directly at the the calculation part of parameter of request header and the part of sending request.
+All the configuration parts are the same, so let's look directly at the calculation part of parameter of request header and the part of sending request.
 
 #### 2.6.2.1 Request Service and check result
 
@@ -450,7 +450,7 @@ All the configuration parts are the same, so let's look directly at the the calc
   eyJhbGciOiJNRDUiLCJhcHBLZXkiOiJCRDc5ODBGNTY4OEE0REU2QkNGMUI1MzI3RkUwN0Y1QyIsInRpbWVzdGFtcCI6IjE2NzM3MDgzNTM5OTYifQ==.33ED53DF79CA5B53C0BF2448B670AF35
   ```
 
-  发送请求：
+  Send Request:
 
   ![image-20230114230500887](/img/shenyu/plugin/sign/version2_sign_request.png)
 

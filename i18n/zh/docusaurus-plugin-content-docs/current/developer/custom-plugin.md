@@ -10,7 +10,7 @@ description: 插件扩展
 * 在 `Apache ShenYu` 网关里面，插件分为两类。
   * 一类是单一职责的调用链，不能对流量进行自定义的筛选。
   * 一类是能对匹配的流量，执行自己的职责调用链。
-* 用户可以参考 [shenyu-plugin](https://github.com/apache/shenyu/tree/master/shenyu-plugin) 模块，新增自己的插件处理，如果有好的公用插件，可以向官网提交`pr`。
+* 用户可以参考 [shenyu-plugin](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-plugin) 模块，新增自己的插件处理，如果有好的公用插件，可以向官网提交`pr`。
 
 ## 单一职责插件
 
@@ -94,7 +94,7 @@ public interface ShenyuPlugin {
 
 ## 单一职责插件与多语言
 
-* 上述用java写单一职责插件，如果想用其他语言写插件，至少需要你擅长的语言支持`WASM`，你可以在[这里](https://shenyu.apache.org/zh/docs/next/design/wasm-plugin-design/) 找到一些资料。在你了解过`WASM`后，我们引入以下依赖来构建插件的java部分：
+* 上述用java写单一职责插件，如果想用其他语言写插件，至少需要你擅长的语言支持`WASM`，你可以在[这里](https://shenyu.apache.org/zh/docs/design/wasm-plugin-design/) 找到一些资料。在你了解过`WASM`后，我们引入以下依赖来构建插件的java部分：
 
 ```xml
 <dependency>

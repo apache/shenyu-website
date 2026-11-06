@@ -31,7 +31,7 @@ description: gRPC服务接入
 
 ## gRPC服务接入网关
 
-可以参考： [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-grpc)
+可以参考： [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-grpc)
 
 1. 在由`gRPC`构建的微服务中，引入如下依赖：
 

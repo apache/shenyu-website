@@ -1,15 +1,19 @@
 ---
 title: 社区新人开发者启动及开发防踩坑指南
+description: 面向社区新开发者，记录 ShenYu 后端、Dashboard 与官网的本地启动步骤，整理环境配置和开发中的常见问题。
 author: Yuxuan Zhang
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/zuobiao-zhou
 author_image_url: https://avatars.githubusercontent.com/u/61108539?s=400&u=f065b78a2944f2cea9160de7f7df054e2f157867&v=4
 tags: [first-start,Apache ShenYu]
+date: 2023-04-18
 ---
 
 ## 前言
 
 作为 `Shenyu` 社区初来乍到的开发者，我在按照相关教程进行项目启动及开发的过程中，遇到了一些教程中并未提及到的 “坑” ， 我将我启动`shenyu` , `shenyu-dashboard`, `shenyu-website` 的详细步骤记录在这篇博客中，希望可以帮到社区中更多的新人开发者。
+
+<!-- truncate -->
 
 ## 环境准备
 

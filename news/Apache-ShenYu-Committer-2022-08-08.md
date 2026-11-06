@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2022-08-08
 
 Hello everyone, my name is [Shuo Li](https://github.com/lishuo5263) , java architect, currently engaged in  a big-sized Internet company,  It is my honor to be invited by the Apache ShenYu community as the Committer. Let me share with you my first meet, acquaintance, understanding, growth and suggestions with the Apache ShenYu community.
 
+<!-- truncate -->
+
 ### Meet the Apache Shenyu community for the first time
 
 The story starts from 2020. In the early stage, I used SpringCloud Gateway + Nacos Config Event to realize the dynamic routing of gateway by myself. Because there was no dashboard of Gateway at that time, it was very painful. My team made a dashboard based on Micro Enterprise, which has a lot of functionality and limitations. From then on, I started to pursue a good gateway. One day, I found ShenYu, and saw that ShenYu's overall architecture was in sharper contrast to SpringCloud Gateway. ShenYu outperforms Gateway in terms of overall architecture design, function design, plug-in design, etc. ShenYu can be said to be the next generation gateway product. After that, I started to have a certain understanding of Apache ShenYu from building environment to running example project, and then to read plug-in chain and data synchronization, SPI mechanism and other source code.

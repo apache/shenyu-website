@@ -1,0 +1,65 @@
+name: Documentation PDFs
+
+on:
+  schedule:
+    # Mondays at 02:17 UTC (10:17 Asia/Shanghai).
+    - cron: '17 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate_pdf:
+    # Forks can test manually without automatically running the weekly build.
+    if: github.repository == 'apache/shenyu-website' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    name: Generate Documentation PDFs
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+      - name: Generate PDF
+        run: |
+          bash -e .github/scripts/generate-pdf.sh
+          test -s pdf/apache_shenyu_docs_en.pdf
+          test -s pdf/apache_shenyu_docs_zh.pdf
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation-pdfs
+          path: pdf/*.pdf
+          if-no-files-found: error
+
+  publish_pdf:
+    needs: generate_pdf
+    if: github.repository == 'apache/shenyu-website' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    name: Publish Documentation PDFs
+    permissions:
+      contents: write
+    concurrency:
+      group: asf-site-publish
+      cancel-in-progress: false
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Download PDFs
+        uses: actions/download-artifact@v4
+        with:
+          name: documentation-pdfs
+          path: pdf
+      - name: Publish PDFs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          publish_branch: asf-site
+          publish_dir: ./pdf
+          destination_dir: pdf

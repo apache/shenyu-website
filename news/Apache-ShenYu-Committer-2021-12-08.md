@@ -18,6 +18,8 @@ Role: Apache ShenYu Committer
 
 Email: jooks@apache.org
 
+<!-- truncate -->
+
 ### Contact Open Source
 
 In the second semester of my sophomore year, by chance, I saw the promotion of the Open Source Software Supply Chain Lighting Program (hereinafter referred to as the Summer of Open Source) organized by the Institute of Software of the Chinese Academy of Sciences and the openEuler community. Later, I slowly learned that there were so many people active in the open source community in China, which greatly promoted the development of the open source ecosystem. It was also a very coincidence that I met the VP (Xiao Yu) of Apache ShenYu, who was my mentor in the Apache ShardingSphere community during the summer of open source. After I completed the task of open source summer ahead of schedule, I saw that ShenYu had just entered the Apache incubator, and it was in full swing, so I started to contact Apache ShenYu.

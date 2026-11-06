@@ -92,10 +92,10 @@ description: 多语言http客户端
       | protocol    | String  | 是       | 协议类型                                                     |
       | appName     | String  | 是       | 应用名称                                                     |
       | contextPath | String  | 是       | 项目路径                                                     |
-      | rpcType     | String  | 是       | rpc类型，支持的类型参考 [RpcTypeEnum](https://github.com/apache/shenyu/blob/master/shenyu-common/src/main/java/org/apache/shenyu/common/enums/RpcTypeEnum.java) |
+      | rpcType     | String  | 是       | rpc类型，支持的类型参考 [RpcTypeEnum](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-common/src/main/java/org/apache/shenyu/common/enums/RpcTypeEnum.java) |
       | host        | String  | 是       | 客户端IP                                                     |
       | port        | Integer | 是       | 客户端端口                                                   |
-      | eventType   | String  | 是       | 事件类型，支持的类型参考 [EventType](https://github.com/apache/shenyu/blob/master/shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/enums/EventType.java) |
+      | eventType   | String  | 是       | 事件类型，支持的类型参考 [EventType](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/enums/EventType.java) |
 
     **示例**
 
@@ -143,7 +143,7 @@ description: 多语言http客户端
     | contextPath      | String       | 是       | 项目路径                                                     |
     | path             | String       | 是       | 路径                                                         |
     | pathDesc         | String       | 是       | 路径描述                                                     |
-    | rpcType          | String       | 是       | rpc类型，支持的类型参考 [RpcTypeEnum](https://github.com/apache/shenyu/blob/master/shenyu-common/src/main/java/org/apache/shenyu/common/enums/RpcTypeEnum.java) |
+    | rpcType          | String       | 是       | rpc类型，支持的类型参考 [RpcTypeEnum](https://github.com/apache/shenyu/blob/v2.7.1/shenyu-common/src/main/java/org/apache/shenyu/common/enums/RpcTypeEnum.java) |
     | serviceName      | String       | 是       | 服务名称                                                     |
     | methodName       | String       | 是       | 方法名称                                                     |
     | ruleName         | String       | 是       | 规则名称                                                     |

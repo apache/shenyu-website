@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2022-04-20
 
 大家好，我是[张子成](https://github.com/dragon-zhang) ，java/rust开发者，目前在某中型互联网公司从事中间件开发，工作方向包括网关/RPC/MQ。非常荣幸受邀成为Apache ShenYu社区的Committer，下面跟大家分享一下我与Apache ShenYu社区的相遇、相识、相知、成长和建议。
 
+<!-- truncate -->
+
 ### 相遇
 
 2021年8月中旬的时候，我加入现公司，转型为中间件开发(在上家做业务开发)，接到的第一个任务就是尽快熟悉公司的网关中间件，于是一款叫Soul的网关进入了我的视野(Soul是ShenYu的前身，ShenYu于2021年进入了Apache孵化器，以下的Soul/ShenYu都指代Apache ShenYu（incubating）)。

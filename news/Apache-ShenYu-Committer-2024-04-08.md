@@ -12,6 +12,8 @@ slug: Apache-ShenYu-Committer-2024-04-08
 
 Hello everyone, I'm Le Zhang, with the github-id: [kerwin612](https://github.com/kerwin612). I am extremely grateful to the Apache ShenYu community for recognizing my contributions and giving me the opportunity to become a Committer for this outstanding open-source project. Today, I would like to share my experience participating in the Apache ShenYu project, the growth I have achieved, and some suggestions.
 
+<!-- truncate -->
+
 ### Getting to know Apache ShenYu
 
 My journey with Apache ShenYu began during my exploration of gateway technology options for my company. Upon discovering the ShenYu project, I was immediately intrigued by its high performance, multi-protocol support, easy scalability, and the wealth of ready-to-use plugins it offered. As a result, I decided to delve deeper into it and successfully ran the dev version of ShenYu in my local environment.

@@ -1,10 +1,12 @@
 ---
 title: Apache ShenYu Start Demo
+description: Walk through local environment setup, building ShenYu from source, and starting the gateway and a sample application.
 author: Kunshuai Zhu
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/JooKS-me
 author_image_url: https://avatars1.githubusercontent.com/u/62384022?v=4
 tags: [Apache ShenYu]
+date: 2021-09-08
 ---
 
 ### Environmental preparation
@@ -13,6 +15,8 @@ tags: [Apache ShenYu]
 - Install Git locally
 - Install Maven locally
 - Choose a development tool, such as IDEA
+
+<!-- truncate -->
 
 ### Pull ShenYu code
 

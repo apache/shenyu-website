@@ -4,9 +4,12 @@ author: 4zd
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/4zd
 tags: [nacos,data sync,Apache ShenYu]
+date: 2022-02-08
 ---
 
 > [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) is an asynchronous, high-performance, cross-language, responsive API gateway.
+
+<!-- truncate -->
 
 In `ShenYu` gateway, data synchronization refers to how to synchronize the updated data to the gateway after the data is sent in the background management system. The Apache ShenYu gateway currently supports data synchronization for `ZooKeeper`, `WebSocket`, `http long poll`, `Nacos`, `etcd` and `Consul`. The main content of this article is based on `Nacos` data synchronization source code analysis.
 

@@ -1,8 +1,18 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements. See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 import React from 'react';
@@ -35,7 +45,6 @@ export default function BlogSidebar({ sidebar }: Props): JSX.Element | null {
     categoryMap = { "": sidebar.items }
   }
 
-  // console.log(categoryMap)
   return (
     <nav
       className={clsx(styles.sidebar, 'thin-scrollbar')}
@@ -48,9 +57,9 @@ export default function BlogSidebar({ sidebar }: Props): JSX.Element | null {
         {sidebar.title}
       </div>
       <ul className={styles.sidebarItemList}>
-        {Object.keys(categoryMap).map((category,index) => {
-          return <>
-            {category.length > 0 && <h4  key={index} className={styles.categoryHeader}>{category}</h4>}
+        {Object.keys(categoryMap).map((category) => {
+          return <React.Fragment key={category}>
+            {category.length > 0 && <h4 className={styles.categoryHeader}>{category}</h4>}
             {categoryMap[category].map((item) => {
               return (
                 <li key={item.permalink} className={styles.sidebarItem}>
@@ -64,7 +73,7 @@ export default function BlogSidebar({ sidebar }: Props): JSX.Element | null {
                 </li>
               );
             })}
-          </>
+          </React.Fragment>
         })}
       </ul>
     </nav>

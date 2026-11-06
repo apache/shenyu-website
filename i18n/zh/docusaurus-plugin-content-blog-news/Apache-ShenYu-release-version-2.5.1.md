@@ -1,13 +1,16 @@
 ---
 title: "【Apache ShenYu 2.5.1 版本发布】"
+author: "midnight2104"
 description: "Apache ShenYu 2.5.1 版本发布"
 categories: "Apache ShenYu"
 tags: ["Apache ShenYu"]
-date: 2022-02-04
+date: 2023-02-04
 slug: Apache-ShenYu-release-version-2.5.1
 ---  
 
 春节刚过，Apache ShenYu便迎来了2.5.1版本。此次发布内容，共有 259 个pull Request，64位贡献者的参与。新增了若干功能，修复了bug，优化了若干内容。
+
+<!-- truncate -->
 
 ### 新功能
 

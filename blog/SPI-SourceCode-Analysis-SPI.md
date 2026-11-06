@@ -8,6 +8,8 @@ date: 2022-09-12
 
 > [Apache ShenYu](https://shenyu.apache.org/zh/docs/index) is an asynchronous, high-performance, cross-language, responsive API gateway.
 
+<!-- truncate -->
+
 ## background
 
 Recently,when I read the source code of open source project Apache Shenyu API gateway,I find and many core components of the gateway are loaded with the SPI module. Here I will analyzes the source code of `SPI` module in `Shenyu` gateway.

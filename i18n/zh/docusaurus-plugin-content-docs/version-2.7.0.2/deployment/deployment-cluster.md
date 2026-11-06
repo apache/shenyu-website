@@ -92,9 +92,9 @@ server {
 >在集群模式下，Apache Shenyu支持部署多个Shenyu实例，随时可能有新的实例上线或下线。因此，Apache Shenyu引入了服务发现
 > OpenResty 模块来帮助客户端检测可用Shenyu实例。目前Apache Shenyu已经支持Zookeeper、Nacos、Etcd和Consul。Client或LoadBalancer
 > 可以通过这些Service注册中心获取可用的Shenyu实例。
-1. [Etcd](./deployment-cluster.md#Etcd开始)(支持)
-2. [Nacos](./deployment-cluster.md#Nacos开始)(支持)
-3. [Zookeeper](./deployment-cluster.md#Zookeeper开始)(支持)
+1. [Etcd](#greeting-etcd)(支持)
+2. [Nacos](#greeting-nacos)(支持)
+3. [Zookeeper](#greeting-zookeeper)(支持)
 4. Consul(进行中)
 
 #### 入门
@@ -118,7 +118,7 @@ cd shenyu-nginx
 luarocks make rockspec/shenyu-nginx-main-0.rockspec
 ```
 
-#### Etcd开始
+#### Etcd 开始 {#greeting-etcd}
 
 修改Nginx配置，创建并初始化Shenyu register模块,连接至目标注册中心。该模块将获取在同一个集群中注册到Etcd的
 所有Shenyu实例。它与Etcd客户端一样监视(基于长轮询)Shenyu实例列表。
@@ -145,7 +145,7 @@ openresty -s reload
 
 这就是一个完整的Etcd的使用[示例](https://github.com/apache/shenyu-nginx/blob/main/example/etcd/nginx.conf) 。
 
-#### Nacos开始
+#### Nacos 开始 {#greeting-nacos}
 
 修改Nginx配置，创建并初始化Shenyu register模块，连接至目标注册中心。以下是Nacos的示例：
 
@@ -189,7 +189,7 @@ openresty -s reload
 
 这就是一个完整的Nacos的使用[example](https://github.com/apache/shenyu-nginx/blob/main/example/nacos/nginx.conf) 。
 
-#### Zookeeper开始
+#### Zookeeper 开始 {#greeting-zookeeper}
 
 修改Nginx配置，创建并初始化Shenyu register模块，连接目标注册中心。
 通过 zookeeper watch 事件监听Shenyu实例列表的变化。下面是 zookeeper 配置的示例。

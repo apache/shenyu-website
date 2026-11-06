@@ -8,7 +8,7 @@ This document introduces how to quickly access the Apache ShenYu gateway using W
 
 ## Environment to prepare
 
-> Refer to [local deployment](../deployment/deployment-local) to deploy the Shenyu gateway.
+> Refer to [local deployment](../deployment/deployment-local) to deploy the ShenYu gateway.
 
 1. Deploy the `shenyu-admin` service.
 
@@ -37,7 +37,7 @@ Import the gateway proxy plugin for `Websocket` and add the following dependenci
 
 ## Run the shenyu-examples-websocket project
 
-1. Download [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-annotation-websocket) (`native-websocket` and `reactive-websocket` can refer to the subprojects under [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/master/shenyu-examples/shenyu-examples-websocket)).
+1. Download [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket/shenyu-example-spring-annotation-websocket) (`native-websocket` and `reactive-websocket` can refer to the subprojects under [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket)).
 
 2. Run main method of `org.apache.shenyu.examples.websocket.TestAnnotationWebsocketApplication` to start this project.
 - The examples project will synchronize the websocket service information to `shenyu-admin` via the `http` protocol according to the address configured in `shenyu.register.serverLists`, and then to `shenyu-bootstrap` by `shenyu-admin`.

@@ -81,7 +81,7 @@ ReactorNetty TcpServer 配置，详情见  `shenyu-protocol-tcp#TcpBootstrapServ
 
 TCP 插件支持插件级别、选择器级别两种级别的服务发现配置：
 
-服务发现 详情 见  [discovery-mode](../discovery/discovery-mode.md)
+服务发现详情见 [discovery-mode](../../user-guide/discovery/discovery-mode.md)
 
 ① 用户点击页面上的“服务发现配置”按钮，便可以在弹出的表单中配置插件级别的服务发现。配置完成后，再次打开表单，可以修改或删除之前的配置。
 插件级别discovery配置后，选择器的discovery设置默认与插件级别保持一致：
@@ -97,7 +97,7 @@ TCP 插件支持插件级别、选择器级别两种级别的服务发现配置�
 
 ### 2.3.1 Zookeeper 模式
 
-- 当服务发现的类型选择zookeeper时，需要填写 Discovery-Zookeeper 配置 培训详情见 [discovery-mode](../discovery/discovery-mode.md)
+- 当服务发现的类型选择 zookeeper 时，需要填写 Discovery-Zookeeper 配置，详情见 [discovery-mode](../../user-guide/discovery/discovery-mode.md)
 
 - zookeeper模式下，discovery模块会自动监听用户的 zookeeper 注册中心，自动维护 discovery_upstream 
 
@@ -143,7 +143,6 @@ TCP 插件支持插件级别、选择器级别两种级别的服务发现配置�
 以代理 redis 为例，使用 `redis-cli -p {forwardPort}` 访问
 
 ![connection.png](/img/shenyu/plugin/tcp/redis_connection.png)
-
 
 
 

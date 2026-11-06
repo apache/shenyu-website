@@ -16,6 +16,8 @@ github: https://github.com/Aias00/
 
 email: liuhongyu@apache.org
 
+<!-- truncate -->
+
 ### 初识 Apache ShenYu 网关
 
 我第一次接触 Apache ShenYu 网关是在公司进行业务改造期间，对网关进行技术选型。当时，Apache ShenYu 还处于 Apache 的孵化阶段。相比于其他同类型的产品，Apache ShenYu 提供了友好的控制管理界面，丰富的插件功能，并且和我们的技术栈十分匹配，社区非常活跃，这些特点使我们最终选定了 Apache Shenyu 作为网关的解决方案，并且将其广泛应用于各项业务中。

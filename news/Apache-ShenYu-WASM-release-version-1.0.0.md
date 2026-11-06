@@ -1,5 +1,6 @@
 ---
 title: "[Apache ShenYu WASM 1.0.0 Version Release]"
+author: "Zicheng Zhang"
 description: "Apache ShenYu 1.0.0 Version Release"
 categories: "Apache ShenYu WASM"
 tags: ["Apache ShenYu WASM", "WASM"]
@@ -10,6 +11,8 @@ slug: Apache-ShenYu-WASM-release-version-1.0.0
 ## Apache ShenYu
 
 Apache ShenYu is a responsive API gateway developed using Java Reactor. With its high performance, dynamic and flexible traffic control, hot swap, easy deployment and other features, out of the box to provide users with a full lifecycle of 'API' gateway, including 'API' registration, service proxy, protocol conversion, 'API' documentation and 'API' governance and other functions. Apache ShenYu graduated as an Apache top-level project in 'July 2022'.
+
+<!-- truncate -->
 
 > website: https://shenyu.apache.org
 > 

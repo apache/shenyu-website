@@ -5,9 +5,12 @@ author_title: Apache ShenYu Committer
 author_url: https://github.com/HaiqiQin
 author_image_url: https://avatars.githubusercontent.com/u/80969210?v=4
 tags: [E2e Test, Apache ShenYu]
+date: 2023-08-20
 ---
 
 这篇文章将会对Apache ShenYu的e2e模块进行深入剖析。
+
+<!-- truncate -->
 
 ### 什么是e2e
 

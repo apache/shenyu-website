@@ -22,7 +22,7 @@ description: custom mock data generator
 </dependencies>
 ```
 
-* Create a new class  `CustomerGenerator`，implements `org.apache.shenyu.plugin.mock.generator.Generator`。
+* Create a new class  `CustomerGenerator`,implements `org.apache.shenyu.plugin.mock.generator.Generator`.
 
 ```java
 @Join
@@ -61,7 +61,7 @@ public class CustomGenerator implements Generator<String> {
 }
 ```
 
-* In the project  `resources` directory，Create a new `META-INF/shenyu` directory， and the new file name is : `org.apache.shenyu.plugin.mock.generator.Generator`.
+* In the project  `resources` directory,Create a new `META-INF/shenyu` directory, and the new file name is: `org.apache.shenyu.plugin.mock.generator.Generator`.
   add `${you spi name}` = `${you class path}`:
 
 ```shell title="script"

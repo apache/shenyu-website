@@ -4,9 +4,12 @@ author: hql0312
 author_title: Apache ShenYu Contributor
 author_url: https://github.com/hql0312
 tags: [apollo,data sync,Apache ShenYu]
+date: 2024-03-12
 ---
 
 > This article is based on the source code analysis of version 'shenyu-2.6.1'. Please refer to the official website for an introduction [Data Synchronization Design](https://shenyu.apache.org/docs/design/data-sync/).
+
+<!-- truncate -->
 
 ### Admin management
 

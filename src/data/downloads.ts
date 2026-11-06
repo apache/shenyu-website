@@ -1,6 +1,6 @@
 // Keep the newest release first. Older distributions remain available in the archive.
-export const gatewayVersions = ['2.7.1', '2.7.0.3', '2.7.0.2', '2.7.0.1', '2.7.0', '2.6.1', '2.6.0', '2.5.1', '2.5.0', '2.4.3', '2.4.2'];
-const mirroredVersions = new Set(['2.7.1', '2.7.0.3']);
+export const gatewayVersions = ['2.7.2', '2.7.1', '2.7.0.3', '2.7.0.2', '2.7.0.1', '2.7.0', '2.6.1', '2.6.0', '2.5.1', '2.5.0', '2.4.3', '2.4.2'];
+const mirroredVersions = new Set(['2.7.2', '2.7.1', '2.7.0.3']);
 export const signingKeys = 'https://downloads.apache.org/shenyu/KEYS';
 export const releaseArchive = 'https://archive.apache.org/dist/shenyu/';
 

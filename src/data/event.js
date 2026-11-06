@@ -5,6 +5,12 @@ import Translate from '@docusaurus/Translate';
 export default [
   {
     product: "gateway",
+    version: "2.7.2",
+    src: "2.7.2-release",
+    description: <Translate id="releases.summary.2.7.2-release">Request Transformer, sensitive-word inspection, Token Limiter, dependency, and release licensing fixes.</Translate>,
+  },
+  {
+    product: "gateway",
     version: "2.7.1",
     src: "2.7.1-release",
     description: <Translate id="releases.summary.2.7.1-release">MCP server enhancements, WASM runtime migration, security hardening, and infrastructure improvements.</Translate>,

@@ -13,27 +13,19 @@ description: 网关属性配置
 ```yaml
 shenyu:
   selectorMatchCache:
-    ## selector L1 cache
-    cache:
-      enabled: false
-      initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 10000 # max size in cache
-    ## selector L2 cache, use trie as L2 cache
-    trie:
-      enabled: false
-      cacheSize: 128 # the number of plug-ins
-      matchMode: antPathMatch
-  ruleMatchCache:
-    ## rule L1 cache
+    ## 选择器按路径的有界匹配缓存
     cache:
       enabled: true
       initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 65536 # max size in cache
-    ## rule L2 cache, use trie as L2 cache
-    trie:
-      enabled: false
-      cacheSize: 1024 # the number of selectors
-      matchMode: antPathMatch
+      maximumSize: 10000 # max size in cache
+      ttl: 60000 # match result lifetime in milliseconds, must be positive
+  ruleMatchCache:
+    ## 规则按路径的有界匹配缓存
+    cache:
+      enabled: true
+      initialCapacity: 10000 # initial capacity in cache
+      maximumSize: 10000 # max size in cache
+      ttl: 60000 # match result lifetime in milliseconds, must be positive
   netty:
     http:
       webServerFactoryEnabled: true
@@ -221,48 +213,39 @@ shenyu:
 
 
 
-##### shenyu.matchCache 配置
+##### shenyu.selectorMatchCache.cache 与 shenyu.ruleMatchCache.cache 配置
 
-* 选择器匹配缓存配置
+`shenyu.selectorMatchCache.cache` 与 `shenyu.ruleMatchCache.cache` 绑定到 `MatchCacheConfig`，分别为选择器匹配和规则匹配提供按路径的有界缓存。当前实现中不存在单独的 `shenyu.matchCache` 前缀，也不存在前缀树（trie）L2 缓存。
+
+下表为 Java 模型默认值；具体的发行版样例可能覆盖这些值。
 
 | 字段           | 类型    | 默认值 | 是否必填 | 说明       |
 |-----------------|---------|---------|----------|-----------------------------------|
-| enabled         | Boolean | false   | No       | 是否开启选择器缓存 |
-| initialCapacity | Integer | 10000   | No       | 选择器缓存初始化容量         |
-| maximumSize     | Integer | 10000   | No       | 选择器缓存最大数量                 |
+| enabled         | Boolean | true    | No       | 是否在选择器/规则匹配时查询按路径的有界匹配缓存。只有候选集合满足"仅由路径决定"的条件时才会写入缓存条目（见下文） |
+| initialCapacity | int     | 10000   | No       | 匹配缓存初始化容量 |
+| maximumSize     | long    | 10000   | No       | 匹配缓存最大条目数 |
+| ttl             | long    | 60000   | No       | 匹配结果存活时间，单位为**毫秒**，必须为正数；非正值会在属性绑定时抛出 `Match cache ttl must be positive` |
 
-* 选择器前缀树缓存配置
+###### 哪些结果会被缓存
 
-| 字段           | 类型    | 默认值 | 是否必填 | 说明                                                                                |
-|--------------|---------|--------------|----------|-----------------------------------------------------------------------------------|
-| enabled      | Boolean | false        | No       | 是否开启选择器前缀树缓存                                                                      |
-| cacheSize    | Integer | 512          | No       | 前缀树缓存大小                                                                           |
-| matchMode    | String  | antPathMatch | Yes      | shenyu路径匹配模式，shenyu支持两种匹配模式: `antPathMatch` and `pathPattern` |
+缓存条目以 `(插件名, 路径)` 为键，保存命中的选择器/规则，或"该路径没有候选命中"的负缓存条目。由于一次缓存命中会跳过整个候选集合，只有当匹配完全由请求路径决定时才会写入条目：
 
+* 所有启用的候选选择器/规则的条件都是 URI 类型，且使用以下仅路径安全的操作符之一：`=`、`equals`、`contains`、`startsWith`、`endsWith`、`match`、`regex`、`exclude`、`pathPattern`、`isBlank`。
+* 没有任何启用的候选被标记为 `matchRestful`，且不存在条件列表为空的候选（例如全流量匹配选择器）——这类候选始终实时匹配，不会产生缓存条目。
+* 正向条目还要求恰好只有一个候选命中：当同一请求有两个及以上候选命中时，仍会按条件数和排序选出胜者，但该结果不会写入缓存。
+* 规则负缓存条目的键中不包含选择器 id，因此只有当该插件的整个选择器集合同样由路径决定时，负缓存才是安全的。
 
-* 规则匹配缓存配置
+依赖请求头、查询参数、Cookie、IP/域名、时间相关谓词或自定义 SPI 操作符的条件取决于 URI 之外的状态，不满足缓存条件：这类匹配每次请求都会实时执行。这是实现上的安全限制，而不是对"看似 URI 规则"的一般性建议。
 
-| 字段           | 类型    | 默认值 | 是否必填 | 说明        |
-|-----------------|---------|---------|----------|-----------|
-| enabled         | Boolean | false   | No       | 是否开启选择器缓存 |
-| initialCapacity | Integer | 10000   | No       | 规则缓存初始化容量 |
-| maximumSize     | Integer | 10000   | No       | 规则缓存最大数量  |
+举例：如果选择器的条件只有 `uri` 类型的 `pathPattern /api/**`，它是可缓存的——匹配结果完全取决于请求路径。而如果选择器还额外依赖请求头条件（如 `X-Token: abc`），则不可缓存，因为同一路径携带不同请求头的两个请求可能得到不同的匹配结果。请注意，是否可以缓存取决于整个候选集合，而不只是命中的那条规则：路径键的缓存命中会跳过所有候选，因此只有当所有启用的候选都不依赖路径之外的状态时，才会写入缓存。
 
-* 规则前缀树缓存配置
+###### 过期与配置变更
 
-| 字段           | 类型    | 默认值 | 是否必填 | 说明                                                            |
-|--------------|---------|--------------|----------|---------------------------------------------------------------|
-| enabled      | Boolean | false        | No       | 是否开启规则前缀树缓存                                                   |
-| cacheSize    | Integer | 512          | No       | 前缀树缓存大小                                                       |
-| matchMode    | String  | antPathMatch | Yes      | shenyu路径匹配模式，shenyu支持两种匹配模式: `antPathMatch` and `pathPattern` |
+缓存条目最多存活 `ttl` 毫秒（默认 60 秒），过期后由下一次匹配请求按当前的选择器/规则数据重新计算。配置变更不会被即时推送到运行中网关的匹配缓存：每个网关节点都会从自己的缓存对外服务，直到条目过期，因此可以把 `ttl` 视为匹配结果可能过期的上界。这些缓存条目不会跨网关节点同步。
 
+###### 旧版本（移除前）升级说明
 
-shenyu默认开启L1和L2缓存, shenyu前缀树支持两种匹配模式，我们非常建议您使用`pathPattern`作为默认的匹配模式。
-
-> pathPattern: org.springframework.web.util.pattern.PathPatternParser
-> antPathMatch: org.springframework.util.AntPathMatcher
-
-当您将`matchRestful`标记为true时，我们建议将所有缓存标记为`false`，以避免匹配冲突。
+ShenYu 2.7.1 及更早版本提供通过 `shenyu.selectorMatchCache.trie.*` 与 `shenyu.ruleMatchCache.trie.*`（`enabled`、`cacheSize`、`matchMode`）配置的前缀树 L2 缓存。这些配置段和前缀树引擎在当前实现中已不存在：默认的属性绑定会忽略这些残留键，它们不会恢复前缀树匹配。请移除它们并改用上文中的 `shenyu.selectorMatchCache.cache` / `shenyu.ruleMatchCache.cache`。2.7.1 版本文档中保留了该版本实际支持的前缀树配置说明。
 
 
 ##### shenyu.NettyTcpProperties 配置

@@ -12,28 +12,21 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 
 ```yaml
 shenyu:
+  # match-cache settings below reflect the current development line; ShenYu 2.7.1 and earlier used the removed trie L2 caches
   selectorMatchCache:
-    ## selector L1 cache
-    cache:
-      enabled: false
-      initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 10000 # max size in cache
-    ## selector L2 cache, use trie as L2 cache
-    trie:
-      enabled: false
-      cacheSize: 128 # the number of plug-ins
-      matchMode: antPathMatch
-  ruleMatchCache:
-    ## rule L1 cache
+    ## bounded per-path match cache for selectors
     cache:
       enabled: true
       initialCapacity: 10000 # initial capacity in cache
-      maximumSize: 65536 # max size in cache
-    ## rule L2 cache, use trie as L2 cache
-    trie:
-      enabled: false
-      cacheSize: 1024 # the number of selectors
-      matchMode: antPathMatch
+      maximumSize: 10000 # max size in cache
+      ttl: 60000 # match result lifetime in milliseconds, must be positive
+  ruleMatchCache:
+    ## bounded per-path match cache for rules
+    cache:
+      enabled: true
+      initialCapacity: 10000 # initial capacity in cache
+      maximumSize: 10000 # max size in cache
+      ttl: 60000 # match result lifetime in milliseconds, must be positive
   netty:
     http:
       webServerFactoryEnabled: true
@@ -221,48 +214,41 @@ shenyu:
 
 
 
-##### shenyu.matchCache config
+##### shenyu.selectorMatchCache.cache & shenyu.ruleMatchCache.cache config
 
-* selector match cache
+`shenyu.selectorMatchCache.cache` and `shenyu.ruleMatchCache.cache` bind to `MatchCacheConfig`, a bounded per-path match cache for selector and rule matching. There is no separate `shenyu.matchCache` prefix, and no trie/L2 cache in the current implementation.
 
-| Field           | Type    | Default | Required | Description                       |
-|-----------------|---------|---------|----------|-----------------------------------|
-| enabled         | Boolean | false   | No       | Whether to enable selector cache. |
-| initialCapacity | Integer | 10000   | No       | selector initial capacity         |
-| maximumSize     | Integer | 10000   | No       | selector max size                 |
+This section documents the current development line (verified against `2.7.3-SNAPSHOT`). ShenYu 2.7.1 and earlier shipped the former trie-based L2 caching instead; see the [2.7.1 versioned page](/docs/2.7.1/user-guide/property-config/gateway-property-config) for the settings that release actually supported.
 
-* selector trie cache
+The following values are the Java-model defaults; a concrete distribution sample may override them.
 
-| Field        | Type    | Default      | Required | Description                                                                       |
-|--------------|---------|--------------|----------|-----------------------------------------------------------------------------------|
-| enabled      | Boolean | false        | No       | Whether to enable selector trie cache                                             |
-| cacheSize    | Integer | 512          | No       | trie cache size                                                                   |
-| matchMode    | String  | antPathMatch | Yes      | path match mode, shenyu support two match modes, `antPathMatch` and `pathPattern` |
+| Field           | Type    | Default | Required | Description                                                                                                    |
+|-----------------|---------|---------|----------|-----------------------------------------------------------------------------------------------------------------|
+| enabled         | Boolean | true    | No       | Whether to consult the bounded per-path match cache when matching selectors or rules. Entries are still only written when the candidate set is path-safe (see below). |
+| initialCapacity | int     | 10000   | No       | Initial capacity of the match cache.                                                                            |
+| maximumSize     | long    | 10000   | No       | Maximum number of cached path entries.                                                                         |
+| ttl             | long    | 60000   | No       | Match result lifetime in **milliseconds**. Must be positive; a non-positive value is rejected with `Match cache ttl must be positive` during property binding. |
 
+###### What gets cached
 
-* rule match cache
+Entries are keyed by `(pluginName, path)` and hold the winning selector/rule, or a negative entry meaning "no candidate matched this path". Because a cache hit skips the entire current candidate set, an entry is written only when matching is decided by the request path alone:
 
-| Field           | Type    | Default | Required | Description                   |
-|-----------------|---------|---------|----------|-------------------------------|
-| enabled         | Boolean | false   | No       | Whether to enable rule cache. |
-| initialCapacity | Integer | 10000   | No       | selector initial capacity     |
-| maximumSize     | Integer | 10000   | No       | selector max size             |
+* Every enabled candidate selector/rule is decided by URI conditions using one of the path-only operators: `=`, `equals`, `contains`, `startsWith`, `endsWith`, `match`, `regex`, `exclude`, `pathPattern`, `isBlank`.
+* No enabled candidate is marked `matchRestful`, and no candidate has an empty condition list (for example a full-match selector) — such candidates always match live and never produce a cache entry.
+* Positive entries require exactly one distinct matching candidate. When two or more distinct candidates match the same request, a winner is still chosen by condition specificity and sort order, but the result is not cached.
+* A rule-level negative entry is keyed without a selector id, so it is only sound when the whole selector set of that plugin is also decided by path only.
 
-* rule trie cache
+Conditions on headers, query parameters, cookies, IP/host, time-dependent predicates or custom SPI operators depend on state beyond the URI and are not eligible: matching simply runs on every request. This is a safety restriction of the implementation, not advice about URI-looking rules in general.
 
-| Field        | Type    | Default      | Required | Description                                                                       |
-|--------------|---------|--------------|----------|-----------------------------------------------------------------------------------|
-| enabled      | Boolean | false        | No       | Whether to enable rule trie cache                                                 |
-| cacheSize    | Integer | 512          | No       | trie cache size                                                                   |
-| matchMode    | String  | antPathMatch | Yes      | path match mode, shenyu support two match modes, `antPathMatch` and `pathPattern` |
+Example: a selector whose conditions are only a `uri` condition such as `pathPattern /api/**` is cacheable — its outcome depends solely on the request path. A selector that additionally conditions on a header (`X-Token: abc`) is not, because two requests for the same path with different header values may match differently. Note that eligibility is decided by the whole candidate set, not by the winning rule alone: a path-keyed entry would skip every candidate on a cache hit, so caching only happens when no enabled candidate depends on non-path state.
 
+###### Expiry and configuration changes
 
-shenyu trie match support two match mode, we suggest use `pathPattern` as default match mode
+Entries live at most `ttl` milliseconds (default 60s) and are recomputed from the current selector/rule data on the next matching request after expiry. Configuration changes are not pushed into a running gateway's match cache instantly: each gateway node serves from its own cache until entries expire, so treat `ttl` as the bound on stale match results. There is no cross-gateway synchronization of these entries.
 
-> pathPattern: org.springframework.web.util.pattern.PathPatternParser
-> antPathMatch: org.springframework.util.AntPathMatcher
+###### Upgrade note for releases before the removal
 
-when you mark `matchRestful` as true, we suggest mark all cache to `false` to avoid cache conflict.
+ShenYu 2.7.1 and earlier shipped a trie L2 cache configured through `shenyu.selectorMatchCache.trie.*` and `shenyu.ruleMatchCache.trie.*` (`enabled`, `cacheSize`, `matchMode`). Those configuration sections and the trie engine no longer exist in the current implementation: the leftover keys are ignored by default property binding and do not restore trie matching. Remove them and use `shenyu.selectorMatchCache.cache` / `shenyu.ruleMatchCache.cache` above.
 
 ##### shenyu.NettyTcpProperties config
 

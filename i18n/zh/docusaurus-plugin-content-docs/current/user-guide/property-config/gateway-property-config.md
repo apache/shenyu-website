@@ -12,6 +12,7 @@ description: 网关属性配置
 
 ```yaml
 shenyu:
+  # 下列匹配缓存配置仅适用于当前开发线；ShenYu 2.7.1 及更早版本使用的是已移除的前缀树 L2 缓存
   selectorMatchCache:
     ## 选择器按路径的有界匹配缓存
     cache:
@@ -217,6 +218,8 @@ shenyu:
 
 `shenyu.selectorMatchCache.cache` 与 `shenyu.ruleMatchCache.cache` 绑定到 `MatchCacheConfig`，分别为选择器匹配和规则匹配提供按路径的有界缓存。当前实现中不存在单独的 `shenyu.matchCache` 前缀，也不存在前缀树（trie）L2 缓存。
 
+本节描述当前开发线（对照 `2.7.3-SNAPSHOT` 验证）。ShenYu 2.7.1 及更早版本提供的是基于前缀树的 L2 缓存；该版本实际支持的配置请见 [2.7.1 版本页](/zh/docs/2.7.1/user-guide/property-config/gateway-property-config)。
+
 下表为 Java 模型默认值；具体的发行版样例可能覆盖这些值。
 
 | 字段           | 类型    | 默认值 | 是否必填 | 说明       |
@@ -245,7 +248,7 @@ shenyu:
 
 ###### 旧版本（移除前）升级说明
 
-ShenYu 2.7.1 及更早版本提供通过 `shenyu.selectorMatchCache.trie.*` 与 `shenyu.ruleMatchCache.trie.*`（`enabled`、`cacheSize`、`matchMode`）配置的前缀树 L2 缓存。这些配置段和前缀树引擎在当前实现中已不存在：默认的属性绑定会忽略这些残留键，它们不会恢复前缀树匹配。请移除它们并改用上文中的 `shenyu.selectorMatchCache.cache` / `shenyu.ruleMatchCache.cache`。2.7.1 版本文档中保留了该版本实际支持的前缀树配置说明。
+ShenYu 2.7.1 及更早版本提供通过 `shenyu.selectorMatchCache.trie.*` 与 `shenyu.ruleMatchCache.trie.*`（`enabled`、`cacheSize`、`matchMode`）配置的前缀树 L2 缓存。这些配置段和前缀树引擎在当前实现中已不存在：默认的属性绑定会忽略这些残留键，它们不会恢复前缀树匹配。请移除它们并改用上文中的 `shenyu.selectorMatchCache.cache` / `shenyu.ruleMatchCache.cache`。
 
 
 ##### shenyu.NettyTcpProperties 配置

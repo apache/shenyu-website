@@ -12,6 +12,7 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 
 ```yaml
 shenyu:
+  # match-cache settings below reflect the current development line; ShenYu 2.7.1 and earlier used the removed trie L2 caches
   selectorMatchCache:
     ## bounded per-path match cache for selectors
     cache:
@@ -217,6 +218,8 @@ shenyu:
 
 `shenyu.selectorMatchCache.cache` and `shenyu.ruleMatchCache.cache` bind to `MatchCacheConfig`, a bounded per-path match cache for selector and rule matching. There is no separate `shenyu.matchCache` prefix, and no trie/L2 cache in the current implementation.
 
+This section documents the current development line (verified against `2.7.3-SNAPSHOT`). ShenYu 2.7.1 and earlier shipped the former trie-based L2 caching instead; see the [2.7.1 versioned page](/docs/2.7.1/user-guide/property-config/gateway-property-config) for the settings that release actually supported.
+
 The following values are the Java-model defaults; a concrete distribution sample may override them.
 
 | Field           | Type    | Default | Required | Description                                                                                                    |
@@ -245,7 +248,7 @@ Entries live at most `ttl` milliseconds (default 60s) and are recomputed from th
 
 ###### Upgrade note for releases before the removal
 
-ShenYu 2.7.1 and earlier shipped a trie L2 cache configured through `shenyu.selectorMatchCache.trie.*` and `shenyu.ruleMatchCache.trie.*` (`enabled`, `cacheSize`, `matchMode`). Those configuration sections and the trie engine no longer exist in the current implementation: the leftover keys are ignored by default property binding and do not restore trie matching. Remove them and use `shenyu.selectorMatchCache.cache` / `shenyu.ruleMatchCache.cache` above. See the 2.7.1 versioned documentation for the trie settings that release actually shipped.
+ShenYu 2.7.1 and earlier shipped a trie L2 cache configured through `shenyu.selectorMatchCache.trie.*` and `shenyu.ruleMatchCache.trie.*` (`enabled`, `cacheSize`, `matchMode`). Those configuration sections and the trie engine no longer exist in the current implementation: the leftover keys are ignored by default property binding and do not restore trie matching. Remove them and use `shenyu.selectorMatchCache.cache` / `shenyu.ruleMatchCache.cache` above.
 
 ##### shenyu.NettyTcpProperties config
 

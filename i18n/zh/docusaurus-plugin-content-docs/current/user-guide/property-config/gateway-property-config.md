@@ -68,22 +68,26 @@ shenyu:
     serverLists: localhost:2181 #http://localhost:2379 #localhost:8848
     props:
 #  httpclient:
-#    strategy: webClient
-#    connectTimeout: 45000
-#    responseTimeout: 3000
-#    readerIdleTime: 3000
+#    strategy: netty # 支持 webClient 或 netty，默认 netty
+#    connectTimeout: 45000 # TCP 连接建立超时，单位毫秒
+#    responseTimeout: 3000 # 作用于每个被代理响应的响应等待，单位毫秒；0 或负数表示禁用该等待
+#    readerIdleTime: 3000 # 连接级 idle 处理器的读空闲阈值，单位毫秒
 #    writerIdleTime: 3000
 #    allIdleTime: 3000
-#    readTimeout: 3000
-#    writeTimeout: 3000
+#    readTimeout: 3000 # 单次读取期限，单位毫秒；非正值表示禁用该读取期限
+#    writeTimeout: 3000 # 单次写入期限，单位毫秒
 #    wiretap: false
-#    keepAlive: false
+#    keepAlive: true # 复用上游连接；false 是应对上游重置陈旧连接的兜底开关（reactor-netty#388）
 #    pool:
-#      type: ELASTIC
-#      name: proxy
-#      maxConnections: 16
-#      acquireTimeout: 45000
-#      maxIdleTime: 3000  
+#      type: FIXED # 支持 FIXED（默认）、ELASTIC（保留的历史名称，与 FIXED 使用相同的有限容量）或 DISABLED
+#      name: shenyu-proxy # 默认连接池名称；按规则选用的池需通过 shenyu.httpclient.pool-groups 单独配置
+#      maxConnections: 16 # 示例值；必须为正数，默认值沿用 Reactor Netty
+#      acquireTimeout: 3000 # 等待池内连接的最长时间，单位毫秒；0 表示不等待，负数会在启动时报错
+#      maxPendingAcquires: 32 # 缺省时为 2*maxConnections；-1 表示不限制队列；0 与小于 -1 的值会在启动时报错
+#      maxIdleTime: # 缺省表示不做空闲回收；FIXED 池建议设为小于上游/负载均衡器的空闲超时
+#      maxLifeTime:
+#      evictionInterval:
+#      metrics: false # 需要类路径上存在 micrometer-core
 #    proxy:
 #      host:
 #      port:
@@ -328,33 +332,54 @@ Apache ShenYu 网关注册到注册中心的相关配置，注册中心配置请
 
 Apache ShenYu 网关中代理Http及SpringCloud协议后，用于发送代理请求的HttpClient配置
 
+下表为当前开发线的取值（对照 `2.7.3-SNAPSHOT` 验证）；旧版本实际发布的默认值请见对应版本的本指南页面。
+
 | 名称            |  类型   |  默认值   | 是否必填 | 说明                                                         |
 | :-------------- | :-----: | :-------: | :------: | :----------------------------------------------------------- |
-| strategy        | String  | webClient |    No    | HttpClientPlugin实现策略（默认使用webClient）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
-| connectTimeout  |   int   |   45000   |    No    | 连接超时时间 (毫秒)，默认值为 `45000`。                      |
-| responseTimeout |   int   |   3000    |    No    | 结果超时时间 (毫秒)，默认值为 `3000`。                       |
-| readerIdleTime  |   int   |   3000    |    No    | 指定读空闲超时时间 (毫秒)，默认值为 `3000`。                 |
-| writerIdleTime  |   int   |   3000    |    No    | 指定写空闲超时时间 (毫秒)，默认值为 `3000`。                 |
-| allIdleTime     |   int   |   3000    |    No    | 指定读和写超时时间 (毫秒)，默认值为 `3000`。                 |
-| readTimeout     |   int   |   3000    |    No    | 读取超时 (毫秒)，默认值为 `3000`。                           |
-| writeTimeout    |   int   |   3000    |    No    | 输出超时 (millisecond)，默认值为 `3000`。                    |
+| strategy        | String  | netty     |    No    | HttpClientPlugin实现策略（默认使用netty）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
+| connectTimeout  |   int   |   45000   |    No    | TCP 连接建立超时时间 (毫秒)，默认值为 `45000`。该值只作用于建连阶段，与等待池内可用连接的 `pool.acquireTimeout` 不同。 |
+| responseTimeout |   int   |   3000    |    No    | 响应等待时间 (毫秒)，默认值为 `3000`。它约束的是响应读取之间的间隔（包括响应体的读取），不只是等待响应头，因此 SSE、长轮询、token 流等在响应头到达之后仍可能超时。设为 `0` 或负数表示禁用该等待，此时下方的单次读取期限仍然生效。 |
+| readerIdleTime  |   int   |   3000    |    No    | 连接级 idle 处理器的读空闲阈值 (毫秒)，默认值为 `3000`。     |
+| writerIdleTime  |   int   |   3000    |    No    | 连接级 idle 处理器的写空闲阈值 (毫秒)，默认值为 `3000`。     |
+| allIdleTime     |   int   |   3000    |    No    | 连接级 idle 处理器的双向空闲阈值 (毫秒)，默认值为 `3000`。   |
+| readTimeout     |   int   |   3000    |    No    | 单次读取期限 (毫秒)，默认值为 `3000`。设为非正数时该读取期限被禁用，上方的 idle 阈值仍然生效。 |
+| writeTimeout    |   int   |   3000    |    No    | 单次写入期限 (毫秒)，默认值为 `3000`。                       |
 | wiretap         | Boolean |   false   |    No    | 启用 Netty HttpClient 的窃听调试，默认值为 `false`。         |
-| keepAlive       | Boolean |   false   |    No    | 启用或禁用请求的 Keep-Alive 支持，默认值为 `false`。         |
+| keepAlive       | Boolean |   true    |    No    | 启用或禁用请求的 Keep-Alive 支持，默认值为 `true`。设为 `false` 是应对上游重置陈旧连接的兜底开关（reactor-netty#388）。启用 keep-alive 并使用 FIXED 池时，应把 `pool.maxIdleTime` 设为小于上游或负载均衡器的空闲超时，并为部署规模显式设置 `pool.maxConnections`。 |
 | pool            |         |           |          | HttpClient 连接池配置                                        |
+| poolGroups      |         |           |          | 可选的命名连接池分组（按规则选用），见下文。                  |
 | proxy           |         |           |          | HttpClient 代理配置                                          |
 | ssl             |         |           |          | HttpClient SSL配置                                           |
 
+这些属性作用于不同层面，彼此叠加而非互相替代：`connectTimeout` 约束连接建立，`pool.acquireTimeout` 约束等待池内空闲连接，`responseTimeout` 与单次读/写期限约束已建立连接上的读写。整个代理尝试（含响应头与响应体）还会被代理规则侧的超时（见 `divide` 插件页的 `timeout` 与 `requestTimeout`）约束。因此对于慢速流式上游，通常还需要放大规则侧的期限——仅禁用 `responseTimeout` 并不能让停滞的流免于读取期限或规则期限的约束。
+
 - `pool` config
 
-HttpClient连接池配置
+HttpClient连接池配置。连接池按远端地址区分，因此 `maxConnections` 与队列上限按上游目标逐个生效，而不是全网关共享：
 
-| 名称           |  类型  |           默认值           | 是否必填 | 说明                                                         |
-| :------------- | :----: | :------------------------: | :------: | :----------------------------------------------------------- |
-| type           | String |          ELASTIC           |    No    | HttpClient连接池类型，默认值为`ELASTIC`。<br /> - `ELASTIC`: 连接池可以按需缓存和增长。<br />- `FIXED`: 连接池缓存并重用，有固定的最大连接数。<br />- `DISABLED`: 连接池总是会创建一个新的连接。 |
-| name           | String |           proxy            |    No    | 连接池映射名称，默认为`proxy`。                              |
-| maxConnections |  int   | 2*可用处理器数，最小值为16 |    No    | 仅适用于 `FIXED` 类型，在现有连接上开始挂起获取之前的最大连接数。<br />默认值为可用处理器数*2。<br /> (最小值为 16) |
-| acquireTimeout |  int   |           45000            |    No    | 仅适用于 `FIXED` 类型，等待获取连接的最长时间（毫秒）。默认值为 45000 |
-| maxIdleTime    |  int   |            Null            |    No    | Channel 空闲多久关闭，如果为空，没有最大空闲关闭时间。       |
+| 名称               |  类型   |            默认值            | 是否必填 | 说明                                                         |
+| :----------------- | :----: | :--------------------------: | :------: | :----------------------------------------------------------- |
+| type              | String |            FIXED             |    No    | HttpClient连接池类型，默认值为`FIXED`。<br /> - `FIXED`: 连接池缓存并重用，有固定的最大连接数。<br />- `ELASTIC`: 名称出于兼容保留；它不再代表无限容量，而是与 `FIXED` 遵循相同的有限容量限制，并在启动时打印包含实际生效值的警告日志。<br />- `DISABLED`: 不使用连接池，总是为每个请求创建新连接。 |
+| name              | String |         shenyu-proxy         |    No    | 连接池映射名称，默认为`shenyu-proxy`。                        |
+| maxConnections    |  int   |     Reactor Netty 默认值     |    No    | 进入排队获取之前的最大连接数，`FIXED` 与 `ELASTIC` 均适用。必须为正数，默认值沿用 Reactor Netty。 |
+| acquireTimeout    |  long  |             3000             |    No    | 等待池内连接的最长时间（毫秒），`FIXED` 与 `ELASTIC` 均适用。`0` 表示不等待；负数会在启动时报错。 |
+| maxPendingAcquires |  int  |       2 x maxConnections      |    No    | 获取队列的上限。历史拼写 `pendingAcquireMaxCount` 绑定同一个值。`-1` 表示不限制队列；`0` 与小于 `-1` 的值会在启动时报错。 |
+| maxIdleTime       |  long  |             Null             |    No    | 空闲超过该值（毫秒）的连接会被关闭；为 Null 时不做空闲回收。启用 keep-alive 时应设为小于上游或负载均衡器的空闲超时。 |
+| maxLifeTime       |  long  |             Null             |    No    | 连接在池中的最长存活时间（毫秒）；为 Null 时不限制。           |
+| evictionInterval  |  long  |             Null             |    No    | 后台执行空闲/存活回收的间隔（毫秒）；为 Null 时沿用 Reactor Netty 的默认后台回收行为。 |
+| metrics           | Boolean |            false             |    No    | 启用 Reactor Netty 连接池指标，要求类路径上存在 `micrometer-core`。 |
+
+获取队列已满时，获取失败并抛出 `PoolAcquirePendingLimitException`；等待超过 `acquireTimeout` 时抛出 `PoolAcquireTimeoutException`。两者都会作为传输错误走各代理插件已有的重试路径，不引入新的 HTTP 状态码映射。
+
+升级过渡期如需暂时恢复旧的 ELASTIC 无限容量策略，可配置 `maxConnections: 2147483647`、`maxPendingAcquires: -1`、`acquireTimeout: 0`。这会移除实际的容量约束，需要配合独立的准入控制，因此建议改为经过压测的有限容量。
+
+- `poolGroups` 配置
+
+`shenyu.httpclient.pool-groups` 可选地定义额外的命名连接池，让不同 divide 规则使用不同的连接预算，而不共享 `pool`：
+
+* 每个分组必须使用 `FIXED` 类型、配置为正数的 `maxConnections`，且使用区别于 `shenyu-proxy` 的唯一名称；最多支持 16 个分组。
+* divide 规则通过 `poolGroup` 处理字段选择分组；未知的分组名称会返回 HTTP 503，而不会回退到共享池。
+* 分组定义只在应用启动时读取一次；分组同样可以开启 `metrics`。
 
 - `Proxy` 配置
 

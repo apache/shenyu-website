@@ -68,22 +68,26 @@ shenyu:
     serverLists: localhost:2181 #http://localhost:2379 #localhost:8848
     props:
 #  httpclient:
-#    strategy: webClient
-#    connectTimeout: 45000
-#    responseTimeout: 3000
-#    readerIdleTime: 3000
+#    strategy: netty # supports webClient or netty, the default value is netty
+#    connectTimeout: 45000 # TCP connection establishment timeout, in milliseconds
+#    responseTimeout: 3000 # wait applied to each proxied response, in milliseconds; 0 or a negative value disables the wait
+#    readerIdleTime: 3000 # idle-state thresholds of the per-connection idle handler, in milliseconds
 #    writerIdleTime: 3000
 #    allIdleTime: 3000
-#    readTimeout: 3000
-#    writeTimeout: 3000
+#    readTimeout: 3000 # per-read deadline in milliseconds, a non-positive value disables the read deadline handler
+#    writeTimeout: 3000 # per-write deadline in milliseconds
 #    wiretap: false
-#    keepAlive: false
+#    keepAlive: true # reuse upstream connections; false is an escape hatch for stale-connection resets (reactor-netty#388)
 #    pool:
-#      type: ELASTIC
-#      name: proxy
-#      maxConnections: 16
-#      acquireTimeout: 45000
-#      maxIdleTime: 3000
+#      type: FIXED # supports FIXED (default), ELASTIC (legacy name, same finite limits) or DISABLED
+#      name: shenyu-proxy # the default pool name; opt-in per-rule pools are configured separately through shenyu.httpclient.pool-groups
+#      maxConnections: 16 # example tuning value; must be positive, the default follows Reactor Netty
+#      acquireTimeout: 3000 # maximum time in milliseconds waiting for a pooled connection; 0 disables the wait, negative values are rejected
+#      maxPendingAcquires: 32 # omitted means 2*maxConnections; -1 removes the queue bound; 0 and values below -1 are rejected
+#      maxIdleTime: # omitted means no idle eviction; keep below the upstream/load-balancer idle timeout for FIXED pools
+#      maxLifeTime:
+#      evictionInterval:
+#      metrics: false # requires micrometer-core on the classpath
 #    proxy:
 #      host:
 #      port:
@@ -323,33 +327,54 @@ When the registerType is `etcd`, the supported properties are as follows.
 
 This is the HttpClient configuration used to send proxy requests after proxying the Http and SpringCloud protocols in the `ShenYu` gateway.
 
+The values below reflect the current development line (verified against `2.7.3-SNAPSHOT`); for the defaults an older release actually shipped, use the matching versioned page of this guide.
+
 | Name            |  Type   |  Default  | Required | Description                                                  |
 | :-------------- | :-----: | :-------: | :------: | :----------------------------------------------------------- |
-| strategy        | String  | webClient |    No    | Type of http client, defaults to webClient.<br /> - webClient: use by WebClientPlugin<br />- netty: use by NettyHttpClientPlugin. |
-| connectTimeout  |   int   |   45000   |    No    | Connection timeout (millisecond), the default value is 45000. |
-| responseTimeout |   int   |   3000    |    No    | The response timeout (millisecond), the default value is 3000. |
-| readerIdleTime  |   int   |   3000    |    No    | The reader idle timeout (millisecond), the default value is 3000. |
-| writerIdleTime  |   int   |   3000    |    No    | The writer idle timeout (millisecond), the default value is 3000. |
-| allIdleTime     |   int   |   3000    |    No    | The all idle timeout (millisecond), the default value is 3000. |
-| readTimeout     |   int   |   3000    |    No    | Read timeout (millisecond), the default value is 3000.       |
-| writeTimeout    |   int   |   3000    |    No    | Write timeout (millisecond), the default value is 3000.      |
+| strategy        | String  | netty     |    No    | Type of http client, defaults to netty.<br /> - webClient: used by WebClientPlugin<br />- netty: used by NettyHttpClientPlugin. |
+| connectTimeout  |   int   |   45000   |    No    | TCP connection establishment timeout (millisecond), the default value is 45000. This is the time spent creating a connection; it is separate from the wait for a free pooled connection, see `pool.acquireTimeout`. |
+| responseTimeout |   int   |   3000    |    No    | The response wait (millisecond), the default value is 3000. It bounds the gaps between reads of a response, including body reads, so slow streams such as SSE, long polling and token streams can time out after the headers have arrived. A value of 0 or a negative number disables this wait, after which the per-read deadlines below still apply. |
+| readerIdleTime  |   int   |   3000    |    No    | Read-idle threshold of the per-connection idle handler (millisecond), the default value is 3000. |
+| writerIdleTime  |   int   |   3000    |    No    | Write-idle threshold of the per-connection idle handler (millisecond), the default value is 3000. |
+| allIdleTime     |   int   |   3000    |    No    | Both-direction idle threshold of the per-connection idle handler (millisecond), the default value is 3000. |
+| readTimeout     |   int   |   3000    |    No    | Per-read deadline (millisecond), the default value is 3000. A non-positive value disables this read deadline while the idle thresholds above stay in effect. |
+| writeTimeout    |   int   |   3000    |    No    | Per-write deadline (millisecond), the default value is 3000. |
 | wiretap         | Boolean |   false   |    No    | Enables wiretap debugging for Netty HttpClient, the default value is 'false'. |
-| keepAlive       | Boolean |   false   |    No    | Enable or Disable Keep-Alive support for the outgoing request, the default value is 'false'. |
+| keepAlive       | Boolean |   true    |    No    | Enable or Disable Keep-Alive support for the outgoing request, the default value is 'true'. Setting it to 'false' is an escape hatch for stale pooled connections being reset by the peer (reactor-netty#388). With keep-alive and a fixed pool, set `pool.maxIdleTime` below the upstream or load-balancer idle timeout, and size `pool.maxConnections` explicitly for the deployment. |
 | pool            |         |           |          | HttpClient connection pool config.                           |
+| poolGroups      |         |           |          | Optional named connection-pool groups for per-rule pools. See below. |
 | proxy           |         |           |          | HttpClient proxy config.                                     |
 | ssl             |         |           |          | HttpClient ssl config.                                       |
 
+These properties act at different levels, and they compose rather than replace each other: `connectTimeout` bounds routing/connection establishment, `pool.acquireTimeout` bounds waiting for an idle pooled connection, `responseTimeout` and the per-read/write deadlines bound reads and writes on an established connection. A whole proxy attempt (headers and body) is additionally bounded by the proxy rule's `timeout` and, when set, `requestTimeout` - see the `divide` plugin page. A slow streaming upstream therefore usually needs the rule deadline raised as well; disabling `responseTimeout` alone does not make a stalled stream exempt from the read deadlines or the rule deadline.
+
 - `pool` config
 
-HttpClient connection pool configuration:
+HttpClient connection pool configuration. Pools are keyed by remote address, so `maxConnections` and the queue bound apply per upstream destination, not across the whole gateway:
 
-| Name           |  Type  |              Default              | Required | Description                                                  |
-| :------------- | :----: | :-------------------------------: | :------: | :----------------------------------------------------------- |
-| type           | String |              ELASTIC              |    No    | Type of pool for HttpClient to use, defaults to ELASTIC.<br /> - ELASTIC: The connection pool can be cached and grown on demand<br />- FIXED: The connection pool cache and reuse a fixed maximum The number of connections.<br />- DISABLED: The connection pool will always create a new connection. |
-| name           | String |               proxy               |    No    | The channel pool map name, defaults to proxy.                |
-| maxConnections |  int   | the maximum value of 2*CPU and 16 |    No    | Only for type FIXED, the maximum number of connections before starting pending acquisition on existing ones.<br />the default value is available number of processors*2. <br /> (but with a minimum value of 16). |
-| acquireTimeout |  int   |               45000               |    No    | Only for type FIXED, the maximum time in millis to wait for acquiring. the default value is 45000. |
-| maxIdleTime    |  int   |               NULL                |    No    | After which the channel will be closed, if NULL there is no max idle time. |
+| Name              |  Type  |              Default              | Required | Description                                                  |
+| :---------------- | :----: | :-------------------------------: | :------: | :----------------------------------------------------------- |
+| type              | String |               FIXED               |    No    | Type of pool for HttpClient to use, defaults to FIXED.<br /> - FIXED: the pool caches and reuses at most a fixed maximum number of connections.<br />- ELASTIC: the name is kept for compatibility; it no longer forces unbounded capacity and honors the same finite limits as FIXED, with a startup warning naming the effective values.<br />- DISABLED: the pool is bypassed and a new connection is created for each request. |
+| name              | String |            shenyu-proxy            |    No    | The connection pool map name, defaults to `shenyu-proxy`.     |
+| maxConnections    |  int   | the Reactor Netty pool default    |    No    | The maximum number of connections before further acquires are queued, for both FIXED and ELASTIC. Must be positive. The default follows Reactor Netty. |
+| acquireTimeout    |  long  |               3000               |    No    | The maximum time in milliseconds to wait for a connection from the pool, for both FIXED and ELASTIC. `0` disables the waiting deadline; negative values are rejected at startup. |
+| maxPendingAcquires |  int  |       2 x maxConnections         |    No    | Upper bound of the pending-acquisition queue. `pendingAcquireMaxCount` is a legacy alias that binds the same value. `-1` removes the queue bound; `0` and values below `-1` are rejected at startup. |
+| maxIdleTime      |  long  |               NULL                |    No    | An idle connection is closed after this many milliseconds; when NULL no idle eviction is applied. Keep it below the upstream or load-balancer idle timeout when keep-alive is enabled. |
+| maxLifeTime       |  long  |               NULL                |    No    | Maximum lifetime of a pooled connection, in milliseconds; when NULL there is no lifetime bound. |
+| evictionInterval  |  long  |               NULL                |    No    | How often idle and lifetime eviction run in the background, in milliseconds; when NULL Reactor Netty's default background eviction is used. |
+| metrics           | Boolean |              false               |    No    | Enables Reactor Netty connection-pool metrics. Requires `micrometer-core` on the classpath. |
+
+When the pending queue is full, acquisition fails with `PoolAcquirePendingLimitException`; when the wait exceeds `acquireTimeout`, it fails with `PoolAcquireTimeoutException`. Both are transport errors handled through the proxy plugins' retry path; they introduce no new HTTP status mapping.
+
+To keep the previous unbounded ELASTIC capacity during an upgrade window, configure `maxConnections: 2147483647`, `maxPendingAcquires: -1` and `acquireTimeout: 0`. This removes the practical resource bounds and requires independent admission control, so prefer a measured finite policy instead.
+
+- `poolGroups` config
+
+`shenyu.httpclient.pool-groups` optionally defines additional named pools, so different divide rules can use different connection budgets instead of the shared `pool`:
+
+* Every group must use the `FIXED` type, configure a positive `maxConnections`, and use a unique name other than `shenyu-proxy`; at most 16 groups are accepted.
+* A divide rule selects its group with the `poolGroup` handle; an unknown group name returns HTTP 503 instead of falling back to the shared pool.
+* Definitions are read at application startup only, and a group can enable `metrics` the same way the shared pool does.
 
 - `proxy` config
 

@@ -4,6 +4,12 @@ keywords: ["Hystrix"]
 description: hystrix插件
 ---
 
+:::note 2.7.2
+
+`shenyu-spring-boot-starter-plugin-hystrix` 由 [plugin-store](https://github.com/apache/shenyu-plugin-store) 提供，不随默认 2.7.2 发行包分发。先安装兼容的扩展版本；示例中的 `shenyu-plugin-store.version` 应使用扩展版本，不能直接套用网关版本。外部协议示例已固定到 plugin-store 提交。
+
+:::
+
 # 1. 概述
 
 ## 1.1 插件名称
@@ -45,7 +51,7 @@ ShenYu 2.4.0
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-plugin-hystrix</artifactId>
-  <version>${project.version}</version>
+  <version>${shenyu-plugin-store.version}</version>
 </dependency>
 <!-- apache shenyu hystrix plugin end-->
 ```

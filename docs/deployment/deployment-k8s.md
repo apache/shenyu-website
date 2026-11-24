@@ -9,6 +9,16 @@ description: K8s Deployment
 
 This article introduces the use of `K8s` to deploy the `Apache ShenYu` gateway.
 
+## Prepare 2.7.2 images and signing key
+
+Build the 2.7.2 images using [Docker deployment](./deployment-docker.md#prepare-images) and load them onto every Kubernetes node, or push them to your own registry and update the manifests' `image` values. These examples use `IfNotPresent` for preloaded images and do not rely on unpublished public 2.7.2 tags. Mounted volumes must support the release containers' UID/GID `10001:10001` permissions.
+
+After creating the `shenyu` namespace and before deploying Admin, create a Secret from the private signing key already configured in the shell:
+
+```bash
+kubectl -n shenyu create secret generic shenyu-admin-jwt --from-literal=secret-key="${SHENYU_JWT_SECRETKEY:?Set the Admin signing key first}"
+```
+
 > Catalog
 >
 > Example 1: Using h2 as a database
@@ -355,11 +365,16 @@ spec:
             path: shenyu-admin-application-h2.yml
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:2.7.1
-        imagePullPolicy: Always
+        image: apache/shenyu-admin:2.7.2
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9095
         env:
+        - name: SHENYU_JWT_SECRETKEY
+          valueFrom:
+            secretKeyRef:
+              name: shenyu-admin-jwt
+              key: secret-key
         - name: 'TZ'
           value: 'Asia/Beijing'
         volumeMounts:
@@ -419,7 +434,7 @@ spec:
             path: shenyu-bootstrap-application.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:2.7.1
+        image: apache/shenyu-bootstrap:2.7.2
         ports:
         - containerPort: 9195
         env:
@@ -774,11 +789,16 @@ spec:
           mountPath: /opt/shenyu-admin/ext-lib
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:2.7.1
-        imagePullPolicy: Always
+        image: apache/shenyu-admin:2.7.2
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9095
         env:
+        - name: SHENYU_JWT_SECRETKEY
+          valueFrom:
+            secretKeyRef:
+              name: shenyu-admin-jwt
+              key: secret-key
         - name: 'TZ'
           value: 'Asia/Beijing'
         - name: SPRING_PROFILES_ACTIVE
@@ -842,7 +862,7 @@ spec:
                 path: shenyu-bootstrap-application.yml
       containers:
         - name: shenyu-bootstrap
-          image: apache/shenyu-bootstrap:2.7.1
+          image: apache/shenyu-bootstrap:2.7.2
           ports:
             - containerPort: 9195
           env:

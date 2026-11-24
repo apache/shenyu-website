@@ -4,6 +4,8 @@ keywords: [Casdoor]
 description: Casdoor plugin
 ---
 
+The default 2.7.2 distribution does not include Casdoor. Install a compatible external [plugin-store](https://github.com/apache/shenyu-plugin-store) extension before enabling it; see the [upgrade guide](../../deployment/upgrade-2.7.2.md).
+
 ShenYu has Casdoor plugin to use Casdoor
 
 ## Step1. Deploy Casdoor

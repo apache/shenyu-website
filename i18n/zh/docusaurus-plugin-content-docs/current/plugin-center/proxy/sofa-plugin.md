@@ -4,6 +4,12 @@ keywords: ["sofa"]
 description: sofa插件
 ---
 
+:::note 2.7.2
+
+`sofa` 由 [plugin-store](https://github.com/apache/shenyu-plugin-store) 提供，不随默认 2.7.2 发行包分发。先安装兼容的扩展版本；示例中的 `shenyu-plugin-store.version` 应使用扩展版本，不能直接套用网关版本。外部协议示例已固定到 plugin-store 提交。
+
+:::
+
 # 1. 概述
 
 ## 1.1 插件名称
@@ -193,7 +199,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 #### 2.6.1.2 插件配置
 
 - 打开插件，在 `shenyu-admin` --> 基础配置 --> 插件管理-> `sofa` ，设置为开启，并且根据需要调整注册中心配置。
-- 根据实际情况调整 [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa) 项目中 application.yml 配置并启动。
+- 根据实际情况调整 [shenyu-examples-sofa](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa) 项目中 application.yml 配置并启动。
 
 #### 2.6.2.6 请求服务并且验证结果
 

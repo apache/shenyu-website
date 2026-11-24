@@ -21,7 +21,7 @@ description: 本地部署
 * 下载代码
 
 ```
-git clone https://github.com/apache/shenyu.git
+git clone --depth 1 --branch v2.7.2 https://github.com/apache/shenyu.git
 cd shenyu
 mvn clean install '-Dmaven.javadoc.skip=true' '-B' '-Drat.skip=true' '-Djacoco.skip=true' '-DskipITs' '-DskipTests'
 ```

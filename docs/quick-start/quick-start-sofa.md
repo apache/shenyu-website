@@ -3,7 +3,13 @@ title: Quick start with Sofa
 description: Quick start with Sofa
 ---
 
-This document introduces how to quickly access the Apache ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa).
+:::note 2.7.2
+
+External components (`shenyu-spring-boot-starter-plugin-sofa`, `sofa`) come from [plugin-store](https://github.com/apache/shenyu-plugin-store), outside the default 2.7.2 distribution. Install a compatible extension release first; `shenyu-plugin-store.version` refers to the extension version, not automatically the gateway version. External protocol examples are pinned to a plugin-store commit.
+
+:::
+
+This document introduces how to quickly access the Apache ShenYu gateway using Sofa RPC. You can get the code example of this document by clicking [here](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa).
 
 ## Environment to prepare
 
@@ -49,7 +55,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
         <!-- apache shenyu sofa plugin end-->
 
@@ -57,7 +63,7 @@ If client is `sofa`, registry center is `Zookeeper`, please refer to the followi
 
 ## Run the shenyu-examples-sofa project
 
-Download [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
+Download [shenyu-examples-sofa](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa), replace the register address in `spring-dubbo.xml` with your local zk address, such as:
 
 ```yaml
 com:

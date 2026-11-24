@@ -1,38 +1,41 @@
 ---
 sidebar_position: 3
-title: Docker-compose 部署
+title: Docker Compose 部署
 keywords: ["docker-compose", "Deployment"]
-description: Docker-compose Deployment
+description: 使用固定版本配置和本地 2.7.2 镜像部署 ShenYu。
 ---
 
-本文介绍使用 `docker-compose` 来部署 `Apache ShenYu` 网关。
+先完成[部署先决条件](./deployment-before.md)，并按 [Docker 部署](./deployment-docker.md#prepare-images)构建本地 2.7.2 镜像。已有数据库必须先按[升级指南](./upgrade-2.7.2.md)迁移。本例使用 Docker Compose v2；macOS 运行发行版安装脚本时还需要 GNU sed（`gsed`）。
 
-> 在阅读本文档前，你需要先阅读[部署先决条件](./deployment-before.md)文档来完成部署 `shenyu` 前的环境准备工作。
+### 下载固定版本的安装脚本
 
-### 下载 shell 脚本
-
-```shell
-curl -O https://raw.githubusercontent.com/apache/shenyu/master/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
+```bash
+curl -fLO https://raw.githubusercontent.com/apache/shenyu/v2.7.2/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/install.sh
+bash ./install.sh v2.7.2
 ```
 
-### 执行脚本
+### 固定 Compose 配置和镜像
 
-这个脚本会下载需要的配置文件、mysql-connector，如果发现下载失败可以重复执行。
+发行版安装脚本仍从 `master` 下载 Compose 清单。执行后，用 `v2.7.2` 的清单替换它，避免部署时混入开发线配置，再将镜像标签固定为本地已构建的 `2.7.2`：
 
-```shell
-sh ./install.sh #默认拉取最新配置，如果需要部署已发布版本，可增加一个参数表示版本号，比如：v2.4.2 或 latest
+```bash
+curl -fL https://raw.githubusercontent.com/apache/shenyu/v2.7.2/shenyu-dist/shenyu-docker-compose-dist/src/main/resources/docker-compose.yaml -o shenyu-v2.7.2/docker-compose.release.yaml
+sed 's/apache\/shenyu-admin:latest/apache\/shenyu-admin:2.7.2/g; s/apache\/shenyu-bootstrap:latest/apache\/shenyu-bootstrap:2.7.2/g' shenyu-v2.7.2/docker-compose.release.yaml > shenyu-v2.7.2/docker-compose.yaml
+mkdir -p shenyu-v2.7.2/shenyu-bootstrap/ext-lib
 ```
 
-### 初始化`shenyu-admin`存储数据源
+### 初始化数据库并修改配置
 
-参考[数据库初始文档](./deployment-before.md#数据库环境准备) 初始化数据库环境 。
+全新安装按[数据库初始化说明](./deployment-before.md#数据库环境准备)准备数据库；已有部署执行迁移，不要重复初始化。检查 `shenyu-v2.7.2/shenyu-admin/conf/` 与 `shenyu-v2.7.2/shenyu-bootstrap/conf/` 中的数据库、同步和插件配置。
 
-### 修改配置文件
+在当前 shell 中设置私有的 `SHENYU_JWT_SECRETKEY`，所有 Admin 实例使用同一个值。未设置时，Compose 会拒绝启动。挂载的配置、扩展依赖必须允许容器用户 `10001:10001` 读取，日志目录必须允许其写入，详见[容器权限说明](./deployment-docker.md#prepare-images)。
 
-修改脚本下载的配置文件来设置`JDBC`等配置。
+### 启动与验证
 
-### 执行 docker-compose
-
-```shell
-docker-compose -f ./shenyu-${VERSION}/docker-compose.yaml up -d
+```bash
+docker compose -f shenyu-v2.7.2/docker-compose.yaml config --quiet
+docker compose -f shenyu-v2.7.2/docker-compose.yaml up -d
+docker compose -f shenyu-v2.7.2/docker-compose.yaml ps
+curl -f http://localhost:9095/actuator/health
+curl -f http://localhost:9195/actuator/health
 ```

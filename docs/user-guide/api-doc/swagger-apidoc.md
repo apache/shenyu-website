@@ -8,7 +8,7 @@ This article introduces how to aggregate the `Swagger API documentation` of each
 
 ## 1. Description
 
-Remotely pull swagger documents, currently only supports swagger2.0, and only supports Divide and SpringCloud proxy plug-ins.
+The 2.7.2 example publishes an OpenAPI 3 document through Springdoc. The Admin document subsystem supports Swagger 2 and OpenAPI 3; the automatic registration flow below uses Divide or SpringCloud services.
 
 ## 2. Environment Preparation
 
@@ -25,7 +25,7 @@ It is enabled by default. In the `Apache ShenYu` gateway management system --> B
 
 ## 3. Run the Sample Project
 
-3.1. Download [shenyu-examples-http-swagger2](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http-swagger2)
+3.1. Download [shenyu-examples-http-swagger3](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-http-swagger3)
 
 3.2. Run `org.apache.shenyu.examples.http.ShenyuTestSwaggerApplication` main method to start the project.
 

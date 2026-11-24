@@ -3,6 +3,12 @@ title: Motan服务接入
 description: Motan服务接入
 ---
 
+:::note 2.7.2
+
+`motan`、`shenyu-spring-boot-starter-client-motan`、`shenyu-spring-boot-starter-plugin-motan` 由 [plugin-store](https://github.com/apache/shenyu-plugin-store) 提供，不随默认 2.7.2 发行包分发。先安装兼容的扩展版本；示例中的 `shenyu-plugin-store.version` 应使用扩展版本，不能直接套用网关版本。外部协议示例已固定到 plugin-store 提交。
+
+:::
+
 此篇文介绍如何将 `Motan` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `motan` 插件来接入`Motan`服务。
 
 接入前，请正确启动 `shenyu-admin`，并开启`motan`插件，在网关端和`motan`服务端引入相关依赖。可以参考前面的 [Motan快速开始](../../quick-start/quick-start-motan) 。
@@ -22,7 +28,7 @@ description: Motan服务接入
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
         <dependency>
             <groupId>com.weibo</groupId>
@@ -50,7 +56,7 @@ description: Motan服务接入
 
 ## Motan服务接入网关
 
-可以参考： [shenyu-examples-motan](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-motan)
+可以参考： [shenyu-examples-motan](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-motan)
 
 1. 在由`Motan`构建的微服务中，引入如下依赖：
 
@@ -58,7 +64,7 @@ description: Motan服务接入
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-client-motan</artifactId>
-            <version>${shenyu.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
 ```
 

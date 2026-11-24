@@ -3,7 +3,13 @@ title: Sofa快速开始
 description: Sofa快速开始
 ---
 
-本文档演示如何将`Sofa`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa) 。
+:::note 2.7.2
+
+`shenyu-spring-boot-starter-plugin-sofa`、`sofa` 由 [plugin-store](https://github.com/apache/shenyu-plugin-store) 提供，不随默认 2.7.2 发行包分发。先安装兼容的扩展版本；示例中的 `shenyu-plugin-store.version` 应使用扩展版本，不能直接套用网关版本。外部协议示例已固定到 plugin-store 提交。
+
+:::
+
+本文档演示如何将`Sofa`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa) 。
 
 ## 环境准备
 
@@ -45,7 +51,7 @@ description: Sofa快速开始
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
         <!-- apache shenyu sofa plugin end-->
 
@@ -53,7 +59,7 @@ description: Sofa快速开始
 
 ## 运行shenyu-examples-sofa项目
 
-下载 [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa)
+下载 [shenyu-examples-sofa](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa)
 
 设置`application.yml`的`zk`注册地址，如：
 

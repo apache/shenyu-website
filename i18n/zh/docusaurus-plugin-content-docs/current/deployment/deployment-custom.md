@@ -21,31 +21,36 @@ description: 自定义部署
 * 引入如下`jar`包：
 
 ```xml
+<parent>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu</artifactId>
+    <version>2.7.2</version>
+    <relativePath/>
+</parent>
+
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-webflux</artifactId>
-        <version>2.2.2.RELEASE</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-actuator</artifactId>
-        <version>2.2.2.RELEASE</version>
     </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.2</version>
     </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.2</version>
     </dependency>
 </dependencies>
 ```
 
-其中，ShenYu 依赖请使用当前最新版本。
+此示例继承 2.7.2 发行版父 POM，包含 Spring Boot 3.5.16 基线及显式依赖覆盖。如果业务工程必须保留其他父 POM，应对齐发行版依赖管理并核对解析结果；仅引入 Spring Boot BOM 无法包含 ShenYu 的全部覆盖项。
 
 * 在你的 `application.yaml` 文件中加上如下配置：
 

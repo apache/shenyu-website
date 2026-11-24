@@ -6,6 +6,8 @@ description: This is an asynchronous, high-performance, cross-language, responsi
 aliases: "/shenyu/docs/Home"
 ---
 
+These docs cover Apache ShenYu **2.7.2**. For an existing deployment, read the [upgrade guide](./deployment/upgrade-2.7.2.md) before changing the database, configuration, or dependencies.
+
 # Architecture
 
  ![](/img/architecture/shenyu-architecture-3d.png)  

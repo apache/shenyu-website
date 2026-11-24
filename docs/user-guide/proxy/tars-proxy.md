@@ -3,6 +3,12 @@ title: Tars Proxy
 description: Tars Proxy
 ---
 
+:::note 2.7.2
+
+External components (`shenyu-spring-boot-starter-plugin-tars`, `tars`) come from [plugin-store](https://github.com/apache/shenyu-plugin-store), outside the default 2.7.2 distribution. Install a compatible extension release first; `shenyu-plugin-store.version` refers to the extension version, not automatically the gateway version. External protocol examples are pinned to a plugin-store commit.
+
+:::
+
 This document is intended to help the `Tars` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `tars` plugin to handle `tars` service.
 
 Before the connection, start `shenyu-admin` correctly, start `tars` plugin, and add related dependencies on the gateway and `tars` application client. Refer to the previous [Quick start with Tars](../../quick-start/quick-start-tars) .
@@ -23,7 +29,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-tars</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
 
         <dependency>
@@ -38,7 +44,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Tars service access gateway
 
-Please refer to: [shenyu-examples-tars](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-tars)
+Please refer to: [shenyu-examples-tars](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-tars)
 
 1. In the microservice built by `Tars`, add the following dependencies:
 

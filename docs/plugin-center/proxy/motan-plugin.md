@@ -4,6 +4,8 @@ keywords: ["motan-plugin"]
 description:  motan-plugin
 ---
 
+The default 2.7.2 distribution does not include Motan. Install a compatible external [plugin-store](https://github.com/apache/shenyu-plugin-store) extension before enabling it; see the [upgrade guide](../../deployment/upgrade-2.7.2.md).
+
 
 ## Description
 

@@ -4,6 +4,12 @@ keywords: ["Logging", "ClickHouse"]
 description: Logging-ClickHouse Plugin
 ---
 
+:::note 2.7.2
+
+External components (`shenyu-spring-boot-starter-plugin-logging-clickhouse`) come from [plugin-store](https://github.com/apache/shenyu-plugin-store), outside the default 2.7.2 distribution. Install a compatible extension release first; `shenyu-plugin-store.version` refers to the extension version, not automatically the gateway version. External protocol examples are pinned to a plugin-store commit.
+
+:::
+
 # 1. Overview
 
 ## 1.1 Plugin Name
@@ -35,7 +41,7 @@ Add the dependency to the `shenyu-bootstrap` module.
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-logging-clickhouse</artifactId>
-    <version>${project.version}</version>
+    <version>${shenyu-plugin-store.version}</version>
 </dependency>
 ```
 

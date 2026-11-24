@@ -8,7 +8,7 @@ description: 远程拉取swagger 注册 API文档
 
 ## 1. 说明
 
-远程拉取swagger文档，目前仅支持swaggger2.0，并且只支持 Divide 和 SpringCloud 两种代理插件。
+2.7.2 示例通过 Springdoc 提供 OpenAPI 3 文档。Admin 文档子系统支持 Swagger 2 和 OpenAPI 3；下方自动注册流程使用 Divide 或 SpringCloud 服务。
 
 ## 2. 环境准备
 
@@ -25,7 +25,7 @@ description: 远程拉取swagger 注册 API文档
 
 ## 3. 运行示例项目
 
-3.1. 下载 [shenyu-examples-http-swagger2](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-http-swagger2)
+3.1. 下载 [shenyu-examples-http-swagger3](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-http-swagger3)
 
 3.2. 运行`org.apache.shenyu.examples.http.ShenyuTestSwaggerApplication` main方法启动项目。
 

@@ -28,7 +28,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 ## Integrate mcpTool with the gateway (for springMvc)
 
-Refer to the example project: [shenyu-examples-mcp](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-mcp)
+Refer to the example project: [shenyu-examples-mcp](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-mcp)
 
 * `SpringBoot` Users
 

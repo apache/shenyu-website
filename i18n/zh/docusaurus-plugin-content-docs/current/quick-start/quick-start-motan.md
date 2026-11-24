@@ -3,8 +3,14 @@ title: Motan快速开始
 description: Motan快速开始
 ---
 
+:::note 2.7.2
 
-本文档演示如何将`Motan`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-motan) 。
+`motan`、`shenyu-spring-boot-starter-plugin-motan` 由 [plugin-store](https://github.com/apache/shenyu-plugin-store) 提供，不随默认 2.7.2 发行包分发。先安装兼容的扩展版本；示例中的 `shenyu-plugin-store.version` 应使用扩展版本，不能直接套用网关版本。外部协议示例已固定到 plugin-store 提交。
+
+:::
+
+
+本文档演示如何将`Motan`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-motan) 。
 
 ## 环境准备
 
@@ -28,7 +34,7 @@ description: Motan快速开始
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
 
         <dependency>
@@ -59,7 +65,7 @@ description: Motan快速开始
 
 ## 运行shenyu-examples-motan项目
 
-下载 [shenyu-examples-motan](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-motan) 。
+下载 [shenyu-examples-motan](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-motan) 。
 
 运行`org.apache.shenyu.examples.motan.service.TestMotanApplication`main方法启动项目。
 

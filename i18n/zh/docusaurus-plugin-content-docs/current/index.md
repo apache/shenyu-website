@@ -5,6 +5,8 @@ keywords: ["Apache shenyu"]
 description: Apache ShenYu 是一个异步的，高性能的，跨语言的，响应式的`API`网关。
 ---
 
+当前文档对应 Apache ShenYu **2.7.2**。已有部署请先阅读[升级指南](./deployment/upgrade-2.7.2.md)，核对数据库、配置与依赖迁移要求。
+
 # 架构图
 
  ![](/img/architecture/shenyu-architecture-3d.png)

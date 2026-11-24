@@ -62,6 +62,7 @@ shenyu:
     object-class: person
     login-field: cn
   jwt:
+    secret-key: ${SHENYU_JWT_SECRETKEY}
     expired-seconds: 86400000
   shiro:
     white-list:
@@ -258,7 +259,7 @@ Spring ldap properties:
 |Name                      | Type  |  Default   | Required  | Description                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | expired-seconds | long |  24 *60* 60 * 1000L    |  No  |expiration time(millisecond)|
-| secret-key | string |  `defaultSecretKey`   |  No  |the key of jwt sign|
+| secret-key | string | None | Yes | JWT signing key; explicitly configure the same private value on every Admin instance. Old public/default keys are rejected. |
 
 
 ##### shenyu.shiro config

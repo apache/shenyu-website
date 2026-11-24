@@ -7,8 +7,6 @@ import Layout from '@theme/Layout';
 // import {useVersions, useLatestVersion} from '@theme/hooks/useDocs';
 import { useVersions, useLatestVersion } from '@docusaurus/plugin-content-docs/client';
 
-const currentReleaseVersion = '2.7.1';
-
 function Version() {
   const {
     siteConfig: {organizationName, projectName},
@@ -21,7 +19,8 @@ function Version() {
   );
   const repoUrl = `https://github.com/${organizationName}/${projectName}`;
   const getReleaseTag = (version) => {
-    const releaseVersion = version.name === 'current' ? currentReleaseVersion : version.name;
+    // The current docs version uses its release label as the Git tag version.
+    const releaseVersion = version.name === 'current' ? version.label : version.name;
     return releaseVersion === '2.3.0-Legacy' ? '2.3.0' : `v${releaseVersion}`;
   };
 

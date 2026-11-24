@@ -70,6 +70,12 @@ When a request matches the Selector and Rule:
 
 If `provider`, `baseUrl`, or `apiKey` is missing, the plugin logs the missing configuration and lets the request continue without transformation.
 
+### 2.7.2 failure and body handling
+
+The plugin reads the one-shot inbound body once and replays the buffered bytes for transformation or fallback. If prompt preparation, the model call, or applying the transformation fails, the original request body is forwarded intact. Errors from downstream plugins or the upstream service propagate normally; they do not trigger another execution of the plugin chain.
+
+The buffering limit is 5 MiB. A request whose declared `Content-Length` exceeds that limit is forwarded without transformation. A body that exceeds the limit while being read fails rather than replaying a partially consumed body. This also applies to oversized chunked requests, whose size is not known in advance.
+
 ## Example
 
 Original request:

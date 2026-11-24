@@ -11,9 +11,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Admin
 
-* download [apache-shenyu-2.7.1-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-admin-bin.tar.gz)
+* download [apache-shenyu-2.7.2-admin-bin.tar.gz](https://www.apache.org/dyn/closer.lua/shenyu/2.7.2/apache-shenyu-2.7.2-admin-bin.tar.gz)
 
-* unzip `apache-shenyu-2.7.1-admin-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-2.7.2-admin-bin.tar.gz`。 go to the `bin` directory.
 
 > After version 2.5.1, `start.sh` started to support custom JVM startup parameters through the environment variable `ADMIN_JVM`.
 
@@ -67,9 +67,9 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Bootstrap
 
-* download [apache-shenyu-2.7.1-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-bootstrap-bin.tar.gz)
+* download [apache-shenyu-2.7.2-bootstrap-bin.tar.gz](https://www.apache.org/dyn/closer.lua/shenyu/2.7.2/apache-shenyu-2.7.2-bootstrap-bin.tar.gz)
 
-* unzip `apache-shenyu-2.7.1-bootstrap-bin.tar.gz`。 go to the `bin` directory.
+* unzip `apache-shenyu-2.7.2-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 
 > After version 2.5.1, `start.sh` started to support custom JVM startup parameters through the environment variable `BOOT_JVM`.
 

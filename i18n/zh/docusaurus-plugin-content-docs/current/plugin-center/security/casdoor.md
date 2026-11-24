@@ -4,6 +4,8 @@ keywords: ["Casdoor"]
 description: Casdoor插件
 ---
 
+2.7.2 默认发行包不包含 Casdoor 插件。启用前需安装 [plugin-store](https://github.com/apache/shenyu-plugin-store) 中兼容的外部扩展，详见[升级指南](../../deployment/upgrade-2.7.2.md)。
+
 ShenYu 有Casdoor插件去使用Casdoor
 
 ## 第一步.部署Casdoor

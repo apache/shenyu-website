@@ -4,6 +4,8 @@ keywords: ["Shenyu-Sdk 使用", "feign"]
 description: Shenyu-Sdk-Feign 使用
 ---
 
+2.7.2 的 SDK Starter 不再传递引入注册中心实现。使用注册中心发现时，显式添加与 `register-type` 对应的提供者；使用 `local` 时不需要。详见[升级指南](../../deployment/upgrade-2.7.2.md)。
+
 ## Shenyu sdk-feign
 
 > 集成`openFeign`来实现声明式SDK调用网关API.
@@ -30,7 +32,7 @@ description: Shenyu-Sdk-Feign 使用
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sdk-feign</artifactId>
-        <version>2.6.1-SNAPSHOT</version>
+        <version>2.7.2</version>
     </dependency>
 </dependencies>
 ```
@@ -127,4 +129,4 @@ public interface ShenyuFeignClientApi {
 }
 ```
 
-更多可参考示例工程 [shenyu-examples-sdk-feign](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sdk/shenyu-examples-sdk-feign)
+更多可参考示例工程 [shenyu-examples-sdk-feign](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-sdk/shenyu-examples-sdk-feign)

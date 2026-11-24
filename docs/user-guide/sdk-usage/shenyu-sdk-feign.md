@@ -4,6 +4,8 @@ keywords: ["Using Shenyu-Sdk", "feign"]
 description: Using Shenyu-Sdk-Feign
 ---
 
+In 2.7.2, SDK starters no longer transitively provide registry implementations. For registry discovery, add the provider matching `register-type`; `local` needs none. See the [upgrade guide](../../deployment/upgrade-2.7.2.md).
+
 ## Shenyu sdk-feign
 
 > Integrate `open Feign` to implement declarative SDK call gateway API.
@@ -30,7 +32,7 @@ In the `pom.xml` file of the application client, introduce the following depende
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sdk-feign</artifactId>
-        <version>2.6.1-SNAPSHOT</version>
+        <version>2.7.2</version>
     </dependency>
 </dependencies>
 ```
@@ -127,4 +129,4 @@ public interface ShenyuFeignClientApi {
 }
 ```
 
-For more information, refer to the sample project [shenyu-examples-sdk-feign](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sdk/shenyu-examples-sdk-feign)
+For more information, refer to the sample project [shenyu-examples-sdk-feign](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-sdk/shenyu-examples-sdk-feign)

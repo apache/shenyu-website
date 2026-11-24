@@ -3,7 +3,13 @@ title: Tars快速开始
 description: Tars快速开始
 ---
 
-本文档演示如何将`Tars`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-tars) 。
+:::note 2.7.2
+
+`shenyu-spring-boot-starter-plugin-tars`、`tars` 由 [plugin-store](https://github.com/apache/shenyu-plugin-store) 提供，不随默认 2.7.2 发行包分发。先安装兼容的扩展版本；示例中的 `shenyu-plugin-store.version` 应使用扩展版本，不能直接套用网关版本。外部协议示例已固定到 plugin-store 提交。
+
+:::
+
+本文档演示如何将`Tars`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-tars) 。
 
 ## 环境准备
 
@@ -23,7 +29,7 @@ description: Tars快速开始
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-spring-boot-starter-plugin-tars</artifactId>
-    <version>${project.version}</version>
+    <version>${shenyu-plugin-store.version}</version>
 </dependency>
 
 <dependency>
@@ -35,7 +41,7 @@ description: Tars快速开始
 
 ## 运行shenyu-examples-tars项目
 
-下载[shenyu-examples-tars](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-tars)
+下载[shenyu-examples-tars](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-tars)
 
 修改`application.yml`中的`host`为你本地ip。
 

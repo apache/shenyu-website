@@ -122,11 +122,21 @@ divide 规则示例，通用规则配置请参考[选择器和规则](../../user
 ##### 2.4.3.2.1 规则处理信息配置
 
 - `loadStrategy`：如果`http`客户端是一个集群，`Apache ShenYu`网关调用时采取哪种负载均衡策略，当前支持 `roundRobin`、`random` 和 `hash`。
-- `timeout`：调用`http`客户端的超时时间。
-- `retryCount`：调用`http`客户端超时失败的重试次数。
+- `timeout`：调用`http`客户端的单次尝试超时时间，单位毫秒，默认值为 `3000`。一次尝试覆盖等待响应和读取响应的全过程，因此慢于该值的响应会被这个期限截断，而不是等到传输层的读取超时。
+- `retryCount`：调用`http`客户端失败后的重试次数，默认值为 `3`。可重试的失败包括各类超时（建连、读取、单次尝试）和连接级传输错误；数据缓冲区超限错误不会被重试。
 - `headerMaxSize`：请求`header`的最大值。
 - `requestMaxSize`：请求体的最大值。
 - `retryStrategy`：从`2.4.3版本`开始支持，失败后的重试策略，默认`current`以保持对低版本的兼容。 比如下游有3个服务`http://localhost:1111`、`http://localhost:1112`和`http://localhost:1113`，假设第一次负载均衡到`http://localhost:1111`并且`调用失败`。使用`current`策略会继续重试调用`http://localhost:1111`；使用`failover`策略会通过`负载均衡`重试调用到其他服务如`http://localhost:1112`，此时如果又失败了，则调用到`http://localhost:1113`，直到没有可用的服务为止。
+- `retryBackOffSpec`：重试之间的退避策略，默认为 `default`。`default` 使用带上限的随机退避（最小 20 毫秒、上限 20 秒、抖动 0.5）；`fixed` 使用固定 2 秒延迟；`exponential` 使用从 500 毫秒起、上限 5 秒的指数退避。
+- `requestTimeout`：可选。设置后它约束整个重试序列——所有尝试、之间的退避以及响应写回，期限到期时返回 `HTTP 504`。未设置时，序列仍有一个隐式的总预算 `(retry + 1) * timeout + retry * maximumBackoff` 作为兜底，其中 `maximumBackoff` 是所选 `retryBackOffSpec` 的退避上限（`default` 为 20 秒、`fixed` 为 2 秒、`exponential` 为 5 秒）；超出该预算同样会使整个序列失败。
+- `poolGroup`：可选。选择 `shenyu.httpclient.pool-groups` 定义的命名连接池（见网关属性配置页）。未知的分组名称会返回 `HTTP 503`，而不会回退到共享的默认连接池。
+
+重试次数耗尽与总预算耗尽的状态码不同：允许的尝试次数用尽时，客户端返回 `HTTP 408`（"超过最大重试次数"）；而整个序列的预算或 `requestTimeout` 先到期时返回 `HTTP 504`。带预算的重试同时计入单次尝试期限和总上限，而不是把某个超时值简单地按次数相乘。
+
+普通请求与慢速流的对照示例，以及是哪个控制项结束了响应：
+
+* 默认配置下，普通快速请求的每一次尝试都受规则 `timeout`（3000 毫秒）约束。如果每次尝试都挂起，尝试超时后会按配置的次数重试，次数用尽后以 `HTTP 408` 结束；如果总预算先耗尽，则以 `HTTP 504` 结束。
+* 慢速流式响应（SSE、长轮询）即使一直有数据产出，达到单次尝试的总时长 `timeout` 后仍会被期限截断。代理这类上游时，应放大规则的 `timeout`（并可用 `requestTimeout` 约束整个序列）。仅把 `shenyu.httpclient.responseTimeout` 设为 0 并没有帮助：`responseTimeout` 约束的是响应读取之间的间隔（包括响应体），禁用它之后，传输层的读取期限（`shenyu.httpclient.readTimeout` 与各 idle 阈值）和规则侧的期限仍会终止停滞或过长的流。
 
 ## 2.5 示例
 

@@ -122,11 +122,21 @@ Example of divide rule. For general rule configuration, please refer to [selecto
 ##### 2.4.3.2.1 Rule processing information configuration
 
 - `loadStrategy`: If the `http` client is a cluster, which load balancing strategy is used when the `Apache ShenYu` gateway is called, currently supports `roundRobin`, `random` and `hash`.
-- `timeout`: The timeout for calling the `http` client.
-- `retry Count`: The number of retries that failed to call the `http` client timeout.
+- `timeout`: The timeout of a single call attempt to the `http` client, in milliseconds, the default value is 3000. An attempt covers waiting for the response and reading it, so a slower-than-timeout response is cut by this deadline rather than by the transport-level read deadlines.
+- `retry Count`: The number of retries after a failed call, the default value is 3. Timeouts (connection establishment, reads, the attempt) and connection-level transport errors are retried; data-buffer limit errors are not.
 - `headerMaxSize`: The maximum value of the requested `header`.
 - `requestMaxSize`: The maximum value of the request body.
 - `retryStrategy`: Supported since `2.4.3`, retry strategy after failure, default `current` to maintain compatibility with lower versions. For example, there are 3 downstream services `http:localhost:1111`, `http:localhost:1112` and `http:localhost:1113`, assuming the first load balancing to `http:localhost:1111` and `call failed`. Using the `current` strategy will continue to retry calling `http:localhost:1111`; using the `failover` strategy will retry calling other services such as `http:localhost:1112` through the `load balancing`, if it fails again at this time , call to `http:localhost:1113` until no service is available.
+- `retryBackOffSpec`: The back-off used between retries, the default is `default`. `default` uses a capped random back-off (20 ms minimum, 20 s cap, 0.5 jitter); `fixed` uses a flat 2 s delay; `exponential` uses an exponential back-off starting at 500 ms with a 5 s cap.
+- `requestTimeout`: Optional. When set, it bounds the whole retry sequence - every attempt, the back-off in between and writing the response - and an expired deadline returns `HTTP 504`. When it is not set, the sequence is additionally guarded by an implicit aggregate budget `(retry + 1) * timeout + retry * maximumBackoff`, where `maximumBackoff` is the cap of the chosen `retryBackOffSpec` (20 s for `default`, 2 s for `fixed`, 5 s for `exponential`); exceeding this budget also fails the sequence.
+- `poolGroup`: Optional. Selects a named connection pool defined in `shenyu.httpclient.pool-groups` (see the gateway property config page). An unknown group name returns `HTTP 503` instead of falling back to the shared default pool.
+
+Exhausting the attempts and exhausting the aggregate budget produce different statuses: when the allowed number of attempts is exhausted, the client returns `HTTP 408` ("the maximum number of retry times has been exceeded"); when the whole-sequence budget or `requestTimeout` expires first, the client returns `HTTP 504`. Budgeted retries count both the per-attempt deadline and the aggregate bound instead of multiplying a single timeout informally.
+
+Worked example for an ordinary request versus a slow stream, and which control terminates it:
+
+* An ordinary fast request under the defaults is bounded per attempt by `timeout` (3000 ms). If each attempt hangs, the attempt times out, the configured number of retries runs, and the sequence ends with `HTTP 408` when the count is exhausted - or with `HTTP 504` if the aggregate budget runs out first.
+* A slow streaming response (SSE, long polling) that stays active is still terminated after `timeout` milliseconds of total attempt time, even when nothing stalled. To proxy such endpoints, raise the rule's `timeout` (and consider `requestTimeout` for the whole sequence). Disabling `shenyu.httpclient.responseTimeout` alone does not help: `responseTimeout` bounds the gaps between response reads including body reads, and after it is disabled the transport-level read deadlines (`shenyu.httpclient.readTimeout` and the idle thresholds) and the rule-side deadlines still terminate a stalled or over-long stream.
 
 ## 2.5 Examples
 

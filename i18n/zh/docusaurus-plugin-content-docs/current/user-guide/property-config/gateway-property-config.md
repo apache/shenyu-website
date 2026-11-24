@@ -12,7 +12,7 @@ description: 网关属性配置
 
 ```yaml
 shenyu:
-  # 下列匹配缓存配置仅适用于当前开发线；ShenYu 2.7.1 及更早版本使用的是已移除的前缀树 L2 缓存
+  # Match-cache settings for 2.7.2; earlier releases used the removed trie L2 caches
   selectorMatchCache:
     ## 选择器按路径的有界匹配缓存
     cache:
@@ -77,12 +77,12 @@ shenyu:
 #    readTimeout: 3000
 #    writeTimeout: 3000
 #    wiretap: false
-#    keepAlive: false
+#    keepAlive: true
 #    pool:
-#      type: ELASTIC
+#      type: FIXED
 #      name: proxy
-#      maxConnections: 16
-#      acquireTimeout: 45000
+#      maxConnections: 16 # example capacity; size for the deployment
+#      acquireTimeout: 3000
 #      maxIdleTime: 3000  
 #    proxy:
 #      host:
@@ -218,7 +218,7 @@ shenyu:
 
 `shenyu.selectorMatchCache.cache` 与 `shenyu.ruleMatchCache.cache` 绑定到 `MatchCacheConfig`，分别为选择器匹配和规则匹配提供按路径的有界缓存。当前实现中不存在单独的 `shenyu.matchCache` 前缀，也不存在前缀树（trie）L2 缓存。
 
-本节描述当前开发线（对照 `2.7.3-SNAPSHOT` 验证）。ShenYu 2.7.1 及更早版本提供的是基于前缀树的 L2 缓存；该版本实际支持的配置请见 [2.7.1 版本页](/zh/docs/2.7.1/user-guide/property-config/gateway-property-config)。
+本节已对照 `v2.7.2` 发行版源码验证。ShenYu 2.7.1 及更早版本提供的是基于前缀树的 L2 缓存；该版本实际支持的配置请见 [2.7.1 版本页](/zh/docs/2.7.1/user-guide/property-config/gateway-property-config)。
 
 下表为 Java 模型默认值；具体的发行版样例可能覆盖这些值。
 
@@ -332,17 +332,19 @@ Apache ShenYu 网关中代理Http及SpringCloud协议后，用于发送代理请
 | :-------------- | :-----: | :-------: | :------: | :----------------------------------------------------------- |
 | strategy        | String  | webClient |    No    | HttpClientPlugin实现策略（默认使用webClient）：<br />- `webClient`：使用WebClientPlugin<br />- `netty`：使用NettyHttpClientPlugin |
 | connectTimeout  |   int   |   45000   |    No    | 连接超时时间 (毫秒)，默认值为 `45000`。                      |
-| responseTimeout |   int   |   3000    |    No    | 结果超时时间 (毫秒)，默认值为 `3000`。                       |
+| responseTimeout | long | 3000 | No | 响应读取间隔超时（毫秒），也作用于收到响应头之后；非正值仅关闭此超时。 |
 | readerIdleTime  |   int   |   3000    |    No    | 指定读空闲超时时间 (毫秒)，默认值为 `3000`。                 |
 | writerIdleTime  |   int   |   3000    |    No    | 指定写空闲超时时间 (毫秒)，默认值为 `3000`。                 |
 | allIdleTime     |   int   |   3000    |    No    | 指定读和写超时时间 (毫秒)，默认值为 `3000`。                 |
 | readTimeout     |   int   |   3000    |    No    | 读取超时 (毫秒)，默认值为 `3000`。                           |
 | writeTimeout    |   int   |   3000    |    No    | 输出超时 (millisecond)，默认值为 `3000`。                    |
 | wiretap         | Boolean |   false   |    No    | 启用 Netty HttpClient 的窃听调试，默认值为 `false`。         |
-| keepAlive       | Boolean |   false   |    No    | 启用或禁用请求的 Keep-Alive 支持，默认值为 `false`。         |
+| keepAlive | Boolean | true | No | 是否复用上游持久连接；默认启用。 |
 | pool            |         |           |          | HttpClient 连接池配置                                        |
 | proxy           |         |           |          | HttpClient 代理配置                                          |
 | ssl             |         |           |          | HttpClient SSL配置                                           |
+
+流式响应、SSE 和长轮询应结合实际读取间隔设置 `responseTimeout`。独立配置的 `readTimeout`、空闲处理器、路由和调用方超时仍然生效；如需关闭读取处理器期限，还需设置 `readTimeout: 0`。固定连接池的 `maxIdleTime` 应低于上游空闲连接超时。详见[升级指南](../../deployment/upgrade-2.7.2.md)。
 
 - `pool` config
 
@@ -350,10 +352,10 @@ HttpClient连接池配置
 
 | 名称           |  类型  |           默认值           | 是否必填 | 说明                                                         |
 | :------------- | :----: | :------------------------: | :------: | :----------------------------------------------------------- |
-| type           | String |          ELASTIC           |    No    | HttpClient连接池类型，默认值为`ELASTIC`。<br /> - `ELASTIC`: 连接池可以按需缓存和增长。<br />- `FIXED`: 连接池缓存并重用，有固定的最大连接数。<br />- `DISABLED`: 连接池总是会创建一个新的连接。 |
+| type | String | FIXED | No | FIXED 缓存并复用有限数量的连接；ELASTIC 按需增长；DISABLED 每次建立新连接。 |
 | name           | String |           proxy            |    No    | 连接池映射名称，默认为`proxy`。                              |
-| maxConnections |  int   | 2*可用处理器数，最小值为16 |    No    | 仅适用于 `FIXED` 类型，在现有连接上开始挂起获取之前的最大连接数。<br />默认值为可用处理器数*2。<br /> (最小值为 16) |
-| acquireTimeout |  int   |           45000            |    No    | 仅适用于 `FIXED` 类型，等待获取连接的最长时间（毫秒）。默认值为 45000 |
+| maxConnections | int | Reactor Netty 默认值 | No | FIXED 连接池的连接上限；应根据部署容量显式设置。等待获取连接的队列最多为该值的两倍。 |
+| acquireTimeout | long | 3000 | No | 仅适用于 FIXED，等待获取连接的最长时间（毫秒）。 |
 | maxIdleTime    |  int   |            Null            |    No    | Channel 空闲多久关闭，如果为空，没有最大空闲关闭时间。       |
 
 - `Proxy` 配置

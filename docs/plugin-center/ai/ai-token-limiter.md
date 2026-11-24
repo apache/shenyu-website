@@ -10,6 +10,12 @@ The **aiTokenLimiter** plugin is used to track token consumption from LLM respon
 
 ## Plugin Configuration
 
+### 2.7.2 usage accounting
+
+The plugin counts output tokens reported in the provider protocol: `usage.completion_tokens` for Chat Completions, or `usage.output_tokens` for Responses. For Responses SSE events, it also reads `response.usage`. Fields with the same names in metadata, generated text, tool arguments, or outside the usage object are not counted. Missing or invalid usage is not inferred from the generated text. Streaming usage is parsed across event chunks; request `stream_options.include_usage` when using a provider that requires it to emit usage.
+
+The limit is checked before forwarding a request and usage is recorded from the response. It is not a hard cutoff on an in-flight generation; concurrent requests can finish before their usage is recorded. HTTP 429 applies to subsequent requests once the recorded limit is reached.
+
 When configuring the plugin in the ShenYu admin console, you first create a **Selector**, then a **Rule**. A **Selector** matches request conditions (e.g., path, headers), while a **Rule** defines plugin parameters or forwarding targets. For more details, see [Selector and Rule Management](../../user-guide/admin-usage/selector-and-rule).
 
 Key fields for **aiTokenLimiter**:
@@ -49,7 +55,7 @@ curl --location --request POST 'http://localhost:9195/ai/proxy/v1/chat/completio
 Example request (before rate limiting):
 ![ai-proxy-api](/img/shenyu/plugin/ai-token-limiter/ai-token-limiter-api-before.png)
 
-If you set tokenLimit=10 and make another request within 60 seconds, AiTokenLimiter will intercept it, return HTTP 429, and indicate that the token usage limit has been reached. Please try again later.
+With a 60-second window and `tokenLimit=10`, requests using the same dimension receive HTTP 429 after at least 10 output tokens have been reported and recorded within that window. Wait for the window to expire before retrying.
 
 Example response (after rate limiting):
 ![ai-proxy-api](/img/shenyu/plugin/ai-token-limiter/ai-token-limiter-api-after.png)

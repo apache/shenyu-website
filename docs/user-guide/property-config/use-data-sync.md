@@ -4,6 +4,12 @@ keywords: ["Data Synchronization"]
 description: use different data-sync strategy
 ---
 
+:::note 2.7.2
+
+External components (`shenyu-spring-boot-starter-sync-data-consul`) come from [plugin-store](https://github.com/apache/shenyu-plugin-store), outside the default 2.7.2 distribution. Install a compatible extension release first; `shenyu-plugin-store.version` refers to the extension version, not automatically the gateway version. External protocol examples are pinned to a plugin-store commit.
+
+:::
+
 This document focuses on how to use different data synchronization strategies. Data synchronization refers to the strategy used to synchronize data to ShenYu gateway after shenyu-admin background operation data. ShenYu gateway currently supports ZooKeeper, WebSocket, HTTP Long Polling, Nacos, Etcd and Consul for data synchronization.
 
 <img src="/img/shenyu/dataSync/data-sync-config-dir-en.png" width="70%" height="60%" />
@@ -298,7 +304,7 @@ Add these dependencies in `pom.xml`:
 <dependency>
   <groupId>org.apache.shenyu</groupId>
   <artifactId>shenyu-spring-boot-starter-sync-data-consul</artifactId>
-  <version>${project.version}</version>
+  <version>${shenyu-plugin-store.version}</version>
 </dependency>
 ```
 

@@ -19,7 +19,7 @@ This article introduces how to deploy the `Shenyu` gateway in cluster environmen
 
 ### Start Apache ShenYu Admin
 
-* download and unzip [apache-shenyu-2.7.1-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-admin-bin.tar.gz) in your Gateway Admin server.
+* download and unzip [apache-shenyu-2.7.2-admin-bin.tar.gz](https://www.apache.org/dyn/closer.lua/shenyu/2.7.2/apache-shenyu-2.7.2-admin-bin.tar.gz) in your Gateway Admin server.
 
 * config your database, go to the `/conf` directory, and  modify `spring.profiles.active` of the configuration in `application.yaml` to `mysql`, `pg` or `h2`.
 
@@ -35,7 +35,7 @@ This article introduces how to deploy the `Shenyu` gateway in cluster environmen
 
 ### Start Apache ShenYu Boostrap
 
-* download and unzip [apache-shenyu-2.7.1-bootstrap-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-bootstrap-bin.tar.gz) in your Gateway Boostrap server.
+* download and unzip [apache-shenyu-2.7.2-bootstrap-bin.tar.gz](https://www.apache.org/dyn/closer.lua/shenyu/2.7.2/apache-shenyu-2.7.2-bootstrap-bin.tar.gz) in your Gateway Boostrap server.
 
 * config your synchronization, go to the `/conf` directory, and modify `shenyu.sync` of configuration in `application.yaml` to `websocket`, `http`, `zookeeper`, `etcd`, `consul` or `nacos`, this configuaration must remain the same of `ShenyYu Admin`.
 

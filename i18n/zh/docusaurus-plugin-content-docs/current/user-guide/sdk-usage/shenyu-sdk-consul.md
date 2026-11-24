@@ -4,6 +4,14 @@ keywords: ["Sdk 使用", "Consul"]
 description: Sdk使用
 ---
 
+示例中的 `shenyu-plugin-store.version` 必须设为经过兼容性验证的扩展版本。
+
+:::caution 2.7.2 compatibility
+
+2.7.2 不提供内置 Consul 注册实现。使用本文配置前，必须添加兼容的外部 `shenyu-registry-consul` 扩展及其客户端依赖；仅引入 SDK 或注册中心 Starter 无法启用 Consul。没有该扩展时，请选择内置提供者。详见[提供者说明](https://github.com/apache/shenyu/blob/v2.7.2/shenyu-registry/README.md)。
+
+:::
+
 ## 背景说明
 
 Shenyu提供了Shenyu-Sdk方便让服务能够快速接入shenyu网关， 客户端服务只需要依赖该sdk， 并做些简单配置， 即可类似调用本地接口一样调用网关暴露的API。
@@ -77,13 +85,19 @@ shenyu:
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-sdk-core</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.2</version>
     </dependency>
 
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sdk</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-registry-consul</artifactId>
+        <version>${shenyu-plugin-store.version}</version>
+        <scope>runtime</scope>
     </dependency>
 </dependencies>
 ```
@@ -97,7 +111,7 @@ shenyu:
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-sdk-httpclient</artifactId>
-    <version>2.7.1</version>
+    <version>2.7.2</version>
 </dependency>
 
 <!-- okhttp -->
@@ -105,7 +119,7 @@ shenyu:
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-sdk-okhttp</artifactId>
-    <version>2.7.1</version>
+    <version>2.7.2</version>
 </dependency>
 -->
 ```
@@ -194,4 +208,4 @@ public interface ShenyuHttpClientApi {
 }
 ```
 
-更多可参考示例工程 [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sdk)
+更多可参考示例工程 [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-sdk)

@@ -8,6 +8,16 @@ description: K8s部署
 本文介绍使用 `K8s` 来部署 `Apache ShenYu` 网关。
 
 
+## 2.7.2 镜像和密钥准备
+
+先按 [Docker 部署](./deployment-docker.md#prepare-images)构建 2.7.2 镜像，并加载到每个 Kubernetes 节点；也可推送到自己的镜像仓库，并修改下方清单中的 `image`。本示例使用 `IfNotPresent` 以支持预加载的镜像，不依赖尚未发布的公共 2.7.2 标签。挂载卷需要满足发行版容器 UID/GID `10001:10001` 的读写权限。
+
+在创建 `shenyu` 命名空间之后、部署 Admin 之前，将已有私有签名密钥注入 Secret：
+
+```bash
+kubectl -n shenyu create secret generic shenyu-admin-jwt --from-literal=secret-key="${SHENYU_JWT_SECRETKEY:?Set the Admin signing key first}"
+```
+
 > 目录
 >
 > 示例一. 使用 h2 作为数据库
@@ -356,11 +366,16 @@ spec:
             path: shenyu-admin-application-h2.yml
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:2.7.1
-        imagePullPolicy: Always
+        image: apache/shenyu-admin:2.7.2
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9095
         env:
+        - name: SHENYU_JWT_SECRETKEY
+          valueFrom:
+            secretKeyRef:
+              name: shenyu-admin-jwt
+              key: secret-key
         - name: 'TZ'
           value: 'Asia/Beijing'
         volumeMounts:
@@ -422,7 +437,7 @@ spec:
             path: shenyu-bootstrap-application.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:2.7.1
+        image: apache/shenyu-bootstrap:2.7.2
         ports:
         - containerPort: 9195
         env:
@@ -776,11 +791,16 @@ spec:
           mountPath: /opt/shenyu-admin/ext-lib
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:2.7.1
-        imagePullPolicy: Always
+        image: apache/shenyu-admin:2.7.2
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9095
         env:
+        - name: SHENYU_JWT_SECRETKEY
+          valueFrom:
+            secretKeyRef:
+              name: shenyu-admin-jwt
+              key: secret-key
         - name: 'TZ'
           value: 'Asia/Beijing'
         - name: SPRING_PROFILES_ACTIVE
@@ -844,7 +864,7 @@ spec:
             path: shenyu-bootstrap-application.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:2.7.1
+        image: apache/shenyu-bootstrap:2.7.2
         ports:
         - containerPort: 9195
         env:

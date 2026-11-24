@@ -4,6 +4,12 @@ keywords: ["Sofa"]
 description: sofa access shenyu gateway
 ---
 
+:::note 2.7.2
+
+External components (`shenyu-spring-boot-starter-plugin-sofa`, `sofa`) come from [plugin-store](https://github.com/apache/shenyu-plugin-store), outside the default 2.7.2 distribution. Install a compatible extension release first; `shenyu-plugin-store.version` refers to the extension version, not automatically the gateway version. External protocol examples are pinned to a plugin-store commit.
+
+:::
+
 This document is intended to help the `Sofa` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Sofa` plugin to handle `sofa` service.
 
 Before the connection, start `shenyu-admin` correctly, start `Sofa` plugin, and add related dependencies on the gateway and `Sofa` application client. Refer to the previous [Quick start with Sofa](../../quick-start/quick-start-sofa) .
@@ -50,7 +56,7 @@ For details about data synchronization configurations, see [Data Synchronization
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
  ```
 
@@ -58,7 +64,7 @@ For details about data synchronization configurations, see [Data Synchronization
 
 ## Sofa service access gateway
 
-Please refer to:[shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa)
+Please refer to:[shenyu-examples-sofa](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa)
 
 1. Based on the `springboot` project,Introduce the following dependencies:
 
@@ -151,7 +157,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 
 * Parameter passing:
   - Access the gateway through http post,and pass through body and json.
-  - For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
+  - For more parameter type transfer, please refer to the interface definition in [shenyu-examples-sofa](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa) and the parameter transfer method.
 
 * Single java bean parameter type (default)
 * Customize multi-parameter support:

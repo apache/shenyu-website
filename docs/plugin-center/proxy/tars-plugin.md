@@ -4,6 +4,12 @@ keywords: ["Tars"]
 description: Tars Plugin
 ---
 
+:::note 2.7.2
+
+External components (`tars`) come from [plugin-store](https://github.com/apache/shenyu-plugin-store), outside the default 2.7.2 distribution. Install a compatible extension release first; `shenyu-plugin-store.version` refers to the extension version, not automatically the gateway version. External protocol examples are pinned to a plugin-store commit.
+
+:::
+
 # 1. Overview
 
 ## 1.1 Plugin name
@@ -157,7 +163,7 @@ Automatically configure the rules with the `@ShenyuTarsClient` annotation.
 #### 2.6.1.2 Plugin Config
 
 - In shenyu-admin --> BasicConfig --> Plugin --> `tars` set Status enabled, And adjust the registry configuration as needed.
-- Adjust to the actual situation [shenyu-examples-tars](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-tars) application.yml configuration in the project and start it.
+- Adjust to the actual situation [shenyu-examples-tars](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-tars) application.yml configuration in the project and start it.
 
 #### 2.6.2.6 Request service and check result
 

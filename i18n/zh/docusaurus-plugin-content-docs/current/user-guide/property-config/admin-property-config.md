@@ -63,6 +63,7 @@ shenyu:
     object-class: person
     login-field: cn
   jwt:
+    secret-key: ${SHENYU_JWT_SECRETKEY}
     expired-seconds: 86400000
   shiro:
     white-list:
@@ -248,7 +249,7 @@ shenyu:
 |名称                      | 类型  |  默认值   | 是否必填  | 说明                        |
 |:------------------------ |:----- |:-------: |:-------:|:----------------------------|
 | expired-seconds | long |  24 *60* 60 * 1000L    |  否  |过期时间（毫秒）|
-| secret-key | string |  `defaultSecretKey`    |  否  |jwt 签名密钥|
+| secret-key | string | 无 | 是 | JWT 签名密钥；必须显式设置，所有 Admin 实例使用同一个私有值。旧版公开密钥和默认密钥不可用。 |
 
 
 ##### shenyu.shiro 配置

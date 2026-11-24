@@ -28,7 +28,7 @@ Add the following dependencies to the gateway's `pom.xml` file, which is introdu
 
 ## Websocket service access gateway
 
-> Please refer to: [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-websocket), Contains examples of the three implementations of  `annotation websocket`, `spring native websocket`, `spring reactive websocket`
+> Please refer to: [shenyu-examples-websocket](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-websocket), Contains examples of the three implementations of  `annotation websocket`, `spring native websocket`, `spring reactive websocket`
 
 1. In the `Websocket` service, add the following dependencies:
 

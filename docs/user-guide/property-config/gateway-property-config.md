@@ -12,7 +12,7 @@ This paper mainly explains how to configure `Apache ShenYu` properties on the ga
 
 ```yaml
 shenyu:
-  # match-cache settings below reflect the current development line; ShenYu 2.7.1 and earlier used the removed trie L2 caches
+  # Match-cache settings for 2.7.2; earlier releases used the removed trie L2 caches
   selectorMatchCache:
     ## bounded per-path match cache for selectors
     cache:
@@ -77,12 +77,12 @@ shenyu:
 #    readTimeout: 3000
 #    writeTimeout: 3000
 #    wiretap: false
-#    keepAlive: false
+#    keepAlive: true
 #    pool:
-#      type: ELASTIC
+#      type: FIXED
 #      name: proxy
-#      maxConnections: 16
-#      acquireTimeout: 45000
+#      maxConnections: 16 # example capacity; size for the deployment
+#      acquireTimeout: 3000
 #      maxIdleTime: 3000
 #    proxy:
 #      host:
@@ -218,7 +218,7 @@ shenyu:
 
 `shenyu.selectorMatchCache.cache` and `shenyu.ruleMatchCache.cache` bind to `MatchCacheConfig`, a bounded per-path match cache for selector and rule matching. There is no separate `shenyu.matchCache` prefix, and no trie/L2 cache in the current implementation.
 
-This section documents the current development line (verified against `2.7.3-SNAPSHOT`). ShenYu 2.7.1 and earlier shipped the former trie-based L2 caching instead; see the [2.7.1 versioned page](/docs/2.7.1/user-guide/property-config/gateway-property-config) for the settings that release actually supported.
+This section documents the released `v2.7.2` implementation. ShenYu 2.7.1 and earlier shipped the former trie-based L2 caching instead; see the [2.7.1 versioned page](/docs/2.7.1/user-guide/property-config/gateway-property-config) for the settings that release actually supported.
 
 The following values are the Java-model defaults; a concrete distribution sample may override them.
 
@@ -327,17 +327,19 @@ This is the HttpClient configuration used to send proxy requests after proxying 
 | :-------------- | :-----: | :-------: | :------: | :----------------------------------------------------------- |
 | strategy        | String  | webClient |    No    | Type of http client, defaults to webClient.<br /> - webClient: use by WebClientPlugin<br />- netty: use by NettyHttpClientPlugin. |
 | connectTimeout  |   int   |   45000   |    No    | Connection timeout (millisecond), the default value is 45000. |
-| responseTimeout |   int   |   3000    |    No    | The response timeout (millisecond), the default value is 3000. |
+| responseTimeout | long | 3000 | No | Maximum gap between response reads in milliseconds, including after headers; a non-positive value disables only this deadline. |
 | readerIdleTime  |   int   |   3000    |    No    | The reader idle timeout (millisecond), the default value is 3000. |
 | writerIdleTime  |   int   |   3000    |    No    | The writer idle timeout (millisecond), the default value is 3000. |
 | allIdleTime     |   int   |   3000    |    No    | The all idle timeout (millisecond), the default value is 3000. |
 | readTimeout     |   int   |   3000    |    No    | Read timeout (millisecond), the default value is 3000.       |
 | writeTimeout    |   int   |   3000    |    No    | Write timeout (millisecond), the default value is 3000.      |
 | wiretap         | Boolean |   false   |    No    | Enables wiretap debugging for Netty HttpClient, the default value is 'false'. |
-| keepAlive       | Boolean |   false   |    No    | Enable or Disable Keep-Alive support for the outgoing request, the default value is 'false'. |
+| keepAlive | Boolean | true | No | Reuse persistent upstream connections; enabled by default. |
 | pool            |         |           |          | HttpClient connection pool config.                           |
 | proxy           |         |           |          | HttpClient proxy config.                                     |
 | ssl             |         |           |          | HttpClient ssl config.                                       |
+
+For streams, SSE, and long-polling, size `responseTimeout` for the expected gap between reads. Separately configured `readTimeout`, idle handlers, route deadlines, and caller timeouts still apply; set `readTimeout: 0` to disable the read-handler deadline as well. Keep a fixed pool's `maxIdleTime` below the upstream idle timeout. See the [upgrade guide](../../deployment/upgrade-2.7.2.md).
 
 - `pool` config
 
@@ -345,10 +347,10 @@ HttpClient connection pool configuration:
 
 | Name           |  Type  |              Default              | Required | Description                                                  |
 | :------------- | :----: | :-------------------------------: | :------: | :----------------------------------------------------------- |
-| type           | String |              ELASTIC              |    No    | Type of pool for HttpClient to use, defaults to ELASTIC.<br /> - ELASTIC: The connection pool can be cached and grown on demand<br />- FIXED: The connection pool cache and reuse a fixed maximum The number of connections.<br />- DISABLED: The connection pool will always create a new connection. |
+| type | String | FIXED | No | FIXED reuses a bounded number of connections; ELASTIC grows on demand; DISABLED creates a new connection each time. |
 | name           | String |               proxy               |    No    | The channel pool map name, defaults to proxy.                |
-| maxConnections |  int   | the maximum value of 2*CPU and 16 |    No    | Only for type FIXED, the maximum number of connections before starting pending acquisition on existing ones.<br />the default value is available number of processors*2. <br /> (but with a minimum value of 16). |
-| acquireTimeout |  int   |               45000               |    No    | Only for type FIXED, the maximum time in millis to wait for acquiring. the default value is 45000. |
+| maxConnections | int | Reactor Netty default | No | FIXED pool connection limit; set explicitly for the deployment. Pending acquisitions are bounded to twice this limit. |
+| acquireTimeout | long | 3000 | No | Maximum wait for a connection in milliseconds; applies to FIXED pools. |
 | maxIdleTime    |  int   |               NULL                |    No    | After which the channel will be closed, if NULL there is no max idle time. |
 
 - `proxy` config

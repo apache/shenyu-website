@@ -3,7 +3,7 @@ title: Mcp Server 快速开始
 description: Mcp Server 快速开始
 ---
 
-本文档演示如何通过 `McpServer` 快速接入 `Apache ShenYu` 网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-mcp)。
+本文档演示如何通过 `McpServer` 快速接入 `Apache ShenYu` 网关。您可以直接在工程下找到本文档的 [示例代码](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-mcp)。
 
 ## 环境准备
 
@@ -46,7 +46,7 @@ description: Mcp Server 快速开始
 
 ## 运行 shenyu-examples-mcp 项目
 
-下载 [shenyu-examples-mcp](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-mcp)。
+下载 [shenyu-examples-mcp](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-mcp)。
 
 运行 `org.apache.shenyu.examples.http.ShenyuTestHttpApplication` 的 `main` 方法启动项目。
 

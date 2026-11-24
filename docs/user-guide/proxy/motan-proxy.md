@@ -3,6 +3,12 @@ title: Motan Proxy
 description: Motan Proxy
 ---
 
+:::note 2.7.2
+
+External components (`motan`, `shenyu-spring-boot-starter-client-motan`, `shenyu-spring-boot-starter-plugin-motan`) come from [plugin-store](https://github.com/apache/shenyu-plugin-store), outside the default 2.7.2 distribution. Install a compatible extension release first; `shenyu-plugin-store.version` refers to the extension version, not automatically the gateway version. External protocol examples are pinned to a plugin-store commit.
+
+:::
+
 This document is intended to help the `Motan` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `Motan` plugin to handle `motan` service.
 
 Before the connection, start `shenyu-admin` correctly, start `Motan` plugin, and add related dependencies on the gateway and `Motan` application client. Refer to the previous [Quick start with Motan](../../quick-start/quick-start-motan) .
@@ -20,7 +26,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-motan</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
         <dependency>
             <groupId>com.weibo</groupId>
@@ -48,7 +54,7 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Motan service access gateway
 
-Please refer to: [shenyu-examples-motan](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-motan)
+Please refer to: [shenyu-examples-motan](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-motan)
 
 1. In the microservice built by `Motan`, add the following dependencies:
 
@@ -56,7 +62,7 @@ Please refer to: [shenyu-examples-motan](https://github.com/apache/shenyu/tree/v
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-client-motan</artifactId>
-            <version>${shenyu.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
 ```
 

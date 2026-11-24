@@ -4,6 +4,12 @@ keywords: ["Sofa"]
 description: sofa 接入 Apache ShenYu 网关
 ---
 
+:::note 2.7.2
+
+`shenyu-spring-boot-starter-plugin-sofa`、`sofa` 由 [plugin-store](https://github.com/apache/shenyu-plugin-store) 提供，不随默认 2.7.2 发行包分发。先安装兼容的扩展版本；示例中的 `shenyu-plugin-store.version` 应使用扩展版本，不能直接套用网关版本。外部协议示例已固定到 plugin-store 提交。
+
+:::
+
 此篇文章是介绍 `sofa` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `sofa` 插件来接入`sofa`服务。
 
 接入前，请正确启动 `shenyu-admin`，并开启`sofa`插件，在网关端和`sofa`服务端引入相关依赖。可以参考前面的 [Sofa快速开始](../../quick-start/quick-start-sofa)。
@@ -50,7 +56,7 @@ description: sofa 接入 Apache ShenYu 网关
         <dependency>
             <groupId>org.apache.shenyu</groupId>
             <artifactId>shenyu-spring-boot-starter-plugin-sofa</artifactId>
-            <version>${project.version}</version>
+            <version>${shenyu-plugin-store.version}</version>
         </dependency>
  ```
 
@@ -58,7 +64,7 @@ description: sofa 接入 Apache ShenYu 网关
 
 ## sofa服务接入网关
 
-可以参考示例：[shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa)
+可以参考示例：[shenyu-examples-sofa](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa)
 
 1. `springboot`构建，引入以下依赖：
 
@@ -156,7 +162,7 @@ public class SofaClientMultiParamServiceImpl implements SofaClientMultiParamServ
 * 参数传递：
 
   * 通过 `http`协议， `post` 方式访问网关，通过在`http body`中传入`json`类型参数。
-  * 更多参数类型传递，可以参考 [shenyu-examples-sofa](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sofa) 中的接口定义，以及参数传递方式。
+  * 更多参数类型传递，可以参考 [shenyu-examples-sofa](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-sofa) 中的接口定义，以及参数传递方式。
 
 * 单个`java bean`参数类型 （默认）
 * 自定义实现多参数支持：

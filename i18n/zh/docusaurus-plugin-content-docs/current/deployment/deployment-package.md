@@ -12,9 +12,9 @@ description: 二进制包部署
 
 ### 启动 Apache ShenYu Admin
 
-* 下载 [apache-shenyu-2.7.1-admin-bin.tar.gz](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-admin-bin.tar.gz)
+* 下载 [apache-shenyu-2.7.2-admin-bin.tar.gz](https://www.apache.org/dyn/closer.lua/shenyu/2.7.2/apache-shenyu-2.7.2-admin-bin.tar.gz)
 
-* 解压缩 `apache-shenyu-2.7.1-admin-bin.tar.gz`。 进入 `bin` 目录。
+* 解压缩 `apache-shenyu-2.7.2-admin-bin.tar.gz`。 进入 `bin` 目录。
 
 > 2.5.1版本后，`start.sh` 开始支持通过环境变量 `ADMIN_JVM` 自定义 JVM 启动参数。
 
@@ -68,9 +68,9 @@ description: 二进制包部署
 
 ### 启动 Apache ShenYu Bootstrap
 
-* 下载 [`apache-shenyu-2.7.1-bootstrap-bin.tar.gz`](https://archive.apache.org/dist/shenyu/2.7.1/apache-shenyu-2.7.1-bootstrap-bin.tar.gz)
+* 下载 [`apache-shenyu-2.7.2-bootstrap-bin.tar.gz`](https://www.apache.org/dyn/closer.lua/shenyu/2.7.2/apache-shenyu-2.7.2-bootstrap-bin.tar.gz)
 
-* 解压缩 `apache-shenyu-2.7.1-bootstrap-bin.tar.gz`。 进入 bin 目录。
+* 解压缩 `apache-shenyu-2.7.2-bootstrap-bin.tar.gz`。 进入 bin 目录。
 
 > 2.5.1版本后，`start.sh` 开始支持通过环境变量 `BOOT_JVM` 自定义 JVM 启动参数。
 

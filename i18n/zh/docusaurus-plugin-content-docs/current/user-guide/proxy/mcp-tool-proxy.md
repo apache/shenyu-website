@@ -24,7 +24,7 @@ description: McpTool 服务接入
 
 ## Spring MVC McpTool 接入
 
-示例工程可参考 [shenyu-examples-mcp](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-mcp)。
+示例工程可参考 [shenyu-examples-mcp](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-mcp)。
 
 ### Spring Boot 项目
 

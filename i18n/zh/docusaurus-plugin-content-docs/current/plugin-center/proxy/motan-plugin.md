@@ -4,6 +4,8 @@ keywords: ["Motan"]
 description:  Motan插件
 ---
 
+2.7.2 默认发行包不包含 Motan 插件。启用前需安装 [plugin-store](https://github.com/apache/shenyu-plugin-store) 中兼容的外部扩展，详见[升级指南](../../deployment/upgrade-2.7.2.md)。
+
 ## 说明
 
 `Motan`插件是网关用于处理 `Motan协议`请求的核心处理插件。

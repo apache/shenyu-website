@@ -4,6 +4,14 @@ keywords: ["Using Shenyu-Sdk", "Consul"]
 description: Using Shenyu-Sdk
 ---
 
+Set `shenyu-plugin-store.version` to a compatibility-validated extension release.
+
+:::caution 2.7.2 compatibility
+
+2.7.2 does not include a built-in Consul registry provider. Before using this configuration, supply a compatible external `shenyu-registry-consul` extension and its client dependencies. SDK or registry starters alone do not enable Consul. Use a built-in provider if that extension is unavailable. See the [provider guide](https://github.com/apache/shenyu/blob/v2.7.2/shenyu-registry/README.md).
+
+:::
+
 ## Background explanation
 
 Shenyu offers Shenyu-Sdk to make it easy for services to quickly integrate with the Shenyu gateway. By simply depending on the SDK and doing some simple configuration, client services can call the gateway's exposed APIs as if they were calling local interfaces.
@@ -77,13 +85,19 @@ In the `pom.xml` file of the application client, introduce the following depende
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-sdk-core</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.2</version>
     </dependency>
 
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sdk</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-registry-consul</artifactId>
+        <version>${shenyu-plugin-store.version}</version>
+        <scope>runtime</scope>
     </dependency>
 </dependencies>
 ```
@@ -97,7 +111,7 @@ In the `pom.xml` file of the application client, introduce the following depende
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-sdk-httpclient</artifactId>
-    <version>2.7.1</version>
+    <version>2.7.2</version>
 </dependency>
 
 <!-- okhttp -->
@@ -105,7 +119,7 @@ In the `pom.xml` file of the application client, introduce the following depende
 <dependency>
     <groupId>org.apache.shenyu</groupId>
     <artifactId>shenyu-sdk-okhttp</artifactId>
-    <version>2.7.1</version>
+    <version>2.7.2</version>
 </dependency>
 -->
 ```
@@ -201,4 +215,4 @@ public interface ShenyuHttpClientApi {
 }
 ```
 
-For more information, refer to the sample project [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-sdk)
+For more information, refer to the sample project [shenyu-examples-sdk](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-sdk)

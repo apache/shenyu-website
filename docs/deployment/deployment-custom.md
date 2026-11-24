@@ -22,31 +22,36 @@ This article describes how to build your own gateway based on `Apache ShenYu`.
 * introduce the following `jar` package:
 
 ```xml
+<parent>
+    <groupId>org.apache.shenyu</groupId>
+    <artifactId>shenyu</artifactId>
+    <version>2.7.2</version>
+    <relativePath/>
+</parent>
+
 <dependencies>
    <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-webflux</artifactId>
-        <version>2.2.2.RELEASE</version>
    </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-actuator</artifactId>
-        <version>2.2.2.RELEASE</version>
    </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.2</version>
    </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.2</version>
    </dependency>
 </dependencies>
 ```
 
-among them, use the current latest version for the ShenYu dependencies.
+This example inherits the 2.7.2 release parent, including its Spring Boot 3.5.16 baseline and explicit dependency overrides. If your application must keep another parent, reproduce the release dependency management and validate the resolved dependencies; importing the Spring Boot BOM alone does not include all ShenYu overrides.
 
 * add the following configuration to your `application.yaml` file:
 

@@ -4,6 +4,12 @@ keywords: ["Tars"]
 description:  Tars插件
 ---
 
+:::note 2.7.2
+
+`tars` 由 [plugin-store](https://github.com/apache/shenyu-plugin-store) 提供，不随默认 2.7.2 发行包分发。先安装兼容的扩展版本；示例中的 `shenyu-plugin-store.version` 应使用扩展版本，不能直接套用网关版本。外部协议示例已固定到 plugin-store 提交。
+
+:::
+
 # 1. 概述
 
 ## 1.1 插件名称
@@ -156,7 +162,7 @@ public class HelloServantImpl implements HelloServant {
 #### 2.6.1.2 插件配置
 
 - 打开插件，在 `shenyu-admin` --> 基础配置 --> 插件管理-> `tars` ，设置为开启。
-- 根据实际情况调整 [shenyu-examples-tars](https://github.com/apache/shenyu/tree/v2.7.1/shenyu-examples/shenyu-examples-tars) 项目中 application.yml 和 ShenyuExampleServer.ShenyuExampleApp.config.conf 文件并启动。
+- 根据实际情况调整 [shenyu-examples-tars](https://github.com/apache/shenyu-plugin-store/tree/d93d61a85bc395ab2aa21a3398227ade8f42aabb/shenyu-examples/shenyu-examples-tars) 项目中 application.yml 和 ShenyuExampleServer.ShenyuExampleApp.config.conf 文件并启动。
 
 #### 2.6.2.6 请求服务并且验证结果
 

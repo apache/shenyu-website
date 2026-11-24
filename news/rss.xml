@@ -4,10 +4,38 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Fri, 06 Nov 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 24 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[My Journey from OSPP Contributor to Apache ShenYu Committer]]></title>
+            <link>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-11-24</link>
+            <guid>https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-11-24</guid>
+            <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Jinze Song shares his experience contributing to Apache ShenYu Agent Gateway and growing with the community]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="personal-introduction">Personal Introduction<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-11-24#personal-introduction" class="hash-link" aria-label="Direct link to Personal Introduction" title="Direct link to Personal Introduction" translate="no">​</a></h3>
+<p>Hello everyone, I'm Jinze Song. You can find me on GitHub at <a href="https://github.com/BobSong-dev" target="_blank" rel="noopener noreferrer" class="">BobSong-dev</a>.</p>
+<p>My interests mainly lie in Java backend development, API gateways, and AI agent engineering, particularly in exploring how MCP capabilities can be integrated into gateway architectures.</p>
+<p>I'm honored to become an Apache ShenYu Committer. This is an important milestone in my open-source journey and an opportunity to take on greater responsibilities within the community.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="discovering-apache-shenyu">Discovering Apache ShenYu<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-11-24#discovering-apache-shenyu" class="hash-link" aria-label="Direct link to Discovering Apache ShenYu" title="Direct link to Discovering Apache ShenYu" translate="no">​</a></h3>
+<p>My journey with Apache ShenYu began through the Open Source Promotion Plan (OSPP). I started by exploring the codebase and understanding the project's architecture, gradually moving on to development work related to Agent Gateway.</p>
+<p>As I became more involved, I gained a deeper understanding of gateway internals and the engineering challenges behind building a mature open-source project. I also came to appreciate that a successful project depends not only on continuous technical improvements, but also on communication, collaboration, and shared experience among its community members.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-source-contributions-and-growth">Open Source Contributions and Growth<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-11-24#open-source-contributions-and-growth" class="hash-link" aria-label="Direct link to Open Source Contributions and Growth" title="Direct link to Open Source Contributions and Growth" translate="no">​</a></h3>
+<p>During my time contributing to Apache ShenYu, I primarily focused on Agent Gateway development. My work included the design and implementation of request-scoped context capabilities, as well as exploring and developing MCP-related features.</p>
+<p>These contributions gave me the opportunity to better understand gateway request processing, context management, and the engineering challenges of integrating AI capabilities into traditional gateway architectures.</p>
+<p>Throughout the development process, I learned that implementing a feature is only one part of making a meaningful contribution. Understanding the existing architecture, considering different use cases, maintaining code quality, and clearly communicating design decisions during pull request discussions are equally important.</p>
+<p>Through code reviews and technical discussions, I have gained valuable engineering experience and developed a deeper appreciation for open-source collaboration and high-quality software development.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="acknowledgements">Acknowledgements<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-11-24#acknowledgements" class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements" translate="no">​</a></h3>
+<p>I would like to express my sincere gratitude to my mentor, Hongyu Liu (Aias00), for his guidance and support throughout my technical work and community involvement.</p>
+<p>I am also thankful to everyone in the Apache ShenYu community. The thoughtful feedback during code reviews and the knowledge shared through technical discussions have helped me grow tremendously. I truly appreciate being part of such an open, welcoming, and collaborative community.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="looking-ahead">Looking Ahead<a href="https://shenyu.apache.org/news/Apache-ShenYu-Committer-2026-11-24#looking-ahead" class="hash-link" aria-label="Direct link to Looking Ahead" title="Direct link to Looking Ahead" translate="no">​</a></h3>
+<p>Becoming an Apache ShenYu Committer marks a new chapter in my open-source journey.</p>
+<p>I look forward to continuing my work on Agent Gateway and related capabilities, while taking a more active role in pull request reviews, issue tracking, and community discussions.</p>
+<p>I also hope to share what I have learned through my open-source experience and help new contributors find their way into the community.</p>
+<p>I am excited to continue this journey alongside the Apache ShenYu community and contribute to the project's growth.</p>]]></content:encoded>
+            <category>Apache ShenYu</category>
+        </item>
         <item>
             <title><![CDATA[[Apache ShenYu 2.7.2 Version Release]]]></title>
             <link>https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.7.2</link>
@@ -2724,108 +2752,6 @@ It aims to encourage students to actively participate in the development and mai
 </ol>]]></content:encoded>
             <category>Apache ShenYu</category>
             <category>GSOC 2023</category>
-        </item>
-        <item>
-            <title><![CDATA[[Apache ShenYu 2.5.1 Version Release]]]></title>
-            <link>https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.5.1</link>
-            <guid>https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.5.1</guid>
-            <pubDate>Sat, 04 Feb 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[Apache ShenYu 2.5.1 Version Release]]></description>
-            <content:encoded><![CDATA[<p>Just after Chinese New Year, Apache ShenYu ushered in version 2.5.1. This release has 259 pull requests and 64 contributors. Several new features were added, bugs were fixed, and several optimizations were made.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-features">New Features<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.5.1#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features" translate="no">​</a></h3>
-<ol>
-<li class="">Add brpc example</li>
-<li class="">Add spring boot starter plugin brpc&amp;admin</li>
-<li class="">Add brpc-plugin</li>
-<li class="">Add shenyu-client-api-doc</li>
-<li class="">Add sdk duplicate class check</li>
-<li class="">Support diff nacos namespace</li>
-<li class="">Add array method of expression in mock plugin</li>
-<li class="">Support generation of mock data on request</li>
-<li class="">Support user specify http request domain</li>
-<li class="">Add MockRequestRecord</li>
-<li class="">Development shenyu-register-instance-eureka</li>
-<li class="">Support API document Api doc detail mapper</li>
-<li class="">Add api doc ddl</li>
-<li class="">Add TagMapper and TagRelationMapper</li>
-<li class="">Add api and api_rule_relation mapper</li>
-<li class="">Not config rule</li>
-<li class="">Refactor message readers</li>
-<li class="">Add sentinel rule handle parameter</li>
-<li class="">Add shenyu-e2e test engine</li>
-<li class="">Make an Apache Shenyu SSO authentication plugin based on casdoor</li>
-<li class="">Add logging-tencent-cls plugin</li>
-<li class="">Support clickhouse-logging-pugin</li>
-<li class="">Add logging-pulsar plugin</li>
-<li class="">Add new plugin: key-auth</li>
-<li class="">Fix sign plugin DataBufferLimitException error</li>
-<li class="">Fix context-path error</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-changes">API Changes<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.5.1#api-changes" class="hash-link" aria-label="Direct link to API Changes" title="Direct link to API Changes" translate="no">​</a></h3>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="enhancement">Enhancement<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.5.1#enhancement" class="hash-link" aria-label="Direct link to Enhancement" title="Direct link to Enhancement" translate="no">​</a></h3>
-<ol>
-<li class="">Add simpler client annotations for motan</li>
-<li class="">Add simpler client annotations for websocket</li>
-<li class="">Add configuration in starter for motan plugin</li>
-<li class="">Add convenience annotation for shenyu-client-springcloud and shenyu-client-springmvc</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="refactor">Refactor<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.5.1#refactor" class="hash-link" aria-label="Direct link to Refactor" title="Direct link to Refactor" translate="no">​</a></h3>
-<ol>
-<li class="">Refactor some code for mock request of api doc</li>
-<li class="">Refactor logging-clickhouse</li>
-<li class="">Polish maven dependencies of dubbo</li>
-<li class="">Refactor sign plugin</li>
-<li class="">Update ShenyuExtConfiguration</li>
-<li class="">Remove unnecessary singleton</li>
-<li class="">Fix generating mock data in multithreading</li>
-<li class="">Refactor sdk test and processArgument</li>
-<li class="">Refactor DefaultSignService</li>
-<li class="">Fix shenyu-admin rule</li>
-<li class="">Optimized ShaUtil</li>
-<li class="">Fix cache too large</li>
-<li class="">Fix ConcurrentModificationException</li>
-<li class="">Fix sync data in etcd</li>
-<li class="">Refactor shenyu sdk client</li>
-<li class="">Optimize request timeout response</li>
-<li class="">Refactor log module</li>
-<li class="">Refactor shenyu-client-springcloud</li>
-<li class="">Refactor MotanServiceEventListener</li>
-<li class="">Refactor shenyu-admin sync data listener</li>
-<li class="">Refactor shenyu-client-tars</li>
-<li class="">Refactor client sdks alibaba dubbo</li>
-<li class="">Refactor springmvc client</li>
-<li class="">Refactor admin mapper config</li>
-<li class="">Refactor shenyu-plugin-logging</li>
-<li class="">Optimize random algorithm</li>
-<li class="">Refactor random loadbalancer</li>
-<li class="">Refactor logging-kafka</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fix">Bug Fix<a href="https://shenyu.apache.org/news/Apache-ShenYu-release-version-2.5.1#bug-fix" class="hash-link" aria-label="Direct link to Bug Fix" title="Direct link to Bug Fix" translate="no">​</a></h3>
-<ol>
-<li class="">Remove redundant cookie setting</li>
-<li class="">Fix appAuth delete</li>
-<li class="">fix Cryptor-Request Plugin</li>
-<li class="">To avoid load the same ext plugins repeatedly</li>
-<li class="">Fix the TagRelationQuery</li>
-<li class="">Fix upgrade sql</li>
-<li class="">Fix Nacos register NPE</li>
-<li class="">Fix sandbox json parsing</li>
-<li class="">Prevent the first time from failing to load</li>
-<li class="">Fix plugin update bug by modifying config field setter</li>
-<li class="">Fix postgresql sql</li>
-<li class="">Fix the postgresql error during ShenYu-Admin startup</li>
-<li class="">Fix sentinel can't fuse</li>
-<li class="">Fix TencentClsLogCollectClient</li>
-<li class="">Fix change password error</li>
-<li class="">Fix selector page</li>
-<li class="">Fix request plugin can't replaceCookie</li>
-<li class="">Fix RateLimiterPlugin concurrent handler error</li>
-</ol>
-<p>Special thanks to the following contributors for their support and participation in version 2.5.1 (in no particular order).</p>
-<blockquote>
-<p>dragon-zhang, zhengpeng, mahaitao, 愿凌飞, hdgaadd, dayu, SongTao Zhuang, Misaya295 , Shawn Jim , yunlongn , Will , moremind , RayayChung , Kevin Clair , huanccwang , 柯杨 , Kunshuai Zhu , fantiq , youzipi , class , kyeongsun , 杨阳洋 , Liming Deng , 杨文杰 , xcsnx , hnxiaoyuan , dependabot , xiaoyu , wzhangNJ , Zihao Huang , ywj1352 , pandaapo , WuLang , Nineteen , kyeongsun , ableYang , Runqi Zhao , WeiS , Luke.Z , lahmxu , Sinsy , Daming , BoyuLi4 , jakiuncle , Bowen Li , huanccwang , gitchenjh , DamonXue , Wu Daifu , Jiageng , nuo-promise , Guocheng Tang , likeguo , Sixh-PrFor , throwable , renzhuyan , wangteng , qinghai777 , zly123987123 , 奕仁 , 尔等同学 , qifanyyy , Jairo , ousinka</p>
-</blockquote>]]></content:encoded>
-            <category>Apache ShenYu</category>
         </item>
     </channel>
 </rss>

@@ -4,10 +4,37 @@
         <title>Apache ShenYu Blog</title>
         <link>https://shenyu.apache.org/zh/news</link>
         <description>Apache ShenYu Blog</description>
-        <lastBuildDate>Fri, 06 Nov 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 24 Nov 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
+        <item>
+            <title><![CDATA[从 OSPP 到 Apache ShenYu Committer]]></title>
+            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-11-24</link>
+            <guid>https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-11-24</guid>
+            <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Jinze Song 分享参与 Apache ShenYu Agent Gateway 开发与社区协作的经历]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="个人介绍">个人介绍<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-11-24#%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>大家好，我是 Jinze Song，GitHub 账号为 <a href="https://github.com/BobSong-dev" target="_blank" rel="noopener noreferrer" class="">BobSong-dev</a>。我主要关注 Java 后端开发、API 网关以及 AI Agent 工程化，对 MCP 与网关技术的结合尤其感兴趣。</p>
+<p>很荣幸能够成为 Apache ShenYu Committer。这段经历对我而言是一次重要的成长，也意味着未来需要承担更多社区责任。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="初识-apache-shenyu">初识 Apache ShenYu<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-11-24#%E5%88%9D%E8%AF%86-apache-shenyu" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>我通过开源之夏（OSPP）开始参与 Apache ShenYu 社区。最初，我从阅读项目源码、熟悉整体架构入手，逐渐将关注点转向 Agent Gateway 相关功能的开发。</p>
+<p>随着参与的深入，我开始接触更多网关底层设计与工程实践，也逐渐认识到，一个成熟的开源项目不仅需要功能的持续迭代，更需要社区成员之间充分的沟通、协作与经验积累。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="开源贡献与成长">开源贡献与成长<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-11-24#%E5%BC%80%E6%BA%90%E8%B4%A1%E7%8C%AE%E4%B8%8E%E6%88%90%E9%95%BF" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>在 Apache ShenYu 的贡献过程中，我主要参与了 Agent Gateway 方向的开发工作，包括请求级上下文（request-scoped context）相关功能的设计与实现，以及 MCP 相关能力的探索与开发。</p>
+<p>这些工作让我有机会深入理解网关请求处理链路、上下文管理机制，以及 AI 能力与传统网关架构相结合时所面临的工程问题。</p>
+<p>在实际开发中，我逐渐认识到，完成代码实现只是贡献的一部分。理解现有架构、考虑不同场景下的行为、保证改动的可维护性，以及在 Pull Request 讨论中清晰表达设计思路，同样重要。</p>
+<p>通过一次次代码评审和技术交流，我不仅积累了工程实践经验，也对开源协作和高质量软件开发有了更深的理解。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="致谢">致谢<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-11-24#%E8%87%B4%E8%B0%A2" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>特别感谢我的导师 Hongyu Liu（Aias00）在技术开发和社区参与过程中给予的指导与帮助。</p>
+<p>同时，也感谢 Apache ShenYu 社区的每一位成员。无论是代码评审中的细致建议，还是日常技术交流中的经验分享，都让我受益匪浅。感谢大家共同营造了一个开放、友好且乐于协作的开源社区。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="未来展望">未来展望<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-Committer-2026-11-24#%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
+<p>成为 Apache ShenYu Committer 对我而言是一个新的起点。</p>
+<p>未来，我希望继续深入参与 Agent Gateway 及相关能力的建设，在持续贡献代码的同时，积极参与 Pull Request Review、Issue 跟进和社区技术交流。</p>
+<p>我也希望能够将自己在开源实践中积累的经验分享给更多开发者，帮助新的贡献者更顺利地融入社区。</p>
+<p>期待与 Apache ShenYu 社区的伙伴们继续并肩前行，共同推动项目发展。</p>]]></content:encoded>
+            <category>Apache ShenYu</category>
+        </item>
         <item>
             <title><![CDATA[【Apache ShenYu 2.7.2 版本发布】]]></title>
             <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.7.2</link>
@@ -2336,92 +2363,6 @@ GitHub: <a href="https://github.com/apache/shenyu" target="_blank" rel="noopener
 </ol>]]></content:encoded>
             <category>Apache ShenYu</category>
             <category>GSOC 2023</category>
-        </item>
-        <item>
-            <title><![CDATA[【Apache ShenYu 2.5.1 版本发布】]]></title>
-            <link>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.5.1</link>
-            <guid>https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.5.1</guid>
-            <pubDate>Sat, 04 Feb 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[Apache ShenYu 2.5.1 版本发布]]></description>
-            <content:encoded><![CDATA[<p>春节刚过，Apache ShenYu便迎来了2.5.1版本。此次发布内容，共有 259 个pull Request，64位贡献者的参与。新增了若干功能，修复了bug，优化了若干内容。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="新功能">新功能<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.5.1#%E6%96%B0%E5%8A%9F%E8%83%BD" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ol>
-<li class="">添加 brpc 插件</li>
-<li class="">支持nacos不同命名空间</li>
-<li class="">优化 mock 插件</li>
-<li class="">注册中心实例支持eureka</li>
-<li class="">支持 API 文档</li>
-<li class="">添加 sentinel 插件的规则处理参数</li>
-<li class="">添加 e2e 测试引擎</li>
-<li class="">添加 casdoor插件支持SSO</li>
-<li class="">添加 logging-tencent-cls 插件</li>
-<li class="">添加 logging-clickhouse 插件</li>
-<li class="">添加 logging-pulsar 插件</li>
-<li class="">添加 key-auth 插件</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="增强">增强<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.5.1#%E5%A2%9E%E5%BC%BA" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ol>
-<li class="">优化 motan 客户端注解</li>
-<li class="">优化 motan 插件配置</li>
-<li class="">优化 websocket 客户端注解</li>
-<li class="">优化 springcloud 客户端注解</li>
-<li class="">优化 springmvc 客户端注解</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="重构">重构<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.5.1#%E9%87%8D%E6%9E%84" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ol>
-<li class="">重构 API文档的mock请求</li>
-<li class="">重构 logging-clickhouse 插件</li>
-<li class="">优化 dubbo相关maven依赖</li>
-<li class="">重构 sign 插件</li>
-<li class="">更新 ShenyuExtConfiguration</li>
-<li class="">移除不必要的单例</li>
-<li class="">修复并发场景mock数据</li>
-<li class="">重构 sdk 测试</li>
-<li class="">重构 DefaultSignService</li>
-<li class="">重构 shenyu-admin 规则</li>
-<li class="">优化 ShaUtil</li>
-<li class="">优化缓存</li>
-<li class="">修复 ConcurrentModificationException</li>
-<li class="">修复 etcd 数据同步</li>
-<li class="">重构 sdk 客户端</li>
-<li class="">优化请求超时</li>
-<li class="">重构日志模块</li>
-<li class="">重构 springcloud 客户端</li>
-<li class="">重构 Motan插件</li>
-<li class="">重构 admin 数据同步</li>
-<li class="">重构 tars 客户端</li>
-<li class="">重构 alibaba-dubbo 客户端</li>
-<li class="">重构 springmvc 客户端</li>
-<li class="">重构 admin 配置</li>
-<li class="">优化随机算法</li>
-<li class="">重构负载均衡算法</li>
-<li class="">重构 logging-kafka 插件</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="错误修复">错误修复<a href="https://shenyu.apache.org/zh/news/Apache-ShenYu-release-version-2.5.1#%E9%94%99%E8%AF%AF%E4%BF%AE%E5%A4%8D" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h3>
-<ol>
-<li class="">移除多余的 cookie 设置</li>
-<li class="">修复 appAuth 删除逻辑</li>
-<li class="">修复 Cryptor-Request 插件</li>
-<li class="">修复 ext 插件</li>
-<li class="">修复升级脚本</li>
-<li class="">修复 Nacos 注册空指针问题</li>
-<li class="">修复 sandbox json 解析</li>
-<li class="">修复插件更新时的异常</li>
-<li class="">修复 postgresql 脚本</li>
-<li class="">修复 sentinel 插件的异常</li>
-<li class="">修复 TencentClsLog异常</li>
-<li class="">修复更新密码异常</li>
-<li class="">修复选择器分页异常</li>
-<li class="">修复 request 插件异常</li>
-<li class="">修复 RateLimiter插件并发处理异常</li>
-<li class="">修复 sign 插件异常</li>
-<li class="">修复 context-path 插件异常</li>
-</ol>
-<p>特别感谢以下贡献者对 2.5.1版本的支持和参与（排名不分先后）。</p>
-<blockquote>
-<p>dragon-zhang, zhengpeng, mahaitao, 愿凌飞, hdgaadd, dayu, SongTao Zhuang, Misaya295 , Shawn Jim , yunlongn , Will , moremind , RayayChung , Kevin Clair , huanccwang , 柯杨 , Kunshuai Zhu , fantiq , youzipi , class , kyeongsun , 杨阳洋 , Liming Deng , 杨文杰 , xcsnx , hnxiaoyuan , dependabot , xiaoyu , wzhangNJ , Zihao Huang , ywj1352 , pandaapo , WuLang , Nineteen , kyeongsun , ableYang , Runqi Zhao , WeiS , Luke.Z , lahmxu , Sinsy , Daming , BoyuLi4 , jakiuncle , Bowen Li , huanccwang , gitchenjh , DamonXue , Wu Daifu , Jiageng , nuo-promise , Guocheng Tang , likeguo , Sixh-PrFor , throwable , renzhuyan , wangteng , qinghai777 , zly123987123 , 奕仁 , 尔等同学 , qifanyyy , Jairo , ousinka</p>
-</blockquote>]]></content:encoded>
-            <category>Apache ShenYu</category>
         </item>
     </channel>
 </rss>

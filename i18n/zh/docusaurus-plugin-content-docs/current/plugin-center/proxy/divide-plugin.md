@@ -20,7 +20,7 @@ description: divide插件
 ## 1.3 插件功能
 
 * 支持根据 uri、header、query 等请求信息做流量的治理
-* 支持设置请求的负载均衡策略，同时支持服务预热，目前支持三种策略：ip hash（带虚拟节点的一致性哈希）、round-robbin（加权轮询）、random（加权随机）
+* 支持配置负载均衡策略和服务预热。可用算法见下方规则配置中的 `loadBalance` 字段。
 * 支持设置接口级别请求头最大值、请求体最大值、请求超时时间
 * 支持设置超时重试策略和重试次数，目前重试策略支持：current（重试之前失败的服务器）和failover（重试其它服务器）
 
@@ -121,7 +121,7 @@ divide 规则示例，通用规则配置请参考[选择器和规则](../../user
 
 ##### 2.4.3.2.1 规则处理信息配置
 
-- `loadStrategy`：如果`http`客户端是一个集群，`Apache ShenYu`网关调用时采取哪种负载均衡策略，当前支持 `roundRobin`、`random` 和 `hash`。
+- `loadBalance`：为 HTTP 请求选择上游实例。ShenYu 2.7.2 支持 `random`（默认）、`roundRobin`、`hash`、`leastActive`、`p2c` 和 `shortestResponse`。`hash` 根据客户端 IP 执行一致性哈希。`leastActive` 优先选择正在处理请求数最少的实例，并在数量相同时按预热调整后的权重选择。
 - `timeout`：调用`http`客户端的超时时间。
 - `retryCount`：调用`http`客户端超时失败的重试次数。
 - `headerMaxSize`：请求`header`的最大值。

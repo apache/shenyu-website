@@ -48,7 +48,7 @@ In addition, Apache ShenYu has expanded based on the Annotation field of Ingress
 
 | Name                                           | Default  | Required or not | Description                                                  |
 | ---------------------------------------------- | -------- | --------------- | ------------------------------------------------------------ |
-| shenyu.apache.org/loadbalancer                 | random   | No              | Load balancing algorithm, optional hash, random, roundRobin, lastActive, p2c, shortestResponse |
+| shenyu.apache.org/loadbalancer                 | random   | No              | Load balancing algorithm, optional hash, random, roundRobin, leastActive, p2c, shortestResponse |
 | shenyu.apache.org/retry                        | 3        | No              | Number of failed retries                                     |
 | shenyu.apache.org/timeout                      | 3000     | no              | Backend request timeout in milliseconds                      |
 | shenyu.apache.org/header-max-size              | 10240    | No              | Maximum request header size in bytes                         |
@@ -68,7 +68,7 @@ In addition, Apache ShenYu has expanded based on the Annotation field of Ingress
 
 | Name                                           | Default | Required or not | Description                                                  |
 | ---------------------------------------------- | ------- | --------------- | ------------------------------------------------------------ |
-| shenyu.apache.org/loadbalancer                 | random  | No              | Load balancing algorithm, optional hash, random, roundRobin, lastActive, p2c, shortestResponse |
+| shenyu.apache.org/loadbalancer                 | random  | No              | Load balancing algorithm, optional hash, random, roundRobin, leastActive, p2c, shortestResponse |
 | shenyu.apache.org/retry                        | 3       | No              | Number of failed retries                                     |
 | shenyu.apache.org/timeout                      | 3000    | No              | Back-end request timeout in milliseconds                     |
 | shenyu.apache.org/header-max-size              | 10240   | No              | Maximum request header size in bytes                         |
@@ -89,7 +89,7 @@ In addition, Apache ShenYu has expanded based on the Annotation field of Ingress
 
 | Name                                                  | Default | Required or not | Description                                                  |
 | ----------------------------------------------------- | ------- | --------------- | ------------------------------------------------------------ |
-| shenyu.apache.org/loadbalancer                        | random  | No              | Load balancing algorithm, optional hash, random, roundRobin, lastActive, p2c, shortestResponse |
+| shenyu.apache.org/loadbalancer                        | random  | No              | Load balancing algorithm, optional hash, random, roundRobin, leastActive, p2c, shortestResponse |
 | shenyu.apache.org/retry                               | 3       | No              | Number of failed retries                                     |
 | shenyu.apache.org/timeout                             | 3000    | No              | Backend request timeout in milliseconds                      |
 | shenyu.apache.org/header-max-size                     | 10240   | No              | Maximum request header size in bytes                         |
@@ -108,7 +108,7 @@ In addition, Apache ShenYu has expanded based on the Annotation field of Ingress
 
 | Name                               | Default | Required or not | Description                                                  |
 | ---------------------------------- | ------- | --------------- | ------------------------------------------------------------ |
-| shenyu.apache.org/loadbalancer     | random  | No              | Load balancing algorithm, optional hash, random, roundRobin, lastActive, p2c, shortestResponse |
+| shenyu.apache.org/loadbalancer     | random  | No              | Load balancing algorithm, optional hash, random, roundRobin, leastActive, p2c, shortestResponse |
 | shenyu.apache.org/retry            | 3       | No              | Number of failed retries                                     |
 | shenyu.apache.org/timeout          | 3000    | No              | Back-end request timeout in milliseconds                     |
 | shenyu.apache.org/header-max-size  | 10240   | No              | Maximum request header size in bytes                         |

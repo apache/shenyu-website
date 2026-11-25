@@ -7,7 +7,36 @@ description: gRPC插件
 
 ## 说明
 
-`gRPC`插件是网关用于处理 `gRPC协议`请求的核心处理插件。
+`grpc` 插件将 HTTP/JSON 请求桥接到 gRPC 后端上的 ShenYu JSON 服务适配器。后端通过 ShenYu gRPC 客户端 starter 和 `@ShenyuGrpcClient` 暴露适配器并注册方法元数据。网关调用适配器的 JSON 服务描述符，例如 `stream.StreamServiceJSON/unaryFun`。
+
+### HTTP 桥接行为 {#http-bridge-behavior}
+
+| 后端方法类型 | HTTP 请求体 | 成功时的 HTTP 响应 |
+| --- | --- | --- |
+| 一元调用 | `data` 数组内的一条消息 | 含一条结果的 JSON 数组 |
+| 服务端流式 | `data` 数组内的一条消息 | 汇总为一个 JSON 数组的多条结果 |
+| 客户端流式 | `data` 数组内的多条消息 | 含后端单条结果的 JSON 数组 |
+| 双向流式 | `data` 数组内的多条消息 | 汇总为一个 JSON 数组的多条结果 |
+
+网关会先读完整个 HTTP 请求体，再向后端发送输入消息。即使后端已经产生结果，网关也要等 gRPC 调用结束才返回成功的 HTTP 响应。请使用有限的流，并让 gRPC 截止时间覆盖整个调用。客户端要等调用结束才能收到第一条结果，网关在等待期间会把结果保留在内存中。
+
+HTTP 桥接不支持实时双向交互、无限订阅、SSE、NDJSON、gRPC-Web，也不接受 `grpcurl` 等工具发起的原生 gRPC 调用。独立的[原生 gRPC 代理](https://github.com/apache/shenyu/issues/8184)目前是提案。HTTP 桥接仍使用 `grpc` 插件标识。
+
+### 响应汇总上限 {#aggregate-response-limits}
+
+在 ShenYu 2.7.2 中，打开 Admin 的 **grpc 插件配置**，在配置 JSON 中添加以下字段。上限按单次调用计算。字段省略、值为 null、零或负数时，对应维度不限。
+
+```json
+{
+  "maxAggregatedResultCount": 100,
+  "maxAggregatedResultBytes": 1048576
+}
+```
+
+- `maxAggregatedResultCount` 限制保留的响应条数。
+- `maxAggregatedResultBytes` 限制保留的 JSON 载荷的 UTF-8 字节数。它不代表 gRPC 传输字节数、最终 HTTP 响应体大小或网关堆内存占用。
+
+超过任一上限时，网关丢弃已汇总的结果并取消 gRPC 调用。HTTP 请求失败，不会返回部分成功结果。可按[快速开始](../../quick-start/quick-start-grpc.md#finite-streaming-examples)运行有限流并触发条数上限。
 
 ## 插件设置
 

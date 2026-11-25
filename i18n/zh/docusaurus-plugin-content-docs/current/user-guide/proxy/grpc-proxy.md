@@ -3,7 +3,7 @@ title: gRPC服务接入
 description: gRPC服务接入
 ---
 
-此篇文章是介绍 `gRPC` 服务接入到 `Apache ShenYu` 网关，`Apache ShenYu` 网关使用 `grpc` 插件来接入`gRPC`服务。
+通过 ShenYu 的 `grpc` 插件，HTTP/JSON 客户端可以调用 gRPC 后端。后端需要通过 ShenYu gRPC 客户端集成暴露 JSON 服务适配器并注册方法。调用方式与响应上限见 [HTTP 桥接行为](../../plugin-center/proxy/grpc-plugin.md#http-bridge-behavior)。
 
 接入前，请正确启动 `shenyu-admin`，并开启`grpc`插件，在网关端和`grpc`服务端引入相关依赖。可以参考前面的 [gRPC快速开始](../../quick-start/quick-start-grpc)。
 
@@ -119,7 +119,7 @@ message EchoRequest {
 
 当前是以 `json` 的格式传递参数，`key`的名称默认是`data`，你可以在 `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME` 中进行重置；`value`的传入则根据你定义的 `proto` 文件。
 
-`Apache ShenYu` 可以支持 `gRPC` 的流式调用，通过数组的形式传递多个参数。
+对于客户端流式和双向流式方法，将所有请求消息放在 `data` 数组中。网关读完 HTTP 请求后才向后端发送这些消息，并在后端调用结束后以一个 JSON 数组返回汇总结果。
 
 
 如果你的`proto`文件定义如下：

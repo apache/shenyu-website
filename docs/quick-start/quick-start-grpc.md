@@ -32,16 +32,14 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Run the shenyu-examples-grpc project
 
-Download [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-grpc)
-
-Run the following command under `shenyu-examples-grpc` to generate Java code:
+Open the `shenyu-examples` directory in the [ShenYu 2.7.2 source tree](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples). The examples reactor in that tag still references `2.7.3-SNAPSHOT`. In your local copy, set the examples reactor to use the published 2.7.2 dependencies, then build and start the gRPC example.
 
 ```shell
-mvn protobuf:compile 
-mvn protobuf:compile-custom 
+cd shenyu-examples
+mvn versions:set -DnewVersion=2.7.2 -DgenerateBackupPoms=false
+mvn -pl shenyu-examples-grpc -am package -DskipTests
+java -jar shenyu-examples-grpc/target/shenyu-examples-grpc.jar
 ```
-
-Execute the `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` main method to start project.
 
 The following log appears when the startup is successful:
 
@@ -95,4 +93,4 @@ curl -sS -H 'Content-Type: application/json' -d "$two" "$gateway/grpc/bidiStream
 
 The sample returns one `{"text":"unaryFun response: hello gRPC"}` result for unary and one completion result for client streaming. Server streaming returns ten results in one array. Bidirectional streaming returns three results for these two input messages: one per input and a final completion result.
 
-To observe the count limit, first confirm that the server-streaming request returns ten items. In Admin, set `"maxAggregatedResultCount": 5` in the `grpc` plugin's JSON configuration. After configuration sync, repeat the request. It should fail instead of returning the first five items. Restore the previous setting after the experiment. See [aggregate response limits](../plugin-center/proxy/grpc-plugin.md#aggregate-response-limits) for the byte limit and defaults.
+To observe the limits, first confirm that the server-streaming request returns ten items. In Admin, set `"maxAggregatedResultCount": 5` in the active namespace's `grpc` plugin JSON configuration. After configuration sync, repeat the request. With the default 2.7.2 gateway, it returns HTTP 500 without a partial array. Restore the previous count setting, then repeat with `"maxAggregatedResultBytes": 140` to test the byte limit. Restore the original configuration and verify the response contains ten items again. See [aggregate response limits](../plugin-center/proxy/grpc-plugin.md#aggregate-response-limits) for the units and defaults.

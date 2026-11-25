@@ -31,23 +31,14 @@ description: gRPC快速开始
 
 ## 运行 shenyu-examples-grpc 项目
 
-下载 [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-grpc)
-
-在 `shenyu-examples-grpc` 下执行以下命令生成 `java` 代码:
+在 [ShenYu 2.7.2 源码](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples)中打开 `shenyu-examples` 目录。该标签中的示例工程仍引用 `2.7.3-SNAPSHOT`。在本地副本中将示例工程切换到已发布的 2.7.2 依赖，再构建并启动 gRPC 示例。
 
 ```shell
-mvn protobuf:compile //编译消息对象
-mvn protobuf:compile-custom //依赖消息对象,生成接口服务
+cd shenyu-examples
+mvn versions:set -DnewVersion=2.7.2 -DgenerateBackupPoms=false
+mvn -pl shenyu-examples-grpc -am package -DskipTests
+java -jar shenyu-examples-grpc/target/shenyu-examples-grpc.jar
 ```
-
-或者，如果你是通过 `IntelliJ IDEA` 打开 `Apache ShenYu` 工程，首先在`maven root`下`install`整个项目
-<img src="/img/shenyu/quick-start/grpc/grpc-install.png" width="40%" height="50%" />
-然后在 `Maven` 工具栏中选中 `protobuf:compile` 和 `protobuf:compile-custom`，然后右键 `Run Maven Build` 一键生成 `proto` 文件对应的 `java`代码。
-<img src="/img/shenyu/quick-start/grpc/gen-proto.png" width="40%" height="50%" />
-然后让`idea`识别生成的`target`文件夹
-<img src="/img/shenyu/quick-start/grpc/grpc-target.png" width="40%" height="50%" />
-
-运行 `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` 中的 `main` 方法启动项目。
 
 成功启动会有如下日志，表示将 `gRPC` 服务成功注册到 `shenyu-admin` 中。
 
@@ -102,4 +93,4 @@ curl -sS -H 'Content-Type: application/json' -d "$two" "$gateway/grpc/bidiStream
 
 一元调用返回一条 `{"text":"unaryFun response: hello gRPC"}`，客户端流式调用返回一条完成消息。服务端流式调用一次返回含十条结果的数组。此处双向流式调用的两条输入会收到三条结果，每条输入对应一条结果，最后还有一条完成消息。
 
-验证条数上限时，先确认服务端流式请求能返回十条结果。然后在 Admin 的 `grpc` 插件配置 JSON 中设定 `"maxAggregatedResultCount": 5`。等配置同步后再次发起请求，请求应失败，不会返回前五条结果。验证完成后恢复原配置。字节上限和默认行为见[响应汇总上限](../plugin-center/proxy/grpc-plugin.md#aggregate-response-limits)。
+验证上限时，先确认服务端流式请求能返回十条结果。然后在 Admin 当前命名空间的 `grpc` 插件配置 JSON 中设定 `"maxAggregatedResultCount": 5`。等配置同步后再次发起请求，默认的 2.7.2 网关会返回 HTTP 500，不会返回部分结果。恢复原条数配置，再用 `"maxAggregatedResultBytes": 140` 验证字节上限。最后恢复原配置，确认响应重新包含十条结果。字段单位和默认行为见[响应汇总上限](../plugin-center/proxy/grpc-plugin.md#aggregate-response-limits)。

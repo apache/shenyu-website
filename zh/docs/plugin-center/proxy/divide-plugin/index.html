@@ -22,8 +22,8 @@
 
 <script src="https://widget.kapa.ai/kapa-widget.bundle.js" async data-website-id="b6a69ccf-2d41-41cd-96dd-855ef71b46c7" data-project-name="Apache ShenYu" data-project-color="#FF5C00" data-project-logo="https://shenyu.apache.org/img/favicon.svg" data-language="zh" data-color-scheme-selector="html[data-theme=dark]" data-modal-open-on-command-k="false" data-user-analytics-cookie-enabled="false" data-user-analytics-fingerprint-enabled="false" data-modal-title="Apache ShenYu 文档 AI 助手" data-launcher-button-text="AI 问答" data-ask-ai-input-placeholder="输入关于 Apache ShenYu 的问题..." data-chat-disclaimer="回答由 AI 基于 Apache ShenYu 文档生成，可能存在错误，请以官方文档为准。" data-example-questions="如何使用 Docker 部署 ShenYu？,如何配置 Divide 插件？,ShenYu 如何接入 Spring Cloud？,如何开启限流？" data-launcher-button-background-color="#fff7f1" data-launcher-button-hover-background-color="#ffe8d9" data-launcher-button-color="#c44712" data-launcher-button-border="1px solid #edc1a8" data-launcher-button-box-shadow="0 4px 16px rgba(74, 35, 15, 0.12)" data-launcher-button-background-color-dark="#20231f" data-launcher-button-hover-background-color-dark="#35271e" data-launcher-button-color-dark="#ffad85" data-launcher-button-border-dark="1px solid #72503c" data-launcher-button-box-shadow-dark="0 4px 16px rgba(0, 0, 0, 0.24)" data-modal-header-background-color="#ffffff" data-modal-header-color="#20201e" data-modal-header-background-color-dark="#20231f" data-modal-header-color-dark="#edeee9"></script>
 <script src="/js/error-suppression.js"></script><link rel="stylesheet" href="/zh/assets/css/styles.174ef621.css">
-<script src="/zh/assets/js/runtime~main.e47215fd.js" defer="defer"></script>
-<script src="/zh/assets/js/main.e4552cd7.js" defer="defer"></script>
+<script src="/zh/assets/js/runtime~main.7a09569c.js" defer="defer"></script>
+<script src="/zh/assets/js/main.d3b4f03e.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -44,7 +44,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="13-插件功能">1.3 插件功能<a href="#13-插件功能" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h2>
 <ul>
 <li class="">支持根据 uri、header、query 等请求信息做流量的治理</li>
-<li class="">支持设置请求的负载均衡策略，同时支持服务预热，目前支持三种策略：ip hash（带虚拟节点的一致性哈希）、round-robbin（加权轮询）、random（加权随机）</li>
+<li class="">支持配置负载均衡策略和服务预热。可用算法见下方规则配置中的 <code>loadBalance</code> 字段。</li>
 <li class="">支持设置接口级别请求头最大值、请求体最大值、请求超时时间</li>
 <li class="">支持设置超时重试策略和重试次数，目前重试策略支持：current（重试之前失败的服务器）和failover（重试其它服务器）</li>
 </ul>
@@ -100,7 +100,7 @@
 <p><img decoding="async" loading="lazy" src="/zh/assets/images/rule-cn-b9a8d59538dda10798c216ba91cd011d.png" width="1002" height="698" class="img_ev3q"></p>
 <h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="24321-规则处理信息配置">2.4.3.2.1 规则处理信息配置<a href="#24321-规则处理信息配置" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading" translate="no">​</a></h5>
 <ul>
-<li class=""><code>loadStrategy</code>：如果<code>http</code>客户端是一个集群，<code>Apache ShenYu</code>网关调用时采取哪种负载均衡策略，当前支持 <code>roundRobin</code>、<code>random</code> 和 <code>hash</code>。</li>
+<li class=""><code>loadBalance</code>：为 HTTP 请求选择上游实例。ShenYu 2.7.2 支持 <code>random</code>（默认）、<code>roundRobin</code>、<code>hash</code>、<code>leastActive</code>、<code>p2c</code> 和 <code>shortestResponse</code>。<code>hash</code> 根据客户端 IP 执行一致性哈希。<code>leastActive</code> 优先选择正在处理请求数最少的实例，并在数量相同时按预热调整后的权重选择。</li>
 <li class=""><code>timeout</code>：调用<code>http</code>客户端的超时时间。</li>
 <li class=""><code>retryCount</code>：调用<code>http</code>客户端超时失败的重试次数。</li>
 <li class=""><code>headerMaxSize</code>：请求<code>header</code>的最大值。</li>

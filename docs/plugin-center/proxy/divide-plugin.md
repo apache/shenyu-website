@@ -20,7 +20,7 @@ description: divide plugin
 ## 1.3 Plugin functionality
 
 * Supports traffic management based on request information such as uri, header, and query.
-* Supports setting the load balancing strategy for requests, and supports service warm-up. Currently, three strategies are supported: ip hash (consistent hash with virtual nodes), round-robbin (weighted polling), random (weighted random).
+* Supports configurable load balancing and service warm-up. See `loadBalance` in the rule configuration below for supported algorithms.
 * Supports setting the maximum value of the request header, the maximum value of the request body, and the request level timeout.
 * Supports setting the timeout retry policy and the number of retries. Currently, the retry policy supports: current (retrying the server that failed before) and failover (retrying other servers).
 
@@ -121,7 +121,7 @@ Example of divide rule. For general rule configuration, please refer to [selecto
 
 ##### 2.4.3.2.1 Rule processing information configuration
 
-- `loadStrategy`: If the `http` client is a cluster, which load balancing strategy is used when the `Apache ShenYu` gateway is called, currently supports `roundRobin`, `random` and `hash`.
+- `loadBalance`: Selects an upstream for HTTP requests. In ShenYu 2.7.2, the supported values are `random` (default), `roundRobin`, `hash`, `leastActive`, `p2c`, and `shortestResponse`. The `hash` strategy uses consistent hashing by client IP. The `leastActive` strategy selects the upstream with the fewest in-flight requests and uses warm-up-adjusted weights to break ties.
 - `timeout`: The timeout for calling the `http` client.
 - `retry Count`: The number of retries that failed to call the `http` client timeout.
 - `headerMaxSize`: The maximum value of the requested `header`.

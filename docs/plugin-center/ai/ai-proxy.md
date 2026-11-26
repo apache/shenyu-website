@@ -10,24 +10,20 @@ The **aiProxy** plugin acts as a forwarding proxy for LLM requests, supporting m
 
 ## Plugin Configuration
 
-When configuring the plugin in the ShenYu admin interface, you first create a **Selector**, then create a **Rule**. A Selector is typically used to match request conditions (e.g., path, headers), while a Rule is used to configure plugin parameters or forwarding targets. For details on Selector and Rule configuration, see [Selector and Rule Management](../../user-guide/admin-usage/selector-and-rule.md).
+In ShenYu Admin, create a **Selector** to match requests and configure the upstream model. Then create a **Rule** under that Selector to match requests that should use those settings. For details, see [Selector and Rule Management](../../user-guide/admin-usage/selector-and-rule.md).
 
-When using the aiProxy plugin, pay attention to the following fields:
+For the API request below, set the Selector condition to `uri startsWith /ai/proxy`. Use the following values in the Selector's **Handler** section.
 
-- **Selector**: Defines the paths or request characteristics to match. For example, set `Pattern` to `/**` to match all requests, or specify a particular route path.
-- **Rule**: Specify plugin parameters at the rule level. Common fields include:
-    - `provider`: The name of the provider, e.g., `OpenAI`.
-    - `baseUrl`: The API endpoint for the LLM provider.
-    - `model`: The model name.
-    - `apiKey`: The authorization key.
+| Field | Example value |
+| --- | --- |
+| `provider` | `OpenAI` |
+| `baseUrl` | `https://api.openai.com` |
+| `model` | `gpt-4o-mini` |
+| `apiKey` | Your upstream OpenAI API key |
 
-Below are example screenshots of the aiProxy plugin configuration in the admin UI:
+![Upstream settings in the aiProxy Selector Handler](/img/shenyu/plugin/ai-proxy/ai-proxy-selector-en.png)
 
-Selector matching the incoming path, followed by Rule settings for provider, model, API key, upstream address, etc.
-
-![](/img/shenyu/plugin/ai-proxy/ai-proxy-selector-en.png)
-
-![](/img/shenyu/plugin/ai-proxy/ai-proxy-rule-en.png)
+Under that Selector, enable a Rule with the same `uri startsWith /ai/proxy` condition. The Rule's Handler can be left empty. aiProxy reads the upstream settings from the matched Selector's `handle`.
 
 > **Note:** With this setup, you also need to configure the `contextPath` plugin to remove the matched prefix and assemble the correct call URL. See [contextPath Plugin Configuration](../http-process/contextpath-plugin.md) for details.
 

@@ -31,23 +31,14 @@ description: gRPC快速开始
 
 ## 运行 shenyu-examples-grpc 项目
 
-下载 [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-grpc)
-
-在 `shenyu-examples-grpc` 下执行以下命令生成 `java` 代码:
+在 [ShenYu 2.7.2 源码](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples)中打开 `shenyu-examples` 目录。该标签中的示例工程仍引用 `2.7.3-SNAPSHOT`。在本地副本中将示例工程切换到已发布的 2.7.2 依赖，再构建并启动 gRPC 示例。
 
 ```shell
-mvn protobuf:compile //编译消息对象
-mvn protobuf:compile-custom //依赖消息对象,生成接口服务
+cd shenyu-examples
+mvn versions:set -DnewVersion=2.7.2 -DgenerateBackupPoms=false
+mvn -pl shenyu-examples-grpc -am package -DskipTests
+java -jar shenyu-examples-grpc/target/shenyu-examples-grpc.jar
 ```
-
-或者，如果你是通过 `IntelliJ IDEA` 打开 `Apache ShenYu` 工程，首先在`maven root`下`install`整个项目
-<img src="/img/shenyu/quick-start/grpc/grpc-install.png" width="40%" height="50%" />
-然后在 `Maven` 工具栏中选中 `protobuf:compile` 和 `protobuf:compile-custom`，然后右键 `Run Maven Build` 一键生成 `proto` 文件对应的 `java`代码。
-<img src="/img/shenyu/quick-start/grpc/gen-proto.png" width="40%" height="50%" />
-然后让`idea`识别生成的`target`文件夹
-<img src="/img/shenyu/quick-start/grpc/grpc-target.png" width="40%" height="50%" />
-
-运行 `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` 中的 `main` 方法启动项目。
 
 成功启动会有如下日志，表示将 `gRPC` 服务成功注册到 `shenyu-admin` 中。
 
@@ -85,91 +76,21 @@ mvn protobuf:compile-custom //依赖消息对象,生成接口服务
 
 当前是以 `json` 的格式传递参数，`key`的名称默认是`data`，你可以在 `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME` 中进行重置；`value`的传入则根据你定义的 `proto` 文件。
 
-## 流式调用
+## 有限流调用示例 {#finite-streaming-examples}
 
-`Apache ShenYu` 可以支持 `gRPC` 的流式调用，下面展示的是 `gRPC` 四种方法类型的调用。 在流式调用中，你可以通过数组的形式传递多个参数。
+示例应用注册其 ShenYu JSON 服务适配器后，向网关发送 HTTP/JSON 请求。网关会读完 `data` 数组中的所有消息，再向后端发送。每个成功的请求都会在 gRPC 调用完成后返回一个 JSON 数组。
 
-- `UNARY`
+```shell
+gateway=http://localhost:9195
+one='{"data":[{"text":"hello"}]}'
+two='{"data":[{"text":"hello"},{"text":"again"}]}'
 
-请求参数如下：
-
-```json
-{
-    "data": [
-        {
-            "text": "hello grpc"
-        }
-    ]
-}
+curl -sS -H 'Content-Type: application/json' -d "$one" "$gateway/grpc/unaryFun"
+curl -sS -H 'Content-Type: application/json' -d "$two" "$gateway/grpc/clientStreamingFun"
+curl -sS -H 'Content-Type: application/json' -d "$one" "$gateway/grpc/serverStreamingFun"
+curl -sS -H 'Content-Type: application/json' -d "$two" "$gateway/grpc/bidiStreamingFun"
 ```
 
-通过`postman` 模拟 `http` 请求，发起`UNARY`调用。
+一元调用返回一条 `{"text":"unaryFun response: hello gRPC"}`，客户端流式调用返回一条完成消息。服务端流式调用一次返回含十条结果的数组。此处双向流式调用的两条输入会收到三条结果，每条输入对应一条结果，最后还有一条完成消息。
 
-<img src="/img/shenyu/quick-start/grpc/grpc-unary.png" width="80%" height="50%" />
-
-- `CLIENT_STREAMING`
-
-请求参数如下：
-
-```json
-{
-    "data": [
-        {
-            "text": "hello grpc"
-        }, 
-        {
-            "text": "hello grpc"
-        }, 
-        {
-            "text": "hello grpc"
-        }
-    ]
-}
-```
-
-通过`postman` 模拟 `http` 请求，发起`CLIENT_STREAMING`调用。
-
-<img src="/img/shenyu/quick-start/grpc/grpc-client-stream.png" width="80%" height="50%" />
-
-- `SERVER_STREAMING`
-
-请求参数如下：
-
-```json
-{
-    "data": [
-        {
-            "text": "hello grpc"
-        }
-    ]
-}
-```
-
-通过`postman` 模拟 `http` 请求，发起`SERVER_STREAMING`调用。
-
-<img src="/img/shenyu/quick-start/grpc/grpc-server-stream.png" width="80%" height="50%" />
-
-- `BIDI_STREAMING`
-
-请求参数如下：
-
-```json
-{
-    "data": [
-        {
-            "text": "hello grpc"
-        }, 
-        {
-            "text": "hello grpc"
-        }, 
-        {
-            "text": "hello grpc"
-        }
-    ]
-}
-```
-
-通过`postman` 模拟 `http` 请求，发起`BIDI_STREAMING`调用。
-
-<img src="/img/shenyu/quick-start/grpc/grpc-bidi-stream.png" width="80%" height="50%" />
-
+验证上限时，先确认服务端流式请求能返回十条结果。然后在 Admin 当前命名空间的 `grpc` 插件配置 JSON 中设定 `"maxAggregatedResultCount": 5`。等配置同步后再次发起请求，默认的 2.7.2 网关会返回 HTTP 500，不会返回部分结果。恢复原条数配置，再用 `"maxAggregatedResultBytes": 140` 验证字节上限。最后恢复原配置，确认响应重新包含十条结果。字段单位和默认行为见[响应汇总上限](../plugin-center/proxy/grpc-plugin.md#aggregate-response-limits)。

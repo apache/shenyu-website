@@ -7,7 +7,36 @@ description:  grpc-plugin
 
 ## Description
 
-* The grpc plugin is a plugin that converts the Http protocol into the grpc protocol.
+The `grpc` plugin bridges HTTP/JSON requests to a ShenYu JSON service adapter on a gRPC backend. Use the ShenYu gRPC client starter and `@ShenyuGrpcClient` to expose the adapter and register method metadata. The gateway calls the adapter's JSON service descriptor, for example `stream.StreamServiceJSON/unaryFun`.
+
+### HTTP bridge behavior {#http-bridge-behavior}
+
+| Backend method type | HTTP request body | Successful HTTP response |
+| --- | --- | --- |
+| Unary | One message in the `data` array | A JSON array with one result |
+| Server streaming | One message in the `data` array | A single JSON array with the collected results |
+| Client streaming | Multiple messages in the `data` array | A JSON array with the backend's one result |
+| Bidirectional streaming | Multiple messages in the `data` array | A single JSON array with the collected results |
+
+The gateway reads the entire HTTP body before sending input messages to the backend. It waits for the gRPC call to finish before sending a successful HTTP response, even if the backend emits results earlier. Use finite streams and plan the gRPC deadline to cover the whole call. The first HTTP result is delayed until completion, and the gateway retains the result payloads in memory while the call runs.
+
+The HTTP bridge does not support live bidirectional interaction, infinite subscriptions, SSE, NDJSON, gRPC-Web, or direct native gRPC calls from tools such as `grpcurl`. A separate [native gRPC proxy](https://github.com/apache/shenyu/issues/8184) is proposed. The HTTP bridge still uses the `grpc` plugin identifier.
+
+### Aggregate response limits {#aggregate-response-limits}
+
+In ShenYu 2.7.2, edit the **grpc plugin configuration** in Admin and add the following fields to its JSON configuration. These limits apply per call. Omitted, null, zero, and negative values leave the corresponding dimension unlimited.
+
+```json
+{
+  "maxAggregatedResultCount": 100,
+  "maxAggregatedResultBytes": 1048576
+}
+```
+
+- `maxAggregatedResultCount` counts retained response items.
+- `maxAggregatedResultBytes` counts retained JSON payload bytes in UTF-8. It does not measure gRPC wire bytes, the final HTTP body size, or gateway heap usage.
+
+Exceeding either limit discards the collected results and cancels the gRPC call. The HTTP request fails without returning a partial success array. The [quick start](../../quick-start/quick-start-grpc.md#finite-streaming-examples) shows a finite response and how to trigger the count limit.
 
 
 ## Plugin Setting

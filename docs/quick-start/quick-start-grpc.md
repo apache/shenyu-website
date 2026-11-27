@@ -32,16 +32,14 @@ Add the following dependencies to the gateway's `pom.xml` file:
 
 ## Run the shenyu-examples-grpc project
 
-Download [shenyu-examples-grpc](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples/shenyu-examples-grpc)
-
-Run the following command under `shenyu-examples-grpc` to generate Java code:
+Open the `shenyu-examples` directory in the [ShenYu 2.7.2 source tree](https://github.com/apache/shenyu/tree/v2.7.2/shenyu-examples). The examples reactor in that tag still references `2.7.3-SNAPSHOT`. In your local copy, set the examples reactor to use the published 2.7.2 dependencies, then build and start the gRPC example.
 
 ```shell
-mvn protobuf:compile 
-mvn protobuf:compile-custom 
+cd shenyu-examples
+mvn versions:set -DnewVersion=2.7.2 -DgenerateBackupPoms=false
+mvn -pl shenyu-examples-grpc -am package -DskipTests
+java -jar shenyu-examples-grpc/target/shenyu-examples-grpc.jar
 ```
-
-Execute the `org.apache.shenyu.examples.grpc.ShenyuTestGrpcApplication` main method to start project.
 
 The following log appears when the startup is successful:
 
@@ -78,92 +76,21 @@ Use `postman` to simulate `http` to request your gRPC service. The following is 
 
 The parameters are passed in json format. The name of the key is `data` by default, and you can reset it in `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME`. The input of value is based on the proto file defined by you.
 
-## Streaming
+## Finite streaming examples {#finite-streaming-examples}
 
-the Apache ShenYu can support streaming of gRPC. The following shows the calls of the four method types of gRPC. In streaming, you can pass multiple parameters in the form of an array.
+Once the sample app has registered its ShenYu JSON service adapter, send HTTP/JSON requests to the gateway. The gateway reads all messages from the `data` array before sending them to the backend. Each successful request returns one JSON array after the gRPC call completes.
 
+```shell
+gateway=http://localhost:9195
+one='{"data":[{"text":"hello"}]}'
+two='{"data":[{"text":"hello"},{"text":"again"}]}'
 
-- `UNARY`
-
-The request body like this.
-
-```json
-{
-    "data": [
-        {
-            "text": "hello grpc"
-        }
-    ]
-}
+curl -sS -H 'Content-Type: application/json' -d "$one" "$gateway/grpc/unaryFun"
+curl -sS -H 'Content-Type: application/json' -d "$two" "$gateway/grpc/clientStreamingFun"
+curl -sS -H 'Content-Type: application/json' -d "$one" "$gateway/grpc/serverStreamingFun"
+curl -sS -H 'Content-Type: application/json' -d "$two" "$gateway/grpc/bidiStreamingFun"
 ```
 
-Then, call gRPC service by `UNARY` method type.
+The sample returns one `{"text":"unaryFun response: hello gRPC"}` result for unary and one completion result for client streaming. Server streaming returns ten results in one array. Bidirectional streaming returns three results for these two input messages: one per input and a final completion result.
 
-![](/img/shenyu/quick-start/grpc/grpc-unary.png)
-
-- `CLIENT_STREAMING`
-
-The request body like this.
-
-```json
-{
-    "data": [
-        {
-            "text": "hello grpc"
-        }, 
-        {
-            "text": "hello grpc"
-        }, 
-        {
-            "text": "hello grpc"
-        }
-    ]
-}
-```
-
-Then, call gRPC service by `CLIENT_STREAMING` method type.
-
-![](/img/shenyu/quick-start/grpc/grpc-client-stream.png)
-
-- `SERVER_STREAMING`
-
-The request body like this.
-
-```json
-{
-    "data": [
-        {
-            "text": "hello grpc"
-        }
-    ]
-}
-```
-
-Then, call gRPC service by `SERVER_STREAMING` method type.
-
-![](/img/shenyu/quick-start/grpc/grpc-server-stream.png)
-
-- `BIDI_STREAMING`
-
-
-The request body like this.
-
-```json
-{
-    "data": [
-        {
-            "text": "hello grpc"
-        }, 
-        {
-            "text": "hello grpc"
-        }, 
-        {
-            "text": "hello grpc"
-        }
-    ]
-}
-```
-
-Then, call gRPC service by `BIDI_STREAMING` method type.
-
-![](/img/shenyu/quick-start/grpc/grpc-bidi-stream.png)
+To observe the limits, first confirm that the server-streaming request returns ten items. In Admin, set `"maxAggregatedResultCount": 5` in the active namespace's `grpc` plugin JSON configuration. After configuration sync, repeat the request. With the default 2.7.2 gateway, it returns HTTP 500 without a partial array. Restore the previous count setting, then repeat with `"maxAggregatedResultBytes": 140` to test the byte limit. Restore the original configuration and verify the response contains ten items again. See [aggregate response limits](../plugin-center/proxy/grpc-plugin.md#aggregate-response-limits) for the units and defaults.

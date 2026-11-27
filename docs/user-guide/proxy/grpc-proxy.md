@@ -4,7 +4,7 @@ keywords: ["gRPC"]
 description: gRPC access shenyu gateway
 ---
 
-This document is intended to help the `gRPC` service access the `Apache ShenYu` gateway. The `Apache ShenYu` gateway uses the `gRPC` plugin to handle `gRPC` service.
+Use the ShenYu `grpc` plugin to call a gRPC backend from an HTTP/JSON client. The backend must expose the ShenYu JSON service adapter and register its methods using the ShenYu gRPC client integration. See [HTTP bridge behavior](../../plugin-center/proxy/grpc-plugin.md#http-bridge-behavior) for supported calls and response limits.
 
 Before the connection, start `shenyu-admin` correctly, start `gRPC` plugin, and add related dependencies on the gateway and `gRPC` application client. Refer to the previous [Quick start with gRPC](../../quick-start/quick-start-grpc) .
 
@@ -123,7 +123,7 @@ So the request parameters look like this:
 The parameters are currently passed in `json` format, and the name of `key` defaults to `data`, which you can reset in `GrpcConstants.JSON_DESCRIPTOR_PROTO_FIELD_NAME`; The `value` is passed in according to the `proto` file you define.
 
 
-the Apache ShenYu can support streaming calls to `gRPC` service, passing multiple arguments in the form of an array.
+For client-streaming and bidirectional methods, put all request messages in the `data` array. The gateway reads the entire HTTP request before sending these messages and returns the collected results as one JSON array after the backend call completes.
 
 If your `proto` file is defined as follows:
 

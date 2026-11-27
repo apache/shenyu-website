@@ -6,28 +6,26 @@ description: AiProxy 插件
 
 ## 说明
 
-`aiProxy` 插件用于代理大模型请求。客户端将请求发送到 ShenYu 网关后，插件会根据规则中配置的 `provider`、`baseUrl`、`model`、`apiKey` 等信息调用对应的大模型服务，并将响应返回给客户端。
+`aiProxy` 插件用于代理大模型请求。客户端将请求发送到 ShenYu 网关后，插件会根据选择器中配置的 `provider`、`baseUrl`、`model`、`apiKey` 等信息调用对应的大模型服务，并将响应返回给客户端。
 
 该插件可用于代理 OpenAI 协议兼容服务、阿里云等大模型服务，也可以代理本地部署且协议兼容的大模型服务。
 
 ## 插件配置
 
-在 ShenYu Admin 中启用 `aiProxy` 插件后，需要先创建选择器，再创建规则。选择器用于匹配请求路径、请求头等条件，规则用于配置大模型服务参数。选择器和规则的通用配置请参考[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
+在 ShenYu Admin 中启用 `aiProxy` 插件后，先创建选择器，用它匹配请求并配置上游模型。再在这个选择器下创建规则，指定哪些请求使用该配置。通用配置可参考[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 
-常用规则字段如下：
+要运行下方的 API 示例，将选择器的匹配条件设为 `uri startsWith /ai/proxy`，并在选择器的「处理」区域填写以下字段。
 
-| 字段 | 说明 |
+| 字段 | 示例值 |
 | --- | --- |
-| `provider` | 大模型服务提供方，例如 `OpenAI`。 |
-| `baseUrl` | 大模型服务 API 地址。 |
-| `model` | 模型名称。 |
-| `apiKey` | 上游大模型服务鉴权密钥。 |
+| `provider` | `OpenAI` |
+| `baseUrl` | `https://api.openai.com` |
+| `model` | `gpt-4o-mini` |
+| `apiKey` | 你的上游 OpenAI API 密钥 |
 
-配置示例：
+![aiProxy 选择器「处理」区域中的上游配置](/img/shenyu/plugin/ai-proxy/ai-proxy-selector-zh.png)
 
-![](/img/shenyu/plugin/ai-proxy/ai-proxy-selector-en.png)
-
-![](/img/shenyu/plugin/ai-proxy/ai-proxy-rule-en.png)
+在该选择器下启用一条规则，同样使用 `uri startsWith /ai/proxy` 作为匹配条件。规则的「处理」区域可以留空，aiProxy 会从命中的选择器的 `handle` 读取上游配置。
 
 > 注意：如果匹配路径中包含网关前缀，还需要配置 `contextPath` 插件移除前缀并组装正确的调用地址。详情请参考 [contextPath 插件](../http-process/contextpath-plugin)。
 
